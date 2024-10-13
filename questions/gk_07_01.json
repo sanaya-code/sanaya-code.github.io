@@ -1,0 +1,30 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Traditional game, String wound around, spin on ground",
+      "answers": [ "gilli danda", "kho-kho", "kancha", "lattu" ], "correct_answer": 4
+    },
+    {
+      "number": 2,
+      "question": "Played using marbles, player hit selected target ball",
+      "answers": [ "gilli danda", "kho-kho", "kancha", "lattu" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "team sits in row",
+      "answers": [ "gilli danda", "kho-kho", "kancha", "lattu" ], "correct_answer": 2
+    },
+    {
+      "number": 4,
+      "question": "Game require two sticks",
+      "answers": [ "gilli danda", "kho-kho", "kancha", "lattu" ], "correct_answer": 1
+    },
+    {
+      "number": 5,
+      "question": "7 palyes, score points, touching",
+      "answers": [ "gilli danda", "kho-kho", "kabbadi", "lattu" ], "correct_answer": 3
+    }
+  ]
+}
+

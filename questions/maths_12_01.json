@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Perimeter of square is",
+      "answers": [ "side x side", "2 x side", "4 x side" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "Perimeter of square with side 15 is",
+      "answers": [ "4 x 15", "2 x 15", " 15 x 15" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "Perimeter of square with side 24 is",
+      "answers": [ "2 x 24", "4 x 24", " 24 x 24" ], "correct_answer": 2
+    },
+    {
+      "number": 4,
+      "question": "Length of side of square with perimeter is 120",
+      "answers": [ "120 x 2", "120/2", "120/4" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "Length of side of square with perimeter is 28",
+      "answers": [ "28/4", "28/2", "28 x 2" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "Area of square is",
+      "answers": [ "side x side", "2 x side", "4 x side" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "Area of square with side 32 is",
+      "answers": [ "2 x 32","32 x 32", "4 x 32" ], "correct_answer": 2
+    },
+    {
+      "number": 8,
+      "question": "Area of square with side 50 is",
+      "answers": [ "50 x 50", "2 x 50","4 x 50" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "Perimeter of rectangle with side l, w is",
+      "answers": [ "l x w", "2 x (l+b)", "4 x (l+b)" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "Perimeter of rectangle with side l=18 and b=12 is",
+      "answers": [ "18 x 12", "4 x (18+12)", "2 x (18+12)" ], "correct_answer": 3
+    },
+    {
+      "number": 11,
+      "question": "zzz",
+      "question": "Perimeter of rectangle with side l=60 and b=30 is",
+      "answers": [ "2 x (60+30)", "60 x 30", "4 x (60+30)" ], "correct_answer": 1
+    }
+  ]
+}
+
