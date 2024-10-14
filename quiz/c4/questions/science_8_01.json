@@ -1,0 +1,101 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Plants grow in hilly area have",
+      "answers": [ "no leaf", "broad leaf", "needle-like leaf" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "Hot and dry place are called",
+      "answers": [ "desert", "mountain", "planes" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "plant have brod leaves and wax coating",
+      "answers": [ "water lilly", "pine", "cactus" ], "correct_answer": 1
+    },
+    {
+      "number": 4,
+      "question": "______ has not stomata",
+      "answers": [ "Tape grass", "Mangrove", "Lotus" ], "correct_answer": 1
+    },
+    {
+      "number": 5,
+      "question": "Bamboos and keekar are",
+      "answers": [ "mountain", "marshy","desert" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "is under-water plant",
+      "answers": [ "Tape grass", "water lilly", "Lotus" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "Under-water plant have leaf",
+      "answers": [ "ribbon like", "needle like", "broad" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "Pine trees are",
+      "answers": [ "sapro-phy-tic", "flower-less", "insecti-vorous" ], "correct_answer": 2
+    },
+    {
+      "number": 9,
+      "question": "Terrestrial plants grow",
+      "answers": [ "in air", "in water", "on land" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "Date palm grow in the -----",
+      "answers": [ "Desert", "marshy", "moutain" ], "correct_answer": 1
+    },
+    {
+      "number": 11,
+      "question": "______ is insecti-vorous plant",
+      "answers": [  "Aquatic", "Pitcher plant", "Fir" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "Water loged places are called",
+      "answers": [ "Desert", "Aquatic", "marshy" ], "correct_answer": 3
+    },
+    {
+      "number": 13,
+      "question": "Water lilly is a/an _______",
+      "answers": [ "Desert", "Aquatic", "moutain" ], "correct_answer": 2
+    },
+    {
+      "number": 14,
+      "question": "Wol-ffia is a ______ plant",
+      "answers": [ "fixed", "floating", "flying" ], "correct_answer": 2
+    },
+    {
+      "number": 15,
+      "question": "(Write) Give the name of sapro-phy-tic plant",
+      "answers": [ "Indian pipe", "Caral root", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 16,
+      "question": "(Write) two plants grow in hot and humid region",
+      "answers": [ "tulsi and neem", "teak and rubber", "pond-weed and tape grass" ], "correct_answer": 2
+    },
+    {
+      "number": 17,
+      "question": "(Write) name two plants under water",
+      "answers": [ "tulsi and neem", "teak and rubber", "pond-weed and tape grass" ], "correct_answer": 3
+    },
+    {
+      "number": 18,
+      "question": "(Write) Where pine and fir grow",
+      "answers": [ "in water", "in mountain", "in desert" ], "correct_answer": 2
+    },
+    {
+      "number": 19,
+      "question": "(Write) Name any two insecti-vorous plant",
+      "answers": [ "venus fly trap and pitcher", "see-weed and tape grass", "tulsi and lotus" ], "correct_answer": 1
+    }
+
+  ]
+}
+

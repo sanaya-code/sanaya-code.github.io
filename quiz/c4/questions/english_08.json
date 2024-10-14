@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Reveal",
+      "answers": [ "fireplace", "show", "delicious" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "Grate",
+      "answers": [ "fireplace", "show", "delicious" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "Sumptuous",
+      "answers": [ "fireplace", "show", "delicious" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Made a low and deep sound because of hunger",
+      "answers": [ "rumbled", "swill", "spat" ], "correct_answer": 1
+    },
+    {
+      "number": 5,
+      "question": "Threw the food out of the mouth with force",
+      "answers": [ "rumbled","swill", "spat" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "Food with an un-usual and un-pleasant taste",
+      "answers": [ "rumbled","swill", "spat" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "(Write) What did mother ask the family when they came down-staris? Why?",
+      "answers": [ "if they knew what chips were", "because foreign soldires asked her to cook chips", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "(Write) Why was the family surprised when they opened the sack?",
+      "answers": [ "Sack was full of big new patatoes", "Surprised because", "they had not seen huge number of potatoes","all" ], "correct_answer": 4
+    },
+    {
+      "number": 9,
+      "question": "(Write) Why did mother wante the children to sit still?",
+      "answers": [ "Did not want soldiers to be disturbed", "Wanted to protect her children", "Both" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "(Write) She build a fire in the grate. Who is she in the above line",
+      "answers": [ "grandma", "mother", "sister" ], "correct_answer": 1
+    },
+    {
+      "number": 11,
+      "question": "(Write) What was the work done",
+      "answers": [ "peeling the chips", "peeling and washing the potatoes", "eating the potatoes" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "(Write) Come on lets leave. Who said these line and to whome",
+      "answers": [ "grandma said this line to her friend", "mother said this line to her kids",
+                   "dark hair soldier said this line to his friend" ], "correct_answer": 3
+    },
+    {
+      "number": 13,
+      "question": "Whome they were taking about?",
+      "answers": [ "Chips", "people in the family", "grandma" ], "correct_answer": 2
+    },
+    {
+      "number": 14,
+      "question": "What did the family do after soldiers left?",
+      "answers": [ "childrens watched them leave", "added potato peels to the soup",
+                   "diped rye bread into soup and ate", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 15,
+      "question": "What did the family do to make soup special",
+      "answers": [ "children brought  juicy mushrooms and berries", "grandma added some herbs to the pot",
+                   "They added all ingredients to make soup special", "all"], "correct_answer": 4
+    }
+
+  ]
+}
+

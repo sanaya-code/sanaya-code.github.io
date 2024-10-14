@@ -1,0 +1,85 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Bare",
+      "answers": [ "Uncertaion", "Empty", "Shook" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "Vague",
+      "answers": [ "Empty", "Shook", "Uncertaion" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "Flickered",
+      "answers": [ "Shook", "Uncertaion", "Empty" ], "correct_answer": 1
+    },
+    {
+      "number": 4,
+      "question": "Things made for the first time",
+      "answers": [ "Uncertaion", "invention", "antenna" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "Special garments worn by astranauts in space",
+      "answers": [ "Space Jacket", "Space Garment", "Space suite" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "A rod of wire used to send or revive TV signal",
+      "answers": [ "antenna", "invention", "Shook" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "Why Mr Wonka hand black glasses to visitors",
+      "answers": [ "To protect them from heat", "To protect them from infection", "To protect their eye-sight from bright light" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "What did grandpa refered to as miracle",
+      "answers": [ "Bar was send into TV", "Bar of chocolate appeared on screen",  "Black glass given to visitors"], "correct_answer": 2
+    },
+    {
+      "number": 9,
+      "question": "Why Mr Wonka want Mike to stand back",
+      "answers": [ "He was standing close to camera", "Rays could break him into pieces", "Both" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "What kind of boy was charlie",
+      "answers": [ "Shy and quiet", "Curious about Wonka's chocolate",
+                   "Understand that sending chocolate through TV was possible", "All three" ], "correct_answer": 4
+    },
+    {
+      "number": 11,
+      "question": "Why Mr Wonka was interested in chocolate making?",
+      "answers": [ "He thought of new ways to make chocolates ", "He was passionate about chocolate making", "Both" ], "correct_answer": 3
+    },
+    {
+      "number": 12,
+      "question": "Why did Mr Wonka explain this",
+      "answers": [ "He was standing close to camera", "so that mike and charlie could understand how TV chocolate worked",
+                   "To protect their eye-sight from bright light" ], "correct_answer": 2
+    },
+    {
+      "number": 13,
+      "question": "Did Mr Wonka like television",
+      "answers": [ "He said that he dis-live TV", "when he explained about idea of TV chocolate",
+                   "both" ], "correct_answer": 3
+    },
+    {
+      "number": 14,
+      "question": "Why were oompa loompas carrying the chocolate",
+      "answers": [ "to show guests that his idea woked", "To protect their eye-sight from bright light",
+                   "To protect them from heat" ], "correct_answer": 1
+    },
+    {
+      "number": 15,
+      "question": "Why was it enor-mous",
+      "answers": [ "to show guests that his idea woked", "He was standing close to camera",
+                   "any thing send through TV sh-runk in size" ], "correct_answer": 3
+    }
+  ]
+}
+
