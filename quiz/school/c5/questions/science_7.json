@@ -43,27 +43,27 @@
     {
       "number": 9,
       "question": "are hot and dry",
-      "answers": [ "polar regions", "deserts", "zz3", "zz4" ], "correct_answer": 2
+      "answers": [ "polar regions", "deserts", "mountains", "oceans" ], "correct_answer": 2
     },
     {
       "number": 10,
       "question": "in deserts, animal bury  under the ground to keep them ",
-      "answers": [ "warm", "cool", "zz3", "zz4" ], "correct_answer": 2
+      "answers": [ "warm", "cool", "dry", "wet" ], "correct_answer": 2
     },
     {
       "number": 11,
       "question": "are the largest habitat on the earth ",
-      "answers": [ "oceans", "rivers", "zz3", "zz4" ], "correct_answer": 1
+      "answers": [ "oceans", "rivers", "lake", "pond" ], "correct_answer": 1
     },
     {
       "number": 12,
       "question": "crabs breathe",
-      "answers": [ "skin", "gills", "zz3", "zz4" ], "correct_answer": 2
+      "answers": [ "skin", "gills", "heart", "brain" ], "correct_answer": 2
     },
     {
       "number": 13,
       "question": "can live both on land and in water ",
-      "answers": [ "fishes salamanders", "zz2", "zz3", "zz4" ], "correct_answer": 2
+      "answers": [ "fishes ", "salamanders", "octopus", "horse" ], "correct_answer": 2
     },
     {
       "number": 14,
