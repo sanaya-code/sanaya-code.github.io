@@ -436,6 +436,26 @@ class QuizController {
         document.addEventListener('questionNavigation', (e) => {
             this.navigateToQuestion(e.detail);
         });
+
+        // Add restart quiz handler
+        document.getElementById('restart-quiz').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Are you sure you want to restart this quiz?')) {
+                this.restartQuiz();
+            }
+        });
+    }
+
+    restartQuiz() {
+        // Reset quiz state
+        this.quizState.currentQuestionIndex = 0;
+        this.quizState.initializeUserAnswers();
+        
+        // Update UI
+        this.updateUI();
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
     }
 
     async initQuiz() {

@@ -9,7 +9,11 @@
 <body>
     <div class="quiz-container">
         <header>
-            <h1 id="quiz-title">Quiz</h1>
+            <div class="quiz-header-top">
+                <a href="index.html" class="nav-link">Home</a>
+                <h1 id="quiz-title">Quiz</h1>
+                <a href="#" id="restart-quiz" class="nav-link">Restart</a>
+            </div>
             <div class="quiz-progress">
                 <span id="current-question">1</span> / <span id="total-questions">0</span>
             </div>
@@ -90,7 +94,10 @@
         <div class="modal-content">
             <h2>Quiz Results</h2>
             <div id="result-details"></div>
-            <button id="close-modal">Close</button>
+            <div class="modal-actions">
+                <button id="close-modal">Close</button>
+                <a href="index.html" class="button-link">Back to Home</a>
+            </div>
         </div>
     </div>
 

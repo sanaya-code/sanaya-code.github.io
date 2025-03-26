@@ -29,3 +29,5 @@ create a class in appropriate js that constains informatons of all questions and
 create a separate class to handel each type of questions
 
 all classes should be global in js file. Classes should not be declared inside any function.
+
+in quiz.html file qive a 2 links, one to restart the quiz, other to go back to home page
