@@ -247,6 +247,94 @@ class OrderingHandler extends QuestionHandler {
     }
 }
 
+
+class GeometryHandler extends QuestionHandler {
+    constructor() {
+        super('geometry-question');
+        this.figureContainer = this.questionElement ? this.questionElement.querySelector('#geometry-figure') : null;
+        this.optionsContainer = this.questionElement ? this.questionElement.querySelector('#geometry-options') : null;
+    }
+
+    render(question, currentAnswer) {
+        if (!this.questionElement || !this.figureContainer || !this.optionsContainer) {
+            console.error('Geometry question elements not found');
+            return;
+        }
+
+        // Clear previous content
+        this.figureContainer.innerHTML = '';
+        this.optionsContainer.innerHTML = '';
+
+        // Add question text
+        const questionText = document.createElement('div');
+        questionText.className = 'question-text';
+        questionText.textContent = question.question;
+        this.questionElement.insertBefore(questionText, this.figureContainer);
+
+        // Render SVG content directly
+        if (question.svg_content) {
+            this.figureContainer.innerHTML = question.svg_content;
+            
+            // Make SVG responsive
+            const svg = this.figureContainer.querySelector('svg');
+            if (svg) {
+                svg.style.maxWidth = '100%';
+                svg.style.height = 'auto';
+            }
+        } else {
+            this.figureContainer.innerHTML = '<div class="error">No diagram provided</div>';
+        }
+
+        // Render options
+        if (question.options && question.options.length) {
+            this.renderOptions(question, currentAnswer);
+        }
+    }
+
+    renderOptions(question, currentAnswer) {
+        question.options.forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'option';
+            
+            const input = document.createElement('input');
+            input.type = question.multiSelect ? 'checkbox' : 'radio';
+            input.name = 'geometry';
+            input.id = `geometry-option-${index}`;
+            input.value = option.id;
+            
+            if (currentAnswer) {
+                if (question.multiSelect && Array.isArray(currentAnswer)) {
+                    input.checked = currentAnswer.includes(option.id);
+                } else {
+                    input.checked = currentAnswer === option.id;
+                }
+            }
+            
+            const label = document.createElement('label');
+            label.htmlFor = `geometry-option-${index}`;
+            label.textContent = option.text;
+            
+            optionDiv.appendChild(input);
+            optionDiv.appendChild(label);
+            this.optionsContainer.appendChild(optionDiv);
+        });
+    }
+
+    getAnswer() {
+        if (!this.optionsContainer || !this.optionsContainer.children.length) {
+            return null;
+        }
+        
+        const isMultiSelect = this.questionElement.querySelector('input[type="checkbox"]');
+        const selector = isMultiSelect ? 'input[type="checkbox"]:checked' : 'input[type="radio"]:checked';
+        const inputs = this.optionsContainer.querySelectorAll(selector);
+        
+        return isMultiSelect ? 
+            Array.from(inputs).map(input => input.value) :
+            (inputs.length ? inputs[0].value : null);
+    }
+}
+
 // Question UI Manager
 class QuestionUIManager {
     constructor() {
@@ -257,15 +345,41 @@ class QuestionUIManager {
             'matching': new MatchingHandler(),
             'short_answer': new ShortAnswerHandler(),
             'multi_select': new MultiSelectHandler(),
-            'ordering': new OrderingHandler()
+            'ordering': new OrderingHandler(),
+            'geometry': new GeometryHandler()
         };
     }
 
     displayQuestion(question, currentAnswer) {
-        Object.values(this.handlers).forEach(h => h.hide());
+        // First hide all question types
+        Object.values(this.handlers).forEach(h => {
+            try {
+                h.hide();
+            } catch (e) {
+                console.error(`Error hiding question handler: ${e.message}`);
+            }
+        });
+        
+        // Then show the appropriate question type
         const handler = this.handlers[question.type];
-        if (handler) handler.display(question, currentAnswer);
-        else console.error('Unsupported question type:', question.type);
+        if (handler) {
+            try {
+                handler.display(question, currentAnswer);
+            } catch (e) {
+                console.error(`Error displaying question: ${e.message}`);
+                this.showError(question.type);
+            }
+        } else {
+            console.error(`No handler for question type: ${question.type}`);
+            this.showError(question.type);
+        }
+    }
+
+    showError(type) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error';
+        errorDiv.textContent = `Unable to display ${type} question`;
+        document.getElementById('question-panel').appendChild(errorDiv);
     }
 
     getCurrentAnswer() {
