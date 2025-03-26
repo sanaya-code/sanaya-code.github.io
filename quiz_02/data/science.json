@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "mcq_001",
+      "question": "Which of these is the largest planet in our solar system?",
+      "options": [
+        {"id": "A", "text": "Earth"},
+        {"id": "B", "text": "Mars"},
+        {"id": "C", "text": "Jupiter"},
+        {"id": "D", "text": "Saturn"},
+        {"id": "E", "text": "Neptune"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Jupiter is more than twice as massive as all other planets combined.",
+      "difficulty": "easy",
+      "tags": ["science", "astronomy", "solar-system"],
+      "points": 1,
+      "time_limit": 30
+    },
+    {
+      "type": "fill_in_blank",
+      "id": "fib_001",
+      "question": "The process of a liquid turning into a gas is called ____.",
+      "correct_answer": "evaporation",
+      "acceptable_answers": ["vaporization", "boiling"],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["science", "physics", "states-of-matter"],
+      "points": 1.5
+    },
+    {
+      "type": "true_false",
+      "id": "tf_001",
+      "question": "The Great Wall of China is visible from space with the naked eye.",
+      "correct_answer": false,
+      "explanation": "This is a common myth. The Great Wall is not visible to the naked eye from space.",
+      "difficulty": "medium",
+      "tags": ["geography", "myths"],
+      "points": 1
+    },
+    {
+      "type": "matching",
+      "id": "match_001",
+      "question": "Match the inventors with their inventions:",
+      "pairs": [
+        {"left": "Thomas Edison", "right": "Light Bulb"},
+        {"left": "Alexander Graham Bell", "right": "Telephone"},
+        {"left": "Nikola Tesla", "right": "AC Current"}
+      ],
+      "distractors": ["Radio", "Steam Engine"],
+      "difficulty": "hard",
+      "tags": ["history", "inventions"],
+      "points": 2
+    },
+    {
+      "type": "short_answer",
+      "id": "sa_001",
+      "question": "Explain Newton's First Law of Motion in one sentence.",
+      "correct_answer": "An object in motion stays in motion and an object at rest stays at rest unless acted upon by an external force.",
+      "acceptable_variations": [
+        "A body remains in its state of rest or uniform motion unless compelled to change by an external force.",
+        "Objects maintain their velocity unless a force acts upon them."
+      ],
+      "difficulty": "hard",
+      "tags": ["science", "physics", "newton"],
+      "points": 2,
+      "grading_rubric": {
+        "full_credit": "Includes both parts (rest and motion) and mentions external force",
+        "partial_credit": "Mentions only one part correctly",
+        "no_credit": "Completely incorrect or missing key concepts"
+      }
+    },
+    {
+      "type": "multi_select",
+      "id": "ms_001",
+      "question": "Which of the following are programming languages? (Select all that apply)",
+      "options": [
+        {"id": "A", "text": "Python", "correct": true},
+        {"id": "B", "text": "HTML", "correct": false},
+        {"id": "C", "text": "Java", "correct": true},
+        {"id": "D", "text": "CSS", "correct": false},
+        {"id": "E", "text": "C++", "correct": true}
+      ],
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["computer-science", "programming"],
+      "points": 2,
+      "scoring_method": "partial"
+    },
+    {
+      "type": "ordering",
+      "id": "order_001",
+      "question": "Arrange these historical events in chronological order:",
+      "items": [
+        {"id": "A", "text": "World War II"},
+        {"id": "B", "text": "American Civil War"},
+        {"id": "C", "text": "French Revolution"},
+        {"id": "D", "text": "Moon Landing"}
+      ],
+      "correct_order": ["C", "B", "A", "D"],
+      "difficulty": "medium",
+      "tags": ["history", "chronology"],
+      "points": 2
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
