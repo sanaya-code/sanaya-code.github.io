@@ -1,3 +1,4 @@
+Based on attached json file containing various question of various types. 
 Create a quiz app with separate html, javascript and css file with following features.
 
 Fetch questions from a remote JSON file.

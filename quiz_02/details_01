@@ -1,0 +1,51 @@
+Based on attached json file containing various question of various types. 
+Create a quiz app with separate html, javascript and css file with following features.
+
+Quiz App Requirements Specification
+
+File Structure
+
+quiz-app/
+├── index.html          # Home screen
+├── quiz.html           # Quiz interface
+├── scripts/
+│   ├── home.js         # Home screen logic
+│   ├── quiz.js         # Main quiz logic
+│   └── question-types/ # (Optional) Separate handlers
+├── styles/
+│   ├── home.css
+│   └── quiz.css
+└── data/               # JSON question files
+    ├── science.json
+    ├── math.json
+    └── ...
+
+Home Screen (index.html) : Display subject links that load corresponding JSON files, Include a file input for custom quizzes
+
+Quiz Interface (quiz.html) : Two main panels. Question Panel- Displays one question at a time. Index Panel- Shows question status indicators. Navigation controls - Previous/Next buttons, Submit Quiz button, Mark for Review toggle. 
+
+Core JavaScript Classes : QuizState (State Manager), QuestionUIManager (Question Display), IndexUIManager (Navigation Panel),  Question Handlers (One per type)
+
+create a class in appropriate js file that will take care of UI changes of the panel displaying questions indexes. this class will consist of full functionality of the panel's working.
+
+create a class in appropriate js file that will take care of UI changes of the questions panel in the quiz.html file. this class will consist of full functionality of panel that display questions.
+
+create a class in appropriate js that constains informatons of all questions and their information such as their status, answers submitted, weather they are saved or not saved etc.
+
+create a separate class to handel each type of questions
+
+Question Type Requirements : MCQ, Multi-Select, True/False, Fill-in, Matching, Ordering
+
+Navigation : Store answers automatically when moving between questions. Previous button on first question should display last question. Next button on last question should display first question.
+
+Results Display: Show score percentage. List all questions with User's answer, Correct answer (if incorrect), Explanation (if available)
+
+Error Handling: Validate JSON structure on load, Handle missing question types gracefully, Provide loading states
+
+Styling Requirements
+
+Consistent color scheme for: Answered questions (green), Unanswered (red), Marked for review (orange), Current question (blue border)
+
+Responsive design that works on mobile
+
+Clear visual feedback for: Selected answers, Correct/incorrect indicators in results, Active navigation elements
