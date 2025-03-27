@@ -260,6 +260,12 @@ class GeometryHandler extends QuestionHandler {
             console.error('Geometry question elements not found');
             return;
         }
+    
+        // Clear all previous content including question text
+        const existingText = this.questionElement.querySelector('.question-text');
+        if (existingText) {
+            existingText.remove();
+        }
 
         // Clear previous content
         this.figureContainer.innerHTML = '';
