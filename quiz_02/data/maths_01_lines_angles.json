@@ -24,15 +24,6 @@
       "tags": ["points"]
     },
     {
-      "type": "true_false",
-      "id": "point_002",
-      "question": "Two different points can be at the exact same location.",
-      "correct_answer": false,
-      "explanation": "Each point has its own unique position in space.",
-      "difficulty": "easy",
-      "tags": ["points"]
-    },
-    {
       "type": "geometry",
       "id": "point_003",
       "question": "Which of these represents a point?",
@@ -63,20 +54,10 @@
       "tags": ["line segments"]
     },
     {
-      "type": "fill_in_blank",
-      "id": "segment_002",
-      "question": "The line segment between points A and B is written as ____.",
-      "correct_answer": "AB",
-      "acceptable_answers": ["BA"],
-      "case_sensitive": true,
-      "difficulty": "easy",
-      "tags": ["line segments"]
-    },
-    {
       "type": "geometry",
       "id": "segment_003",
       "question": "Which figure shows a line segment?",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrowhead)'/><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'/></svg>",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "options": [
         {"id": "1", "text": "First figure (with two endpoints)"},
         {"id": "2", "text": "Second figure (with arrow)"},
@@ -88,27 +69,37 @@
       "tags": ["line segments"]
     },
     {
-      "type": "mcq",
+      "type": "multi_select",
       "id": "line_001",
-      "question": "A straight line:",
+      "question": "A straight line: (Select all that apply)",
       "options": [
-        {"id": "A", "text": "Goes on forever in both directions"},
-        {"id": "B", "text": "Has two endpoints"},
-        {"id": "C", "text": "Is always horizontal"},
-        {"id": "D", "text": "Is always vertical"}
+        {"id": "A", "text": "Goes on forever in both directions", "correct": true},
+        {"id": "B", "text": "Has two endpoints", "correct": false},
+        {"id": "C", "text": "Has no endpoints", "correct": true},
+        {"id": "D", "text": "Has one endpoint", "correct": false},
+        {"id": "E", "text": "continue infinitely in both directions", "correct": true}
       ],
-      "correct_answer": "A",
-      "explanation": "Lines continue infinitely in both directions.",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
       "difficulty": "easy",
-      "tags": ["lines"]
+      "tags": ["lines"],
+      "points": 2,
+      "scoring_method": "partial",
+      "explanation": "Lines continue infinitely in both directions."
     },
     {
-      "type": "true_false",
+      "type": "mcq",
       "id": "line_002",
-      "question": "Two different lines can intersect at more than one point.",
-      "correct_answer": false,
-      "explanation": "Two different straight lines can intersect at only one point.",
-      "difficulty": "medium",
+      "question": "Two different lines can intersect at",
+      "options": [
+        {"id": "A", "text": "Two points"},
+        {"id": "B", "text": "No points"},
+        {"id": "C", "text": "One points"},
+        {"id": "D", "text": "Three points"}
+      ],
+      "correct_answer": "C",
+      "explanation": "A line segment is part of a line between two points.",
+      "difficulty": "easy",
       "tags": ["lines"]
     },
     {
@@ -142,20 +133,10 @@
       "tags": ["rays"]
     },
     {
-      "type": "fill_in_blank",
-      "id": "ray_002",
-      "question": "A ray starting at point A and passing through point B is written as ____.",
-      "correct_answer": "ray AB",
-      "acceptable_answers": ["AB with arrow"],
-      "case_sensitive": false,
-      "difficulty": "easy",
-      "tags": ["rays"]
-    },
-    {
       "type": "geometry",
       "id": "ray_003",
       "question": "Which figure shows a ray?",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' marker-end='url(#arrowhead)'/><line x1='30' y1='80' x2='170' y2='80' stroke='black' stroke-width='2' marker-start='url(#arrowhead)' marker-end='url(#arrowhead)'/></svg>",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"/></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' marker-end='url(#arrow)'/><line x1='30' y1='80' x2='170' y2='80' stroke='black' stroke-width='2' marker-start='url(#arrow)' marker-end='url(#arrow)'/></svg>",
       "options": [
         {"id": "1", "text": "First figure (no arrows)"},
         {"id": "2", "text": "Second figure (one arrow)"},
@@ -438,6 +419,21 @@
       "explanation": "The red dashed line perfectly splits the angle into two equal parts.",
       "difficulty": "medium",
       "tags": ["angles", "bisector"]
+    },
+    {
+      "type": "ordering",
+      "id": "angle",
+      "question": "Arrange these angles in increasing order:",
+      "items": [
+        {"id": "A", "text": "Obtuse Angle"},
+        {"id": "B", "text": "Straight Angle"},
+        {"id": "C", "text": "Acute Angle"},
+        {"id": "D", "text": "Right Angle"}
+      ],
+      "correct_order": ["C", "D", "A", "B"],
+      "difficulty": "medium",
+      "tags": ["angles"],
+      "points": 2
     }
   ],
   "taxonomy": {
