@@ -76,7 +76,7 @@
       "type": "geometry",
       "id": "segment_003",
       "question": "Which figure shows a line segment?",
-      "svg_content": "",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrowhead)'/><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'/></svg>",
       "options": [
         {"id": "1", "text": "First figure (with two endpoints)"},
         {"id": "2", "text": "Second figure (with arrow)"},
