@@ -22,6 +22,7 @@ class QuizState
             totalPoints += question.points || 1;
             
             const userAnswer = this.userAnswers[index].answer;
+            
             const isCorrect = this.checkAnswerCorrectness(question, userAnswer);
             
             if (isCorrect) {
@@ -53,7 +54,7 @@ class QuizState
 
     checkAnswerCorrectness(question, userAnswer) 
     {
-        if (!userAnswer) return false;
+        if (userAnswer === null || userAnswer === undefined) return false;
         
         switch (question.type) {
             case 'mcq':

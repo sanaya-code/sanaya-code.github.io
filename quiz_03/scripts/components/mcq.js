@@ -52,6 +52,8 @@ class MCQ_Component extends ParentComponent
     {
         this.questionElement.textContent    =   '';
         this.optionsContainer.innerHTML     =   '';
+        this.svgContainer.innerHTML         =   '';
+        this.svgContainer.style.display     = 'none';
         this.hide();
     }
 }

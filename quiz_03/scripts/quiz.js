@@ -210,6 +210,9 @@ class Controller
     showMCQ()
     {
         this.mcq.setQuestion(this.quizState.currentQuestion.question);
+
+        this.mcq.setSvg(this.quizState.currentQuestion.svg_content);
+
         this.quizState.currentQuestion.options.forEach((option, index) => {
             this.mcq.addOption(option.id, option.text)
         });

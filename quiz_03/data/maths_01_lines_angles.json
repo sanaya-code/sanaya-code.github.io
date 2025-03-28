@@ -12,6 +12,7 @@
       "type": "mcq",
       "id": "point_001",
       "question": "What is a point in geometry?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "options": [
         {"id": "A", "text": "A dot with no size"},
         {"id": "B", "text": "A small line"},
@@ -24,7 +25,7 @@
       "tags": ["points"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "point_003",
       "question": "Which of these represents a point?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><circle cx='50' cy='50' r='3' fill='black'/><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2'/><rect x='150' y='30' width='40' height='40' fill='none' stroke='black'/></svg>",
@@ -54,7 +55,7 @@
       "tags": ["line segments"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "segment_003",
       "question": "Which figure shows a line segment?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
@@ -103,7 +104,7 @@
       "tags": ["lines"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "line_003",
       "question": "Which figure represents a line?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
@@ -133,7 +134,7 @@
       "tags": ["rays"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "ray_003",
       "question": "Which figure shows a ray?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"/></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' marker-end='url(#arrow)'/><line x1='30' y1='80' x2='170' y2='80' stroke='black' stroke-width='2' marker-start='url(#arrow)' marker-end='url(#arrow)'/></svg>",
@@ -172,7 +173,7 @@
       "tags": ["angles"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "angle_003",
       "question": "Which part of this angle is called the vertex?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><circle cx='100' cy='100' r='3' fill='red'/><text x='80' y='120' font-size='12'>A</text><text x='40' y='40' font-size='12'>B</text><text x='160' y='40' font-size='12'>C</text></svg>",
@@ -211,7 +212,7 @@
       "tags": ["angles", "straight"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "straight_003",
       "question": "Which angle is a straight angle?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='50' x2='100' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='200' y1='50' x2='250' y2='50' stroke='black' stroke-width='2'/><line x1='250' y1='50' x2='250' y2='20' stroke='black' stroke-width='2'/></svg>",
@@ -250,7 +251,7 @@
       "tags": ["angles", "acute"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "acute_003",
       "question": "Which angle is acute?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='180' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
@@ -289,7 +290,7 @@
       "tags": ["angles", "obtuse"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "obtuse_003",
       "question": "Which angle is obtuse?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='220' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
@@ -328,7 +329,7 @@
       "tags": ["angles", "reflex"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "reflex_003",
       "question": "Which angle is reflex?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M50,100 L100,100 A50,50 0 1,1 100,150 Z' fill='none' stroke='black' stroke-width='2'/><path d='M150,100 L200,100 A50,50 0 0,1 200,50 Z' fill='none' stroke='black' stroke-width='2'/></svg>",
@@ -367,7 +368,7 @@
       "tags": ["lines", "perpendicular"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "perp_003",
       "question": "Which pair of lines is perpendicular?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='30' x2='50' y2='70' stroke='black' stroke-width='2'/><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='150' y1='30' x2='150' y2='70' stroke='black' stroke-width='2'/><line x1='130' y1='30' x2='170' y2='70' stroke='black' stroke-width='2'/><line x1='250' y1='30' x2='250' y2='70' stroke='black' stroke-width='2'/><line x1='230' y1='70' x2='270' y2='70' stroke='black' stroke-width='2'/></svg>",
@@ -406,7 +407,7 @@
       "tags": ["angles", "bisector"]
     },
     {
-      "type": "geometry",
+      "type": "mcq",
       "id": "bisect_003",
       "question": "Which line is the angle bisector?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='100' y2='20' stroke='red' stroke-width='2' stroke-dasharray='5,5'/><line x1='100' y1='100' x2='150' y2='150' stroke='blue' stroke-width='2'/></svg>",
