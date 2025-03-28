@@ -1,0 +1,20 @@
+JSON Question Bank Format Specification
+
+Root Structure
+
+    question_bank: The root object containing all content
+
+        metadata: Information about the question bank
+
+        questions: Array of all question objects
+
+        taxonomy: Classification system for content
+        
+        
+Common Fields for All Questions
+
+    Mandatory: type, id, question, correct_answer, difficulty
+
+    Optional: explanation, tags, points, time_limit
+
+

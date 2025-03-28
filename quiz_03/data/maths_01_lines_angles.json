@@ -1,0 +1,444 @@
+{
+  "metadata": {
+    "title": "Lines and Angles for Kids",
+    "description": "Interactive questions to build understanding of basic geometry concepts",
+    "version": "1.1",
+    "created": "2023-11-16",
+    "author": "Math Educator",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "point_001",
+      "question": "What is a point in geometry?",
+      "options": [
+        {"id": "A", "text": "A dot with no size"},
+        {"id": "B", "text": "A small line"},
+        {"id": "C", "text": "A circle"},
+        {"id": "D", "text": "An angle"}
+      ],
+      "correct_answer": "A",
+      "explanation": "A point is an exact location with no size - we represent it with a dot.",
+      "difficulty": "easy",
+      "tags": ["points"]
+    },
+    {
+      "type": "geometry",
+      "id": "point_003",
+      "question": "Which of these represents a point?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><circle cx='50' cy='50' r='3' fill='black'/><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2'/><rect x='150' y='30' width='40' height='40' fill='none' stroke='black'/></svg>",
+      "options": [
+        {"id": "1", "text": "Left figure"},
+        {"id": "2", "text": "Middle figure"},
+        {"id": "3", "text": "Right figure"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The small black dot on the left is how we represent a point.",
+      "difficulty": "easy",
+      "tags": ["points"]
+    },
+    {
+      "type": "mcq",
+      "id": "segment_001",
+      "question": "A line segment has:",
+      "options": [
+        {"id": "A", "text": "Two endpoints"},
+        {"id": "B", "text": "No endpoints"},
+        {"id": "C", "text": "One endpoint"},
+        {"id": "D", "text": "Three endpoints"}
+      ],
+      "correct_answer": "A",
+      "explanation": "A line segment is part of a line between two points.",
+      "difficulty": "easy",
+      "tags": ["line segments"]
+    },
+    {
+      "type": "geometry",
+      "id": "segment_003",
+      "question": "Which figure shows a line segment?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "options": [
+        {"id": "1", "text": "First figure (with two endpoints)"},
+        {"id": "2", "text": "Second figure (with arrow)"},
+        {"id": "3", "text": "Third figure (dashed line)"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The first figure shows a line segment between two points.",
+      "difficulty": "easy",
+      "tags": ["line segments"]
+    },
+    {
+      "type": "multi_select",
+      "id": "line_001",
+      "question": "A straight line: (Select all that apply)",
+      "options": [
+        {"id": "A", "text": "Goes on forever in both directions", "correct": true},
+        {"id": "B", "text": "Has two endpoints", "correct": false},
+        {"id": "C", "text": "Has no endpoints", "correct": true},
+        {"id": "D", "text": "Has one endpoint", "correct": false},
+        {"id": "E", "text": "continue infinitely in both directions", "correct": true}
+      ],
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["lines"],
+      "points": 2,
+      "scoring_method": "partial",
+      "explanation": "Lines continue infinitely in both directions."
+    },
+    {
+      "type": "mcq",
+      "id": "line_002",
+      "question": "Two different lines can intersect at",
+      "options": [
+        {"id": "A", "text": "Two points"},
+        {"id": "B", "text": "No points"},
+        {"id": "C", "text": "One points"},
+        {"id": "D", "text": "Three points"}
+      ],
+      "correct_answer": "C",
+      "explanation": "A line segment is part of a line between two points.",
+      "difficulty": "easy",
+      "tags": ["lines"]
+    },
+    {
+      "type": "geometry",
+      "id": "line_003",
+      "question": "Which figure represents a line?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "options": [
+        {"id": "1", "text": "First figure (with two endpoints)"},
+        {"id": "2", "text": "Second figure (with arrows both ends)"},
+        {"id": "3", "text": "Third figure (dashed line)"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The figure with arrows at both ends represents a line extending infinitely.",
+      "difficulty": "easy",
+      "tags": ["lines"]
+    },
+    {
+      "type": "mcq",
+      "id": "ray_001",
+      "question": "A ray has:",
+      "options": [
+        {"id": "A", "text": "One endpoint and goes forever in one direction"},
+        {"id": "B", "text": "Two endpoints"},
+        {"id": "C", "text": "No endpoints"},
+        {"id": "D", "text": "Three endpoints"}
+      ],
+      "correct_answer": "A",
+      "explanation": "A ray starts at a point and continues infinitely in one direction.",
+      "difficulty": "easy",
+      "tags": ["rays"]
+    },
+    {
+      "type": "geometry",
+      "id": "ray_003",
+      "question": "Which figure shows a ray?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"/></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' marker-end='url(#arrow)'/><line x1='30' y1='80' x2='170' y2='80' stroke='black' stroke-width='2' marker-start='url(#arrow)' marker-end='url(#arrow)'/></svg>",
+      "options": [
+        {"id": "1", "text": "First figure (no arrows)"},
+        {"id": "2", "text": "Second figure (one arrow)"},
+        {"id": "3", "text": "Third figure (two arrows)"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The figure with one endpoint and one arrow represents a ray.",
+      "difficulty": "easy",
+      "tags": ["rays"]
+    },
+    {
+      "type": "mcq",
+      "id": "angle_001",
+      "question": "An angle is formed by:",
+      "options": [
+        {"id": "A", "text": "Two rays with a common endpoint"},
+        {"id": "B", "text": "Three points in a straight line"},
+        {"id": "C", "text": "One long curve"},
+        {"id": "D", "text": "Two parallel lines"}
+      ],
+      "correct_answer": "A",
+      "explanation": "An angle is made when two lines or rays meet at a common point called the vertex.",
+      "difficulty": "easy",
+      "tags": ["angles"]
+    },
+    {
+      "type": "true_false",
+      "id": "angle_002",
+      "question": "All angles are measured from 0° to 100°.",
+      "correct_answer": false,
+      "explanation": "Angles can measure up to 360° (a full circle).",
+      "difficulty": "easy",
+      "tags": ["angles"]
+    },
+    {
+      "type": "geometry",
+      "id": "angle_003",
+      "question": "Which part of this angle is called the vertex?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><circle cx='100' cy='100' r='3' fill='red'/><text x='80' y='120' font-size='12'>A</text><text x='40' y='40' font-size='12'>B</text><text x='160' y='40' font-size='12'>C</text></svg>",
+      "options": [
+        {"id": "1", "text": "Point A (center)"},
+        {"id": "2", "text": "Point B (left end)"},
+        {"id": "3", "text": "Point C (right end)"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The vertex is point A where the two lines meet.",
+      "difficulty": "easy",
+      "tags": ["angles", "vertex"]
+    },
+    {
+      "type": "mcq",
+      "id": "straight_001",
+      "question": "A straight angle measures:",
+      "options": [
+        {"id": "A", "text": "90°"},
+        {"id": "B", "text": "180°"},
+        {"id": "C", "text": "45°"},
+        {"id": "D", "text": "360°"}
+      ],
+      "correct_answer": "B",
+      "explanation": "A straight angle forms a straight line and measures exactly 180°.",
+      "difficulty": "easy",
+      "tags": ["angles", "straight"]
+    },
+    {
+      "type": "true_false",
+      "id": "straight_002",
+      "question": "A straight angle looks like a perfectly straight line.",
+      "correct_answer": true,
+      "explanation": "When two rays point in exactly opposite directions, they form a straight line (180°).",
+      "difficulty": "easy",
+      "tags": ["angles", "straight"]
+    },
+    {
+      "type": "geometry",
+      "id": "straight_003",
+      "question": "Which angle is a straight angle?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='50' x2='100' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='200' y1='50' x2='250' y2='50' stroke='black' stroke-width='2'/><line x1='250' y1='50' x2='250' y2='20' stroke='black' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "First angle (horizontal)"},
+        {"id": "2", "text": "Second angle (L-shape)"},
+        {"id": "3", "text": "Neither"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The first angle forms a straight line (180°).",
+      "difficulty": "easy",
+      "tags": ["angles", "straight"]
+    },
+    {
+      "type": "mcq",
+      "id": "acute_001",
+      "question": "An acute angle measures:",
+      "options": [
+        {"id": "A", "text": "More than 90°"},
+        {"id": "B", "text": "Exactly 90°"},
+        {"id": "C", "text": "Less than 90°"},
+        {"id": "D", "text": "Exactly 180°"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Acute angles are sharp angles smaller than 90°.",
+      "difficulty": "easy",
+      "tags": ["angles", "acute"]
+    },
+    {
+      "type": "fill_in_blank",
+      "id": "acute_002",
+      "question": "An angle measuring 45° is an ____ angle.",
+      "correct_answer": "acute",
+      "case_sensitive": false,
+      "difficulty": "easy",
+      "tags": ["angles", "acute"]
+    },
+    {
+      "type": "geometry",
+      "id": "acute_003",
+      "question": "Which angle is acute?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='180' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "First angle (right angle)"},
+        {"id": "2", "text": "Second angle (small angle)"},
+        {"id": "3", "text": "Third angle (straight angle)"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The second angle is smaller than 90°, making it acute.",
+      "difficulty": "easy",
+      "tags": ["angles", "acute"]
+    },
+    {
+      "type": "mcq",
+      "id": "obtuse_001",
+      "question": "An obtuse angle measures:",
+      "options": [
+        {"id": "A", "text": "Exactly 90°"},
+        {"id": "B", "text": "Less than 90°"},
+        {"id": "C", "text": "Between 90° and 180°"},
+        {"id": "D", "text": "Exactly 180°"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Obtuse angles are wider than right angles but less than straight angles.",
+      "difficulty": "easy",
+      "tags": ["angles", "obtuse"]
+    },
+    {
+      "type": "true_false",
+      "id": "obtuse_002",
+      "question": "An angle measuring 100° is obtuse.",
+      "correct_answer": true,
+      "explanation": "100° is between 90° and 180°, so it's obtuse.",
+      "difficulty": "easy",
+      "tags": ["angles", "obtuse"]
+    },
+    {
+      "type": "geometry",
+      "id": "obtuse_003",
+      "question": "Which angle is obtuse?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='220' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "First angle (right angle)"},
+        {"id": "2", "text": "Second angle (wide angle)"},
+        {"id": "3", "text": "Third angle (straight angle)"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The second angle is wider than 90° but less than 180°, making it obtuse.",
+      "difficulty": "easy",
+      "tags": ["angles", "obtuse"]
+    },
+    {
+      "type": "mcq",
+      "id": "reflex_001",
+      "question": "A reflex angle measures:",
+      "options": [
+        {"id": "A", "text": "Less than 180°"},
+        {"id": "B", "text": "Exactly 180°"},
+        {"id": "C", "text": "Between 180° and 360°"},
+        {"id": "D", "text": "Exactly 360°"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Reflex angles are the larger angles that measure more than 180° but less than 360°.",
+      "difficulty": "medium",
+      "tags": ["angles", "reflex"]
+    },
+    {
+      "type": "true_false",
+      "id": "reflex_002",
+      "question": "A 270° angle is a reflex angle.",
+      "correct_answer": true,
+      "explanation": "270° is between 180° and 360°, so it's reflex.",
+      "difficulty": "medium",
+      "tags": ["angles", "reflex"]
+    },
+    {
+      "type": "geometry",
+      "id": "reflex_003",
+      "question": "Which angle is reflex?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M50,100 L100,100 A50,50 0 1,1 100,150 Z' fill='none' stroke='black' stroke-width='2'/><path d='M150,100 L200,100 A50,50 0 0,1 200,50 Z' fill='none' stroke='black' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "Left angle (large)"},
+        {"id": "2", "text": "Right angle (small)"},
+        {"id": "3", "text": "Neither"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The left angle is the larger portion (more than 180°), making it reflex.",
+      "difficulty": "medium",
+      "tags": ["angles", "reflex"]
+    },
+    {
+      "type": "mcq",
+      "id": "perp_001",
+      "question": "Perpendicular lines intersect to form:",
+      "options": [
+        {"id": "A", "text": "Acute angles"},
+        {"id": "B", "text": "Right angles"},
+        {"id": "C", "text": "Obtuse angles"},
+        {"id": "D", "text": "Straight angles"}
+      ],
+      "correct_answer": "B",
+      "explanation": "Perpendicular lines always cross at 90° right angles.",
+      "difficulty": "easy",
+      "tags": ["lines", "perpendicular"]
+    },
+    {
+      "type": "fill_in_blank",
+      "id": "perp_002",
+      "question": "The symbol ⊥ means lines are ____.",
+      "correct_answer": "perpendicular",
+      "case_sensitive": false,
+      "difficulty": "easy",
+      "tags": ["lines", "perpendicular"]
+    },
+    {
+      "type": "geometry",
+      "id": "perp_003",
+      "question": "Which pair of lines is perpendicular?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='30' x2='50' y2='70' stroke='black' stroke-width='2'/><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='150' y1='30' x2='150' y2='70' stroke='black' stroke-width='2'/><line x1='130' y1='30' x2='170' y2='70' stroke='black' stroke-width='2'/><line x1='250' y1='30' x2='250' y2='70' stroke='black' stroke-width='2'/><line x1='230' y1='70' x2='270' y2='70' stroke='black' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "First pair (crossing at 90°)"},
+        {"id": "2", "text": "Second pair (slanted cross)"},
+        {"id": "3", "text": "Third pair (parallel)"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The first pair forms perfect right angles (90°).",
+      "difficulty": "easy",
+      "tags": ["lines", "perpendicular"]
+    },
+    {
+      "type": "mcq",
+      "id": "bisect_001",
+      "question": "An angle bisector:",
+      "options": [
+        {"id": "A", "text": "Doubles the angle"},
+        {"id": "B", "text": "Splits the angle into two equal parts"},
+        {"id": "C", "text": "Makes the angle smaller"},
+        {"id": "D", "text": "Extends the angle"}
+      ],
+      "correct_answer": "B",
+      "explanation": "A bisector divides an angle into two equal smaller angles.",
+      "difficulty": "medium",
+      "tags": ["angles", "bisector"]
+    },
+    {
+      "type": "true_false",
+      "id": "bisect_002",
+      "question": "The angle bisector of a 90° angle creates two 45° angles.",
+      "correct_answer": true,
+      "explanation": "90° divided by 2 equals 45° for each new angle.",
+      "difficulty": "medium",
+      "tags": ["angles", "bisector"]
+    },
+    {
+      "type": "geometry",
+      "id": "bisect_003",
+      "question": "Which line is the angle bisector?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='100' y2='20' stroke='red' stroke-width='2' stroke-dasharray='5,5'/><line x1='100' y1='100' x2='150' y2='150' stroke='blue' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "Red dashed line"},
+        {"id": "2", "text": "Blue solid line"},
+        {"id": "3", "text": "Neither"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The red dashed line perfectly splits the angle into two equal parts.",
+      "difficulty": "medium",
+      "tags": ["angles", "bisector"]
+    },
+    {
+      "type": "ordering",
+      "id": "angle",
+      "question": "Arrange these angles in increasing order:",
+      "items": [
+        {"id": "A", "text": "Obtuse Angle"},
+        {"id": "B", "text": "Straight Angle"},
+        {"id": "C", "text": "Acute Angle"},
+        {"id": "D", "text": "Right Angle"}
+      ],
+      "correct_order": ["C", "D", "A", "B"],
+      "difficulty": "medium",
+      "tags": ["angles"],
+      "points": 2
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium"],
+    "subject_areas": ["geometry"],
+    "question_types": ["mcq", "true_false", "fill_in_blank", "geometry"]
+  }
+}

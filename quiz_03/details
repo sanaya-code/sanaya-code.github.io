@@ -1,0 +1,34 @@
+Based on attached json file containing various question of various types. 
+Create a quiz app with separate html, javascript and css file with following features.
+
+Fetch questions from a remote JSON file.
+
+Show a panel(panel-1) which display one question at a time. When a question is displayed it should have functionality to move to next question and previous question.
+
+Allow users to answer Multiple Choice (mcq), Fill-in-the-Blank (fill_in_blank),  True/False (true_false), Matching (matching), Short Answer (short_answer), Multi-Select (multi_select) and Ordering (ordering) questions.
+
+use check boxes, radio buttons, text boxes etc to enable user give their answers.
+
+Give a button to show result and display which questions were marked correctly and incorrectly.
+
+Include a panel(panel-2) displaying indexes of the questions. Give colors to indexes  to indicate if the question has been answered, not yet answered, marked for review. When the user clicks on an index in this panel then that question should show. It should also show the answer that user has selected.
+
+
+home screen of the quiz app shold consist of multiple hyper-links for various subject. When user click on the hyper link quiz app loads the json file of questions corrosponding to that subject. 
+
+home screen of the quiz app shold consist of an option for user to select questions json file from local machine, using the file dialog. 
+
+the html file quiz.html should consist of one code for each question type. And only one question should be visible from them. when a new question has to be displayed then it should make visible appropriate code in quiz.html file and code for other questions should remain invisible.
+
+
+create a class in appropriate js file that will take care of UI changes of the panel displaying questions indexes. this class will consist of full functionality of the panel's working.
+
+create a class in appropriate js file that will take care of UI changes of the questions panel in the quiz.html file. this class will consist of full functionality of panel that display questions.
+
+create a class in appropriate js that constains informatons of all questions and their information such as their status, answers submitted, weather they are saved or not saved etc.
+
+create a separate class to handel each type of questions
+
+all classes should be global in js file. Classes should not be declared inside any function.
+
+in quiz.html file qive a 2 links, one to restart the quiz, other to go back to home page
