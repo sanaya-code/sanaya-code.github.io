@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Meaning of chibi",
+      "answers": [ "tiny one", "tiny boy", "at once", "make same sound" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "Meaning of immediate",
+      "answers": [ "tiny one", "tiny boy", "at once", "make same sound" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "Meaning of imitate",
+      "answers": [ "tiny one", "tiny boy", "make same sound", "at once" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Walk with slow and heavy steps",
+      "answers": [ "stoned", "trugded", "nick name" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "Amusing name given to a person",
+      "answers": [ "stoned", "trugded", "nick name" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "A far of place on the mountain where few people live",
+      "answers": [ "lonely mountain side", "trugded", "nick name" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "(Write) Why did the boys find chibi strange",
+      "answers": [ "because he would sit alone in dark space", "he did not pay attention in class",
+                    "he never mixed with any one in the class", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 8,
+      "question": "(Write) Why was chibi called crow boy",
+      "answers": [ "because he imitated voice of crow at the talent show",
+                    "because he talked to crow", "because he liked crow" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "(Write) How did Mr Isobe's kindness help chibi",
+      "answers": [ "He help chibi to dance", "He helped chibi to become confident",  "He helped chibi to imitate crow" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "While he palyed, he spent time talking to chibi. Who is he?",
+      "answers": [ "Tinku", "Mirry", "Mr Isobe" ], "correct_answer": 3    },
+    {
+      "number": 11,
+      "question": "(Write) What did Mr Isobe talked to chibi about",
+      "answers": [ "He talked about nature", "and more about his interest", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 12,
+      "question": "(Write) We were struct with wonder ...... Who are we in above line",
+      "answers": [ "Boys in Chibi's school", "Mr Isobe", "Girls in in Chibi's school" ], "correct_answer": 1
+    },
+    {
+      "number": 13,
+      "question": "(Write) We were struct with wonder ...... Why were they wonder struct",
+      "answers": [ "because they thought chibi did not know anything", "but chibi proved to be very talented", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 14,
+      "question": "(Write) How did Chibi surprised all the boys in the school",
+      "answers": [ "They were surprised with Chibi's hidden talent", "when he produced sounds of crows", "both" ],
+                   "correct_answer": 3
+    },
+    {
+      "number": 15,
+      "question": "(Write) How do we know that Mr Isobe was a kind teacher",
+      "answers": [ "He helped Chibi leave his shyness", "He helped Chibi to display his talent",
+                   "He taught students to respect those who are different", "all" ], "correct_answer": 4
+    }
+
+  ]
+}
+

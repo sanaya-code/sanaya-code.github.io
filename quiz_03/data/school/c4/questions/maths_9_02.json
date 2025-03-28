@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Convert into meter : 4 Km",
+      "answers": [ "4000 meters", "40 meters", "400 meters" ], "correct_answer": 1
+    },
+    {
+      "number": 2,
+      "question": "Convert into meter : 37 Km",
+      "answers": [ "3700 meters", "370 meters", "37000 meters" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "Convert into meter : 4 Km 450 m",
+      "answers": [ "4000 meters", "450 meters", "4450 meters" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Convert into Km and m : 3204 m",
+      "answers": [ "329 Km 4 meters", "3Km 204m", "32Km 24m" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "Convert into Km and m : 7501 m",
+      "answers": [ "7Km 501m", "75Km 1m", "750Km 1m" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "Convert into cm : 9 meter",
+      "answers": [ "90 cm", "900 cm", "9000 cm" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "Convert into cm : 24m 85cm",
+      "answers": [ "2485 cm", "85 cm", "2400 cm" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "Convert into m and cm : 6542 cm",
+      "answers": [ "65m 42cm", "6m 542cm", "654m 2cm" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "Convert into m and cm : 2425 cm",
+      "answers": [ "2m 425cm", "242m 5cm", "24m 25cm" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "A man travelled 7km 500m in 1st hour, 5km 685m in 2nd hour, 2km 123m in 3rd hour. How long he travelled in 3 hours",
+      "answers": [ "15km 408cm", "15km 308cm", "14km 308m" ], "correct_answer": 2
+    },
+    {
+      "number": 11,
+      "question": "I cut a piece 49m 76cm from 80m wire. How long wire left",
+      "answers": [ "30m 24cm", "31m 24cm", "29m 24cm" ], "correct_answer": 1
+    }
+  ]
+}
+
