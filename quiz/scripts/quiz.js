@@ -46,6 +46,7 @@ class Controller
         {
             console.log("fetching remote json")
             this.quizState.queList  =   await this.getRemoteJsonData();
+            console.log(this.quizState.queList)
         }
     }
     
