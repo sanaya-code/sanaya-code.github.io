@@ -29,7 +29,7 @@ class Controller
         console.log("urlParams = ", urlParams, " subject = ", subject, " path =", `data/${subject}.json`);
         const response = await fetch(`data/${subject}.json`);
         const data = await response.json();
-        questionsList = data.questions || [];
+        const questionsList = data.questions || [];
         if (questionsList.length) throw new Error('No questions found');
         return(questionsList);
     }
