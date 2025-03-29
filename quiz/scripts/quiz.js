@@ -44,7 +44,6 @@ class Controller
         } 
         else 
         {
-            console.log("fetching remote json")
             this.quizState.queList  =   await this.getRemoteJsonData();
             console.log(this.quizState.queList)
         }
@@ -406,9 +405,13 @@ class Controller
         try 
         {
             this.setQuestionsList();
+            console.log(" setQuestionsList ")
             this.initializeUserAnswers();
+            console.log(" initializeUserAnswers ")
             this.initEventListeners();
+            console.log(" initEventListeners ")
             this.quizState.setCurrentQuestion(0);
+            console.log(" setCurrentQuestion(0) ")
             this.showIndexPanel();
             this.showCurrentQuestion();
         } 
