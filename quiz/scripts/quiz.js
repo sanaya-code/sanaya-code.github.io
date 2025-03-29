@@ -404,14 +404,10 @@ class Controller
     {
         try 
         {
-            this.setQuestionsList();
-            console.log(" setQuestionsList ")
+            await this.setQuestionsList();
             this.initializeUserAnswers();
-            console.log(" initializeUserAnswers ")
             this.initEventListeners();
-            console.log(" initEventListeners ")
             this.quizState.setCurrentQuestion(0);
-            console.log(" setCurrentQuestion(0) ")
             this.showIndexPanel();
             this.showCurrentQuestion();
         } 
