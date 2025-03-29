@@ -421,4 +421,4 @@ class Controller
 }
 
 obj = new Controller();
-obj.start();
+document.addEventListener('DOMContentLoaded', () => obj.start());
