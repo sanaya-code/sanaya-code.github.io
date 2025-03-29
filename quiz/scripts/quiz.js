@@ -30,7 +30,7 @@ class Controller
         const response = await fetch(`data/${subject}.json`);
         const data = await response.json();
         const questionsList = data.questions || [];
-        if (questionsList.length) throw new Error('No questions found');
+        if (!questionsList.length) throw new Error('No questions found');
         return(questionsList);
     }
 
