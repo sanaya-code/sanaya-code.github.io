@@ -26,6 +26,7 @@ class Controller
     {
         const urlParams = new URLSearchParams(window.location.search);
         const subject = urlParams.get('subject');
+        console.log("urlParams = ", urlParams, " subject = ", subject, " path =", `data/${subject}.json`);
         const response = await fetch(`data/${subject}.json`);
         const data = await response.json();
         questionsList = data.questions || [];
@@ -43,6 +44,7 @@ class Controller
         } 
         else 
         {
+            console.log("fetching remote json")
             this.quizState.queList  =   await this.getRemoteJsonData();
         }
     }
