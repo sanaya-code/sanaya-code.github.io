@@ -1,0 +1,41 @@
+
+-------------------------------------------------------------------------------------------------------------
+
+
+SVG instruction for creating a figure of angles formed by lines OA, OB, OC, OD
+
+view box = 130 x 130
+All lines are exactly 100 units long
+Vertex O(10,  120)
+OA is vertical, OD is horizontal (perpendicular)
+OB at 40° from horizontal (angle BOD = 40°)
+OC at 20° from horizontal (angle COD = 20°)
+Angle BOC (20°) is filled with light blue
+Points are labeled and marked with red dots
+line OA and OD are red
+lines OB OD are blue
+create svg, avoid double quotes and use single quoutes in svg
+
+
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'>
+<style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style>
+<path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/>
+<line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/> 
+<line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/> 
+<line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/> 
+<line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/> 
+<circle cx='10' cy='120' r='2' />
+<text x='5' y='130' class='point'>O</text>
+<circle cx='10' cy='20' r='2' class='point-marker'/>
+<text x='13' y='23' class='point'>A</text>
+<circle cx='86.6' cy='55.7' r='2' class='point-marker'/>
+<text x='89.6' y='58.7' class='point'>B</text>
+<circle cx='103.97' cy='85.8' r='2' class='point-marker'/>
+<text x='106.97' y='88.8' class='point'>C</text>
+<circle cx='110' cy='120' r='2' class='point-marker'/>
+<text x='113' y='123' class='point'>D</text>
+</svg>
+
+-------------------------------------------------------------------------------------------------------------
+
+

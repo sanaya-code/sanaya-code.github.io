@@ -440,10 +440,10 @@
       "question": "If OC is angle bisector then",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 150'><line x1='100' y1='120' x2='80' y2='20' stroke='black' stroke-width='3'/><line x1='100' y1='120' x2='200' y2='120' stroke='black' stroke-width='3'/><line x1='100' y1='120' x2='150' y2='35' stroke='black' stroke-width='3'/><circle cx='100' cy='120' r='3' fill='red'/><text x='85' y='110' font-size='12'>O</text><circle cx='80' cy='20' r='3' fill='red'/><text x='90' y='25' font-size='12'>A</text><circle cx='200' cy='120' r='3' fill='red'/><text x='195' y='110' font-size='12'>B</text><circle cx='150' cy='35' r='3' fill='red'/><text x='150' y='30' font-size='12'>C</text></svg>",
       "options": [
-        {"id": "A", "text": "L AOC < L AOC", "correct": false},
-        {"id": "B", "text": "L AOC = L AOC", "correct": true} ,
+        {"id": "A", "text": "L AOC < L COB", "correct": false},
+        {"id": "B", "text": "L AOC = L COB", "correct": true} ,
         {"id": "C", "text": "L AOB = L AOC + L COB", "correct": true},
-        {"id": "D", "text": "L AOC > L AOC", "correct": false}
+        {"id": "D", "text": "L AOC > L BOC", "correct": false}
       ],
       "minimum_selections": 1,
       "maximum_selections": 3,
@@ -452,6 +452,36 @@
       "points": 2,
       "scoring_method": "partial",
       "explanation": "Lines continue infinitely in both directions."
+    },
+    {
+      "type": "mcq",
+      "id": "032",
+      "question": "What is common between LAOC and LBOD",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style><path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/><line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/><line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/><circle cx='10' cy='120' r='2' /><text x='5' y='130' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='86.6' cy='55.7' r='2' class='point-marker'/><text x='89.6' y='58.7' class='point'>B</text><circle cx='103.97' cy='85.8' r='2' class='point-marker'/><text x='106.97' y='88.8' class='point'>C</text><circle cx='110' cy='120' r='2' class='point-marker'/><text x='113' y='123' class='point'>D</text></svg>",
+      "options": [
+        {"id": "1", "text": "LAOB"},
+        {"id": "2", "text": "LBOC"},
+        {"id": "3", "text": "LCOD"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The small black dot on the left is how we represent a point.",
+      "difficulty": "easy",
+      "tags": ["points"]
+    },
+    {
+      "type": "mcq",
+      "id": "033",
+      "question": "Choose the correct option",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style><path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/><line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/><line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/><circle cx='10' cy='120' r='2' /><text x='5' y='130' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='86.6' cy='55.7' r='2' class='point-marker'/><text x='89.6' y='58.7' class='point'>B</text><circle cx='103.97' cy='85.8' r='2' class='point-marker'/><text x='106.97' y='88.8' class='point'>C</text><circle cx='110' cy='120' r='2' class='point-marker'/><text x='113' y='123' class='point'>D</text></svg>",
+      "options": [
+        {"id": "1", "text": "LAOC = LBOD"},
+        {"id": "2", "text": "LAOC < LBOD"},
+        {"id": "3", "text": "LAOC > LBOD"}
+      ],
+      "correct_answer": "3",
+      "explanation": "The small black dot on the left is how we represent a point.",
+      "difficulty": "easy",
+      "tags": ["points"]
     }
     
   ],
