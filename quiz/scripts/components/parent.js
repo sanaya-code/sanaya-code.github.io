@@ -1,9 +1,9 @@
 class ParentComponent
 {
-    constructor(containerId) 
+    constructor(rootId, svgId) 
     {
-        this.rootElement    =   document.getElementById(containerId);
-        this.svgContainer   =   document.getElementById("geometry-figure");
+        this.rootElement    =   document.getElementById(rootId);
+        this.svgContainer   =   document.getElementById(svgId);
     }
 
     setSvg(svg)

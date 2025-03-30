@@ -2,7 +2,7 @@ class MultiSelectComponent extends ParentComponent
 {
     constructor() 
     {
-        super('multi-question');
+        super('multi-question', 'multi-geometry-figure');
         this.id = "multi-question";
         this.questionId = "multi-question-text";
         this.optionsId = "multi-options";
@@ -70,8 +70,10 @@ class MultiSelectComponent extends ParentComponent
 
     reset() 
     {
-        this.questionElement.textContent = '';
-        this.optionsContainer.innerHTML = '';
+        this.questionElement.textContent    =   '';
+        this.optionsContainer.innerHTML     =   '';
+        this.svgContainer.innerHTML         =   '';
+        this.svgContainer.style.display     =   'none';
         this.hide();
     }
 }

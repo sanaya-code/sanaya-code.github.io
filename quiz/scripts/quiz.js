@@ -228,6 +228,8 @@ class Controller
     showFillQ()
     {
         this.fillQ.setQuestion(this.quizState.currentQuestion.question);
+
+        this.fillQ.setSvg(this.quizState.currentQuestion.svg_content);
         
         if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null)
         {
@@ -240,6 +242,8 @@ class Controller
     showTfQ() 
     {
         this.tfQ.setQuestion(this.quizState.currentQuestion.question);
+
+        this.tfQ.setSvg(this.quizState.currentQuestion.svg_content);
         
         if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null) 
         {
@@ -252,6 +256,8 @@ class Controller
     {
         // Set the matching question text
         this.matchingQ.setQuestion(this.quizState.currentQuestion.question);
+
+        this.matchingQ.setSvg(this.quizState.currentQuestion.svg_content);
         
         // Clear any previous pairs
         // this.matchingQ.reset();
@@ -284,6 +290,8 @@ class Controller
     {
         // Set the question text
         this.shortAnswerQ.setQuestion(this.quizState.currentQuestion.question);
+
+        this.shortAnswerQ.setSvg(this.quizState.currentQuestion.svg_content);
         
         // Restore previous answer if it exists
         if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null) 
@@ -299,6 +307,8 @@ class Controller
     {
         // Set the question text
         this.multiSelectQ.setQuestion(this.quizState.currentQuestion.question);
+
+        this.multiSelectQ.setSvg(this.quizState.currentQuestion.svg_content);
         
         // Add all options with their correctness
         this.quizState.currentQuestion.options.forEach((option) => {
@@ -323,6 +333,8 @@ class Controller
     {
         // Set the question text
         this.orderingQ.setQuestion(this.quizState.currentQuestion.question);
+
+        this.orderingQ.setSvg(this.quizState.currentQuestion.svg_content);
 
         // add items in their original order
         this.quizState.currentQuestion.items.forEach((item) => {

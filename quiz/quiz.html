@@ -14,11 +14,11 @@
                 <h1 id="quiz-title">Quiz</h1>
                 <a href="#" id="restart-quiz" class="nav-link">Restart</a>
             </div>
-            <div class="question-panel" id="question-panel" style="display: none;" >
+            <div class="question-panel" id="mcq-question" style="display: none;">
                 <!-- MCQ Question -->
-                <div class="question-type" id="mcq-question" >
+                <div class="question-type" id="mcq-question">
                     <div class="question-text" id="mcq-question-text"></div>
-                    <div id="geometry-figure" style="display: none;"></div>
+                    <div class="geometry-figure" id="mcq-geometry-figure" style="display: none;"></div>
                     <div class="options-container" id="mcq-options"></div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <!-- Fill in the Blank Question -->
             <div class="question-type" id="fill-question" style="display: none;">
                 <div class="question-text" id="fill-question-text"></div>
-                <div id="geometry-figure" style="display: none;"></div>
+                <div class="geometry-figure" id="fill-geometry-figure" style="display: none;"></div>
                 <div class="fill-blank-container">
                     <input type="text" class="text-answer" id="fill-answer" placeholder="Type your answer here">
                 </div>
@@ -35,7 +35,7 @@
             <!-- True/False Question -->
             <div class="question-type" id="tf-question" style="display: none;">
                 <div class="question-text" id="tf-question-text"></div>
-                <div id="geometry-figure" style="display: none;"></div>
+                <div class="geometry-figure" id="tf-geometry-figure" style="display: none;"></div>
                 <div class="options-container">
                     <div class="option">
                         <input type="radio" name="trueFalse" id="true-option" value="true">
@@ -51,14 +51,14 @@
             <!-- Matching Question -->
             <div class="question-type" id="matching-question" style="display: none;">
                 <div class="question-text" id="matching-question-text"></div>
-                <div id="geometry-figure" style="display: none;"></div>
+                <div class="geometry-figure" id="matching-geometry-figure" style="display: none;"></div>
                 <div class="matching-container" id="matching-pairs"></div>
             </div>
 
             <!-- Short Answer Question -->
             <div class="question-type" id="short-question" style="display: none;">
                 <div class="question-text" id="short-question-text"></div>
-                <div id="geometry-figure" style="display: none;"></div>
+                <div class="geometry-figure" id="short-geometry-figure" style="display: none;"></div>
                 <div class="short-answer-container">
                     <textarea class="text-answer" id="short-answer" placeholder="Type your answer here" rows="4"></textarea>
                 </div>
@@ -67,19 +67,19 @@
             <!-- Multi-Select Question -->
             <div class="question-type" id="multi-question" style="display: none;">
                 <div class="question-text" id="multi-question-text"></div>
-                <div id="geometry-figure" style="display: none;"></div>
+                <div class="geometry-figure" id="multi-geometry-figure" style="display: none;"></div>
                 <div class="options-container" id="multi-options"></div>
             </div>
 
             <!-- Ordering Question -->
             <div class="question-type" id="ordering-question" style="display: none;">
                 <div class="question-text" id="ordering-question-text"></div>
-                <div id="geometry-figure" style="display: none;"></div>
+                <div class="geometry-figure"  id="ordering-geometry-figure" style="display: none;"></div>
                 <div class="ordering-container" id="ordering-items"></div>
             </div>
 
             <div class="navigation-panel">
-                <button id="prev-btn" >Previous</button>
+                <button id="prev-btn">Previous</button>
                 <button id="mark-review">Mark for Review</button>
                 <button id="next-btn">Next</button>
                 <button id="submit-quiz">Submit Quiz</button>
@@ -88,7 +88,6 @@
 
         <div class="index-panel" id="index-panel">
             <div class="index-title">Questions</div>
-            <!-- Question indexes will be loaded here -->
             <div class="index-grid" id="index-grid"></div>
         </div>
     </div>

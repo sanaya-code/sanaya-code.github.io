@@ -2,7 +2,7 @@ class TrueFalseComponent extends ParentComponent
 {
     constructor() 
     {
-        super('tf-question');
+        super('tf-question', 'tf-geometry-figure');
         this.id = "tf-question";
         this.questionId = "tf-question-text";
         this.trueOptionId = "true-option";
@@ -38,9 +38,11 @@ class TrueFalseComponent extends ParentComponent
 
     reset() 
     {
-        this.questionElement.textContent = '';
-        this.trueOption.checked = false;
-        this.falseOption.checked = false;
+        this.questionElement.textContent    =   '';
+        this.trueOption.checked             =   false;
+        this.falseOption.checked            =   false;
+        this.svgContainer.innerHTML         =   '';
+        this.svgContainer.style.display     =   'none';
         this.hide();
     }
 }
