@@ -54,7 +54,7 @@ header {
 
 .button-link {
     padding: 10px 20px;
-    background-color: #2ecc71;
+    background-color: #3498db;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -337,7 +337,7 @@ header {
     border-left: 5px solid #dc3545;
 }
 
-#close-modal {
+.modal-buttons {
     padding: 10px 20px;
     background-color: #3498db;
     color: white;
@@ -348,7 +348,7 @@ header {
     transition: background-color 0.3s;
 }
 
-#close-modal:hover {
+.modal-buttons:hover {
     background-color: #2980b9;
 }
 

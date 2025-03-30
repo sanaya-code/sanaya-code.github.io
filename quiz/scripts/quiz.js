@@ -48,11 +48,6 @@ class Controller
             console.log(this.quizState.queList)
         }
     }
-    
-    initializeUserAnswers() 
-    {
-        this.quizState.initializeUserAnswers();
-    }
 
 
     initEventListeners() 
@@ -62,6 +57,7 @@ class Controller
         document.getElementById('mark-review').addEventListener('click', () => this.toggleMarkReview());
         document.getElementById('submit-quiz').addEventListener('click', () => this.submitQuiz());
         document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
+        document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
         // Add restart quiz handler
         document.getElementById('restart-quiz').addEventListener('click', (e) => {
             e.preventDefault();
@@ -130,6 +126,20 @@ class Controller
         
         // Scroll to top
         window.scrollTo(0, 0);
+    }
+
+    startOnlyWrongAnswers()
+    {
+        // Reset quiz state with only wrong answered questions
+        this.clearCurrentQuestion();
+        this.quizState.resultModal.reset();
+        this.quizState.setWrongAnswers();
+        this.quizState.initializeUserAnswers();
+        this.quizState.setCurrentQuestion(0);
+        this.indexPanel.reset();
+        this.indexPanel.show();
+        this.showIndexPanel();
+        this.showCurrentQuestion();
     }
     
     saveCurrentAnswer() 
@@ -395,19 +405,7 @@ class Controller
         
 
         // Mark current question
-        this.indexPanel.markQuestionCurrent(0);
-    
-        // Update answered status for all questions
-        Object.entries(this.quizState.userAnswers).forEach(([index, answer]) => {
-            const questionIndex = parseInt(index);
-            if (answer.answer !== null) {
-                this.indexPanel.markQuestionAnswered(questionIndex);
-            }
-            if (answer.isMarked) {
-                this.indexPanel.markQuestionReviewed(questionIndex);
-            }
-        });
-    
+        this.indexPanel.markQuestionCurrent(0);    
         // Show the panel
         this.indexPanel.show();
     }
@@ -416,9 +414,9 @@ class Controller
     {
         try 
         {
-            await this.setQuestionsList();
-            this.initializeUserAnswers();
             this.initEventListeners();
+            await this.setQuestionsList();
+            this.quizState.initializeUserAnswers();
             this.quizState.setCurrentQuestion(0);
             this.showIndexPanel();
             this.showCurrentQuestion();

@@ -27,7 +27,7 @@
       "type": "mcq",
       "id": "002",
       "question": "Which of these represents a point?",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><circle cx='50' cy='50' r='3' fill='black'/><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2'/><rect x='150' y='30' width='40' height='40' fill='none' stroke='black'/></svg>",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'> <circle cx='50' cy='50' r='3' fill='red'/> <line x1='100' y1='30' x2='100' y2='70' stroke='blue' stroke-width='2'/> <rect x='150' y='30' width='40' height='40' fill='pink' stroke='black'/></svg>",
       "options": [
         {"id": "1", "text": "Left figure"},
         {"id": "2", "text": "Middle figure"},

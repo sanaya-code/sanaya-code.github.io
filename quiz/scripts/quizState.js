@@ -180,6 +180,21 @@ class QuizState
         return true;
     }
 
+    setWrongAnswers() 
+    {
+        // Filter questions where user answer was incorrect
+        this.queList = this.queList.filter((question, index) => {
+            const userAnswer = this.userAnswers[index]?.answer;
+            return !this.checkAnswerCorrectness(question, userAnswer);
+        });
+        
+        // Reset current question tracking
+        /*
+        this.currentQuestionIndex = 0;
+        this.currentQuestion = this.queList.length > 0 ? this.queList[0] : null;
+        */
+    }
+
     initializeUserAnswers() 
     {
         this.queList.forEach((_, i) => {
