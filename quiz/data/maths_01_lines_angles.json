@@ -11,21 +11,6 @@
     {
       "type": "mcq",
       "id": "001",
-      "question": "What is a point in geometry?",
-      "options": [
-        {"id": "A", "text": "A dot with no size"},
-        {"id": "B", "text": "A small line"},
-        {"id": "C", "text": "A circle"},
-        {"id": "D", "text": "An angle"}
-      ],
-      "correct_answer": "A",
-      "explanation": "A point is an exact location with no size - we represent it with a dot.",
-      "difficulty": "easy",
-      "tags": ["points"]
-    },
-    {
-      "type": "mcq",
-      "id": "002",
       "question": "Which of these represents a point?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'> <circle cx='50' cy='50' r='3' fill='red'/> <line x1='100' y1='30' x2='100' y2='70' stroke='blue' stroke-width='2'/> <rect x='150' y='30' width='40' height='40' fill='pink' stroke='black'/></svg>",
       "options": [
@@ -39,22 +24,8 @@
       "tags": ["points"]
     },
     {
-      "type": "matching",
-      "id": "003",
-      "question": "Match types of lines with end points",
-      "pairs": [
-        {"left": "Ray", "right": "2"},
-        {"left": "Line Segment", "right": "0"},
-        {"left": "Line", "right": "1"}
-      ],
-      "distractors": ["3", "4"],
-      "difficulty": "hard",
-      "tags": ["lines", "geometry"],
-      "points": 2
-    },
-    {
       "type": "mcq",
-      "id": "004",
+      "id": "002",
       "question": "Which figure shows a line segment?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "options": [
@@ -69,25 +40,7 @@
     },
     {
       "type": "multi_select",
-      "id": "005",
-      "question": "A straight line: (Select all that apply)",
-      "options": [
-        {"id": "A", "text": "Goes on forever in both directions", "correct": true},
-        {"id": "B", "text": "Has two endpoints", "correct": false},
-        {"id": "C", "text": "Has no endpoints", "correct": true},
-        {"id": "D", "text": "Has one endpoint", "correct": false}
-      ],
-      "minimum_selections": 1,
-      "maximum_selections": 3,
-      "difficulty": "easy",
-      "tags": ["lines"],
-      "points": 2,
-      "scoring_method": "partial",
-      "explanation": "Lines continue infinitely in both directions."
-    },
-    {
-      "type": "multi_select",
-      "id": "006",
+      "id": "003",
       "question": "Two lines can intersect at",
       "options": [
         {"id": "A", "text": "Two points", "correct": false},
@@ -104,7 +57,7 @@
     },
     {
       "type": "mcq",
-      "id": "007",
+      "id": "004",
       "question": "Two lines that do not intersect are",
       "options": [
         {"id": "A", "text": "Perpendicular Lines"},
@@ -119,7 +72,7 @@
     },
     {
       "type": "mcq",
-      "id": "008",
+      "id": "005",
       "question": "Which figure represents a line?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"></path></marker></defs><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"70\" stroke=\"black\" stroke-width=\"2\" marker-end=\"url(#arrow)\" marker-start=\"url(#arrow)\"></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "options": [
@@ -134,7 +87,7 @@
     },
     {
       "type": "mcq",
-      "id": "009",
+      "id": "006",
       "question": "Which figure shows a ray?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"/></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' marker-end='url(#arrow)'/><line x1='30' y1='80' x2='170' y2='80' stroke='black' stroke-width='2' marker-start='url(#arrow)' marker-end='url(#arrow)'/></svg>",
       "options": [
@@ -148,23 +101,8 @@
       "tags": ["rays"]
     },
     {
-      "type": "mcq",
-      "id": "010",
-      "question": "An angle is formed by:",
-      "options": [
-        {"id": "A", "text": "Two lines intersection at a point"},
-        {"id": "B", "text": "One line"},
-        {"id": "C", "text": "Two parallel lines"},
-        {"id": "D", "text": "Two ponits"}
-      ],
-      "correct_answer": "A",
-      "explanation": "An angle is made when two lines or rays meet at a common point called the vertex.",
-      "difficulty": "easy",
-      "tags": ["angles"]
-    },
-    {
       "type": "fill_in_blank",
-      "id": "011",
+      "id": "007",
       "question": "All angles are measured from 0° to ____.",
       "correct_answer": "360",
       "case_sensitive": false,
@@ -174,7 +112,7 @@
     },
     {
       "type": "mcq",
-      "id": "012",
+      "id": "008",
       "question": "Vertex of angle is?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><circle cx='100' cy='100' r='3' fill='red'/><text x='80' y='120' font-size='12'>A</text><text x='40' y='40' font-size='12'>B</text><text x='160' y='40' font-size='12'>C</text></svg>",
       "options": [
@@ -189,7 +127,7 @@
     },
     {
       "type": "mcq",
-      "id": "013",
+      "id": "009",
       "question": "Which angle is a straight angle?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='50' x2='100' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='200' y1='50' x2='250' y2='50' stroke='black' stroke-width='2'/><line x1='250' y1='50' x2='250' y2='20' stroke='black' stroke-width='2'/></svg>",
       "options": [
@@ -204,7 +142,7 @@
     },
     {
       "type": "mcq",
-      "id": "014",
+      "id": "010",
       "question": "A straight angle measures:",
       "options": [
         {"id": "A", "text": "90°"},
@@ -219,7 +157,7 @@
     },
     {
       "type": "true_false",
-      "id": "015",
+      "id": "011",
       "question": "A straight angle looks like a perfectly straight line.",
       "correct_answer": true,
       "explanation": "When two rays point in exactly opposite directions, they form a straight line (180°).",
@@ -228,7 +166,7 @@
     },
     {
       "type": "matching",
-      "id": "016",
+      "id": "012",
       "question": "Match the followings:",
       "pairs": [
         {"left": "Straight Angle", "right": "90°"},
@@ -244,17 +182,8 @@
       "points": 2
     },
     {
-      "type": "fill_in_blank",
-      "id": "017",
-      "question": "An angle measuring 45° is an ____ angle.",
-      "correct_answer": "acute",
-      "case_sensitive": false,
-      "difficulty": "easy",
-      "tags": ["angles", "acute"]
-    },
-    {
       "type": "mcq",
-      "id": "018",
+      "id": "013",
       "question": "Which angle is acute?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='180' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
       "options": [
@@ -269,7 +198,7 @@
     },
     {
       "type": "true_false",
-      "id": "019",
+      "id": "014",
       "question": "An angle measuring 100° is obtuse.",
       "correct_answer": true,
       "explanation": "100° is between 90° and 180°, so it's obtuse.",
@@ -278,7 +207,7 @@
     },
     {
       "type": "mcq",
-      "id": "020",
+      "id": "015",
       "question": "Which angle is obtuse?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='220' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
       "options": [
@@ -293,7 +222,7 @@
     },
     {
       "type": "mcq",
-      "id": "021",
+      "id": "016",
       "question": "A reflex angle measures:",
       "options": [
         {"id": "A", "text": "Less than 180°"},
@@ -308,7 +237,7 @@
     },
     {
       "type": "true_false",
-      "id": "022",
+      "id": "017",
       "question": "A 270° angle is a reflex angle.",
       "correct_answer": true,
       "explanation": "270° is between 180° and 360°, so it's reflex.",
@@ -317,28 +246,13 @@
     },
     {
       "type": "mcq",
-      "id": "023",
-      "question": "Which angle is reflex?",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M50,100 L100,100 A50,50 0 1,1 100,150 Z' fill='none' stroke='black' stroke-width='2'/><path d='M150,100 L200,100 A50,50 0 0,1 200,50 Z' fill='none' stroke='black' stroke-width='2'/></svg>",
+      "id": "018",
+      "question": "Angle between two perpendicular lines is:",
       "options": [
-        {"id": "1", "text": "Left angle (large)"},
-        {"id": "2", "text": "Right angle (small)"},
-        {"id": "3", "text": "Neither"}
-      ],
-      "correct_answer": "1",
-      "explanation": "The left angle is the larger portion (more than 180°), making it reflex.",
-      "difficulty": "medium",
-      "tags": ["angles", "reflex"]
-    },
-    {
-      "type": "mcq",
-      "id": "024",
-      "question": "Perpendicular lines intersect to form:",
-      "options": [
-        {"id": "A", "text": "Acute angles"},
-        {"id": "B", "text": "Right angles"},
-        {"id": "C", "text": "Obtuse angles"},
-        {"id": "D", "text": "Straight angles"}
+        {"id": "A", "text": "Acute angle"},
+        {"id": "B", "text": "Right angle (90°)"},
+        {"id": "C", "text": "Obtuse angle"},
+        {"id": "D", "text": "Straight angle"}
       ],
       "correct_answer": "B",
       "explanation": "Perpendicular lines always cross at 90° right angles.",
@@ -347,8 +261,23 @@
     },
     {
       "type": "mcq",
-      "id": "025",
+      "id": "019",
       "question": "Which pair of lines is perpendicular?",
+      "svg_content": "<svg width='400' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><g transform='translate(50, 80)'><line x1='-25' y1='0' x2='25' y1='0' stroke='#FF5252' stroke-width='3'/><line x1='0' y1='-25' x2='0' y1='25' stroke='#FF5252' stroke-width='3'/></g><g transform='translate(200, 80)'><line x1='-30' y1='-15' x2='30' y2='-15' stroke='#4285F4' stroke-width='3'/><line x1='-30' y1='15' x2='30' y2='15' stroke='#4285F4' stroke-width='3'/></g><g transform='translate(350, 80)'><line x1='-25' y1='-20' x2='25' y1='20' stroke='#0F9D58' stroke-width='3'/><line x1='-25' y1='20' x2='25' y1='-20' stroke='#0F9D58' stroke-width='3'/></g></svg>",
+      "options": [
+        {"id": "1", "text": "left"},
+        {"id": "2", "text": "middle"},
+        {"id": "3", "text": "right"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The first pair forms perfect right angles (90°).",
+      "difficulty": "easy",
+      "tags": ["lines", "perpendicular"]
+    },
+    {
+      "type": "mcq",
+      "id": "020",
+      "question": "Which pair of lines is parallel?",
       "svg_content": "<svg width='400' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><g transform='translate(50, 80)'><line x1='-25' y1='0' x2='25' y1='0' stroke='#FF5252' stroke-width='3'/><line x1='0' y1='-25' x2='0' y1='25' stroke='#FF5252' stroke-width='3'/></g><g transform='translate(200, 80)'><line x1='-30' y1='-15' x2='30' y2='-15' stroke='#4285F4' stroke-width='3'/><line x1='-30' y1='15' x2='30' y2='15' stroke='#4285F4' stroke-width='3'/></g><g transform='translate(350, 80)'><line x1='-25' y1='-20' x2='25' y1='20' stroke='#0F9D58' stroke-width='3'/><line x1='-25' y1='20' x2='25' y1='-20' stroke='#0F9D58' stroke-width='3'/></g></svg>",
       "options": [
         {"id": "1", "text": "left"},
@@ -361,23 +290,8 @@
       "tags": ["lines", "perpendicular"]
     },
     {
-      "type": "mcq",
-      "id": "026",
-      "question": "An angle bisector:",
-      "options": [
-        {"id": "A", "text": "divides the angle into 3 equal parts"},
-        {"id": "B", "text": "divides the angle into 2 equal parts"},
-        {"id": "C", "text": "Makes the angle smaller"},
-        {"id": "D", "text": "Extends the angle"}
-      ],
-      "correct_answer": "B",
-      "explanation": "A bisector divides an angle into two equal smaller angles.",
-      "difficulty": "medium",
-      "tags": ["angles", "bisector"]
-    },
-    {
       "type": "true_false",
-      "id": "027",
+      "id": "021",
       "question": "The angle bisector of 20° angle creates 2 angles of 10°.",
       "correct_answer": true,
       "explanation": "90° divided by 2 equals 45° for each new angle.",
@@ -386,7 +300,7 @@
     },
     {
       "type": "mcq",
-      "id": "028",
+      "id": "022",
       "question": "Which line is the angle bisector?",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='100' y2='20' stroke='red' stroke-width='2' stroke-dasharray='5,5'/><line x1='100' y1='100' x2='150' y2='150' stroke='blue' stroke-width='2'/></svg>",
       "options": [
@@ -401,7 +315,7 @@
     },
     {
       "type": "ordering",
-      "id": "029",
+      "id": "023",
       "question": "Arrange these angles in increasing order:",
       "items": [
         {"id": "A", "text": "Obtuse Angle"},
@@ -417,14 +331,14 @@
     },
     {
       "type": "multi_select",
-      "id": "030",
-      "question": "Select correct answer",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 150'><line x1='100' y1='120' x2='80' y2='20' stroke='black' stroke-width='3'/><line x1='100' y1='120' x2='200' y2='120' stroke='black' stroke-width='3'/><line x1='100' y1='120' x2='150' y2='35' stroke='black' stroke-width='3'/><circle cx='100' cy='120' r='3' fill='red'/><text x='85' y='110' font-size='12'>O</text><circle cx='80' cy='20' r='3' fill='red'/><text x='90' y='25' font-size='12'>A</text><circle cx='200' cy='120' r='3' fill='red'/><text x='195' y='110' font-size='12'>B</text><circle cx='150' cy='35' r='3' fill='red'/><text x='150' y='30' font-size='12'>C</text></svg>",
+      "id": "024",
+      "question": "Angle L AOC = ",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.line { stroke: black; stroke-width: 1.5; fill: none; }.point { font-family: Arial; font-size: 10px; font-weight: bold; }.point-marker { fill: red; r: 2; }.angle-label { font-size: 8px; }</style><path fill='rgba(100,200,255,0.3)' d='M 10 110 L 10 20 L 60 33.4 Z'/><path fill='rgba(200,100,255,0.3)' d='M 10 110 L 60 33.4 L 110 110 Z'/><line x1='10' y1='110' x2='10' y2='20' class='line'/><line x1='10' y1='110' x2='60' y2='33.4' class='line'/><line x1='10' y1='110' x2='110' y2='110' class='line'/><circle cx='10' cy='110' r='2' class='point-marker'/><text x='5' y='120' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='60' cy='33.4' r='2' class='point-marker'/><text x='63' y='36.4' class='point'>B</text><circle cx='110' cy='110' r='2' class='point-marker'/><text x='105' y='105' class='point'>C</text><text x='20' y='70' class='angle-label'>30°</text><text x='50' y='90' class='angle-label'>45°</text></svg>",
       "options": [
-        {"id": "A", "text": "L AOB > L AOC", "correct": true},
-        {"id": "B", "text": "L AOB < L AOC", "correct": false},
-        {"id": "C", "text": "L AOB = L AOC + L COB", "correct": true},
-        {"id": "D", "text": "L AOB < L COB", "correct": false}
+        {"id": "A", "text": "45 + 30", "correct": true},
+        {"id": "B", "text": " 45 - 30", "correct": false},
+        {"id": "C", "text": "45 x 30", "correct": true},
+        {"id": "D", "text": "100", "correct": false}
       ],
       "minimum_selections": 1,
       "maximum_selections": 2,
@@ -435,27 +349,23 @@
       "explanation": "AOB is largest angle"
     },
     {
-      "type": "multi_select",
-      "id": "031",
-      "question": "If OC is angle bisector then",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 150'><line x1='100' y1='120' x2='80' y2='20' stroke='black' stroke-width='3'/><line x1='100' y1='120' x2='200' y2='120' stroke='black' stroke-width='3'/><line x1='100' y1='120' x2='150' y2='35' stroke='black' stroke-width='3'/><circle cx='100' cy='120' r='3' fill='red'/><text x='85' y='110' font-size='12'>O</text><circle cx='80' cy='20' r='3' fill='red'/><text x='90' y='25' font-size='12'>A</text><circle cx='200' cy='120' r='3' fill='red'/><text x='195' y='110' font-size='12'>B</text><circle cx='150' cy='35' r='3' fill='red'/><text x='150' y='30' font-size='12'>C</text></svg>",
+      "type": "mcq",
+      "id": "025",
+      "question": "OC is angle bisector, Angle AOB is = ",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.line { stroke: black; stroke-width: 1.5; fill: none; }.line-blue { stroke: blue; stroke-width: 1.5; fill: none; }.point { font-family: Arial; font-size: 10px; font-weight: bold; }.angle-fill { fill: rgba(100,200,255,0.3); stroke: none; }.point-marker { fill: red; r: 2; }.angle-label { font-size: 10px; }</style><path class='angle-fill' d='M 10 110 L 90 110 L 79.28 70 Z'/><path class='angle-fill' d='M 10 110 L 79.28 70 L 50 40.72 Z'/><line x1='10' y1='110' x2='90' y2='110' class='line'/><line x1='10' y1='110' x2='79.28' y2='70' class='line-blue'/><line x1='10' y1='110' x2='50' y2='40.72' class='line'/><circle cx='10' cy='110' r='2' class='point-marker'/><text x='05' y='120' class='point'>O</text><circle cx='90' cy='110' r='2' class='point-marker'/><text x='93' y='113' class='point'>C</text><circle cx='79.28' cy='70' r='2' class='point-marker'/><text x='82.28' y='73' class='point'>B</text><circle cx='50' cy='40.72' r='2' class='point-marker'/><text x='53' y='43.72' class='point'>A</text><text x='50' y='100' class='angle-label'>30°</text></svg>",
       "options": [
-        {"id": "A", "text": "L AOC < L COB", "correct": false},
-        {"id": "B", "text": "L AOC = L COB", "correct": true} ,
-        {"id": "C", "text": "L AOB = L AOC + L COB", "correct": true},
-        {"id": "D", "text": "L AOC > L BOC", "correct": false}
+        {"id": "1", "text": "45°"},
+        {"id": "2", "text": "30°"},
+        {"id": "3", "text": "60°"}
       ],
-      "minimum_selections": 1,
-      "maximum_selections": 3,
-      "difficulty": "easy",
-      "tags": ["lines"],
-      "points": 2,
-      "scoring_method": "partial",
-      "explanation": "Lines continue infinitely in both directions."
+      "correct_answer": "2",
+      "explanation": "The red dashed line perfectly splits the angle into two equal parts.",
+      "difficulty": "medium",
+      "tags": ["angles", "bisector"]
     },
     {
       "type": "mcq",
-      "id": "032",
+      "id": "026",
       "question": "What is common between LAOC and LBOD",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style><path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/><line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/><line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/><circle cx='10' cy='120' r='2' /><text x='5' y='130' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='86.6' cy='55.7' r='2' class='point-marker'/><text x='89.6' y='58.7' class='point'>B</text><circle cx='103.97' cy='85.8' r='2' class='point-marker'/><text x='106.97' y='88.8' class='point'>C</text><circle cx='110' cy='120' r='2' class='point-marker'/><text x='113' y='123' class='point'>D</text></svg>",
       "options": [
@@ -470,7 +380,7 @@
     },
     {
       "type": "mcq",
-      "id": "033",
+      "id": "027",
       "question": "Choose the correct option",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style><path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/><line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/><line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/><circle cx='10' cy='120' r='2' /><text x='5' y='130' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='86.6' cy='55.7' r='2' class='point-marker'/><text x='89.6' y='58.7' class='point'>B</text><circle cx='103.97' cy='85.8' r='2' class='point-marker'/><text x='106.97' y='88.8' class='point'>C</text><circle cx='110' cy='120' r='2' class='point-marker'/><text x='113' y='123' class='point'>D</text></svg>",
       "options": [
