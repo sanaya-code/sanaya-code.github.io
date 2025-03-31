@@ -165,23 +165,6 @@
       "tags": ["angles", "straight"]
     },
     {
-      "type": "matching",
-      "id": "012",
-      "question": "Match the followings:",
-      "pairs": [
-        {"left": "Straight Angle", "right": "90°"},
-        {"left": "Obtuse Angle", "right": "0° to 90°"},
-        {"left": "Reflex Angle", "right": "180°"},
-        {"left": "Acute Angle", "right": "90° to 180°"},
-        {"left": "Right Angle(Perpendicular)", "right": "180° to 360°"}
-        
-      ],
-      "distractors": ["0° to 100°"],
-      "difficulty": "hard",
-      "tags": ["angles", "geometry"],
-      "points": 2
-    },
-    {
       "type": "mcq",
       "id": "013",
       "question": "Which angle is acute?",
@@ -290,13 +273,19 @@
       "tags": ["lines", "perpendicular"]
     },
     {
-      "type": "true_false",
+      "type": "mcq",
       "id": "021",
-      "question": "The angle bisector of 20° angle creates 2 angles of 10°.",
-      "correct_answer": true,
-      "explanation": "90° divided by 2 equals 45° for each new angle.",
-      "difficulty": "medium",
-      "tags": ["angles", "bisector"]
+      "question": " Line OB is angle bisector of AOC. If L AOC is 80°, then LAOB",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.line { stroke: black; stroke-width: 1.5; fill: none; }.line-blue { stroke: blue; stroke-width: 1.5; fill: none; }.point { font-family: Arial; font-size: 10px; font-weight: bold; }.angle-fill { fill: rgba(100,200,255,0.3); stroke: none; }.point-marker { fill: red; r: 2; }.angle-label { font-size: 10px; }</style><path class='angle-fill' d='M 10 110 L 90 110 L 79.28 70 Z'/><path class='angle-fill' d='M 10 110 L 79.28 70 L 50 40.72 Z'/><line x1='10' y1='110' x2='90' y2='110' class='line'/><line x1='10' y1='110' x2='79.28' y2='70' class='line-blue'/><line x1='10' y1='110' x2='50' y2='40.72' class='line'/><circle cx='10' cy='110' r='2' class='point-marker'/><text x='05' y='120' class='point'>O</text><circle cx='90' cy='110' r='2' class='point-marker'/><text x='93' y='113' class='point'>C</text><circle cx='79.28' cy='70' r='2' class='point-marker'/><text x='82.28' y='73' class='point'>B</text><circle cx='50' cy='40.72' r='2' class='point-marker'/><text x='53' y='43.72' class='point'>A</text><text x='100' y='65' class='angle-label'>80°</text></svg>",
+      "options": [
+        {"id": "1", "text": "20°"},
+        {"id": "2", "text": "40°"},
+        {"id": "3", "text": "15°"},
+        {"id": "4", "text": "10°"}
+      ],
+      "correct_answer": "2",
+      "difficulty": "easy",
+      "tags": ["angle bisector"]
     },
     {
       "type": "mcq",
@@ -312,22 +301,6 @@
       "explanation": "The red dashed line perfectly splits the angle into two equal parts.",
       "difficulty": "medium",
       "tags": ["angles", "bisector"]
-    },
-    {
-      "type": "ordering",
-      "id": "023",
-      "question": "Arrange these angles in increasing order:",
-      "items": [
-        {"id": "A", "text": "Obtuse Angle"},
-        {"id": "B", "text": "Reflex Angle"},
-        {"id": "C", "text": "Acute Angle"},
-        {"id": "D", "text": "Right Angle"},
-        {"id": "E", "text": "Straight Angle"}
-      ],
-      "correct_order": ["C", "D", "A", "E", "B"],
-      "difficulty": "medium",
-      "tags": ["angles"],
-      "points": 2
     },
     {
       "type": "multi_select",
@@ -354,7 +327,7 @@
       "question": "OC is angle bisector, Angle AOB is = ",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.line { stroke: black; stroke-width: 1.5; fill: none; }.line-blue { stroke: blue; stroke-width: 1.5; fill: none; }.point { font-family: Arial; font-size: 10px; font-weight: bold; }.angle-fill { fill: rgba(100,200,255,0.3); stroke: none; }.point-marker { fill: red; r: 2; }.angle-label { font-size: 10px; }</style><path class='angle-fill' d='M 10 110 L 90 110 L 79.28 70 Z'/><path class='angle-fill' d='M 10 110 L 79.28 70 L 50 40.72 Z'/><line x1='10' y1='110' x2='90' y2='110' class='line'/><line x1='10' y1='110' x2='79.28' y2='70' class='line-blue'/><line x1='10' y1='110' x2='50' y2='40.72' class='line'/><circle cx='10' cy='110' r='2' class='point-marker'/><text x='05' y='120' class='point'>O</text><circle cx='90' cy='110' r='2' class='point-marker'/><text x='93' y='113' class='point'>C</text><circle cx='79.28' cy='70' r='2' class='point-marker'/><text x='82.28' y='73' class='point'>B</text><circle cx='50' cy='40.72' r='2' class='point-marker'/><text x='53' y='43.72' class='point'>A</text><text x='50' y='100' class='angle-label'>30°</text></svg>",
       "options": [
-        {"id": "1", "text": "45°"},
+        {"id": "1", "text": "15°"},
         {"id": "2", "text": "30°"},
         {"id": "3", "text": "60°"}
       ],
@@ -392,6 +365,39 @@
       "explanation": "The small black dot on the left is how we represent a point.",
       "difficulty": "easy",
       "tags": ["points"]
+    },
+    {
+      "type": "matching",
+      "id": "030",
+      "question": "Match the followings:",
+      "pairs": [
+        {"left": "Straight Angle", "right": "90°"},
+        {"left": "Obtuse Angle", "right": "0° to 90°"},
+        {"left": "Reflex Angle", "right": "180°"},
+        {"left": "Acute Angle", "right": "90° to 180°"},
+        {"left": "Right Angle(Perpendicular)", "right": "180° to 360°"}
+        
+      ],
+      "distractors": ["0° to 100°"],
+      "difficulty": "hard",
+      "tags": ["angles", "geometry"],
+      "points": 2
+    },
+    {
+      "type": "ordering",
+      "id": "023",
+      "question": "Arrange these angles in increasing order:",
+      "items": [
+        {"id": "A", "text": "Obtuse Angle"},
+        {"id": "B", "text": "Reflex Angle"},
+        {"id": "C", "text": "Acute Angle"},
+        {"id": "D", "text": "Right Angle"},
+        {"id": "E", "text": "Straight Angle"}
+      ],
+      "correct_order": ["C", "D", "A", "E", "B"],
+      "difficulty": "medium",
+      "tags": ["angles"],
+      "points": 2
     }
     
   ],
