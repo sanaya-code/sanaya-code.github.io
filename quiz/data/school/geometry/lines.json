@@ -227,6 +227,56 @@
           "difficulty": "medium",
           "tags": ["lines", "maths"],
           "points": 1.5
+        },
+        {
+            "type": "multi_select",
+            "id": "024",
+            "question": "Which of the following points lie on exactly 1 line segments?",
+            "svg_content": "<svg viewBox='0 0 130 130' xmlns='http://www.w3.org/2000/svg'><style>.label { font-size: 8px; fill: black; text-anchor: middle; }</style><circle cx='20' cy='60' fill= 'red' r='2'/><text x='20' y='55' class='label'>L</text><line x1='20' y1='60' x2='38.7939' y2='53.1596' stroke= 'red'/><circle cx='38.7939' cy='53.1596' fill= 'red' r='2'/><text x='38.7939' y='48.1596' class='label'>M</text><line x1='38.7939' y1='53.1596' x2='57.5878' y2='60.0000' stroke= 'blue'/><circle cx='57.5878' cy='60.0000' fill= 'red' r='2'/><text x='57.5878' y='55.0000' class='label'>P</text><line x1='57.5878' y1='60.0000' x2='77.5878' y2='60.0000' stroke= 'red'/><circle cx='77.5878' cy='60.0000' fill= 'red' r='2'/><text x='77.5878' y='55.0000' class='label'>Q</text><line x1='77.5878' y1='60.0000' x2='92.8920' y2='72.8564' stroke= 'blue'/><circle cx='92.8920' cy='72.8564' fill= 'red' r='2'/><text x='92.8920' y='67.8564' class='label'>R</text></svg>",
+            "options": [
+              {"id": "A", "text": "L", "correct": true},
+              {"id": "A", "text": "M", "correct": false},
+              {"id": "B", "text": "P", "correct": false},
+              {"id": "B", "text": "Q", "correct": false},
+              {"id": "B", "text": "R", "correct": true}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+            "type": "multi_select",
+            "id": "025",
+            "question": "Which of the following points lie on exactly 2 line segments?",
+            "svg_content": "<svg viewBox='0 0 130 130' xmlns='http://www.w3.org/2000/svg'><style>.label { font-size: 8px; fill: black; text-anchor: middle; }</style><circle cx='20' cy='60' fill= 'red' r='2'/><text x='20' y='55' class='label'>L</text><line x1='20' y1='60' x2='38.7939' y2='53.1596' stroke= 'red'/><circle cx='38.7939' cy='53.1596' fill= 'red' r='2'/><text x='38.7939' y='48.1596' class='label'>M</text><line x1='38.7939' y1='53.1596' x2='57.5878' y2='60.0000' stroke= 'blue'/><circle cx='57.5878' cy='60.0000' fill= 'red' r='2'/><text x='57.5878' y='55.0000' class='label'>P</text><line x1='57.5878' y1='60.0000' x2='77.5878' y2='60.0000' stroke= 'red'/><circle cx='77.5878' cy='60.0000' fill= 'red' r='2'/><text x='77.5878' y='55.0000' class='label'>Q</text><line x1='77.5878' y1='60.0000' x2='92.8920' y2='72.8564' stroke= 'blue'/><circle cx='92.8920' cy='72.8564' fill= 'red' r='2'/><text x='92.8920' y='67.8564' class='label'>R</text></svg>",
+            "options": [
+              {"id": "A", "text": "L", "correct": false},
+              {"id": "A", "text": "M", "correct": true},
+              {"id": "B", "text": "P", "correct": true},
+              {"id": "B", "text": "Q", "correct": true},
+              {"id": "B", "text": "R", "correct": false}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+          "type": "fill_in_blank",
+          "id": "fib_001",
+          "question": "P lie on line segments  ____.",
+          "svg_content": "<svg viewBox='0 0 130 130' xmlns='http://www.w3.org/2000/svg'><style>.label { font-size: 8px; fill: black; text-anchor: middle; }</style><circle cx='20' cy='60' fill= 'red' r='2'/><text x='20' y='55' class='label'>L</text><line x1='20' y1='60' x2='38.7939' y2='53.1596' stroke= 'red'/><circle cx='38.7939' cy='53.1596' fill= 'red' r='2'/><text x='38.7939' y='48.1596' class='label'>M</text><line x1='38.7939' y1='53.1596' x2='57.5878' y2='60.0000' stroke= 'blue'/><circle cx='57.5878' cy='60.0000' fill= 'red' r='2'/><text x='57.5878' y='55.0000' class='label'>P</text><line x1='57.5878' y1='60.0000' x2='77.5878' y2='60.0000' stroke= 'red'/><circle cx='77.5878' cy='60.0000' fill= 'red' r='2'/><text x='77.5878' y='55.0000' class='label'>Q</text><line x1='77.5878' y1='60.0000' x2='92.8920' y2='72.8564' stroke= 'blue'/><circle cx='92.8920' cy='72.8564' fill= 'red' r='2'/><text x='92.8920' y='67.8564' class='label'>R</text></svg>",
+          "correct_answer": "MP PQ",
+          "acceptable_answers": ["MP QP", "PM PQ", "PM QP", "QP MP", "PQ PM", "QP PM", "PQ MP"],
+          "case_sensitive": false,
+          "difficulty": "medium",
+          "tags": ["science", "physics", "states-of-matter"],
+          "points": 1.5
         }
     ],
     "taxonomy": {
