@@ -2,7 +2,7 @@ class OrderingComponent extends ParentComponent
 {
     constructor() 
     {
-        super('ordering-question', 'ordering-geometry-figure');
+        super('ordering-question', 'ordering-svg-figure');
         this.id = "ordering-question";
         this.questionId = "ordering-question-text";
         this.itemsContainerId = "ordering-items";

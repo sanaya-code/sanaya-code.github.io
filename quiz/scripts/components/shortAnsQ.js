@@ -2,7 +2,7 @@ class ShortAnswerComponent extends ParentComponent
 {
     constructor() 
     {
-        super('short-question', 'short-geometry-figure');
+        super('short-question', 'short-svg-figure');
         this.id = "short-question";
         this.questionId = "short-question-text";
         this.answerTextareaId = "short-answer";

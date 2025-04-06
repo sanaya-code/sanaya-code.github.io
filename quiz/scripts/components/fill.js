@@ -1,6 +1,6 @@
 class FillInBlankComponent extends ParentComponent {
     constructor() {
-        super('fill-question', 'fill-geometry-figure');
+        super('fill-question', 'fill-svg-figure');
         this.id = "fill-question";
         this.questionId = "fill-question-text";
         this.answerInputId = "fill-answer";

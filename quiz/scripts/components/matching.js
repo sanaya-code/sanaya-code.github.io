@@ -1,6 +1,6 @@
 class MatchingComponent extends ParentComponent {
     constructor() {
-        super('matching-question', 'matching-geometry-figure');
+        super('matching-question', 'matching-svg-figure');
         this.id = "matching-question";
         this.questionId = "matching-question-text";
         this.pairsContainerId = "matching-pairs";

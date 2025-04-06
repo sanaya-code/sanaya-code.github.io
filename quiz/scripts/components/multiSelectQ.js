@@ -2,7 +2,7 @@ class MultiSelectComponent extends ParentComponent
 {
     constructor() 
     {
-        super('multi-question', 'multi-geometry-figure');
+        super('multi-question', 'multi-svg-figure');
         this.id = "multi-question";
         this.questionId = "multi-question-text";
         this.optionsId = "multi-options";

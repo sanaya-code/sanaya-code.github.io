@@ -2,7 +2,7 @@ class MCQ_Component extends ParentComponent
 {
     constructor() 
     {
-        super('mcq-question', "mcq-geometry-figure");
+        super('mcq-question', "mcq-svg-figure");
         this.id                 =   "question-panel";
         this.questionId         =   "mcq-question-text";
         this.optionsId          =   "mcq-options";

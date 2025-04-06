@@ -2,7 +2,7 @@ class TrueFalseComponent extends ParentComponent
 {
     constructor() 
     {
-        super('tf-question', 'tf-geometry-figure');
+        super('tf-question', 'tf-svg-figure');
         this.id = "tf-question";
         this.questionId = "tf-question-text";
         this.trueOptionId = "true-option";
