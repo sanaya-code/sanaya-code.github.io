@@ -58,6 +58,7 @@ class Controller
         document.getElementById('submit-quiz').addEventListener('click', () => this.submitQuiz());
         document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
         document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
+
         // Add restart quiz handler
         document.getElementById('restart-quiz').addEventListener('click', (e) => {
             e.preventDefault();
@@ -66,6 +67,14 @@ class Controller
             }
         });
 
+        /*
+        document.getElementById('quiz').addEventListener('click', function(event) {
+            if ((event.target.tagName === 'DIV' || event.target.tagName === 'INPUT')) {
+              document.getElementById('next-btn').focus();
+            }
+          });
+          */
+        
         /*
         this.indexPanel.querySelectorAll('.index-item').forEach(item => {
             item.addEventListener('click', () => {
@@ -383,6 +392,7 @@ class Controller
         this.quizState.setCurrentQuestion(newIndex);
         this.indexPanel.markQuestionCurrent(newIndex);
         this.showCurrentQuestion();
+        document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
     }
 
     navigateQuestion(i)
