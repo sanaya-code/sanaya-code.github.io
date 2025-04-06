@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "On Under",
+      "img_url": "https://i.pinimg.com/736x/f6/51/55/f65155d204c7c7f758e75b32261e65e6.jpg",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Jupiter is more than twice as massive as all other planets combined.",
+      "difficulty": "easy",
+      "tags": ["science", "astronomy", "solar-system"],
+      "points": 1,
+      "time_limit": 30
+    },
+    {
+      "type": "mcq",
+      "id": "002",
+      "question": "On Under",
+      "img_url": "https://i.pinimg.com/736x/f6/51/55/f65155d204c7c7f758e75b32261e65e6.jpg",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Jupiter is more than twice as massive as all other planets combined.",
+      "difficulty": "easy",
+      "tags": ["science", "astronomy", "solar-system"],
+      "points": 1,
+      "time_limit": 30
+    }
+    
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
