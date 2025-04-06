@@ -29,7 +29,7 @@
         {"id": "A", "text": "Front"},
         {"id": "B", "text": "Behind"}
       ],
-      "correct_answer": "A"
+      "correct_answer": "B"
     },
     {
       "type": "mcq",
@@ -51,7 +51,7 @@
         {"id": "A", "text": "Front"},
         {"id": "B", "text": "Behind"}
       ],
-      "correct_answer": "B"
+      "correct_answer": "A"
     },
     {
       "type": "mcq",
@@ -84,7 +84,7 @@
         {"id": "A", "text": "Front"},
         {"id": "B", "text": "Behind"}
       ],
-      "correct_answer": "B"
+      "correct_answer": "A"
     },
     {
       "type": "mcq",
@@ -95,13 +95,35 @@
         {"id": "A", "text": "Front"},
         {"id": "B", "text": "Behind"}
       ],
-      "correct_answer": "A"
+      "correct_answer": "B"
     },
     {
       "type": "mcq",
       "id": "009",
       "question": "Front Behind",
       "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/front_behind_09.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "010",
+      "question": "Front Behind",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/front_behind_10.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "011",
+      "question": "Front Behind",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/front_behind_11.jpg",
       "options": [
         {"id": "A", "text": "Front"},
         {"id": "B", "text": "Behind"}
