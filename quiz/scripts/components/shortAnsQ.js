@@ -2,7 +2,7 @@ class ShortAnswerComponent extends ParentComponent
 {
     constructor() 
     {
-        super('short-question', 'short-svg-figure');
+        super('short-question', 'short-svg-figure', 'short-figure');
         this.id = "short-question";
         this.questionId = "short-question-text";
         this.answerTextareaId = "short-answer";
@@ -35,6 +35,7 @@ class ShortAnswerComponent extends ParentComponent
         this.answerTextarea.value           =   '';
         this.svgContainer.innerHTML         =   '';
         this.svgContainer.style.display     =   'none';
+        this.figContainer.style.display     =   'none';
         this.hide();
     }
 

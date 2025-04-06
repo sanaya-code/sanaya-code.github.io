@@ -1,6 +1,6 @@
 class FillInBlankComponent extends ParentComponent {
     constructor() {
-        super('fill-question', 'fill-svg-figure');
+        super('fill-question', 'fill-svg-figure', 'fill-figure');
         this.id = "fill-question";
         this.questionId = "fill-question-text";
         this.answerInputId = "fill-answer";
@@ -30,6 +30,7 @@ class FillInBlankComponent extends ParentComponent {
         this.answerInput.value              =   '';
         this.svgContainer.innerHTML         =   '';
         this.svgContainer.style.display     =   'none';
+        this.figContainer.style.display     =   'none';
         this.hide();
     }
 }

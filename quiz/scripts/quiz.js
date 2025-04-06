@@ -225,6 +225,8 @@ class Controller
 
         this.mcq.setSvg(this.quizState.currentQuestion.svg_content);
 
+        this.mcq.setFigure(this.quizState.currentQuestion.img_url);
+
         this.quizState.currentQuestion.options.forEach((option, index) => {
             this.mcq.addOption(option.id, option.text)
         });
@@ -240,6 +242,8 @@ class Controller
         this.fillQ.setQuestion(this.quizState.currentQuestion.question);
 
         this.fillQ.setSvg(this.quizState.currentQuestion.svg_content);
+
+        this.fillQ.setFigure(this.quizState.currentQuestion.img_url);
         
         if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null)
         {
@@ -254,6 +258,8 @@ class Controller
         this.tfQ.setQuestion(this.quizState.currentQuestion.question);
 
         this.tfQ.setSvg(this.quizState.currentQuestion.svg_content);
+
+        this.tfQ.setFigure(this.quizState.currentQuestion.img_url);
         
         if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null) 
         {
@@ -268,6 +274,8 @@ class Controller
         this.matchingQ.setQuestion(this.quizState.currentQuestion.question);
 
         this.matchingQ.setSvg(this.quizState.currentQuestion.svg_content);
+
+        this.matchingQ.setFigure(this.quizState.currentQuestion.img_url);
         
         // Clear any previous pairs
         // this.matchingQ.reset();
@@ -302,6 +310,8 @@ class Controller
         this.shortAnswerQ.setQuestion(this.quizState.currentQuestion.question);
 
         this.shortAnswerQ.setSvg(this.quizState.currentQuestion.svg_content);
+
+        this.shortAnswerQ.setFigure(this.quizState.currentQuestion.img_url);
         
         // Restore previous answer if it exists
         if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null) 
@@ -319,6 +329,8 @@ class Controller
         this.multiSelectQ.setQuestion(this.quizState.currentQuestion.question);
 
         this.multiSelectQ.setSvg(this.quizState.currentQuestion.svg_content);
+
+        this.multiSelectQ.setFigure(this.quizState.currentQuestion.img_url);
         
         // Add all options with their correctness
         this.quizState.currentQuestion.options.forEach((option) => {
@@ -345,6 +357,8 @@ class Controller
         this.orderingQ.setQuestion(this.quizState.currentQuestion.question);
 
         this.orderingQ.setSvg(this.quizState.currentQuestion.svg_content);
+
+        this.orderingQ.setFigure(this.quizState.currentQuestion.img_url);
 
         // add items in their original order
         this.quizState.currentQuestion.items.forEach((item) => {

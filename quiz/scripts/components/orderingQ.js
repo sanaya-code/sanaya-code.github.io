@@ -2,7 +2,7 @@ class OrderingComponent extends ParentComponent
 {
     constructor() 
     {
-        super('ordering-question', 'ordering-svg-figure');
+        super('ordering-question', 'ordering-svg-figure', 'ordering-figure');
         this.id = "ordering-question";
         this.questionId = "ordering-question-text";
         this.itemsContainerId = "ordering-items";
@@ -63,6 +63,7 @@ class OrderingComponent extends ParentComponent
         this.itemsContainer.innerHTML       =   '';
         this.svgContainer.innerHTML         =   '';
         this.svgContainer.style.display     =   'none';
+        this.figContainer.style.display     =   'none';
         this.hide();
     }
 

@@ -2,7 +2,7 @@ class MCQ_Component extends ParentComponent
 {
     constructor() 
     {
-        super('mcq-question', "mcq-svg-figure");
+        super('mcq-question', "mcq-svg-figure", 'mcq-figure');
         this.id                 =   "question-panel";
         this.questionId         =   "mcq-question-text";
         this.optionsId          =   "mcq-options";
@@ -54,6 +54,7 @@ class MCQ_Component extends ParentComponent
         this.optionsContainer.innerHTML     =   '';
         this.svgContainer.innerHTML         =   '';
         this.svgContainer.style.display     = 'none';
+        this.figContainer.style.display     = 'none';
         this.hide();
     }
 }

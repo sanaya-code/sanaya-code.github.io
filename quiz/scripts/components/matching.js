@@ -1,6 +1,6 @@
 class MatchingComponent extends ParentComponent {
     constructor() {
-        super('matching-question', 'matching-svg-figure');
+        super('matching-question', 'matching-svg-figure', 'matching-figure');
         this.id = "matching-question";
         this.questionId = "matching-question-text";
         this.pairsContainerId = "matching-pairs";
@@ -72,6 +72,7 @@ class MatchingComponent extends ParentComponent {
         this.pairsContainer.innerHTML       =   '';
         this.svgContainer.innerHTML         =   '';
         this.svgContainer.style.display     =   'none';
+        this.figContainer.style.display     =   'none';
         this.hide();
     }
 }
