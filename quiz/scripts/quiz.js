@@ -67,6 +67,29 @@ class Controller
             }
         });
 
+        // press enter key and move to next question
+        document.addEventListener('keydown', (event) => 
+        {
+            if (event.key === 'Enter') {
+                // console.log('Enter key pressed!');
+                // Optional: Prevent default behavior (e.g., form submission)
+                // event.preventDefault();
+                const quizDiv = document.getElementById('quiz');
+                const selectedRadio = quizDiv.querySelector('input[type="radio"]:checked');
+                if (selectedRadio) 
+                {
+                    document.getElementById('next-btn').focus();
+                }
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Control') {
+              // console.log(e.location);
+              this.navigateQuestion(-1);
+            }
+          });
+
         /*
         document.getElementById('quiz').addEventListener('click', function(event) {
             if ((event.target.tagName === 'DIV' || event.target.tagName === 'INPUT')) {
@@ -444,6 +467,7 @@ class Controller
             this.quizState.setCurrentQuestion(0);
             this.showIndexPanel();
             this.showCurrentQuestion();
+            document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
         } 
         catch (error) 
         {
