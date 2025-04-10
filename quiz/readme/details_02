@@ -1,0 +1,107 @@
+write a component "class McqQuestion extends HTMLElement" with Automatic Rendering, which  creates and converts following html element into a reusable component. it should updates only the changed parts instead of re-rendering everything
+
+                    <!-- MCQ Question -->
+                    <div class="question-type" id="mcq-question">
+                        <div class="question-text" id="mcq-question-text"></div>
+                        <div class="svg-figure" id="mcq-svg-figure" style="display: none;"></div>
+                        <div class="figure" id="mcq-figure" style="display: none;"></div>
+                        <div class="options-container" id="mcq-options"></div>
+                    </div>
+
+
+input to this class are as follows
+
+(1)  string to be put inside div(class="question-text")
+(2)  svg  to be put inside div(class="svg-figure"). It can be null
+(3) image url  to be put inside div(class="figure"). It can be null
+(4) input for example [   {"id": "A", "text": "Earth"},   {"id": "B", "text": "Mars"},  {"id": "C", "text": "Jupiter"} ] to be kept as radio button inside div (class="options-container")
+(5) input for example - "correct_answer": "C". This will check corrosponding radio button.
+
+include a method to perform clean up, this method  should be called when this McqQuestion component is removed from DOM
+
+---------------------------------------------------------------------------------------------------
+
+write a component "class FillInBlankComponent extends HTMLElement" with Automatic Rendering, which  creates and converts following html element into a reusable component. it should updates only the changed parts instead of re-rendering everything
+
+                    <!-- Fill in the Blank Question -->
+                <div class="question-type" id="fill-question" style="display: none;">
+                    <div class="question-text" id="fill-question-text"></div>
+                    <div class="svg-figure" id="fill-svg-figure" style="display: none;"></div>
+                    <div class="figure" id="fill-figure" style="display: none;"></div>
+                    <div class="fill-blank-container">
+                        <input type="text" class="text-answer" id="fill-answer" placeholder="Type your answer here">
+                    </div>
+                </div>
+
+
+input to this class are as follows
+
+(1)  string to be put inside div(class="question-text")
+(2)  svg  to be put inside div(class="svg-figure"). It can be null
+(3) image url  to be put inside div(class="figure"). It can be null
+(4) string to be put inside <input type="text". It can be empty or null
+
+write a method that return the text typed by user.
+
+include a method to perform clean up, this method  should be called when this McqQuestion component is removed from DOM
+
+---------------------------------------------------------------------------------------------------
+
+write a component "class TrueFalseComponent extends HTMLElement" with Automatic Rendering, which  creates and converts following html element into a reusable component. it should updates only the changed parts instead of re-rendering everything
+
+                <!-- True/False Question -->
+                <div class="question-type" id="tf-question" style="display: none;">
+                    <div class="question-text" id="tf-question-text"></div>
+                    <div class="svg-figure" id="tf-svg-figure" style="display: none;"></div>
+                    <div class="figure" id="tf-figure" style="display: none;"></div>
+                    <div class="options-container">
+                        <div class="option">
+                            <input type="radio" name="trueFalse" id="true-option" value="true">
+                            <label for="true-option">True</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="trueFalse" id="false-option" value="false">
+                            <label for="false-option">False</label>
+                        </div>
+                    </div>
+                </div>
+
+
+input to this class are as follows
+
+(1)  string to be put inside div(class="question-text")
+(2)  svg  to be put inside div(class="svg-figure"). It can be null
+(3) image url  to be put inside div(class="figure"). It can be null
+(4) boolean value to update input(type="radio") inside <div class="options-container">. It can be empty or null
+
+write a method that return the option selected by user.
+
+include a method to perform clean up, this method  should be called when this McqQuestion component is removed from DOM. Give html code and js code for example usage of this component 
+
+---------------------------------------------------------------------------------------------------
+
+
+write a component "class McqQuestion extends HTMLElement" with Automatic Rendering, which  creates and converts following html element into a reusable component. It should updates only the changed parts instead of re-rendering everything
+
+
+<div class="quiz-content">
+            <div class="quiz-header-top">
+                <a href="index.html" class="nav-link">Home</a>
+                <h1 id="quiz-title">Quiz</h1>
+                <a href="#" id="restart-quiz" class="nav-link">Restart</a>
+            </div>
+            <div id="quiz">
+                <!-- MCQ Question -->
+            </div>
+
+            <div class="navigation-panel">
+                <button id="prev-btn">Previous</button>
+                <button id="mark-review">Mark for Review</button>
+                <button id="next-btn">Next</button>
+                <button id="submit-quiz">Submit Quiz</button>
+            </div>
+</div>
+
+
+
+include a method to perform clean up, this method  should be called when this McqQuestion component is removed from DOM
