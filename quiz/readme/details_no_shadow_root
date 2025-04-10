@@ -1,0 +1,205 @@
+
+constructor() : Initializes the component and sets an internal flag _initialized
+
+observedAttributes() : Declares attributes to trigger updates when changed.  
+
+attributeChangedCallback() : called when observed attribute's value is change.
+
+connectedCallback() : Called when the element is added to the DOM
+
+disconnectedCallback() : Called automatically when the component is removed from the DOM
+
+ensureStructure() : create HTML structure only once and stores references to key elements
+
+updateFromAttr(1, 2 ..) : handles the case when attr_i gets changed
+
+
+------------------------------------------------------------------------------------------
+
+Create a class McqQuestion extends HTMLElement with the following behavior:
+
+No Shadow DOM (do not use shadowRoot).
+
+Single attribute: config, a JSON string containing -  (question:string), (svg_content:string or null), (img_url:string or null), (options:array of { id, text }), (user_response:string like "A", "B" etc)
+
+
+On config change, update only affected DOM parts, not the entire content.
+
+Internally render the following HTML structure:
+
+<div class="question-type" id="mcq-question">
+  <div class="question-text" id="mcq-question-text"></div>
+  <div class="svg-figure" id="mcq-svg-figure" style="display: none;"></div>
+  <div class="figure" id="mcq-figure" style="display: none;"></div>
+  <div class="options-container" id="mcq-options"></div>
+</div>
+
+
+question will set .question-text
+
+svg_content will be inject into .svg-figure, hide if null
+
+img_url will be inject <img> into .figure, hide if null
+
+options will render radio buttons inside .options-container
+
+user_response will mark the matching radio as checked
+
+Add a cleanup() method that clears internal content. Call this when the element is removed from the DOM (disconnectedCallback).
+
+------------------------------------------------------------------------------------------
+
+Create a custom element `MultiSelectComponent` without using Shadow DOM. It should automatically render and update only changed parts when the `config` attribute changes. This component turns a static HTML structure into a reusable element:
+
+<!-- Multi-Select Question -->
+<div class="question-type" id="multi-question" style="display: none;">
+  <div class="question-text" id="multi-question-text"></div>
+  <div class="svg-figure" id="multi-svg-figure" style="display: none;"></div>
+  <div class="figure" id="multi-figure" style="display: none;"></div>
+  <div class="options-container" id="multi-options"></div>
+</div>
+
+**Input Attribute:**
+- `config`: a JSON string with `{ question, svg_content, img_url, options, user_response }`
+
+**Rendering Logic:**
+1. `question`: sets inner text of `.question-text`
+2. `svg_content`: sets innerHTML of `.svg-figure` (hide if null)
+3. `img_url`: sets an `<img>` in `.figure` (hide if null)
+4. `options`: an array of `{ id, text }` to create checkboxes inside `.options-container`
+5. `user_response`: array like `['B', 'C']`, pre-checks matching checkboxes
+
+**Checkbox Format:**
+```html
+<div class="option">
+  <input type="checkbox" name="multi-select" id="multi-A" value="A">
+  <label for="multi-A">Python</label>
+</div>
+
+
+Re-renders only affected parts when config changes (no diff check with old state)
+
+Includes a cleanup method to clear the DOM when removed.
+
+Includes getUserAnswer() method to return selected values as an array of strings.
+
+----------------------------------------------------------------------------------------- 
+
+Create a custom element `TrueFalseComponent` without using Shadow DOM. It should auto-render when the `config` attribute changes and only update the changed parts (no diff checking). Shadow DOM is not used.
+
+**HTML Template:**
+<div class="question-type" id="tf-question" style="display: none;">
+  <div class="question-text" id="tf-question-text"></div>
+  <div class="svg-figure" id="tf-svg-figure" style="display: none;"></div>
+  <div class="figure" id="tf-figure" style="display: none;"></div>
+  <div class="options-container">
+    <div class="option">
+      <input type="radio" name="trueFalse" id="true-option" value="true">
+      <label for="true-option">True</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="trueFalse" id="false-option" value="false">
+      <label for="false-option">False</label>
+    </div>
+  </div>
+</div>
+
+**Input Attribute:**
+- `config`: JSON string with fields:
+  - `question`: string → sets `.question-text`
+  - `svg_content`: string (HTML) → sets `.svg-figure` (hide if null)
+  - `img_url`: string (URL) → sets `<img>` inside `.figure` (hide if null)
+  - `user_response`: string `"true"` or `"false"` → pre-selects matching radio button (can be null/empty)
+
+**Behavior:**
+- Automatically renders and updates when `config` changes.
+- No diff check; directly applies updates to DOM.
+- Includes `getUserAnswer()` to return the selected value (`"true"` or `"false"`).
+- Includes cleanup method to clear contents when removed from DOM.
+
+**Example Usage:**
+```html
+<true-false-component id="tf-comp"></true-false-component>
+
+
+---------------------------------------------------------------------------------------- 
+
+Create a custom element `FillInBlankComponent` without using Shadow DOM. It should auto-render when the `config` attribute (JSON string) changes and only update the changed parts. No diff check required.
+
+**HTML Template:**
+<div class="question-type" id="fill-question" style="display: none;">
+  <div class="question-text" id="fill-question-text"></div>
+  <div class="svg-figure" id="fill-svg-figure" style="display: none;"></div>
+  <div class="figure" id="fill-figure" style="display: none;"></div>
+  <div class="fill-blank-container">
+    <input type="text" class="text-answer" id="fill-answer" placeholder="Type your answer here">
+  </div>
+</div>
+
+**Input Attribute:**
+- `config`: JSON string with fields:
+  - `question`: string → fills `.question-text`
+  - `svg_content`: string (HTML) → fills `.svg-figure` (hide if null)
+  - `img_url`: string → adds `<img>` in `.figure` (hide if null)
+  - `user_response`: string → fills `<input type="text">` (can be null or empty)
+
+**Behavior:**
+- Automatically updates the DOM when `config` changes.
+- No re-rendering or previous state checks.
+- Includes `getUserAnswer()` to return the current input value.
+- Includes a cleanup method to clear content when removed from the DOM.
+
+
+------------------------------------------------------------------------------------------
+Create a custom element `ShortAnswerComponent` without using Shadow DOM. It should automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
+
+**HTML Template:**
+<div class="question-type" id="short-question" style="display: none;">
+  <div class="question-text" id="short-question-text"></div>
+  <div class="svg-figure" id="short-svg-figure" style="display: none;"></div>
+  <div class="figure" id="short-figure" style="display: none;"></div>
+  <div class="short-answer-container">
+    <textarea class="text-answer" id="short-answer" placeholder="Type your answer here" rows="4"></textarea>
+  </div>
+</div>
+
+**Input Attribute:**
+- `config`: JSON string with fields:
+  - `question`: string → sets `.question-text`
+  - `svg_content`: string (HTML) → sets `.svg-figure` (hide if null)
+  - `img_url`: string → adds `<img>` in `.figure` (hide if null)
+  - `user_response`: string → sets the `<textarea>` value (can be null or empty)
+
+**Behavior:**
+- Automatically updates DOM elements when `config` changes.
+- Does not re-render everything.
+- Includes `getUserAnswer()` to return the current textarea input.
+- Includes cleanup method to clear content when removed from DOM.
+
+
+----------------------------------------------------------------------------------------- 
+
+Create a custom element `QuestionWrapperComponent` without using Shadow DOM. It renders exactly one question component based on the `type` field in the `question-data` JSON attribute. Only the relevant parts should update—no full re-rendering.
+
+**HTML Template:**
+<div id="quiz">
+  <!-- One question component will be rendered here based on type -->
+</div>
+
+**Input Attribute:**
+- `question-data`: JSON string with fields:
+  - `type`: one of { "mcq", "fill_in_blank", "true_false", "short_answer", "multi_select" }
+  - `question`, `svg_content`, `img_url`, `user_response`, etc..: forwarded to the inner component
+
+**Behavior:**
+- Dynamically renders one of the question components (`McqQuestionComponent`, `FillInBlankComponent`, `TrueFalseComponent`, `ShortAnswerComponent`, `MultiSelectComponent`) inside `#quiz` based on `type`.
+- Replaces previous component when `question-data` changes.
+- Uses `config` attribute internally to pass data to the selected component.
+- Does not use Shadow DOM.
+
+**Methods:**
+- `getUserAnswer()`: Returns the answer collected from the rendered question component.
+- `cleanup()`: Removes the current question component and performs any necessary cleanup.
+
+
+----------------------------------------------------------------------------------------

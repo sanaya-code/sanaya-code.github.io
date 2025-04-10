@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "mcq_001",
+      "question": "Which of these is the largest planet in our solar system?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
+      "options": [
+        {"id": "A", "text": "Earth"},
+        {"id": "B", "text": "Mars"},
+        {"id": "C", "text": "Jupiter"},
+        {"id": "D", "text": "Saturn"},
+        {"id": "E", "text": "Neptune"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Jupiter is more than twice as massive as all other planets combined.",
+      "difficulty": "easy",
+      "tags": ["science", "astronomy", "solar-system"],
+      "points": 1,
+      "time_limit": 30
+    },
+    {
+      "type": "fill_in_blank",
+      "id": "fib_001",
+      "question": "The process of a liquid turning into a gas is called ____.",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
+      "correct_answer": "evaporation",
+      "acceptable_answers": ["vaporization", "boiling"],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["science", "physics", "states-of-matter"],
+      "points": 1.5
+    },
+    {
+      "type": "true_false",
+      "id": "tf_001",
+      "question": "The Great Wall of China is visible from space with the naked eye.",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
+      "correct_answer": false,
+      "explanation": "This is a common myth. The Great Wall is not visible to the naked eye from space.",
+      "difficulty": "medium",
+      "tags": ["geography", "myths"],
+      "points": 1
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
