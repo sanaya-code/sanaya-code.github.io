@@ -1,0 +1,163 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "1&frasl;10 in decimal form",
+      "answers": [ "0.1", "1.0", "0.01" ], "correct_answer": 1
+    },
+    {
+      "number": 2,
+      "question": "<math><mfrac><mrow>3</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "3.0", "0.03", "0.3" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "<math>1<mfrac><mrow>7</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "1.7", "1.07", "1.77" ], "correct_answer": 1
+    },
+    {
+      "number": 4,
+      "question": "<math>8<mfrac><mrow>9</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "9.8", "8.09", "8.9" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "<math>26<mfrac><mrow>5</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "2.56", "26.5", "26.05" ], "correct_answer": 2
+    },
+    {
+      "number": 6,
+      "question": "<math><mfrac><mrow>18</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "1.8", "0.018", "0.18" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "<math><mfrac><mrow>27</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "0.27", "0.027", "2.7" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "<math><mfrac><mrow>428</mrow><mrow>100</mrow></mfrac></math> in decimal form",
+      "answers": [ "0.428", "4.28", "0.0428" ], "correct_answer": 2
+    },
+    {
+      "number": 9,
+      "question": "<math><mfrac><mrow>428</mrow><mrow>1000</mrow></mfrac></math> in decimal form",
+      "answers": [ "0.428", "0.0428", "42.8" ], "correct_answer": 1
+    },
+    {
+      "number": 10,
+      "question": "<math><mfrac><mrow>428</mrow><mrow>10</mrow></mfrac></math> in decimal form",
+      "answers": [ "0.428", "4.28", "42.8" ], "correct_answer": 3
+    },
+    {
+      "number": 11,
+      "question": "<math><mfrac><mrow>428</mrow><mrow>10000</mrow></mfrac></math> in decimal form",
+      "answers": [ "0.428", "0.0428", "4.28" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "<math><mfrac><mrow>9</mrow><mrow>1000</mrow></mfrac></math> in decimal form",
+      "answers": [ "0.0009", "0.009", "0.09" ], "correct_answer": 2
+    },
+    {
+      "number": 13,
+      "question": "<math>27<mfrac><mrow>38</mrow><mrow>1000</mrow></mfrac></math> in decimal form",
+      "answers": [ "27.038", "27.38", "27.0038" ], "correct_answer": 1
+    },
+    {
+      "number": 14,
+      "question": "<math>27<mfrac><mrow>38</mrow><mrow>100</mrow></mfrac></math> in decimal form",
+      "answers": [ "27.038", "27.38", "27.0038" ], "correct_answer": 2
+    },
+    {
+      "number": 15,
+      "question": "Convert 2.05 into fraction",
+      "answers": [ "<math>2<mfrac><mrow>5</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math>2<mfrac><mrow>5</mrow><mrow>10</mrow></mfrac></math>",
+                   "<math>2<mfrac><mrow>5</mrow><mrow>1000</mrow></mfrac></math>" ], "correct_answer": 1
+    },
+    {
+      "number": 16,
+      "question": "Convert 28.45 into fraction",
+      "answers": [ "<math>28<mfrac><mrow>45</mrow><mrow>1000</mrow></mfrac></math>",
+                   "<math>28<mfrac><mrow>45</mrow><mrow>10</mrow></mfrac></math>",
+                   "<math>28<mfrac><mrow>45</mrow><mrow>100</mrow></mfrac></math>" ], "correct_answer": 3
+    },
+    {
+      "number": 17,
+      "question": "Convert 470.08 into fraction",
+      "answers": [ "<math>47<mfrac><mrow>8</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math>470<mfrac><mrow>8</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math>470<mfrac><mrow>8</mrow><mrow>10</mrow></mfrac></math>" ], "correct_answer": 2
+    },
+    {
+      "number": 18,
+      "question": "Convert 6.006 into fraction",
+      "answers": [ "<math>6<mfrac><mrow>6</mrow><mrow>1000</mrow></mfrac></math>",
+                   "<math>6<mfrac><mrow>6</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math>6<mfrac><mrow>6</mrow><mrow>10</mrow></mfrac></math>" ], "correct_answer": 1
+    },
+    {
+      "number": 19,
+      "question": "Find place value of 7 in 46.0714",
+      "answers": [ "<math><mfrac><mrow>7</mrow><mrow>1000</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>10</mrow></mfrac></math>" ], "correct_answer": 2
+    },
+    {
+      "number": 20,
+      "question": "Find place value of 7 in 46.0274",
+      "answers": [ "<math><mfrac><mrow>7</mrow><mrow>1000</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>10</mrow></mfrac></math>" ], "correct_answer": 1
+    },
+    {
+      "number": 21,
+      "question": "Find place value of 7 in 46.4017",
+      "answers": [ "<math><mfrac><mrow>7</mrow><mrow>1000</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>10000</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>100</mrow></mfrac></math>" ], "correct_answer": 2
+    },
+    {
+      "number": 22,
+      "question": "Find place value of 7 in 46.7014",
+      "answers": [ "<math><mfrac><mrow>7</mrow><mrow>1000</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>100</mrow></mfrac></math>",
+                   "<math><mfrac><mrow>7</mrow><mrow>10</mrow></mfrac></math>" ], "correct_answer": 3
+    },
+    {
+      "number": 23,
+      "question": "Write expand form of 46.7014",
+      "answers": [ "400 + 60 + 7 + 0&frasl;10 + 1&frasl;100 + 4&frasl;100",
+                   "400 + 60 + 7&frasl;10 + 0&frasl;100 + 1&frasl;1000 + 4&frasl;1000",
+                   "40 + 6 + 7&frasl;10 + 0&frasl;100 + 1&frasl;1000 + 4&frasl;1000" ], "correct_answer": 3
+    },
+    {
+      "number": 24,
+      "question": "Write decimal form of (3x100) + (2x10) + (2&frasl;10) + (0&frasl;100) + (6&frasl;100)",
+      "answers": [ "32.206", "320.206", "32.26" ], "correct_answer": 2
+    },
+    {
+      "number": 25,
+      "question": "Multiply the place value of 7 in 7126.45 by the place value of 7 in 16.1705",
+      "answers": [ "490", "4900", "49" ], "correct_answer": 1
+    },
+    {
+      "number": 26,
+      "question": "Which is equivalent of 0.45",
+      "answers": [ "0.405", "0.045", "0.4500" ], "correct_answer": 3
+    },
+    {
+      "number": 27,
+      "question": "Which number is different from others",
+      "answers": [ "0.003", "0.03", "0.0300", "0.030" ], "correct_answer": 1
+    },
+    {
+      "number": 28,
+      "question": "Which number is different from others",
+      "answers": [ "0.56", "0.560", "0.5600", "5.6" ], "correct_answer": 4
+    }
+  ]
+}
+

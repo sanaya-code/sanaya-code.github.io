@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "title": "Lines and Angles for Kids",
+    "description": "Interactive questions to build understanding of basic geometry concepts",
+    "version": "1.1",
+    "created": "2023-11-16",
+    "author": "Math Educator",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "What is a point in geometry?",
+      "options": [
+        {"id": "A", "text": "A dot with no size"},
+        {"id": "B", "text": "A small line"},
+        {"id": "C", "text": "A circle"},
+        {"id": "D", "text": "An angle"}
+      ],
+      "correct_answer": "A",
+      "explanation": "A point is an exact location with no size - we represent it with a dot.",
+      "difficulty": "easy",
+      "tags": ["points"]
+    },
+    {
+      "type": "matching",
+      "id": "002",
+      "question": "Match types of lines with end points",
+      "pairs": [
+        {"left": "Ray", "right": "2"},
+        {"left": "Line Segment", "right": "0"},
+        {"left": "Line", "right": "1"}
+      ],
+      "distractors": ["3", "4"],
+      "difficulty": "hard",
+      "tags": ["lines", "geometry"],
+      "points": 2
+    },
+    {
+      "type": "multi_select",
+      "id": "003",
+      "question": "A straight line: (Select all that apply)",
+      "options": [
+        {"id": "A", "text": "Goes on forever in both directions", "correct": true},
+        {"id": "B", "text": "Has two endpoints", "correct": false},
+        {"id": "C", "text": "Has no endpoints", "correct": true},
+        {"id": "D", "text": "Has one endpoint", "correct": false}
+      ],
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["lines"],
+      "points": 2,
+      "scoring_method": "partial",
+      "explanation": "Lines continue infinitely in both directions."
+    },
+    {
+      "type": "mcq",
+      "id": "004",
+      "question": "An angle is formed by:",
+      "options": [
+        {"id": "A", "text": "Two lines intersection at a point"},
+        {"id": "B", "text": "One line"},
+        {"id": "C", "text": "Two parallel lines"},
+        {"id": "D", "text": "Two ponits"}
+      ],
+      "correct_answer": "A",
+      "explanation": "An angle is made when two lines or rays meet at a common point called the vertex.",
+      "difficulty": "easy",
+      "tags": ["angles"]
+    },
+    {
+      "type": "fill_in_blank",
+      "id": "005",
+      "question": "An angle measuring 45° is an ____ angle.",
+      "correct_answer": "acute",
+      "case_sensitive": false,
+      "difficulty": "easy",
+      "tags": ["angles", "acute"]
+    },
+    {
+      "type": "mcq",
+      "id": "006",
+      "question": "Which angle is reflex?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M50,100 L100,100 A50,50 0 1,1 100,150 Z' fill='none' stroke='black' stroke-width='2'/><path d='M150,100 L200,100 A50,50 0 0,1 200,50 Z' fill='none' stroke='black' stroke-width='2'/></svg>",
+      "options": [
+        {"id": "1", "text": "Left angle (large)"},
+        {"id": "2", "text": "Right angle (small)"},
+        {"id": "3", "text": "Neither"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The left angle is the larger portion (more than 180°), making it reflex.",
+      "difficulty": "medium",
+      "tags": ["angles", "reflex"]
+    },
+    {
+      "type": "mcq",
+      "id": "007",
+      "question": "An angle bisector:",
+      "options": [
+        {"id": "A", "text": "divides the angle into 3 equal parts"},
+        {"id": "B", "text": "divides the angle into 2 equal parts"},
+        {"id": "C", "text": "Makes the angle smaller"},
+        {"id": "D", "text": "Extends the angle"}
+      ],
+      "correct_answer": "B",
+      "explanation": "A bisector divides an angle into two equal smaller angles.",
+      "difficulty": "medium",
+      "tags": ["angles", "bisector"]
+    }    
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium"],
+    "subject_areas": ["geometry"],
+    "question_types": ["mcq", "true_false", "fill_in_blank", "geometry"]
+  }
+}

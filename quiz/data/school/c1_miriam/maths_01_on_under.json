@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_01.png",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "002",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_02.png",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "003",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_03.png",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "004",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_04.png",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "005",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_05.jpg",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "006",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_06.png",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "007",
+      "question": "On Under",
+      "img_url": "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_07.png",
+      "options": [
+        {"id": "A", "text": "On the table"},
+        {"id": "B", "text": "Under the table"}
+      ],
+      "correct_answer": "B"
+    }
+    
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

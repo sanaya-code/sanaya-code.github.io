@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "title": "Lines and Angles for Kids",
+    "description": "Interactive questions to build understanding of basic geometry concepts",
+    "version": "1.1",
+    "created": "2023-11-16",
+    "author": "Math Educator",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "What is a point in geometry?",
+      "options": [
+        {"id": "A", "text": "A dot with no size"},
+        {"id": "B", "text": "A small line"},
+        {"id": "C", "text": "A circle"},
+        {"id": "D", "text": "An angle"}
+      ],
+      "correct_answer": "A",
+      "explanation": "A point is an exact location with no size - we represent it with a dot.",
+      "difficulty": "easy",
+      "tags": ["points"]
+    },
+    {
+      "type": "mcq",
+      "id": "002",
+      "question": "Which of these represents a point?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'> <circle cx='50' cy='50' r='3' fill='red'/> <line x1='100' y1='30' x2='100' y2='70' stroke='blue' stroke-width='2'/> <rect x='150' y='30' width='40' height='40' fill='pink' stroke='black'/></svg>",
+      "options": [
+        {"id": "1", "text": "Left figure"},
+        {"id": "2", "text": "Middle figure"},
+        {"id": "3", "text": "Right figure"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The small black dot on the left is how we represent a point.",
+      "difficulty": "easy",
+      "tags": ["points"]
+    },
+    {
+      "type": "matching",
+      "id": "003",
+      "question": "Match types of lines with end points",
+      "pairs": [
+        {"left": "Ray", "right": "2"},
+        {"left": "Line Segment", "right": "0"},
+        {"left": "Line", "right": "1"}
+      ],
+      "distractors": ["3", "4"],
+      "difficulty": "hard",
+      "tags": ["lines", "geometry"],
+      "points": 2
+    },
+    {
+      "type": "mcq",
+      "id": "004",
+      "question": "Which figure shows a line segment?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "options": [
+        {"id": "1", "text": "First figure (with two endpoints)"},
+        {"id": "2", "text": "Second figure (with arrow)"},
+        {"id": "3", "text": "Third figure (dashed line)"}
+      ],
+      "correct_answer": "1",
+      "explanation": "The first figure shows a line segment between two points.",
+      "difficulty": "easy",
+      "tags": ["line segments"]
+    },
+    {
+      "type": "multi_select",
+      "id": "005",
+      "question": "A straight line: (Select all that apply)",
+      "options": [
+        {"id": "A", "text": "Goes on forever in both directions", "correct": true},
+        {"id": "B", "text": "Has two endpoints", "correct": false},
+        {"id": "C", "text": "Has no endpoints", "correct": true},
+        {"id": "D", "text": "Has one endpoint", "correct": false}
+      ],
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["lines"],
+      "points": 2,
+      "scoring_method": "partial",
+      "explanation": "Lines continue infinitely in both directions."
+    },
+    {
+      "type": "multi_select",
+      "id": "006",
+      "question": "Two lines can intersect at",
+      "options": [
+        {"id": "A", "text": "Two points", "correct": false},
+        {"id": "B", "text": "No points", "correct": true},
+        {"id": "C", "text": "One points", "correct": true},
+        {"id": "D", "text": "Three points", "correct": false}
+      ],
+      "minimum_selections": 1,
+      "maximum_selections": 2,
+      "points": 2,
+      "explanation": "A line segment is part of a line between two points.",
+      "difficulty": "easy",
+      "tags": ["lines"]
+    },
+    {
+      "type": "mcq",
+      "id": "007",
+      "question": "Two lines that do not intersect are",
+      "options": [
+        {"id": "A", "text": "Perpendicular Lines"},
+        {"id": "B", "text": "Normal Lines"},
+        {"id": "C", "text": "Parallel Lines"},
+        {"id": "D", "text": "Angle lines"}
+      ],
+      "correct_answer": "C",
+      "explanation": "Parallel lines do not intersect.",
+      "difficulty": "easy",
+      "tags": ["lines"]
+    },
+    {
+      "type": "mcq",
+      "id": "008",
+      "question": "Which figure represents a line?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"></path></marker></defs><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"70\" stroke=\"black\" stroke-width=\"2\" marker-end=\"url(#arrow)\" marker-start=\"url(#arrow)\"></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "options": [
+        {"id": "1", "text": "First figure (with two endpoints)"},
+        {"id": "2", "text": "Second figure (with arrows both ends)"},
+        {"id": "3", "text": "Third figure (dashed line)"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The figure with arrows at both ends represents a line extending infinitely.",
+      "difficulty": "easy",
+      "tags": ["lines"]
+    },
+    {
+      "type": "mcq",
+      "id": "009",
+      "question": "Which figure shows a ray?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"black\"/></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' marker-end='url(#arrow)'/><line x1='30' y1='80' x2='170' y2='80' stroke='black' stroke-width='2' marker-start='url(#arrow)' marker-end='url(#arrow)'/></svg>",
+      "options": [
+        {"id": "1", "text": "First figure (no arrows)"},
+        {"id": "2", "text": "Second figure (one arrow)"},
+        {"id": "3", "text": "Third figure (two arrows)"}
+      ],
+      "correct_answer": "2",
+      "explanation": "The figure with one endpoint and one arrow represents a ray.",
+      "difficulty": "easy",
+      "tags": ["rays"]
+    },
+    {
+      "type": "mcq",
+      "id": "010",
+      "question": "An angle is formed by:",
+      "options": [
+        {"id": "A", "text": "Two lines intersection at a point"},
+        {"id": "B", "text": "One line"},
+        {"id": "C", "text": "Two parallel lines"},
+        {"id": "D", "text": "Two ponits"}
+      ],
+      "correct_answer": "A",
+      "explanation": "An angle is made when two lines or rays meet at a common point called the vertex.",
+      "difficulty": "easy",
+      "tags": ["angles"]
+    }    
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium"],
+    "subject_areas": ["geometry"],
+    "question_types": ["mcq", "true_false", "fill_in_blank", "geometry"]
+  }
+}
