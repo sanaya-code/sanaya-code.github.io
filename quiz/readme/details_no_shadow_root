@@ -176,6 +176,52 @@ Create a custom element `ShortAnswerComponent` without using Shadow DOM. It shou
 - Includes `getUserAnswer()` to return the current textarea input.
 - Includes cleanup method to clear content when removed from DOM.
 
+-----------------------------------------------------------------------------------------
+Create a custom element `MatchingComponent` without using Shadow DOM. It should automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
+
+**HTML Template:**
+
+<!-- Matching Question -->
+<div class="question-type" id="matching-question" style="display: block;">
+    <div class="question-text" id="matching-question-text"> </div>
+    <div class="svg-figure" id="matching-svg-figure" style="display: none;"></div>
+    <div class="figure" id="matching-figure" style="display: none;"></div>
+    <div class="matching-container" id="matching-pairs">
+      
+      <div class="matching-pair">
+        <div class="matching-left">Thomas Edison</div>
+        <select class="matching-select">
+          <option value="">Select match</option><option value="Light Bulb">Light Bulb</option>
+          <option value="Telephone">Telephone</option>
+          <option value="AC Current">AC Current</option>
+          <option value="Radio">Radio</option><option value="Steam Engine">Steam Engine</option>
+        </select>
+      </div>
+      
+      <div class="matching-pair"></div>
+      
+      <div class="matching-pair"></div>
+    </div>
+</div>
+
+
+
+**Input Attribute:**
+- `config`: JSON string with fields:
+  - `question`: string → sets `.question-text`
+  - `svg_content`: string (HTML) → sets `.svg-figure` (hide if null)
+  - `img_url`: string → adds `<img>` in `.figure` (hide if null)
+  - `pairs`: [{"left": "A", "right": "P"}, {"left": "B", "right": "Q"} . . . ]
+             creates div(class="matching-left") for each "left" content
+             creates html select element consisting of all "right" content
+  - `distractors` : array of strings. to be added to html select element
+  - `user_response`: string(arrays of values) → sets each select element, (can be null or empty)
+
+**Behavior:**
+- Automatically updates DOM elements when `config` changes.
+- Does not re-render everything.
+- Includes `getUserAnswer()` to return the string(arrays of values for each select element).
+- Includes cleanup method to clear content when removed from DOM.
 
 ----------------------------------------------------------------------------------------- 
 
