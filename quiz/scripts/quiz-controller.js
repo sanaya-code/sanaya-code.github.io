@@ -1,12 +1,12 @@
-
-class QuizController {
-    constructor() {
-        this.questions = [];
-        this.currentIndex = 0;
-        this.answers = {};
-        this.panel = document.getElementById('panel-1');
-        this.prevBtn = document.getElementById('prev-btn');
-        this.nextBtn = document.getElementById('next-btn');
+class Controller 
+{
+    constructor() 
+    {
+        this.quizState      =   new QuizState();        
+        this.indexPanel     =   new IndexPanelComponent();
+        this.wrapper        = document.createElement('question-wrapper');
+        
+        
     }
 
     getSessionJsonData() 
@@ -22,7 +22,6 @@ class QuizController {
     {
         const urlParams = new URLSearchParams(window.location.search);
         const subject = urlParams.get('subject');
-        console.log("urlParams = ", urlParams, " subject = ", subject, " path =", `data/${subject}.json`);
         const response = await fetch(`data/${subject}.json`);
         const data = await response.json();
         const questionsList = data.questions || [];
@@ -36,114 +35,259 @@ class QuizController {
         const source = urlParams.get('source');
         if (source === 'custom') 
         {
-            this.questions  =   this.getSessionJsonData();
+            this.quizState.queList  =   this.getSessionJsonData();
         } 
         else 
         {
-            console.log("remote json data fetching code not written");
-            /*
             this.quizState.queList  =   await this.getRemoteJsonData();
-            console.log(this.quizState.queList)
-            */
         }
     }
 
-    async init() {
-        /*
-        const urlParams = new URLSearchParams(window.location.search);
-        const subject = urlParams.get('subject');
-        const localData = localStorage.getItem('custom');
 
-        if (localData) {
-            this.questions = JSON.parse(localData).questions || [];
-            localStorage.removeItem('customQuiz');
-        } else if (subject) {
-            await this.loadRemoteQuestions(subject);
-        }
-        */
+    initEventListeners() 
+    {
+        document.getElementById('prev-btn').addEventListener('click', () => this.navigateQuestion(-1));
+        document.getElementById('next-btn').addEventListener('click', () => this.navigateQuestion(1));
+        document.getElementById('mark-review').addEventListener('click', () => this.toggleMarkReview());
+        document.getElementById('submit-quiz').addEventListener('click', () => this.submitQuiz());
+        document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
+        document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
 
-        await this.setQuestionsList();
-        console.log(this.questions);
-
-        this.renderQuestion();
-        this.attachEventListeners();
-    }
-
-    async loadRemoteQuestions(subject) {
-        try {
-            const response = await fetch(`data/${subject}.json`);
-            const data = await response.json();
-            this.questions = data.questions || [];
-        } catch (err) {
-            alert("Failed to load questions. Please try again.");
-            console.error(err);
-        }
-    }
-
-    attachEventListeners() {
-        this.prevBtn.addEventListener('click', () => {
-            if (this.currentIndex > 0) {
-                this.saveAnswer();
-                this.currentIndex--;
-                this.renderQuestion();
+        // Add restart quiz handler
+        document.getElementById('restart-quiz').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Are you sure you want to restart this quiz?')) {
+                this.restartQuiz();
             }
         });
 
-        this.nextBtn.addEventListener('click', () => {
-            if (this.currentIndex < this.questions.length - 1) {
-                this.saveAnswer();
-                this.currentIndex++;
-                this.renderQuestion();
+        // press enter key and move to next question
+        document.addEventListener('keydown', (event) => 
+        {
+            if (event.key === 'Enter') {
+                // console.log('Enter key pressed!');
+                // Optional: Prevent default behavior (e.g., form submission)
+                // event.preventDefault();
+                const quizDiv = document.getElementById('quiz');
+                const selectedRadio = quizDiv.querySelector('input[type="radio"]:checked');
+                if (selectedRadio) 
+                {
+                    document.getElementById('next-btn').focus();
+                }
             }
         });
-    }
 
-    renderQuestion() {
-        const question = this.questions[this.currentIndex];
-        this.panel.innerHTML = '';
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Control') {
+              // console.log(e.location);
+              this.navigateQuestion(-1);
+            }
+          });
 
-        let component;
-        switch (question.type) {
-            case 'mcq':
-                component = document.createElement('mcq-question');
-                break;
-            case 'fill_in_blank':
-                component = document.createElement('fill-in-blank-question');
-                break;
-            case 'true_false':
-                component = document.createElement('true-false-question');
-                break;
-            default:
-                this.panel.innerHTML = `<p>Unsupported question type: ${question.type}</p>`;
-                return;
-        }
-
-        console.log(component);
-        component.data = question;
         /*
-        component.setAttribute('data-question', JSON.stringify(question));
-        if (this.answers[question.id]) {
-            component.setAttribute('data-answer', JSON.stringify(this.answers[question.id]));
-        }
+        document.getElementById('quiz').addEventListener('click', function(event) {
+            if ((event.target.tagName === 'DIV' || event.target.tagName === 'INPUT')) {
+              document.getElementById('next-btn').focus();
+            }
+          });
+          */
+        
+        /*
+        this.indexPanel.querySelectorAll('.index-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.dispatchEvent(new CustomEvent('questionNavigation', {
+                    detail: parseInt(item.getAttribute('data-index'))
+                }));
+            });
+        });
+      
+        document.addEventListener('questionNavigation', (e) => {
+            this.navigateToQuestion(e.detail);
+        });
         */
-        this.panel.appendChild(component);
+
     }
 
-    saveAnswer() {
-        const component = this.panel.querySelector('mcq-question, fill-in-blank-question, true-false-question');
-        if (component && typeof component.getAnswer === 'function') {
-            const questionId = this.questions[this.currentIndex].id;
-            this.answers[questionId] = component.getAnswer();
+    toggleMarkReview() 
+    {
+        const isMarked = !this.quizState.userAnswers[this.quizState.currentQuestionIndex].isMarked;
+        this.quizState.userAnswers[this.quizState.currentQuestionIndex].isMarked = isMarked;
+
+        // Update index panel
+        if (isMarked) 
+        {
+            this.indexPanel.markQuestionReviewed(this.quizState.currentQuestionIndex);
+        } 
+        else 
+        {
+            // You might want to add a method to unmark review if needed
+            this.indexPanel.unMarkQuestionReviewed(this.quizState.currentQuestionIndex);
+            
+        }
+    }
+
+    closeModal() 
+    {
+        // document.getElementById('result-modal').style.display = 'none';
+        this.quizState.resultModal.reset();
+    }
+
+    submitQuiz() 
+    {
+        // this.saveCurrentAnswer();
+        this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
+        this.markCurrentQuestion();
+        if (confirm('Are you sure you want to submit the quiz?')) 
+        {
+            this.quizState.showResults();
+        }
+    }
+
+    restartQuiz() 
+    {
+        // Reset quiz state
+        //this.clearCurrentQuestion();
+        this.quizState.resetQuizState();
+        this.indexPanel.markAllQuestionsUnAnswered();
+        this.showCurrentQuestion();
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+
+    startOnlyWrongAnswers()
+    {
+        // Reset quiz state with only wrong answered questions
+        //this.clearCurrentQuestion();
+        this.quizState.resultModal.reset();
+        this.quizState.setWrongAnswers();
+        this.quizState.resetQuizState();
+        this.indexPanel.reset();
+        this.indexPanel.show();
+        this.showIndexPanel();
+        this.showCurrentQuestion();
+    }
+
+    markCurrentQuestion()
+    {
+        if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null) 
+        {
+            this.indexPanel.markQuestionAnswered(this.quizState.currentQuestionIndex);
+        } 
+        else 
+        {
+            this.indexPanel.markQuestionUnAnswered(this.quizState.currentQuestionIndex);
+        }
+    }
+
+    clearCurrentQuestion()
+    {
+        switch (this.quizState.currentQuestion.type) 
+        {
+            case 'mcq'              :   this.mcq.reset(); break;
+
+            case 'fill_in_blank'    :   this.fillQ.reset(); break;
+
+            case 'true_false'       :   this.tfQ.reset(); break;
+
+            case 'matching'         :   this.matchingQ.reset(); break;
+
+            case 'short_answer'     :   this.shortAnswerQ.reset(); break;
+
+            case 'multi_select'     :   this.multiSelectQ.reset(); break;
+
+            case 'ordering'         :   this.orderingQ.reset(); break;
+
+            default                 :   return null;
+        }
+    }
+
+    showCurrentQuestion()
+    {
+        // console.log(this.quizState.userAnswers[this.quizState.currentQuestionIndex].answer);
+        const sampleQuestion = this.quizState.currentQuestion;
+        this.wrapper.setAttribute('question-data', JSON.stringify(sampleQuestion));
+    }
+
+    navigateToQuestion(newIndex)
+    {
+        //this.saveCurrentAnswer();
+        this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
+        this.markCurrentQuestion();
+        // this.clearCurrentQuestion();
+
+        this.quizState.setCurrentQuestion(newIndex);
+        this.indexPanel.markQuestionCurrent(newIndex);
+        this.showCurrentQuestion();
+        document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
+    }
+
+    navigateQuestion(i)
+    {
+        
+        let newIndex  =   this.quizState.currentQuestionIndex + i;  
+        if(newIndex == this.quizState.queList.length)
+        {
+            newIndex = 0;
+        }
+        else if(newIndex == -1)
+        {
+            newIndex = this.quizState.queList.length - 1;  
+        }
+        this.navigateToQuestion(newIndex);
+    }
+
+    showIndexPanel() 
+    {    
+        // Add all questions to the index panel
+        this.quizState.queList.forEach((_, index) => {
+            this.indexPanel.addQuestion(index);
+
+            // Add click event to navigate to the clicked question
+        
+            const indexItem = this.indexPanel.getItemByIndex(index);
+            if (indexItem) {
+                indexItem.addEventListener('click', () => this.navigateToQuestion(index));
+            }
+            
+
+        });
+        
+        
+
+        // Mark current question
+        this.indexPanel.markQuestionCurrent(0);    
+        // Show the panel
+        this.indexPanel.show();
+    }
+
+    test() {
+        const sampleQuestion = this.quizState.currentQuestion;
+        this.wrapper.setAttribute('question-data', JSON.stringify(sampleQuestion));
+    }
+
+    async start() 
+    {
+        try 
+        {
+            this.initEventListeners();
+            await this.setQuestionsList();
+            this.quizState.initializeUserAnswers();
+            this.quizState.setCurrentQuestion(0);
+            this.showIndexPanel();
+            document.getElementById("quiz").appendChild(this.wrapper);
+            // this.test();
+            this.showCurrentQuestion();
+            document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
+        } 
+        catch (error) 
+        {
+            document.getElementById('question-panel').innerHTML = 
+                `<div class="error">Error loading quiz: ${error.message}</div>`;
+            console.error('Quiz loading error:', error);
         }
     }
 }
 
-console.log(" hello");
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    const controller = new QuizController();
-    controller.init();
-});
-
-
+obj = new Controller();
+document.addEventListener('DOMContentLoaded', () => obj.start());
