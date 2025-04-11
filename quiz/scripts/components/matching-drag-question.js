@@ -166,7 +166,7 @@ class MatchingDragComponent extends HTMLElement {
   }
 
   getUserAnswer() {
-    return JSON.stringify(this._dropTargets.map(el => el.dataset.value || ""));
+    return (this._dropTargets.map(el => el.dataset.value || ""));
   }
 
   disconnectedCallback() {

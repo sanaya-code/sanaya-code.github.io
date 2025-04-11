@@ -107,9 +107,10 @@ class MultiSelectComponent extends HTMLElement {
   }
 
   updateUserResponse(config) {
-    if (!this.optionsRendered || !Array.isArray(config.user_response)) return;
-
     const selected = config.user_response;
+    
+    if (!this.optionsRendered || !Array.isArray(selected)) return;
+    
     const checkboxes = this.optionsContainer.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => {
       cb.checked = selected.includes(cb.value);
@@ -120,7 +121,7 @@ class MultiSelectComponent extends HTMLElement {
     const selected = [];
     const checkboxes = this.optionsContainer.querySelectorAll('input[type="checkbox"]:checked');
     checkboxes.forEach(cb => selected.push(cb.value));
-    return JSON.stringify(selected);
+    return (selected);
   }
 
   disconnectedCallback() {

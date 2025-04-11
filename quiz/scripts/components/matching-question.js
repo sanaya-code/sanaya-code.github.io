@@ -128,7 +128,7 @@ class MatchingComponent extends HTMLElement {
 
     getUserAnswer() {
       const selects = this.querySelectorAll('.matching-select');
-      return JSON.stringify(Array.from(selects).map(s => s.value));
+      return (Array.from(selects).map(s => s.value));
     }
 
     disconnectedCallback() {

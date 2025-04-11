@@ -22,7 +22,6 @@ class Controller
     {
         const urlParams = new URLSearchParams(window.location.search);
         const subject = urlParams.get('subject');
-        console.log("urlParams = ", urlParams, " subject = ", subject, " path =", `data/${subject}.json`);
         const response = await fetch(`data/${subject}.json`);
         const data = await response.json();
         const questionsList = data.questions || [];
@@ -41,7 +40,6 @@ class Controller
         else 
         {
             this.quizState.queList  =   await this.getRemoteJsonData();
-            console.log(this.quizState.queList)
         }
     }
 
@@ -208,7 +206,6 @@ class Controller
     {
         // console.log(this.quizState.userAnswers[this.quizState.currentQuestionIndex].answer);
         const sampleQuestion = this.quizState.currentQuestion;
-        console.log(sampleQuestion.type);
         this.wrapper.setAttribute('question-data', JSON.stringify(sampleQuestion));
     }
 
@@ -218,6 +215,7 @@ class Controller
         this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
         this.markCurrentQuestion();
         // this.clearCurrentQuestion();
+
         this.quizState.setCurrentQuestion(newIndex);
         this.indexPanel.markQuestionCurrent(newIndex);
         this.showCurrentQuestion();
@@ -290,8 +288,6 @@ class Controller
         }
     }
 }
-
-
 
 obj = new Controller();
 document.addEventListener('DOMContentLoaded', () => obj.start());

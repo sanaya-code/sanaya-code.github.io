@@ -49,7 +49,7 @@ Add a cleanup() method that clears internal content. Call this when the element 
 
 ------------------------------------------------------------------------------------------
 
-Create a custom element `MultiSelectComponent` without using Shadow DOM. It should automatically render and update only changed parts when the `config` attribute changes. This component turns a static HTML structure into a reusable element:
+Create a custom element `MultiSelectComponent` without using Shadow DOM. It should create and automatically render and update only changed parts when the `config` attribute changes. This component turns a static HTML structure into a reusable element:
 
 <!-- Multi-Select Question -->
 <div class="question-type" id="multi-question" style="display: none;">
@@ -151,7 +151,7 @@ Create a custom element `FillInBlankComponent` without using Shadow DOM. It shou
 
 
 ------------------------------------------------------------------------------------------
-Create a custom element `ShortAnswerComponent` without using Shadow DOM. It should automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
+Create a custom element `ShortAnswerComponent` without using Shadow DOM. It should  create and automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
 
 **HTML Template:**
 <div class="question-type" id="short-question" style="display: none;">
@@ -177,7 +177,7 @@ Create a custom element `ShortAnswerComponent` without using Shadow DOM. It shou
 - Includes cleanup method to clear content when removed from DOM.
 
 -----------------------------------------------------------------------------------------
-Create a custom element `MatchingComponent` without using Shadow DOM. It should automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
+Create a custom element `MatchingComponent` without using Shadow DOM. It should create and automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
 
 **HTML Template:**
 
@@ -224,7 +224,38 @@ Create a custom element `MatchingComponent` without using Shadow DOM. It should 
 - Includes cleanup method to clear content when removed from DOM.
 
 ----------------------------------------------------------------------------------------- 
+Create a custom element `OrderingComponent` without using Shadow DOM. It should create and automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
 
+**HTML Template:**
+<!-- Ordering Question -->
+<div class="question-type" id="ordering-question" style="display: block;">
+    <div class="question-text" id="ordering-question-text"></div>
+    <div class="svg-figure" id="ordering-svg-figure" style="display: flex;"></div>
+    <div class="figure" id="ordering-figure" style="display: flex;"></div>
+    <div class="ordering-container" id="ordering-items">
+        <div class="ordering-item" draggable="true" data-id="A">World War II</div>
+        <div class="ordering-item" draggable="true" data-id="B">American Civil War</div>
+        <div class="ordering-item" draggable="true" data-id="C">French Revolution</div>
+        <div class="ordering-item" draggable="true" data-id="D">Moon Landing</div>
+    </div>
+</div>
+
+**Input Attribute:**
+- `config`: JSON string with fields:
+  - `question`: string → sets `.question-text`
+  - `svg_content`: string (HTML) → sets `.svg-figure` (hide if null)
+  - `img_url`: string → adds `<img>` in `.figure` (hide if null)
+  - `items`: an array of `{ id, text }` to create divs(class="ordering-item") 
+  - `user_response`: string(arrays of values) → sets order of divs(class="ordering-item") inside div(class="ordering-container"), (can be null or empty)
+
+**Behavior:**
+- Automatically updates DOM elements when `config` changes.
+- Does not re-render everything.
+- Includes `getUserAnswer()` to return the string(arrays of values for each select element).
+- Includes cleanup method to clear content when removed from DOM.
+- intems inside div(class="ordering-container"), can be dragged and dropped to change thier order.
+
+-----------------------------------------------------------------------------------------
 Create a custom element `QuestionWrapperComponent` without using Shadow DOM. It renders exactly one question component based on the `type` field in the `question-data` JSON attribute. Only the relevant parts should update—no full re-rendering.
 
 **HTML Template:**
@@ -234,11 +265,11 @@ Create a custom element `QuestionWrapperComponent` without using Shadow DOM. It 
 
 **Input Attribute:**
 - `question-data`: JSON string with fields:
-  - `type`: one of { "mcq", "fill_in_blank", "true_false", "short_answer", "multi_select" }
+  - `type`: one of { "mcq", "fill_in_blank", "true_false", "short_answer", "multi_select", "matching", "matching_drag_drop", "ordering" }
   - `question`, `svg_content`, `img_url`, `user_response`, etc..: forwarded to the inner component
 
 **Behavior:**
-- Dynamically renders one of the question components (`McqQuestionComponent`, `FillInBlankComponent`, `TrueFalseComponent`, `ShortAnswerComponent`, `MultiSelectComponent`) inside `#quiz` based on `type`.
+- Dynamically renders one of the question components (`McqQuestionComponent`, `FillInBlankComponent`, `TrueFalseComponent`, `ShortAnswerComponent`, `MultiSelectComponent`,'OrderingComponent', 'MatchingComponent', 'MatchingDragComponent') inside `#quiz` based on `type`.
 - Replaces previous component when `question-data` changes.
 - Uses `config` attribute internally to pass data to the selected component.
 - Does not use Shadow DOM.

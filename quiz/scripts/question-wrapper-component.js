@@ -48,8 +48,11 @@ class QuestionWrapperComponent extends HTMLElement {
       case 'matching':
         componentTag = 'matching-select';
         break;
-      case 'matching_drag_drop': // formerly matching-drag
+      case 'matching_drag_drop': 
         componentTag = 'matching-drag-drop';
+        break;
+      case 'ordering': 
+        componentTag = 'ordering-drag-drop';
         break;
       default:
         console.warn(`Unknown question type: ${data.type}`);
