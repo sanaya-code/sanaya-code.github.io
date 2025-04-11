@@ -19,7 +19,7 @@ class QuestionWrapperComponent extends HTMLElement {
   }
 
   renderComponent(data) {
-    // Clean up any existing component
+    // Cleanup existing component
     if (this.currentComponent && typeof this.currentComponent.cleanup === 'function') {
       this.currentComponent.cleanup();
     }
@@ -44,6 +44,12 @@ class QuestionWrapperComponent extends HTMLElement {
         break;
       case 'multi_select':
         componentTag = 'multi-select-question';
+        break;
+      case 'matching':
+        componentTag = 'matching-component';
+        break;
+      case 'matching_pairs': // formerly matching-drag
+        componentTag = 'matching-pairs';
         break;
       default:
         console.warn(`Unknown question type: ${data.type}`);
