@@ -184,13 +184,13 @@ class MatchingDragComponent extends HTMLElement {
   }
 }
 
-customElements.define('matching-drag-component', MatchingDragComponent);
+customElements.define('matching-drag-drop-question', MatchingDragComponent);
 
 
 /* 
 
 
-<matching-component id="match-test" config='{
+<matching-drag-drop-question id="match-test" config='{
   "question": "Match the inventors with their inventions.",
   "svg_content": null,
   "img_url": null,
@@ -201,7 +201,7 @@ customElements.define('matching-drag-component', MatchingDragComponent);
   ],
   "distractors": ["Radio", "Steam Engine"],
   "user_response": ["", "", ""]
-}'></matching-component>
+}'></matching-drag-drop-question>
 
 
 function test() {
@@ -218,7 +218,7 @@ function test() {
       user_response: ["", "", ""]
     };
   
-    const el = document.createElement('matching-drag-component');
+    const el = document.createElement('matching-drag-drop-question');
     el.setAttribute('id', 'test-matching');
     el.setAttribute('config', JSON.stringify(testConfig));
     document.getElementById("quiz").appendChild(el);

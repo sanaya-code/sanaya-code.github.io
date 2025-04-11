@@ -145,14 +145,14 @@ class MatchingComponent extends HTMLElement {
     }
 }
 
-customElements.define('matching-component', MatchingComponent);
+customElements.define('matching-question', MatchingComponent);
 
 
 /*
 
 
 
-<matching-component id="match-test"
+<matching-question id="match-test"
   config='{
     "question": "Match the inventors with their inventions.",
     "svg_content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 130 130\"><style>.line { stroke: black; stroke-width: 1.5; fill: none; }</style><circle cx=\"65\" cy=\"65\" r=\"50\" class=\"line\"/></svg>",
@@ -165,7 +165,7 @@ customElements.define('matching-component', MatchingComponent);
     "distractors": ["Radio", "Steam Engine"],
     "user_response": ["Light Bulb", "", "AC Current"]
   }'>
-</matching-component>
+</matching-question>
 
 
 
