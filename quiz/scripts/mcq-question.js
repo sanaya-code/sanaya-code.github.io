@@ -129,12 +129,12 @@ class McqQuestion extends HTMLElement {
     }
 }
 
-customElements.define('mcq-question', McqQuestion);
+customElements.define('mcq-radio', McqQuestion);
 
 
 /*
 
-            <mcq-question
+            <mcq-radio
                 config='{
                     "question": "Which planet is the largest in our solar system?",
                     "svg_content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 130 130\"><style>.line { stroke: black; stroke-width: 1.5; fill: none; }</style><circle cx=\"65\" cy=\"65\" r=\"50\" class=\"line\"/></svg>",
@@ -146,12 +146,12 @@ customElements.define('mcq-question', McqQuestion);
                     ],
                     "user_response": "C"
                 }'>
-            </mcq-question>
+            </mcq-radio>
 
 
 function test() {
 
-    const mcqEl = document.createElement('mcq-question');
+    const mcqEl = document.createElement('mcq-radio');
 
     const configObj = {
         question: "Which planet is the largest in our solar system?",

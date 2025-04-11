@@ -31,25 +31,25 @@ class QuestionWrapperComponent extends HTMLElement {
 
     switch (data.type) {
       case 'mcq':
-        componentTag = 'mcq-question';
+        componentTag = 'mcq-radio';
         break;
       case 'fill_in_blank':
-        componentTag = 'fill-in-blank-question';
+        componentTag = 'fill-in-blank';
         break;
       case 'true_false':
-        componentTag = 'true-false-question';
+        componentTag = 'true-false';
         break;
       case 'short_answer':
-        componentTag = 'short-answer-question';
+        componentTag = 'short-answer';
         break;
       case 'multi_select':
-        componentTag = 'multi-select-question';
+        componentTag = 'multi-select';
         break;
       case 'matching':
-        componentTag = 'matching-question';
+        componentTag = 'matching-select';
         break;
       case 'matching_drag_drop': // formerly matching-drag
-        componentTag = 'matching-drag-drop-question';
+        componentTag = 'matching-drag-drop';
         break;
       default:
         console.warn(`Unknown question type: ${data.type}`);

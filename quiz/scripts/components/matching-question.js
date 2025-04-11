@@ -145,14 +145,40 @@ class MatchingComponent extends HTMLElement {
     }
 }
 
-customElements.define('matching-question', MatchingComponent);
+customElements.define('matching-select', MatchingComponent);
 
 
 /*
 
+function test() {
 
+    const mcqEl = document.createElement('matching-select');
 
-<matching-question id="match-test"
+    const configObj = {
+        question: "Which planet is the largest in our solar system?",
+        svg_content: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130"><style>.line { stroke: black; stroke-width: 1.5; fill: none; }.line-blue { stroke: blue; stroke-width: 1.5; fill: none; }.point { font-family: Arial; font-size: 10px; font-weight: bold; }.angle-fill { fill: rgba(100,200,255,0.3); stroke: none; }.point-marker { fill: red; r: 2; }.angle-label { font-size: 10px; }</style><path class="angle-fill" d="M 10 110 L 90 110 L 79.28 70 Z"/><path class="angle-fill" d="M 10 110 L 79.28 70 L 50 40.72 Z"/><line x1="10" y1="110" x2="90" y2="110" class="line"/><line x1="10" y1="110" x2="79.28" y2="70" class="line-blue"/><line x1="10" y1="110" x2="50" y2="40.72" class="line"/><circle cx="10" cy="110" r="2" class="point-marker"/><text x="05" y="120" class="point">O</text><circle cx="90" cy="110" r="2" class="point-marker"/><text x="93" y="113" class="point">C</text><circle cx="79.28" cy="70" r="2" class="point-marker"/><text x="82.28" y="73" class="point">B</text><circle cx="50" cy="40.72" r="2" class="point-marker"/><text x="53" y="43.72" class="point">A</text><text x="50" y="100" class="angle-label">15°</text></svg>`,
+        img_url: "https://sanaya-code.github.io/quiz/data/school/c1_miriam/images/on_under_02.png",
+        pairs: [
+            { left: "A", right: "Earth" },
+            { left: "B", right: "Mars" },
+            { left: "C", right: "Jupiter" }
+        ]  
+    };
+
+    // Set only the config attribute
+    mcqEl.setAttribute("config", JSON.stringify(configObj));
+
+    // Append to DOM
+    document.getElementById("quiz").appendChild(mcqEl);
+
+    // Wait and log user's answer
+    setTimeout(() => {
+        const userAnswer = mcqEl.getUserAnswer();
+        console.log("User's answer is:", userAnswer);
+    }, 5000);
+}
+
+<matching-select id="match-test"
   config='{
     "question": "Match the inventors with their inventions.",
     "svg_content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 130 130\"><style>.line { stroke: black; stroke-width: 1.5; fill: none; }</style><circle cx=\"65\" cy=\"65\" r=\"50\" class=\"line\"/></svg>",
@@ -165,7 +191,7 @@ customElements.define('matching-question', MatchingComponent);
     "distractors": ["Radio", "Steam Engine"],
     "user_response": ["Light Bulb", "", "AC Current"]
   }'>
-</matching-question>
+</matching-select>
 
 
 
