@@ -23,7 +23,7 @@ class McqQuestion extends HTMLElement {
     ensureStructure() {
         if (!this._initialized) {
             this.innerHTML = `
-                <div class="question-type" id="mcq-question">
+                <div class="question-type question-panel" id="mcq-question">
                     <div class="question-text" id="mcq-question-text"></div>
                     <div class="svg-figure" id="mcq-svg-figure" style="display: none;"></div>
                     <div class="figure" id="mcq-figure" style="display: none;"></div>

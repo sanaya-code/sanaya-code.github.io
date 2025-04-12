@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/quiz.css">
 </head>
 <body>
-    <div class="quiz-container">
+    <div class="quiz-container" id="quiz-container">
         <div class="quiz-content">
             <div class="quiz-header-top">
                 <a href="index.html" class="nav-link">Home MVC</a>
@@ -17,7 +17,7 @@
             
             <div id="quiz">
 
-
+                
                 
             </div>
             
@@ -30,10 +30,11 @@
             </div>
         </div>
 
-        <div class="index-panel" id="index-panel">
-            <div class="index-title">Questions</div>
+        <!-- question-index-panel total="6" current="0"></question-index-panel -->
+        <!-- div class="index-panel" id="index-panel">
+            < div class="index-title">Questions</div>
             <div class="index-grid" id="index-grid"></div>
-        </div>
+        </div -->
     </div>
 
     <div class="result-modal" id="result-modal">
@@ -62,5 +63,4 @@
     <script src="scripts/components/indexUI.js"></script>
     <script src="scripts/quizState.js"></script>
     <script src="scripts/quiz-controller.js"></script>
-
 </html>

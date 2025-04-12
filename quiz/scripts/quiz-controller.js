@@ -3,8 +3,9 @@ class Controller
     constructor() 
     {
         this.quizState      =   new QuizState();        
-        this.indexPanel     =   new IndexPanelComponent();
-        this.wrapper        = document.createElement('question-wrapper');
+        // this.indexPanel  =   new IndexPanelComponent();
+        this.wrapper        =   document.createElement('question-wrapper');
+        this.indexPanel     =   null;
         
         
     }
@@ -84,6 +85,15 @@ class Controller
             }
           });
 
+          document.addEventListener('question-selected', (e) => {
+            const index = e.detail.index;
+            console.log('User clicked question:', index);
+        
+            // Maybe update current question
+            // panel.setAttribute('current', index);
+            this.indexPanel.setAttribute('current', index);
+        });
+
         /*
         document.getElementById('quiz').addEventListener('click', function(event) {
             if ((event.target.tagName === 'DIV' || event.target.tagName === 'INPUT')) {
@@ -116,12 +126,12 @@ class Controller
         // Update index panel
         if (isMarked) 
         {
-            this.indexPanel.markQuestionReviewed(this.quizState.currentQuestionIndex);
+            //this.indexPanel.markQuestionReviewed(this.quizState.currentQuestionIndex);
         } 
         else 
         {
             // You might want to add a method to unmark review if needed
-            this.indexPanel.unMarkQuestionReviewed(this.quizState.currentQuestionIndex);
+            //this.indexPanel.unMarkQuestionReviewed(this.quizState.currentQuestionIndex);
             
         }
     }
@@ -148,7 +158,7 @@ class Controller
         // Reset quiz state
         //this.clearCurrentQuestion();
         this.quizState.resetQuizState();
-        this.indexPanel.markAllQuestionsUnAnswered();
+        // this.indexPanel.markAllQuestionsUnAnswered();
         this.showCurrentQuestion();
         
         // Scroll to top
@@ -162,22 +172,39 @@ class Controller
         this.quizState.resultModal.reset();
         this.quizState.setWrongAnswers();
         this.quizState.resetQuizState();
-        this.indexPanel.reset();
-        this.indexPanel.show();
-        this.showIndexPanel();
+        //this.indexPanel.reset();
+        //this.indexPanel.show();
+        //this.showIndexPanel();
         this.showCurrentQuestion();
+    }
+
+    isEmptyAnswer() {
+        const answer = this.wrapper.getUserAnswer();
+        if( Array.isArray(answer) )
+        {
+            return(answer.length === 0)
+        }
+        else
+        {
+            return (answer == null);
+        }
     }
 
     markCurrentQuestion()
     {
-        if (this.quizState.userAnswers[this.quizState.currentQuestionIndex]?.answer != null) 
+        const currQnIndex   =   this.quizState.currentQuestionIndex;
+        let statusUpdate    =   "";
+        if ( this.isEmptyAnswer()  )
         {
-            this.indexPanel.markQuestionAnswered(this.quizState.currentQuestionIndex);
+            //this.indexPanel.markQuestionUnAnswered(this.quizState.currentQuestionIndex);
+            statusUpdate = JSON.stringify({ index: currQnIndex, status: 'not-answered' });
         } 
         else 
         {
-            this.indexPanel.markQuestionUnAnswered(this.quizState.currentQuestionIndex);
+            //this.indexPanel.markQuestionAnswered(this.quizState.currentQuestionIndex);
+            statusUpdate = JSON.stringify({ index: currQnIndex, status: 'answered' });
         }
+        this.indexPanel.setAttribute('update-status', statusUpdate);
     }
 
     clearCurrentQuestion()
@@ -217,7 +244,8 @@ class Controller
         // this.clearCurrentQuestion();
 
         this.quizState.setCurrentQuestion(newIndex);
-        this.indexPanel.markQuestionCurrent(newIndex);
+        // this.indexPanel.markQuestionCurrent(newIndex);
+        this.indexPanel.setAttribute('current', `${newIndex}`);
         this.showCurrentQuestion();
         document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
     }
@@ -239,7 +267,11 @@ class Controller
 
     showIndexPanel() 
     {    
-        // Add all questions to the index panel
+        this.indexPanel =   document.createElement('question-index-panel');
+        this.indexPanel.setAttribute('total', `${this.quizState.queList.length}`);
+        this.indexPanel.setAttribute('current', '0');
+        document.getElementById("quiz-container").appendChild(this.indexPanel);
+        /* Add all questions to the index panel
         this.quizState.queList.forEach((_, index) => {
             this.indexPanel.addQuestion(index);
 
@@ -253,12 +285,12 @@ class Controller
 
         });
         
-        
 
         // Mark current question
         this.indexPanel.markQuestionCurrent(0);    
         // Show the panel
         this.indexPanel.show();
+        */
     }
 
     test() {

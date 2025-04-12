@@ -260,11 +260,18 @@ header {
     background-color: #27ae60;
 }
 
-.index-panel {
+question-index-panel{
     flex: 1;
     padding: 20px;
     background-color: #f8f9fa;
     border-left: 1px solid #eee;
+}
+
+.index-panel {
+    flex: 1;
+    /* padding: 20px; */
+    background-color: #f8f9fa;
+    /* border-left: 1px solid #eee; */
 }
 
 .index-title {
