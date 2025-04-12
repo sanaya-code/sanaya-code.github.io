@@ -1,116 +1,91 @@
-class IndexPanelComponent extends ParentComponent 
-{
-    constructor() {
-        super('index-panel');
-        this.id = "index-panel";
-        this.gridId = "index-grid";
-        this.panelElement = document.getElementById(this.id);
-        this.gridElement = document.getElementById(this.gridId);
-    }
+class IndexPanelComponent extends HTMLElement {
+	constructor() {
+		super();
+		this.gridBuilt = false;
+		this.container = document.createElement('div');
+		this.container.className = 'index-panel';
+		this.appendChild(this.container);
+	}
 
-    addQuestion(qIndex) 
-    {
-        const indexItem = document.createElement('div');
-        indexItem.className = 'index-item not-answered';
-        indexItem.dataset.index = qIndex;
-        indexItem.textContent = qIndex + 1; // Display 1-based numbering
-        
-        // Add click handler to navigate to question
-        indexItem.addEventListener('click', () => {
-            this.emitQuestionNavigationEvent(qIndex);
-        });
-        
-        this.gridElement.appendChild(indexItem);
-    }
+	static get observedAttributes() {
+		return ['total', 'current', 'update-status'];
+	}
 
-    markQuestionAnswered(qIndex) 
-    {
-        const item = this.getItemByIndex(qIndex);
-        if (item) 
-        {
-            item.classList.remove('not-answered');
-            item.classList.remove('answered');
-            item.classList.add('answered');
-            item.classList.remove('marked'); // Remove marked if it was there
-        }
-    }
+	attributeChangedCallback(name, oldValue, newValue) {
+		if (name === 'total') {
+			this.buildGrid(parseInt(newValue, 10));
+		} else if (name === 'current') {
+			this.ensureStructure();
+			this.setCurrent(parseInt(newValue, 10));
+		} else if (name === 'update-status') {
+			this.ensureStructure();
+			this.updateStatusFromJSON(newValue);
+		}
+	}
 
-    markQuestionUnAnswered(qIndex) 
-    {
-        const item = this.getItemByIndex(qIndex);
-        if (item) {
-            item.classList.remove('answered');
-            item.classList.remove('not-answered');
-            item.classList.add('not-answered');
-        }
-    }
+	ensureStructure() {
+		if (this.gridBuilt) return;
+		const totalAttr = this.getAttribute('total');
+		if (totalAttr !== null) {
+			this.buildGrid(parseInt(totalAttr, 10));
+		}
+	}
 
-    markQuestionCurrent(qIndex) 
-    {
-        // Remove current class from all items first
-        this.gridElement.querySelectorAll('.index-item').forEach(item => {
-            item.classList.remove('current');
-        });
-        
-        // Add to specified item
-        const item = this.getItemByIndex(qIndex);
-        if (item) {
-            item.classList.add('current');
-        }
-    }
+	buildGrid(total) {
+		this.gridBuilt = true;
+		this.container.innerHTML = `
+			<div class="index-title">Questions</div>
+			<div class="index-grid">
+				${Array.from({ length: total }, (_, i) => `
+					<div class="index-item not-answered" data-index="${i}">${i + 1}</div>
+				`).join('')}
+			</div>
+		`;
 
-    markQuestionReviewed(qIndex) 
-    {
-        const item = this.getItemByIndex(qIndex);
-        if (item) 
-        {
-            item.classList.remove('marked');
-            item.classList.add('marked');
-        }
-    }
+        // Add event listener once to the grid container
+	this.addCustomEventsToQueIndex();
 
-    unMarkQuestionReviewed(qIndex) 
-    {
-        const item = this.getItemByIndex(qIndex);
-        if (item) 
-        {
-            item.classList.remove('marked');
-        }
-    }
+	}
 
-    // Helper method to get item by index
-    getItemByIndex(qIndex) 
-    {
-        return this.gridElement.querySelector(`.index-item[data-index="${qIndex}"]`);
-    }
-
-    markAllQuestionsUnAnswered() 
-    {
-        const allItems = this.gridElement.querySelectorAll('.index-item');
-        
-        allItems.forEach(item => {
-            // Remove all state classes
-            item.classList.remove('answered');
-            item.classList.remove('marked');
-            item.classList.remove('current');
-            
-            // Add not-answered class
-            item.classList.add('not-answered');
+    addCustomEventsToQueIndex() {
+        const grid = this.container.querySelector('.index-grid');
+        grid.addEventListener('click', (e) => {
+            const item = e.target.closest('.index-item');
+            if (item) {
+                const index = parseInt(item.dataset.index, 10);
+                this.dispatchEvent(new CustomEvent('question-selected', {
+                    detail: { index },
+                    bubbles: true,
+                    composed: true
+                }));
+            }
         });
     }
 
-    // Helper method to emit navigation event
-    emitQuestionNavigationEvent(qIndex) 
-    {
-        const event = new CustomEvent('questionNavigation', {
-            detail: qIndex
-        });
-        document.dispatchEvent(event);
-    }
+	setCurrent(index) {
+        
+        if (isNaN(index)) return;
 
-    reset() 
-    {
-        this.gridElement.innerHTML = '';
-        this.hide();
-    }
+		const prev = this.container.querySelector('.index-item.current');
+		if (prev) prev.classList.remove('current');
+
+		const next = this.container.querySelector(`.index-item[data-index="${index}"]`);
+		if (next) next.classList.add('current');
+	}
+
+	updateStatusFromJSON(jsonStr) {
+		try {
+			const { index, status } = JSON.parse(jsonStr);
+            if (isNaN(index)) return;
+			const el = this.container.querySelector(`.index-item[data-index="${index}"]`);
+			if (el) {
+				el.classList.remove('answered', 'not-answered');
+				el.classList.add(status);
+			}
+		} catch (e) {
+			console.warn('Invalid update-status format:', jsonStr);
+		}
+	}
 }
+
+customElements.define('question-index-panel', IndexPanelComponent);

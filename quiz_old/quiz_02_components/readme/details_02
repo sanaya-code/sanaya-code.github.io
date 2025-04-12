@@ -39,7 +39,7 @@ input to this class are as follows
 (1)  string to be put inside div(class="question-text")
 (2)  svg  to be put inside div(class="svg-figure"). It can be null
 (3) image url  to be put inside div(class="figure"). It can be null
-(4) string to be put inside <input type="text". It can be empty or null
+(4) string to be put inside <input type="text">. It can be empty or null
 
 write a method that return the text typed by user.
 

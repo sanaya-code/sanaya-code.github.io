@@ -13,6 +13,10 @@ ensureStructure() : create HTML structure only once and stores references to key
 
 updateFromAttr(1, 2 ..) : handles the case when attr_i gets changed
 
+----------------------------------------------------------------------------------------- 
+
+going for a minimalist, attribute-driven component that acts like a dumb UI renderer.
+The external app logic owns all state — the component only updates the DOM of a specific element when asked via attributes. Component does not track status internally. It relies on being told:  information changed via attributes. Let the parent own state. Let the component just reflect what it's told. it keeps rendering logic inside the component, while keeping state logic outside — a very clean separation of concerns.
 
 ------------------------------------------------------------------------------------------
 
@@ -277,6 +281,38 @@ Create a custom element `QuestionWrapperComponent` without using Shadow DOM. It 
 **Methods:**
 - `getUserAnswer()`: Returns the answer collected from the rendered question component.
 - `cleanup()`: Removes the current question component and performs any necessary cleanup.
+
+
+----------------------------------------------------------------------------------------
+Create a custom element <question-index-panel> without using Shadow DOM. Purpose of the Component
+
+convert following into a HTMLElement without shadow root. It is part of quiz app whch shows status of each question. A div(class="index-item) represents a question which is either  answered, not-answered. It can be current question being displayed. ONly one question is displayed at a time. 
+
+<div class="index-panel" id="index-panel" style="display: block;">
+	<div class="index-title">Questions</div>
+       	<div class="index-grid" id="index-grid">
+		<div class="index-item not-answered current" data-index="0">1</div>
+		<div class="index-item not-answered" data-index="1">2</div>
+		<div class="index-item not-answered" data-index="2">3</div>
+		<div class="index-item not-answered" data-index="3">4</div>
+		<div class="index-item not-answered" data-index="4">5</div>
+		<div class="index-item not-answered" data-index="5">6</div>
+		<div class="index-item not-answered" data-index="6">7</div>
+	</div>
+</div>
+
+Renders a grid of question status blocks
+Indicates status of each question as answered, not answered, and which is current
+Triggers behavior (e.g., navigating to a specific question) when clicked
+it will render: A grid of index items(one for each question). Classes change based on status
+Each index-item div Be clickable, Emit an event like question-selected with the index
+
+going for a minimalist, attribute-driven component that acts like a dumb UI renderer.
+The external app logic owns all state — the component only updates the DOM of a specific element when asked via attributes. Let the component just reflect what it's told. it keeps rendering logic inside the component.
+
+implement this exact component — DOM-based updates only, no internal state, using total, current, and update-status attributes.
+
+only apply current and update-status attributes if the grid has been built using total attribute.
 
 
 ----------------------------------------------------------------------------------------

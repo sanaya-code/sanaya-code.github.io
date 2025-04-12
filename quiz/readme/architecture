@@ -1,0 +1,25 @@
+
+
+going for a minimalist, attribute-driven component that acts like a dumb UI renderer.
+The external app logic owns all state — the component only updates the DOM of a specific element when asked via attributes. Component does not track status internally. It relies on being told:  information changed via attributes. Let the parent own state. Let the component just reflect what it's told. it keeps rendering logic inside the component, while keeping state logic outside — a very clean separation of concerns.
+
+------------------------------------------------------------------------------------
+
+propogation of state change : child/nested component  to parent controller
+
+Child/nested Component  ---->  local/session storage  ----change event----> parent controller listeners
+
+controlled custom events that listens to changes to local/session storage
+
+------------------------------------------------------------------------------------------------
+
+propogation of state change : parent controller to child/nested component  
+
+update state to trigger render method to re-render Child/nested Component
+
+
+-----------------------------------------------------------------------------------------
+
+child throws a custom event. Parents listens to it and react.
+
+--------------------------------------------------------------------------------------
