@@ -77,7 +77,9 @@ class QuizState
                 return userAnswer === question.correct_answer;
                 
             case 'true_false':
-                return userAnswer === question.correct_answer;
+                console.log( "userAnswer:", typeof userAnswer);
+                console.log( "JsonAnswer:", typeof question.correct_answer);
+                return userAnswer === `${question.correct_answer}`;
                 
             case 'fill_in_blank':
                 const answers = [question.correct_answer, ...(question.acceptable_answers || [])];
