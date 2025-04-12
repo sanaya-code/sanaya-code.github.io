@@ -87,11 +87,12 @@ class Controller
 
           document.addEventListener('question-selected', (e) => {
             const index = e.detail.index;
-            console.log('User clicked question:', index);
+            // console.log('User clicked question:', index);
         
             // Maybe update current question
             // panel.setAttribute('current', index);
             this.indexPanel.setAttribute('current', index);
+            this.navigateToQuestion(index);
         });
 
         /*
@@ -182,7 +183,11 @@ class Controller
         const answer = this.wrapper.getUserAnswer();
         if( Array.isArray(answer) )
         {
-            return(answer.length === 0)
+            return( (answer.length === 0) || (answer.join('').trim() === '') );
+        }
+        else if(typeof answer === 'string')
+        {
+            return(answer.trim() === '')
         }
         else
         {
