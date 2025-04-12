@@ -2,11 +2,9 @@ class Controller
 {
     constructor() 
     {
-        this.quizState      =   new QuizState();        
-        // this.indexPanel  =   new IndexPanelComponent();
+        this.quizState      =   new QuizState();
         this.wrapper        =   document.createElement('question-wrapper');
         this.indexPanel     =   null;
-        
         
     }
 
@@ -66,9 +64,6 @@ class Controller
         document.addEventListener('keydown', (event) => 
         {
             if (event.key === 'Enter') {
-                // console.log('Enter key pressed!');
-                // Optional: Prevent default behavior (e.g., form submission)
-                // event.preventDefault();
                 const quizDiv = document.getElementById('quiz');
                 const selectedRadio = quizDiv.querySelector('input[type="radio"]:checked');
                 if (selectedRadio) 
@@ -87,35 +82,9 @@ class Controller
 
           document.addEventListener('question-selected', (e) => {
             const index = e.detail.index;
-            // console.log('User clicked question:', index);
-        
-            // Maybe update current question
-            // panel.setAttribute('current', index);
             this.indexPanel.setAttribute('current', index);
             this.navigateToQuestion(index);
         });
-
-        /*
-        document.getElementById('quiz').addEventListener('click', function(event) {
-            if ((event.target.tagName === 'DIV' || event.target.tagName === 'INPUT')) {
-              document.getElementById('next-btn').focus();
-            }
-          });
-          */
-        
-        /*
-        this.indexPanel.querySelectorAll('.index-item').forEach(item => {
-            item.addEventListener('click', () => {
-                document.dispatchEvent(new CustomEvent('questionNavigation', {
-                    detail: parseInt(item.getAttribute('data-index'))
-                }));
-            });
-        });
-      
-        document.addEventListener('questionNavigation', (e) => {
-            this.navigateToQuestion(e.detail);
-        });
-        */
 
     }
 
@@ -139,7 +108,6 @@ class Controller
 
     closeModal() 
     {
-        // document.getElementById('result-modal').style.display = 'none';
         this.quizState.resultModal.reset();
     }
 
@@ -236,7 +204,6 @@ class Controller
 
     showCurrentQuestion()
     {
-        // console.log(this.quizState.userAnswers[this.quizState.currentQuestionIndex].answer);
         const sampleQuestion = this.quizState.currentQuestion;
         this.wrapper.setAttribute('question-data', JSON.stringify(sampleQuestion));
     }
@@ -246,10 +213,7 @@ class Controller
         //this.saveCurrentAnswer();
         this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
         this.markCurrentQuestion();
-        // this.clearCurrentQuestion();
-
         this.quizState.setCurrentQuestion(newIndex);
-        // this.indexPanel.markQuestionCurrent(newIndex);
         this.indexPanel.setAttribute('current', `${newIndex}`);
         this.showCurrentQuestion();
         document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
@@ -276,26 +240,6 @@ class Controller
         this.indexPanel.setAttribute('total', `${this.quizState.queList.length}`);
         this.indexPanel.setAttribute('current', '0');
         document.getElementById("quiz-container").appendChild(this.indexPanel);
-        /* Add all questions to the index panel
-        this.quizState.queList.forEach((_, index) => {
-            this.indexPanel.addQuestion(index);
-
-            // Add click event to navigate to the clicked question
-        
-            const indexItem = this.indexPanel.getItemByIndex(index);
-            if (indexItem) {
-                indexItem.addEventListener('click', () => this.navigateToQuestion(index));
-            }
-            
-
-        });
-        
-
-        // Mark current question
-        this.indexPanel.markQuestionCurrent(0);    
-        // Show the panel
-        this.indexPanel.show();
-        */
     }
 
     test() {
