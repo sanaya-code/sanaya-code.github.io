@@ -1,0 +1,110 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "Sense organ",
+        "options": [
+          {"id": "A", "text": "leg"},
+          {"id": "B", "text": "Nose"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "Sense organ",
+        "options": [
+          {"id": "A", "text": "teeth"},
+          {"id": "B", "text": "tongue"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "005",
+        "question": "Sense organ",
+        "options": [
+          {"id": "A", "text": "eyes"},
+          {"id": "B", "text": "neck"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "006",
+        "question": "Sense organ",
+        "options": [
+          {"id": "A", "text": "skin"},
+          {"id": "B", "text": "hand"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "008",
+        "question": "Sense organ",
+        "options": [
+          {"id": "A", "text": "chin"},
+          {"id": "B", "text": "ear"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "009",
+        "question": "Our body has _________ parts",
+        "options": [
+          {"id": "A", "text": "one"},
+          {"id": "B", "text": "many"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "011",
+        "question": "We have ___________  nose",
+        "options": [
+          {"id": "A", "text": "one"},
+          {"id": "C", "text": "many"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "013",
+        "question": "We use our ________ to taste",
+        "options": [
+          {"id": "A", "text": "nose"},
+          {"id": "B", "text": "tongue"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "015",
+        "question": "head rest on _________",
+        "options": [
+          {"id": "A", "text": "neck"},
+          {"id": "B", "text": "toungue"}
+        ],
+        "correct_answer": "A"
+      }
+      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
