@@ -6,7 +6,9 @@ class QuizState
         this.currentQuestionIndex = 0;
         this.currentQuestion = null;
         this.userAnswers = {};
-        // this.resultModal = new ResultModalComponent();
+        // result modal
+        // waraper component
+        // index panel
     }
 
     saveCurrentAnswer(user_response)
@@ -72,49 +74,6 @@ class QuizState
             summary: summary,
             questions: questionsAnalysis
         };
-    }
-
-    showResults() 
-    {
-        this.resultModal.reset();
-
-        // Calculate score
-        let totalPoints = 0;
-        let earnedPoints = 0;
-        let correctCount = 0;
-
-        this.queList.forEach((question, index) => {
-            totalPoints += question.points || 1;
-            
-            const userAnswer = this.userAnswers[index].answer;
-            
-            const isCorrect = this.checkAnswerCorrectness(question, userAnswer);
-            
-            if (isCorrect) {
-                earnedPoints += question.points || 1;
-                correctCount++;
-            }
-            
-            // Add question analysis to results
-            this.resultModal.addAnalysis(
-                index + 1,
-                question.question,
-                this.formatUserAnswer(question, userAnswer),
-                this.formatCorrectAnswer(question),
-                question.explanation || '',
-                isCorrect
-            );
-        });
-
-        // Calculate percentage and show summary
-        const scorePercentage = Math.round((earnedPoints / totalPoints) * 100);
-        this.resultModal.createSummary(
-            scorePercentage,
-            correctCount,
-            this.queList.length
-        );
-
-        this.resultModal.show();
     }
 
     checkAnswerCorrectness(question, userAnswer) 
