@@ -29,7 +29,7 @@ class ModalComponent extends HTMLElement {
                     <div class="modal-actions">
                         <button id="close-modal" class="modal-buttons">Close</button>
                         <button id="wrong-modal" class="modal-buttons">Only Wrong</button>
-                        <a href="index.html" class="button-link">Back to Home</a>
+                        <button id="go-home" class="modal-buttons">Back to Home</button>
                     </div>
                     <h2>Quiz Results</h2>
                     <div class="score-summary">
@@ -53,6 +53,38 @@ class ModalComponent extends HTMLElement {
                 this.filterAndRenderItems(e.target.value);
             });
         });
+
+        const goHomeBtn = this.container.querySelector('#go-home');
+        if (goHomeBtn) {
+            goHomeBtn.addEventListener('click', () => {
+                this.dispatchEvent(new CustomEvent('goHome', {
+                    bubbles: true,
+                    composed: true
+                }));
+            });
+        }
+
+        const wrongBtn = this.container.querySelector('#wrong-modal');
+        if (wrongBtn) {
+            wrongBtn.addEventListener('click', () => {
+                const wrongQuestions = this._questions.filter(q => !q.isCorrect);
+
+                this.dispatchEvent(new CustomEvent('restartWithWrongQuestions', {
+                    detail: { questions: wrongQuestions },
+                    bubbles: true,
+                    composed: true
+                }));
+                this.remove();
+            });
+        }
+
+        const closeBtn = this.container.querySelector('#close-modal');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                // Clean removal of the component from the DOM
+                this.remove();
+            });
+        }
     }
 
     filterAndRenderItems(filterType) {

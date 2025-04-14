@@ -52,6 +52,30 @@ class Controller
         // document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
         // document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
 
+        document.addEventListener('goHome', () => {
+            // Perform cleanup actions here, if necessary
+            console.log("Cleaning up quiz state and navigating to home page...");
+        
+            // Optional: You can clear session data, scores, or any other data
+            // sessionStorage.clear(); or localStorage.clear();
+        
+            // Now, navigate to the home page
+            window.location.href = 'index.html'; // Or handle with your SPA router if needed
+        });
+
+        document.addEventListener('restartWithWrongQuestions', (e) => {
+            
+            console.log('Restarting with questions wrongly answerd');
+        
+            // You can now:
+            // - Reset quiz state
+            // - Load a new quiz with only these questions
+            // - Re-render the quiz interface
+        
+            // Example placeholder:
+            this.startOnlyWrongAnswers();
+        });
+
         // Add restart quiz handler
         document.getElementById('restart-quiz').addEventListener('click', (e) => {
             e.preventDefault();
