@@ -49,8 +49,6 @@ class Controller
         document.getElementById('next-btn').addEventListener('click', () => this.navigateQuestion(1));
         document.getElementById('mark-review').addEventListener('click', () => this.toggleMarkReview());
         document.getElementById('submit-quiz').addEventListener('click', () => this.submitQuiz());
-        // document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
-        // document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
 
         document.addEventListener('goHome', () => {
             // Perform cleanup actions here, if necessary
@@ -130,23 +128,14 @@ class Controller
         }
     }
 
-    closeModal() 
-    {
-        // this.quizState.resultModal.reset();
-        console.log("close modal clicked");
-    }
-
     submitQuiz() 
     {
-        // this.saveCurrentAnswer();
         this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
-        this.markCurrentQuestion();
+        this.markCurrentQuestionInIndexPanel();
         if (confirm('Are you sure you want to submit the quiz?')) 
         {
-            // this.quizState.showResults();
             console.log("submit clicked");
             const testData = this.quizState.getResultJson();
-            // console.log(testData);
             const modal =  new ModalComponent();
             document.body.appendChild(modal);
             modal.setAttribute('config', JSON.stringify(testData));
@@ -157,9 +146,13 @@ class Controller
     restartQuiz() 
     {
         // Reset quiz state
-        //this.clearCurrentQuestion();
         this.quizState.resetQuizState();
-        // this.indexPanel.markAllQuestionsUnAnswered();
+       
+        // initialize the Index-Ui-Panel
+        this.indexPanel.setAttribute('mark-all-unanswered', 'true');
+        this.indexPanel.setAttribute('current', `${this.quizState.currentQuestionIndex}`);
+        
+        // render question using wrapper class
         this.showCurrentQuestion();
         
         // Scroll to top
@@ -169,19 +162,15 @@ class Controller
     startOnlyWrongAnswers()
     {
         // Reset quiz state with only wrong answered questions
-        //this.clearCurrentQuestion();
-        //this.quizState.resultModal.reset();
         this.quizState.setWrongAnswers();
         this.quizState.resetQuizState();
 
-        //remove panel from dom
+        // remove index-panel from dom
         this.indexPanel.setAttribute('remove-panel', 'true');
-        // re-create panel and add to dom
+        // re-create index-panel with only those que which are wrongly answered
         this.createAndShowIndexPanel();
 
-        //this.indexPanel.reset();
-        //this.indexPanel.show();
-        //this.showIndexPanel();
+        // initialize wrapper component to display current question
         this.showCurrentQuestion();
     }
 
@@ -201,7 +190,7 @@ class Controller
         }
     }
 
-    markCurrentQuestion()
+    markCurrentQuestionInIndexPanel()
     {
         const currQnIndex   =   this.quizState.currentQuestionIndex;
         let statusUpdate    =   "";
@@ -218,28 +207,6 @@ class Controller
         this.indexPanel.setAttribute('update-status', statusUpdate);
     }
 
-    clearCurrentQuestion()
-    {
-        switch (this.quizState.currentQuestion.type) 
-        {
-            case 'mcq'              :   this.mcq.reset(); break;
-
-            case 'fill_in_blank'    :   this.fillQ.reset(); break;
-
-            case 'true_false'       :   this.tfQ.reset(); break;
-
-            case 'matching'         :   this.matchingQ.reset(); break;
-
-            case 'short_answer'     :   this.shortAnswerQ.reset(); break;
-
-            case 'multi_select'     :   this.multiSelectQ.reset(); break;
-
-            case 'ordering'         :   this.orderingQ.reset(); break;
-
-            default                 :   return null;
-        }
-    }
-
     showCurrentQuestion()
     {
         const sampleQuestion = this.quizState.currentQuestion;
@@ -248,11 +215,17 @@ class Controller
 
     navigateToQuestion(newIndex)
     {
-        //this.saveCurrentAnswer();
+        // save current question
         this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
-        this.markCurrentQuestion();
-        this.quizState.setCurrentQuestion(newIndex);
+
+        // Update index panel
+        this.markCurrentQuestionInIndexPanel();
         this.indexPanel.setAttribute('current', `${newIndex}`);
+
+        // update quiz state to new question
+        this.quizState.setCurrentQuestion(newIndex);
+
+        // update wrapper component to display new question
         this.showCurrentQuestion();
         document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
     }
@@ -280,11 +253,6 @@ class Controller
         document.getElementById("quiz-container").appendChild(this.indexPanel);
     }
 
-    test() {
-        const sampleQuestion = this.quizState.currentQuestion;
-        this.wrapper.setAttribute('question-data', JSON.stringify(sampleQuestion));
-    }
-
     async start() 
     {
         try 
@@ -295,7 +263,7 @@ class Controller
             this.quizState.setCurrentQuestion(0);
             this.createAndShowIndexPanel();
             document.getElementById("quiz").appendChild(this.wrapper);
-            // this.test();
+            
             this.showCurrentQuestion();
             document.getElementById('quiz').querySelector('input[type="radio"]')?.focus();
         } 

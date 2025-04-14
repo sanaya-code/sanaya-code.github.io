@@ -1,4 +1,8 @@
+Every Html component comprises of many html core elements. This component has one or more attributes. And changing the the attributes cause this component to re-render and change the UI. These components generates custom events. The controller register the document to listen to these events and calles appropriate method(business logic) in controller.
 
+Every Html component(a big element) is considered ans an API class which is initiallized and called by the controlled using its attributes.
+
+-------------------------------------------------------------------------------------------
 
 going for a minimalist, attribute-driven component that acts like a dumb UI renderer.
 The external app logic owns all state — the component only updates the DOM of a specific element when asked via attributes. Component does not track status internally. It relies on being told:  information changed via attributes. Let the parent own state. Let the component just reflect what it's told. it keeps rendering logic inside the component, while keeping state logic outside — a very clean separation of concerns.

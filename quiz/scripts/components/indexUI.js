@@ -110,6 +110,15 @@ customElements.define('question-index-panel', IndexPanelComponent);
 
 <question-index-panel total="6" current="0" mark-all-unanswered="true"></question-index-panel>
 
+<question-index-panel 
+	total="6" 
+	current="0" 
+	mark-all-unanswered="true">
+	remove-panel='false'
+	update-status= { 'index': 1, 'status': 'not-answered' }
+</question-index-panel>
+
+
 const statusUpdate = JSON.stringify({ index: 1, status: 'not-answered' });
 
 indexPanel.setAttribute('update-status', statusUpdate);
@@ -117,6 +126,8 @@ indexPanel.setAttribute('update-status', statusUpdate);
 indexPanel.setAttribute('current', '1');
 
 indexPanel.setAttribute('mark-all-unanswered', 'true');
+
+indexPanel.setAttribute('remove-panel', 'true');
 
 
 */
