@@ -5,7 +5,7 @@ class IndexPanelComponent extends HTMLElement {
 	}
 
 	static get observedAttributes() {
-		return ['total', 'current', 'update-status', 'mark-all-unanswered'];
+		return ['total', 'current', 'update-status', 'mark-all-unanswered', 'remove-panel'];
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {
@@ -20,7 +20,9 @@ class IndexPanelComponent extends HTMLElement {
 		}else if (name === 'mark-all-unanswered') {
             this.ensureStructure();
             this.markAllUnanswered();
-        }
+        }else if (name === 'remove-panel') {
+			this.remove(); 
+		}
 	}
 
 	ensureStructure() {

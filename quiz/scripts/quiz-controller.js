@@ -173,6 +173,12 @@ class Controller
         //this.quizState.resultModal.reset();
         this.quizState.setWrongAnswers();
         this.quizState.resetQuizState();
+
+        //remove panel from dom
+        this.indexPanel.setAttribute('remove-panel', 'true');
+        // re-create panel and add to dom
+        this.createAndShowIndexPanel();
+
         //this.indexPanel.reset();
         //this.indexPanel.show();
         //this.showIndexPanel();
@@ -266,7 +272,7 @@ class Controller
         this.navigateToQuestion(newIndex);
     }
 
-    showIndexPanel() 
+    createAndShowIndexPanel() 
     {    
         this.indexPanel =   document.createElement('question-index-panel');
         this.indexPanel.setAttribute('total', `${this.quizState.queList.length}`);
@@ -287,7 +293,7 @@ class Controller
             await this.setQuestionsList();
             this.quizState.initializeUserAnswers();
             this.quizState.setCurrentQuestion(0);
-            this.showIndexPanel();
+            this.createAndShowIndexPanel();
             document.getElementById("quiz").appendChild(this.wrapper);
             // this.test();
             this.showCurrentQuestion();
