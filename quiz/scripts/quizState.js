@@ -6,7 +6,7 @@ class QuizState
         this.currentQuestionIndex = 0;
         this.currentQuestion = null;
         this.userAnswers = {};
-        this.resultModal = new ResultModalComponent();
+        // this.resultModal = new ResultModalComponent();
     }
 
     saveCurrentAnswer(user_response)
@@ -23,6 +23,55 @@ class QuizState
         {
             this.queList[i]['user_response'] =   null;
         }
+    }
+
+    getResultJson() 
+    {
+        // Calculate score
+        let totalPoints = 0;
+        let earnedPoints = 0;
+        let correctCount = 0;
+
+        const questionsAnalysis = [];
+
+        this.queList.forEach((question, index) => {
+            totalPoints += question.points || 1;
+
+            const userAnswer = this.userAnswers[index].answer;
+
+            const isCorrect = this.checkAnswerCorrectness(question, userAnswer);
+
+            if (isCorrect) {
+                earnedPoints += question.points || 1;
+                correctCount++;
+            }
+
+            // ChatGPT, Add question analysis to the json  
+            questionsAnalysis.push({
+                number: index + 1,
+                question: question.question,
+                userAnswer: this.formatUserAnswer(question, userAnswer),
+                correctAnswer: this.formatCorrectAnswer(question),
+                explanation: question.explanation || '',
+                isCorrect: isCorrect
+            });
+        });
+
+        // Calculate percentage 
+        const scorePercentage = Math.round((earnedPoints / totalPoints) * 100);
+
+        // ChatGPT, Add summary to the json
+        const summary = {
+            scorePercentage: scorePercentage,
+            correctAnswers: correctCount,
+            totalQuestions: this.queList.length
+        };
+
+        // return json
+        return {
+            summary: summary,
+            questions: questionsAnalysis
+        };
     }
 
     showResults() 

@@ -49,8 +49,8 @@ class Controller
         document.getElementById('next-btn').addEventListener('click', () => this.navigateQuestion(1));
         document.getElementById('mark-review').addEventListener('click', () => this.toggleMarkReview());
         document.getElementById('submit-quiz').addEventListener('click', () => this.submitQuiz());
-        document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
-        document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
+        // document.getElementById('close-modal').addEventListener('click', () => this.closeModal());
+        // document.getElementById('wrong-modal').addEventListener('click', () => this.startOnlyWrongAnswers());
 
         // Add restart quiz handler
         document.getElementById('restart-quiz').addEventListener('click', (e) => {
@@ -108,7 +108,8 @@ class Controller
 
     closeModal() 
     {
-        this.quizState.resultModal.reset();
+        // this.quizState.resultModal.reset();
+        console.log("close modal clicked");
     }
 
     submitQuiz() 
@@ -118,7 +119,14 @@ class Controller
         this.markCurrentQuestion();
         if (confirm('Are you sure you want to submit the quiz?')) 
         {
-            this.quizState.showResults();
+            // this.quizState.showResults();
+            console.log("submit clicked");
+            const testData = this.quizState.getResultJson();
+            // console.log(testData);
+            const modal =  new ModalComponent();
+            document.body.appendChild(modal);
+            modal.setAttribute('config', JSON.stringify(testData));
+            
         }
     }
 
@@ -138,7 +146,7 @@ class Controller
     {
         // Reset quiz state with only wrong answered questions
         //this.clearCurrentQuestion();
-        this.quizState.resultModal.reset();
+        //this.quizState.resultModal.reset();
         this.quizState.setWrongAnswers();
         this.quizState.resetQuizState();
         //this.indexPanel.reset();

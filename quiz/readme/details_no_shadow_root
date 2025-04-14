@@ -316,3 +316,59 @@ only apply current and update-status attributes if the grid has been built using
 
 
 ----------------------------------------------------------------------------------------
+Using above json create a custom element `ModalComponent` without using Shadow DOM. It should create and automatically update the relevant parts of the DOM when the `config` attribute (JSON string) changes. No need to compare with previous state.
+
+**HTML Template:**
+<!-- Result Modal -->
+<div class="result-modal" id="result-modal" style="display: block;">
+        <div class="modal-content">
+            <div class="modal-actions">
+                <button id="close-modal" class="modal-buttons">Close</button>
+                <button id="wrong-modal" class="modal-buttons">Only Wrong</button>
+                <a href="index.html" class="button-link">Back to Home</a>
+            </div>
+            <h2>Quiz Results</h2>
+            <div id="result-details">
+            <div class="score-summary">
+		    <h3>Your Score: 0%</h3>
+		    <p>0 out of 9 questions correct</p>
+            </div>
+        
+        <div class="result-item incorrect">
+            <p><strong>Question 1:</strong> Sense organ</p>
+            <p><strong>Your answer:</strong> Not answered</p>
+            <p><strong>Correct/incorrect answer:</strong> Nose</p>
+        </div>
+        
+        ..
+        ..
+        ..
+        ..
+        
+        ..
+        
+        
+        ..
+        
+        </div>
+        </div>
+    </div>
+
+use template string to create above html structure and populate it using variables
+
+**Input Attribute:**
+- `config`: JSON string with fields:
+  - `summary`: populates  <h3>Your Score: 0%</h3>   <p>0 out of 9 questions correct</p>
+  - `questions`: each question creates a <div class="result-item incorrect/correct">
+
+
+**Behavior:**
+- Automatically updates DOM elements when `config` changes.
+- Does not re-render everything.
+- Includes cleanup method to clear content when removed from DOM.
+
+going for a minimalist, attribute-driven component that acts like a dumb UI renderer.
+The external app logic owns all state — the component only updates the DOM of a specific element when asked via attributes. Component does not track status internally. It relies on being told:  information changed via attributes. Let the parent own state. Let the component just reflect what it's told. it keeps rendering logic inside the component, while keeping state logic outside — a very clean separation of concerns.
+
+-------------------------------------------------------------------------------------- 
+
