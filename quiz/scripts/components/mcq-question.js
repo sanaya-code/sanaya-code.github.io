@@ -23,17 +23,18 @@ class McqQuestion extends HTMLElement {
     ensureStructure() {
         if (!this._initialized) {
             this.innerHTML = `
-                <div class="question-type question-panel" id="mcq-question">
-                    <div class="question-text" id="mcq-question-text"></div>
-                    <div class="svg-figure" id="mcq-svg-figure" style="display: none;"></div>
-                    <div class="figure" id="mcq-figure" style="display: none;"></div>
-                    <div class="options-container" id="mcq-options"></div>
+                <div class="question-type question-panel mcq-question">
+                    <div class="question-text"></div>
+                    <div class="svg-figure" style="display: none;"></div>
+                    <div class="figure" style="display: none;"></div>
+                    <div class="options-container"></div>
                 </div>
             `;
-            this._questionTextEl = this.querySelector('#mcq-question-text');
-            this._svgFigureEl = this.querySelector('#mcq-svg-figure');
-            this._imageFigureEl = this.querySelector('#mcq-figure');
-            this._optionsEl = this.querySelector('#mcq-options');
+            const root = this.querySelector('.mcq-question');
+            this._questionTextEl = root.querySelector('.question-text');
+            this._svgFigureEl = root.querySelector('.svg-figure');
+            this._imageFigureEl = root.querySelector('.figure');
+            this._optionsEl = root.querySelector('.options-container');
             this._initialized = true;
         }
     }
@@ -94,7 +95,7 @@ class McqQuestion extends HTMLElement {
     }
 
     addOption(opt, userResponse) {
-        const questionName = 'mcq';
+        const questionName = 'mcq'; // still safe for form grouping
         const optionHTML = `
             <div class="option">
                 <input  type="radio" 
