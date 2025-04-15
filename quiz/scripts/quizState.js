@@ -109,7 +109,13 @@ class QuizState
             case 'matching':
                 const correctPairs = question.pairs.map(pair => pair.right);
                 return this.arraysEqual(userAnswer.sort(), correctPairs.sort());
-                
+            
+            case 'matching_drag_drop':
+                // Index-wise comparison
+                const correctMatches = question.pairs.map(pair => pair.right);
+                if (userAnswer.length !== correctMatches.length) return false;
+                return userAnswer.every((val, idx) => val === correctMatches[idx]);
+
             case 'short_answer':
                 const variations = [question.correct_answer, ...(question.acceptable_variations || [])];
                 return variations.some(variation => 
@@ -151,6 +157,14 @@ class QuizState
                     const match = question.pairs.find(p => p.right === right);
                     return `${left} → ${right} ${match ? '✓' : '✗'}`;
                 }).join('; ');
+
+            case 'matching_drag_drop':
+                return answer.map((right, index) => {
+                    const left = question.pairs[index]?.left || `?`;
+                    const correctRight = question.pairs[index]?.right;
+                    const isCorrect = right === correctRight;
+                    return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
+                }).join('; ');
                 
             default:
                 return answer;
@@ -186,6 +200,9 @@ class QuizState
             case 'matching':
                 return question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
                 
+            case 'matching_drag_drop':
+                return question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
+
             case 'short_answer':
                 return question.correct_answer;
                 
