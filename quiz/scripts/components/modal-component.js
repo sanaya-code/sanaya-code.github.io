@@ -1,117 +1,120 @@
 class ModalComponent extends HTMLElement {
     static get observedAttributes() {
-        return ['config'];
+      return ['config'];
     }
-
+  
     constructor() {
-        super();
-        this.container = document.createElement('div');
-        this.appendChild(this.container);
-        this._questions = [];
+      super();
+      this.container = document.createElement('div');
+      this.appendChild(this.container);
+      this._questions = [];
     }
-
+  
     attributeChangedCallback(name, oldValue, newValue) {
-        if (name === 'config') {
-            const data = JSON.parse(newValue);
-            this._questions = Array.isArray(data.questions) ? data.questions : [];
-            this.render(data);
-        }
+      if (name === 'config') {
+        const data = JSON.parse(newValue);
+        this._questions = Array.isArray(data.questions) ? data.questions : [];
+        this.render(data);
+      }
     }
-
+  
     render(data) {
-        if (!data || !data.summary) return;
-
-        const { summary } = data;
-
-        this.container.innerHTML = `
-            <div class="result-modal" id="result-modal" style="display: block;">
-                <div class="modal-content">
-                    <div class="modal-actions">
-                        <button id="close-modal" class="modal-buttons">Close</button>
-                        <button id="wrong-modal" class="modal-buttons">Only Wrong</button>
-                        <button id="go-home" class="modal-buttons">Back to Home</button>
-                    </div>
-                    <h2>Quiz Results</h2>
-                    <div class="score-summary">
-                        <h3>Your Score: ${summary.scorePercentage}%</h3>
-                        <p>${summary.correctAnswers} out of ${summary.totalQuestions} questions correct</p>
-                    </div>
-                    <div class="filter-options">
-                        <label><input type="radio" name="filter" value="wrong" checked> Only Wrong</label>
-                        <label><input type="radio" name="filter" value="correct"> Only Correct</label>
-                    </div>
-                    <div id="result-items-container"></div>
-                </div>
+      if (!data || !data.summary) return;
+  
+      const { summary } = data;
+  
+      this.container.innerHTML = `
+        <div class="result-modal" style="display: block;">
+          <div class="modal-content">
+            <div class="modal-actions">
+              <button class="modal-buttons close-modal-btn">Close</button>
+              <button class="modal-buttons wrong-modal-btn">Only Wrong</button>
+              <button class="modal-buttons go-home-btn">Back to Home</button>
             </div>
-        `;
-
-        this.filterAndRenderItems('wrong');
-
-        const radios = this.container.querySelectorAll('input[name="filter"]');
-        radios.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                this.filterAndRenderItems(e.target.value);
-            });
+            <h2>Quiz Results</h2>
+            <div class="score-summary">
+              <h3>Your Score: ${summary.scorePercentage}%</h3>
+              <p>${summary.correctAnswers} out of ${summary.totalQuestions} questions correct</p>
+            </div>
+            <div class="filter-options">
+              <label><input type="radio" name="filter" value="wrong" checked> Only Wrong</label>
+              <label><input type="radio" name="filter" value="correct"> Only Correct</label>
+            </div>
+            <div class="result-items-container"></div>
+          </div>
+        </div>
+      `;
+  
+      this.filterAndRenderItems('wrong');
+  
+      const radios = this.container.querySelectorAll('input[name="filter"]');
+      radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          this.filterAndRenderItems(e.target.value);
         });
-
-        const goHomeBtn = this.container.querySelector('#go-home');
-        if (goHomeBtn) {
-            goHomeBtn.addEventListener('click', () => {
-                this.dispatchEvent(new CustomEvent('goHome', {
-                    bubbles: true,
-                    composed: true
-                }));
-            });
-        }
-
-        const wrongBtn = this.container.querySelector('#wrong-modal');
-        if (wrongBtn) {
-            wrongBtn.addEventListener('click', () => {
-                const wrongQuestions = this._questions.filter(q => !q.isCorrect);
-
-                this.dispatchEvent(new CustomEvent('restartWithWrongQuestions', {
-                    detail: { questions: wrongQuestions },
-                    bubbles: true,
-                    composed: true
-                }));
-                this.remove();
-            });
-        }
-
-        const closeBtn = this.container.querySelector('#close-modal');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                // Clean removal of the component from the DOM
-                this.remove();
-            });
-        }
+      });
+  
+      const goHomeBtn = this.container.querySelector('.go-home-btn');
+      if (goHomeBtn) {
+        goHomeBtn.addEventListener('click', () => {
+          this.dispatchEvent(new CustomEvent('goHome', {
+            bubbles: true,
+            composed: true
+          }));
+        });
+      }
+  
+      const wrongBtn = this.container.querySelector('.wrong-modal-btn');
+      if (wrongBtn) {
+        wrongBtn.addEventListener('click', () => {
+          const wrongQuestions = this._questions.filter(q => !q.isCorrect);
+  
+          this.dispatchEvent(new CustomEvent('restartWithWrongQuestions', {
+            detail: { questions: wrongQuestions },
+            bubbles: true,
+            composed: true
+          }));
+          this.remove();
+        });
+      }
+  
+      const closeBtn = this.container.querySelector('.close-modal-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          this.remove();
+        });
+      }
     }
-
+  
     filterAndRenderItems(filterType) {
-        const container = this.container.querySelector('#result-items-container');
-        if (!container) return;
-
-        const filtered = this._questions.filter(q =>
-            filterType === 'correct' ? q.isCorrect : !q.isCorrect
-        );
-
-        container.innerHTML = filtered.map(q => `
-            <div class="result-item ${q.isCorrect ? 'correct' : 'incorrect'}">
-                <p><strong>Question ${q.number}:</strong> ${q.question}</p>
-                <p><strong>Your answer:</strong> ${q.userAnswer}</p>
-                <p><strong>Correct/incorrect answer:</strong> ${q.correctAnswer}</p>
-                ${q.explanation ? `<p><strong>Explanation:</strong> ${q.explanation}</p>` : ''}
-            </div>
-        `).join('');
+      const container = this.container.querySelector('.result-items-container');
+      if (!container) return;
+  
+      const filtered = this._questions.filter(q =>
+        filterType === 'correct' ? q.isCorrect : !q.isCorrect
+      );
+  
+      container.innerHTML = filtered.map(q => `
+        <div class="result-item ${q.isCorrect ? 'correct' : 'incorrect'}">
+          <p><strong>Question ${q.number}:</strong> ${q.question}</p>
+          <p><strong>Your answer:</strong> ${q.userAnswer}</p>
+          <p><strong>Correct/incorrect answer:</strong> ${q.correctAnswer}</p>
+          ${q.explanation ? `<p><strong>Explanation:</strong> ${q.explanation}</p>` : ''}
+        </div>
+      `).join('');
     }
-
+  
     disconnectedCallback() {
-        this.container.innerHTML = '';
-        this._questions = [];
+      this.container.innerHTML = '';
+      this._questions = [];
     }
-}
+  }
+  
+  customElements.define('modal-component', ModalComponent);
+  
 
-customElements.define('modal-component', ModalComponent);
+
+
 
 /*
 
