@@ -5,7 +5,7 @@ class FillInBlankComponent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['config']; // Removed 'user_response'
+    return ['config'];
   }
 
   connectedCallback() {
@@ -24,20 +24,20 @@ class FillInBlankComponent extends HTMLElement {
     if (this._initialized) return;
 
     this.innerHTML = `
-      <div class="question-type" id="fill-question">
-        <div class="question-text" id="fill-question-text"></div>
-        <div class="svg-figure" id="fill-svg-figure" style="display: none;"></div>
-        <div class="figure" id="fill-figure" style="display: none;"></div>
+      <div class="question-type fill-question">
+        <div class="question-text"></div>
+        <div class="svg-figure" style="display: none;"></div>
+        <div class="figure" style="display: none;"></div>
         <div class="fill-blank-container">
-          <input type="text" class="text-answer" id="fill-answer" placeholder="Type your answer here">
+          <input type="text" class="text-answer" placeholder="Type your answer here">
         </div>
       </div>
     `;
 
-    this._questionEl = this.querySelector('#fill-question-text');
-    this._svgEl = this.querySelector('#fill-svg-figure');
-    this._figureEl = this.querySelector('#fill-figure');
-    this._answerInput = this.querySelector('#fill-answer');
+    this._questionEl = this.querySelector('.question-text');
+    this._svgEl = this.querySelector('.svg-figure');
+    this._figureEl = this.querySelector('.figure');
+    this._answerInput = this.querySelector('.text-answer');
 
     this._initialized = true;
   }
@@ -55,7 +55,6 @@ class FillInBlankComponent extends HTMLElement {
     this.addSvg(config);
     this.addImg(config);
 
-    // Set the input value from config.user_response (if present)
     if (this._answerInput) {
       this._answerInput.value = config.user_response || '';
     }
@@ -104,6 +103,7 @@ class FillInBlankComponent extends HTMLElement {
 }
 
 customElements.define('fill-in-blank', FillInBlankComponent);
+
 
 
 /*
