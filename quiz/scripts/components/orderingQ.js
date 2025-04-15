@@ -1,170 +1,169 @@
 class OrderingComponent extends HTMLElement {
-  
-    constructor() {
-      super();
-      this.currentDraggedItem = null;
-    }
-    
-    static get observedAttributes() {
-        return ['config'];
-      }
-  
-    connectedCallback() {
+
+  constructor() {
+    super();
+    this.currentDraggedItem = null;
+  }
+
+  static get observedAttributes() {
+    return ['config'];
+  }
+
+  connectedCallback() {
+    this.ensureStructure();
+    this.updateFromConfig();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'config') {
       this.ensureStructure();
       this.updateFromConfig();
     }
-  
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (name === 'config') {
-        this.ensureStructure();
-        this.updateFromConfig();
-      }
-    }
-  
-    ensureStructure() {
-      this.innerHTML = `
-        <div class="question-type" id="ordering-question" style="display: block;">
-          <div class="question-text" id="ordering-question-text"></div>
-          <div class="svg-figure" id="ordering-svg-figure" style="display: flex;"></div>
-          <div class="figure" id="ordering-figure" style="display: flex;"></div>
-          <div class="ordering-container" id="ordering-items"></div>
-        </div>
-      `;
-  
-      this._questionTextEl = this.querySelector('#ordering-question-text');
-      this._svgFigureEl = this.querySelector('#ordering-svg-figure');
-      this._imageFigureEl = this.querySelector('#ordering-figure');
-      this._itemsContainerEl = this.querySelector('#ordering-items');
-    }
-  
-    updateFromConfig() {
-      const config = JSON.parse(this.getAttribute('config'));
-  
-      this.addQunStatement(config.question);
-      this.addSvg(config.svg_content);
-      this.addImg(config.img_url);
-  
-      // Add items
-      this.addAllItems(config);
-  
-      // If user_response is given, reorder accordingly
-      if (Array.isArray(config.user_response)) {
-        this.setAnswer(config.user_response);
-      }
-    }
+  }
 
-    addQunStatement(question) {
-      this._questionTextEl.textContent = question || '';
-    }
-  
-    addSvg(svg_content) {
-      if (svg_content) {
-        this._svgFigureEl.style.display = 'flex';
-        this._svgFigureEl.innerHTML = svg_content;
-      } else {
-        this._svgFigureEl.style.display = 'none';
-        this._svgFigureEl.innerHTML = '';
-      }
-    }
-  
-    addImg(img_url) {
-      if (img_url) {
-        this._imageFigureEl.style.display = 'flex';
-        this._imageFigureEl.innerHTML = `<img src="${img_url}" alt="figure" />`;
-      } else {
-        this._imageFigureEl.style.display = 'none';
-        this._imageFigureEl.innerHTML = '';
-      }
-    }
-  
-    addAllItems(config) {
-        this._itemsContainerEl.innerHTML = '';
-        if (Array.isArray(config.items)) {
-            config.items.forEach(item => {
-                this.addItem(item.id, item.text);
-            });
-        }
-    }
-  
-    addItem(item_id, item_text) {
-      const itemDiv = document.createElement('div');
-      itemDiv.className = 'ordering-item';
-      itemDiv.draggable = true;
-      itemDiv.dataset.id = item_id;
-      itemDiv.textContent = item_text;
-  
-      itemDiv.addEventListener('dragstart', this.handleDragStart.bind(this));
-      itemDiv.addEventListener('dragover', this.handleDragOver.bind(this));
-      itemDiv.addEventListener('drop', this.handleDrop.bind(this));
-      itemDiv.addEventListener('dragend', this.handleDragEnd.bind(this));
-  
-      this._itemsContainerEl.appendChild(itemDiv);
-    }
-  
-    setAnswer(orderedIds) {
-      const idToItem = {};
-      Array.from(this._itemsContainerEl.children).forEach(item => {
-        idToItem[item.dataset.id] = item;
-      });
-  
-      this._itemsContainerEl.innerHTML = '';
-  
-      orderedIds.forEach(id => {
-        if (idToItem[id]) {
-          this._itemsContainerEl.appendChild(idToItem[id]);
-        }
-      });
-    }
-  
-    getUserAnswer() {
-      return Array.from(this._itemsContainerEl.children).map(item => item.dataset.id);
-    }
-  
-    cleanup() {
-      this.innerHTML = '';
-      this._questionTextEl = null;
-      this._svgFigureEl = null;
-      this._imageFigureEl = null;
-      this._itemsContainerEl = null;
-      this.currentDraggedItem = null;
-    }
-  
-    handleDragStart(e) {
-      this.currentDraggedItem = e.target;
-      e.dataTransfer.effectAllowed = 'move';
-      e.target.classList.add('dragging');
-    }
-  
-    handleDragOver(e) {
-      e.preventDefault();
-      const target = e.target.closest('.ordering-item');
-      if (!target || target === this.currentDraggedItem) return;
-  
-      const bounding = target.getBoundingClientRect();
-      const offset = e.clientY - bounding.top;
-  
-      const insertBefore = offset < bounding.height / 2;
-      const container = this._itemsContainerEl;
-  
-      if (insertBefore) {
-        container.insertBefore(this.currentDraggedItem, target);
-      } else {
-        container.insertBefore(this.currentDraggedItem, target.nextSibling);
-      }
-    }
-  
-    handleDrop(e) {
-      e.preventDefault();
-    }
-  
-    handleDragEnd(e) {
-      e.target.classList.remove('dragging');
-      this.currentDraggedItem = null;
+  ensureStructure() {
+    this.innerHTML = `
+      <div class="question-type" style="display: block;">
+        <div class="question-text"></div>
+        <div class="svg-figure" style="display: flex;"></div>
+        <div class="figure" style="display: flex;"></div>
+        <div class="ordering-container"></div>
+      </div>
+    `;
+
+    this._questionTextEl = this.querySelector('.question-text');
+    this._svgFigureEl = this.querySelector('.svg-figure');
+    this._imageFigureEl = this.querySelector('.figure');
+    this._itemsContainerEl = this.querySelector('.ordering-container');
+  }
+
+  updateFromConfig() {
+    const config = JSON.parse(this.getAttribute('config'));
+
+    this.addQunStatement(config.question);
+    this.addSvg(config.svg_content);
+    this.addImg(config.img_url);
+
+    this.addAllItems(config);
+
+    if (Array.isArray(config.user_response)) {
+      this.setAnswer(config.user_response);
     }
   }
-  
-  customElements.define('ordering-drag-drop', OrderingComponent);
-  
+
+  addQunStatement(question) {
+    this._questionTextEl.textContent = question || '';
+  }
+
+  addSvg(svg_content) {
+    if (svg_content) {
+      this._svgFigureEl.style.display = 'flex';
+      this._svgFigureEl.innerHTML = svg_content;
+    } else {
+      this._svgFigureEl.style.display = 'none';
+      this._svgFigureEl.innerHTML = '';
+    }
+  }
+
+  addImg(img_url) {
+    if (img_url) {
+      this._imageFigureEl.style.display = 'flex';
+      this._imageFigureEl.innerHTML = `<img src="${img_url}" alt="figure" />`;
+    } else {
+      this._imageFigureEl.style.display = 'none';
+      this._imageFigureEl.innerHTML = '';
+    }
+  }
+
+  addAllItems(config) {
+    this._itemsContainerEl.innerHTML = '';
+    if (Array.isArray(config.items)) {
+      config.items.forEach(item => {
+        this.addItem(item.id, item.text);
+      });
+    }
+  }
+
+  addItem(item_id, item_text) {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'ordering-item';
+    itemDiv.draggable = true;
+    itemDiv.dataset.id = item_id;
+    itemDiv.textContent = item_text;
+
+    itemDiv.addEventListener('dragstart', this.handleDragStart.bind(this));
+    itemDiv.addEventListener('dragover', this.handleDragOver.bind(this));
+    itemDiv.addEventListener('drop', this.handleDrop.bind(this));
+    itemDiv.addEventListener('dragend', this.handleDragEnd.bind(this));
+
+    this._itemsContainerEl.appendChild(itemDiv);
+  }
+
+  setAnswer(orderedIds) {
+    const idToItem = {};
+    Array.from(this._itemsContainerEl.children).forEach(item => {
+      idToItem[item.dataset.id] = item;
+    });
+
+    this._itemsContainerEl.innerHTML = '';
+
+    orderedIds.forEach(id => {
+      if (idToItem[id]) {
+        this._itemsContainerEl.appendChild(idToItem[id]);
+      }
+    });
+  }
+
+  getUserAnswer() {
+    return Array.from(this._itemsContainerEl.children).map(item => item.dataset.id);
+  }
+
+  cleanup() {
+    this.innerHTML = '';
+    this._questionTextEl = null;
+    this._svgFigureEl = null;
+    this._imageFigureEl = null;
+    this._itemsContainerEl = null;
+    this.currentDraggedItem = null;
+  }
+
+  handleDragStart(e) {
+    this.currentDraggedItem = e.target;
+    e.dataTransfer.effectAllowed = 'move';
+    e.target.classList.add('dragging');
+  }
+
+  handleDragOver(e) {
+    e.preventDefault();
+    const target = e.target.closest('.ordering-item');
+    if (!target || target === this.currentDraggedItem) return;
+
+    const bounding = target.getBoundingClientRect();
+    const offset = e.clientY - bounding.top;
+
+    const insertBefore = offset < bounding.height / 2;
+    const container = this._itemsContainerEl;
+
+    if (insertBefore) {
+      container.insertBefore(this.currentDraggedItem, target);
+    } else {
+      container.insertBefore(this.currentDraggedItem, target.nextSibling);
+    }
+  }
+
+  handleDrop(e) {
+    e.preventDefault();
+  }
+
+  handleDragEnd(e) {
+    e.target.classList.remove('dragging');
+    this.currentDraggedItem = null;
+  }
+}
+
+customElements.define('ordering-drag-drop', OrderingComponent);
+
+
   /* 
   
   <ordering-drag-drop
