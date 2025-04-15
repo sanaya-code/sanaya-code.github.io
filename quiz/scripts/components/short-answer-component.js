@@ -24,20 +24,20 @@ class ShortAnswerComponent extends HTMLElement {
     if (this._initialized) return;
 
     this.innerHTML = `
-      <div class="question-type" id="short-question" style="display: block;">
-        <div class="question-text" id="short-question-text"></div>
-        <div class="svg-figure" id="short-svg-figure" style="display: none;"></div>
-        <div class="figure" id="short-figure" style="display: none;"></div>
+      <div class="question-type" style="display: block;">
+        <div class="question-text"></div>
+        <div class="svg-figure" style="display: none;"></div>
+        <div class="figure" style="display: none;"></div>
         <div class="short-answer-container">
-          <textarea class="text-answer" id="short-answer" placeholder="Type your answer here" rows="4"></textarea>
+          <textarea class="text-answer" placeholder="Type your answer here" rows="4"></textarea>
         </div>
       </div>
     `;
 
-    this.questionEl = this.querySelector('#short-question-text');
-    this.svgEl = this.querySelector('#short-svg-figure');
-    this.imgEl = this.querySelector('#short-figure');
-    this.textarea = this.querySelector('#short-answer');
+    this.questionEl = this.querySelector('.question-text');
+    this.svgEl = this.querySelector('.svg-figure');
+    this.imgEl = this.querySelector('.figure');
+    this.textarea = this.querySelector('.text-answer');
 
     this._initialized = true;
   }
@@ -99,8 +99,6 @@ class ShortAnswerComponent extends HTMLElement {
 }
 
 customElements.define('short-answer', ShortAnswerComponent);
-
-
 
 
 /*
