@@ -6,6 +6,7 @@ class MatchingDragComponent extends HTMLElement {
     this._svgFigureEl = null;
     this._imageFigureEl = null;
     this._pairsContainer = null;
+    this._optionsContainer = null;
     this._dropTargets = [];
   }
 
@@ -26,23 +27,23 @@ class MatchingDragComponent extends HTMLElement {
   }
 
   ensureStructure() {
-    if (!this.querySelector('#matching-question')) {
+    if (!this.querySelector('.matching-question')) {
       this.innerHTML = `
-        <div class="question-type" id="matching-question" style="display: block;">
-          <div class="question-text" id="matching-question-text"></div>
-          <div class="svg-figure" id="matching-svg-figure" style="display: none;"></div>
-          <div class="figure" id="matching-figure" style="display: none;"></div>
-          <div class="matching-container" id="matching-pairs"></div>
-          <div class="answer-bank" id="matching-options" style="margin-top: 1em;"></div>
+        <div class="question-type matching-question" style="display: block;">
+          <div class="question-text matching-question-text"></div>
+          <div class="svg-figure matching-svg-figure" style="display: none;"></div>
+          <div class="figure matching-figure" style="display: none;"></div>
+          <div class="matching-container matching-pairs"></div>
+          <div class="answer-bank matching-options" style="margin-top: 1em;"></div>
         </div>
       `;
     }
 
-    this._questionTextEl = this.querySelector('#matching-question-text');
-    this._svgFigureEl = this.querySelector('#matching-svg-figure');
-    this._imageFigureEl = this.querySelector('#matching-figure');
-    this._pairsContainer = this.querySelector('#matching-pairs');
-    this._optionsContainer = this.querySelector('#matching-options');
+    this._questionTextEl = this.querySelector('.matching-question-text');
+    this._svgFigureEl = this.querySelector('.matching-svg-figure');
+    this._imageFigureEl = this.querySelector('.matching-figure');
+    this._pairsContainer = this.querySelector('.matching-pairs');
+    this._optionsContainer = this.querySelector('.matching-options');
   }
 
   updateFromConfig() {
@@ -92,33 +93,30 @@ class MatchingDragComponent extends HTMLElement {
     this._dropTargets = [];
 
     const allOptions = [...pairs.map(p => p.right), ...distractors];
-    const used = new Set();
 
-    // Create draggable options
-    allOptions.forEach((optionText, index) => {
+    allOptions.forEach((optionText) => {
       const opt = document.createElement('div');
       opt.className = 'draggable-option';
       opt.draggable = true;
       opt.textContent = optionText;
       opt.dataset.value = optionText;
-      opt.style.border = '1px solid #ccc';
-      opt.style.padding = '4px 8px';
-      opt.style.margin = '4px';
-      opt.style.display = 'inline-block';
-      opt.style.cursor = 'grab';
+      opt.style.cssText = `
+        border: 1px solid #ccc;
+        padding: 4px 8px;
+        margin: 4px;
+        display: inline-block;
+        cursor: grab;
+      `;
       opt.addEventListener('dragstart', e => {
         e.dataTransfer.setData('text/plain', optionText);
       });
       this._optionsContainer.appendChild(opt);
     });
 
-    // Create drop targets for each left label
     pairs.forEach((pair, idx) => {
       const pairDiv = document.createElement('div');
       pairDiv.className = 'matching-pair';
-      pairDiv.style.display = 'flex';
-      pairDiv.style.alignItems = 'center';
-      pairDiv.style.marginBottom = '10px';
+      pairDiv.style.cssText = 'display: flex; align-items: center; margin-bottom: 10px;';
 
       const leftDiv = document.createElement('div');
       leftDiv.className = 'matching-left';
@@ -128,12 +126,14 @@ class MatchingDragComponent extends HTMLElement {
       const dropZone = document.createElement('div');
       dropZone.className = 'drop-zone';
       dropZone.dataset.index = idx;
-      dropZone.style.flex = '1';
-      dropZone.style.minHeight = '30px';
-      dropZone.style.border = '2px dashed #ccc';
-      dropZone.style.marginLeft = '1em';
-      dropZone.style.padding = '4px 8px';
-      dropZone.style.background = '#f9f9f9';
+      dropZone.style.cssText = `
+        flex: 1;
+        min-height: 30px;
+        border: 2px dashed #ccc;
+        margin-left: 1em;
+        padding: 4px 8px;
+        background: #f9f9f9;
+      `;
 
       dropZone.addEventListener('dragover', e => {
         e.preventDefault();
@@ -166,7 +166,7 @@ class MatchingDragComponent extends HTMLElement {
   }
 
   getUserAnswer() {
-    return (this._dropTargets.map(el => el.dataset.value || ""));
+    return this._dropTargets.map(el => el.dataset.value || "");
   }
 
   disconnectedCallback() {
