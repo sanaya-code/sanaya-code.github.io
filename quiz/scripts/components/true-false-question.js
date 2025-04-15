@@ -1,4 +1,3 @@
-
 class TrueFalseComponent extends HTMLElement {
     constructor() {
         super();
@@ -25,26 +24,26 @@ class TrueFalseComponent extends HTMLElement {
         if (this._initialized) return;
 
         this.innerHTML = `
-            <div class="question-type" id="tf-question">
-                <div class="question-text" id="tf-question-text"></div>
-                <div class="svg-figure" id="tf-svg-figure" style="display: none;"></div>
-                <div class="figure" id="tf-figure" style="display: none;"></div>
+            <div class="question-type">
+                <div class="question-text"></div>
+                <div class="svg-figure" style="display: none;"></div>
+                <div class="figure" style="display: none;"></div>
                 <div class="options-container">
                     <div class="option">
-                        <input type="radio" name="trueFalse" id="true-option" value="true">
-                        <label for="true-option">True</label>
+                        <input type="radio" name="trueFalse" value="true">
+                        <label>True</label>
                     </div>
                     <div class="option">
-                        <input type="radio" name="trueFalse" id="false-option" value="false">
-                        <label for="false-option">False</label>
+                        <input type="radio" name="trueFalse" value="false">
+                        <label>False</label>
                     </div>
                 </div>
             </div>
         `;
 
-        this.questionEl = this.querySelector('#tf-question-text');
-        this.svgContainer = this.querySelector('#tf-svg-figure');
-        this.imgContainer = this.querySelector('#tf-figure');
+        this.questionEl = this.querySelector('.question-text');
+        this.svgContainer = this.querySelector('.svg-figure');
+        this.imgContainer = this.querySelector('.figure');
         this._initialized = true;
     }
 
@@ -63,13 +62,10 @@ class TrueFalseComponent extends HTMLElement {
     }
 
     setUserResponse(value) {
-        const trueOption = this.querySelector('#true-option');
-        const falseOption = this.querySelector('#false-option');
-
-        if (trueOption && falseOption) {
-            trueOption.checked = (value === 'true');
-            falseOption.checked = (value === 'false');
-        }
+        const options = this.querySelectorAll('input[type="radio"]');
+        options.forEach(opt => {
+            opt.checked = (opt.value === value);
+        });
     }
 
     getUserAnswer() {
