@@ -17,10 +17,10 @@ class IndexPanelComponent extends HTMLElement {
 		} else if (name === 'update-status') {
 			this.ensureStructure();
 			this.updateStatusFromJSON(newValue);
-		}else if (name === 'mark-all-unanswered') {
-            this.ensureStructure();
-            this.markAllUnanswered();
-        }else if (name === 'remove-panel') {
+		} else if (name === 'mark-all-unanswered') {
+			this.ensureStructure();
+			this.markAllUnanswered();
+		} else if (name === 'remove-panel') {
 			this.remove(); 
 		}
 	}
@@ -35,40 +35,40 @@ class IndexPanelComponent extends HTMLElement {
 
 	buildGrid(total) {
 		this.gridBuilt = true;
+
 		this.innerHTML = `
-			<div class="index-panel" id="index-panel" style="display: block;">
-                <div class="index-title">Questions</div>
-			    <div class="index-grid" id="index-grid">
-                    ${Array.from({ length: total }, (_, i) => `
-                        <div class="index-item not-answered" data-index="${i}">${i + 1}</div>
-                    `).join('')}
-			    </div>
-            </div>
+			<div class="index-panel" style="display: block;">
+				<div class="index-title">Questions</div>
+				<div class="index-grid">
+					${Array.from({ length: total }, (_, i) => `
+						<div class="index-item not-answered" data-index="${i}">${i + 1}</div>
+					`).join('')}
+				</div>
+			</div>
 		`;
 
-        // Add event listener once to the grid container
-	this.addCustomEventsToQueIndex();
-
+		this.addCustomEventsToQueIndex();
 	}
 
-    addCustomEventsToQueIndex() {
-        const grid = this.querySelector('.index-grid');
-        grid.addEventListener('click', (e) => {
-            const item = e.target.closest('.index-item');
-            if (item) {
-                const index = parseInt(item.dataset.index, 10);
-                this.dispatchEvent(new CustomEvent('question-selected', {
-                    detail: { index },
-                    bubbles: true,
-                    composed: true
-                }));
-            }
-        });
-    }
+	addCustomEventsToQueIndex() {
+		const grid = this.querySelector('.index-grid');
+		if (!grid) return;
+
+		grid.addEventListener('click', (e) => {
+			const item = e.target.closest('.index-item');
+			if (item) {
+				const index = parseInt(item.dataset.index, 10);
+				this.dispatchEvent(new CustomEvent('question-selected', {
+					detail: { index },
+					bubbles: true,
+					composed: true
+				}));
+			}
+		});
+	}
 
 	setCurrent(index) {
-        
-        if (isNaN(index)) return;
+		if (isNaN(index)) return;
 
 		const prev = this.querySelector('.index-item.current');
 		if (prev) prev.classList.remove('current');
@@ -80,7 +80,8 @@ class IndexPanelComponent extends HTMLElement {
 	updateStatusFromJSON(jsonStr) {
 		try {
 			const { index, status } = JSON.parse(jsonStr);
-            if (isNaN(index)) return;
+			if (isNaN(index)) return;
+
 			const el = this.querySelector(`.index-item[data-index="${index}"]`);
 			if (el) {
 				el.classList.remove('answered', 'not-answered');
@@ -91,15 +92,15 @@ class IndexPanelComponent extends HTMLElement {
 		}
 	}
 
-    markAllUnanswered() {
-        const items = this.querySelectorAll('.index-item');
-        items.forEach(item => {
-            if (!item.classList.contains('current')) {
-                item.classList.remove('answered');
-                item.classList.add('not-answered');
-            }
-        });
-    }
+	markAllUnanswered() {
+		const items = this.querySelectorAll('.index-item');
+		items.forEach(item => {
+			if (!item.classList.contains('current')) {
+				item.classList.remove('answered');
+				item.classList.add('not-answered');
+			}
+		});
+	}
 }
 
 customElements.define('question-index-panel', IndexPanelComponent);
