@@ -10,53 +10,68 @@ class QuestionWrapperComponent extends HTMLElement {
   constructor() {
     super();
     this.currentComponent = null;
+
+    // Component tag map for cleaner rendering logic
+    this.typeToComponentMap = {
+      mcq: 'mcq-radio',
+      fill_in_blank: 'fill-in-blank',
+      true_false: 'true-false',
+      short_answer: 'short-answer',
+      multi_select: 'multi-select',
+      matching: 'matching-select',
+      matching_drag_drop: 'matching-drag-drop',
+      ordering: 'ordering-drag-drop',
+    };
+  }
+
+  connectedCallback() {
+    const dataAttr = this.getAttribute('question-data');
+    if (dataAttr) {
+      try {
+        const parsed = JSON.parse(dataAttr);
+        this.renderComponent(parsed);
+      } catch (e) {
+        console.error('Invalid JSON in question-data attribute:', e);
+      }
+    }
+  }
+
+  disconnectedCallback() {
+    this.cleanup();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'question-data' && newValue) {
-      this.renderComponent(JSON.parse(newValue));
+      try {
+        const parsed = JSON.parse(newValue);
+        this.renderComponent(parsed);
+      } catch (e) {
+        console.error('Invalid JSON in question-data attribute:', e);
+      }
     }
   }
 
   renderComponent(data) {
-    // Cleanup existing component
+    // Validate data object and type field
+    if (!data || typeof data !== 'object' || !data.type) {
+      console.warn('Invalid or missing "type" in question data:', data);
+      return;
+    }
+
+    const componentTag = this.typeToComponentMap[data.type];
+
+    if (!componentTag) {
+      console.warn(`Unknown question type: ${data.type}`);
+      return;
+    }
+
+    // Cleanup previous component if exists
     if (this.currentComponent && typeof this.currentComponent.cleanup === 'function') {
       this.currentComponent.cleanup();
     }
+
     if (this.currentComponent && this.contains(this.currentComponent)) {
       this.removeChild(this.currentComponent);
-    }
-
-    let componentTag = '';
-
-    switch (data.type) {
-      case 'mcq':
-        componentTag = 'mcq-radio';
-        break;
-      case 'fill_in_blank':
-        componentTag = 'fill-in-blank';
-        break;
-      case 'true_false':
-        componentTag = 'true-false';
-        break;
-      case 'short_answer':
-        componentTag = 'short-answer';
-        break;
-      case 'multi_select':
-        componentTag = 'multi-select';
-        break;
-      case 'matching':
-        componentTag = 'matching-select';
-        break;
-      case 'matching_drag_drop': 
-        componentTag = 'matching-drag-drop';
-        break;
-      case 'ordering': 
-        componentTag = 'ordering-drag-drop';
-        break;
-      default:
-        console.warn(`Unknown question type: ${data.type}`);
-        return;
     }
 
     const component = document.createElement(componentTag);
