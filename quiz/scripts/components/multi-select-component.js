@@ -23,11 +23,11 @@ class MultiSelectComponent extends HTMLElement {
   ensureStructure() {
     if (!this.container) {
       this.innerHTML = `
-        <div class="question-type" id="multi-question" style="display: block;">
-          <div class="question-text" id="multi-question-text"></div>
-          <div class="svg-figure" id="multi-svg-figure" style="display: none;"></div>
-          <div class="figure" id="multi-figure" style="display: none;"></div>
-          <div class="options-container" id="multi-options"></div>
+        <div class="question-type" style="display: block;">
+          <div class="question-text"></div>
+          <div class="svg-figure" style="display: none;"></div>
+          <div class="figure" style="display: none;"></div>
+          <div class="options-container"></div>
         </div>
       `;
       this.container = this.querySelector('.question-type');
@@ -45,16 +45,13 @@ class MultiSelectComponent extends HTMLElement {
     try {
       const config = JSON.parse(configStr);
 
-      this.config = config; // Save reference for later (like in getUserAnswer)
+      this.config = config;
 
       this.addQunStatement(config);
       this.addSvg(config);
       this.addImg(config);
       this.renderOptions(config);
-
-      // Update responses (if any)
       this.updateUserResponse(config);
-
     } catch (err) {
       console.error('Invalid config JSON in <multi-select>: ', err);
     }
@@ -108,9 +105,9 @@ class MultiSelectComponent extends HTMLElement {
 
   updateUserResponse(config) {
     const selected = config.user_response;
-    
+
     if (!this.optionsRendered || !Array.isArray(selected)) return;
-    
+
     const checkboxes = this.optionsContainer.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => {
       cb.checked = selected.includes(cb.value);
@@ -121,7 +118,7 @@ class MultiSelectComponent extends HTMLElement {
     const selected = [];
     const checkboxes = this.optionsContainer.querySelectorAll('input[type="checkbox"]:checked');
     checkboxes.forEach(cb => selected.push(cb.value));
-    return (selected);
+    return selected;
   }
 
   disconnectedCallback() {
