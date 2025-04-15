@@ -1,71 +1,77 @@
 class MatchingComponent extends HTMLElement {
-    constructor() {
-      super();
-      this._config = null;
+  constructor() {
+    super();
+    this._config = null;
 
-      // Cached DOM references
-      this._questionTextEl = null;
-      this._svgFigureEl = null;
-      this._imageFigureEl = null;
-      this._pairsContainer = null;
-    }
+    // Cached DOM references
+    this._questionTextEl = null;
+    this._svgFigureEl = null;
+    this._imageFigureEl = null;
+    this._pairsContainer = null;
+  }
 
-    static get observedAttributes() {
-      return ['config'];
-    }
+  static get observedAttributes() {
+    return ['config'];
+  }
 
-    connectedCallback() {
+  connectedCallback() {
+    this.ensureStructure();
+    this.updateFromConfig();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'config') {
       this.ensureStructure();
       this.updateFromConfig();
     }
+  }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (name === 'config') {
-        this.ensureStructure();
-        this.updateFromConfig();
-      }
+  ensureStructure() {
+    // If already initialized, skip
+    if (this.querySelector('.matching-component-root')) return;
+
+    this.innerHTML = `
+      <div class="matching-component-root">
+        <div class="question-type" style="display: block;">
+          <div class="question-text"></div>
+          <div class="svg-figure" style="display: none;"></div>
+          <div class="figure" style="display: none;"></div>
+          <div class="matching-container"></div>
+        </div>
+      </div>
+    `;
+
+    this._questionTextEl = this.querySelector('.question-text');
+    this._svgFigureEl = this.querySelector('.svg-figure');
+    this._imageFigureEl = this.querySelector('.figure');
+    this._pairsContainer = this.querySelector('.matching-container');
+  }
+
+  updateFromConfig() {
+    const raw = this.getAttribute('config');
+    if (!raw) return;
+
+    try {
+      const config = JSON.parse(raw);
+      this._config = config;
+
+      this.addQunStatement(config.question);
+      this.addSvg(config.svg_content);
+      this.addImg(config.img_url);
+      this.addAllPairs(config.pairs || [], config.distractors || [], config.user_response || []);
+    } catch (e) {
+      console.error('Invalid config JSON', e);
     }
+  }
 
-    ensureStructure() {
-      if (!this.querySelector('#matching-question')) {
-        this.innerHTML = `
-          <div class="question-type" id="matching-question" style="display: block;">
-            <div class="question-text" id="matching-question-text"></div>
-            <div class="svg-figure" id="matching-svg-figure" style="display: none;"></div>
-            <div class="figure" id="matching-figure" style="display: none;"></div>
-            <div class="matching-container" id="matching-pairs"></div>
-          </div>
-        `;
-      }
-
-      this._questionTextEl = this.querySelector('#matching-question-text');
-      this._svgFigureEl = this.querySelector('#matching-svg-figure');
-      this._imageFigureEl = this.querySelector('#matching-figure');
-      this._pairsContainer = this.querySelector('#matching-pairs');
-    }
-
-    updateFromConfig() {
-      const raw = this.getAttribute('config');
-      if (!raw) return;
-
-      try {
-        const config = JSON.parse(raw);
-        this._config = config;
-
-        this.addQunStatement(config.question);
-        this.addSvg(config.svg_content);
-        this.addImg(config.img_url);
-        this.addAllPairs(config.pairs || [], config.distractors || [], config.user_response || []);
-      } catch (e) {
-        console.error('Invalid config JSON', e);
-      }
-    }
-
-    addQunStatement(question) {
+  addQunStatement(question) {
+    if (this._questionTextEl) {
       this._questionTextEl.textContent = question || '';
     }
+  }
 
-    addSvg(svg_content) {
+  addSvg(svg_content) {
+    if (this._svgFigureEl) {
       if (svg_content) {
         this._svgFigureEl.style.display = '';
         this._svgFigureEl.innerHTML = svg_content;
@@ -74,8 +80,10 @@ class MatchingComponent extends HTMLElement {
         this._svgFigureEl.innerHTML = '';
       }
     }
+  }
 
-    addImg(img_url) {
+  addImg(img_url) {
+    if (this._imageFigureEl) {
       if (img_url) {
         this._imageFigureEl.style.display = '';
         this._imageFigureEl.innerHTML = `<img src="${img_url}" alt="figure" />`;
@@ -84,65 +92,68 @@ class MatchingComponent extends HTMLElement {
         this._imageFigureEl.innerHTML = '';
       }
     }
+  }
 
-    addAllPairs(pairs, distractors, user_response) {
-      this._pairsContainer.innerHTML = '';
-      const options = [...pairs.map(p => p.right), ...distractors];
+  addAllPairs(pairs, distractors, user_response) {
+    if (!this._pairsContainer) return;
 
-      pairs.forEach((pair, idx) => {
-        this.addPair(pair, options, user_response, idx);
-      });
+    this._pairsContainer.innerHTML = '';
+    const options = [...pairs.map(p => p.right), ...distractors];
+
+    pairs.forEach((pair, idx) => {
+      this.addPair(pair, options, user_response, idx);
+    });
+  }
+
+  addPair(pair, options, user_response, idx) {
+    const div = document.createElement('div');
+    div.className = 'matching-pair';
+
+    const left = document.createElement('div');
+    left.className = 'matching-left';
+    left.textContent = pair.left;
+
+    const select = document.createElement('select');
+    select.className = 'matching-select';
+
+    const defaultOpt = document.createElement('option');
+    defaultOpt.value = '';
+    defaultOpt.textContent = 'Select match';
+    select.appendChild(defaultOpt);
+
+    options.forEach(optText => {
+      const opt = document.createElement('option');
+      opt.value = optText;
+      opt.textContent = optText;
+      select.appendChild(opt);
+    });
+
+    if (Array.isArray(user_response) && user_response[idx]) {
+      select.value = user_response[idx];
     }
 
-    addPair(pair, options, user_response, idx) {
-        const div = document.createElement('div');
-        div.className = 'matching-pair';
+    div.appendChild(left);
+    div.appendChild(select);
+    this._pairsContainer.appendChild(div);
+  }
 
-        const left = document.createElement('div');
-        left.className = 'matching-left';
-        left.textContent = pair.left;
+  getUserAnswer() {
+    const selects = this.querySelectorAll('.matching-select');
+    return Array.from(selects).map(s => s.value);
+  }
 
-        const select = document.createElement('select');
-        select.className = 'matching-select';
-
-        const defaultOpt = document.createElement('option');
-        defaultOpt.value = '';
-        defaultOpt.textContent = 'Select match';
-        select.appendChild(defaultOpt);
-
-        options.forEach(optText => {
-            const opt = document.createElement('option');
-            opt.value = optText;
-            opt.textContent = optText;
-            select.appendChild(opt);
-        });
-
-        if (Array.isArray(user_response) && user_response[idx]) {
-            select.value = user_response[idx];
-        }
-
-        div.appendChild(left);
-        div.appendChild(select);
-        this._pairsContainer.appendChild(div);
+  disconnectedCallback() {
+    if (this._questionTextEl) this._questionTextEl.textContent = '';
+    if (this._svgFigureEl) {
+      this._svgFigureEl.innerHTML = '';
+      this._svgFigureEl.style.display = 'none';
     }
-
-    getUserAnswer() {
-      const selects = this.querySelectorAll('.matching-select');
-      return (Array.from(selects).map(s => s.value));
+    if (this._imageFigureEl) {
+      this._imageFigureEl.innerHTML = '';
+      this._imageFigureEl.style.display = 'none';
     }
-
-    disconnectedCallback() {
-      if (this._questionTextEl) this._questionTextEl.textContent = '';
-      if (this._svgFigureEl) {
-        this._svgFigureEl.innerHTML = '';
-        this._svgFigureEl.style.display = 'none';
-      }
-      if (this._imageFigureEl) {
-        this._imageFigureEl.innerHTML = '';
-        this._imageFigureEl.style.display = 'none';
-      }
-      if (this._pairsContainer) this._pairsContainer.innerHTML = '';
-    }
+    if (this._pairsContainer) this._pairsContainer.innerHTML = '';
+  }
 }
 
 customElements.define('matching-select', MatchingComponent);
