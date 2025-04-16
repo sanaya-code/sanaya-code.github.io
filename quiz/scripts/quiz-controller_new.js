@@ -8,41 +8,6 @@ class Controller
         
     }
 
-    getSessionJsonData() 
-    {
-        const data = sessionStorage.getItem('customQuizData');
-        if (!data) throw new Error('No custom quiz data found');
-        const questionsList = JSON.parse(data).questions || [];
-        if (!questionsList.length) throw new Error('No questions found');
-        return(questionsList);
-    }
-
-    async getRemoteJsonData() 
-    {
-        const urlParams = new URLSearchParams(window.location.search);
-        const subject = urlParams.get('subject');
-        const response = await fetch(`data/${subject}.json`);
-        const data = await response.json();
-        const questionsList = data.questions || [];
-        if (!questionsList.length) throw new Error('No questions found');
-        return(questionsList);
-    }
-
-    async setQuestionsList()
-    {
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('source');
-        if (source === 'custom') 
-        {
-            this.quizState.queList  =   this.getSessionJsonData();
-        } 
-        else 
-        {
-            this.quizState.queList  =   await this.getRemoteJsonData();
-        }
-    }
-
-
     initEventListeners() 
     {
         document.getElementById('prev-btn').addEventListener('click', () => this.navigateQuestion(-1));
@@ -144,6 +109,7 @@ class Controller
 
     restartQuiz() 
     {
+        
         // Reset quiz state
         this.quizState.resetQuizState();
        
@@ -218,15 +184,12 @@ class Controller
 
     navigateToQuestion(newIndex)
     {
-        // save current question
-        this.quizState.saveCurrentAnswer(this.wrapper.getUserAnswer());
+         // Update index panel
+         this.markCurrentQuestionInIndexPanel();
+         this.indexPanel.setAttribute('current', `${newIndex}`);
 
-        // Update index panel
-        this.markCurrentQuestionInIndexPanel();
-        this.indexPanel.setAttribute('current', `${newIndex}`);
-
-        // update quiz state to new question
-        this.quizState.setCurrentQuestion(newIndex);
+        // update state
+        this.quizState.moveToNewQuestion(this.wrapper.getUserAnswer(), newIndex)
 
         // update wrapper component to display new question
         this.showCurrentQuestion();
@@ -261,9 +224,10 @@ class Controller
         try 
         {
             this.initEventListeners();
-            await this.setQuestionsList();
-            this.quizState.initializeUserAnswers();
-            this.quizState.setCurrentQuestion(0);
+
+            const queList   =   await QuizDataLoader.getQuestionsList();
+            this.quizState.initialize(queList)
+
             this.createAndShowIndexPanel();
             document.getElementById("quiz").appendChild(this.wrapper);
             

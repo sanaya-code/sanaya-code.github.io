@@ -2,10 +2,10 @@ class QuizStateNew
 {
     constructor() 
     {
-        this.queList = [];
-        this.currentQuestionIndex = 0;
-        this.currentQuestion = null;
-        this.userAnswers = {};
+        this.queList                =   [];
+        this.currentQuestionIndex   =   0;
+        this.currentQuestion        =   null;
+        this.userAnswers            =   {};
         // result modal, waraper component, index panel
     }
 
@@ -50,5 +50,11 @@ class QuizStateNew
     {
         this.currentQuestionIndex = index;
         this.currentQuestion = this.queList[index];
+    }
+
+    moveToNewQuestion(currUserResponse, newQueIndex)
+    {
+        this.saveCurrentAnswer(currUserResponse);
+        this.setCurrentQuestion(newQueIndex);
     }
 }

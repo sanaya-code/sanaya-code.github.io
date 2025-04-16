@@ -185,7 +185,7 @@
             "tags": ["points"]
           },
           {
-            "type": "matching",
+            "type": "matching_drag_drop",
             "id": "030",
             "question": "Match the followings:",
             "pairs": [
@@ -203,7 +203,7 @@
           },
           {
             "type": "ordering",
-            "id": "023",
+            "id": "032",
             "question": "Arrange these angles in increasing order:",
             "items": [
               {"id": "A", "text": "Obtuse Angle"},
@@ -215,6 +215,22 @@
             "correct_order": ["C", "D", "A", "E", "B"],
             "difficulty": "medium",
             "tags": ["angles"],
+            "points": 2
+          },
+          {
+            "type": "matching_drag_drop",
+            "id": "033",
+            "question": "Match for circle divided into :",
+            "pairs": [
+              {"left": "2 parts", "right": "180°"},
+              {"left": "3 parts", "right": "120°"},
+              {"left": "4 parts", "right": "90°"},
+              {"left": "6 parts", "right": "60°"}
+              
+            ],
+            "distractors": ["150°", "100°", "80°", "45°"],
+            "difficulty": "hard",
+            "tags": ["angles", "geometry"],
             "points": 2
           }
 
