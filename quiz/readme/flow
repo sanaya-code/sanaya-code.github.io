@@ -1,0 +1,13 @@
+
+
+    
+prepareResult class file takes questions json and returns result json.
+
+fetchJson.js class : reads and returns a json file from remote machine or local machine.
+
+JsonHandler class : saveUserResponse(), extractWrongQuestions(), reSetJson()
+
+quizState class : currQuestionIndex, isMarkedMap(index, true/false);
+            changeCurrentQuestion(change), resetState()
+            
+            
