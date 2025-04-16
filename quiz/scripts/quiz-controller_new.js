@@ -2,7 +2,7 @@ class Controller
 {
     constructor() 
     {
-        this.quizState      =   new QuizState();
+        this.quizState      =   new QuizStateNew();
         this.wrapper        =   document.createElement('question-wrapper');
         this.indexPanel     =   null;
         

@@ -1,4 +1,4 @@
-class QuizState 
+class QuizStateNew 
 {
     constructor() 
     {
