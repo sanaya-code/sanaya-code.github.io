@@ -1,0 +1,75 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "true_false",
+        "id": "001",
+        "question": "It was Amy's birthday",
+        "correct_answer": false,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "002",
+        "question": "Amy's mother was also named Amy",
+        "correct_answer": false,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "003",
+        "question": "Amy's went to Granny's house after school",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "004",
+        "question": "Amy's Granny gave her a candy box",
+        "correct_answer": false,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "005",
+        "question": "Granny's mother gave her a bangle",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "006",
+        "question": "Amy's mother gave her a bangle",
+        "correct_answer": false,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "007",
+        "question": "Amy celebrate her name day at her Granny's house",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "There were many good things to eat at the party",
+        "correct_answer": true,
+        "user_response" : ""
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
