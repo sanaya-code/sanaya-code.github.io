@@ -1,0 +1,84 @@
+{
+    "metadata": {
+      "title": "Map Representation Quiz",
+      "description": "Quiz questions about the definition and types of maps",
+      "version": "1.0",
+      "created": "2023-11-20",
+      "author": "Quiz Generator",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "map_001",
+        "question": "What is the representation of the Earth's surface (or a part of it) on a flat surface called?",
+        "options": [
+          {"id": "A", "text": "Globe"},
+          {"id": "B", "text": "Atlas"},
+          {"id": "C", "text": "Map"},
+          {"id": "D", "text": "Diagram"}
+        ],
+        "correct_answer": "C",
+        "explanation": "A map is a 2D representation of the Earth's surface or a portion of it, while a globe is 3D.",
+        "difficulty": "easy",
+        "tags": ["geography", "maps"],
+        "points": 1
+      },
+      {
+        "type": "true_false",
+        "id": "map_002",
+        "question": "A map is a three-dimensional representation of the Earth's surface.",
+        "correct_answer": false,
+        "explanation": "Maps are flat (2D); globes are three-dimensional representations.",
+        "difficulty": "easy",
+        "tags": ["geography", "maps"],
+        "points": 1
+      },
+      {
+        "type": "fill_in_blank",
+        "id": "map_003",
+        "question": "A _____ is a flat representation of the Earth's surface or a part of it.",
+        "correct_answer": "map",
+        "acceptable_answers": ["map"],
+        "case_sensitive": false,
+        "difficulty": "easy",
+        "tags": ["geography"],
+        "points": 1
+      },
+      {
+        "type": "short_answer",
+        "id": "map_004",
+        "question": "What is the key difference between a map and a globe?",
+        "correct_answer": "A map is flat (2D), while a globe is spherical (3D).",
+        "acceptable_variations": [
+          "Maps are 2D; globes are 3D.",
+          "Globes show curvature; maps are flat."
+        ],
+        "difficulty": "medium",
+        "tags": ["geography", "maps"],
+        "points": 2
+      },
+      {
+        "type": "multi_select",
+        "id": "map_005",
+        "question": "Which of the following are true about maps? (Select all that apply)",
+        "options": [
+          {"id": "A", "text": "They are always to scale", "correct": false},
+          {"id": "B", "text": "They represent Earth's surface in 2D", "correct": true},
+          {"id": "C", "text": "They can show political boundaries", "correct": true},
+          {"id": "D", "text": "They are the same as globes", "correct": false}
+        ],
+        "minimum_selections": 1,
+        "maximum_selections": 2,
+        "scoring_method": "partial",
+        "difficulty": "medium",
+        "tags": ["geography"],
+        "points": 2
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium"],
+      "subject_areas": ["geography"],
+      "question_types": ["mcq", "true_false", "fill_in_blank", "short_answer", "multi_select"]
+    }
+  }

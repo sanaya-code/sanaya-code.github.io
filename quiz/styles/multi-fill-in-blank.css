@@ -1,0 +1,30 @@
+multi-fill-in-blank .question-type {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: sans-serif;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+  }
+  
+  multi-fill-in-blank .question-text {
+    display: inline;
+    word-wrap: break-word;
+  }
+  
+  multi-fill-in-blank .blank-span {
+    color: red;
+    cursor: pointer;
+    padding: 0 4px;
+    border-bottom: 1px dashed #aaa;
+  }
+  
+  multi-fill-in-blank input.text-answer {
+    font-size: 1rem;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 80px;
+  }
+  

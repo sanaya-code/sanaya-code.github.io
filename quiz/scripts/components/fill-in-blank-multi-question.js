@@ -1,0 +1,181 @@
+class MultiFillInBlankComponent extends HTMLElement {
+  constructor() {
+    super();
+    this._initialized = false;
+    this._currentInput = null;
+    this._responses = [];
+  }
+
+  static get observedAttributes() {
+    return ['config'];
+  }
+
+  connectedCallback() {
+    this.setup();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'config') {
+      this.setup();
+    }
+  }
+
+  setup() {
+    if (!this._initialized) {
+      this.innerHTML = `
+        <div class="question-type">
+          <div class="question-text"></div>
+        </div>
+      `;
+      this._questionEl = this.querySelector('.question-text');
+      this._initialized = true;
+    }
+
+    try {
+      this._config = JSON.parse(this.getAttribute('config') || '{}');
+      this._responses = [...(this._config.user_response || [])];
+      this.renderQuestion();
+    } catch (err) {
+      console.warn("Invalid config:", err);
+    }
+  }
+
+  renderQuestion() {
+    const parts = this._config.question.split(/____+/g);
+    const frag = document.createDocumentFragment();
+
+    parts.forEach((text, i) => {
+      frag.appendChild(document.createTextNode(text));
+      if (i < this._config.blanks.length) {
+        const span = document.createElement('span');
+        span.className = 'blank-span';
+        span.dataset.index = i;
+        span.textContent = this._responses[i] || '____';
+        span.addEventListener('click', () => this.activateInput(i, span));
+        frag.appendChild(span);
+      }
+    });
+
+    this._questionEl.innerHTML = '';
+    this._questionEl.appendChild(frag);
+  }
+
+  activateInput(index, span) {
+    if (this._currentInput) {
+      this.commitCurrentInput();
+    }
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'text-answer';
+    input.value = this._responses[index] || '';
+    input.dataset.index = index;
+
+    input.addEventListener('blur', () => {
+      this.commitInput(input);
+    });
+
+    span.replaceWith(input);
+    input.focus();
+    this._currentInput = input;
+  }
+
+  commitCurrentInput() {
+    if (!this._currentInput) return;
+    this.commitInput(this._currentInput);
+  }
+
+  commitInput(input) {
+    const index = parseInt(input.dataset.index, 10);
+    const value = input.value.trim();
+
+    this._responses[index] = value;
+
+    const newSpan = document.createElement('span');
+    newSpan.className = 'blank-span';
+    newSpan.dataset.index = index;
+    newSpan.textContent = value || '____';
+    newSpan.addEventListener('click', () => this.activateInput(index, newSpan));
+
+    input.replaceWith(newSpan);
+    this._currentInput = null;
+  }
+
+  getUserResponse() {
+    this.commitCurrentInput();
+    return this._responses;
+  }
+}
+
+customElements.define('multi-fill-in-blank', MultiFillInBlankComponent);
+
+
+/*
+
+<multi-fill-in-blank
+      id="multiBlankComponent"
+      config='{
+        "question": "The process of ____ converts water into ____, while ____ turns it back into liquid.",
+        "blanks": [
+          {"position": 1, "correct_answer": "evaporation", "acceptable_answers": ["evaporation", "vaporization"]},
+          {"position": 2, "correct_answer": "vapor", "acceptable_answers": ["vapor", "steam", "gas"]},
+          {"position": 3, "correct_answer": "condensation", "acceptable_answers": ["condensation", "liquefaction"]}
+        ],
+        "user_response": ["", "", ""]
+      }'>
+</multi-fill-in-blank>
+
+
+function test() {
+  const sampleConfig = {
+    type: "multi_fill_in_blank",
+    id: "009",
+    question: "Complete the sentence: The process of ____ converts water into ____, while ____ turns it back into liquid.",
+    svg_content: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><text x='10' y='50'>Sample SVG</text></svg>",
+    img_url: "",
+    blanks: [
+      {
+        position: 1,
+        correct_answer: "evaporation",
+        acceptable_answers: ["evaporation", "vaporization"],
+        hint: "Liquid to gas phase change"
+      },
+      {
+        position: 2,
+        correct_answer: "vapor",
+        acceptable_answers: ["vapor", "steam", "gas"],
+        hint: "Gaseous state of water"
+      },
+      {
+        position: 3,
+        correct_answer: "condensation",
+        acceptable_answers: ["condensation", "liquefaction"],
+        hint: "Gas to liquid phase change"
+      }
+    ],
+    user_response: ["", "", ""],
+    case_sensitive: false,
+    difficulty: "medium",
+    tags: ["science", "physics", "phase-changes"],
+    points: 2,
+    scoring_method: "partial",
+    feedback: {
+      full_credit: "All blanks filled correctly",
+      partial_credit: "1-2 blanks correct",
+      none: "No correct answers"
+    }
+  };
+
+  const comp = document.createElement('multi-fill-in-blank');
+  comp.setAttribute('config', JSON.stringify(sampleConfig));
+  document.body.appendChild(comp);
+
+  // Optional: Log responses after 10 seconds
+  setTimeout(() => {
+    console.log('User responses:', comp.getUserResponse());
+  }, 10000);
+}
+
+
+
+*/

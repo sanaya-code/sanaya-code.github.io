@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi Fill in the Blank Test</title>
+  <script src="scripts/components/fill-in-blank-multi-question.js"></script>
+</head>
+<body>
+  
+</body>
+
+<script>
+  function test() {
+  const sampleConfig = {
+    type: "multi_fill_in_blank",
+    id: "009",
+    question: "Complete the sentence: The process of ____ converts water into ____, while ____ turns it back into liquid.",
+    svg_content: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><text x='10' y='50'>Sample SVG</text></svg>",
+    img_url: "",
+    blanks: [
+      {
+        position: 1,
+        correct_answer: "evaporation",
+        acceptable_answers: ["evaporation", "vaporization"],
+        hint: "Liquid to gas phase change"
+      },
+      {
+        position: 2,
+        correct_answer: "vapor",
+        acceptable_answers: ["vapor", "steam", "gas"],
+        hint: "Gaseous state of water"
+      },
+      {
+        position: 3,
+        correct_answer: "condensation",
+        acceptable_answers: ["condensation", "liquefaction"],
+        hint: "Gas to liquid phase change"
+      }
+    ],
+    user_response: ["", "", ""],
+    case_sensitive: false,
+    difficulty: "medium",
+    tags: ["science", "physics", "phase-changes"],
+    points: 2,
+    scoring_method: "partial",
+    feedback: {
+      full_credit: "All blanks filled correctly",
+      partial_credit: "1-2 blanks correct",
+      none: "No correct answers"
+    }
+  };
+
+  const comp = document.createElement('multi-fill-in-blank');
+  comp.setAttribute('config', JSON.stringify(sampleConfig));
+  document.body.appendChild(comp);
+
+  // Optional: Log responses after 10 seconds
+  setTimeout(() => {
+    console.log('User responses:', comp.getUserResponse());
+  }, 10000);
+}
+
+test();
+</script>
+
+</html>
