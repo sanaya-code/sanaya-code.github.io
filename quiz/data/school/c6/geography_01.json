@@ -13,7 +13,7 @@
       "id": "002",
       "question": " Map represents ____ or ____",
       "blanks": [
-        {"position": 1, "correct_answer": "earth's surface"},
+        {"position": 1, "correct_answer": "earths surface"},
         {"position": 2, "correct_answer": "part of it"}
       ],
       "user_response": ["", ""],
@@ -92,7 +92,7 @@
       "question": " Cardinal directions are ____ while Intermediate directions are ____",
       "blanks": [
         {"position": 1, "correct_answer": "main directions"},
-        {"position": 2, "correct_answer": "4 points between then"}
+        {"position": 2, "correct_answer": "4 points between them"}
       ],
       "user_response": ["", ""],
       "case_sensitive": false,
