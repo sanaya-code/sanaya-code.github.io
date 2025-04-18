@@ -26,5 +26,8 @@ multi-fill-in-blank .question-type {
     border: 1px solid #ccc;
     border-radius: 4px;
     min-width: 80px;
+    width: 12ch;         /* Width based on average character size */
+    max-width: 20ch;     /* Prevent it from getting too long */
+    box-sizing: border-box;
   }
   
