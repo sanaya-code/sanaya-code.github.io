@@ -62,6 +62,8 @@ class QuizResultEvaluator {
                         ? ans === userAnswer
                         : ans.toLowerCase() === userAnswer.toLowerCase()
                 );
+            case 'multi_fill_in_blank': // New case for multi_fill_in_blank
+                return this.checkMultiFillInBlankAnswer(question, userAnswer);
             case 'multi_select':
                 const correctOptions = question.options
                     .filter(opt => opt.correct)
@@ -84,6 +86,14 @@ class QuizResultEvaluator {
             default:
                 return false;
         }
+    }
+
+    checkMultiFillInBlankAnswer(question, userAnswer) {
+        const correctAnswers = question.blanks.map(blank => blank.correct_answer);
+        // Compare user answers to the correct answers for each blank
+        return userAnswer.every((userAns, idx) => 
+            userAns.toLowerCase() === correctAnswers[idx].toLowerCase()
+        );
     }
 
     formatUserAnswer(question, answer) {
@@ -117,6 +127,8 @@ class QuizResultEvaluator {
                     const isCorrect = right === correctRight;
                     return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
                 }).join('; ');
+            case 'multi_fill_in_blank': // New case for multi_fill_in_blank
+                return answer.map(ans => ans || 'Not answered').join('; ');
             default:
                 return answer;
         }
@@ -130,6 +142,8 @@ class QuizResultEvaluator {
                 return question.correct_answer ? 'True' : 'False';
             case 'fill_in_blank':
                 return question.correct_answer;
+            case 'multi_fill_in_blank': // New case for multi_fill_in_blank
+                return question.blanks.map(blank => blank.correct_answer).join('; ');
             case 'multi_select':
                 return question.options
                     .filter(opt => opt.correct)

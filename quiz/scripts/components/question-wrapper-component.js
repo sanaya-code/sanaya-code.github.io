@@ -85,6 +85,7 @@ class QuestionWrapperComponent extends HTMLElement {
     if (this.currentComponent && typeof this.currentComponent.getUserAnswer === 'function') {
       return this.currentComponent.getUserAnswer();
     }
+    console.warn(" component do not have getUserAnswer method");
     return null;
   }
 

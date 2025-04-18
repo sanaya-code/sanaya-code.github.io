@@ -47,18 +47,22 @@
     {
       "type": "multi_fill_in_blank",
       "id": "009",
-      "question": "Complete the sentence: The process of ____ converts water into ____, while ____ turns it back into liquid.",
+      "question": " ____ (cat)is an animal, ____(oxygen)is gas, ____(bhopal)is city, ____(mp)is state", 
       "svg_content": "...",
       "img_url": "",
       "blanks": [
-        { "position": 1, "correct_answer": "evaporation", "acceptable_answers": ["evaporation", "vaporization"],
+        { "position": 1, "correct_answer": "cat", "acceptable_answers": ["dog", "bat"],
           "hint": "Liquid to gas phase change"
         },
-        {"position": 2, "correct_answer": "vapor", "acceptable_answers": ["vapor", "steam", "gas"],
+        {"position": 2, "correct_answer": "oxygen", "acceptable_answers": ["o2", "h2", "n"],
           "hint": "Gaseous state of water"
         },
         {
-          "position": 3, "correct_answer": "condensation", "acceptable_answers": ["condensation", "liquefaction"],
+          "position": 3, "correct_answer": "bhopal", "acceptable_answers": ["a", "b"],
+          "hint": "Gas to liquid phase change"
+        },
+        {
+          "position": 4, "correct_answer": "mp", "acceptable_answers": ["up", "mh"],
           "hint": "Gas to liquid phase change"
         }
       ],

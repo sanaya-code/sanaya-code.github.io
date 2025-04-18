@@ -50,7 +50,7 @@ class MultiFillInBlankComponent extends HTMLElement {
         const span = document.createElement('span');
         span.className = 'blank-span';
         span.dataset.index = i;
-        span.textContent = this._responses[i] || '____';
+        span.textContent = this._responses[i] || '____'; // Default placeholder text
         span.addEventListener('click', () => this.activateInput(i, span));
         frag.appendChild(span);
       }
@@ -68,7 +68,7 @@ class MultiFillInBlankComponent extends HTMLElement {
     const input = document.createElement('input');
     input.type = 'text';
     input.className = 'text-answer';
-    input.value = this._responses[index] || '';
+    input.value = this._responses[index] || ''; // Default to empty string if no response
     input.dataset.index = index;
 
     input.addEventListener('blur', () => {
@@ -89,20 +89,24 @@ class MultiFillInBlankComponent extends HTMLElement {
     const index = parseInt(input.dataset.index, 10);
     const value = input.value.trim();
 
+    // Update the response with the input value
     this._responses[index] = value;
 
     const newSpan = document.createElement('span');
     newSpan.className = 'blank-span';
     newSpan.dataset.index = index;
-    newSpan.textContent = value || '____';
+    newSpan.textContent = value || '____'; // Show the value or default to '____' if empty
     newSpan.addEventListener('click', () => this.activateInput(index, newSpan));
 
     input.replaceWith(newSpan);
     this._currentInput = null;
   }
 
-  getUserResponse() {
+  getUserAnswer() {
     this.commitCurrentInput();
+
+    // Return the responses (even if some blanks are still empty)
+    console.log("return val ", this._responses);
     return this._responses;
   }
 }
@@ -172,7 +176,7 @@ function test() {
 
   // Optional: Log responses after 10 seconds
   setTimeout(() => {
-    console.log('User responses:', comp.getUserResponse());
+    console.log('User responses:', comp.getUserAnswer());
   }, 10000);
 }
 
