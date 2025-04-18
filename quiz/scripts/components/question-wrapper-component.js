@@ -15,6 +15,7 @@ class QuestionWrapperComponent extends HTMLElement {
     this.typeToComponentMap = {
       mcq: 'mcq-radio',
       fill_in_blank: 'fill-in-blank',
+      multi_fill_in_blank: 'multi-fill-in-blank',
       true_false: 'true-false',
       short_answer: 'short-answer',
       multi_select: 'multi-select',
