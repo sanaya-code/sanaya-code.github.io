@@ -87,9 +87,13 @@ header {
 }
 
 .question-text {
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 20px;
     font-weight: 500;
+    word-spacing: 12px;
+    letter-spacing: 1px;
+    color: #003366;
+    background-color: #e0f0ff;  
 }
 
 .options-container {
