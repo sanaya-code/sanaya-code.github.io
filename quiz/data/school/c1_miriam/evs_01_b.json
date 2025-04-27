@@ -60,7 +60,7 @@
         "options": [
           {"id": "A", "text": "chin"},
           {"id": "B", "text": "ear"},
-          {"id": "B", "text": "skin"}
+          {"id": "C", "text": "skin"}
         ],
         "correct_answer": "C"
       },
@@ -71,7 +71,7 @@
         "options": [
           {"id": "A", "text": "Ear"},
           {"id": "B", "text": "Skin"},
-          {"id": "B", "text": "Tongue"}
+          {"id": "C", "text": "Tongue"}
         ],
         "correct_answer": "C"
       },
@@ -82,7 +82,7 @@
         "options": [
           {"id": "A", "text": "Ear"},
           {"id": "B", "text": "Tongue"},
-          {"id": "B", "text": "Eyes"}
+          {"id": "C", "text": "Eyes"}
         ],
         "correct_answer": "B"
       }
