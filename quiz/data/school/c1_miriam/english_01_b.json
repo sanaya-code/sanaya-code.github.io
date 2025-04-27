@@ -1,0 +1,39 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "012",
+        "question": "What surprise Amy has for her frineds",
+        "options": [
+          {"id": "A", "text": "box of candy"},
+          {"id": "B", "text": "box of bangles"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "014",
+        "question": "Amy wishes her granny",
+        "options": [
+          {"id": "A", "text": "It was Mothers name day too"},
+          {"id": "B", "text": "It was Granny name day too"}
+        ],
+        "correct_answer": "B"
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
