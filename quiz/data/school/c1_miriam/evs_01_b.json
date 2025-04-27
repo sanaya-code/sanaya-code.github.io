@@ -77,33 +77,14 @@
       },
       {
         "type": "mcq",
-        "id": "011",
-        "question": "We have ___________  nose",
+        "id": "012",
+        "question": "How do you taste various food items",
         "options": [
-          {"id": "A", "text": "one"},
-          {"id": "C", "text": "many"}
-        ],
-        "correct_answer": "A"
-      },
-      {
-        "type": "mcq",
-        "id": "013",
-        "question": "We use our ________ to taste",
-        "options": [
-          {"id": "A", "text": "nose"},
-          {"id": "B", "text": "tongue"}
+          {"id": "A", "text": "Ear"},
+          {"id": "B", "text": "Tongue"},
+          {"id": "B", "text": "Eyes"}
         ],
         "correct_answer": "B"
-      },
-      {
-        "type": "mcq",
-        "id": "015",
-        "question": "head rest on _________",
-        "options": [
-          {"id": "A", "text": "neck"},
-          {"id": "B", "text": "toungue"}
-        ],
-        "correct_answer": "A"
       }
       
     ],
