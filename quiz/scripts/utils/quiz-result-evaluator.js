@@ -62,7 +62,7 @@ class QuizResultEvaluator {
                         ? ans === userAnswer
                         : ans.toLowerCase() === userAnswer.toLowerCase()
                 );
-            case 'multi_fill_in_blank': // New case for multi_fill_in_blank
+            case 'multi_fill_in_blank':
                 return this.checkMultiFillInBlankAnswer(question, userAnswer);
             case 'multi_select':
                 const correctOptions = question.options
@@ -78,6 +78,10 @@ class QuizResultEvaluator {
                 const correctMatches = question.pairs.map(pair => pair.right);
                 if (userAnswer.length !== correctMatches.length) return false;
                 return userAnswer.every((val, idx) => val === correctMatches[idx]);
+            case 'matching_connection':
+                const correctRHS = question.pairs.map(pair => pair.right);
+                if (userAnswer.length !== correctRHS.length) return false;
+                return userAnswer.every((val, idx) => val === correctRHS[idx]);
             case 'short_answer':
                 const variations = [question.correct_answer, ...(question.acceptable_variations || [])];
                 return variations.some(variation =>
@@ -90,8 +94,7 @@ class QuizResultEvaluator {
 
     checkMultiFillInBlankAnswer(question, userAnswer) {
         const correctAnswers = question.blanks.map(blank => blank.correct_answer);
-        // Compare user answers to the correct answers for each blank
-        return userAnswer.every((userAns, idx) => 
+        return userAnswer.every((userAns, idx) =>
             userAns.toLowerCase() === correctAnswers[idx].toLowerCase()
         );
     }
@@ -127,7 +130,14 @@ class QuizResultEvaluator {
                     const isCorrect = right === correctRight;
                     return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
                 }).join('; ');
-            case 'multi_fill_in_blank': // New case for multi_fill_in_blank
+            case 'matching_connection':
+                return answer.map((right, index) => {
+                    const left = question.pairs[index]?.left || '?';
+                    const correctRight = question.pairs[index]?.right;
+                    const isCorrect = right === correctRight;
+                    return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
+                }).join('; ');
+            case 'multi_fill_in_blank':
                 return answer.map(ans => ans || 'Not answered').join('; ');
             default:
                 return answer;
@@ -136,27 +146,39 @@ class QuizResultEvaluator {
 
     formatCorrectAnswer(question) {
         switch (question.type) {
+
             case 'mcq':
                 return question.options.find(opt => opt.id === question.correct_answer)?.text || question.correct_answer;
+
             case 'true_false':
                 return question.correct_answer ? 'True' : 'False';
+
             case 'fill_in_blank':
                 return question.correct_answer;
-            case 'multi_fill_in_blank': // New case for multi_fill_in_blank
+
+            case 'multi_fill_in_blank':
                 return question.blanks.map(blank => blank.correct_answer).join('; ');
+
             case 'multi_select':
                 return question.options
                     .filter(opt => opt.correct)
                     .map(opt => opt.text)
                     .join(', ');
+
             case 'ordering':
                 return question.correct_order.map(id => {
                     const item = question.items.find(item => item.id === id);
                     return item ? item.text : id;
                 }).join(' → ');
-            case 'matching':
+            
+                case 'matching':
+
             case 'matching_drag_drop':
                 return question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
+
+            case 'matching_connection':
+                return  question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
+
             case 'short_answer':
                 return question.correct_answer;
             default:

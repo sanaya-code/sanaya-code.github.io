@@ -22,6 +22,7 @@ class QuestionWrapperComponent extends HTMLElement {
       matching: 'matching-select',
       matching_drag_drop: 'matching-drag-drop',
       ordering: 'ordering-drag-drop',
+      matching_connection: 'matching-connection'
     };
   }
 
