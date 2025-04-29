@@ -10,6 +10,11 @@ class MatchingConnectionComponent extends HTMLElement {
 
   connectedCallback() {
       this.render();
+      window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
   }
 
   get config() {
@@ -145,6 +150,9 @@ class MatchingConnectionComponent extends HTMLElement {
     return [...fixedColors, ...extraColors];
 }
 
+handleResize() {
+    this.drawLines();
+  }
 
   getUserAnswer() {
       return this.matches;
