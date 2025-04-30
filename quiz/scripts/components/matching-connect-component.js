@@ -1,13 +1,15 @@
 class MatchingConnectComponent extends HTMLElement {
     constructor() {
         super();
+
+        // DOM and state
         this.lhsElements = [];
         this.rhsElements = [];
         this.matches = [];
         this.lineColors = [];
         this.svg = null;
 
-        // Keyboard navigation state
+        // Interaction state
         this.focusSide = 'lhs';
         this.focusIndex = 0;
         this.selectedLHSIndex = null;
@@ -19,6 +21,7 @@ class MatchingConnectComponent extends HTMLElement {
     }
 
     connectedCallback() {
+        this.setAttribute('tabindex', '0');
         this.updateFromConfig();
         window.addEventListener("resize", this.handleResize.bind(this));
         document.addEventListener("keydown", this._boundKeyDownHandler);
@@ -43,31 +46,32 @@ class MatchingConnectComponent extends HTMLElement {
         }
     }
 
+    // ------------------- Initialization -------------------
     updateFromConfig() {
         const config = this.config;
         if (!config || !Array.isArray(config.pairs)) return;
 
-        this.renderBaseLayout(config);
-        this.initializeElements(config);
+        this.renderLayout(config);
+        this.initElements(config);
         this.setupEventListeners();
-        this.applyInitialState(config);
+        this.applyInitialUserResponse(config);
         this.drawLines();
     }
 
-    renderBaseLayout(config) {
+    renderLayout(config) {
         this.innerHTML = `
             <div class="question-text">${config.question || ""}</div>
-            ${this.renderOptionalMedia(config)}
+            ${this.renderMedia(config)}
             <div class="options-container">
-                <div class="connect-container">
-                ${this.renderConnectRows(config)}
-                <svg class="connect-svg"></svg>
+                <div class="connect-container" data-mode="lhs">
+                    ${this.renderConnectRows(config)}
+                    <svg class="connect-svg"></svg>
                 </div>
             </div>
         `;
     }
 
-    renderOptionalMedia(config) {
+    renderMedia(config) {
         return [
             config.svg_content ? `<div class="svg-figure">${config.svg_content}</div>` : "",
             config.img_url ? `<div class="figure"><img src="${config.img_url}" alt="figure" /></div>` : ""
@@ -77,71 +81,61 @@ class MatchingConnectComponent extends HTMLElement {
     renderConnectRows(config) {
         return config.pairs.map((pair, index) => `
             <div class="connect-row" data-index="${index}">
-                <div class="connect-item connect-lhs" data-index="${index}">${pair.left}</div>
-                <div class="connect-item connect-rhs" data-value="">${pair.right}</div>
+                <div class="connect-item connect-lhs" data-index="${index}" tabindex="0">${pair.left}</div>
+                <div class="connect-item connect-rhs" data-value="" tabindex="0">${pair.right}</div>
             </div>
         `).join("");
     }
 
-    initializeElements(config) {
+    initElements(config) {
         const container = this.querySelector(".connect-container");
         this.svg = container.querySelector("svg");
         this.lineColors = this.generateColorPalette(config.pairs.length);
-        
+
         this.lhsElements = Array.from(container.querySelectorAll(".connect-lhs"));
-        this.rhsElements = this.initializeRhsElements(container, config);
+        this.rhsElements = this.initRhsElements(container, config);
         this.matches = Array(config.pairs.length).fill(null);
+
+        // Initial focus
+        if (this.lhsElements.length > 0) {
+            this.lhsElements[0].focus();
+        }
     }
 
-    initializeRhsElements(container, config) {
-        const shuffledRHS = this.shuffleArray(config.pairs.map(p => p.right));
+    initRhsElements(container, config) {
+        const shuffled = this.shuffleArray(config.pairs.map(p => p.right));
         const rhsElements = Array.from(container.querySelectorAll(".connect-rhs"));
-        
         rhsElements.forEach((el, idx) => {
-            el.textContent = shuffledRHS[idx];
-            el.setAttribute("data-value", shuffledRHS[idx]);
+            el.textContent = shuffled[idx];
+            el.setAttribute("data-value", shuffled[idx]);
         });
-        
         return rhsElements;
     }
 
-    shuffleArray(array) {
-        return array
-            .map(val => ({ val, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(o => o.val);
-    }
-
     setupEventListeners() {
-        this.setupLhsEventListeners();
-        this.setupRhsEventListeners();
-    }
-
-    setupLhsEventListeners() {
         this.lhsElements.forEach(lhs => {
             lhs.addEventListener("click", () => {
-                this.lhsElements.forEach(el => el.classList.remove("selected"));
-                lhs.classList.add("selected");
+                const index = parseInt(lhs.getAttribute("data-index"));
+                this.selectedLHSIndex = this.selectedLHSIndex === index ? null : index;
+                this.focusSide = 'lhs';
+                this.focusIndex = index;
+                this.updateSelection();
+                this.updateFocus();
             });
         });
-    }
 
-    setupRhsEventListeners() {
-        const container = this.querySelector(".connect-container");
-        
         this.rhsElements.forEach(rhs => {
             rhs.addEventListener("click", () => {
-                const selectedLHS = container.querySelector(".connect-lhs.selected");
-                if (!selectedLHS) return;
-
-                const lhsIndex = parseInt(selectedLHS.getAttribute("data-index"));
-                this.makeConnection(lhsIndex, rhs);
-                selectedLHS.classList.remove("selected");
+                if (this.selectedLHSIndex !== null) {
+                    this.makeConnection(this.selectedLHSIndex, rhs);
+                    this.selectedLHSIndex = null;
+                    this.updateSelection();
+                }
             });
         });
     }
 
-    applyInitialState(config) {
+    applyInitialUserResponse(config) {
         const userResponse = Array.isArray(config.user_response)
             ? config.user_response
             : Array(config.pairs.length).fill(null);
@@ -154,6 +148,77 @@ class MatchingConnectComponent extends HTMLElement {
         });
     }
 
+    // ------------------- Interaction -------------------
+    handleKeyDown(e) {
+        if (!this.lhsElements.length || !this.rhsElements.length) return;
+
+        if (e.key === 'a') {
+            this.handleNavigation();
+        } else if (e.key === ' ') {
+            this.handleSelection();
+        } else {
+            return;
+        }
+
+        e.preventDefault();
+        this.updateFocus();
+        this.updateModeIndicator();
+    }
+
+    handleNavigation() {
+        if (this.selectedLHSIndex === null) {
+            this.focusSide = 'lhs';
+            this.focusIndex = (this.focusIndex + 1) % this.lhsElements.length;
+        } else {
+            this.focusSide = 'rhs';
+            this.focusIndex = (this.focusIndex + 1) % this.rhsElements.length;
+        }
+    }
+
+    handleSelection() {
+        if (this.focusSide === 'lhs') {
+            const newIndex = this.focusIndex;
+            this.selectedLHSIndex = this.selectedLHSIndex === newIndex ? null : newIndex;
+            this.updateSelection();
+            if (this.selectedLHSIndex !== null) {
+                this.focusSide = 'rhs';
+                this.focusIndex = 0;
+            }
+        } else if (this.focusSide === 'rhs' && this.selectedLHSIndex !== null) {
+            this.makeConnection(this.selectedLHSIndex, this.rhsElements[this.focusIndex]);
+            this.selectedLHSIndex = null;
+            this.focusSide = 'lhs';
+            this.focusIndex = 0;
+            this.updateSelection();
+        }
+    }
+
+    updateFocus() {
+        this.lhsElements.forEach((el, i) => {
+            el.classList.toggle('focused', this.focusSide === 'lhs' && i === this.focusIndex);
+            if (this.focusSide === 'lhs' && i === this.focusIndex) el.focus();
+        });
+
+        this.rhsElements.forEach((el, i) => {
+            el.classList.toggle('focused', this.focusSide === 'rhs' && i === this.focusIndex);
+            if (this.focusSide === 'rhs' && i === this.focusIndex) el.focus();
+        });
+    }
+
+    updateSelection() {
+        this.lhsElements.forEach((el, i) => {
+            el.classList.toggle('selected', i === this.selectedLHSIndex);
+        });
+    }
+
+    updateModeIndicator() {
+        const container = this.querySelector(".connect-container");
+        if (container) {
+            container.setAttribute("data-mode", this.focusSide);
+        }
+    }
+
+    // ------------------- Connection Logic -------------------
     makeConnection(lhsIndex, rhsElement) {
         const rhsValue = rhsElement.textContent;
         this.matches = this.matches.map(val => val === rhsValue ? null : val);
@@ -161,15 +226,24 @@ class MatchingConnectComponent extends HTMLElement {
         this.drawLines();
     }
 
+    getUserAnswer() {
+        return this.matches;
+    }
+
+    // ------------------- Drawing Lines -------------------
     drawLines() {
         if (!this.svg) return;
-
         this.clearSvg();
-        const svgRect = this.svg.getBoundingClientRect();
 
-        this.matches.forEach((rhsValue, lhsIndex) => {
-            if (!rhsValue) return;
-            this.drawSingleLine(lhsIndex, rhsValue, svgRect);
+        const svgRect = this.svg.getBoundingClientRect();
+        this.matches.forEach((rhsVal, lhsIndex) => {
+            if (!rhsVal) return;
+            const lhsEl = this.lhsElements[lhsIndex];
+            const rhsEl = this.rhsElements.find(r => r.textContent === rhsVal);
+            if (lhsEl && rhsEl) {
+                const coords = this.getLineCoords(lhsEl, rhsEl, svgRect);
+                this.drawLine(coords, this.lineColors[lhsIndex]);
+            }
         });
     }
 
@@ -179,28 +253,18 @@ class MatchingConnectComponent extends HTMLElement {
         }
     }
 
-    drawSingleLine(lhsIndex, rhsValue, svgRect) {
-        const lhsEl = this.lhsElements[lhsIndex];
-        const rhsEl = this.rhsElements.find(r => r.textContent === rhsValue);
-        if (!lhsEl || !rhsEl) return;
-
-        const { x1, y1, x2, y2 } = this.calculateLineCoordinates(lhsEl, rhsEl, svgRect);
-        this.createSvgLine(x1, y1, x2, y2, this.lineColors[lhsIndex]);
-    }
-
-    calculateLineCoordinates(lhsEl, rhsEl, svgRect) {
-        const lhsRect = lhsEl.getBoundingClientRect();
-        const rhsRect = rhsEl.getBoundingClientRect();
-
+    getLineCoords(lhsEl, rhsEl, svgRect) {
+        const lhs = lhsEl.getBoundingClientRect();
+        const rhs = rhsEl.getBoundingClientRect();
         return {
-            x1: lhsRect.right - svgRect.left,
-            y1: lhsRect.top + lhsRect.height / 2 - svgRect.top,
-            x2: rhsRect.left - svgRect.left,
-            y2: rhsRect.top + rhsRect.height / 2 - svgRect.top
+            x1: lhs.right - svgRect.left,
+            y1: lhs.top + lhs.height / 2 - svgRect.top,
+            x2: rhs.left - svgRect.left,
+            y2: rhs.top + rhs.height / 2 - svgRect.top
         };
     }
 
-    createSvgLine(x1, y1, x2, y2, color) {
+    drawLine({ x1, y1, x2, y2 }, color) {
         const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
         line.setAttribute("x1", x1);
         line.setAttribute("y1", y1);
@@ -209,6 +273,14 @@ class MatchingConnectComponent extends HTMLElement {
         line.setAttribute("stroke", color);
         line.setAttribute("stroke-width", 2);
         this.svg.appendChild(line);
+    }
+
+    // ------------------- Utilities -------------------
+    shuffleArray(array) {
+        return array
+            .map(val => ({ val, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(o => o.val);
     }
 
     generateColorPalette(n) {
@@ -222,61 +294,6 @@ class MatchingConnectComponent extends HTMLElement {
 
     handleResize() {
         this.drawLines();
-    }
-
-    getUserAnswer() {
-        return this.matches;
-    }
-
-    // ---------- KEYBOARD SUPPORT ----------
-    handleKeyDown(e) {
-        if (!this.lhsElements.length || !this.rhsElements.length) return;
-    
-        if (e.key === 'a') {
-            if (this.selectedLHSIndex === null) {
-                // Cycle through LHS
-                this.focusSide = 'lhs';
-                this.focusIndex = (this.focusIndex + 1) % this.lhsElements.length;
-            } else {
-                // Cycle through RHS when LHS is selected
-                this.focusSide = 'rhs';
-                this.focusIndex = (this.focusIndex + 1) % this.rhsElements.length;
-            }
-            this.updateFocus();
-            e.preventDefault();
-        } else if (e.key === ' ') {
-            if (this.focusSide === 'lhs') {
-                // Select/unselect LHS item
-                this.selectedLHSIndex = this.selectedLHSIndex === this.focusIndex ? null : this.focusIndex;
-                this.updateSelection();
-            } else if (this.focusSide === 'rhs') {
-                if (this.selectedLHSIndex !== null) {
-                    this.makeConnection(this.selectedLHSIndex, this.rhsElements[this.focusIndex]);
-                    this.selectedLHSIndex = null;
-                    this.focusSide = 'lhs'; // Reset back to LHS after connection
-                    this.focusIndex = 0;
-                    this.updateSelection();
-                }
-            }
-            this.updateFocus();
-            e.preventDefault();
-        }
-    }
-    
-
-    updateFocus() {
-        this.lhsElements.forEach((el, i) =>
-            el.classList.toggle('focused', this.focusSide === 'lhs' && this.focusIndex === i)
-        );
-        this.rhsElements.forEach((el, i) =>
-            el.classList.toggle('focused', this.focusSide === 'rhs' && this.focusIndex === i)
-        );
-    }
-
-    updateSelection() {
-        this.lhsElements.forEach((el, i) =>
-            el.classList.toggle('selected', i === this.selectedLHSIndex)
-        );
     }
 }
 
