@@ -298,3 +298,57 @@ class MatchingConnectComponent extends HTMLElement {
 }
 
 customElements.define("matching-connection", MatchingConnectComponent);
+
+/**
+ * MATCHING CONNECTION COMPONENT (<matching-connection>)
+ * 
+ * A matching game where users connect left-side items to right-side matches.
+ * 
+ * KEYBOARD CONTROLS:
+ * - Press 'A' key to navigate between items:
+ *   1. First press moves through left column items
+ *   2. When left item is selected (with Space), 'A' moves through right column
+ *   3. Press Space on right item to complete connection
+ * - Colored lines automatically appear for matched pairs
+ * 
+ * CONFIGURATION:
+ * Set up the game using the 'config' attribute with JSON format:
+ * 
+ * REQUIRED JSON STRUCTURE:
+ * {
+ *   "question": "Match items",      // Displayed question text
+ *   "pairs": [                     // Items to match
+ *     {"left": "TextA", "right": "Text1"},
+ *     {"left": "TextB", "right": "Text2"}
+ *   ],
+ *   "img_url": "image.png"         // Optional image (or use "svg_content")
+ * }
+ * 
+ * FEATURES:
+ * - Left items stay fixed, right items shuffle automatically
+ * - Works with both mouse/touch and keyboard
+ * - Responsive design adapts to screen size
+ */
+
+
+
+/*
+ Json structure
+
+ {
+      "type": "matching_connection",
+      "id": "009",
+      "question": "Match the following software with their categories:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
+      "pairs": [
+        { "left": "Language", "right": "Java" },
+        { "left": "Image Editor", "right": "Gimp" },
+        { "left": "Operating System", "right": "Linux" },
+        { "left": "Database", "right": "MySQL" }
+      ],
+      "user_response": ""
+}
+ 
+ */
+
