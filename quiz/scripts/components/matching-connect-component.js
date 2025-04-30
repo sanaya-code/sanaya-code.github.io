@@ -6,6 +6,12 @@ class MatchingConnectComponent extends HTMLElement {
         this.matches = [];
         this.lineColors = [];
         this.svg = null;
+
+        // Keyboard navigation state
+        this.focusSide = 'lhs';
+        this.focusIndex = 0;
+        this.selectedLHSIndex = null;
+        this._boundKeyDownHandler = this.handleKeyDown.bind(this);
     }
 
     static get observedAttributes() {
@@ -15,10 +21,12 @@ class MatchingConnectComponent extends HTMLElement {
     connectedCallback() {
         this.updateFromConfig();
         window.addEventListener("resize", this.handleResize.bind(this));
+        document.addEventListener("keydown", this._boundKeyDownHandler);
     }
 
     disconnectedCallback() {
         window.removeEventListener("resize", this.handleResize.bind(this));
+        document.removeEventListener("keydown", this._boundKeyDownHandler);
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
@@ -218,6 +226,57 @@ class MatchingConnectComponent extends HTMLElement {
 
     getUserAnswer() {
         return this.matches;
+    }
+
+    // ---------- KEYBOARD SUPPORT ----------
+    handleKeyDown(e) {
+        if (!this.lhsElements.length || !this.rhsElements.length) return;
+    
+        if (e.key === 'a') {
+            if (this.selectedLHSIndex === null) {
+                // Cycle through LHS
+                this.focusSide = 'lhs';
+                this.focusIndex = (this.focusIndex + 1) % this.lhsElements.length;
+            } else {
+                // Cycle through RHS when LHS is selected
+                this.focusSide = 'rhs';
+                this.focusIndex = (this.focusIndex + 1) % this.rhsElements.length;
+            }
+            this.updateFocus();
+            e.preventDefault();
+        } else if (e.key === ' ') {
+            if (this.focusSide === 'lhs') {
+                // Select/unselect LHS item
+                this.selectedLHSIndex = this.selectedLHSIndex === this.focusIndex ? null : this.focusIndex;
+                this.updateSelection();
+            } else if (this.focusSide === 'rhs') {
+                if (this.selectedLHSIndex !== null) {
+                    this.makeConnection(this.selectedLHSIndex, this.rhsElements[this.focusIndex]);
+                    this.selectedLHSIndex = null;
+                    this.focusSide = 'lhs'; // Reset back to LHS after connection
+                    this.focusIndex = 0;
+                    this.updateSelection();
+                }
+            }
+            this.updateFocus();
+            e.preventDefault();
+        }
+    }
+    
+
+    updateFocus() {
+        this.lhsElements.forEach((el, i) =>
+            el.classList.toggle('focused', this.focusSide === 'lhs' && this.focusIndex === i)
+        );
+        this.rhsElements.forEach((el, i) =>
+            el.classList.toggle('focused', this.focusSide === 'rhs' && this.focusIndex === i)
+        );
+    }
+
+    updateSelection() {
+        this.lhsElements.forEach((el, i) =>
+            el.classList.toggle('selected', i === this.selectedLHSIndex)
+        );
     }
 }
 
