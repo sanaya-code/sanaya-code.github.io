@@ -39,7 +39,7 @@ class QuizLoader {
         reader.readAsText(file);
     }
 
-    async fetchSubjectInfoFromRemoteJson(url) {
+    async fetchRemoteJson(url) {
         try {
             return await QuizDataLoader.fetchQuizFromUrl(url);
         } catch (err) {
@@ -57,7 +57,7 @@ class QuizLoader {
         document.addEventListener('subjectSelected', async (event) => {
             const { url, subject, grade } = event.detail;
             console.log(`Subject selected: ${subject} (Grade ${grade}), loading quiz from: ${url}`);
-            const quizData = await this.fetchQuizFromUrl(url);
+            const quizData = await this.fetchRemoteJson(url);
             if (quizData) {
                 // this.storeAndRedirect(quizData);
                 const subjectData = quizData[subject];
