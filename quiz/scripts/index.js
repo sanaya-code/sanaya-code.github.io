@@ -41,9 +41,7 @@ class QuizLoader {
 
     async loadFromUrl(url) {
         try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const quizData = await response.json();
+            const quizData = await QuizDataLoader.fetchQuizFromUrl(url);
             this.storeAndRedirect(quizData);
         } catch (err) {
             alert(`Failed to load quiz from "${url}": ${err.message}`);
@@ -63,6 +61,7 @@ class QuizLoader {
         });
     }
 }
+
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {

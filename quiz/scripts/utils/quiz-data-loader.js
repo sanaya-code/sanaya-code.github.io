@@ -46,4 +46,10 @@ class QuizDataLoader {
         if (!response.ok) throw new Error('Failed to load subjects info');
         return await response.json();
     }
+
+    static async fetchQuizFromUrl(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return await response.json();
+    }
 }
