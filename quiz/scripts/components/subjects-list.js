@@ -11,7 +11,10 @@ class GradeSubjects extends HTMLElement {
     }
 
     connectedCallback() {
-        this.render();
+        // Ensure we only render once
+        if (!this.innerHTML) {
+            this.render();
+        }
         this.loadFromConfig();
     }
 
@@ -24,17 +27,22 @@ class GradeSubjects extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="grade-subjects">
-                <label for="grade-select">Select Grade:</label>
-                <select id="grade-select">
+                <label for="grade-select" class="grade-label">Select Grade:</label>
+                <select id="grade-select" class="grade-select">
                     <option value="">-- Select Grade --</option>
                 </select>
                 <div id="subject-options" class="subject-options"></div>
             </div>
         `;
+        
+        // Cache elements after rendering
         this._selectEl = this.querySelector('#grade-select');
         this._radiosEl = this.querySelector('#subject-options');
 
-        this._selectEl.addEventListener('change', () => this.updateSubjects());
+        // Only add event listener if element exists
+        if (this._selectEl) {
+            this._selectEl.addEventListener('change', () => this.updateSubjects());
+        }
     }
 
     loadFromConfig() {
@@ -47,11 +55,18 @@ class GradeSubjects extends HTMLElement {
         }
 
         this._grades = config.grades || {};
-        this.populateDropdown();
+        
+        // Only populate if select element exists
+        if (this._selectEl) {
+            this.populateDropdown();
+        }
     }
 
     populateDropdown() {
+        if (!this._selectEl) return;
+        
         this._selectEl.innerHTML = `<option value="">-- Select Grade --</option>`;
+        
         for (const grade in this._grades) {
             const opt = document.createElement('option');
             opt.value = grade;
@@ -61,31 +76,38 @@ class GradeSubjects extends HTMLElement {
     }
 
     updateSubjects() {
+        if (!this._selectEl || !this._radiosEl) return;
+        
         const grade = this._selectEl.value;
         this._radiosEl.innerHTML = '';
 
-        if (!grade || !this._grades[grade]) return;
+        if (!grade || !this._grades[grade]) {
+            this._radiosEl.style.display = 'none';
+            return;
+        }
 
         const { subjects, url } = this._grades[grade];
+        this._radiosEl.style.display = 'block';
 
         subjects.forEach((subject, index) => {
-            const id = `subject-${index}`;
             const wrapper = document.createElement('div');
             wrapper.className = 'radio-wrapper';
 
             const input = document.createElement('input');
             input.type = 'radio';
-            input.name = 'subject';
-            input.id = id;
+            input.name = `subject-${grade}`;  // Unique name per grade
+            input.id = `subject-${grade}-${index}`;
             input.value = subject;
+            input.className = 'subject-radio';
 
             input.addEventListener('change', () => {
                 this.dispatchSubjectSelected(grade, subject, url);
             });
 
             const label = document.createElement('label');
-            label.setAttribute('for', id);
+            label.setAttribute('for', `subject-${grade}-${index}`);
             label.textContent = subject;
+            label.className = 'subject-label';
 
             wrapper.appendChild(input);
             wrapper.appendChild(label);
