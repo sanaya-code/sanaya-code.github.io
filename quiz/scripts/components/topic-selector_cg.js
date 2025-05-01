@@ -21,21 +21,21 @@ class TopicSelector extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <div class="subject-grid">
-                ${this._topics.map(topic => `
-                    <div class="subject-card" title="${topic.description || ''}">
-                        <a href="quiz.html?subject=${encodeURIComponent(topic.subject)}">
-                            ${topic.topic}
-                        </a>
-                    </div>
+            <div class="topic-container">
+                ${this._topics.map((t, i) => `
+                    <button class="topic-btn" data-index="${i}" title="${t.description}">
+                        ${t.topic}
+                    </button>
                 `).join('')}
             </div>
         `;
 
-        this.querySelectorAll('.subject-card a').forEach((link, index) => {
-            link.addEventListener('click', (e) => {
+        this.querySelectorAll('.topic-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const index = parseInt(btn.getAttribute('data-index'), 10);
+                const selected = this._topics[index];
                 this.dispatchEvent(new CustomEvent('topicSelected', {
-                    detail: this._topics[index],
+                    detail: selected,
                     bubbles: true
                 }));
             });
