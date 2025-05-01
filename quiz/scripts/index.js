@@ -58,6 +58,7 @@ class QuizLoader {
             const { url, subject, grade } = event.detail;
             console.log(`Subject selected: ${subject} (Grade ${grade}), loading quiz from: ${url}`);
             const quizData = await this.fetchRemoteJson(url);
+            console.log(quizData);
             if (quizData) {
                 // this.storeAndRedirect(quizData);
                 const subjectData = quizData[subject];
@@ -67,10 +68,10 @@ class QuizLoader {
     }
 }
 
-
+let obj = null;
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
-    new QuizLoader();
+    obj = new QuizLoader();
 
     // Load subjects from remote config and attach <grade-subjects>
     try {
