@@ -49,6 +49,7 @@
 /* Responsive: 1 column on small screens */
 @media (max-width: 600px) {
     .subject-grid {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
