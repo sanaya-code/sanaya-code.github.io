@@ -14,14 +14,14 @@ class QuizLoader {
             alert('Please select a JSON file first');
             return;
         }
-
+        
         const file = this.fileInput.files[0];
         this.readFile(file);
     }
 
     readFile(file) {
         const reader = new FileReader();
-
+        
         reader.onload = (e) => {
             try {
                 const quizData = JSON.parse(e.target.result);
@@ -30,11 +30,11 @@ class QuizLoader {
                 alert('Error parsing JSON file: ' + error.message);
             }
         };
-
+        
         reader.onerror = () => {
             alert('Error reading file');
         };
-
+        
         reader.readAsText(file);
     }
 
@@ -44,26 +44,7 @@ class QuizLoader {
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', async () => {
+// Initialize the QuizLoader when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
     new QuizLoader();
-
-    // Load subjects from remote config and attach <grade-subjects>
-    try {
-        if (!QuizDataLoader.isLocal()) {
-            const infoData = await QuizDataLoader.fetchInfoSubjects();
-            const gradeSubjectsEl = document.createElement('grade-subjects');
-            gradeSubjectsEl.setAttribute('config', JSON.stringify(infoData));
-
-            // Append it to the div under h1 (assumes it's the first <div> in .container)
-            const containerDivs = document.querySelector('.container').querySelectorAll('div');
-            if (containerDivs.length > 0) {
-                containerDivs[0].appendChild(gradeSubjectsEl);
-            }
-        } else {
-            console.log('Local mode: skipping remote fetch of grade-subjects.');
-        }
-    } catch (err) {
-        console.warn('Could not load grade subjects:', err.message);
-    }
 });

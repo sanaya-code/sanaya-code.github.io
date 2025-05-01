@@ -1,3 +1,5 @@
+// QuizDataLoader.js
+
 class QuizDataLoader {
     static getSessionJsonData() {
         const data = sessionStorage.getItem('customQuizData');
@@ -27,23 +29,4 @@ class QuizDataLoader {
             return await this.getRemoteJsonData();
         }
     }
-
-    static isLocal() {
-        return (
-            location.protocol === 'file:' ||
-            location.hostname === 'localhost' ||
-            location.hostname === '127.0.0.1'
-        );
-    }
-
-    static async fetchInfoSubjects() {
-        if (this.isLocal()) {
-            console.warn('Running locally: skipping remote fetch of info_subjects.json');
-            throw new Error('Remote fetching not allowed when running locally');
-        }
-
-        const response = await fetch('https://sanaya-code.github.io/quiz/data/info/info_subjects.json');
-        if (!response.ok) throw new Error('Failed to load subjects info');
-        return await response.json();
-    }
-}
+} 
