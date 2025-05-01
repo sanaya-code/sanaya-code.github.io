@@ -66,8 +66,12 @@ class QuizLoader {
                 console.log(subjectData);
                 
                 if (subjectData) {
-                    // Do something with subjectData (e.g., store or redirect)
-                    // this.storeAndRedirect(subjectData);
+                    const topicSelector = document.createElement('topic-selector');
+                    topicSelector.setAttribute('config', JSON.stringify(subjectData));
+                    const containerDivs = document.querySelector('.container').querySelectorAll('div');
+                    if (containerDivs.length > 0) {
+                        containerDivs[0].appendChild(topicSelector);
+                    }
                 } else {
                     console.error(`Subject "${subject}" not found in the data.`);
                 }
