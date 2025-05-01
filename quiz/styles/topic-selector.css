@@ -4,6 +4,8 @@
     gap: 12px;
     justify-content: center;
     padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .topic-btn {
@@ -26,7 +28,7 @@
 
 @media (max-width: 600px) {
     .topic-btn {
-        width: 50%;
+        width: 30%;
         font-size: 1.1rem;
     }
 }
