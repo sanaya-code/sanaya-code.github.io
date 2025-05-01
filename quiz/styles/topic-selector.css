@@ -1,0 +1,33 @@
+.topic-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.topic-btn {
+    background-color: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.topic-btn:hover {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+}
+
+@media (max-width: 600px) {
+    .topic-btn {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+}

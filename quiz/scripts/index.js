@@ -3,14 +3,15 @@ class QuizLoader {
         this.loadQuizBtn = document.getElementById('loadQuizBtn');
         this.fileInput = document.getElementById('quizFile');
         this.init();
+        this.listenToGradeSubjects();
     }
 
     init() {
-        this.loadQuizBtn.addEventListener('click', () => this.handleLoadQuiz());
+        this.loadQuizBtn?.addEventListener('click', () => this.handleLoadQuiz());
     }
 
     handleLoadQuiz() {
-        if (this.fileInput.files.length === 0) {
+        if (!this.fileInput || this.fileInput.files.length === 0) {
             alert('Please select a JSON file first');
             return;
         }
@@ -38,9 +39,28 @@ class QuizLoader {
         reader.readAsText(file);
     }
 
+    async loadFromUrl(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const quizData = await response.json();
+            this.storeAndRedirect(quizData);
+        } catch (err) {
+            alert(`Failed to load quiz from "${url}": ${err.message}`);
+        }
+    }
+
     storeAndRedirect(quizData) {
         sessionStorage.setItem('customQuizData', JSON.stringify(quizData));
         window.location.href = 'quiz.html?source=custom';
+    }
+
+    listenToGradeSubjects() {
+        document.addEventListener('subjectSelected', (event) => {
+            const { url, subject, grade } = event.detail;
+            console.log(`Subject selected: ${subject} (Grade ${grade}), loading quiz from: ${url}`);
+            this.loadFromUrl(url);
+        });
     }
 }
 
