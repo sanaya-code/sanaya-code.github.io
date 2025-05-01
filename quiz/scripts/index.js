@@ -57,12 +57,22 @@ class QuizLoader {
         document.addEventListener('subjectSelected', async (event) => {
             const { url, subject, grade } = event.detail;
             console.log(`Subject selected: ${subject} (Grade ${grade}), loading quiz from: ${url}`);
-            const quizData = await this.fetchRemoteJson(url);
-            console.log(quizData);
-            if (quizData) {
-                // this.storeAndRedirect(quizData);
-                const subjectData = quizData[subject];
+            
+            const jsonFile = await this.fetchRemoteJson(url);
+            console.log(jsonFile);
+            
+            if (jsonFile && jsonFile.subjects) {
+                const subjectData = jsonFile.subjects[subject]; // Access via jsonFile.subjects[subject]
                 console.log(subjectData);
+                
+                if (subjectData) {
+                    // Do something with subjectData (e.g., store or redirect)
+                    // this.storeAndRedirect(subjectData);
+                } else {
+                    console.error(`Subject "${subject}" not found in the data.`);
+                }
+            } else {
+                console.error("Invalid JSON structure or missing 'subjects' key.");
             }
         });
     }
