@@ -1,11 +1,10 @@
-// changed
-
 class GradeSubjects extends HTMLElement {
     constructor() {
         super();
         this._grades = {};
         this._selectEl = null;
-        this._radiosEl = null;
+        this._linksEl = null;
+        this._configRaw = null;  // Store raw config here until ready
     }
 
     static get observedAttributes() {
@@ -14,12 +13,15 @@ class GradeSubjects extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        this.loadFromConfig();
+        this.loadFromConfig(); // Will now work because render() happened
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === 'config' && oldValue !== newValue) {
-            this.loadFromConfig();
+            this._configRaw = newValue;
+            if (this._selectEl) {
+                this.loadFromConfig();
+            }
         }
     }
 
@@ -29,19 +31,24 @@ class GradeSubjects extends HTMLElement {
                 <select id="grade-select">
                     <option value="">-- Select Grade --</option>
                 </select>
-                <div id="subject-options" class="subject-options"></div>
+                <div id="subject-links" class="subject-links"></div>
             </div>
         `;
         this._selectEl = this.querySelector('#grade-select');
-        this._radiosEl = this.querySelector('#subject-options');
-
+        this._linksEl = this.querySelector('#subject-links');
+    
         this._selectEl.addEventListener('change', () => this.updateSubjects());
+    
+        if (this._configRaw) {
+            this.loadFromConfig(); // Now it's safe
+        }
     }
+    
 
     loadFromConfig() {
         let config = {};
         try {
-            config = JSON.parse(this.getAttribute('config') || '{}');
+            config = JSON.parse(this._configRaw || this.getAttribute('config') || '{}');
         } catch (e) {
             console.warn('Invalid config JSON for <grade-subjects>:', e);
             return;
@@ -53,6 +60,7 @@ class GradeSubjects extends HTMLElement {
 
     populateDropdown() {
         this._selectEl.innerHTML = `<option value="">-- Select Grade --</option>`;
+
         for (const grade in this._grades) {
             const opt = document.createElement('option');
             opt.value = grade;
@@ -63,34 +71,28 @@ class GradeSubjects extends HTMLElement {
 
     updateSubjects() {
         const grade = this._selectEl.value;
-        this._radiosEl.innerHTML = '';
+        this._linksEl.innerHTML = '';
 
         if (!grade || !this._grades[grade]) return;
 
         const { subjects, url } = this._grades[grade];
 
         subjects.forEach((subject, index) => {
-            const id = `subject-${index}`;
-            const wrapper = document.createElement('div');
-            wrapper.className = 'radio-wrapper';
+            const label = document.createElement('label');
+            label.className = 'subject-radio-label';
 
             const input = document.createElement('input');
             input.type = 'radio';
-            input.name = 'subject';
-            input.id = id;
+            input.name = 'subject-radio';
             input.value = subject;
-
+            input.className = 'subject-radio';
             input.addEventListener('change', () => {
                 this.dispatchSubjectSelected(grade, subject, url);
             });
 
-            const label = document.createElement('label');
-            label.setAttribute('for', id);
-            label.textContent = subject;
-
-            wrapper.appendChild(input);
-            wrapper.appendChild(label);
-            this._radiosEl.appendChild(wrapper);
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(subject));
+            this._linksEl.appendChild(label);
         });
     }
 

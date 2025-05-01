@@ -1,53 +1,56 @@
 .grade-subjects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
     font-family: Arial, sans-serif;
-    padding: 1rem;
-    max-width: 600px;
-    margin: auto;
-}
-
-#grade-select {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #f9f9f9;
+  }
+  
+  .grade-subjects label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  #grade-select {
     padding: 0.5rem;
     font-size: 1rem;
-    margin-bottom: 1rem;
     /* width: 100%; */
-    max-width: 300px;
-}
-
-.subject-options {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .subject-links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 1rem;
-    justify-content: center;
-}
-
-.radio-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.radio-wrapper input[type="radio"] {
-    display: none;
-}
-
-.radio-wrapper label {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f1f1f1;
-    color: #333;
-    border-radius: 25px;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  
+  .subject-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    background-color: #fff;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.radio-wrapper input[type="radio"]:checked + label {
-    background-color: #007BFF;
-    color: white;
-    border-color: #007BFF;
-    font-weight: bold;
-}
-
-.radio-wrapper label:hover {
-    background-color: #e0e0e0;
-}
+    transition: background 0.2s, border-color 0.2s;
+  }
+  
+  .subject-radio-label:hover {
+    background-color: #e9f4ff;
+    border-color: #3399ff;
+  }
+  
+  .subject-radio {
+    accent-color: #3399ff;
+  }
+  
