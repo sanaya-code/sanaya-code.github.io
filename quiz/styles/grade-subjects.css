@@ -1,56 +1,60 @@
+/* Container styling */
 .grade-subjects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-    font-family: Arial, sans-serif;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    max-width: 400px;
+    max-width: 600px;
     margin: 2rem auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background: #f9f9f9;
-  }
-  
-  .grade-subjects label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  #grade-select {
-    padding: 0.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grade dropdown */
+#grade-select {
+    padding: 0.6rem 1rem;
     font-size: 1rem;
-    /* width: 100%; */
-    max-width: 200px;
-    margin-bottom: 1rem;
-  }
-  
-  .subject-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: flex-start;
-  }
-  
-  .subject-radio-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    background-color: #fff;
-    padding: 0.4rem 0.6rem;
     border-radius: 8px;
     border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+/* Subjects radio group */
+.subject-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Hide the raw radio button */
+.subject-radio {
+    display: none;
+}
+
+/* Custom label styling to act like button */
+.subject-label {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #007bff;
+    border-radius: 20px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  
-  .subject-radio-label:hover {
-    background-color: #e9f4ff;
-    border-color: #3399ff;
-  }
-  
-  .subject-radio {
-    accent-color: #3399ff;
-  }
-  
+    transition: all 0.2s ease-in-out;
+}
+
+/* Active/checked state */
+.subject-radio:checked + .subject-label {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Optional: Hover effect */
+.subject-label:hover {
+    background-color: #e6f0ff;
+}
