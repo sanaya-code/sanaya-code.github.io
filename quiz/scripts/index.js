@@ -4,6 +4,7 @@ class QuizLoader {
         this.fileInput = document.getElementById('quizFile');
         this.init();
         this.listenToGradeSubjects();
+        this.listenToTopicSelected();
     }
 
     init() {
