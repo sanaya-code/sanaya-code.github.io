@@ -102,6 +102,21 @@ class QuizLoader {
         document.addEventListener('topicSelected', async (event) => {
             const url = event.detail.link;
             console.log(url);
+
+            const jsonFile = await this.fetchRemoteJson(url);
+            console.log(jsonFile);
+            
+            if (jsonFile) {
+                try {
+                    const quizData = JSON.parse(jsonFile);
+                    this.storeAndRedirect(quizData);
+                } catch (error) {
+                    alert('Error parsing JSON file: ' + error.message);
+                }
+
+            }else {
+                console.error(" JSON not found");
+            }
         });
     }
 }
