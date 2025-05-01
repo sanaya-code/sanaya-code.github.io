@@ -27,7 +27,6 @@ class GradeSubjects extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="grade-subjects">
-                <label for="grade-select" class="grade-label">Select Grade:</label>
                 <select id="grade-select" class="grade-select">
                     <option value="">-- Select Grade --</option>
                 </select>
