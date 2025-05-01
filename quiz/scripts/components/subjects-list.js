@@ -85,12 +85,12 @@ class GradeSubjects extends HTMLElement {
                 this.dispatchSubjectSelected(grade, subject, url);
             });
 
-            const label = document.createElement('label');
-            label.setAttribute('for', id);
-            label.textContent = subject;
+            // const label = document.createElement('label');
+            // label.setAttribute('for', id);
+            // label.textContent = subject;
 
             wrapper.appendChild(input);
-            wrapper.appendChild(label);
+            // wrapper.appendChild(label);
             this._radiosEl.appendChild(wrapper);
         });
     }
