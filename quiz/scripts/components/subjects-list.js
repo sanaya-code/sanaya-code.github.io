@@ -26,7 +26,7 @@ class GradeSubjects extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="grade-subjects">
-                <label for="grade-select">Select Grade:</label>
+                <!-- label for="grade-select">Select Grade:</label -->
                 <select id="grade-select">
                     <option value="">-- Select Grade --</option>
                 </select>
@@ -85,12 +85,12 @@ class GradeSubjects extends HTMLElement {
                 this.dispatchSubjectSelected(grade, subject, url);
             });
 
-            // const label = document.createElement('label');
-            // label.setAttribute('for', id);
-            // label.textContent = subject;
+            const label = document.createElement('label');
+            label.setAttribute('for', id);
+            label.textContent = subject;
 
             wrapper.appendChild(input);
-            // wrapper.appendChild(label);
+            wrapper.appendChild(label);
             this._radiosEl.appendChild(wrapper);
         });
     }
