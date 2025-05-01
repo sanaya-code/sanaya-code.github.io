@@ -66,13 +66,29 @@ class QuizLoader {
                 console.log(subjectData);
                 
                 if (subjectData) {
-                    const topicSelector = document.createElement('topic-selector');
-                    topicSelector.setAttribute('config', JSON.stringify(subjectData));
-                    const containerDivs = document.querySelector('.container').querySelectorAll('div');
-                    if (containerDivs.length > 0) {
-                        containerDivs[0].appendChild(topicSelector);
+                    // Try to find existing topic-selector in the container
+                    const container = document.querySelector('.container');
+                    let topicSelector = container?.querySelector('topic-selector');
+                    
+                    if (topicSelector) {
+                        // Update existing component
+                        topicSelector.setAttribute('config', JSON.stringify(subjectData));
+                    } else {
+                        // Create new component
+                        topicSelector = document.createElement('topic-selector');
+                        topicSelector.setAttribute('config', JSON.stringify(subjectData));
+                        
+                        // Add to first div in container (or container itself if no divs)
+                        const target = container?.querySelector('div') || container;
+                        if (target) {
+                            target.appendChild(topicSelector);
+                        } 
+                        else {
+                            console.error('Container or container div not found');
+                        }
                     }
-                } else {
+                } 
+                else {
                     console.error(`Subject "${subject}" not found in the data.`);
                 }
             } else {
