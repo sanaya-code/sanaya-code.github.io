@@ -39,12 +39,12 @@ class QuizLoader {
         reader.readAsText(file);
     }
 
-    async loadFromUrl(url) {
+    async fetchSubjectInfoFromRemoteJson(url) {
         try {
-            const quizData = await QuizDataLoader.fetchQuizFromUrl(url);
-            this.storeAndRedirect(quizData);
+            return await QuizDataLoader.fetchQuizFromUrl(url);
         } catch (err) {
             alert(`Failed to load quiz from "${url}": ${err.message}`);
+            return null;
         }
     }
 
@@ -54,10 +54,14 @@ class QuizLoader {
     }
 
     listenToGradeSubjects() {
-        document.addEventListener('subjectSelected', (event) => {
+        document.addEventListener('subjectSelected', async (event) => {
             const { url, subject, grade } = event.detail;
             console.log(`Subject selected: ${subject} (Grade ${grade}), loading quiz from: ${url}`);
-            this.loadFromUrl(url);
+            const quizData = await this.fetchQuizFromUrl(url);
+            if (quizData) {
+                // this.storeAndRedirect(quizData);
+                console.log(quizData);
+            }
         });
     }
 }
