@@ -27,14 +27,12 @@ class GradeSubjects extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="grade-subjects">
-                <select id="grade-select" class="grade-select">
+                <select id="grade-select">
                     <option value="">-- Select Grade --</option>
                 </select>
                 <div id="subject-options" class="subject-options"></div>
             </div>
         `;
-        
-        // Cache elements after rendering
         this._selectEl = this.querySelector('#grade-select');
         this._radiosEl = this.querySelector('#subject-options');
 
@@ -65,7 +63,6 @@ class GradeSubjects extends HTMLElement {
         if (!this._selectEl) return;
         
         this._selectEl.innerHTML = `<option value="">-- Select Grade --</option>`;
-        
         for (const grade in this._grades) {
             const opt = document.createElement('option');
             opt.value = grade;
@@ -86,9 +83,9 @@ class GradeSubjects extends HTMLElement {
         }
 
         const { subjects, url } = this._grades[grade];
-        this._radiosEl.style.display = 'block';
 
         subjects.forEach((subject, index) => {
+            const id = `subject-${index}`;
             const wrapper = document.createElement('div');
             wrapper.className = 'radio-wrapper';
 
@@ -97,16 +94,14 @@ class GradeSubjects extends HTMLElement {
             input.name = `subject-${grade}`;  // Unique name per grade
             input.id = `subject-${grade}-${index}`;
             input.value = subject;
-            input.className = 'subject-radio';
 
             input.addEventListener('change', () => {
                 this.dispatchSubjectSelected(grade, subject, url);
             });
 
             const label = document.createElement('label');
-            label.setAttribute('for', `subject-${grade}-${index}`);
+            label.setAttribute('for', id);
             label.textContent = subject;
-            label.className = 'subject-label';
 
             wrapper.appendChild(input);
             wrapper.appendChild(label);
