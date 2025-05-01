@@ -103,12 +103,11 @@ class QuizLoader {
             const url = event.detail.link;
             console.log(url);
 
-            const jsonFile = await this.fetchRemoteJson(url);
-            console.log(jsonFile);
+            const quizData = await this.fetchRemoteJson(url);
+            console.log(quizData);
             
-            if (jsonFile) {
+            if (quizData) {
                 try {
-                    const quizData = JSON.parse(jsonFile);
                     this.storeAndRedirect(quizData);
                 } catch (error) {
                     alert('Error parsing JSON file: ' + error.message);
