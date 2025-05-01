@@ -24,7 +24,7 @@ class TopicSelector extends HTMLElement {
             <div class="subject-grid">
                 ${this._topics.map(topic => `
                     <div class="subject-card" title="${topic.description || ''}">
-                        <a href="quiz.html?subject=${encodeURIComponent(topic.subject)}">
+                        <a href="#">
                             ${topic.topic}
                         </a>
                     </div>

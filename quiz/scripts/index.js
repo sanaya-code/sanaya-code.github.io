@@ -96,6 +96,13 @@ class QuizLoader {
             }
         });
     }
+
+    listenToTopicSelected() {
+        document.addEventListener('topicSelected', async (event) => {
+            const url = event.detail.link;
+            console.log(url);
+        });
+    }
 }
 
 let obj = null;
