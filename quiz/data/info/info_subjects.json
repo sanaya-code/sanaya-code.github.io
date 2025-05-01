@@ -7,7 +7,7 @@
     "grades": {
       "1": {
         "subjects": ["Math", "English", "EVS"],
-        "url": "grade_1_subjects.json"
+        "url": "data/info/grade_1_subjects.json"
       },
       "6": {
         "subjects": ["Math", "English", "Science"],
