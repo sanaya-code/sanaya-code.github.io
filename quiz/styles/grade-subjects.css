@@ -1,60 +1,53 @@
-/* Container styling */
 .grade-subjects {
-    max-width: 600px;
-    margin: 2rem auto;
+    font-family: Arial, sans-serif;
     padding: 1rem;
-    border-radius: 12px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: auto;
 }
 
-/* Grade dropdown */
 #grade-select {
-    padding: 0.6rem 1rem;
+    padding: 0.5rem;
     font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
     margin-bottom: 1rem;
+    width: 100%;
+    max-width: 300px;
 }
 
-/* Subjects radio group */
 .subject-options {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 10px;
     margin-top: 1rem;
+    justify-content: center;
 }
 
-/* Hide the raw radio button */
-.subject-radio {
+.radio-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.radio-wrapper input[type="radio"] {
     display: none;
 }
 
-/* Custom label styling to act like button */
-.subject-label {
-    padding: 0.6rem 1.2rem;
-    border: 2px solid #007bff;
-    border-radius: 20px;
-    background-color: #f0f8ff;
-    color: #007bff;
-    font-weight: 500;
+.radio-wrapper label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 25px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
-/* Active/checked state */
-.subject-radio:checked + .subject-label {
-    background-color: #007bff;
+.radio-wrapper input[type="radio"]:checked + label {
+    background-color: #007BFF;
     color: white;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    transform: scale(1.05);
+    border-color: #007BFF;
+    font-weight: bold;
 }
 
-/* Optional: Hover effect */
-.subject-label:hover {
-    background-color: #e6f0ff;
+.radio-wrapper label:hover {
+    background-color: #e0e0e0;
 }
