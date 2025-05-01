@@ -85,24 +85,24 @@ class GradeSubjects extends HTMLElement {
         const { subjects, url } = this._grades[grade];
 
         subjects.forEach((subject, index) => {
-            const id = `subject-${index}`;
+            const id = `subject-${grade}-${index}`;
             const wrapper = document.createElement('div');
             wrapper.className = 'radio-wrapper';
-
+        
             const input = document.createElement('input');
             input.type = 'radio';
-            input.name = `subject-${grade}`;  // Unique name per grade
-            input.id = `subject-${grade}-${index}`;
+            input.name = `subject-${grade}`;
+            input.id = id;
             input.value = subject;
-
+        
             input.addEventListener('change', () => {
                 this.dispatchSubjectSelected(grade, subject, url);
             });
-
+        
             const label = document.createElement('label');
-            label.setAttribute('for', id);
+            label.htmlFor = id; // match input.id
             label.textContent = subject;
-
+        
             wrapper.appendChild(input);
             wrapper.appendChild(label);
             this._radiosEl.appendChild(wrapper);
