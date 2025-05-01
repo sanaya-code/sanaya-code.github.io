@@ -1,0 +1,18 @@
+{
+    "metadata": {
+      "title": "Grade-wise Subjects",
+      "version": "1.1",
+      "updated": "2025-05-01"
+    },
+    "grades": {
+      "1": {
+        "subjects": ["Math", "English", "Science"],
+        "url": "grade_1_subjects.json"
+      },
+      "6": {
+        "subjects": ["Math", "English", "Science"],
+        "url": "grade_5_subjects.json"
+      }
+    }
+}
+  
