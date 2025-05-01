@@ -60,7 +60,8 @@ class QuizLoader {
             const quizData = await this.fetchQuizFromUrl(url);
             if (quizData) {
                 // this.storeAndRedirect(quizData);
-                console.log(quizData);
+                const subjectData = quizData[subject];
+                console.log(subjectData);
             }
         });
     }
