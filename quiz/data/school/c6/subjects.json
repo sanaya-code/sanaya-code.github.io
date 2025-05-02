@@ -15,14 +15,21 @@
         "topic": "Angles",
         "description": "Angles",
         "quiz_id": "maths_01_lines_angles"
-      }
-    ],
-    "Geography": [
+      },
       {
         "id": "003",
         "link": "data/school/geometry/angle_bisector.json",
         "description": "Angle Bisector",
         "topic": "Angle Bisector",
+        "quiz_id": "maths_01_lines_angles"
+      }
+    ],
+    "Geography": [
+      {
+        "id": "001",
+        "link": "data/school/c6/geo/geography_01.json",
+        "description": "Unit 01",
+        "topic": "Unit 01",
         "quiz_id": "maths_01_lines_angles"
       }
     ]
