@@ -4,14 +4,14 @@
     "Math": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/maths/maths_01_front_behind.json",
+        "link": "data/school/c1_miriam/maths_01_front_behind.json",
         "topic": "Front  behind",
         "description": "front behind",
         "quiz_id": "maths_01_lines_angles"
       },
       {
         "id": "002",
-        "link": "data/school/c1_miriam/maths/maths_01_on_under.json",
+        "link": "data/school/c1_miriam/maths_01_on_under.json",
         "topic": "ON under",
         "description": "on under",
         "quiz_id": "maths_01_lines_angles"
@@ -20,14 +20,14 @@
     "EVS": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/evs/evs_01_a.json",
+        "link": "data/school/c1_miriam/evs_01_a.json",
         "description": "front behind",
         "topic": "Body part 01",
         "quiz_id": "maths_01_lines_angles"
       },
       {
         "id": "002",
-        "link": "data/school/c1_miriam/evs/evs_01_b.json",
+        "link": "data/school/c1_miriam/evs_01_b.json",
         "description": "on under",
         "topic": "Body part 02",
         "quiz_id": "maths_01_lines_angles"
@@ -36,25 +36,16 @@
     "English": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/english/english_01_a.json",
+        "link": "data/school/c1_miriam/english_01_a.json",
         "description": "Amy 01",
         "topic": "Amy 01",
         "quiz_id": "maths_01_lines_angles"
       },
       {
         "id": "002",
-        "link": "data/school/c1_miriam/english/english_01_b.json",
+        "link": "data/school/c1_miriam/english_01_b.json",
         "description": "Amy 02",
         "topic": "Amy 02",
-        "quiz_id": "maths_01_lines_angles"
-      }
-    ],
-    "Computer":[
-      {
-        "id": "001",
-        "link": "data/school/c1_miriam/comp/comp_01.json",
-        "description": "Unit 01",
-        "topic": "Unit 01",
         "quiz_id": "maths_01_lines_angles"
       }
     ]
