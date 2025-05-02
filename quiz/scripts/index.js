@@ -69,7 +69,7 @@ class QuizLoader {
 
                 // Try to find existing topic-selector in the container
                 const container = document.querySelector('.container');
-                const topicSelector = container?.querySelector('topic-selector');
+                let topicSelector = container?.querySelector('topic-selector');
                 
                 if (subjectData) {
                     if (topicSelector) {
