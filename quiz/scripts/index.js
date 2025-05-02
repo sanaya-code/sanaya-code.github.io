@@ -60,6 +60,14 @@ class QuizLoader {
 
         document.addEventListener('gradeSelected', async (event) => {
             console.log(event.detail);
+
+            const container = document.querySelector('.container');
+            const topicSelector = container?.querySelector('topic-selector');
+            if (topicSelector) {
+                
+                topicSelector.setAttribute('config', JSON.stringify([]));
+            }
+
         });
     }
 
