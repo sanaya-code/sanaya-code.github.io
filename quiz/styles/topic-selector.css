@@ -3,6 +3,9 @@
 .sub-grid-wrapper {
     display: flex;
     justify-content: center;  /* Horizontal centering */
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
 }
 
 .subject-grid {
