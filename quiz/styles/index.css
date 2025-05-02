@@ -32,57 +32,6 @@ h2 {
     font-size: 1.5rem;
 }
 
-/* Subject Grid Styles */
-.subject-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 5px;
-    margin-bottom: 10px;
-}
-
-.subject-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 1px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-    text-align: center;
-}
-
-.subject-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    border-color: #3498db;
-}
-
-.subject-card a {
-    display: block;
-    color: #2c3e50;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin: 15px 0;
-    transition: color 0.3s;
-}
-
-.subject-card a:hover {
-    color: #3498db;
-}
-
-.subject-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #3498db;
-}
-
-.subject-card p {
-    color: #7f8c8d;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
 /* Custom Quiz Section */
 .custom-quiz {
     margin-top: 40px;
