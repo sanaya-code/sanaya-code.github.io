@@ -129,7 +129,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Load subjects from remote config and attach <grade-subjects>
     try {
         if (!QuizDataLoader.isLocal()) {
-            const infoData = await QuizDataLoader.fetchInfoSubjects();
+            // const infoData = await QuizDataLoader.fetchInfoSubjects();
+            const url = 'https://sanaya-code.github.io/quiz/data/info/info_subjects.json';
+            const infoData = await this.fetchRemoteJson(url);
             const gradeSubjectsEl = document.createElement('grade-subjects');
             gradeSubjectsEl.setAttribute('config', JSON.stringify(infoData));
 
