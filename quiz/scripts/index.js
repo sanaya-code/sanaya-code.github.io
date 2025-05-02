@@ -66,12 +66,12 @@ class QuizLoader {
             if (jsonFile && jsonFile.subjects) {
                 const subjectData = jsonFile.subjects[subject]; // Access via jsonFile.subjects[subject]
                 console.log(subjectData);
+
+                // Try to find existing topic-selector in the container
+                const container = document.querySelector('.container');
+                const topicSelector = container?.querySelector('topic-selector');
                 
                 if (subjectData) {
-                    // Try to find existing topic-selector in the container
-                    const container = document.querySelector('.container');
-                    let topicSelector = container?.querySelector('topic-selector');
-                    
                     if (topicSelector) {
                         // Update existing component
                         topicSelector.setAttribute('config', JSON.stringify(subjectData));
@@ -92,6 +92,9 @@ class QuizLoader {
                 } 
                 else {
                     console.error(`Subject "${subject}" not found in the data.`);
+                    if (topicSelector) {
+                        topicSelector.setAttribute('config', JSON.stringify([]));
+                    }
                 }
             } else {
                 console.error("Invalid JSON structure or missing 'subjects' key.");
