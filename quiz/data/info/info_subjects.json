@@ -7,11 +7,11 @@
     "grades": {
       "1": {
         "subjects": ["Math", "English", "EVS"],
-        "url": "data/info/grade_1_subjects.json"
+        "url": "data/school/c1_miriam/subjects.json"
       },
       "6": {
         "subjects": ["Math", "English", "Science"],
-        "url": "grade_5_subjects.json"
+        "url": "data/school/c6/subjects.json"
       }
     }
 }

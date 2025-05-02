@@ -15,13 +15,6 @@
         "quiz_id": "maths_01_lines_angles",
         "link": "data/school/c1_miriam/maths_01_on_under.json",
         "description": "on under"
-      },
-      {
-        "id": "003",
-        "topic": "over in",
-        "quiz_id": "maths_01_lines_angles",
-        "link": "data/school/c1_miriam/maths_01_over_in.json",
-        "description": "over in"
       }
     ],
     "EVS": [
@@ -43,14 +36,14 @@
     "English": [
       {
         "id": "001",
-        "topic": "Amy name day 01",
+        "topic": "Amy 01",
         "quiz_id": "maths_01_lines_angles",
         "link": "data/school/c1_miriam/english_01_a.json",
         "description": "front behind"
       },
       {
         "id": "002",
-        "topic": "Amy name day 02",
+        "topic": "Amy 02",
         "quiz_id": "maths_01_lines_angles",
         "link": "data/school/c1_miriam/english_01_b.json",
         "description": "on under"
