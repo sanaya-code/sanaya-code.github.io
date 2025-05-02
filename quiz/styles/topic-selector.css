@@ -1,4 +1,10 @@
 /* Container Grid */
+
+.sub-grid-wrapper {
+    display: flex;
+    justify-content: center;  /* Horizontal centering */
+}
+
 .subject-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
