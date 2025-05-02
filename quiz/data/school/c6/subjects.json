@@ -4,48 +4,25 @@
     "Math": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/maths_01_front_behind.json",
-        "topic": "Front  behind",
-        "description": "front behind",
+        "link": "data/school/geometry/lines.json",
+        "topic": "Lines",
+        "description": "Lines",
         "quiz_id": "maths_01_lines_angles"
       },
       {
         "id": "002",
-        "link": "data/school/c1_miriam/maths_01_on_under.json",
-        "topic": "ON under",
-        "description": "on under",
+        "link": "data/school/geometry/angles.json",
+        "topic": "Angles",
+        "description": "Angles",
         "quiz_id": "maths_01_lines_angles"
       }
     ],
-    "EVS": [
+    "Geography": [
       {
-        "id": "001",
-        "link": "data/school/c1_miriam/evs_01_a.json",
-        "description": "front behind",
-        "topic": "Body part 01",
-        "quiz_id": "maths_01_lines_angles"
-      },
-      {
-        "id": "002",
-        "link": "data/school/c1_miriam/evs_01_b.json",
-        "description": "on under",
-        "topic": "Body part 02",
-        "quiz_id": "maths_01_lines_angles"
-      }
-    ],
-    "English": [
-      {
-        "id": "001",
-        "link": "data/school/c1_miriam/english_01_a.json",
-        "description": "Amy 01",
-        "topic": "Amy 01",
-        "quiz_id": "maths_01_lines_angles"
-      },
-      {
-        "id": "002",
-        "link": "data/school/c1_miriam/english_01_b.json",
-        "description": "Amy 02",
-        "topic": "Amy 02",
+        "id": "003",
+        "link": "data/school/geometry/angle_bisector.json",
+        "description": "Angle Bisector",
+        "topic": "Angle Bisector",
         "quiz_id": "maths_01_lines_angles"
       }
     ]

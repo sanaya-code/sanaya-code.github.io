@@ -10,7 +10,7 @@
         "url": "data/school/c1_miriam/subjects.json"
       },
       "6": {
-        "subjects": ["Math", "English", "Science"],
+        "subjects": ["Math", "English", "Science", "Geography"],
         "url": "data/school/c6/subjects.json"
       }
     }
