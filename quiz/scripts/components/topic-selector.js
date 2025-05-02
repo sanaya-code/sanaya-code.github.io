@@ -21,17 +21,15 @@ class TopicSelector extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <div class="sub-grid-wrapper">
-                <div class="subject-grid">
-                    ${this._topics.map(topic => `
-                        <div class="subject-card" title="${topic.description || ''}">
-                            <a href="#">
-                                ${topic.topic}
-                            </a>
-                        </div>
-                    `).join('')}
+            <div class="subject-grid">
+            ${this._topics.map(topic => `
+                <div class="subject-card" title="${topic.description || ''}">
+                    <a href="#">
+                        ${topic.topic}
+                    </a>
                 </div>
-            </div>
+            `).join('')}
+    </div>
         `;
 
         this.querySelectorAll('.subject-card a').forEach((link, index) => {

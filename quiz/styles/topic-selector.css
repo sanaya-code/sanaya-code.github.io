@@ -1,13 +1,5 @@
 /* Container Grid */
 
-.sub-grid-wrapper {
-    display: flex;
-    justify-content: center;  /* Horizontal centering */
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-}
-
 .subject-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
