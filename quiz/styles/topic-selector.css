@@ -1,10 +1,20 @@
 /* Container Grid */
 
+/*
 .subject-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 5px;
     margin-bottom: 10px;
+}
+*/
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    justify-content: center;    /* 👈 this centers the grid items */
+    gap: 5px;
+    padding: 10px;
 }
 
 /* Individual Subject Cards */
