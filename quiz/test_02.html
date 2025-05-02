@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Selector</title>
+    <link rel="stylesheet" href="./styles/topic-selector_ds.css">
+</head>
+<body>
+    <topic-selector config='[
+        {
+            "id": "001",
+            "topic": "Front behind",
+            "quiz_id": "maths_01_lines_angles",
+            "link": "data/school/c1_miriam/maths_01_front_behind.json",
+            "description": "front behind"
+        },
+        {
+            "id": "002", 
+            "topic": "ON under",
+            "quiz_id": "maths_01_lines_angles",
+            "link": "data/school/c1_miriam/maths_01_on_under.json", 
+            "description": "on under"
+        }
+    ]'></topic-selector>
+
+    <script src="./scripts/components/topic-selector_ds.js"></script>
+    <script>
+        // Example usage
+        document.addEventListener('topic-selected', (e) => {
+            console.log('Selected topic:', e.detail);
+            // You can use e.detail.link to load the quiz JSON
+        });
+    </script>
+</body>
+</html>

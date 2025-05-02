@@ -41,4 +41,43 @@ class QuizDataLoader {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return await response.json();
     }
+
+    static async fetchQuizFromCashUrl(url) {
+        const cache = await caches.open('sami-quiz-cache');
+        const cachedResponse = await cache.match(url);
+        
+        // If no cache exists, fetch fresh and cache it
+        if (!cachedResponse) {
+            console.log(" not chached: fetching from remote");
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const responseToCache = response.clone();
+            await cache.put(url, responseToCache);
+            return await response.json();
+        }
+    
+        // If cache exists, make conditional request
+        try {
+            const networkResponse = await fetch(url, {
+                headers: {'If-None-Match': cachedResponse.headers.get('ETag')}
+            });
+            
+            if (networkResponse.status === 304) {
+                console.log(" fetching from cache");
+                return await cachedResponse.json();
+            }
+            
+            if (networkResponse.ok) {
+                console.log("cached file exists: fetching new version from remote");
+                const responseToCache = networkResponse.clone();
+                await cache.put(url, responseToCache);
+                return await networkResponse.json();
+            }
+        } catch (e) {
+            console.warn(url);
+            console.warn('Network error, using cached version', e);
+        }
+        
+        return await cachedResponse.json();
+    }
 }

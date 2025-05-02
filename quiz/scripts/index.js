@@ -42,7 +42,8 @@ class QuizLoader {
 
     async fetchRemoteJson(url) {
         try {
-            return await QuizDataLoader.fetchQuizFromUrl(url);
+            // return await QuizDataLoader.fetchQuizFromUrl(url);
+            return await QuizDataLoader.fetchQuizFromCashUrl(url);
         } catch (err) {
             alert(`Failed to load quiz from "${url}": ${err.message}`);
             return null;
