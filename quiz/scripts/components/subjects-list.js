@@ -38,7 +38,17 @@ class GradeSubjects extends HTMLElement {
 
         // Only add event listener if element exists
         if (this._selectEl) {
-            this._selectEl.addEventListener('change', () => this.updateSubjects());
+            
+            // this._selectEl.addEventListener('change', () => );
+
+            this._selectEl.addEventListener('change', (e) => {
+                this.updateSubjects();
+                this.dispatchEvent(new CustomEvent('gradeSelected', {
+                    detail: this._selectEl.value,
+                    bubbles: true
+                }));
+            });
+
         }
     }
 

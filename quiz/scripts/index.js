@@ -3,8 +3,9 @@ class QuizLoader {
         this.loadQuizBtn = document.getElementById('loadQuizBtn');
         this.fileInput = document.getElementById('quizFile');
         this.init();
-        this.listenToGradeSubjects();
+        this.listenToSubjectSelected();
         this.listenToTopicSelected();
+        this.listenToGradeSelected();
     }
 
     init() {
@@ -55,7 +56,14 @@ class QuizLoader {
         window.location.href = 'quiz.html?source=custom';
     }
 
-    listenToGradeSubjects() {
+    listenToGradeSelected() {
+
+        document.addEventListener('gradeSelected', async (event) => {
+            console.log(event.detail);
+        });
+    }
+
+    listenToSubjectSelected() {
         document.addEventListener('subjectSelected', async (event) => {
             const { url, subject, grade } = event.detail;
             console.log(`Subject selected: ${subject} (Grade ${grade}), loading quiz from: ${url}`);
