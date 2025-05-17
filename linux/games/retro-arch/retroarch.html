@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide for setting up RetroArch emulator on Linux systems">
+    <title>RetroArch Complete Guide for Linux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    <style>
+        :root {
+            --primary: #6a1b9a;
+            --secondary: #9c4dcc;
+            --light: #f5f5f5;
+            --dark: #212121;
+            --accent: #ffab00;
+        }
+        body {
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        nav[role="tablist"] {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        button[role="tab"] {
+            padding: 10px 20px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button[role="tab"]:hover {
+            background-color: #e0e0e0;
+        }
+        button[role="tab"][aria-selected="true"] {
+            background-color: var(--primary);
+            color: white;
+        }
+        [role="tabpanel"] {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 5px 5px 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        [role="tabpanel"][aria-hidden="false"] {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .note {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-left: 4px solid var(--primary);
+            margin: 10px 0;
+        }
+        .warning {
+            background-color: #ffecb3;
+            padding: 10px;
+            border-left: 4px solid #ffa000;
+            margin: 10px 0;
+        }
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--dark);
+            color: white;
+            border-radius: 8px;
+        }
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .loading i {
+            font-size: 2rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            nav[role="tablist"] {
+                flex-direction: column;
+            }
+            button[role="tab"] {
+                border-radius: 5px;
+                margin-bottom: 5px;
+            }
+            pre {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RetroArch Complete Guide for Linux</h1>
+            <div class="subtitle">A Powerful, Cross-Platform Emulation Frontend</div>
+        </header>
+
+        <nav role="tablist" aria-label="RetroArch Guide Sections">
+            <button role="tab" aria-selected="true" aria-controls="overview-tab" id="overview-btn">Overview</button>
+            <button role="tab" aria-selected="false" aria-controls="installation-tab" id="installation-btn">Installation</button>
+            <button role="tab" aria-selected="false" aria-controls="setup-tab" id="setup-btn">Initial Setup</button>
+            <button role="tab" aria-selected="false" aria-controls="gui-tab" id="gui-btn">GUI Customization</button>
+            <button role="tab" aria-selected="false" aria-controls="controls-tab" id="controls-btn">Controls</button>
+            <button role="tab" aria-selected="false" aria-controls="games-tab" id="games-btn">Loading Games</button>
+            <button role="tab" aria-selected="false" aria-controls="performance-tab" id="performance-btn">Performance</button>
+            <button role="tab" aria-selected="false" aria-controls="advanced-tab" id="advanced-btn">Advanced</button>
+            <button role="tab" aria-selected="false" aria-controls="troubleshooting-tab" id="troubleshooting-btn">Troubleshooting</button>
+        </nav>
+
+        <main>
+            <!-- Overview Tab -->
+            <section role="tabpanel" aria-hidden="false" id="overview-tab" aria-labelledby="overview-btn">
+                <h2 class="section-title">Overview</h2>
+                <p>RetroArch is a universal emulator frontend that supports multiple gaming systems via emulation cores. It provides a unified interface for playing classic games with advanced features like:</p>
+                <ul>
+                    <li>Shader support (CRT filters, scanlines)</li>
+                    <li>Netplay (online multiplayer)</li>
+                    <li>Rewind & Fast-Forward</li>
+                    <li>Save states & Cheat codes</li>
+                </ul>
+
+                <h3 class="section-title">Supported Systems (Popular Cores)</h3>
+                <table>
+                    <tr>
+                        <th>System</th>
+                        <th>Recommended Core(s)</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>NES</td>
+                        <td>Nestopia UE, FCEUmm</td>
+                        <td>Nestopia UE has better accuracy</td>
+                    </tr>
+                    <tr>
+                        <td>SNES</td>
+                        <td>Snes9x, bsnes</td>
+                        <td>Snes9x is lightweight, bsnes is cycle-accurate</td>
+                    </tr>
+                    <tr>
+                        <td>PS1</td>
+                        <td>PCSX-ReARMed, Beetle PSX</td>
+                        <td>PCSX-ReARMed is faster, Beetle PSX is more accurate</td>
+                    </tr>
+                    <tr>
+                        <td>Sega Genesis</td>
+                        <td>Genesis Plus GX</td>
+                        <td>Supports Sega CD & 32X</td>
+                    </tr>
+                    <tr>
+                        <td>N64</td>
+                        <td>Mupen64Plus-Next</td>
+                        <td>Requires Vulkan for best performance</td>
+                    </tr>
+                    <tr>
+                        <td>GBA</td>
+                        <td>mGBA, VBA-M</td>
+                        <td>mGBA has better compatibility</td>
+                    </tr>
+                    <tr>
+                        <td>PSP</td>
+                        <td>PPSSPP</td>
+                        <td>Standalone PPSSPP may perform better</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Installation Tab -->
+            <section role="tabpanel" aria-hidden="true" id="installation-tab" aria-labelledby="installation-btn">
+                <h2 class="section-title">Installation on Linux</h2>
+                
+                <h3>Option 1: AppImage (Portable, No Installation Needed)</h3>
+                <ol>
+                    <li>Download:
+                        <ul>
+                            <li><a href="https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch.7z" target="_blank">RetroArch AppImage</a></li>
+                            <li><a href="https://buildbot.libretro.com/nightly/linux/x86_64/RetroArch_Qt.7z" target="_blank">RetroArch Qt (Alternative GUI)</a></li>
+                        </ul>
+                    </li>
+                    <li>Extract & Run:
+                        <pre><code>chmod +x RetroArch.AppImage
+./RetroArch.AppImage</code></pre>
+                    </li>
+                </ol>
+
+                <h3>Other Installation Options:</h3>
+                <div class="note">
+                    <h4>Flatpak (Recommended for Stability)</h4>
+                    <pre><code>flatpak install flathub org.libretro.RetroArch
+flatpak run org.libretro.RetroArch</code></pre>
+                </div>
+
+                <div class="note">
+                    <h4>APT (Debian/Ubuntu)</h4>
+                    <pre><code>sudo apt install retroarch</code></pre>
+                </div>
+
+                <div class="note">
+                    <h4>Snap (Alternative)</h4>
+                    <pre><code>sudo snap install retroarch</code></pre>
+                </div>
+
+                <div class="note">
+                    <h4>Compile from Source (Advanced Users)</h4>
+                    <pre><code>git clone https://github.com/libretro/RetroArch.git
+cd RetroArch
+./configure && make
+sudo make install</code></pre>
+                </div>
+            </section>
+
+            <!-- Initial Setup Tab -->
+            <section role="tabpanel" aria-hidden="true" id="setup-tab" aria-labelledby="setup-btn">
+                <h2 class="section-title">Initial Setup</h2>
+                
+                <h3>Step 1: Update Core Info Files</h3>
+                <ol>
+                    <li>Open RetroArch</li>
+                    <li>Go to <strong>Main Menu > Online Updater > Update Core Info Files > Core Updater</strong></li>
+                </ol>
+
+                <h3>Step 2: Download Cores</h3>
+                <ol>
+                    <li>Go to <strong>Main Menu > Online Updater > Update Core Info Files > Core Downloader</strong></li>
+                    <li>Install recommended cores (see Overview table)</li>
+                    <li>Scroll down and search for popular cores like "FCEUmm" or "Nestopia UE" (NES cores)</li>
+                </ol>
+
+                <h3>Configure Directories</h3>
+                <ul>
+                    <li><strong>ROMs:</strong> Settings > Directory > File Browser</li>
+                    <li><strong>Saves:</strong> Settings > Directory > Save Files</li>
+                    <li><strong>Screenshots:</strong> Settings > Directory > Screenshots</li>
+                </ul>
+            </section>
+
+            <!-- GUI Customization Tab -->
+            <section role="tabpanel" aria-hidden="true" id="gui-tab" aria-labelledby="gui-btn">
+                <h2 class="section-title">GUI Customization</h2>
+                
+                <h3>Menu Themes</h3>
+                <ul>
+                    <li><strong>Settings > Drivers > Menu</strong></li>
+                    <li><strong>Ozone</strong> (Modern, recommended)</li>
+                    <li><strong>XMB</strong> (PlayStation-style)</li>
+                    <li><strong>RGUI</strong> (Lightweight, fast)</li>
+                </ul>
+
+                <h3>Visual Tweaks</h3>
+                <ul>
+                    <li><strong>Window Mode:</strong> Settings > Video > Window Mode (width:1440, height:1080)</li>
+                    <li><strong>Integer Scaling:</strong> ON (Pixel-perfect scaling)</li>
+                    <li><strong>Shader Effects:</strong> Settings > Shaders (Try CRT-Royale for retro feel)</li>
+                    <li><strong>Font Scaling:</strong> Settings > User Interface > Appearance (scale factor:1.30x)</li>
+                    <li><strong>Color Themes:</strong> Settings > User Interface > Appearance (color theme:gruvbox dark)</li>
+                </ul>
+
+                <h3>Save Your Configuration</h3>
+                <p>After customizing, save your settings:</p>
+                <p><strong>Main Menu > Configuration File > Save Current Configuration</strong></p>
+            </section>
+
+            <!-- Controls Tab -->
+            <section role="tabpanel" aria-hidden="true" id="controls-tab" aria-labelledby="controls-btn">
+                <h2 class="section-title">Input & Controller Setup</h2>
+                
+                <h3>Keyboard/Gamepad Controls</h3>
+                <p><strong>Default Keyboard:</strong> Arrow keys (Movement), Z/X (A/B), Enter (Start)</p>
+                <p><strong>Customize Controls:</strong></p>
+                <ol>
+                    <li>Go to <strong>Settings > Input > Retropad Bindings > Port-1/2 Controls</strong></li>
+                    <li>Map buttons manually or use Auto-Configuration</li>
+                </ol>
+
+                <h3>Hotkey Configuration</h3>
+                <p>Go to <strong>Settings > Input > Hotkey</strong> to configure:</p>
+                <ul>
+                    <li><strong>Hotkey Enable:</strong> Select button</li>
+                    <li><strong>Menu Toggle:</strong> A/4 button</li>
+                    <li><strong>Close Content:</strong> Start button</li>
+                </ul>
+
+                <h3>Recommended Hotkeys</h3>
+                <table>
+                    <tr>
+                        <th>Function</th>
+                        <th>Default Key</th>
+                        <th>Recommended Alternative</th>
+                    </tr>
+                    <tr>
+                        <td>Menu Toggle</td>
+                        <td>F1</td>
+                        <td>Select + Start</td>
+                    </tr>
+                    <tr>
+                        <td>Save State</td>
+                        <td>F2</td>
+                        <td>L2 + R2</td>
+                    </tr>
+                    <tr>
+                        <td>Load State</td>
+                        <td>F4</td>
+                        <td>L1 + R1</td>
+                    </tr>
+                    <tr>
+                        <td>Fast Forward</td>
+                        <td>Space</td>
+                        <td>Right Stick Click</td>
+                    </tr>
+                    <tr>
+                        <td>Reset Game</td>
+                        <td>F8</td>
+                        <td>Select + L + R</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Loading Games Tab -->
+            <section role="tabpanel" aria-hidden="true" id="games-tab" aria-labelledby="games-btn">
+                <h2 class="section-title">Starting Games and Loading ROMs</h2>
+                
+                <h3>Method 1: Manual Load</h3>
+                <ol>
+                    <li><strong>Load Core:</strong> Main Menu > Load Core</li>
+                    <li><strong>Load Content:</strong> Main Menu > Load Content > select game file</li>
+                </ol>
+
+                <h3>Method 2: Playlists (Auto-Scan ROMs)</h3>
+                <ol>
+                    <li>Go to <strong>Import Content > Scan Directory</strong></li>
+                    <li>Select your ROM folder</li>
+                    <li>RetroArch will auto-detect games and organize them into playlists</li>
+                </ol>
+
+                <h3>Where to Get ROMs?</h3>
+                <div class="warning">
+                    <p><strong>Note:</strong> You must own original copies of games to legally use ROMs.</p>
+                </div>
+                <p><strong>Public Domain ROMs:</strong></p>
+                <ul>
+                    <li><a href="https://archive.org/details/softwarelibrary_msdos_games" target="_blank">Internet Archive</a></li>
+                    <li><a href="https://www.pdroms.de/" target="_blank">PDROMs</a></li>
+                </ul>
+                <p><strong>Other Resources:</strong></p>
+                <ul>
+                    <li><a href="https://www.freeroms.com/roms/nes/contra.htm" target="_blank">FreeROMS</a></li>
+                    <li><a href="https://www.emulatorgames.net/roms/nintendo/contra/" target="_blank">EmulatorGames.net</a></li>
+                    <li><a href="https://romsfun.com/download/super-mario-bros-duck-hunt-29199" target="_blank">ROMsFun</a></li>
+                    <li><a href="https://server.emulatorgames.net/roms/nintendo/64-in-1%20(J)%20[p1].zip" target="_blank">64-in-1 NES Pack</a></li>
+                </ul>
+            </section>
+
+            <!-- Performance Tab -->
+            <section role="tabpanel" aria-hidden="true" id="performance-tab" aria-labelledby="performance-btn">
+                <h2 class="section-title">Performance & Compatibility Tweaks</h2>
+                
+                <h3>Best Launch Options</h3>
+                <ul>
+                    <li><pre><code>gamemoderun retroarch</code></pre> - Uses Feral GameMode for better performance</li>
+                    <li><pre><code>env -u WAYLAND_DISPLAY retroarch</code></pre> - Forces X11 (better compatibility)</li>
+                </ul>
+
+                <h3>Video Settings</h3>
+                <ul>
+                    <li><strong>GPU Driver:</strong> Settings > Drivers > Video → Prefer Vulkan (if available)</li>
+                    <li><strong>Frame Delay:</strong> Settings > Latency > Frame Delay (Reduces input lag)</li>
+                    <li><strong>Threaded Video:</strong> ON (Helps with stuttering)</li>
+                </ul>
+
+                <h3>Audio Settings</h3>
+                <ul>
+                    <li><strong>Audio Driver:</strong> ALSA (Linux default) or PulseAudio</li>
+                    <li><strong>Audio Sync:</strong> OFF (Reduces latency)</li>
+                </ul>
+
+                <h3>Steam Deck Integration</h3>
+                <ol>
+                    <li>Add RetroArch as a Non-Steam Game</li>
+                    <li>Enable Game Mode Compatibility (Proton Experimental)</li>
+                    <li>Configure Controls via Steam Input</li>
+                </ol>
+            </section>
+
+            <!-- Advanced Tab -->
+            <section role="tabpanel" aria-hidden="true" id="advanced-tab" aria-labelledby="advanced-btn">
+                <h2 class="section-title">Advanced Features</h2>
+                
+                <h3>Netplay (Online Multiplayer)</h3>
+                <ol>
+                    <li>Go to <strong>Main Menu > Netplay</strong></li>
+                    <li>Host or Join a session</li>
+                    <li>Ensure both players use the same core & ROM version</li>
+                </ol>
+
+                <h3>Cheat Codes</h3>
+                <p><strong>Main Menu > Cheats</strong> → Load a cheat file or enter codes manually</p>
+
+                <h3>RetroAchievements</h3>
+                <ol>
+                    <li>Enable in <strong>Settings > Achievements</strong></li>
+                    <li>Requires free account at <a href="https://retroachievements.org/" target="_blank">retroachievements.org</a></li>
+                </ol>
+            </section>
+
+            <!-- Troubleshooting Tab -->
+            <section role="tabpanel" aria-hidden="true" id="troubleshooting-tab" aria-labelledby="troubleshooting-btn">
+                <h2 class="section-title">Troubleshooting</h2>
+                
+                <h3>Common Issues & Fixes</h3>
+                <table>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Solution</th>
+                    </tr>
+                    <tr>
+                        <td>Crashes on Launch</td>
+                        <td>Try <code>--disable-wayland</code> or switch to X11</td>
+                    </tr>
+                    <tr>
+                        <td>Controller Not Detected</td>
+                        <td>Check <code>dmesg</code> for USB errors</td>
+                    </tr>
+                    <tr>
+                        <td>Audio Crackling</td>
+                        <td>Lower Settings > Audio > Output Rate to 44100Hz</td>
+                    </tr>
+                    <tr>
+                        <td>Slow Performance</td>
+                        <td>Enable Settings > Video > Hard GPU Sync</td>
+                    </tr>
+                </table>
+
+                <h3>Conclusion</h3>
+                <p>RetroArch is a versatile emulator that brings retro gaming to Linux with high customization and performance. By following this guide, you can:</p>
+                <ul>
+                    <li>Install & configure RetroArch easily</li>
+                    <li>Optimize performance for your system</li>
+                    <li>Customize controls & visuals</li>
+                    <li>Play games from multiple consoles in one place</li>
+                </ul>
+
+                <h3>Additional Resources</h3>
+                <ul>
+                    <li><a href="https://docs.libretro.com/" target="_blank">Official Documentation</a></li>
+                    <li><a href="https://www.reddit.com/r/RetroArch/" target="_blank">r/RetroArch Subreddit</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>RetroArch Complete Guide for Linux Users | Last Updated: 2023</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('[role="tab"]');
+            const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+            
+            // Function to switch tabs
+            function switchTab(newTab) {
+                tabs.forEach(tab => {
+                    tab.setAttribute('aria-selected', 'false');
+                });
+                newTab.setAttribute('aria-selected', 'true');
+                
+                tabPanels.forEach(panel => {
+                    panel.setAttribute('aria-hidden', 'true');
+                });
+                
+                const panelId = newTab.getAttribute('aria-controls');
+                document.getElementById(panelId).setAttribute('aria-hidden', 'false');
+            }
+            
+            // Add click event to tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    switchTab(this);
+                });
+            });
+            
+            // Initialize first tab as active
+            tabs[0].click();
+            
+            // Error handling for tab content loading
+            window.addEventListener('error', function(e) {
+                console.error('Error loading content:', e.message);
+                document.querySelector('.loading').style.display = 'none';
+                alert('Error loading content. Please try again later.');
+            }, true);
+        });
+    </script>
+</body>
+</html>

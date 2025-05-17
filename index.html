@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded JSON Link Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resource Links</h1>
+    <table id="linksTable">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Table content will be populated by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Embedded JSON data
+        const jsonData = [
+            {
+                "description": "RetroArch Linux help",
+                "url": "https://sanaya-code.github.io/linux/games/retro-arch/retroarch.html"
+            }
+        ];
+
+        // Function to populate the table
+        function populateTable() {
+            const tableBody = document.getElementById('tableBody');
+            
+            // Clear any existing rows
+            tableBody.innerHTML = '';
+            
+            // Add rows from JSON data
+            jsonData.forEach(item => {
+                const row = document.createElement('tr');
+                
+                // Description cell
+                const descCell = document.createElement('td');
+                descCell.textContent = item.description || 'No description';
+                row.appendChild(descCell);
+                
+                // URL cell
+                const urlCell = document.createElement('td');
+                if (item.url) {
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.textContent = item.url;
+                    link.target = '_blank';
+                    urlCell.appendChild(link);
+                } else {
+                    urlCell.textContent = 'No URL provided';
+                }
+                row.appendChild(urlCell);
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Populate the table when the page loads
+        document.addEventListener('DOMContentLoaded', populateTable);
+    </script>
+</body>
+</html>
