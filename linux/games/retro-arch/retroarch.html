@@ -178,9 +178,9 @@
         <nav role="tablist" aria-label="RetroArch Guide Sections">
             <button role="tab" aria-selected="true" aria-controls="overview-tab" id="overview-btn">Overview</button>
             <button role="tab" aria-selected="false" aria-controls="installation-tab" id="installation-btn">Installation</button>
-            <button role="tab" aria-selected="false" aria-controls="setup-tab" id="setup-btn">Initial Setup</button>
             <button role="tab" aria-selected="false" aria-controls="gui-tab" id="gui-btn">GUI Customization</button>
             <button role="tab" aria-selected="false" aria-controls="controls-tab" id="controls-btn">Controls</button>
+            <button role="tab" aria-selected="false" aria-controls="setup-tab" id="setup-btn">Initial Setup</button>
             <button role="tab" aria-selected="false" aria-controls="games-tab" id="games-btn">Loading Games</button>
             <button role="tab" aria-selected="false" aria-controls="performance-tab" id="performance-btn">Performance</button>
             <button role="tab" aria-selected="false" aria-controls="advanced-tab" id="advanced-btn">Advanced</button>
@@ -291,26 +291,60 @@ sudo make install</code></pre>
             <!-- Initial Setup Tab -->
             <section role="tabpanel" aria-hidden="true" id="setup-tab" aria-labelledby="setup-btn">
                 <h2 class="section-title">Initial Setup</h2>
+
+                <h3>Step 1: create links to saved directories</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Command</th>
+                    </tr>
+                    <tr>
+                        <td>core directory</td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/cores/        cores </td>
+                    <tr>
+                        <td>config directory</td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/config/       config </td>
+                    </tr>
+                    <tr>
+                        <td>auto config directory</td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/autoconfig    autoconfig </td>
+                    </tr>
+                </table>
+
                 
-                <h3>Step 1: Update Core Info Files</h3>
+                <h3>Step 2: Update Core Info Files</h3>
                 <ol>
                     <li>Open RetroArch</li>
                     <li>Go to <strong>Main Menu > Online Updater > Update Core Info Files > Core Updater</strong></li>
                 </ol>
 
-                <h3>Step 2: Download Cores</h3>
+                <h3>Step 3: Download Cores</h3>
                 <ol>
                     <li>Go to <strong>Main Menu > Online Updater > Update Core Info Files > Core Downloader</strong></li>
                     <li>Install recommended cores (see Overview table)</li>
-                    <li>Scroll down and search for popular cores like "FCEUmm" or "Nestopia UE" (NES cores)</li>
+                    <li>Popular nes cores like "FCEUmm" or "Nestopia UE" </li>
+                    <li>Popular sega cores like Genesis Plus GX</li>
                 </ol>
 
-                <h3>Configure Directories</h3>
-                <ul>
-                    <li><strong>ROMs:</strong> Settings > Directory > File Browser</li>
-                    <li><strong>Saves:</strong> Settings > Directory > Save Files</li>
-                    <li><strong>Screenshots:</strong> Settings > Directory > Screenshots</li>
-                </ul>
+                <h3>Step 4: configure directories</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Path</th>
+                    </tr>
+                    <tr>
+                        <td>Roms</td>
+                        <td> Settings > Directory > File Browser </td>
+                    <tr>
+                        <td>Saves</td>
+                        <td>Settings > Directory > Save Files </td>
+                    </tr>
+                    <tr>
+                        <td>Screenshots</td>
+                        <td>Settings > Directory > Screenshots </td>
+                    </tr>
+                </table>
+
             </section>
 
             <!-- GUI Customization Tab -->
