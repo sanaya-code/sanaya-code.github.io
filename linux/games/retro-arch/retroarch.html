@@ -292,22 +292,30 @@ sudo make install</code></pre>
             <section role="tabpanel" aria-hidden="true" id="setup-tab" aria-labelledby="setup-btn">
                 <h2 class="section-title">Initial Setup</h2>
 
-                <h3>Step 1: create links to saved directories</h3>
+                <h3>Step 1: create links to saved directories inside (~/.config/retroarch/)</h3>
                 <table>
                     <tr>
                         <th>Name</th>
                         <th>Command</th>
                     </tr>
                     <tr>
+                        <td>config directory</td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/retroarch.cfg  retroarch.cfg </td>
+                    </tr>
+                    <tr>
                         <td>core directory</td>
-                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/cores/        cores </td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/cores/   cores </td>
                     <tr>
                         <td>config directory</td>
-                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/config/       config </td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/configs/config/  config </td>
                     </tr>
                     <tr>
                         <td>auto config directory</td>
                         <td>ln -s /media/newuser/data/play_game/retro_arch/configs/autoconfig    autoconfig </td>
+                    </tr>
+                    <tr>
+                        <td>start directory</td>
+                        <td>ln -s /media/newuser/data/play_game/retro_arch/roms    start_dir </td>
                     </tr>
                 </table>
 
