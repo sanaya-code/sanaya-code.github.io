@@ -178,6 +178,7 @@
             <button class="tab-btn" onclick="openTab(event, 'flatseal')">Flatseal Settings</button>
             <button class="tab-btn" onclick="openTab(event, 'performance')">Performance Tweaks</button>
             <button class="tab-btn" onclick="openTab(event, 'games')">Game List</button>
+            <button class="tab-btn" onclick="openTab(event, 'websites')">Useful Websites</button>
         </div>
         
         <!-- Initial Setup Tab -->
@@ -543,12 +544,43 @@ sudo cpufreq-set -g performance</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">8</span> BIOS Settings</h3>
+                <h3><span class="step-number">8</span> BIOS Settings(not done)</h3>
                 <p>Check for these settings in your BIOS:</p>
                 <ul>
                     <li>UMA Buffer Size = 4GB (important for iGPU)</li>
                     <li>Disable Secure Boot (for some Proton versions)</li>
                 </ul>
+            </div>
+        </div>
+        
+        <!-- Useful websites Tab -->
+        <div id="websites" class="tab-content">
+            <h2>Useful Gaming Websites</h2>
+
+            <div class="step">
+                <h3><span class="step-number">4</span> performance improvement</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: var(--primary); color: white;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Website</th>
+                            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://www.reddit.com/r/linux_gaming/" target="_blank">r/linux_gaming</a></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Linux gaming community on Reddit</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://discord.gg/linuxgaming" target="_blank">Linux Gaming Discord</a></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Active Discord community for help</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://forum.manjaro.org/c/gaming" target="_blank">Manjaro Gaming Forum</a></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Helpful forum for Linux gaming issues</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         
