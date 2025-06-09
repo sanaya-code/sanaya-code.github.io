@@ -182,7 +182,9 @@
         
         <!-- Initial Setup Tab -->
         <div id="setup" class="tab-content active">
-            <h2>Initial System Setup for Steam</h2>
+            <h2> create a user and directory for flatpak steam app</h2>
+            <p>Create a separate user and install flatpak steam app for that user</p>
+            <p>Create a directory for flatpak steam app's data</p>
             
             <div class="step">
                 <h3><span class="step-number">1</span> Create Mount Point for Data Partition</h3>
@@ -354,7 +356,7 @@ sudo apt install -y vulkan-tools</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">4</span> CPU Performance Mode</h3>
+                <h3><span class="step-number">4</span> CPU Performance Mode(not done)</h3>
                 <pre>sudo apt install cpufrequtils
 sudo cpufreq-set -g performance</pre>
                 <div class="note">
@@ -516,7 +518,7 @@ sudo cpufreq-set -g performance</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">4</span> Disable Compositor</h3>
+                <h3><span class="step-number">4</span> Disable Compositor(not done)</h3>
                 <ul>
                     <li>GNOME: Press Alt+F2, type <code>r</code> and Enter</li>
                     <li>KDE: Disable Desktop Effects in System Settings</li>
@@ -525,17 +527,17 @@ sudo cpufreq-set -g performance</pre>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">5</span> Enable Shader Pre-Caching</h3>
+                <h3><span class="step-number">5</span> Enable Shader Pre-Caching(not done)</h3>
                 <p>Steam Settings → Shader Pre-Caching → Enable</p>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">6</span> GPU Performance Mode</h3>
+                <h3><span class="step-number">6</span> GPU Performance Mode(not done)</h3>
                 <div class="command">echo "performance" | sudo tee /sys/class/drm/card0/device/power_dpm_force_performance_level</div>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">7</span> CPU Priority for Steam</h3>
+                <h3><span class="step-number">7</span> CPU Priority for Steam(not done)</h3>
                 <div class="command">sudo cpulimit -e steam -l 90 -b</div>
                 <div class="note">Limits CPU to 90% to prevent freezing while maintaining performance.</div>
             </div>
