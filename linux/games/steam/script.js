@@ -67,6 +67,46 @@ const websitesData = [
     { 
         website: '<a href="https://discourse.ubuntu.com/t/fine-tuning-the-ubuntu-24-04-kernel-for-low-latency-throughput-and-power-efficiency/44834" target="_blank">Link</a>', 
         description: "Fine-Tuning the Ubuntu 24.04 Kernel for low latency" 
+    },
+    { 
+        website: '<a href="https://wiki.archlinux.org/title/Gaming" target="_blank">Link</a>', 
+        description: "Arch Linux Gaming Guide" 
+    },
+    { 
+        website: '<a href="https://github.com/AdelKS/LinuxGamingGuide" target="_blank">Link</a>', 
+        description: "Linux Gaming Guide on GitHub" 
+    },
+    { 
+        website: '<a href="https://ubuntu.com/blog/tag/gaming" target="_blank">Link</a>', 
+        description: "Ubuntu Gaming Blog Posts" 
+    },
+    { 
+        website: '<a href="https://discourse.ubuntu.com/t/ubuntu-24-04-boosts-gaming-performance/45721" target="_blank">Link</a>', 
+        description: "Ubuntu 24.04 Gaming Performance Boost" 
+    },
+    { 
+        website: '<a href="https://www.fosslinux.com/102199/ubuntu-gaming-a-comprehensive-guide-to-playing-games-on-linux.htm" target="_blank">Link</a>', 
+        description: "Comprehensive Guide to Ubuntu Gaming" 
+    },
+    { 
+        website: '<a href="https://lutris.net/" target="_blank">Link</a>', 
+        description: "Lutris - Open Gaming Platform" 
+    },
+    { 
+        website: '<a href="https://lutris.net/games" target="_blank">Link</a>', 
+        description: "Lutris Games Library" 
+    },
+    { 
+        website: '<a href="https://www.xda-developers.com/thread/ubuntu-tip-of-the-day-windows-games/" target="_blank">Link</a>', 
+        description: "XDA Developers: Playing Windows Games on Ubuntu" 
+    },
+    { 
+        website: '<a href="https://www.baeldung.com/linux/ubuntu-play-non-native-games" target="_blank">Link</a>', 
+        description: "Baeldung: Playing Non-Native Games on Ubuntu" 
+    },
+    { 
+        website: '<a href="https://news.itsfoss.com/linux-mainstream-gaming-2025/" target="_blank">Link</a>', 
+        description: "IT's FOSS: Linux Mainstream Gaming by 2025" 
     }
 ];
 
