@@ -78,47 +78,7 @@ const systemConfiguration = {
   
   // Flatseal Environment Variables
   const flatsealSettings = {
-    // Environment Variables
-    Vulkan_Driver_Settings: [
-      { variable: "RADV_PERFTEST=aco,rt", explanation: "Enables ACO compiler and ray tracing support in RADV", configured: true },
-      { variable: "AMD_VULKAN_ICD=RADV", explanation: "Forces RADV Vulkan driver for AMD GPUs", configured: true },
-      { variable: "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/radeon_icd.x86_64.json", explanation: "Specifies Vulkan ICD file location", configured: true }
-    ],
-    
-    Low_Power_GPU_Tuning: [
-      { variable: "R600_DEBUG=nohyperz", explanation: "Not for radeon 680m, Disables HyperZ for older R600 GPUs (may improve stability)", configured: false },
-      { variable: "RADV_DEBUG=nodcc", explanation: "Disables DCC (Delta Color Compression) - may help with VRAM limitations", configured: true },
-      { variable: "mesa_glthread=true", explanation: "Use it in games launch options. It may break some titles, Enables multithreaded OpenGL command processing", configured: false }
-    ],
-    
-    Proton_Performance: [
-      { variable: "DXVK_ASYNC=1", explanation: "Enables async shader compilation (reduces stuttering)", configured: true },
-      { variable: "PROTON_USE_WINED3D=0", explanation: "Forces DX11 games to use DXVK instead of OpenGL", configured: true },
-      { variable: "VKD3D_CONFIG=no_upload_hvv", explanation: "Optimizes VRAM usage for D3D12 games", configured: true },
-      { variable: "PROTON_LOG=0", explanation: "Disables debug logging (improves performance)", configured: true }
-    ],
-    
-    Nvidia_GPU_Features: [
-      { variable: "PROTON_HIDE_NVIDIA_GPU=0", explanation: "Makes Nvidia GPUs visible to Proton", configured: false },
-      { variable: "PROTON_ENABLE_NVAPI=1", explanation: "Enables Nvidia's NVAPI support in Proton", configured: false}
-    ],
-    
-    Memory_Management: [
-      { variable: "PROTON_FORCE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Windows executables", configured: true },
-      { variable: "WINE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Wine processes", configured: true }
-    ],
-    
-    System_Performance: [
-      { variable: "GAME_MODE=1", explanation: "not really used by newer GameMode setups. Legacy variable for Feral's GameMode", configured: false },
-      { variable: "GAMEMODERUN=1", explanation: "Activates gamemode optimizations for games", configured: true }
-    ],
-    
-    Performance_Overlay: [
-      { variable: "MANGOHUD=1", explanation: "Enables MangoHUD performance overlay", configured: true },
-      { variable: "MANGOHUD_CONFIG=fps_limit=60,position=top-left,no_display=0,gpu_stats=1,gpu_temp=1", 
-        explanation: "Configures MangoHUD display: FPS cap, position, GPU stats", configured: true }
-    ],
-  
+
     // File System Access
     Filesystem_Permissions: [
       { path: "/mnt/ldata/games/steam:rw", configured: true, explanation: "Steam library location" },
@@ -143,14 +103,64 @@ const systemConfiguration = {
       },
       {
         permission: "--share=ipc",
-        configured: true,
+        configured: false,
         explanation: [
           "Enables Inter-Process Communication (IPC) sharing",
           "Needed for Steam client ↔ game communication",
           "Allows shared memory between processes"
         ]
       }
+    ],
+
+    // Environment Variables
+    Vulkan_Driver_Settings: [
+      { variable: "AMD_VULKAN_ICD=RADV", explanation: "Forces RADV Vulkan driver for AMD GPUs", configured: true },
+      { variable: "RADV_PERFTEST=aco,rt", explanation: "Enables ACO compiler and ray tracing support in RADV", configured: true },
+      { variable: "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/radeon_icd.x86_64.json", explanation: "Specifies Vulkan ICD file location", configured: false }
+    ],
+
+    Performance_Overlay: [
+      { variable: "MANGOHUD=1", explanation: "Enables MangoHUD performance overlay", configured: true },
+      { variable: "MANGOHUD_CONFIG=fps_limit=60,position=top-left,no_display=0,gpu_stats=1,gpu_temp=1", 
+        explanation: "Configures MangoHUD display: FPS cap, position, GPU stats", configured: true }
+    ],
+    
+    System_Performance: [
+      { variable: "GAMEMODERUN=1", explanation: "Activates gamemode optimizations for games", configured: true },
+      { variable: "GAME_MODE=1", explanation: "not really used by newer GameMode setups. Legacy variable for Feral's GameMode", configured: false }
+    ],
+    
+    Proton_Performance: [
+      { variable: "DXVK_ASYNC=1", explanation: "Enables async shader compilation (reduces stuttering)", configured: true },
+      { variable: "PROTON_USE_WINED3D=0", explanation: "Forces DX11 games to use DXVK instead of OpenGL", configured: true },
+      { variable: "VKD3D_CONFIG=no_upload_hvv", explanation: "Optimizes VRAM usage for D3D12 games", configured: true },
+      { variable: "PROTON_LOG=0", explanation: "Disables debug logging (improves performance)", configured: false }
+    ],
+
+    Low_Power_GPU_Tuning: [
+      { variable: "R600_DEBUG=nohyperz", explanation: "Not for radeon 680m, Disables HyperZ for older R600 GPUs (may improve stability)", configured: false },
+      { variable: "RADV_DEBUG=nodcc", explanation: "Disables DCC (Delta Color Compression) - may help with VRAM limitations", configured: false },
+      { variable: "mesa_glthread=true", explanation: "Use it in games launch options. It may break some titles, Enables multithreaded OpenGL command processing", configured: false }
+    ],
+
+    Memory_Management: [
+      { variable: "PROTON_FORCE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Windows executables", configured: false },
+      { variable: "WINE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Wine processes", configured: false }
+    ],
+    
+    AMD_Specific_Fixes: [
+      {
+        variable: "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1",
+        explanation: "Not needed. Disables GPU switching between two gpu, external and internal. ",
+        configured: true
+      }
+    ],
+    
+    Nvidia_GPU_Features: [
+      { variable: "PROTON_HIDE_NVIDIA_GPU=0", explanation: "Makes Nvidia GPUs visible to Proton", configured: false },
+      { variable: "PROTON_ENABLE_NVAPI=1", explanation: "Enables Nvidia's NVAPI support in Proton", configured: false}
     ]
+
   };
   
   // Steam Launch Options
@@ -159,33 +169,38 @@ const systemConfiguration = {
       launchOptions: [
         { 
           type: "default",  configured: true,
+          command: "gamemoderun -- %command%",
+          explanation: "normal usage"
+        },
+        { 
+          type: "default",  configured: false,
           command: "gamemoderun taskset -c 8-15 gamescope -f -e -- %command%",
           explanation: "Isolates game to cores 8-15 with full gamescope features"
         },
         { 
-          type: "720p",  configured: true,
+          type: "720p",  configured: false,
           command: "gamemoderun taskset -c 8-15 gamescope -W 1280 -H 720 -f -- %command%",
           explanation: "720p low-res performance mode with core isolation"
         },
         { 
-          type: "physical-cores",  configured: true,
+          type: "physical-cores",  configured: false,
           command: "gamemoderun taskset -c 4,5,6,7 gamescope -f -e -- taskset -c 4,5,6,7 %command%",
           explanation: "Pins gamescope and game to physical cores 4-7 for minimal OS interference"
         },
         { 
-          type: "game-only-physical",  configured: true,
+          type: "game-only-physical",  configured: false,
           command: "gamemoderun taskset -c 4,5,6,7 %command%",
           explanation: "Runs game on physical cores 4-7 without gamescope"
         },
         { 
-          type: "smt-paired",  configured: true,
+          type: "smt-paired",  configured: false,
           command: "gamemoderun taskset -c 4,5,12,13 gamescope -f -e -- taskset -c 4,5,12,13 %command%",
           explanation: "Uses physical cores 4-5 and their SMT siblings 12-13 for wider thread pool"
         }
       ],
       breakdown: [
         { command: "gamemoderun", value: "(no value)", explanation: "Wrapper that activates Feral GameMode optimizations", required: false },
-        { command: "taskset", value: "-c 8-15", explanation: "Pins process to CPU cores 8-15 (for core isolation)", required: false },
+        { command: "taskset", value: "-c 8-15", explanation: "For CPU intensive games. Pins process to CPU cores 8-15 (for core isolation)", required: false },
         { command: "gamescope", value: "(no value)", explanation: "Compositor that provides better fullscreen performance", required: false },
         { command: "-W", value: "1280", explanation: "Sets output width in pixels (here 720p width)", required: false },
         { command: "-H", value: "720", explanation: "Sets output height in pixels (here 720p height)", required: false },
@@ -311,13 +326,13 @@ const systemConfiguration = {
   const sysctlTuning = {
     configFile: "/etc/sysctl.d/99-gaming.conf",
     parameters: [
-      { setting: "vm.compaction_proactiveness=0", explanation: "Reduces background memory compaction", configured: true },
-      { setting: "vm.dirty_ratio=5", explanation: "Maximum % of dirty memory before writeback", configured: true },
-      { setting: "vm.dirty_background_ratio=5", explanation: "% of dirty memory to start writeback", configured: true },
-      { setting: "vm.swappiness=10", explanation: "How aggressively to swap (10=moderate)", configured: true },
-      { setting: "vm.vfs_cache_pressure=50", explanation: "Filesystem cache retention (50=balanced)", configured: true },
-      { setting: "kernel.numa_balancing=0", explanation: "Disables NUMA balancing for AMD systems", configured: true },
-      { setting: "kernel.sched_energy_aware=0", explanation: "Disables energy-aware scheduling", configured: true },
+      { setting: "vm.compaction_proactiveness=0", explanation: "Reduces background memory compaction", configured: false },
+      { setting: "vm.dirty_ratio=5", explanation: "Maximum % of dirty memory before writeback", configured: false },
+      { setting: "vm.dirty_background_ratio=5", explanation: "% of dirty memory to start writeback", configured: false },
+      { setting: "vm.swappiness=10", explanation: "How aggressively to swap (10=moderate)", configured: false },
+      { setting: "vm.vfs_cache_pressure=50", explanation: "Filesystem cache retention (50=balanced)", configured: false },
+      { setting: "kernel.numa_balancing=0", explanation: "Disables NUMA balancing for AMD systems", configured: false },
+      { setting: "kernel.sched_energy_aware=0", explanation: "Disables energy-aware scheduling", configured: false },
       { setting: "kernel.sched_autogroup_enabled=0", explanation: "Disables task autogrouping to prevent latency in games", configured: false },
       { setting: "kernel.sched_latency_ns=6000000", explanation: "may cause overheating, Tightens scheduler latency window (6ms)", configured: false },
       { setting: "kernel.sched_min_granularity_ns=1000000", explanation: "Prevents excessive CPU switching.. Minimum time a task runs before preemption (0.75ms)", configured: false },
@@ -352,8 +367,8 @@ const systemConfiguration = {
   const vramConfiguration = {
     recommendation: "Set UMA Buffer Size or Shared Memory in BIOS",
     options: [
-      { size: "2GB", explanation: "Works for most games" },
-      { size: "4GB", explanation: "Only for heavy games, May be excessive for many small game titles" }
+      { size: "2GB", explanation: "Works for most games", executed: false },
+      { size: "4GB", explanation: "Only for heavy games, May be excessive for many small game titles", executed: false }
     ]
   };
   
