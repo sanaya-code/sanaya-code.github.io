@@ -23,4 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     runtimePerformanceMode,
     monitorSystem
   ).render();
+  new ResourcesComponent("resources-tab", websitesData).render();
+
 });
