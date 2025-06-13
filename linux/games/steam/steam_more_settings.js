@@ -70,9 +70,19 @@ const systemConfiguration = {
         explanation: "32-bit version of Vulkan drivers required for 32-bit games" 
     },
     { 
+        packageName: "mesa-utils", 
+        configured: false,
+        explanation: "" 
+    },
+    { 
         packageName: "vulkan-tools", 
         configured: true,
         explanation: "Utilities for Vulkan development and testing (includes vkcube, vulkaninfo)" 
+    },
+    { 
+        packageName: "libvulkan1", 
+        configured: false,
+        explanation: "" 
     }
   ];
   
