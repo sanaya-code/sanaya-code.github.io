@@ -113,7 +113,7 @@ const systemConfiguration = {
       },
       {
         permission: "--share=ipc",
-        configured: false,
+        configured: true,
         explanation: [
           "Enables Inter-Process Communication (IPC) sharing",
           "Needed for Steam client ↔ game communication",
@@ -131,7 +131,7 @@ const systemConfiguration = {
 
     Performance_Overlay: [
       { variable: "MANGOHUD=1", explanation: "Enables MangoHUD performance overlay", configured: true },
-      { variable: "MANGOHUD_CONFIG=fps_limit=60,position=top-left,no_display=0,gpu_stats=1,gpu_temp=1", 
+      { variable: "MANGOHUD_CONFIG=fps_limit=55,position=bottom-right,no_display=0,gpu_stats=1,gpu_temp=1,ram,vram", 
         explanation: "Configures MangoHUD display: FPS cap, position, GPU stats", configured: true }
     ],
     
@@ -149,13 +149,13 @@ const systemConfiguration = {
 
     Low_Power_GPU_Tuning: [
       { variable: "R600_DEBUG=nohyperz", explanation: "Not for radeon 680m, Disables HyperZ for older R600 GPUs (may improve stability)", configured: false },
-      { variable: "RADV_DEBUG=nodcc", explanation: "Disables DCC (Delta Color Compression) - may help with VRAM limitations", configured: false },
+      { variable: "RADV_DEBUG=nodcc", explanation: "Disables DCC (Delta Color Compression) - may help with VRAM limitations", configured: true },
       { variable: "mesa_glthread=true", explanation: "Use it in games launch options. It may break some titles, Enables multithreaded OpenGL command processing", configured: false }
     ],
 
     Memory_Management: [
-      { variable: "PROTON_FORCE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Windows executables", configured: false },
-      { variable: "WINE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Wine processes", configured: false }
+      { variable: "PROTON_FORCE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Windows executables", configured: true },
+      { variable: "WINE_LARGE_ADDRESS_AWARE=1", explanation: "Enables >2GB memory support for Wine processes", configured: true }
     ],
     
     AMD_Specific_Fixes: [
@@ -181,6 +181,11 @@ const systemConfiguration = {
           type: "default",  configured: true,
           command: "gamemoderun -- %command%",
           explanation: "normal usage"
+        },
+        { 
+          type: "wwe2k25",  configured: true,
+          command: "gamemoderun flatpak run org.freedesktop.Platform.VulkanLayer.gamescope -f -r 60 -F 55 -- %command%",
+          explanation: "55 fps 1080p"
         },
         { 
           type: "default",  configured: false,
