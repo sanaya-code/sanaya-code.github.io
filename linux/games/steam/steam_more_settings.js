@@ -339,7 +339,7 @@ const systemConfiguration = {
       { command: "sudo update-grub", explanation: "Applies GRUB configuration changes", executed: false },
       { command: "sudo reboot", explanation: "Required for kernel parameters to take effect", executed: false }
     ],
-    explanation: "Isolating cores 8-15 (not 1-15) prevents starving the OS of CPU resources"
+    explanation: "File - /etc/default/grub. Isolating cores 8-15 (not 1-15) prevents starving the OS of CPU resources"
   };
   
   // Sysctl Tuning

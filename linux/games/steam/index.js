@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cpuGovernorConfiguration,
     vramConfiguration,
     runtimePerformanceMode,
-    monitorSystem
+    monitorSystem,
+    sysctlTuning 
   ).render();
   new ResourcesComponent("resources-tab", websitesData).render();
 
