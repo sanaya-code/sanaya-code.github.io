@@ -162,7 +162,7 @@ const systemConfiguration = {
       {
         variable: "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1",
         explanation: "Not needed. Disables GPU switching between two gpu, external and internal. ",
-        configured: true
+        configured: false
       }
     ],
     
@@ -184,7 +184,7 @@ const systemConfiguration = {
         },
         { 
           type: "wwe2k25",  configured: true,
-          command: "gamemoderun flatpak run org.freedesktop.Platform.VulkanLayer.gamescope -f -r 60 -F 55 -- %command%",
+          command: "gamemoderun flatpak run org.freedesktop.Platform.VulkanLayer.gamescope -f -r 60 -F 55",
           explanation: "55 fps 1080p"
         },
         { 
