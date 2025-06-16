@@ -385,7 +385,7 @@ const systemConfiguration = {
   
   // VRAM Allocation Configuration
   const vramConfiguration = {
-    recommendation: "Set UMA Buffer Size or Shared Memory in BIOS",
+    recommendation: "Set UMA Buffer Size or Shared Memory in BIOS(BIOS - >Advanced -> Amd cbs -> Nbio common ->  Gfx conf -> UMA frame buffer 4gb)",
     options: [
       { size: "2GB", explanation: "Works for most games", executed: false },
       { size: "4GB", explanation: "Only for heavy games, May be excessive for many small game titles", executed: true }
