@@ -20,7 +20,7 @@ class CpuPerformanceComponent {
         <section>
           <h3>VRAM Allocation Recommendation</h3>
           <p><strong>BIOS Setting:</strong> ${this.vramConfig.recommendation}</p>
-          ${Utils.renderArrayAsTable(this.vramConfig.options, ['size', 'explanation'])}
+          ${Utils.renderArrayAsTable(this.vramConfig.options, ['size', 'explanation', 'executed'])}
         </section>
   
         <section>

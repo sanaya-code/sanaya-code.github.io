@@ -233,6 +233,11 @@ const systemConfiguration = {
   const kernelBootParameters = {
     GRUB_CMDLINE_LINUX_DEFAULT: [
       {
+        "value": "quiet splash mitigations=off nowatchdog threadirqs amdgpu.ppfeaturemask=0xffffffff amdgpu.vm_fragment_size=9 amdgpu.sg_display=0 amdgpu.dc=1 rcutree.enable_rcu_lazy=1",
+        "explanation": "Improves performance by reducing CPU overhead, enabling full AMD GPU features, and optimizing VRAM usage without isolating CPU cores.",
+        "configured": false
+      },
+      {
         value: "quiet splash amdgpu.ppfeaturemask=0xffffffff mitigations=off nowatchdog preempt=full nohz_full=8-15 threadirqs rcu_nocbs=8-15 rcutree.enable_rcu_lazy=1 amdgpu.sg_display=0 amdgpu.dc=1 amdgpu.vm_fragment_size=9 isolcpus=8-15",
         explanation: "Base configuration with AMD full feature mask, GPU memory optimizations, CPU isolation, and system latency reductions.",
         configured: false
@@ -383,7 +388,7 @@ const systemConfiguration = {
     recommendation: "Set UMA Buffer Size or Shared Memory in BIOS",
     options: [
       { size: "2GB", explanation: "Works for most games", executed: false },
-      { size: "4GB", explanation: "Only for heavy games, May be excessive for many small game titles", executed: false }
+      { size: "4GB", explanation: "Only for heavy games, May be excessive for many small game titles", executed: true }
     ]
   };
   
