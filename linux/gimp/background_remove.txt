@@ -1,0 +1,58 @@
+=== GIMP Background Removal Guide ===
+
+Method 1: Foreground Select Tool (Best for complex objects)
+1. Open your image:
+   - File > Open
+   - Or drag image into GIMP
+
+2. Prepare the layer:
+   - Right-click layer in Layers panel
+   - Select "Add Alpha Channel" (for transparency)
+
+3. Select the Foreground Select Tool(looks like sesor):
+   - Press [I] or find in toolbox
+   - Draw a rough outline around your subject
+   - Press Enter
+
+4. Mark foreground areas(optional):
+   - Paint over parts you want to keep
+   - Press Enter when done
+
+5. Remove background:
+   - Press Ctrl+I to invert selection
+   - Press Delete key
+   - Or Edit > Clear
+
+6. Clean up edges:
+   - Use Eraser tool (E) for hard edges
+   - Use Smudge tool for soft edges
+
+7. Export:
+   - File > Export As
+   - Choose PNG format
+   - Click Export
+
+---------------------------------------------------------------------------------------------
+
+Method 2: Fuzzy Select Tool (Best for solid backgrounds)
+1. Open image and add alpha channel
+   - Layer > Transparency > Add Alpha Channel
+
+2. Select Fuzzy Select Tool (U):
+   - Click on background area
+   - Adjust Threshold in tool options
+
+3. Remove background:
+   - Press Delete
+   - Or Edit > Clear
+
+4. Refine selection:
+   - Select > Shrink (1-2px) for cleaner edges
+   - Select > Feather (1-2px) for softer edges
+
+5. Export as PNG
+
+=== Tips ===
+- For hair/fine details: Use Layer Mask
+- For tricky edges: Try Select by Color tool
+- Save as XCF to keep editable layers

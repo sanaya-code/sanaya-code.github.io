@@ -1,0 +1,13 @@
+ethod 1: Foreground Select Tool (Best for complex objects)
+1. Open your image:
+   - File > Open
+   - Or drag image into GIMP
+
+2. Prepare the layer:
+   - Right-click layer(eye) in Layers panel. (On right hand side)
+   - Select "Add Alpha Channel" (for transparency)
+
+3. Select the Fuzzy Select Tool(looks like sesor):
+   - Press [U] or find in toolbox
+   - click on brackground
+   - press delete to remove background
