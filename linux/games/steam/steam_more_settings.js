@@ -34,7 +34,13 @@ const systemConfiguration = {
         packageName: "org.freedesktop.Platform.VulkanLayer.gamescope", 
         configured: true, 
         explanation: "Gamescope Vulkan layer - SteamOS session compositing window manager" 
-    }
+    },
+    {
+      packageName: "com.github.benjamimgois.GOverlay",
+      configured: flase,
+      explanation: "GUI for MangoHud and vkBasalt. GPU overlays, Vulkan effects, performance tuning. Per-app configurations and FPS limiting."
+  }
+  
   ];
   
   // Installed APT Packages
