@@ -25,9 +25,13 @@ class MultiFillInBlankComponent extends HTMLElement {
       this.innerHTML = `
         <div class="question-type">
           <div class="question-text"></div>
+          <div class="svg-figure" style="display: none;"></div>
+          <div class="figure" style="display: none;"></div>
         </div>
       `;
       this._questionEl = this.querySelector('.question-text');
+      this._svgEl = this.querySelector('.svg-figure');
+      this._figureEl = this.querySelector('.figure');
       this._initialized = true;
     }
 
@@ -35,6 +39,8 @@ class MultiFillInBlankComponent extends HTMLElement {
       this._config = JSON.parse(this.getAttribute('config') || '{}');
       this._responses = [...(this._config.user_response || [])];
       this.renderQuestion();
+      this.addSvg(this._config);
+      this.addImg(this._config);
     } catch (err) {
       console.warn("Invalid config:", err);
     }
@@ -58,6 +64,30 @@ class MultiFillInBlankComponent extends HTMLElement {
 
     this._questionEl.innerHTML = '';
     this._questionEl.appendChild(frag);
+  }
+
+  addSvg(config) {
+    if (this._svgEl) {
+      if (config.svg_content) {
+        this._svgEl.style.display = '';
+        this._svgEl.innerHTML = config.svg_content;
+      } else {
+        this._svgEl.style.display = 'none';
+        this._svgEl.innerHTML = '';
+      }
+    }
+  }
+
+  addImg(config) {
+    if (this._figureEl) {
+      if (config.img_url) {
+        this._figureEl.style.display = '';
+        this._figureEl.innerHTML = `<img src="${config.img_url}" alt="figure" />`;
+      } else {
+        this._figureEl.style.display = 'none';
+        this._figureEl.innerHTML = '';
+      }
+    }
   }
 
   activateInput(index, span) {
