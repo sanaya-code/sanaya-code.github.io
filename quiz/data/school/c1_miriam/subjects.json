@@ -15,6 +15,13 @@
         "topic": "ON under",
         "description": "on under",
         "quiz_id": "maths_01_lines_angles"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/maths/maths_02_shapes.json",
+        "topic": "Shape",
+        "description": "Shape",
+        "quiz_id": "maths_02_shapes"
       }
     ],
     "EVS": [
