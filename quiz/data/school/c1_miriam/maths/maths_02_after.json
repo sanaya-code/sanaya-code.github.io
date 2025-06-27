@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "options_fill_in_blank",
+      "id": "001",
+      "question": "After",
+      "options": [
+        {
+          "id": "01",
+          "text": "34 ____",
+          "correct_answer": "35",
+          "acceptable_answers": ["35"]
+        },
+        {
+          "id": "02",
+          "text": "77 ____",
+          "correct_answer": "78",
+          "acceptable_answers": ["78"]
+        }
+      ],
+      "user_response": ["", ""],
+      "case_sensitive": false
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "question": "After",
+      "options": [
+        {
+          "id": "03",
+          "text": "42 ____",
+          "correct_answer": "43",
+          "acceptable_answers": ["43"]
+        },
+        {
+          "id": "04",
+          "text": "35 ____",
+          "correct_answer": "36",
+          "acceptable_answers": ["36"]
+        }
+      ],
+      "user_response": ["", ""],
+      "case_sensitive": false
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "007",
+      "question": "After",
+      "options": [
+        {
+          "id": "05",
+          "text": "66 ____",
+          "correct_answer": "67",
+          "acceptable_answers": ["67"]
+        },
+        {
+          "id": "04",
+          "text": "82 ____",
+          "correct_answer": "83",
+          "acceptable_answers": ["83"]
+        }
+      ],
+      "user_response": ["", ""],
+      "case_sensitive": false
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

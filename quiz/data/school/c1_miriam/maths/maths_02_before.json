@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "options_fill_in_blank",
+      "id": "001",
+      "question": "Before",
+      "options": [
+        {
+          "id": "01",
+          "text": " ____ 26",
+          "correct_answer": "25",
+          "acceptable_answers": ["25"]
+        },
+        {
+          "id": "02",
+          "text": " ____ 52",
+          "correct_answer": "51",
+          "acceptable_answers": ["51"]
+        }
+      ],
+      "user_response": ["", ""],
+      "case_sensitive": false
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "question": "Before",
+      "options": [
+        {
+          "id": "03",
+          "text": " ____ 73",
+          "correct_answer": "72",
+          "acceptable_answers": ["72"]
+        },
+        {
+          "id": "04",
+          "text": " ____ 98",
+          "correct_answer": "97",
+          "acceptable_answers": ["97"]
+        }
+      ],
+      "user_response": ["", ""],
+      "case_sensitive": false
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "007",
+      "question": "Before",
+      "options": [
+        {
+          "id": "05",
+          "text": " ____ 61",
+          "correct_answer": "60",
+          "acceptable_answers": ["60"]
+        },
+        {
+          "id": "04",
+          "text": " ____ 45",
+          "correct_answer": "44",
+          "acceptable_answers": ["44"]
+        }
+      ],
+      "user_response": ["", ""],
+      "case_sensitive": false
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

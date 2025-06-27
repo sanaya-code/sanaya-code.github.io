@@ -18,10 +18,17 @@
       },
       {
         "id": "003",
-        "link": "data/school/c1_miriam/maths/maths_02_shapes.json",
-        "topic": "Shape",
-        "description": "Shape",
-        "quiz_id": "maths_02_shapes"
+        "link": "data/school/c1_miriam/maths/maths_02_after.json",
+        "topic": "After",
+        "description": "After",
+        "quiz_id": "maths_02_after"
+      },
+      {
+        "id": "004",
+        "link": "data/school/c1_miriam/maths/maths_02_before.json",
+        "topic": "Before",
+        "description": "Before",
+        "quiz_id": "maths_02_before"
       }
     ],
     "EVS": [
