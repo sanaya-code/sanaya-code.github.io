@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "multi_fill_in_blank",
+      "id": "001",
+      "question": "Name the object: ____",
+      "svg_content": "<svg width=\"200\" height=\"300\" viewBox=\"0 0 200 300\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"50\" y=\"60\" width=\"100\" height=\"180\" fill=\"#81D4FA\" stroke=\"#0288D1\" stroke-width=\"2\" />\n  <ellipse cx=\"100\" cy=\"60\" rx=\"50\" ry=\"20\" fill=\"#4FC3F7\" stroke=\"#0288D1\" stroke-width=\"2\"/>\n  <ellipse cx=\"100\" cy=\"240\" rx=\"50\" ry=\"20\" fill=\"#4FC3F7\" stroke=\"#0288D1\" stroke-width=\"2\"/>\n</svg>",
+      "blanks": [
+        {
+          "position": 1,
+          "correct_answer": "Cylinder",
+          "acceptable_answers": ["cylinder"],
+          "hint": "Has two circular flat surfaces and one curved surface"
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["maths", "shapes"],
+      "points": 1,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "Correct! It is a cylinder.",
+        "partial_credit": "",
+        "none": "Try again. It has circular ends and a curved surface."
+      }
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "002",
+      "question": "Name the object: ____",
+      "svg_content": "<svg width=\"250\" height=\"180\" viewBox=\"0 0 250 180\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Front face -->\n  <polygon points=\"60,80 60,140 160,140 160,80\" fill=\"#FFCC80\" stroke=\"#FB8C00\" stroke-width=\"2\"/>\n  <!-- Top face -->\n  <polygon points=\"60,80 100,50 200,50 160,80\" fill=\"#FFE082\" stroke=\"#FB8C00\" stroke-width=\"2\"/>\n  <!-- Side face -->\n  <polygon points=\"160,80 200,50 200,110 160,140\" fill=\"#FFB74D\" stroke=\"#FB8C00\" stroke-width=\"2\"/>\n  <!-- Inner hidden edge: top-back to bottom-back -->\n  <line x1=\"200\" y1=\"110\" x2=\"100\" y2=\"110\" stroke=\"#EF6C00\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/>\n  <!-- Inner hidden edge: top-back to top-left -->\n  <line x1=\"100\" y1=\"50\" x2=\"100\" y2=\"110\" stroke=\"#EF6C00\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/>\n  <!-- Inner hidden edge: bottom-back to bottom-left -->\n  <line x1=\"100\" y1=\"110\" x2=\"60\" y2=\"140\" stroke=\"#EF6C00\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/>\n</svg>",
+      "blanks": [
+        {
+          "position": 1,
+          "correct_answer": "Cuboid",
+          "acceptable_answers": ["cuboid"],
+          "hint": "Box-shaped solid with rectangular faces"
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["maths", "shapes"],
+      "points": 1,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "Correct! It is a cuboid.",
+        "partial_credit": "",
+        "none": "Try again. It looks like a box with rectangles on each face."
+      }
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "003",
+      "question": "Name the object: ____",
+      "svg_content": "<svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Front face -->\n  <polygon points=\"60,80 60,140 120,140 120,80\" fill=\"#AED581\" stroke=\"#558B2F\" stroke-width=\"2\"/>\n  <!-- Top face -->\n  <polygon points=\"60,80 90,50 150,50 120,80\" fill=\"#DCE775\" stroke=\"#558B2F\" stroke-width=\"2\"/>\n  <!-- Side face -->\n  <polygon points=\"120,80 150,50 150,110 120,140\" fill=\"#9CCC65\" stroke=\"#558B2F\" stroke-width=\"2\"/>\n  <!-- Inner hidden edge: top-back to bottom-back -->\n  <line x1=\"150\" y1=\"110\" x2=\"90\" y2=\"110\" stroke=\"#33691E\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/>\n  <!-- Inner hidden edge: top-back to top-left -->\n  <line x1=\"90\" y1=\"50\" x2=\"90\" y2=\"110\" stroke=\"#33691E\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/>\n  <!-- Inner hidden edge: bottom-back to bottom-left -->\n  <line x1=\"90\" y1=\"110\" x2=\"60\" y2=\"140\" stroke=\"#33691E\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/>\n</svg>",
+      "blanks": [
+        {
+          "position": 1,
+          "correct_answer": "Cube",
+          "acceptable_answers": ["cube"],
+          "hint": "All faces are equal squares"
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["maths", "shapes"],
+      "points": 1,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "That's right! It's a cube.",
+        "partial_credit": "",
+        "none": "Think of a dice shape with equal sides."
+      }
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "004",
+      "question": "Name the object: ____",
+      "svg_content": "<svg width=\"200\" height=\"250\" viewBox=\"0 0 200 250\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"coneFill\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#FFCCBC\"/>\n      <stop offset=\"100%\" stop-color=\"#FF7043\"/>\n    </linearGradient>\n  </defs>\n\n  <!-- Cone body (filled polygon) -->\n  <path d=\"M50,200 A50,15 0 0,1 150,200 L100,50 Z\" fill=\"url(#coneFill)\" stroke=\"#D84315\" stroke-width=\"2\"/>\n\n  <!-- Hidden (back) edge of base -->\n  <path d=\"M50,200 A50,15 0 0,1 150,200\" fill=\"none\" stroke=\"#BF360C\" stroke-width=\"2\" stroke-dasharray=\"5,3\"/>\n\n  <!-- Visible (front) edge of base -->\n  <path d=\"M150,200 A50,15 0 0,1 50,200\" fill=\"none\" stroke=\"#BF360C\" stroke-width=\"2\"/>\n</svg>",
+      "blanks": [
+        {
+          "position": 1,
+          "correct_answer": "Cone",
+          "acceptable_answers": ["cone"],
+          "hint": "Has a circular base and a pointed top"
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["maths", "shapes"],
+      "points": 1,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "Correct! It’s a cone.",
+        "partial_credit": "",
+        "none": "Try again. It has one curved surface and a circular base."
+      }
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "005",
+      "question": "Name the object: ____",
+      "svg_content": "<svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <radialGradient id=\"sphereGradient\" cx=\"40%\" cy=\"40%\" r=\"60%\">\n      <stop offset=\"0%\" stop-color=\"#FFFFFF\"/>\n      <stop offset=\"100%\" stop-color=\"#64B5F6\"/>\n    </radialGradient>\n  </defs>\n  <circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"url(#sphereGradient)\" stroke=\"#1976D2\" stroke-width=\"2\"/>\n</svg>",
+      "blanks": [
+        {
+          "position": 1,
+          "correct_answer": "Sphere",
+          "acceptable_answers": ["sphere"],
+          "hint": "Perfectly round like a ball"
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["maths", "shapes"],
+      "points": 1,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "Correct! That’s a sphere.",
+        "partial_credit": "",
+        "none": "Try again. It looks like a 3D circle or a ball."
+      }
+    }     
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

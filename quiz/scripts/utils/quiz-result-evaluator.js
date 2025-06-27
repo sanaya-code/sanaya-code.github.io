@@ -1,3 +1,11 @@
+// mcq(mcq-question), true_false(true-false), multi_select(multi-select)
+// fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
+// options_fill_in_blank(options-fill-in-blank)
+// short_answer(short-answer),
+// matching(matching-select), matching_drag_drop(matching-drag-drop)
+// matching_connection(matching-connection)
+// ordering(ordering-drag-drop)
+
 class QuizResultEvaluator {
     constructor(queList, userAnswers) {
         this.queList = queList;
@@ -64,6 +72,20 @@ class QuizResultEvaluator {
                 );
             case 'multi_fill_in_blank':
                 return this.checkMultiFillInBlankAnswer(question, userAnswer);
+            case 'options_fill_in_blank':
+                                
+                if (!Array.isArray(userAnswer) || userAnswer.length !== question.options.length) return false;
+
+                return question.options.every((opt, index) => {
+                    const accepted = [opt.correct_answer, ...(opt.acceptable_answers || [])];
+                    const userVal = userAnswer[index] || '';
+                    console.log(userVal);
+                    return accepted.some(ans =>
+                    question.case_sensitive
+                        ? ans === userVal
+                        : ans.toLowerCase() === userVal.toLowerCase()
+                    );
+                });
             case 'multi_select':
                 const correctOptions = question.options
                     .filter(opt => opt.correct)
@@ -159,11 +181,11 @@ class QuizResultEvaluator {
             case 'multi_fill_in_blank':
                 return question.blanks.map(blank => blank.correct_answer).join('; ');
 
-            case 'multi_select':
-                return question.options
-                    .filter(opt => opt.correct)
-                    .map(opt => opt.text)
-                    .join(', ');
+            case 'options_fill_in_blank':
+                return question.options.map(opt => opt.correct_answer).join(', ');       
+            
+                case 'multi_select':
+                return question.options.filter(opt => opt.correct).map(opt => opt.text).join(', ');
 
             case 'ordering':
                 return question.correct_order.map(id => {

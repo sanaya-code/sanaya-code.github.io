@@ -136,7 +136,7 @@ class MultiFillInBlankComponent extends HTMLElement {
     this.commitCurrentInput();
 
     // Return the responses (even if some blanks are still empty)
-    console.log("return val ", this._responses);
+    // console.log("return val ", this._responses);
     return this._responses;
   }
 }
