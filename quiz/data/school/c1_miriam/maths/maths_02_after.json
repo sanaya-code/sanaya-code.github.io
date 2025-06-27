@@ -10,66 +10,69 @@
   },
   "questions": [
     {
-      "type": "options_fill_in_blank",
+      "type": "multi_fill_in_blank",
       "id": "001",
-      "question": "After",
-      "options": [
-        {
-          "id": "01",
-          "text": "34 ____",
-          "correct_answer": "35",
-          "acceptable_answers": ["35"]
-        },
-        {
-          "id": "02",
-          "text": "77 ____",
-          "correct_answer": "78",
-          "acceptable_answers": ["78"]
+      "question": " 34 ____ ", 
+      "blanks": [
+        { "position": 1, "correct_answer": "35", "acceptable_answers": ["35"]
         }
       ],
-      "user_response": ["", ""],
+      "user_response": [""],
       "case_sensitive": false
     },
     {
-      "type": "options_fill_in_blank",
-      "id": "004",
-      "question": "After",
-      "options": [
-        {
-          "id": "03",
-          "text": "42 ____",
-          "correct_answer": "43",
-          "acceptable_answers": ["43"]
-        },
-        {
-          "id": "04",
-          "text": "35 ____",
-          "correct_answer": "36",
-          "acceptable_answers": ["36"]
+      "type": "multi_fill_in_blank",
+      "id": "003",
+      "question": " 77 ____ ", 
+      "blanks": [
+        { "position": 1, "correct_answer": "78", "acceptable_answers": ["78"]
         }
       ],
-      "user_response": ["", ""],
+      "user_response": [""],
       "case_sensitive": false
     },
     {
-      "type": "options_fill_in_blank",
+      "type": "multi_fill_in_blank",
+      "id": "005",
+      "question": " 42 ____ ", 
+      "blanks": [
+        { "position": 1, "correct_answer": "43", "acceptable_answers": ["43"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
       "id": "007",
-      "question": "After",
-      "options": [
-        {
-          "id": "05",
-          "text": "66 ____",
-          "correct_answer": "67",
-          "acceptable_answers": ["67"]
-        },
-        {
-          "id": "04",
-          "text": "82 ____",
-          "correct_answer": "83",
-          "acceptable_answers": ["83"]
+      "question": " 35 ____ ", 
+      "blanks": [
+        { "position": 1, "correct_answer": "36", "acceptable_answers": ["36"]
         }
       ],
-      "user_response": ["", ""],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "009",
+      "question": " 66 ____ ", 
+      "blanks": [
+        { "position": 1, "correct_answer": "67", "acceptable_answers": ["67"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "011",
+      "question": " 82 ____ ", 
+      "blanks": [
+        { "position": 1, "correct_answer": "83", "acceptable_answers": ["83"]
+        }
+      ],
+      "user_response": [""],
       "case_sensitive": false
     }
   ],
