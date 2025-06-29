@@ -154,11 +154,22 @@ class QuizResultEvaluator {
     }
 
     checkMultiFillInBlankAnswer(question, userAnswer) {
-        const correctAnswers = question.blanks.map(blank => blank.correct_answer);
-        return userAnswer.every((userAns, idx) =>
-            userAns.toLowerCase() === correctAnswers[idx].toLowerCase()
-        );
+        if (!Array.isArray(userAnswer) || userAnswer.length !== question.blanks.length) {
+            return false;
+        }
+    
+        return question.blanks.every((blank, idx) => {
+            const userVal = userAnswer[idx] || '';
+            const acceptedAnswers = [blank.correct_answer, ...(blank.acceptable_answers || [])];
+    
+            return acceptedAnswers.some(ans => {
+                return question.case_sensitive
+                    ? ans === userVal
+                    : ans.toLowerCase() === userVal.toLowerCase();
+            });
+        });
     }
+    
 
     formatUserAnswer(question, answer) {
         if (!answer) return 'Not answered';
@@ -231,7 +242,12 @@ class QuizResultEvaluator {
                 return question.correct_answer;
 
             case 'multi_fill_in_blank':
-                return question.blanks.map(blank => blank.correct_answer).join('; ');
+                return question.blanks.map(blank => {
+                    const allAnswers = [blank.correct_answer, ...(blank.acceptable_answers || [])];
+                    const uniqueAnswers = [...new Set(allAnswers)];
+                    return `(${uniqueAnswers.join(' / ')})`;
+                }).join('; ');
+                
 
             case 'options_fill_in_blank':
                 return question.options.map(opt => opt.correct_answer).join(', ');       
