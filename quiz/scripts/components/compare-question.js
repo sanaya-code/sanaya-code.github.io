@@ -29,17 +29,17 @@ class CompareQuantitiesComponent extends HTMLElement {
             <div class="cmp-qq-svg-figure" style="display: none;"></div>
             <div class="cmp-qq-figure" style="display: none;"></div>
             <div class="cmp-qq-options-container">
-                <div class="cmp-qq-option cmp-qq-quantity" id="cmp-qq-a"></div>
+                <div class="cmp-qq-option cmp-qq-quantity cmp-qq-a" ></div>
                 <div class="cmp-qq-option cmp-qq-symbol" title="Click to change"></div>
-                <div class="cmp-qq-option cmp-qq-quantity" id="cmp-qq-b"></div>
+                <div class="cmp-qq-option cmp-qq-quantity cmp-qq-b" ></div>
             </div>
         `;
 
         this.questionEl = this.querySelector('.cmp-qq-question-text');
         this.svgEl = this.querySelector('.cmp-qq-svg-figure');
         this.imgEl = this.querySelector('.cmp-qq-figure');
-        this.quantityAEl = this.querySelector('#cmp-qq-a');
-        this.quantityBEl = this.querySelector('#cmp-qq-b');
+        this.quantityAEl = this.querySelector('.cmp-qq-a');
+        this.quantityBEl = this.querySelector('.cmp-qq-b');
         this.symbolEl = this.querySelector('.cmp-qq-symbol');
 
         this.symbolEl.addEventListener('click', () => this.toggleSymbol());
@@ -81,8 +81,8 @@ class CompareQuantitiesComponent extends HTMLElement {
             }
 
             // Render quantities
-            this.quantityAEl.innerHTML = `<strong>${quantity_a.label}:</strong> ${quantity_a.value} <br><small>${quantity_a.description || ''}</small>`;
-            this.quantityBEl.innerHTML = `<strong>${quantity_b.label}:</strong> ${quantity_b.value} <br><small>${quantity_b.description || ''}</small>`;
+            this.quantityAEl.innerHTML = `<strong>${quantity_a.label || ''}</strong> ${quantity_a.value} <br><small>${quantity_a.description || ''}</small>`;
+            this.quantityBEl.innerHTML = `<strong>${quantity_b.label || ''}</strong> ${quantity_b.value} <br><small>${quantity_b.description || ''}</small>`;
 
             // Setup symbol
             this.symbolOptions = symbol_options || ['>', '<'];

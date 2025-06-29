@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+        "type": "compare_quantities",
+        "id": "004",
+       "question": " >  <  =",
+        "quantity_a": {
+          "value": "5"
+        },
+        "quantity_b": {
+          "value": "8"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      }      
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
