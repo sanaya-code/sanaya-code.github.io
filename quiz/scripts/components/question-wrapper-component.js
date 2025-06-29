@@ -6,6 +6,7 @@
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
 // ordering(ordering-drag-drop)
+// compare_quantities(compare-quantities)
 
 class QuestionWrapperComponent extends HTMLElement {
   static get observedAttributes() {
@@ -30,7 +31,8 @@ class QuestionWrapperComponent extends HTMLElement {
       matching: 'matching-select',
       matching_drag_drop: 'matching-drag-drop',
       matching_connection: 'matching-connection',
-      ordering: 'ordering-drag-drop'
+      ordering: 'ordering-drag-drop',
+      compare_quantities: 'compare-quantities'
     };
   }
 

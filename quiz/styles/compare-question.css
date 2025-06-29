@@ -1,0 +1,86 @@
+/* Question Text */
+.cmp-qq-question-text {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    word-spacing: 12px;
+    letter-spacing: 1px;
+    color: #003366;
+    background-color: #e0f0ff;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+/* SVG Figure Container */
+.cmp-qq-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.cmp-qq-svg-figure svg {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Image Figure Container */
+.cmp-qq-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.cmp-qq-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Comparison Layout */
+.cmp-qq-options-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.cmp-qq-option {
+    padding: 10px 15px;
+    background-color: #ecf3fc;
+    border: 1px solid #dce6f0;
+    border-radius: 6px;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Symbol Styling */
+.cmp-qq-symbol {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cmp-qq-symbol:hover {
+    background-color: #2980b9;
+}

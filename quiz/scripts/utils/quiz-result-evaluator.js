@@ -6,6 +6,7 @@
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
 // ordering(ordering-drag-drop)
+// compare_quantities(compare-quantities)
 
 // change following methods
 // checkAnswerCorrectness
@@ -65,10 +66,13 @@ class QuizResultEvaluator {
         if (userAnswer == null) return false;
 
         switch (question.type) {
+
             case 'mcq':
                 return userAnswer === question.correct_answer;
+
             case 'true_false':
                 return userAnswer === `${question.correct_answer}`;
+
             case 'fill_in_blank':
                 const answers = [question.correct_answer, ...(question.acceptable_answers || [])];
                 return answers.some(ans =>
@@ -76,8 +80,10 @@ class QuizResultEvaluator {
                         ? ans === userAnswer
                         : ans.toLowerCase() === userAnswer.toLowerCase()
                 );
+
             case 'multi_fill_in_blank':
                 return this.checkMultiFillInBlankAnswer(question, userAnswer);
+
             case 'options_fill_in_blank':
                                 
                 if (!Array.isArray(userAnswer) || userAnswer.length !== question.options.length) return false;
@@ -130,24 +136,33 @@ class QuizResultEvaluator {
                     .filter(opt => opt.correct)
                     .map(opt => opt.id);
                 return this.arraysEqual(userAnswer.sort(), correctOptions.sort());
+
             case 'ordering':
                 return this.arraysEqual(userAnswer, question.correct_order);
+
             case 'matching':
                 const correctPairs = question.pairs.map(pair => pair.right);
                 return this.arraysEqual(userAnswer.sort(), correctPairs.sort());
+
             case 'matching_drag_drop':
                 const correctMatches = question.pairs.map(pair => pair.right);
                 if (userAnswer.length !== correctMatches.length) return false;
                 return userAnswer.every((val, idx) => val === correctMatches[idx]);
+
             case 'matching_connection':
                 const correctRHS = question.pairs.map(pair => pair.right);
                 if (userAnswer.length !== correctRHS.length) return false;
                 return userAnswer.every((val, idx) => val === correctRHS[idx]);
+
             case 'short_answer':
                 const variations = [question.correct_answer, ...(question.acceptable_variations || [])];
                 return variations.some(variation =>
                     userAnswer.toLowerCase().includes(variation.toLowerCase())
                 );
+
+            case 'compare_quantities':
+                return userAnswer === question.correct_answer;
+
             default:
                 return false;
         }
@@ -224,6 +239,9 @@ class QuizResultEvaluator {
                 }
                 return userValues.length ? userValues.join(', ') : 'Not answered';
 
+            case 'compare_quantities':
+                return answer; // e.g. ">", "<", "="
+            
             default:
                 return answer;
         }
@@ -283,6 +301,10 @@ class QuizResultEvaluator {
 
             case 'short_answer':
                 return question.correct_answer;
+            
+            case 'compare_quantities':
+                return question.correct_answer; // e.g. ">", "<", "="
+
             default:
                 return '';
         }
