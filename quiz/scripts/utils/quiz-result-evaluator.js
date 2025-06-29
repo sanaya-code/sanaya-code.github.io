@@ -1,10 +1,16 @@
 // mcq(mcq-question), true_false(true-false), multi_select(multi-select)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
+// table_fill_in_the_blank(table-fill-in-the-blank)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
 // ordering(ordering-drag-drop)
+
+// change following methods
+// checkAnswerCorrectness
+// formatUserAnswer
+// formatCorrectAnswer
 
 class QuizResultEvaluator {
     constructor(queList, userAnswers) {
@@ -86,6 +92,39 @@ class QuizResultEvaluator {
                         : ans.toLowerCase() === userVal.toLowerCase()
                     );
                 });
+            
+            case 'table_fill_in_the_blank':
+                if (!Array.isArray(userAnswer) || !Array.isArray(question.data)) return false;
+            
+                let total = 0;
+                let correct = 0;
+            
+                for (let row = 0; row < question.data.length; row++) {
+                    for (let col = 0; col < question.data[row].length; col++) {
+                    const cell = question.data[row][col];
+                    if (cell.value === '____') {
+                        total++;
+                        const userVal = (userAnswer?.[row]?.[col] || '').trim();
+                        const accepted = [cell.correct_answer, ...(cell.acceptable_answers || [])];
+                        const isCorrect = accepted.some(ans =>
+                        question.case_sensitive ? ans === userVal : ans.toLowerCase() === userVal.toLowerCase()
+                        );
+                        if (isCorrect) correct++;
+                    }
+                    }
+                }
+            
+                if (total === 0) return false;
+            
+                if (question.scoring_method === 'exact') {
+                    return correct === total;
+                } else if (question.scoring_method === 'partial') {
+                    return correct > 0;
+                } else {
+                    return false;
+                }
+
+
             case 'multi_select':
                 const correctOptions = question.options
                     .filter(opt => opt.correct)
@@ -161,6 +200,19 @@ class QuizResultEvaluator {
                 }).join('; ');
             case 'multi_fill_in_blank':
                 return answer.map(ans => ans || 'Not answered').join('; ');
+
+            case 'table_fill_in_the_blank':
+                const userValues = [];
+                for (let row = 0; row < answer.length; row++) {
+                    for (let col = 0; col < answer[row].length; col++) {
+                    const val = answer[row][col];
+                    if (val != null && val !== '') {
+                        userValues.push(val.trim());
+                    }
+                    }
+                }
+                return userValues.length ? userValues.join(', ') : 'Not answered';
+
             default:
                 return answer;
         }
@@ -184,8 +236,20 @@ class QuizResultEvaluator {
             case 'options_fill_in_blank':
                 return question.options.map(opt => opt.correct_answer).join(', ');       
             
-                case 'multi_select':
+            case 'multi_select':
                 return question.options.filter(opt => opt.correct).map(opt => opt.text).join(', ');
+
+            case 'table_fill_in_the_blank':
+                const correctValues = [];
+                for (let row = 0; row < question.data.length; row++) {
+                    for (let col = 0; col < question.data[row].length; col++) {
+                    const cell = question.data[row][col];
+                    if (cell.value === '____') {
+                        correctValues.push(cell.correct_answer);
+                    }
+                    }
+                }
+                return correctValues.join(', ');                  
 
             case 'ordering':
                 return question.correct_order.map(id => {

@@ -4,33 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topic Selector</title>
-    <link rel="stylesheet" href="./styles/topic-selector_ds.css">
+    <link rel="stylesheet" href="./styles/fill-in-blank-multi-table.css">
 </head>
 <body>
-    <topic-selector config='[
-        {
-            "id": "001",
-            "topic": "Front behind",
-            "quiz_id": "maths_01_lines_angles",
-            "link": "data/school/c1_miriam/maths_01_front_behind.json",
-            "description": "front behind"
-        },
-        {
-            "id": "002", 
-            "topic": "ON under",
-            "quiz_id": "maths_01_lines_angles",
-            "link": "data/school/c1_miriam/maths_01_on_under.json", 
-            "description": "on under"
-        }
-    ]'></topic-selector>
+    
 
-    <script src="./scripts/components/topic-selector_ds.js"></script>
+    <script src="./scripts/components/fill-in-blank-multi-table.js"></script>
     <script>
-        // Example usage
-        document.addEventListener('topic-selected', (e) => {
-            console.log('Selected topic:', e.detail);
-            // You can use e.detail.link to load the quiz JSON
-        });
-    </script>
+        function testTableFillInBlank() {
+          const config = {
+            type: "table_fill_in_the_blank",
+            id: "T002",
+            title: "Complete the Multiplication Table",
+            column_labels: ["2", "3", "4"],
+            row_labels: ["1", "2", "3"],
+            data: [
+              [
+                { value: "2" },
+                { value: "____", correct_answer: "3", acceptable_answers: ["3"] },
+                { value: "____", correct_answer: "4", acceptable_answers: ["4"] }
+              ],
+              [
+                { value: "____", correct_answer: "2", acceptable_answers: ["2"] },
+                { value: "6" },
+                { value: "____", correct_answer: "8", acceptable_answers: ["8"] }
+              ],
+              [
+                { value: "____", correct_answer: "3", acceptable_answers: ["3"] },
+                { value: "____", correct_answer: "6", acceptable_answers: ["6"] },
+                { value: "12" }
+              ]
+            ],
+            user_response: [
+              ["", "", ""],
+              ["", "", ""],
+              ["", "", ""]
+            ],
+            case_sensitive: false,
+            points: 6,
+            scoring_method: "partial",
+            feedback: {
+              full_credit: "Perfect! All blanks are correctly filled.",
+              partial_credit: "Some answers are correct. Review the table.",
+              none: "No correct entries. Please try again."
+            }
+          };
+      
+          const el = document.createElement('table-fill-in-the-blank');
+          el.setAttribute('config', JSON.stringify(config));
+          document.body.appendChild(el);
+      
+          // Optional: Log user input after 5 seconds
+          setTimeout(() => {
+            const responses = el.getUserAnswer();
+            console.log("User responses:", responses);
+          }, 5000);
+        }
+      
+        // Call the function to run the test
+        testTableFillInBlank();
+      </script>
+      
 </body>
 </html>

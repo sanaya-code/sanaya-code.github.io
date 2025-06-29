@@ -36,169 +36,30 @@
       "user_response" : ""
     },
     {
-      "type": "mcq",
-      "id": "010",
-      "question": "after thursday",
-      "options": [
-        {"id": "A", "text": "Tuesday"},
-        {"id": "B", "text": "Wednesday"},
-        {"id": "C", "text": "Friday"},
-        {"id": "D", "text": "Saturday"}
-      ],
-      "correct_answer": "C",
-      "user_response" : ""
-    },
-    {
-      "type": "options_fill_in_blank",
-      "id": "013",
-      "question": "Before",
-      "options": [
-        {
-          "id": "01",
-          "text": "____ 26",
-          "correct_answer": "25",
-          "acceptable_answers": ["25"]
+      "type": "multi_fill_in_blank",
+      "id": "005",
+      "question": " Objects that can roll ____   ____ . ",
+      "blanks": [
+        { "position": 1, "correct_answer": "pencil", "acceptable_answers": ["ball", "orange"],
+          "hint": "Liquid to gas phase change"
         },
-        {
-          "id": "02",
-          "text": "____ 52",
-          "correct_answer": "51",
-          "acceptable_answers": ["51"]
-        },
-        {
-          "id": "03",
-          "text": "____ 73",
-          "correct_answer": "72",
-          "acceptable_answers": ["72"]
-        },
-        {
-          "id": "04",
-          "text": "____ 98",
-          "correct_answer": "97",
-          "acceptable_answers": ["97"]
-        },
-        {
-          "id": "05",
-          "text": "____ 61",
-          "correct_answer": "60",
-          "acceptable_answers": ["60"]
-        }
-      ],
-      "user_response": ["", "", "", "", ""],
-      "case_sensitive": false
-    },
-    {
-      "type": "options_fill_in_blank",
-      "id": "015",
-      "question": "After",
-      "options": [
-        {
-          "id": "01",
-          "text": "34 ____",
-          "correct_answer": "35",
-          "acceptable_answers": ["35"]
-        },
-        {
-          "id": "02",
-          "text": "77 ____",
-          "correct_answer": "78",
-          "acceptable_answers": ["78"]
-        },
-        {
-          "id": "03",
-          "text": "42 ____",
-          "correct_answer": "43",
-          "acceptable_answers": ["43"]
-        },
-        {
-          "id": "04",
-          "text": "35 ____",
-          "correct_answer": "36",
-          "acceptable_answers": ["36"]
-        },
-        {
-          "id": "05",
-          "text": "66 ____",
-          "correct_answer": "67",
-          "acceptable_answers": ["67"]
-        }
-      ],
-      "user_response": ["", "", "", "", ""],
-      "case_sensitive": false
-    },     
-    {
-      "type": "options_fill_in_blank",
-      "id": "017",
-      "question": "After, before and between",
-      "options": [
-        {
-          "id": "01",
-          "text": " ____ 24",
-          "correct_answer": "23",
-          "acceptable_answers": ["23"]
-        },
-        {
-          "id": "02",
-          "text": " ____ 90",
-          "correct_answer": "89",
-          "acceptable_answers": ["89"]
-        },
-        {
-          "id": "03",
-          "text": " 49 ____ ",
-          "correct_answer": "50",
-          "acceptable_answers": ["50"]
-        },
-        {
-          "id": "04",
-          "text": " 66 ____ 68",
-          "correct_answer": "67",
-          "acceptable_answers": ["67"]
-        },
-        {
-          "id": "05",
-          "text": " 17 ____ 19",
-          "correct_answer": "18",
-          "acceptable_answers": ["18"]
+        {"position": 2, "correct_answer": "pencil", "acceptable_answers": ["ball", "orange"],
+          "hint": "Gaseous state of water"
         }
       ],
       "user_response": ["", "", ""],
       "case_sensitive": false
     },
     {
-      "type": "options_fill_in_blank",
-      "id": "020",
-      "question": "After, before and between",
-      "options": [
-        {
-          "id": "01",
-          "text": " 12 ____",
-          "correct_answer": "13",
-          "acceptable_answers": ["13"]
+      "type": "multi_fill_in_blank",
+      "id": "008",
+      "question": " Objects that can slide ____   ____ . ",
+      "blanks": [
+        { "position": 1, "correct_answer": "box", "acceptable_answers": ["bag", "book"],
+          "hint": "Liquid to gas phase change"
         },
-        {
-          "id": "02",
-          "text": " ____ 80",
-          "correct_answer": "79",
-          "acceptable_answers": ["79"]
-        },
-        {
-          "id": "03",
-          "text": " 58 ____ ",
-          "correct_answer": "59",
-          "acceptable_answers": ["59"]
-        },
-        {
-          "id": "04",
-          "text": " 18 ____ 20",
-          "correct_answer": "19",
-          "acceptable_answers": ["19"]
-        },
-        {
-          "id": "05",
-          "text": " 30 ____ 32",
-          "correct_answer": "31",
-          "acceptable_answers": ["31"]
+        {"position": 2, "correct_answer": "box", "acceptable_answers": ["bag", "book"],
+          "hint": "Gaseous state of water"
         }
       ],
       "user_response": ["", "", ""],
@@ -206,7 +67,7 @@
     },
     {
       "type": "matching_connection",
-      "id": "023",
+      "id": "010",
       "question": "Match the following ",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='130'>\n  <circle cx='30' cy='40' r='20' stroke='black' stroke-width='2' fill='lightblue'/>\n  <text x='30' y='100' text-anchor='middle' font-size='14'>a</text>\n\n  <polygon points='70,60 60,30 80,30' stroke='black' stroke-width='2' fill='lightgreen'/>\n  <text x='70' y='100' text-anchor='middle' font-size='14'>b</text>\n\n  <rect x='100' y='30' width='30' height='30' stroke='black' stroke-width='2' fill='lightcoral'/>\n  <text x='115' y='100' text-anchor='middle' font-size='14'>c</text>\n\n  <rect x='145' y='30' width='40' height='30' stroke='black' stroke-width='2' fill='lightgoldenrodyellow'/>\n  <text x='165' y='100' text-anchor='middle' font-size='14'>d</text>\n\n  <path d='M225,40 C220,20 200,20 200,40 C200,55 215,65 225,75 C235,65 250,55 250,40 C250,20 230,20 225,40 Z' fill='lightpink' stroke='black' stroke-width='2'/>\n  <text x='225' y='100' text-anchor='middle' font-size='14'>e</text>\n</svg>",
       "pairs": [
@@ -217,8 +78,7 @@
         { "left": "E", "right": "Heart" }
       ],
       "user_response": ""
-    }
-    
+    }    
   ],
   "taxonomy": {
     "difficulty_levels": ["easy", "medium", "hard"],

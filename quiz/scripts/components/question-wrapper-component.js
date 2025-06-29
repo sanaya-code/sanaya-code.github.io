@@ -1,6 +1,7 @@
 // mcq(mcq-question), true_false(true-false), multi_select(multi-select)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
+// table_fill_in_the_blank(table-fill-in-the-blank)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -17,12 +18,14 @@ class QuestionWrapperComponent extends HTMLElement {
 
     // Component tag map for cleaner rendering logic
     this.typeToComponentMap = {
+      // json_key_name: 'html_tag_name'
       mcq: 'mcq-radio',
       true_false: 'true-false',
       multi_select: 'multi-select',
       fill_in_blank: 'fill-in-blank',
       multi_fill_in_blank: 'multi-fill-in-blank',
       options_fill_in_blank: 'options-fill-in-blank',
+      table_fill_in_the_blank:'table-fill-in-the-blank',
       short_answer: 'short-answer',
       matching: 'matching-select',
       matching_drag_drop: 'matching-drag-drop',

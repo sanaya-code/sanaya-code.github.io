@@ -1,0 +1,58 @@
+.tabfib-container {
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    max-width: fit-content;
+    background-color: #f9f9f9;
+}
+  
+.tabfib-title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+  
+.tabfib-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+  
+.tabfib-table th,
+.tabfib-table td {
+    border: 1px solid #bbb;
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+}
+  
+.tabfib-table th {
+    background-color: #e6f0ff;
+    font-weight: bold;
+    color: #222;
+}
+  
+.tabfib-table td {
+    background-color: #ffffff;
+}
+  
+.tabfib-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #fefefe;
+}
+  
+.tabfib-input:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #eef7ff;
+}
+  

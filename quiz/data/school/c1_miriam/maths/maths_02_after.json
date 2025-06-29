@@ -74,6 +74,45 @@
       ],
       "user_response": [""],
       "case_sensitive": false
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "014",
+      "question": "After, before and between",
+      "options": [
+        {
+          "id": "01",
+          "text": " 12 ____",
+          "correct_answer": "13",
+          "acceptable_answers": ["13"]
+        },
+        {
+          "id": "02",
+          "text": " ____ 80",
+          "correct_answer": "79",
+          "acceptable_answers": ["79"]
+        },
+        {
+          "id": "03",
+          "text": " 58 ____ ",
+          "correct_answer": "59",
+          "acceptable_answers": ["59"]
+        },
+        {
+          "id": "04",
+          "text": " 18 ____ 20",
+          "correct_answer": "19",
+          "acceptable_answers": ["19"]
+        },
+        {
+          "id": "05",
+          "text": " 30 ____ 32",
+          "correct_answer": "31",
+          "acceptable_answers": ["31"]
+        }
+      ],
+      "user_response": ["", "", "","",""],
+      "case_sensitive": false
     }
   ],
   "taxonomy": {
