@@ -1,122 +1,149 @@
-class TableFillInBlankComponent extends HTMLElement {
-    constructor() {
-      super();
-      this._initialized = false;
-      this._responses = [];
-    }
-  
-    static get observedAttributes() {
-      return ['config'];
-    }
-  
-    connectedCallback() {
+class TableFillInTheBlankComponent extends HTMLElement {
+  constructor() {
+    super();
+    this._initialized = false;
+    this._responses = [];
+  }
+
+  static get observedAttributes() {
+    return ['config'];
+  }
+
+  connectedCallback() {
+    this.setup();
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (name === 'config') {
       this.setup();
     }
-  
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (name === 'config') {
-        this.setup();
-      }
+  }
+
+  setup() {
+    if (!this._initialized) {
+      this.innerHTML = `
+        <div class="tabfib-container">
+          <div class="tabfib-question-text"></div>
+          <div class="tabfib-svg-figure" style="display: none;"></div>
+          <div class="tabfib-figure" style="display: none;"></div>
+          <table class="tabfib-table"></table>
+        </div>
+      `;
+      this._questionEl = this.querySelector('.tabfib-question-text');
+      this._svgEl = this.querySelector('.tabfib-svg-figure');
+      this._figureEl = this.querySelector('.tabfib-figure');
+      this._tableEl = this.querySelector('.tabfib-table');
+      this._initialized = true;
     }
-  
-    setup() {
-      if (!this._initialized) {
-        this.innerHTML = `
-          <div class="tabfib-container">
-            <h3 class="tabfib-title"></h3>
-            <table class="tabfib-table"></table>
-          </div>
-        `;
-        this._titleEl = this.querySelector('.tabfib-title');
-        this._tableEl = this.querySelector('.tabfib-table');
-        this._initialized = true;
-      }
-  
-      try {
-        this._config = JSON.parse(this.getAttribute('config') || '{}');
-        this._responses = this._config.user_response || [];
-        this.renderTable();
-      } catch (err) {
-        console.warn("Invalid config:", err);
-      }
+
+    try {
+      this._config = JSON.parse(this.getAttribute('config') || '{}');
+      this._responses = this._cloneResponse(this._config.user_response || []);
+      this.render();
+    } catch (err) {
+      console.warn('Invalid config:', err);
     }
-  
-    renderTable() {
-      const colLabels = this._config.column_labels || [];
-      const rowLabels = this._config.row_labels || [];
-      const data = this._config.data || [];
-  
-      this._titleEl.textContent = this._config.title || '';
-      this._tableEl.innerHTML = '';
-  
-      // Build header
-      const thead = document.createElement('thead');
-      const headerRow = document.createElement('tr');
-      headerRow.innerHTML = `<th></th>`; // top-left empty corner
-      colLabels.forEach(label => {
-        const th = document.createElement('th');
-        th.textContent = label;
-        headerRow.appendChild(th);
+  }
+
+  _cloneResponse(response) {
+    return response.map(row => [...row]);
+  }
+
+  render() {
+    this._questionEl.textContent = this._config.question || '';
+    this.addSvg(this._config);
+    this.addImg(this._config);
+    this.renderTable();
+  }
+
+  renderTable() {
+    const data = this._config.data || [];
+    const rowLabels = this._config.row_labels || [];
+    const colLabels = this._config.column_labels || [];
+
+    this._tableEl.innerHTML = '';
+
+    const thead = document.createElement('thead');
+    const headRow = document.createElement('tr');
+    headRow.appendChild(document.createElement('th')); // empty corner
+    colLabels.forEach(label => {
+      const th = document.createElement('th');
+      th.textContent = label;
+      headRow.appendChild(th);
+    });
+    thead.appendChild(headRow);
+    this._tableEl.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    data.forEach((row, rowIndex) => {
+      const tr = document.createElement('tr');
+      const rowLabel = document.createElement('td');
+      rowLabel.textContent = rowLabels[rowIndex] || '';
+      tr.appendChild(rowLabel);
+
+      row.forEach((cell, colIndex) => {
+        const td = document.createElement('td');
+        if (cell.value === '____') {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.className = 'tabfib-input';
+          input.dataset.row = rowIndex;
+          input.dataset.col = colIndex;
+          input.value = this._responses?.[rowIndex]?.[colIndex] || '';
+          input.addEventListener('input', () => {
+            const r = parseInt(input.dataset.row, 10);
+            const c = parseInt(input.dataset.col, 10);
+            this._responses[r][c] = input.value;
+          });
+          td.appendChild(input);
+        } else {
+          td.textContent = cell.value;
+        }
+        tr.appendChild(td);
       });
-      thead.appendChild(headerRow);
-      this._tableEl.appendChild(thead);
-  
-      // Build body
-      const tbody = document.createElement('tbody');
-      data.forEach((row, rowIndex) => {
-        const tr = document.createElement('tr');
-        const rowLabel = document.createElement('th');
-        rowLabel.textContent = rowLabels[rowIndex] || '';
-        tr.appendChild(rowLabel);
-  
-        row.forEach((cell, colIndex) => {
-          const td = document.createElement('td');
-  
-          if (cell.value === '____') {
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.dataset.row = rowIndex;
-            input.dataset.col = colIndex;
-            input.value = this._responses?.[rowIndex]?.[colIndex] || '';
-            input.className = 'tabfib-input';
-            input.addEventListener('input', (e) => {
-              this.updateUserResponse(rowIndex, colIndex, e.target.value);
-            });
-            td.appendChild(input);
-          } else {
-            td.textContent = cell.value;
-          }
-  
-          tr.appendChild(td);
-        });
-  
-        tbody.appendChild(tr);
-      });
-  
-      this._tableEl.appendChild(tbody);
-    }
-  
-    updateUserResponse(row, col, value) {
+
+      tbody.appendChild(tr);
+    });
+
+    this._tableEl.appendChild(tbody);
+  }
+
+  getUserAnswer() {
+    const inputs = this.querySelectorAll('.tabfib-input');
+    inputs.forEach(input => {
+      const row = parseInt(input.dataset.row, 10);
+      const col = parseInt(input.dataset.col, 10);
+      const value = input.value.trim();
       if (!this._responses[row]) this._responses[row] = [];
       this._responses[row][col] = value;
+    });
+    return this._responses;
+  }
+
+  addSvg(config) {
+    if (config.svg_content) {
+      this._svgEl.style.display = '';
+      this._svgEl.innerHTML = config.svg_content;
+    } else {
+      this._svgEl.style.display = 'none';
+      this._svgEl.innerHTML = '';
     }
-  
-    getUserAnswer() {
-      // Commit any in-progress input before returning
-      const inputs = this.querySelectorAll('.tabfib-input');
-      inputs.forEach(input => {
-        const row = parseInt(input.dataset.row, 10);
-        const col = parseInt(input.dataset.col, 10);
-        const value = input.value.trim();
-        if (!this._responses[row]) this._responses[row] = [];
-        this._responses[row][col] = value;
-      });
-      return this._responses;
+  }
+
+  addImg(config) {
+    if (config.img_url) {
+      this._figureEl.style.display = '';
+      this._figureEl.innerHTML = `<img src="${config.img_url}" alt="figure" />`;
+    } else {
+      this._figureEl.style.display = 'none';
+      this._figureEl.innerHTML = '';
     }
+  }
 }
 
-    
-customElements.define('table-fill-in-the-blank', TableFillInBlankComponent);
+customElements.define('table-fill-in-the-blank', TableFillInTheBlankComponent);
+
 
 /*
 

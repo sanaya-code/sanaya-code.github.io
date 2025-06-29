@@ -1,58 +1,94 @@
+/* Table Fill in the Blank Component Styles */
+
 .tabfib-container {
-    font-family: Arial, sans-serif;
-    padding: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    max-width: fit-content;
-    background-color: #f9f9f9;
-}
-  
-.tabfib-title {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-}
-  
-.tabfib-table {
-    border-collapse: collapse;
-    width: 100%;
+    /* padding: 20px; */
     background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); */
+    margin-top: 10px;
 }
-  
+
+.tabfib-question-text {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #003366;
+    background-color: #e0f0ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.tabfib-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tabfib-svg-figure svg {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tabfib-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tabfib-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tabfib-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
 .tabfib-table th,
 .tabfib-table td {
-    border: 1px solid #bbb;
-    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    padding: 10px;
     text-align: center;
     vertical-align: middle;
 }
-  
+
 .tabfib-table th {
-    background-color: #e6f0ff;
-    font-weight: bold;
-    color: #222;
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
 }
-  
-.tabfib-table td {
-    background-color: #ffffff;
-}
-  
-.tabfib-input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0.4rem;
-    border: 1px solid #888;
+
+.tabfib-table td input {
+    width: 90%;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
     text-align: center;
-    background-color: #fefefe;
+    background-color: #f8f9fa;
 }
-  
-.tabfib-input:focus {
+
+.tabfib-table td input:focus {
+    border-color: #3498db;
     outline: none;
-    border-color: #007bff;
-    background-color: #eef7ff;
+    background-color: #fff;
 }
-  

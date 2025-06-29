@@ -78,6 +78,46 @@
         { "left": "E", "right": "Heart" }
       ],
       "user_response": ""
+    },
+    {
+      "type": "table_fill_in_the_blank",
+      "id": "013",
+      "question": "Fill in the blanks :",
+      "svg_content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"150\">\n\n  <!-- Circle -->\n  <circle cx=\"40\" cy=\"40\" r=\"20\" stroke=\"black\" stroke-width=\"2\" fill=\"lightblue\"/>\n  <text x=\"40\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">a</text>\n\n  <!-- Triangle -->\n  <polygon points=\"100,60 90,30 110,30\" stroke=\"black\" stroke-width=\"2\" fill=\"lightgreen\"/>\n  <text x=\"100\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">b</text>\n\n  <!-- Square -->\n  <rect x=\"140\" y=\"30\" width=\"30\" height=\"30\" stroke=\"black\" stroke-width=\"2\" fill=\"lightcoral\"/>\n  <text x=\"155\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">c</text>\n\n  <!-- Rectangle -->\n  <rect x=\"200\" y=\"30\" width=\"50\" height=\"30\" stroke=\"black\" stroke-width=\"2\" fill=\"lightgoldenrodyellow\"/>\n  <text x=\"225\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">d</text>\n\n</svg>",
+      "title": "Complete the Multiplication Table",
+      "column_labels": ["Sides", "Corners"],
+      "row_labels": ["Circle", "Triangle", "Square", "Rectangle"],
+      "data": [
+        [
+          { "value": "____", "correct_answer": "0", "acceptable_answers": ["0"] },
+          { "value": "____", "correct_answer": "0", "acceptable_answers": ["0"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] },
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] },
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] },
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
+        ]
+      ],
+      "user_response": [
+        ["2", "", ""],
+        ["", "6", ""],
+        ["", "", "12"]
+      ],
+      "case_sensitive": false,
+      "points": 6,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "Perfect! All blanks are correctly filled.",
+        "partial_credit": "Some answers are correct. Review the table.",
+        "none": "No correct entries. Please try again."
+      }
     }    
   ],
   "taxonomy": {
