@@ -36,6 +36,13 @@
         "topic": "Before",
         "description": "Before",
         "quiz_id": "maths_02_before"
+      },
+      {
+        "id": "011",
+        "link": "data/school/c1_miriam/maths/maths_03_numbers.json",
+        "topic": "Numbers",
+        "description": "Numbers",
+        "quiz_id": "maths_03_Numbers"
       }
     ],
     "EVS": [
