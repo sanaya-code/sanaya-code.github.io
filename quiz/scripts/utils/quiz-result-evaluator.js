@@ -7,6 +7,7 @@
 // matching_connection(matching-connection)
 // ordering(ordering-drag-drop)
 // compare_quantities(compare-quantities)
+// image_compare_quantities_tick(compare-image-objects)
 
 // change following methods
 // checkAnswerCorrectness
@@ -163,6 +164,12 @@ class QuizResultEvaluator {
             case 'compare_quantities':
                 return userAnswer === question.correct_answer;
 
+            case 'image_compare_quantities_tick': // Handle both type names
+                // For compare-image-objects component
+                // userAnswer will be "left" or "right"
+                // correct_answer will be "left" or "right"
+                return userAnswer === question.correct_answer;
+
             default:
                 return false;
         }
@@ -241,7 +248,11 @@ class QuizResultEvaluator {
 
             case 'compare_quantities':
                 return answer; // e.g. ">", "<", "="
-            
+
+            case 'image_compare_quantities_tick':
+                // Format the user's selection ("left" or "right")
+                return answer === 'left' ? 'Left side' : 'Right side';
+
             default:
                 return answer;
         }
@@ -304,6 +315,10 @@ class QuizResultEvaluator {
             
             case 'compare_quantities':
                 return question.correct_answer; // e.g. ">", "<", "="
+
+            case 'image_compare_quantities_tick':
+                // Format the correct answer ("left" or "right")
+                return question.correct_answer === 'left' ? 'Left side' : 'Right side';
 
             default:
                 return '';

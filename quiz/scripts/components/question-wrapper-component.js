@@ -7,6 +7,7 @@
 // matching_connection(matching-connection)
 // ordering(ordering-drag-drop)
 // compare_quantities(compare-quantities)
+// image_compare_quantities_tick(compare-image-objects)
 
 class QuestionWrapperComponent extends HTMLElement {
   static get observedAttributes() {
@@ -32,7 +33,8 @@ class QuestionWrapperComponent extends HTMLElement {
       matching_drag_drop: 'matching-drag-drop',
       matching_connection: 'matching-connection',
       ordering: 'ordering-drag-drop',
-      compare_quantities: 'compare-quantities'
+      compare_quantities: 'compare-quantities',
+      image_compare_quantities_tick: 'compare-image-objects'
     };
   }
 

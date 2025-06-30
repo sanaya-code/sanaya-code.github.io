@@ -1,0 +1,86 @@
+/* Container styles */
+compare-image-objects {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Question text */
+  .icqt-question-text {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #003366;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+  }
+  
+  /* Image container */
+  .icqt-figure-wrapper {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Image/SVG styles */
+  .icqt-image-holder {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+  
+  .icqt-image-holder img,
+  .icqt-image-holder svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+  
+  /* Tick box styles */
+  .icqt-tick-box {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255,255,255,0.9);
+    border: 1px solid #3498db;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+  
+  .icqt-tick-box:hover {
+    background-color: #3498db;
+  }
+  
+  .icqt-tick-box.selected {
+    background-color: #3498db;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icqt-tick-box.selected::after {
+    content: "✓";
+    display: block;
+    line-height: 1;
+  }
+  
+  /* Tick box positions */
+  .icqt-top-left { top: 0; left: 0; }
+  .icqt-top-right { top: 0; right: 0; }
+  .icqt-bottom-left { bottom: 0; left: 0; }
+  .icqt-bottom-right { bottom: 0; right: 0; }
