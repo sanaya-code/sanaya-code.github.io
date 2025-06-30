@@ -46,8 +46,16 @@ class TableFillInTheBlankComponent extends HTMLElement {
   }
 
   _cloneResponse(response) {
-    return response.map(row => [...row]);
+    const data = this._config?.data || [];
+  
+    return data.map((row, rowIndex) =>
+      row.map((_, colIndex) => {
+        const resRow = Array.isArray(response[rowIndex]) ? response[rowIndex] : [];
+        return resRow[colIndex] || '';
+      })
+    );
   }
+  
 
   render() {
     this._questionEl.textContent = this._config.question || '';
