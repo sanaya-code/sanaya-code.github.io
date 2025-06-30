@@ -152,10 +152,50 @@
         "partial_credit": "Some answers are correct. Review the table.",
         "none": "No correct entries. Please try again."
       }
+    },
+    {
+      "type": "table_image_fill_in_the_blank",
+      "id": "006",
+      "question": "Complete the table with counts and number names:",
+      "description": "Identify the objects in image and write their information in text box",
+      "column_headings": {
+        "image": "Visual",
+        "count": "Count (Digit)",
+        "word": "Number Name"
+      },
+      "rows": [
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
+          "alt_text": "Five apples",
+          "field1": {"acceptable_answers": ["5"] },
+          "field2": {"acceptable_answers": ["five"] }
+        },
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
+          "alt_text": "Two chairs",
+          "field1": {"acceptable_answers": ["2"] },
+          "field2": {"acceptable_answers": ["two"] }
+        },
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
+          "alt_text": "Two leaves",
+          "field1": {"acceptable_answers": ["2"] },
+          "field2": {"acceptable_answers": ["two"] }
+        }
+      ],
+      "user_response": [
+        ["", ""],
+        ["", ""],
+        ["", ""]
+      ],
+      "validation": {
+        "case_sensitive": false,
+        "scoring_method": "partial"
+      }
     },    
     {
       "type": "true_false",
-      "id": "006",
+      "id": "007",
       "question": "Water is solid.",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -168,7 +208,7 @@
     },
     {
       "type": "short_answer",
-      "id": "007",
+      "id": "008",
       "question": "Name of person, place or thing",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -189,7 +229,7 @@
     },
     {
       "type": "multi_select",
-      "id": "008",
+      "id": "009",
       "question": "Which of the following are programming languages? (Select all that apply)",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -210,7 +250,7 @@
     },
     {
       "type": "matching",
-      "id": "009",
+      "id": "010",
       "question": "Match the following:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -227,7 +267,7 @@
     },
     {
       "type": "matching_drag_drop",
-      "id": "010",
+      "id": "011",
       "question": "Match the inventors with their inventions:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -244,7 +284,7 @@
     },
     {
       "type": "matching_connection",
-      "id": "011",
+      "id": "012",
       "question": "Match the following software with their categories:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -258,7 +298,7 @@
     },
     {
       "type": "ordering",
-      "id": "012",
+      "id": "013",
       "question": "Arrange these events in order:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -276,7 +316,7 @@
     },
     {
       "type": "compare_quantities",
-      "id": "013",
+      "id": "014",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
       "question": "click for appropriate symbol",
@@ -300,7 +340,7 @@
     },
     {
       "type": "image_compare_quantities_tick",
-      "id": "014",
+      "id": "015",
       "question": "Tick which are more in number.",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
       "partition_direction": "vertical",
@@ -322,9 +362,17 @@
         "partition_direction can be vertical or horizontal",
         "Use viewBox and avoid fixed widths in svg",
         "user response can be left, right, null"
-      ]
-    }       
-    
+      ],
+      "guidelines": {
+        "svg_creation": [
+          "Use viewBox='0 0 300 150'",
+          "Set width='100%' with max-width in style",
+          "Place objects 20-30% from edges",
+          "Use contrasting colors for visibility",
+          "Include <title> and <desc> for accessibility"
+        ]
+      }
+    }    
   ],
   "taxonomy": {
     "difficulty_levels": ["easy", "medium", "hard"],

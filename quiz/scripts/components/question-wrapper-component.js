@@ -2,6 +2,7 @@
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
+// table_image_fill_in_the_blank(table-image-fill-in-the-blank)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -34,7 +35,8 @@ class QuestionWrapperComponent extends HTMLElement {
       matching_connection: 'matching-connection',
       ordering: 'ordering-drag-drop',
       compare_quantities: 'compare-quantities',
-      image_compare_quantities_tick: 'compare-image-objects'
+      image_compare_quantities_tick: 'compare-image-objects',
+      table_image_fill_in_the_blank: 'table-image-fill-in-the-blank'
     };
   }
 

@@ -2,6 +2,7 @@
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
+// table_image_fill_in_the_blank(table-image-fill-in-the-blank)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -13,6 +14,7 @@
 // checkAnswerCorrectness
 // formatUserAnswer
 // formatCorrectAnswer
+
 
 class QuizResultEvaluator {
     constructor(queList, userAnswers) {
@@ -28,7 +30,7 @@ class QuizResultEvaluator {
 
         this.queList.forEach((question, index) => {
             totalPoints += question.points || 1;
-            const userAnswer = this.userAnswers[index].answer;
+            const userAnswer = this.userAnswers[index]?.answer;
             const isCorrect = this.checkAnswerCorrectness(question, userAnswer);
 
             if (isCorrect) {
@@ -66,272 +68,292 @@ class QuizResultEvaluator {
     checkAnswerCorrectness(question, userAnswer) {
         if (userAnswer == null) return false;
 
-        switch (question.type) {
+        const checkers = {
+            mcq: () => userAnswer === question.correct_answer,
+            true_false: () => userAnswer === `${question.correct_answer}`,
+            fill_in_blank: () => this.checkTextAnswer(
+                [question.correct_answer, ...(question.acceptable_answers || [])],
+                userAnswer,
+                question.case_sensitive
+            ),
+            multi_fill_in_blank: () => this.checkMultiFillInBlank(question, userAnswer),
+            options_fill_in_blank: () => this.checkOptionsFillInBlank(question, userAnswer),
+            table_fill_in_the_blank: () => this.checkTableFillInBlank(question, userAnswer),
+            table_image_fill_in_the_blank: () => this.checkTableImageFillInBlank(question, userAnswer),
+            multi_select: () => this.checkMultiSelect(question, userAnswer),
+            ordering: () => this.arraysEqual(userAnswer, question.correct_order),
+            matching: () => this.checkMatching(question, userAnswer, false),
+            matching_drag_drop: () => this.checkMatching(question, userAnswer, true),
+            matching_connection: () => this.checkMatching(question, userAnswer, true),
+            short_answer: () => this.checkTextAnswer(
+                [question.correct_answer, ...(question.acceptable_variations || [])],
+                userAnswer,
+                false
+            ),
+            compare_quantities: () => userAnswer === question.correct_answer,
+            image_compare_quantities_tick: () => userAnswer === question.correct_answer,
+            default: () => false
+        };
 
-            case 'mcq':
-                return userAnswer === question.correct_answer;
-
-            case 'true_false':
-                return userAnswer === `${question.correct_answer}`;
-
-            case 'fill_in_blank':
-                const answers = [question.correct_answer, ...(question.acceptable_answers || [])];
-                return answers.some(ans =>
-                    question.case_sensitive
-                        ? ans === userAnswer
-                        : ans.toLowerCase() === userAnswer.toLowerCase()
-                );
-
-            case 'multi_fill_in_blank':
-                return this.checkMultiFillInBlankAnswer(question, userAnswer);
-
-            case 'options_fill_in_blank':
-                                
-                if (!Array.isArray(userAnswer) || userAnswer.length !== question.options.length) return false;
-
-                return question.options.every((opt, index) => {
-                    const accepted = [opt.correct_answer, ...(opt.acceptable_answers || [])];
-                    const userVal = userAnswer[index] || '';
-                    console.log(userVal);
-                    return accepted.some(ans =>
-                    question.case_sensitive
-                        ? ans === userVal
-                        : ans.toLowerCase() === userVal.toLowerCase()
-                    );
-                });
-            
-            case 'table_fill_in_the_blank':
-                if (!Array.isArray(userAnswer) || !Array.isArray(question.data)) return false;
-            
-                let total = 0;
-                let correct = 0;
-            
-                for (let row = 0; row < question.data.length; row++) {
-                    for (let col = 0; col < question.data[row].length; col++) {
-                    const cell = question.data[row][col];
-                    if (cell.value === '____') {
-                        total++;
-                        const userVal = (userAnswer?.[row]?.[col] || '').trim();
-                        const accepted = [cell.correct_answer, ...(cell.acceptable_answers || [])];
-                        const isCorrect = accepted.some(ans =>
-                        question.case_sensitive ? ans === userVal : ans.toLowerCase() === userVal.toLowerCase()
-                        );
-                        if (isCorrect) correct++;
-                    }
-                    }
-                }
-            
-                if (total === 0) return false;
-            
-                if (question.scoring_method === 'exact') {
-                    return correct === total;
-                } else if (question.scoring_method === 'partial') {
-                    return correct > 0;
-                } else {
-                    return false;
-                }
-
-
-            case 'multi_select':
-                const correctOptions = question.options
-                    .filter(opt => opt.correct)
-                    .map(opt => opt.id);
-                return this.arraysEqual(userAnswer.sort(), correctOptions.sort());
-
-            case 'ordering':
-                return this.arraysEqual(userAnswer, question.correct_order);
-
-            case 'matching':
-                const correctPairs = question.pairs.map(pair => pair.right);
-                return this.arraysEqual(userAnswer.sort(), correctPairs.sort());
-
-            case 'matching_drag_drop':
-                const correctMatches = question.pairs.map(pair => pair.right);
-                if (userAnswer.length !== correctMatches.length) return false;
-                return userAnswer.every((val, idx) => val === correctMatches[idx]);
-
-            case 'matching_connection':
-                const correctRHS = question.pairs.map(pair => pair.right);
-                if (userAnswer.length !== correctRHS.length) return false;
-                return userAnswer.every((val, idx) => val === correctRHS[idx]);
-
-            case 'short_answer':
-                const variations = [question.correct_answer, ...(question.acceptable_variations || [])];
-                return variations.some(variation =>
-                    userAnswer.toLowerCase().includes(variation.toLowerCase())
-                );
-
-            case 'compare_quantities':
-                return userAnswer === question.correct_answer;
-
-            case 'image_compare_quantities_tick': // Handle both type names
-                // For compare-image-objects component
-                // userAnswer will be "left" or "right"
-                // correct_answer will be "left" or "right"
-                return userAnswer === question.correct_answer;
-
-            default:
-                return false;
-        }
+        return (checkers[question.type] || checkers.default)();
     }
-
-    checkMultiFillInBlankAnswer(question, userAnswer) {
-        if (!Array.isArray(userAnswer) || userAnswer.length !== question.blanks.length) {
-            return false;
-        }
-    
-        return question.blanks.every((blank, idx) => {
-            const userVal = userAnswer[idx] || '';
-            const acceptedAnswers = [blank.correct_answer, ...(blank.acceptable_answers || [])];
-    
-            return acceptedAnswers.some(ans => {
-                return question.case_sensitive
-                    ? ans === userVal
-                    : ans.toLowerCase() === userVal.toLowerCase();
-            });
-        });
-    }
-    
 
     formatUserAnswer(question, answer) {
-        if (!answer) return 'Not answered';
+        if (answer == null) return 'Not answered';
 
-        switch (question.type) {
-            case 'mcq':
-                return question.options.find(opt => opt.id === answer)?.text || answer;
-            case 'true_false':
-                return answer ? 'True' : 'False';
-            case 'multi_select':
-                return answer.map(id => {
-                    const opt = question.options.find(opt => opt.id === id);
-                    return opt ? opt.text : id;
-                }).join(', ');
-            case 'ordering':
-                return answer.map(id => {
-                    const item = question.items.find(it => it.id === id);
-                    return item ? item.text : id;
-                }).join(' → ');
-            case 'matching':
-                return answer.map((right, index) => {
-                    const left = question.pairs[index]?.left;
-                    const match = question.pairs.find(p => p.right === right);
-                    return `${left} → ${right} ${match ? '✓' : '✗'}`;
-                }).join('; ');
-            case 'matching_drag_drop':
-                return answer.map((right, index) => {
-                    const left = question.pairs[index]?.left || `?`;
-                    const correctRight = question.pairs[index]?.right;
-                    const isCorrect = right === correctRight;
-                    return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
-                }).join('; ');
-            case 'matching_connection':
-                return answer.map((right, index) => {
-                    const left = question.pairs[index]?.left || '?';
-                    const correctRight = question.pairs[index]?.right;
-                    const isCorrect = right === correctRight;
-                    return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
-                }).join('; ');
-            case 'multi_fill_in_blank':
-                return answer.map(ans => ans || 'Not answered').join('; ');
+        const formatters = {
+            mcq: () => this.formatMcqAnswer(question, answer),
+            true_false: () => answer ? 'True' : 'False',
+            multi_select: () => this.formatMultiSelectAnswer(question, answer),
+            ordering: () => this.formatOrderingAnswer(question, answer),
+            matching: () => this.formatMatchingAnswer(question, answer, false),
+            matching_drag_drop: () => this.formatMatchingAnswer(question, answer, true),
+            matching_connection: () => this.formatMatchingAnswer(question, answer, true),
+            multi_fill_in_blank: () => answer.map(a => a || 'Not answered').join('; '),
+            table_fill_in_the_blank: () => this.formatTableAnswer(answer),
+            table_image_fill_in_the_blank: () => this.formatTableImageUserAnswer(question, answer),
+            compare_quantities: () => answer,
+            image_compare_quantities_tick: () => answer === 'left' ? 'Left side' : 'Right side',
+            default: () => answer
+        };
 
-            case 'table_fill_in_the_blank':
-                const userValues = [];
-                for (let row = 0; row < answer.length; row++) {
-                    for (let col = 0; col < answer[row].length; col++) {
-                    const val = answer[row][col];
-                    if (val != null && val !== '') {
-                        userValues.push(val.trim());
-                    }
-                    }
-                }
-                return userValues.length ? userValues.join(', ') : 'Not answered';
-
-            case 'compare_quantities':
-                return answer; // e.g. ">", "<", "="
-
-            case 'image_compare_quantities_tick':
-                // Format the user's selection ("left" or "right")
-                return answer === 'left' ? 'Left side' : 'Right side';
-
-            default:
-                return answer;
-        }
+        return (formatters[question.type] || formatters.default)();
     }
 
     formatCorrectAnswer(question) {
-        switch (question.type) {
+        const formatters = {
+            mcq: () => this.formatMcqCorrectAnswer(question),
+            true_false: () => question.correct_answer ? 'True' : 'False',
+            fill_in_blank: () => question.correct_answer,
+            multi_fill_in_blank: () => this.formatMultiFillCorrectAnswer(question),
+            options_fill_in_blank: () => question.options.map(opt => opt.correct_answer).join(', '),
+            multi_select: () => question.options.filter(opt => opt.correct).map(opt => opt.text).join(', '),
+            table_fill_in_the_blank: () => this.formatTableCorrectAnswer(question),
+            table_image_fill_in_the_blank: () => this.formatTableImageCorrectAnswer(question),
+            ordering: () => this.formatOrderingCorrectAnswer(question),
+            matching: () => this.formatMatchingCorrectAnswer(question),
+            matching_drag_drop: () => this.formatMatchingCorrectAnswer(question),
+            matching_connection: () => this.formatMatchingCorrectAnswer(question),
+            short_answer: () => question.correct_answer,
+            compare_quantities: () => question.correct_answer,
+            image_compare_quantities_tick: () => question.correct_answer === 'left' ? 'Left side' : 'Right side',
+            default: () => ''
+        };
 
-            case 'mcq':
-                return question.options.find(opt => opt.id === question.correct_answer)?.text || question.correct_answer;
-
-            case 'true_false':
-                return question.correct_answer ? 'True' : 'False';
-
-            case 'fill_in_blank':
-                return question.correct_answer;
-
-            case 'multi_fill_in_blank':
-                return question.blanks.map(blank => {
-                    const allAnswers = [blank.correct_answer, ...(blank.acceptable_answers || [])];
-                    const uniqueAnswers = [...new Set(allAnswers)];
-                    return `(${uniqueAnswers.join(' / ')})`;
-                }).join('; ');
-                
-
-            case 'options_fill_in_blank':
-                return question.options.map(opt => opt.correct_answer).join(', ');       
-            
-            case 'multi_select':
-                return question.options.filter(opt => opt.correct).map(opt => opt.text).join(', ');
-
-            case 'table_fill_in_the_blank':
-                const correctValues = [];
-                for (let row = 0; row < question.data.length; row++) {
-                    for (let col = 0; col < question.data[row].length; col++) {
-                    const cell = question.data[row][col];
-                    if (cell.value === '____') {
-                        correctValues.push(cell.correct_answer);
-                    }
-                    }
-                }
-                return correctValues.join(', ');                  
-
-            case 'ordering':
-                return question.correct_order.map(id => {
-                    const item = question.items.find(item => item.id === id);
-                    return item ? item.text : id;
-                }).join(' → ');
-            
-                case 'matching':
-
-            case 'matching_drag_drop':
-                return question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
-
-            case 'matching_connection':
-                return  question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
-
-            case 'short_answer':
-                return question.correct_answer;
-            
-            case 'compare_quantities':
-                return question.correct_answer; // e.g. ">", "<", "="
-
-            case 'image_compare_quantities_tick':
-                // Format the correct answer ("left" or "right")
-                return question.correct_answer === 'left' ? 'Left side' : 'Right side';
-
-            default:
-                return '';
-        }
+        return (formatters[question.type] || formatters.default)();
     }
 
+    /* ========== HELPER METHODS ========== */
+
+    // Checker Helpers
+    checkTextAnswer(acceptableAnswers, userAnswer, caseSensitive) {
+        return acceptableAnswers.some(ans =>
+            caseSensitive
+                ? ans === userAnswer
+                : ans.toLowerCase() === userAnswer.toLowerCase()
+        );
+    }
+
+    checkMultiFillInBlank(question, userAnswer) {
+        if (!Array.isArray(userAnswer) || userAnswer.length !== question.blanks.length) return false;
+        return question.blanks.every((blank, idx) => 
+            this.checkTextAnswer(
+                [blank.correct_answer, ...(blank.acceptable_answers || [])],
+                userAnswer[idx] || '',
+                question.case_sensitive
+            )
+        );
+    }
+
+    checkOptionsFillInBlank(question, userAnswer) {
+        if (!Array.isArray(userAnswer)) return false;
+        return question.options.every((opt, idx) => 
+            this.checkTextAnswer(
+                [opt.correct_answer, ...(opt.acceptable_answers || [])],
+                userAnswer[idx] || '',
+                question.case_sensitive
+            )
+        );
+    }
+
+    checkTableFillInBlank(question, userAnswer) {
+        if (!Array.isArray(userAnswer)) return false;
+        
+        let total = 0, correct = 0;
+        question.data.forEach((row, rowIdx) => {
+            row.forEach((cell, colIdx) => {
+                if (cell.value === '____') {
+                    total++;
+                    const userVal = (userAnswer[rowIdx]?.[colIdx] || '').trim();
+                    if (this.checkTextAnswer(
+                        [cell.correct_answer, ...(cell.acceptable_answers || [])],
+                        userVal,
+                        question.case_sensitive
+                    )) correct++;
+                }
+            });
+        });
+
+        if (total === 0) return false;
+        if (question.scoring_method === 'exact') return correct === total;
+        if (question.scoring_method === 'partial') return correct > 0;
+        return false;
+    }
+
+    checkTableImageFillInBlank(question, userAnswer) {
+        if (!Array.isArray(userAnswer) || !Array.isArray(question.rows)) return false;
+        
+        let total = 0;
+        let correct = 0;
+
+        question.rows.forEach((row, rowIndex) => {
+            // Check field1 (count)
+            if (row.field1?.acceptable_answers) {
+                total++;
+                const userVal = (userAnswer[rowIndex]?.[0] || '').trim();
+                if (this.checkTextAnswer(
+                    row.field1.acceptable_answers,
+                    userVal,
+                    question.validation?.case_sensitive === true
+                )) correct++;
+            }
+
+            // Check field2 (word)
+            if (row.field2?.acceptable_answers) {
+                total++;
+                const userVal = (userAnswer[rowIndex]?.[1] || '').trim();
+                if (this.checkTextAnswer(
+                    row.field2.acceptable_answers,
+                    userVal,
+                    question.validation?.case_sensitive === true
+                )) correct++;
+            }
+        });
+
+        if (total === 0) return false;
+        if (question.validation?.scoring_method === 'exact') return correct === total;
+        if (question.validation?.scoring_method === 'partial') return correct > 0;
+        return false;
+    }
+
+    checkMultiSelect(question, userAnswer) {
+        const correctOptions = question.options
+            .filter(opt => opt.correct)
+            .map(opt => opt.id);
+        return this.arraysEqual(userAnswer.sort(), correctOptions.sort());
+    }
+
+    checkMatching(question, userAnswer, requireExactOrder) {
+        const correctAnswers = question.pairs.map(pair => pair.right);
+        if (requireExactOrder) {
+            return userAnswer.length === correctAnswers.length && 
+                   userAnswer.every((val, idx) => val === correctAnswers[idx]);
+        }
+        return this.arraysEqual(userAnswer.sort(), correctAnswers.sort());
+    }
+
+    // Formatter Helpers
+    formatMcqAnswer(question, answer) {
+        const option = question.options.find(opt => opt.id === answer);
+        return option ? option.text : answer;
+    }
+
+    formatMultiSelectAnswer(question, answer) {
+        return answer.map(id => {
+            const opt = question.options.find(opt => opt.id === id);
+            return opt ? opt.text : id;
+        }).join(', ');
+    }
+
+    formatOrderingAnswer(question, answer) {
+        return answer.map(id => {
+            const item = question.items.find(it => it.id === id);
+            return item ? item.text : id;
+        }).join(' → ');
+    }
+
+    formatMatchingAnswer(question, answer, isIndexed) {
+        return answer.map((right, idx) => {
+            const left = isIndexed ? question.pairs[idx]?.left : question.pairs[idx]?.left || '?';
+            const correctRight = question.pairs[idx]?.right;
+            const isCorrect = right === correctRight;
+            return `${left} → ${right || 'None'} ${isCorrect ? '✓' : '✗'}`;
+        }).join('; ');
+    }
+
+    formatTableAnswer(answer) {
+        const values = [];
+        answer.forEach(row => {
+            row.forEach(val => {
+                if (val != null && val !== '') values.push(val.trim());
+            });
+        });
+        return values.length ? values.join(', ') : 'Not answered';
+    }
+
+    formatTableImageUserAnswer(question, answer) {
+        if (!Array.isArray(answer)) return 'Not answered';
+        
+        const responses = [];
+        question.rows.forEach((row, index) => {
+            const rowAnswer = answer[index] || ['', ''];
+            responses.push(`Row ${index + 1}: ${rowAnswer[0] || 'Not answered'} (count), ${rowAnswer[1] || 'Not answered'} (word)`);
+        });
+        
+        return responses.join('; ');
+    }
+
+    formatMcqCorrectAnswer(question) {
+        const option = question.options.find(opt => opt.id === question.correct_answer);
+        return option ? option.text : question.correct_answer;
+    }
+
+    formatMultiFillCorrectAnswer(question) {
+        return question.blanks.map(blank => {
+            const allAnswers = [blank.correct_answer, ...(blank.acceptable_answers || [])];
+            return `(${[...new Set(allAnswers)].join(' / ')})`;
+        }).join('; ');
+    }
+
+    formatTableCorrectAnswer(question) {
+        const values = [];
+        question.data.forEach(row => {
+            row.forEach(cell => {
+                if (cell.value === '____') values.push(cell.correct_answer);
+            });
+        });
+        return values.join(', ');
+    }
+
+    formatTableImageCorrectAnswer(question) {
+        if (!Array.isArray(question.rows)) return '';
+        
+        const answers = [];
+        question.rows.forEach(row => {
+            const countAnswers = row.field1?.acceptable_answers?.join(' or ') || '?';
+            const wordAnswers = row.field2?.acceptable_answers?.join(' or ') || '?';
+            answers.push(`${countAnswers} (count), ${wordAnswers} (word)`);
+        });
+        
+        return answers.join('; ');
+    }
+
+    formatOrderingCorrectAnswer(question) {
+        return question.correct_order.map(id => {
+            const item = question.items.find(item => item.id === id);
+            return item ? item.text : id;
+        }).join(' → ');
+    }
+
+    formatMatchingCorrectAnswer(question) {
+        return question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
+    }
+
+    // Utility Methods
     arraysEqual(a, b) {
         if (a === b) return true;
         if (!Array.isArray(a) || !Array.isArray(b)) return false;
         if (a.length !== b.length) return false;
-        for (let i = 0; i < a.length; i++) {
-            if (a[i] !== b[i]) return false;
-        }
-        return true;
+        return a.every((val, idx) => val === b[idx]);
     }
 }

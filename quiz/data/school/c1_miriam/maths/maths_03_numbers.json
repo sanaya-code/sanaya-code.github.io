@@ -250,6 +250,46 @@
         "difficulty": "easy",
         "tags": ["counting", "party", "shapes"],
         "points": 1
+      },
+      {
+        "type": "table_image_fill_in_the_blank",
+        "id": "032",
+        "question": "Complete the table with counts and number names:",
+        "description": "Identify the objects in image and write their information in text box",
+        "column_headings": {
+          "image": "Visual",
+          "count": "Number",
+          "word": "Number Name"
+        },
+        "rows": [
+          {
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
+            "alt_text": "Five apples",
+            "field1": {"acceptable_answers": ["5"] },
+            "field2": {"acceptable_answers": ["five"] }
+          },
+          {
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
+            "alt_text": "Two chairs",
+            "field1": {"acceptable_answers": ["2"] },
+            "field2": {"acceptable_answers": ["two"] }
+          },
+          {
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
+            "alt_text": "Two leaves",
+            "field1": {"acceptable_answers": ["2"] },
+            "field2": {"acceptable_answers": ["two"] }
+          }
+        ],
+        "user_response": [
+          ["", ""],
+          ["", ""],
+          ["", ""]
+        ],
+        "validation": {
+          "case_sensitive": false,
+          "scoring_method": "partial"
+        }
       }
        
   ],
