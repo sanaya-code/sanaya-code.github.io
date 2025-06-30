@@ -99,3 +99,85 @@ class CompareImageObjects extends HTMLElement {
 }
 
 customElements.define('compare-image-objects', CompareImageObjects);
+
+
+/*
+
+<script>
+// Function to test the CompareImageObjects component
+function testCompareImageObjectsComponent() {
+  // Test data
+  const testQuestion = {
+    "type": "image_compare_quantities_tick",
+    "id": "test-002",
+    "question": "Tick which side has more objects:",
+    "svg_content": `
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'>
+        <rect width='100%' height='100%' fill='#e0f7ff' />
+        <line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' />
+        <!-- Left side objects (6 circles) -->
+        <ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <!-- Right side objects (2 circles) -->
+        <ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' />
+        <ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' />
+      </svg>
+    `,
+    "partition_direction": "vertical",
+    "tick_zones": {
+      "left": "top_left",
+      "right": "top_right"
+    },
+    "user_response": null,
+    "correct_answer": "left",
+    "feedback": {
+      "correct": "Correct! Left side has more objects.",
+      "incorrect": "Incorrect. Left side has more objects."
+    },
+    "points": 1
+  };
+
+  // Create component instance
+  const component = document.createElement('compare-image-objects');
+  component.setAttribute('config', JSON.stringify(testQuestion));
+  
+  // Add to DOM
+  const container = document.getElementById('test-container') || document.body;
+  container.innerHTML = '';
+  container.appendChild(component);
+
+  // Log selection changes
+  component.addEventListener('selection-changed', (e) => {
+    console.log('User selected:', e.detail.side);
+  });
+
+  // Test evaluation after 3 seconds (simulating user selection)
+  setTimeout(() => {
+    // Simulate user selecting the left side
+    component.selectSide('left');
+    
+    // Wait for the selection to be processed
+    setTimeout(() => {
+      const userAnswer = component.getUserAnswer();
+      console.log('User answer:', userAnswer);
+      
+      // Test with QuizResultEvaluator
+      const evaluator = new QuizResultEvaluator([testQuestion], [{ answer: userAnswer }]);
+      const result = evaluator.getResultJson();
+      console.log('Evaluation result:', result);
+      
+      alert(`Evaluation complete!\nUser selected: ${userAnswer}\nCorrect answer: ${testQuestion.correct_answer}\nIs correct: ${result.questions[0].isCorrect}`);
+    }, 500);
+  }, 3000);
+}
+
+// Call the test function
+testCompareImageObjectsComponent();
+</script>
+
+
+*/

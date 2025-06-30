@@ -121,3 +121,66 @@ class TableImageFillInTheBlank extends HTMLElement {
 }
 
 customElements.define('table-image-fill-in-the-blank', TableImageFillInTheBlank);
+
+
+/*
+
+
+<script>
+      // Function to test the TableImageFillInTheBlank component
+      function testTableImageFillInBlankComponent() {
+        // Test data
+        const testQuestion = {
+          "type": "table_image_fill_in_the_blank",
+          "id": "test-001",
+          "question": "Complete the table with counts and number names:",
+          "column_headings": {
+            "image": "Visual",
+            "count": "Count (Digit)",
+            "word": "Number Name"
+          },
+          "rows": [
+            {
+              "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
+              "alt_text": "Five apples",
+              "field1": {"acceptable_answers": ["5"]},
+              "field2": {"acceptable_answers": ["five"]}
+            },
+            {
+              "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
+              "alt_text": "Two chairs",
+              "field1": {"acceptable_answers": ["2"]},
+              "field2": {"acceptable_answers": ["two"]}
+            }
+          ],
+          "user_response": [
+            ["5", "five"],
+            ["", ""]
+          ],
+          "validation": {
+            "case_sensitive": false,
+            "scoring_method": "partial"
+          }
+        };
+      
+        // Create component instance
+        const component = document.createElement('table-image-fill-in-the-blank');
+        component.setAttribute('config', JSON.stringify(testQuestion));
+        
+        // Add to DOM
+        const container = document.getElementById('test-container') || document.body;
+        container.innerHTML = '';
+        container.appendChild(component);
+      
+        // Log user responses when they change
+        component.addEventListener('input-change', (e) => {
+          console.log('User response updated:', e.detail.user_response);
+        });
+      }
+      
+      // Call the test function
+      testTableImageFillInBlankComponent();
+      </script>
+
+
+*/
