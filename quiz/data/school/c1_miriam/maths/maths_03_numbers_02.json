@@ -16,11 +16,11 @@
         "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 170' width='100%' style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='0' y1='75' x2='300' y2='75' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='150' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='75' cy='110' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='225' cy='110' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
         "partition_direction": "horizontal",
         "tick_zones": {
-          "left": "top_left",
-          "right": "bottom_left"
+            "top": "top_right",
+            "bottom": "bottom_right"
         },
         "user_response": null,
-        "correct_answer": "left"
+        "correct_answer": "top"
       },
       {
         "type": "image_compare_quantities_tick",
@@ -85,7 +85,7 @@
           "bottom": "bottom_right"
         },
         "user_response": null,
-        "correct_answer": "top",
+        "correct_answer": "bottom",
         "feedback": {
           "correct": "That's right! The top has 3 party hats!",
           "incorrect": "Look again! The top section has more hats."
