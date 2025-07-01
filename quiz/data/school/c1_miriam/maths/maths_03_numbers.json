@@ -290,6 +290,46 @@
           "case_sensitive": false,
           "scoring_method": "partial"
         }
+      },
+      {
+        "type": "matching_connection_image",
+        "id": "013",
+        "question": "Connect the objects and match",
+        "rows": [
+          {
+            "image_index": 1,
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
+            "img_url": null,
+            "property": "5"
+          },
+          {
+            "image_index": 2,
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
+            "img_url": null,
+            "property": "2"
+          },
+          {
+            "image_index": 3,
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M10,10 L20,10 L22,14 L22,24 L20,28 L10,28 L8,24 L8,14 Z' fill='#ffc107' stroke='#ff9800' stroke-width='1.5'/><path d='M60,10 L70,10 L72,14 L72,24 L70,28 L60,28 L58,24 L58,14 Z' fill='#ffc107' stroke='#ff9800' stroke-width='1.5'/><path d='M110,10 L120,10 L122,14 L122,24 L120,28 L110,28 L108,24 L108,14 Z' fill='#ffc107' stroke='#ff9800' stroke-width='1.5'/><path d='M160,10 L170,10 L172,14 L172,24 L170,28 L160,28 L158,24 L158,14 Z' fill='#ffc107' stroke='#ff9800' stroke-width='1.5'/><path d='M210,10 L220,10 L222,14 L222,24 L220,28 L210,28 L208,24 L208,14 Z' fill='#ffc107' stroke='#ff9800' stroke-width='1.5'/><path d='M260,10 L270,10 L272,14 L272,24 L270,28 L260,28 L258,24 L258,14 Z' fill='#ffc107' stroke='#ff9800' stroke-width='1.5'/></svg>",
+            "img_url": null,
+            "property": "6"
+          },
+          {
+            "image_index": 4,
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><polygon points='10,19 12,24 18,24 13,28 15,34 10,30 5,34 7,28 2,24 8,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='47,19 49,24 55,24 50,28 52,34 47,30 42,34 44,28 39,24 45,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='84,19 86,24 92,24 87,28 89,34 84,30 79,34 81,28 76,24 82,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='121,19 123,24 129,24 124,28 126,34 121,30 116,34 118,28 113,24 119,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='158,19 160,24 166,24 161,28 163,34 158,30 153,34 155,28 150,24 156,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='195,19 197,24 203,24 198,28 200,34 195,30 190,34 192,28 187,24 193,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='232,19 234,24 240,24 235,28 237,34 232,30 227,34 229,28 224,24 230,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/><polygon points='269,19 271,24 277,24 272,28 274,34 269,30 264,34 266,28 261,24 267,24' fill='#ff5252' stroke='#d32f2f' stroke-width='1'/></svg>",
+            "img_url": null,
+            "property": "8"
+          }
+        ],
+        "properties_column": ["8", "5", "6", "2"],
+        "user_response": [
+          
+        ],
+        "validation": {
+          "scoring_method": "exact",
+          "allow_multiple_connections": false,
+          "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF"]
+        }
       }
        
   ],

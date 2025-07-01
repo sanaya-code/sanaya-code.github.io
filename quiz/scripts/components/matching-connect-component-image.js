@@ -55,8 +55,9 @@ class ImagePropertyMatching extends HTMLElement {
     };
 
     this.innerHTML = `
-      <div class="tifib-table-container">
-        <table class="tifib-table">
+      <div class="ipm-question-text">${this._config.question}</div>
+      <div class="ipm-table-container">
+        <table class="ipm-table">
           <thead>
             <tr>
               <th>${headings.image}</th>
@@ -67,16 +68,16 @@ class ImagePropertyMatching extends HTMLElement {
           <tbody>
             ${this._config.properties_column?.map((prop, index) => `
               <tr class="ipm-row">
-                <td class="tifib-image-cell">
+                <td class="ipm-image-cell">
                   ${index < this._config.rows.length ? `
-                    <div class="tifib-image-wrapper" data-image-index="${this._config.rows[index].image_index}">
+                    <div class="ipm-image-wrapper" data-image-index="${this._config.rows[index].image_index}">
                       ${this._config.rows[index].svg_content || 
                         `<img src="${this._config.rows[index].img_url}" alt="${this._config.rows[index].alt_text || ''}">`}
                     </div>
                   ` : ''}
                 </td>
-                <td class="tifib-input-cell"></td>
-                <td class="tifib-input-cell">
+                <td class="ipm-input-cell"></td>
+                <td class="ipm-input-cell">
                   <div class="ipm-property" data-property="${prop}">${prop}</div>
                 </td>
               </tr>
@@ -92,7 +93,7 @@ class ImagePropertyMatching extends HTMLElement {
   }
 
   addEventListeners() {
-    this.querySelectorAll('.tifib-image-wrapper').forEach(wrapper => {
+    this.querySelectorAll('.ipm-image-wrapper').forEach(wrapper => {
       wrapper.addEventListener('click', () => {
         const imageIndex = parseInt(wrapper.dataset.imageIndex);
         this.handleImageClick(imageIndex, wrapper);
@@ -105,7 +106,7 @@ class ImagePropertyMatching extends HTMLElement {
   }
 
   handleImageClick(imageIndex, wrapper) {
-    this.querySelectorAll('.tifib-image-wrapper.selected').forEach(el => {
+    this.querySelectorAll('.ipm-image-wrapper.selected').forEach(el => {
       el.classList.remove('selected');
     });
 
@@ -140,7 +141,7 @@ class ImagePropertyMatching extends HTMLElement {
     this.updateUserResponse();
     this.drawConnections();
     this._selectedImage = null;
-    this.querySelector('.tifib-image-wrapper.selected')?.classList.remove('selected');
+    this.querySelector('.ipm-image-wrapper.selected')?.classList.remove('selected');
   }
 
   drawConnections() {
@@ -148,7 +149,7 @@ class ImagePropertyMatching extends HTMLElement {
     svg.innerHTML = '';
 
     this._connections.forEach((conn, imageIndex) => {
-      const imageWrapper = this.querySelector(`.tifib-image-wrapper[data-image-index="${imageIndex}"]`);
+      const imageWrapper = this.querySelector(`.ipm-image-wrapper[data-image-index="${imageIndex}"]`);
       const propertyEl = this.querySelector(`.ipm-property[data-property="${conn.property}"]`);
 
       if (imageWrapper && propertyEl) {

@@ -39,6 +39,7 @@ class TableImageFillInTheBlank extends HTMLElement {
     };
 
     this.innerHTML = `
+      <div class="tifib-question-text">${this._config.question}</div>
       <div class="tifib-table-container">
         <table class="tifib-table">
           <thead>
