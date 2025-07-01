@@ -6,6 +6,7 @@
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
+// matching_connection_image(matching-connection-image)
 // ordering(ordering-drag-drop)
 // compare_quantities(compare-quantities)
 // image_compare_quantities_tick(compare-image-objects)
@@ -33,6 +34,7 @@ class QuestionWrapperComponent extends HTMLElement {
       matching: 'matching-select',
       matching_drag_drop: 'matching-drag-drop',
       matching_connection: 'matching-connection',
+      matching_connection_image: 'matching-connection-image',
       ordering: 'ordering-drag-drop',
       compare_quantities: 'compare-quantities',
       image_compare_quantities_tick: 'compare-image-objects',
