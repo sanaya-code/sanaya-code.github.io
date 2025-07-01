@@ -383,36 +383,37 @@
           "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
           "img_url": null,
           "alt_text": "Five red apples",
-          "property": "5"
+          "property": "5",
+          "acceptable_properties": ["5"]
         },
         {
           "image_index": 2,
           "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
           "img_url": null,
           "alt_text": "Two brown chairs",
-          "property": "2"
+          "property": "2",
+          "acceptable_properties": ["2"]
         },
         {
           "image_index": 3,
           "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
           "img_url": null,
           "alt_text": "Two green leaves",
-          "property": "3"
+          "property": "3",
+          "acceptable_properties": ["3"]
         }
       ],
-      "properties_column": ["5", "2", "3", "1"],
+      "properties_column": ["3", "5", "1", "2"],
       "user_response": [
-        { "image_index": 1, "property": "5" },
-        { "image_index": 2, "property": "2" },
-        { "image_index": 3, "property": "3" }
+        
       ],
-      "scoring_method": "exact",
       "description": [
         "Match left side images with their properties on the right.",
         "Use viewBox and avoid fixed widths in SVG.",
         "Scoring method can be 'exact' or 'partial'."
       ],
       "validation": {
+        "scoring_method": "exact",
         "allow_multiple_connections": false,
         "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF"]
       }

@@ -6,6 +6,7 @@
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
+// matching_connection_image(matching-connection-image)
 // ordering(ordering-drag-drop)
 // compare_quantities(compare-quantities)
 // image_compare_quantities_tick(compare-image-objects)
@@ -85,6 +86,7 @@ class QuizResultEvaluator {
             matching: () => this.checkMatching(question, userAnswer, false),
             matching_drag_drop: () => this.checkMatching(question, userAnswer, true),
             matching_connection: () => this.checkMatching(question, userAnswer, true),
+            matching_connection_image: () => this.checkImagePropertyMatching(question, userAnswer),
             short_answer: () => this.checkTextAnswer(
                 [question.correct_answer, ...(question.acceptable_variations || [])],
                 userAnswer,
@@ -109,6 +111,7 @@ class QuizResultEvaluator {
             matching: () => this.formatMatchingAnswer(question, answer, false),
             matching_drag_drop: () => this.formatMatchingAnswer(question, answer, true),
             matching_connection: () => this.formatMatchingAnswer(question, answer, true),
+            matching_connection_image: () => this.formatImagePropertyMatchingUserAnswer(question, answer),
             multi_fill_in_blank: () => answer.map(a => a || 'Not answered').join('; '),
             table_fill_in_the_blank: () => this.formatTableAnswer(answer),
             table_image_fill_in_the_blank: () => this.formatTableImageUserAnswer(question, answer),
@@ -134,6 +137,7 @@ class QuizResultEvaluator {
             matching: () => this.formatMatchingCorrectAnswer(question),
             matching_drag_drop: () => this.formatMatchingCorrectAnswer(question),
             matching_connection: () => this.formatMatchingCorrectAnswer(question),
+            matching_connection_image: () => this.formatImagePropertyMatchingCorrectAnswer(question),
             short_answer: () => question.correct_answer,
             compare_quantities: () => question.correct_answer,
             image_compare_quantities_tick: () => question.correct_answer === 'left' ? 'Left side' : 'Right side',
@@ -252,6 +256,44 @@ class QuizResultEvaluator {
         return this.arraysEqual(userAnswer.sort(), correctAnswers.sort());
     }
 
+    checkImagePropertyMatching(question, userAnswer) {
+        if (!Array.isArray(userAnswer)) return false;
+        
+        // Verify all required connections are present
+        const requiredConnections = question.rows.filter(row => row.property).length;
+        if (userAnswer.length !== requiredConnections) return false;
+    
+        // Convert user response to map
+        const userMap = new Map();
+        userAnswer.forEach(conn => {
+            userMap.set(conn.image_index, conn.property);
+        });
+    
+        // Check each image's connection
+        let correct = 0;
+        
+        question.rows.forEach(row => {
+            if (row.property && userMap.has(row.image_index)) {
+                const userProperty = userMap.get(row.image_index);
+                if (this.checkTextAnswer(
+                    [row.property, ...(row.acceptable_properties || [])],
+                    userProperty,
+                    question.validation?.case_sensitive === true
+                )) {
+                    correct++;
+                }
+            }
+        });
+    
+        if (question.validation?.scoring_method === 'exact') {
+            return correct === requiredConnections;
+        }
+        if (question.validation?.scoring_method === 'partial') {
+            return correct > 0;
+        }
+        return false;
+    }
+
     // Formatter Helpers
     formatMcqAnswer(question, answer) {
         const option = question.options.find(opt => opt.id === answer);
@@ -289,6 +331,22 @@ class QuizResultEvaluator {
             });
         });
         return values.length ? values.join(', ') : 'Not answered';
+    }
+
+    formatImagePropertyMatchingUserAnswer(question, answer) {
+        if (!Array.isArray(answer)) return 'Not answered';
+        
+        const connections = [];
+        answer.forEach(conn => {
+            const image = question.rows.find(r => r.image_index === conn.image_index);
+            if (image) {
+                connections.push(
+                    `Image ${conn.image_index} → ${conn.property || 'Not connected'}`
+                );
+            }
+        });
+        
+        return connections.length ? connections.join('; ') : 'No connections made';
     }
 
     formatTableImageUserAnswer(question, answer) {
@@ -348,6 +406,23 @@ class QuizResultEvaluator {
     formatMatchingCorrectAnswer(question) {
         return question.pairs.map(pair => `${pair.left} → ${pair.right}`).join('; ');
     }
+
+    formatImagePropertyMatchingCorrectAnswer(question) {
+        if (!Array.isArray(question.rows)) return '';
+        
+        const correctAnswers = [];
+        question.rows.forEach(row => {
+            if (row.property) {
+                const allAnswers = [row.property, ...(row.acceptable_properties || [])];
+                correctAnswers.push(
+                    `Image ${row.image_index} → ${[...new Set(allAnswers)].join(' or ')}`
+                );
+            }
+        });
+        
+        return correctAnswers.join('; ');
+    }
+
 
     // Utility Methods
     arraysEqual(a, b) {
