@@ -39,9 +39,16 @@
       },
       {
         "id": "011",
-        "link": "data/school/c1_miriam/maths/maths_03_numbers.json",
-        "topic": "Numbers",
-        "description": "Numbers",
+        "link": "data/school/c1_miriam/maths/maths_03_numbers_01.json",
+        "topic": "Numbers 1",
+        "description": "Numbers 1",
+        "quiz_id": "maths_03_Numbers"
+      },
+      {
+        "id": "013",
+        "link": "data/school/c1_miriam/maths/maths_03_numbers_02.json",
+        "topic": "Numbers 2",
+        "description": "Numbers 2",
         "quiz_id": "maths_03_Numbers"
       }
     ],

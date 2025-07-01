@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+      {
+        "type": "compare_quantities",
+        "id": "004",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "3"
+        },
+        "quantity_b": {
+          "value": "6"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "006",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "5"
+        },
+        "quantity_b": {
+          "value": "2"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "008",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "9"
+        },
+        "quantity_b": {
+          "value": "1"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "010",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "7"
+        },
+        "quantity_b": {
+          "value": "8"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "012",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "5"
+        },
+        "quantity_b": {
+          "value": "6"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "014",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "3"
+        },
+        "quantity_b": {
+          "value": "2"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "016",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "1"
+        },
+        "quantity_b": {
+          "value": "3"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      },
+      {
+        "type": "compare_quantities",
+        "id": "018",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "8"
+        },
+        "quantity_b": {
+          "value": "7"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": "",
+        "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+        "difficulty": "medium",
+        "tags": ["algebra", "comparison", "quantities"],
+        "points": 1
+      }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
