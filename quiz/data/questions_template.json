@@ -191,7 +191,25 @@
       "validation": {
         "case_sensitive": false,
         "scoring_method": "partial"
-      }
+      },
+      "svg_design_description": [
+        "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
+        "Always include: width='100%' height='40px' in SVG attributes",
+        "Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
+        "Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
+        "All graphical elements must fit within viewBox boundaries",
+        "Stroke widths should be 1.5px minimum for visibility",
+        "Include matching alt text for accessibility",
+        "For exact alignment: center elements vertically at y=20"
+      ],
+      "jpg_design_description": [
+        "Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
+        "Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
+        "Display size: Will render at 100% width × 40px height",
+        "Content guidelines:",
+        "- Key elements must be within center 40px vertical zone",
+        "- Ensure minimum 4.5:1 contrast for text/overlays",
+    ]
     },    
     {
       "type": "true_false",
@@ -407,16 +425,34 @@
       "user_response": [
         
       ],
-      "description": [
-        "Match left side images with their properties on the right.",
-        "Use viewBox and avoid fixed widths in SVG.",
-        "Scoring method can be 'exact' or 'partial'."
-      ],
       "validation": {
         "scoring_method": "exact",
         "allow_multiple_connections": false,
         "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF"]
-      }
+      },
+      "svg_design_description": [
+        "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
+        "Always include: width='100%' height='40px' in SVG attributes",
+        "Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
+        "Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
+        "All graphical elements must fit within viewBox boundaries",
+        "Stroke widths should be 1.5px minimum for visibility",
+        "Include matching alt text for accessibility",
+        "For exact alignment: center elements vertically at y=20"
+      ],
+      "jpg_design_description": [
+        "Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
+        "Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
+        "Display size: Will render at 100% width × 40px height",
+        "Content guidelines:",
+        "- Key elements must be within center 40px vertical zone",
+        "- Ensure minimum 4.5:1 contrast for text/overlays",
+     ],
+      "description": [
+        "Match left side images with their properties on the right.",
+        "Use viewBox and avoid fixed widths in SVG.",
+        "Scoring method can be 'exact' or 'partial'."
+      ]
     }        
   ],
   "taxonomy": {
