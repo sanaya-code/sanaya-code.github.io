@@ -92,19 +92,19 @@
         },
         {
           "image_index": 2,
-          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='150' cy='19' r='15' fill='#90ee90' stroke='#66bb6a' stroke-width='2'/></svg>",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='150' cy='19' r='18' fill='#90ee90' stroke='#66bb6a' stroke-width='2'/></svg>",
           "img_url": null,
           "property": "circle"
         },
         {
           "image_index": 3,
-          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><rect x='135' y='4' width='30' height='30' fill='#f39c12' stroke='#8b1a1a' stroke-width='2'/></svg>",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><rect x='135' y='2' width='35' height='35' fill='#f39c12' stroke='#8b1a1a' stroke-width='2'/></svg>",
           "img_url": null,
           "property": "square"
         },
         {
           "image_index": 4,
-          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><rect x='120' y='4' width='60' height='30' fill='#f1c27d' stroke='#d2a06c' stroke-width='2'/></svg>",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><rect x='120' y='2' width='60' height='35' fill='#f1c27d' stroke='#d2a06c' stroke-width='2'/></svg>",
           "img_url": null,
           "property": "rectangle"
         },
