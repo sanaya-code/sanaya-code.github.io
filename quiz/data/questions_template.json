@@ -351,7 +351,7 @@
       "validation": {
         "scoring_method": "exact",
         "allow_multiple_connections": false,
-        "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF"]
+        "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
       },
       "svg_design_description": [
         "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
