@@ -66,22 +66,8 @@
       "case_sensitive": false
     },
     {
-      "type": "matching_connection",
-      "id": "010",
-      "question": "Match the following ",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='130'>\n  <circle cx='30' cy='40' r='20' stroke='black' stroke-width='2' fill='lightblue'/>\n  <text x='30' y='100' text-anchor='middle' font-size='14'>a</text>\n\n  <polygon points='70,60 60,30 80,30' stroke='black' stroke-width='2' fill='lightgreen'/>\n  <text x='70' y='100' text-anchor='middle' font-size='14'>b</text>\n\n  <rect x='100' y='30' width='30' height='30' stroke='black' stroke-width='2' fill='lightcoral'/>\n  <text x='115' y='100' text-anchor='middle' font-size='14'>c</text>\n\n  <rect x='145' y='30' width='40' height='30' stroke='black' stroke-width='2' fill='lightgoldenrodyellow'/>\n  <text x='165' y='100' text-anchor='middle' font-size='14'>d</text>\n\n  <path d='M225,40 C220,20 200,20 200,40 C200,55 215,65 225,75 C235,65 250,55 250,40 C250,20 230,20 225,40 Z' fill='lightpink' stroke='black' stroke-width='2'/>\n  <text x='225' y='100' text-anchor='middle' font-size='14'>e</text>\n</svg>",
-      "pairs": [
-        { "left": "A", "right": "Circle" },
-        { "left": "B", "right": "Triangle" },
-        { "left": "C", "right": "Square" },
-        { "left": "D", "right": "Rectangle" },
-        { "left": "E", "right": "Heart" }
-      ],
-      "user_response": ""
-    },
-    {
       "type": "matching_connection_image",
-      "id": "013",
+      "id": "011",
       "question": "Connect each image to its correct property:",
       "rows": [
         {
