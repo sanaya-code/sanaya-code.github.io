@@ -21,7 +21,7 @@
 .tabfib-svg-figure {
     margin: 0 auto 20px;
     max-width: 100%;
-    min-height: 200px;
+    /* min-height: 200px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@
 }
 
 .tabfib-svg-figure svg {
-    max-width: 300px;
+    /* max-width: 300px; */
     width: 100%;
     height: auto;
     display: block;
@@ -40,7 +40,7 @@
 .tabfib-figure {
     margin: 0 auto 20px;
     max-width: 100%;
-    min-height: 200px;
+    /* min-height: 200px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +50,7 @@
 }
 
 .tabfib-figure img {
-    max-width: 300px;
+    /* max-width: 300px; */
     width: 100%;
     height: auto;
     display: block;
