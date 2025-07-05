@@ -88,9 +88,9 @@
         },
         {
           "id": "02",
-          "text": " ____ 80",
-          "correct_answer": "79",
-          "acceptable_answers": ["79"]
+          "text": " ____ 85",
+          "correct_answer": "84",
+          "acceptable_answers": ["84"]
         },
         {
           "id": "03",
@@ -109,6 +109,81 @@
           "text": " 30 ____ 32",
           "correct_answer": "31",
           "acceptable_answers": ["31"]
+        }
+      ],
+      "user_response": ["", "", "","",""],
+      "case_sensitive": false
+    },    
+    {
+      "type": "options_fill_in_blank",
+      "id": "017",
+      "question": "After, before and between",
+      "options": [
+        {
+          "id": "11",
+          "text": " ____ 2",
+          "correct_answer": "1",
+          "acceptable_answers": ["1"]
+        },
+        {
+          "id": "12",
+          "text": " ____ 4",
+          "correct_answer": "3",
+          "acceptable_answers": ["3"]
+        },
+        {
+          "id": "13",
+          "text": " ____ 3",
+          "correct_answer": "1",
+          "acceptable_answers": ["1"]
+        },
+        {
+          "id": "14",
+          "text": " ____ 1",
+          "correct_answer": "0",
+          "acceptable_answers": ["0"]
+        },
+        {
+          "id": "15",
+          "text": " ____ 6",
+          "correct_answer": "5",
+          "acceptable_answers": ["5"]
+        },
+        {
+          "id": "16",
+          "text": " ____ 8",
+          "correct_answer": "7",
+          "acceptable_answers": ["7"]
+        },
+        {
+          "id": "31",
+          "text": " ____ 24",
+          "correct_answer": "23",
+          "acceptable_answers": ["23"]
+        },
+        {
+          "id": "34",
+          "text": " ____ 97",
+          "correct_answer": "96",
+          "acceptable_answers": ["96"]
+        },
+        {
+          "id": "37",
+          "text": " 43 ____ ",
+          "correct_answer": "44",
+          "acceptable_answers": ["44"]
+        },
+        {
+          "id": "39",
+          "text": " 66 ____ 68",
+          "correct_answer": "67",
+          "acceptable_answers": ["67"]
+        },
+        {
+          "id": "41",
+          "text": " 17 ____ 19",
+          "correct_answer": "18",
+          "acceptable_answers": ["18"]
         }
       ],
       "user_response": ["", "", "","",""],
