@@ -24,9 +24,9 @@ class MultiFillInBlankComponent extends HTMLElement {
     if (!this._initialized) {
       this.innerHTML = `
         <div class="question-type">
-          <div class="question-text"></div>
           <div class="svg-figure" style="display: none;"></div>
           <div class="figure" style="display: none;"></div>
+          <div class="question-text"></div>
         </div>
       `;
       this._questionEl = this.querySelector('.question-text');
