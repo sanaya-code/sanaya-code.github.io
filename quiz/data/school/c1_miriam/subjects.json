@@ -56,14 +56,14 @@
       {
         "id": "001",
         "link": "data/school/c1_miriam/evs/evs_01_a.json",
-        "description": "front behind",
+        "description": "Body part 01",
         "topic": "Body part 01",
         "quiz_id": "maths_01_lines_angles"
       },
       {
         "id": "002",
         "link": "data/school/c1_miriam/evs/evs_01_b.json",
-        "description": "on under",
+        "description": "Body part 02",
         "topic": "Body part 02",
         "quiz_id": "maths_01_lines_angles"
       }

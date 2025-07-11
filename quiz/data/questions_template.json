@@ -67,7 +67,8 @@
       "difficulty": "medium",
       "tags": ["science", "physics", "phase-changes"],
       "points": 2,
-      "scoring_method": "partial",
+      "scoring_method": "exact",
+      "scoring_method_01": "partial",
       "feedback": {
         "full_credit": "All blanks filled correctly",
         "partial_credit": "1-2 blanks correct",
@@ -106,7 +107,8 @@
       "difficulty": "easy",
       "tags": ["gk", "science", "maths"],
       "points": 3,
-      "scoring_method": "partial",
+      "scoring_method": "exact",
+      "scoring_method_01": "partial",
       "feedback": {
         "full_credit": "Great job! All answers are correct.",
         "partial_credit": "Some answers are correct. Try again.",
@@ -147,6 +149,7 @@
       "case_sensitive": false,
       "points": 6,
       "scoring_method": "exact",
+      "scoring_method_01": "partial",
       "feedback": {
         "full_credit": "Perfect! All blanks are correctly filled.",
         "partial_credit": "Some answers are correct. Review the table.",
@@ -158,6 +161,7 @@
       "id": "006",
       "question": "Complete the table with counts and number names:",
       "description": "Identify the objects in image and write their information in text box",
+      "columns": 3,
       "column_headings": {
         "image": "Visual",
         "count": "Count (Digit)",
@@ -190,7 +194,8 @@
       ],
       "validation": {
         "case_sensitive": false,
-        "scoring_method": "partial"
+        "scoring_method": "exact",
+        "scoring_method_01": "partial"
       },
       "svg_design_description": [
         "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
@@ -264,7 +269,8 @@
       "difficulty": "easy",
       "tags": ["computer-science", "programming"],
       "points": 2,
-      "scoring_method": "partial"
+      "scoring_method": "exact",
+      "scoring_method_01": "partial"
     },
     {
       "type": "matching",
@@ -350,6 +356,7 @@
       ],
       "validation": {
         "scoring_method": "exact",
+        "scoring_method_01": "partial",
         "allow_multiple_connections": false,
         "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
       },

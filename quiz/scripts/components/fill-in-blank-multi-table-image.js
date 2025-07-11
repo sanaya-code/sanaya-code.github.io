@@ -22,12 +22,11 @@ class TableImageFillInTheBlank extends HTMLElement {
   }
 
   initializeUserResponses() {
-    // Initialize user_responses from config or create empty array
+    const colCount = this._config.columns || 2;
     if (Array.isArray(this._config.user_response)) {
-      this._userResponses = [...this._config.user_response];
+      this._userResponses = this._config.user_response.map(row => [...row]);
     } else {
-      // Create empty responses for each row
-      this._userResponses = this._config.rows?.map(() => ['', '']) || [];
+      this._userResponses = this._config.rows?.map(() => Array(colCount).fill("")) || [];
     }
   }
 
@@ -37,7 +36,9 @@ class TableImageFillInTheBlank extends HTMLElement {
       count: "Count",
       word: "Number Name"
     };
-
+  
+    const columns = this._config.columns || 2;
+  
     this.innerHTML = `
       <div class="tifib-question-text">${this._config.question}</div>
       <div class="tifib-table-container">
@@ -45,8 +46,8 @@ class TableImageFillInTheBlank extends HTMLElement {
           <thead>
             <tr>
               <th>${headings.image}</th>
-              <th>${headings.count}</th>
-              <th>${headings.word}</th>
+              ${columns >= 1 ? `<th>${headings.count}</th>` : ''}
+              ${columns >= 2 ? `<th>${headings.word}</th>` : ''}
             </tr>
           </thead>
           <tbody>
@@ -58,6 +59,8 @@ class TableImageFillInTheBlank extends HTMLElement {
                       `<img src="${row.img_url}" alt="${row.alt_text || ''}" style="height:38px">`}
                   </div>
                 </td>
+  
+                ${columns >= 1 ? `
                 <td>
                   <input type="text" 
                          class="tifib-input-field" 
@@ -65,24 +68,28 @@ class TableImageFillInTheBlank extends HTMLElement {
                          data-col="0"
                          value="${this._userResponses[index]?.[0] || ''}"
                          placeholder="${headings.count}">
-                </td>
+                </td>` : ''}
+  
+                ${columns >= 2 ? `
                 <td>
                   <input type="text" 
                          class="tifib-input-field" 
                          data-row="${index}" 
                          data-col="1"
+                         ${columns < 3 ? 'disabled' : ''}
                          value="${this._userResponses[index]?.[1] || ''}"
                          placeholder="${headings.word}">
-                </td>
+                </td>` : ''}
               </tr>
             `).join('')}
           </tbody>
         </table>
       </div>
     `;
-
+  
     this.addEventListeners();
   }
+  
 
   addEventListeners() {
     this.querySelectorAll('.tifib-input-field').forEach(input => {
