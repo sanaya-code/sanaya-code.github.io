@@ -1,0 +1,151 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": "Name of countries:",
+            "options": [
+              {
+                "id": "01",
+                "text": "____ ",
+                "correct_answer": "india",
+                "acceptable_answers": ["INDIA", "India"]
+              },
+              {
+                "id": "02",
+                "text": "____ ",
+                "correct_answer": "nepal",
+                "acceptable_answers": ["Nepal", "NEPAL"]
+              },
+              {
+                "id": "03",
+                "text": "____ ",
+                "correct_answer": "denmark",
+                "acceptable_answers": ["Denmark", "DENMARK"],
+                "hint": "Basic geometry"
+              },
+              {
+                "id": "04",
+                "text": "____ ",
+                "correct_answer": "italy",
+                "acceptable_answers": ["Italy", "ITALY"],
+                "hint": "Basic geometry"
+              }
+            ],
+            "user_response": ["", "", "", ""],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+        },
+        {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": "Name of Cities:",
+            "options": [
+              {
+                "id": "01",
+                "text": "____ ",
+                "correct_answer": "bhopal",
+                "acceptable_answers": ["BHOPAL", "Bhopal"]
+              },
+              {
+                "id": "02",
+                "text": "____ ",
+                "correct_answer": "Pune",
+                "acceptable_answers": ["pune", "PUNE", "sagar", "indore"]
+              }
+            ],
+            "user_response": ["", "", "", ""],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_001.gif",
+          "blanks": [
+            { "position": 1, "correct_answer": "I went to a zoo with my family"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_002.png",
+          "blanks": [
+            { "position": 1, "correct_answer": "I saw a big lion"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_003.jpg",
+          "blanks": [
+            { "position": 1, "correct_answer": "I saw monkey on a tree"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_004.jpg",
+          "blanks": [
+            { "position": 1, "correct_answer": "I saw fish in water"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "003",
+          "question": "  I ____ zoo with ____ . I saw big ____ . I saw  ____ on tree. I saw ____ in water. I  ____ zoo", 
+          "blanks": [
+            { "position": 1, "correct_answer": "went to"
+            },
+            { "position": 2, "correct_answer": "my family"
+            },
+            { "position": 3, "correct_answer": "Lion"
+            },
+            { "position": 4, "correct_answer": "monkey"
+            },
+            { "position": 5, "correct_answer": "fish"
+            },
+            { "position": 6, "correct_answer": "like"
+            }
+          ],
+          "user_response": ["", "", ""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        } 
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

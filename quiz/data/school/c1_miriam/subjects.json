@@ -74,14 +74,21 @@
         "link": "data/school/c1_miriam/english/english_01_a.json",
         "description": "Amy 01",
         "topic": "Amy 01",
-        "quiz_id": "maths_01_lines_angles"
+        "quiz_id": "english_01_a"
       },
       {
         "id": "002",
         "link": "data/school/c1_miriam/english/english_01_b.json",
         "description": "Amy 02",
         "topic": "Amy 02",
-        "quiz_id": "maths_01_lines_angles"
+        "quiz_id": "english_01_b"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/english/english_02_X.json",
+        "description": "English x",
+        "topic": "English x",
+        "quiz_id": "English x"
       }
     ],
     "Computer":[
