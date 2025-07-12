@@ -1,0 +1,128 @@
+/* ===== Enhanced Table Styles ===== */
+.tifib-2c-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: white;
+  }
+  
+  /* Question text */
+  .tifib-2c-question-text {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #003366;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+  }
+  
+  .tifib-2c-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Column Headings */
+  .tifib-2c-table th {
+    background-color: #f1f3f5;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #212529;
+    border-bottom: 2px solid #dee2e6;
+    position: sticky;
+    top: 0;
+  }
+  
+  /* Column Width Distribution for 2-column layout */
+  .tifib-2c-table th:nth-child(1),
+  .tifib-2c-table td:nth-child(1) {
+    width: 60%; /* Image column */
+  }
+  
+  .tifib-2c-table th:nth-child(2),
+  .tifib-2c-table td:nth-child(2) {
+    width: 40%; /* Text input column */
+  }
+  
+  /* Table Cells */
+  .tifib-2c-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9ecef;
+    height: 52px;
+    background: white;
+  }
+  
+  /* Image Container */
+  .tifib-2c-image-wrapper {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+  }
+  
+  .tifib-2c-image-wrapper svg,
+  .tifib-2c-image-wrapper img {
+    max-width: 100%;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  /* Input Fields */
+  .tifib-2c-input-field {
+    height: 40px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+  }
+  
+  .tifib-2c-input-field:focus {
+    border-color: #4dabf7;
+    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.3);
+    outline: none;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .tifib-2c-table th {
+      padding: 12px;
+      font-size: 14px;
+    }
+  
+    .tifib-2c-table td {
+      padding: 10px 12px;
+    }
+  
+    .tifib-2c-input-field {
+      font-size: 14px;
+    }
+  }
+  
+  /* Tooltip for Headings (Optional) */
+  .tifib-2c-table th[title]:hover:after {
+    content: attr(title);
+    position: absolute;
+    background: #495057;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    margin-top: 5px;
+  }
+  

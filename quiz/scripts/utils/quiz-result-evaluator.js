@@ -3,6 +3,7 @@
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
+// table_image_fill_in_the_blank_2_col(table-image-fill-in-the-blank-2-col)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -81,6 +82,7 @@ class QuizResultEvaluator {
             options_fill_in_blank: () => this.checkOptionsFillInBlank(question, userAnswer),
             table_fill_in_the_blank: () => this.checkTableFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank: () => this.checkTableImageFillInBlank(question, userAnswer),
+            table_image_fill_in_the_blank_2_col: () => this.checkTableImage2ColFillInBlank(question, userAnswer),
             multi_select: () => this.checkMultiSelect(question, userAnswer),
             ordering: () => this.arraysEqual(userAnswer, question.correct_order),
             matching: () => this.checkMatching(question, userAnswer, false),
@@ -115,6 +117,7 @@ class QuizResultEvaluator {
             multi_fill_in_blank: () => answer.map(a => a || 'Not answered').join('; '),
             table_fill_in_the_blank: () => this.formatTableAnswer(answer),
             table_image_fill_in_the_blank: () => this.formatTableImageUserAnswer(question, answer),
+            table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColUserAnswer(question, answer),
             compare_quantities: () => answer,
             image_compare_quantities_tick: () => answer === 'left' ? 'Left side' : 'Right side',
             default: () => answer
@@ -133,6 +136,7 @@ class QuizResultEvaluator {
             multi_select: () => question.options.filter(opt => opt.correct).map(opt => opt.text).join(', '),
             table_fill_in_the_blank: () => this.formatTableCorrectAnswer(question),
             table_image_fill_in_the_blank: () => this.formatTableImageCorrectAnswer(question),
+            table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColCorrectAnswer(question),
             ordering: () => this.formatOrderingCorrectAnswer(question),
             matching: () => this.formatMatchingCorrectAnswer(question),
             matching_drag_drop: () => this.formatMatchingCorrectAnswer(question),
@@ -360,6 +364,15 @@ class QuizResultEvaluator {
         
         return responses.join('; ');
     }
+    
+    formatTableImage2ColUserAnswer(question, userAnswer) {
+        if (!Array.isArray(userAnswer)) return 'Not answered';
+        
+        return question.rows.map((row, index) => {
+            const val = userAnswer[index] || '';
+            return `Row ${index + 1}: ${val || 'Not answered'}`;
+        }).join('; ');
+    }
 
     formatMcqCorrectAnswer(question) {
         const option = question.options.find(opt => opt.id === question.correct_answer);
@@ -422,7 +435,39 @@ class QuizResultEvaluator {
         
         return correctAnswers.join('; ');
     }
+    
+    formatTableImage2ColCorrectAnswer(question) {
+        if (!Array.isArray(question.rows)) return '';
+        
+        return question.rows.map((row, index) => {
+            const countAnswers = row.field1?.acceptable_answers?.join(' or ') || '?';
+            return `Row ${index + 1}: ${countAnswers}`;
+        }).join('; ');
+    }
 
+    checkTableImage2ColFillInBlank(question, userAnswer) {
+        if (!Array.isArray(userAnswer) || !Array.isArray(question.rows)) return false;
+        
+        let total = 0;
+        let correct = 0;
+    
+        question.rows.forEach((row, rowIndex) => {
+            if (row.field1?.acceptable_answers) {
+                total++;
+                const userVal = (userAnswer[rowIndex] || '').trim();
+                if (this.checkTextAnswer(
+                    row.field1.acceptable_answers,
+                    userVal,
+                    question.validation?.case_sensitive === true
+                )) correct++;
+            }
+        });
+    
+        if (total === 0) return false;
+        if (question.validation?.scoring_method === 'exact') return correct === total;
+        if (question.validation?.scoring_method === 'partial') return correct > 0;
+        return false;
+    }    
 
     // Utility Methods
     arraysEqual(a, b) {
