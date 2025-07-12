@@ -355,52 +355,6 @@
           "scoring_method": "exact"
         },
         {
-          "type": "options_fill_in_blank",
-          "id": "004",
-          "question": " Opposite word ",
-          "options": [
-            {
-              "id": "01",
-              "text": " Sad ____ ",
-              "correct_answer": "happy",
-              "acceptable_answers": ["Happy"]
-            },
-            {
-              "id": "02",
-              "text": " ____ artist",
-              "correct_answer": "An",
-              "acceptable_answers": ["an"]
-            },
-            {
-              "id": "03",
-              "text": " ____ Mango",
-              "correct_answer": "A",
-              "acceptable_answers": ["a"]
-            },
-            {
-              "id": "04",
-              "text": " ____ Octer",
-              "correct_answer": "An",
-              "acceptable_answers": ["an"]
-            },
-            {
-              "id": "05",
-              "text": " ____ Tiger",
-              "correct_answer": "A",
-              "acceptable_answers": ["a"]
-            },
-            {
-              "id": "06",
-              "text": " ____ bicycle",
-              "correct_answer": "A",
-              "acceptable_answers": ["a"]
-            }
-          ],
-          "user_response": ["", "", "", "", "", ""],
-          "case_sensitive": false,
-          "scoring_method": "exact"
-        },
-        {
           "type": "matching_connection",
           "id": "012",
           "question": " match word ",
@@ -427,7 +381,7 @@
         {
           "type": "matching_connection",
           "id": "012",
-          "question": " match word ",
+          "question": " opposite word ",
           "pairs": [
             { "left": "sad", "right": "happy" },
             { "left": "hot", "right": "cold" },
@@ -438,7 +392,7 @@
         {
           "type": "matching_connection",
           "id": "012",
-          "question": " match word ",
+          "question": " opposite word ",
           "pairs": [
             { "left": "white", "right": "black" },
             { "left": "sweet", "right": "bitter" },
