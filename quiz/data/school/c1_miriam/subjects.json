@@ -72,9 +72,9 @@
       {
         "id": "001",
         "link": "data/school/c1_miriam/english/grammer_01.json",
-        "description": "Body part 01",
-        "topic": "Body part 01",
-        "quiz_id": "maths_01_lines_angles"
+        "description": "Grammer 01",
+        "topic": "Grammer 01",
+        "quiz_id": "grammer_01"
       }
     ],
     "English": [
