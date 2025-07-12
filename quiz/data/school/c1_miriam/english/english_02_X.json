@@ -73,7 +73,7 @@
           "question": " ____ ", 
           "img_url": "data/school/c1_miriam/english/img/zoo_001.gif",
           "blanks": [
-            { "position": 1, "correct_answer": "I went to a zoo with my family"
+            { "position": 1, "correct_answer": "I went to the zoo with my family"
             }
           ],
           "user_response": [""],
@@ -86,7 +86,7 @@
           "question": " ____ ", 
           "img_url": "data/school/c1_miriam/english/img/zoo_002.png",
           "blanks": [
-            { "position": 1, "correct_answer": "I saw a big lion"
+            { "position": 1, "correct_answer": "I saw a lion, tiger and monkey"
             }
           ],
           "user_response": [""],
@@ -99,7 +99,7 @@
           "question": " ____ ", 
           "img_url": "data/school/c1_miriam/english/img/zoo_003.jpg",
           "blanks": [
-            { "position": 1, "correct_answer": "I saw monkey on a tree"
+            { "position": 1, "correct_answer": "The monkey jumping on the tree"
             }
           ],
           "user_response": [""],
@@ -110,9 +110,22 @@
           "type": "multi_fill_in_blank",
           "id": "002",
           "question": " ____ ", 
-          "img_url": "data/school/c1_miriam/english/img/zoo_004.jpg",
+          "img_url": "data/school/c1_miriam/english/img/zoo_005.jpeg",
           "blanks": [
-            { "position": 1, "correct_answer": "I saw fish in water"
+            { "position": 1, "correct_answer": "I saw colorful birds"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_006.jpg",
+          "blanks": [
+            { "position": 1, "correct_answer": "I like deer the most"
             }
           ],
           "user_response": [""],
@@ -122,19 +135,19 @@
         {
           "type": "multi_fill_in_blank",
           "id": "003",
-          "question": "  I ____ zoo with ____ . I saw big ____ . I saw  ____ on tree. I saw ____ in water. I  ____ zoo", 
+          "question": "  I ____ the zoo with ____ . I saw ____ . The  ____ on the tree. I saw ____ birds. I  ____ the most", 
           "blanks": [
             { "position": 1, "correct_answer": "went to"
             },
             { "position": 2, "correct_answer": "my family"
             },
-            { "position": 3, "correct_answer": "Lion"
+            { "position": 3, "correct_answer": "lion tiger and monkey"
             },
-            { "position": 4, "correct_answer": "monkey"
+            { "position": 4, "correct_answer": "monkey jumping"
             },
-            { "position": 5, "correct_answer": "fish"
+            { "position": 5, "correct_answer": "colorful"
             },
-            { "position": 6, "correct_answer": "like"
+            { "position": 6, "correct_answer": "like deer"
             }
           ],
           "user_response": ["", "", ""],
