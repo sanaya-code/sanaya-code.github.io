@@ -104,6 +104,38 @@
               "allow_multiple_connections": false,
               "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
             }
+        },   
+        {
+          "type": "table_image_fill_in_the_blank_2_col",
+          "id": "006",
+          "question": "This That These Those",
+          "column_headings": {
+            "image": "Visual",
+            "count": ""
+          },
+          "rows": [
+            {
+                "img_url": "data/school/c1_miriam/english/img/this_egg.jpg",
+                "field1": {"acceptable_answers": ["this is an egg"] }
+            },
+            {
+                "img_url": "data/school/c1_miriam/english/img/that_egg.jpg",
+                "field1": {"acceptable_answers": ["that is an egg"] }
+            },
+            {
+                "img_url": "data/school/c1_miriam/english/img/these_egg.jpg",
+                "field1": {"acceptable_answers": ["these are eggs"] }
+            },
+            {
+                "img_url": "data/school/c1_miriam/english/img/those_egg.jpg",
+                "field1": {"acceptable_answers": ["those are eggs"] }
+            }
+          ],
+          "user_response": ["", "", "", ""],
+          "validation": {
+            "case_sensitive": false,
+            "scoring_method": "exact"
+          }
         }
     ],
     "taxonomy": {
