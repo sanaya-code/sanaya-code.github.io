@@ -62,9 +62,9 @@
               },
               {
                 "id": "07",
-                "text": " family ____ ",
-                "correct_answer": "families",
-                "acceptable_answers": ["families"]
+                "text": " class ____ ",
+                "correct_answer": "classes",
+                "acceptable_answers": ["classes"]
               }
             ],
             "user_response": ["", "", "", "", ""],
