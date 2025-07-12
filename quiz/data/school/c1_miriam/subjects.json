@@ -75,6 +75,13 @@
         "description": "Grammer 01",
         "topic": "Grammer 01",
         "quiz_id": "grammer_01"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/english/grammer_02.json",
+        "description": "Grammer 02",
+        "topic": "Grammer 02",
+        "quiz_id": "grammer_02"
       }
     ],
     "English": [
