@@ -1,0 +1,115 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+          {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": " Change singular into plural ",
+            "options": [
+              {
+                "id": "01",
+                "text": " box ____ ",
+                "correct_answer": "boxes",
+                "acceptable_answers": ["boxes"]
+              },
+              {
+                "id": "02",
+                "text": " pen ____",
+                "correct_answer": "pens",
+                "acceptable_answers": ["pens"]
+              },
+              {
+                "id": "03",
+                "text": " city ____ ",
+                "correct_answer": "cities",
+                "acceptable_answers": ["cities"]
+              },
+              {
+                "id": "04",
+                "text": " book ____",
+                "correct_answer": "books",
+                "acceptable_answers": ["books"]
+              }
+            ],
+            "user_response": ["", "", "", "", ""],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+          },
+          {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": " Change singular into plural ",
+            "options": [
+              {
+                "id": "05",
+                "text": " phone ____ ",
+                "correct_answer": "phones",
+                "acceptable_answers": ["phones"]
+              },
+              {
+                "id": "06",
+                "text": " family ____ ",
+                "correct_answer": "families",
+                "acceptable_answers": ["families"]
+              },
+              {
+                "id": "07",
+                "text": " family ____ ",
+                "correct_answer": "families",
+                "acceptable_answers": ["families"]
+              }
+            ],
+            "user_response": ["", "", "", "", ""],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+          },
+        {
+            "type": "matching_connection_image",
+            "id": "013",
+            "question": "Connect each image to its correct property:",
+            "rows": [
+                {
+                "image_index": 1,
+                "img_url": "data/school/c1_miriam/english/img/this_hen.jpg",
+                "property": "this is a hen"
+                },
+                {
+                "image_index": 2,
+                "img_url": "data/school/c1_miriam/english/img/that_hen.jpg",
+                "property": "that is a hen"
+                },
+                {
+                "image_index": 3,
+                "img_url": "data/school/c1_miriam/english/img/these_hen.jpg",
+                "property": "these are hens"
+                },
+                {
+                "image_index": 4,
+                "img_url": "data/school/c1_miriam/english/img/those_hen.jpg",
+                "property": "those are hens"
+                }
+            ],
+            "properties_column": ["those are hens", "these are hens", "that is a hen", "this is a hen"],
+            "user_response": [],
+            "validation": {
+              "scoring_method": "exact",
+              "allow_multiple_connections": false,
+              "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
+            }
+        }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
