@@ -98,6 +98,7 @@
         "type": "table_image_fill_in_the_blank",
         "id": "032",
         "question": "Complete the table with counts and number names:",
+        "columns": 3,
         "description": "Identify the objects in image and write their information in text box",
         "column_headings": {
           "image": "Visual",
