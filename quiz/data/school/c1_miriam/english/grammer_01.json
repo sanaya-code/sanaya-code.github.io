@@ -10,95 +10,37 @@
   },
   "questions": [
     {
-      "type": "options_fill_in_blank",
-      "id": "004",
-      "question": "Put  a  or  an ",
+      "type": "multi_select",
+      "id": "009",
+      "question": "Which of the following are programming languages? (Select all that apply)",
       "options": [
-        {
-          "id": "01",
-          "text": " ____ Elephant",
-          "correct_answer": "An",
-          "acceptable_answers": ["an"]
-        },
-        {
-          "id": "02",
-          "text": " ____ banana",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        },
-        {
-          "id": "03",
-          "text": " ____ Umpire",
-          "correct_answer": "An",
-          "acceptable_answers": ["an"]
-        },
-        {
-          "id": "04",
-          "text": " ____ Orange",
-          "correct_answer": "An",
-          "acceptable_answers": ["an"]
-        },
-        {
-          "id": "05",
-          "text": " ____ Horse",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        },
-        {
-          "id": "06",
-          "text": " ____ shop",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        }
+        {"id": "A", "text": "Elephant", "correct": true},
+        {"id": "B", "text": "Banana", "correct": false},
+        {"id": "C", "text": "Umpire", "correct": true},
+        {"id": "D", "text": "Orange", "correct": true},
+        {"id": "E", "text": "Horse", "correct": false},
+        {"id": "E", "text": "Shop", "correct": false}
       ],
-      "user_response": ["", "", "", "", "", ""],
-      "case_sensitive": false,
+      "user_response" : "",
+      "minimum_selections": 3,
+      "maximum_selections": 3,
       "scoring_method": "exact"
     },
     {
-      "type": "options_fill_in_blank",
-      "id": "004",
-      "question": "Put  a  or  an ",
+      "type": "multi_select",
+      "id": "009",
+      "question": "Which of the following are programming languages? (Select all that apply)",
       "options": [
-        {
-          "id": "01",
-          "text": " ____ player",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        },
-        {
-          "id": "02",
-          "text": " ____ artist",
-          "correct_answer": "An",
-          "acceptable_answers": ["an"]
-        },
-        {
-          "id": "03",
-          "text": " ____ Mango",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        },
-        {
-          "id": "04",
-          "text": " ____ Octer",
-          "correct_answer": "An",
-          "acceptable_answers": ["an"]
-        },
-        {
-          "id": "05",
-          "text": " ____ Tiger",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        },
-        {
-          "id": "06",
-          "text": " ____ bicycle",
-          "correct_answer": "A",
-          "acceptable_answers": ["a"]
-        }
+        {"id": "A", "text": "Player", "correct": false},
+        {"id": "B", "text": "Artist", "correct": true},
+        {"id": "C", "text": "Mango", "correct": false},
+        {"id": "D", "text": "Octer", "correct": true},
+        {"id": "E", "text": "Tiger", "correct": false},
+        {"id": "E", "text": "Bicycle", "correct": false}
       ],
-      "user_response": ["", "", "", "", "", ""],
-      "case_sensitive": false,
+      "user_response" : "",
+      "minimum_selections": 3,
+      "maximum_selections": 3,
       "scoring_method": "exact"
     },
     {
@@ -148,17 +90,17 @@
         {
           "id": "01",
           "text": "____ ",
-          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam"]
+          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
         },
         {
           "id": "02",
           "text": "____ ",
-          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam"]
+          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
         },
         {
           "id": "03",
           "text": "____ ",
-          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam"]
+          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
         }
       ],
       "user_response": ["", "", ""],
@@ -232,6 +174,20 @@
       "user_response": ["", "", "", ""],
       "case_sensitive": false,
       "scoring_method": "exact"
+    },
+    {
+      "type": "matching_connection",
+      "id": "012",
+      "question": "Match the following software with their categories:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
+      "pairs": [
+        { "left": "Fifth day", "right": "Friday" },
+        { "left": "Second day", "right": "Tuesday" },
+        { "left": "Fourth month", "right": "April" },
+        { "left": "Third month", "right": "March" }
+      ],
+      "user_response": ""
     }
   ],
   "taxonomy": {
