@@ -44,7 +44,7 @@
       "scoring_method": "exact"
     },
     {
-      "type": "options_fill_in_blank",
+      "type": "x_options_fill_in_blank",
       "id": "004",
       "question": "Look at the picture and write",
       "img_url": "data/school/c1_miriam/english/img/a_an_test_03.jpg",
@@ -179,11 +179,9 @@
       "type": "matching_connection",
       "id": "012",
       "question": "Match the following software with their categories:",
-      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
       "pairs": [
-        { "left": "Fifth day", "right": "Friday" },
-        { "left": "Second day", "right": "Tuesday" },
+        { "left": "Fifth day", "right": "Thursday" },
+        { "left": "Second day", "right": "Monday" },
         { "left": "Fourth month", "right": "April" },
         { "left": "Third month", "right": "March" }
       ],
