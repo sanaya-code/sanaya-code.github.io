@@ -68,6 +68,19 @@
           { "left": "lovely", "right": "ugly" }
         ],
         "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "opposite",
+        "pairs": [
+          { "left": "He", "right": "himself" },
+          { "left": "She", "right": "herself" },
+          { "left": "You", "right": "yourself" },
+          { "left": "We", "right": "ourself" },
+          { "left": "I", "right": "myself" }
+        ],
+        "user_response": ""
       }
     ],
     "taxonomy": {

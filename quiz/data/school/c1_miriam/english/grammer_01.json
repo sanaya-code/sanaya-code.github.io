@@ -68,9 +68,9 @@
         },
         {
           "id": "04",
-          "text": " ____",
-          "correct_answer": "a snake",
-          "acceptable_answers": ["a snake", "an elephant"]
+          "text": " ____ elephant",
+          "correct_answer": "an ",
+          "acceptable_answers": ["an"]
         },
         {
           "id": "05",
