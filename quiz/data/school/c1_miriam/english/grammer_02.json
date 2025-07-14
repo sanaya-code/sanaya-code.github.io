@@ -79,25 +79,25 @@
                 {
                 "image_index": 1,
                 "img_url": "data/school/c1_miriam/english/img/this_hen.jpg",
-                "property": "this is a hen"
+                "property": "this"
                 },
                 {
                 "image_index": 2,
                 "img_url": "data/school/c1_miriam/english/img/that_hen.jpg",
-                "property": "that is a hen"
+                "property": "that"
                 },
                 {
                 "image_index": 3,
                 "img_url": "data/school/c1_miriam/english/img/these_hen.jpg",
-                "property": "these are hens"
+                "property": "these"
                 },
                 {
                 "image_index": 4,
                 "img_url": "data/school/c1_miriam/english/img/those_hen.jpg",
-                "property": "those are hens"
+                "property": "those"
                 }
             ],
-            "properties_column": ["those are hens", "these are hens", "that is a hen", "this is a hen"],
+            "properties_column": ["those", "these", "that", "this"],
             "user_response": [],
             "validation": {
               "scoring_method": "exact",
