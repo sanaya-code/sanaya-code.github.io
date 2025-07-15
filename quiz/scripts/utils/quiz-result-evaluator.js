@@ -96,6 +96,7 @@ class QuizResultEvaluator {
             ),
             compare_quantities: () => userAnswer === question.correct_answer,
             image_compare_quantities_tick: () => userAnswer === question.correct_answer,
+            skip: () => true,
             default: () => false
         };
 

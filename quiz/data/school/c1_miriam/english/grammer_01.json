@@ -44,7 +44,8 @@
       "scoring_method": "exact"
     },
     {
-      "type": "x_options_fill_in_blank",
+      "type": "skip",
+      "type1": "options_fill_in_blank",
       "id": "004",
       "question": "Look at the picture and write",
       "img_url": "data/school/c1_miriam/english/img/a_an_test_03.jpg",
