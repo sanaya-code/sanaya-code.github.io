@@ -127,25 +127,29 @@
           "id": "01",
           "text": "____ ",
           "correct_answer": "india",
-          "acceptable_answers": ["INDIA", "India", "Nepal", "NEPAL", "Denmark", "DENMARK", "Italy", "ITALY"]
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru", 
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
         },
         {
           "id": "02",
           "text": "____ ",
           "correct_answer": "india",
-          "acceptable_answers": ["INDIA", "India", "Nepal", "NEPAL", "Denmark", "DENMARK", "Italy", "ITALY"]
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru",
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
         },
         {
           "id": "03",
           "text": "____ ",
           "correct_answer": "india",
-          "acceptable_answers": ["", "INDIA", "India", "Nepal", "NEPAL", "Denmark", "DENMARK", "Italy", "ITALY"]
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru",
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
         },
         {
           "id": "04",
           "text": "____ ",
           "correct_answer": "",
-          "acceptable_answers": ["","INDIA", "India", "Nepal", "NEPAL", "Denmark", "DENMARK", "Italy", "ITALY"]
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru",
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
         }
       ],
       "user_response": ["", "", "", ""],
