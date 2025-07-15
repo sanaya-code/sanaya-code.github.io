@@ -101,6 +101,16 @@
           "id": "03",
           "text": "____ ",
           "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        },
+        {
+          "id": "04",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["", "miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        },
+        {
+          "id": "05",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["", "miriam", "sanaya", "adam", "amy", "bob", "tom"]
         }
       ],
       "user_response": ["", "", ""],
@@ -150,25 +160,25 @@
           "id": "01",
           "text": "____ ",
           "correct_answer": "bhopal",
-          "acceptable_answers": ["bhopal", "sagar","pune", "indore"]
+          "acceptable_answers": ["bhopal", "sagar","pune", "satna"]
         },
         {
           "id": "02",
           "text": "____ ",
-          "correct_answer": "bhopal",
-          "acceptable_answers": ["bhopal", "sagar","pune", "indore"]
+          "correct_answer": "pune",
+          "acceptable_answers": ["bhopal", "sagar","pune", "satna"]
         },
         {
           "id": "03",
           "text": "____ ",
-          "correct_answer": "bhopal",
-          "acceptable_answers": ["", "bhopal", "sagar","pune", "indore"]
+          "correct_answer": "sagar",
+          "acceptable_answers": ["", "bhopal", "sagar","pune", "satna"]
         },
         {
           "id": "04",
           "text": "____ ",
-          "correct_answer": "bhopal",
-          "acceptable_answers": ["", "bhopal", "sagar","pune", "indore"]
+          "correct_answer": "satna",
+          "acceptable_answers": ["", "bhopal", "sagar","pune", "satna"]
         }
       ],
       "user_response": ["", "", "", ""],
