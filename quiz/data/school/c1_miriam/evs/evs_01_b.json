@@ -10,14 +10,13 @@
     },
     "questions": [
       {
-        "type": "table_image_fill_in_the_blank",
-        "id": "006",
-        "question": "Single, Pair",
-        "columns": 2,
+        "type": "table_image_fill_in_the_blank_2_col",
+        "id": "007",
+        "question": "Which are in pair",
+        "description": "Identify the objects in image and write their information in text box",
         "column_headings": {
-          "image": "Visual",
-          "count": "",
-          "word": ""
+          "image": "",
+          "count": ""
         },
         "rows": [
           {
@@ -46,16 +45,115 @@
             "field1": {"acceptable_answers": ["P"] }
           }
         ],
-        "user_response": [
-          ["", ""],
-          ["", ""],
-          ["", ""]
-        ],
+        "user_response": ["", "", ""],
         "validation": {
           "case_sensitive": false,
-          "scoring_method": "exact"
-        }
-    }
+          "scoring_method": "exact",
+          "scoring_method_01": "partial"
+        },
+        "svg_design_description": [
+          "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
+          "Always include: width='100%' height='40px' in SVG attributes",
+          "Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
+          "Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
+          "All graphical elements must fit within viewBox boundaries",
+          "Stroke widths should be 1.5px minimum for visibility",
+          "Include matching alt text for accessibility",
+          "For exact alignment: center elements vertically at y=20"
+        ],
+        "jpg_design_description": [
+          "Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
+          "Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
+          "Display size: Will render at 100% width × 40px height",
+          "Content guidelines:",
+          "- Key elements must be within center 40px vertical zone",
+          "- Ensure minimum 4.5:1 contrast for text/overlays"
+        ]
+      },
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "Children of our uncles and aunts are called",
+        "options": [
+          {"id": "A", "text": "Parents"},
+          {"id": "B", "text": "cousins"},
+          {"id": "C", "text": "siblings"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "oldest member",
+        "options": [
+          {"id": "A", "text": "Parents"},
+          {"id": "B", "text": "grand parents"},
+          {"id": "C", "text": "siblings"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "Your brothers and sisters are your",
+        "options": [
+          {"id": "A", "text": "Parents"},
+          {"id": "B", "text": "cousins"},
+          {"id": "C", "text": "siblings"}
+        ],
+        "correct_answer": "C",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "Your father and mother are your",
+        "options": [
+          {"id": "A", "text": "Parents"},
+          {"id": "B", "text": "cousins"},
+          {"id": "C", "text": "siblings"}
+        ],
+        "correct_answer": "A",
+        "user_response" : ""
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " Our body has ____ parts", 
+        "blanks": [
+          { "position": 1, "correct_answer": "many", "acceptable_answers": ["many"]
+          }
+        ],
+        "user_response": [""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " We use our ____ to taste", 
+        "blanks": [
+          { "position": 1, "correct_answer": "tongue", "acceptable_answers": ["tongue"]
+          }
+        ],
+        "user_response": [""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " Our head rest on the ____ ", 
+        "blanks": [
+          { "position": 1, "correct_answer": "neck", "acceptable_answers": ["neck"]
+          }
+        ],
+        "user_response": [""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      }
   ],
     "questions_bank": [
       {
