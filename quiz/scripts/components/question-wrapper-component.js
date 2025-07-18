@@ -4,6 +4,7 @@
 // table_fill_in_the_blank(table-fill-in-the-blank)
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
 // table_image_fill_in_the_blank_2_col(table-image-fill-in-the-blank-2-col)
+// number_line_fill_in_blank(number-line-fill-in-blank)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -33,6 +34,7 @@ class QuestionWrapperComponent extends HTMLElement {
       table_fill_in_the_blank:'table-fill-in-the-blank',
       table_image_fill_in_the_blank: 'table-image-fill-in-the-blank',
       table_image_fill_in_the_blank_2_col: 'table-image-fill-in-the-blank-2-col',
+      number_line_fill_in_blank : 'number-line-fill-in-blank',
       short_answer: 'short-answer',
       matching: 'matching-select',
       matching_drag_drop: 'matching-drag-drop',

@@ -4,6 +4,7 @@
 // table_fill_in_the_blank(table-fill-in-the-blank)
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
 // table_image_fill_in_the_blank_2_col(table-image-fill-in-the-blank-2-col)
+// number_line_fill_in_blank(number-line-fill-in-blank)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -83,6 +84,7 @@ class QuizResultEvaluator {
             table_fill_in_the_blank: () => this.checkTableFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank: () => this.checkTableImageFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank_2_col: () => this.checkTableImage2ColFillInBlank(question, userAnswer),
+            number_line_fill_in_blank: () => this.checkNumberLineFillInBlank(question, userAnswer),
             multi_select: () => this.checkMultiSelect(question, userAnswer),
             ordering: () => this.arraysEqual(userAnswer, question.correct_order),
             matching: () => this.checkMatching(question, userAnswer, false),
@@ -119,6 +121,7 @@ class QuizResultEvaluator {
             table_fill_in_the_blank: () => this.formatTableAnswer(answer),
             table_image_fill_in_the_blank: () => this.formatTableImageUserAnswer(question, answer),
             table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColUserAnswer(question, answer),
+            number_line_fill_in_blank: () => this.formatNumberLineUserAnswer(question, answer),
             compare_quantities: () => answer,
             image_compare_quantities_tick: () => answer === 'left' ? 'Left side' : 'Right side',
             default: () => answer
@@ -138,6 +141,7 @@ class QuizResultEvaluator {
             table_fill_in_the_blank: () => this.formatTableCorrectAnswer(question),
             table_image_fill_in_the_blank: () => this.formatTableImageCorrectAnswer(question),
             table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColCorrectAnswer(question),
+            number_line_fill_in_blank: () => this.formatNumberLineCorrectAnswer(question),
             ordering: () => this.formatOrderingCorrectAnswer(question),
             matching: () => this.formatMatchingCorrectAnswer(question),
             matching_drag_drop: () => this.formatMatchingCorrectAnswer(question),
@@ -299,6 +303,26 @@ class QuizResultEvaluator {
         return false;
     }
 
+    checkNumberLineFillInBlank(question, userAnswer) {
+        if (!Array.isArray(userAnswer)) return false;
+        
+        let total = question.sequence.filter(item => item.value === '____').length;
+        let correct = 0;
+    
+        userAnswer.forEach((response, idx) => {
+            const acceptable = question.sequence.filter(item => item.value === '____')[idx]?.acceptable_answers || [];
+            if (this.checkTextAnswer(acceptable, response.trim(), question.validation?.case_sensitive === true)) {
+                correct++;
+            }
+        });
+    
+        if (total === 0) return false;
+    
+        if (question.validation?.scoring_method === 'exact') return correct === total;
+        if (question.validation?.scoring_method === 'partial') return correct > 0;
+        return false;
+    }    
+
     // Formatter Helpers
     formatMcqAnswer(question, answer) {
         const option = question.options.find(opt => opt.id === answer);
@@ -375,6 +399,12 @@ class QuizResultEvaluator {
         }).join('; ');
     }
 
+    formatNumberLineUserAnswer(question, userAnswer) {
+        if (!Array.isArray(userAnswer)) return 'Not answered';
+        return userAnswer.map((ans, idx) => `Blank ${idx + 1}: ${ans || 'Not answered'}`).join('; ');
+    }
+    
+
     formatMcqCorrectAnswer(question) {
         const option = question.options.find(opt => opt.id === question.correct_answer);
         return option ? option.text : question.correct_answer;
@@ -444,6 +474,15 @@ class QuizResultEvaluator {
             const countAnswers = row.field1?.acceptable_answers?.join(' or ') || '?';
             return `Row ${index + 1}: ${countAnswers}`;
         }).join('; ');
+    }
+
+    formatNumberLineCorrectAnswer(question) {
+        return question.sequence
+            .filter(item => item.value === '____')
+            .map((blank, idx) => {
+                return `Blank ${idx + 1}: ${blank.acceptable_answers.join(' or ')}`;
+            })
+            .join('; ');
     }
 
     checkTableImage2ColFillInBlank(question, userAnswer) {
