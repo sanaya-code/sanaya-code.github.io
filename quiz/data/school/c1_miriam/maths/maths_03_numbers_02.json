@@ -179,6 +179,31 @@
           "allow_multiple_connections": false,
           "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF"]
         }
+      },
+      {
+        "type": "number_line_fill_in_blank",
+        "id": "007",
+        "question": "Number line",
+        "sequence": [
+          {"value": "1"},
+          {"value": "____", "acceptable_answers": ["2"]},
+          {"value": "____", "acceptable_answers": ["3"]},
+          {"value": "4"},
+          {"value": "5"},
+          {"value": "____", "acceptable_answers": ["6"]},
+          {"value": "7"},
+          {"value": "8"},
+          {"value": "____", "acceptable_answers": ["9"]},
+          {"value": "10"}
+        ],
+        "user_response": ["", "", "", ""],
+        "validation": {
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        "metadata": {
+          "series_type": "series"
+        }
       }
        
   ],
