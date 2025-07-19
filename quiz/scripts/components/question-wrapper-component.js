@@ -10,6 +10,7 @@
 // matching_connection(matching-connection)
 // matching_connection_image(matching-connection-image)
 // ordering(ordering-drag-drop)
+// ordering_horizontal(ordering-horizontal-drag)
 // compare_quantities(compare-quantities)
 // image_compare_quantities_tick(compare-image-objects)
 
@@ -41,6 +42,7 @@ class QuestionWrapperComponent extends HTMLElement {
       matching_connection: 'matching-connection',
       matching_connection_image: 'matching-connection-image',
       ordering: 'ordering-drag-drop',
+      ordering_horizontal : 'ordering-horizontal-drag-click',
       compare_quantities: 'compare-quantities',
       image_compare_quantities_tick: 'compare-image-objects'
     };

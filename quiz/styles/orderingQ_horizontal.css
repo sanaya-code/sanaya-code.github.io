@@ -1,0 +1,97 @@
+.oh-question {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #003366;
+    background: #f0f8ff;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.oh-sequence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.oh-line {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: #999;
+    z-index: 0;
+}
+
+.oh-node {
+    background: #e0f7fa;
+    border: 2px solid #00acc1;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.oh-node-placeholder {
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+.oh-node-text {
+    color: #333;
+}
+
+.oh-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.oh-item {
+    padding: 10px 16px;
+    background: #fff;
+    border: 2px solid #00acc1;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.oh-item:hover {
+    background: #e0f7fa;
+}
+
+.oh-item:active {
+    cursor: grabbing;
+}
+
+.oh-selected {
+    background: #007acc !important;
+    color: white;
+    border-color: #005f99;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .oh-node {
+        width: 45px;
+        height: 45px;
+        font-size: 0.9rem;
+    }
+
+    .oh-item {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
