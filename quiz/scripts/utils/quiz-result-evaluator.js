@@ -10,6 +10,7 @@
 // matching_connection(matching-connection)
 // matching_connection_image(matching-connection-image)
 // ordering(ordering-drag-drop)
+// ordering_horizontal(ordering-horizontal-drag-click)
 // compare_quantities(compare-quantities)
 // image_compare_quantities_tick(compare-image-objects)
 
@@ -87,6 +88,7 @@ class QuizResultEvaluator {
             number_line_fill_in_blank: () => this.checkNumberLineFillInBlank(question, userAnswer),
             multi_select: () => this.checkMultiSelect(question, userAnswer),
             ordering: () => this.arraysEqual(userAnswer, question.correct_order),
+            ordering_horizontal: () => this.arraysEqual(userAnswer, question.correct_order),
             matching: () => this.checkMatching(question, userAnswer, false),
             matching_drag_drop: () => this.checkMatching(question, userAnswer, true),
             matching_connection: () => this.checkMatching(question, userAnswer, true),
@@ -113,6 +115,7 @@ class QuizResultEvaluator {
             true_false: () => answer ? 'True' : 'False',
             multi_select: () => this.formatMultiSelectAnswer(question, answer),
             ordering: () => this.formatOrderingAnswer(question, answer),
+            ordering_horizontal: () => answer.join(' → '),
             matching: () => this.formatMatchingAnswer(question, answer, false),
             matching_drag_drop: () => this.formatMatchingAnswer(question, answer, true),
             matching_connection: () => this.formatMatchingAnswer(question, answer, true),
@@ -143,6 +146,7 @@ class QuizResultEvaluator {
             table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColCorrectAnswer(question),
             number_line_fill_in_blank: () => this.formatNumberLineCorrectAnswer(question),
             ordering: () => this.formatOrderingCorrectAnswer(question),
+            ordering_horizontal: () => question.correct_order.join(' → '),
             matching: () => this.formatMatchingCorrectAnswer(question),
             matching_drag_drop: () => this.formatMatchingCorrectAnswer(question),
             matching_connection: () => this.formatMatchingCorrectAnswer(question),

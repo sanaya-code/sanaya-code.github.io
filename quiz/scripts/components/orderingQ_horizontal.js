@@ -38,7 +38,7 @@ class OrderingHorizontal extends HTMLElement {
                 <div class="oh-line"></div>
                 ${this._userResponse.map((val, index) => `
                     <div class="oh-node" data-index="${index}">
-                        ${val ? `<span class="oh-node-text">${val}</span>` : '<span class="oh-node-placeholder">Drop</span>'}
+                        ${val ? `<span class="oh-node-text">${val}</span>` : '<span class="oh-node-placeholder"></span>'}
                     </div>
                 `).join('')}
             </div>
