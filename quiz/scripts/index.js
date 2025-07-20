@@ -17,27 +17,26 @@ class QuizLoader {
 
     preventPullToRefreshAndScroll() {
         let startY = 0;
-        let isAtTop = false;
     
         document.addEventListener('touchstart', (e) => {
             startY = e.touches[0].clientY;
-            isAtTop = (window.scrollY === 0);
+    
+            // If at top of page, prevent default to stop pull-to-refresh before it starts
+            if (window.scrollY === 0) {
+                e.preventDefault();
+            }
         }, { passive: false });
     
         document.addEventListener('touchmove', (e) => {
             const currentY = e.touches[0].clientY;
     
-            // Prevent downward drag (pull-to-refresh)
-            if (isAtTop && currentY > startY + 5) {
-                e.preventDefault();
-            }
-    
-            // Prevent upward drag to scroll when at top (optional)
-            if (isAtTop && currentY < startY - 5) {
+            // Optional: Prevent all vertical drag when at top
+            if (window.scrollY === 0) {
                 e.preventDefault();
             }
         }, { passive: false });
-    }    
+    }
+      
 
     preventTouchGestures() {
         document.addEventListener('touchmove', (e) => {
