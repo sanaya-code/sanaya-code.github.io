@@ -10,9 +10,34 @@ class QuizLoader {
 
     init() {
         this.loadQuizBtn?.addEventListener('click', () => this.handleLoadQuiz());
-        this.preventTouchGestures();
+        this.preventPullToRefreshAndScroll();
+        // this.preventTouchGestures();
         // this.preventPullToRefresh();
     }
+
+    preventPullToRefreshAndScroll() {
+        let startY = 0;
+        let isAtTop = false;
+    
+        document.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            isAtTop = (window.scrollY === 0);
+        }, { passive: false });
+    
+        document.addEventListener('touchmove', (e) => {
+            const currentY = e.touches[0].clientY;
+    
+            // Prevent downward drag (pull-to-refresh)
+            if (isAtTop && currentY > startY + 5) {
+                e.preventDefault();
+            }
+    
+            // Prevent upward drag to scroll when at top (optional)
+            if (isAtTop && currentY < startY - 5) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }    
 
     preventTouchGestures() {
         document.addEventListener('touchmove', (e) => {
