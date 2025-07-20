@@ -10,9 +10,20 @@ class QuizLoader {
 
     init() {
         this.loadQuizBtn?.addEventListener('click', () => this.handleLoadQuiz());
-        this.preventPullToRefresh();
+        this.preventTouchGestures();
+        // this.preventPullToRefresh();
     }
 
+    preventTouchGestures() {
+        document.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+    
+        document.addEventListener('touchstart', (e) => {
+            e.stopPropagation();
+        }, { passive: false });
+    }
+    
     preventPullToRefresh() {
         let maybePrevent = false;
     
