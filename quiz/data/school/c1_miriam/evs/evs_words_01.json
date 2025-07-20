@@ -22,7 +22,7 @@
         "id": "001",
         "question": "M  __   __   __   __   __",
         "items": ["E", "H", "T", "M", "O", "R"],
-        "correct_order": ["M", "O", "T", "H", "E"],
+        "correct_order": ["M", "O", "T", "H", "E", "R"],
         "user_response": ["", "", "", "", "", ""]
       },
       {
