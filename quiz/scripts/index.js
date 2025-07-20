@@ -10,64 +10,7 @@ class QuizLoader {
 
     init() {
         this.loadQuizBtn?.addEventListener('click', () => this.handleLoadQuiz());
-        this.preventPullToRefreshAndScroll();
-        // this.preventTouchGestures();
-        // this.preventPullToRefresh();
     }
-
-    preventPullToRefreshAndScroll() {
-        let startY = 0;
-    
-        document.addEventListener('touchstart', (e) => {
-            startY = e.touches[0].clientY;
-    
-            // If at top of page, prevent default to stop pull-to-refresh before it starts
-            if (window.scrollY === 0) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-    
-        document.addEventListener('touchmove', (e) => {
-            const currentY = e.touches[0].clientY;
-    
-            // Optional: Prevent all vertical drag when at top
-            if (window.scrollY === 0) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-    }
-      
-
-    preventTouchGestures() {
-        document.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-        }, { passive: false });
-    
-        document.addEventListener('touchstart', (e) => {
-            e.stopPropagation();
-        }, { passive: false });
-    }
-    
-    preventPullToRefresh() {
-        let maybePrevent = false;
-    
-        document.addEventListener('touchstart', (e) => {
-            if (window.scrollY === 0) {
-                maybePrevent = true;
-                this._startY = e.touches[0].clientY;
-            }
-        }, { passive: false });
-    
-        document.addEventListener('touchmove', (e) => {
-            const currentY = e.touches[0].clientY;
-    
-            if (maybePrevent && currentY > this._startY + 10) {
-                e.preventDefault();
-                maybePrevent = false; // prevent only once per gesture
-            }
-        }, { passive: false });
-    }
-    
 
     handleLoadQuiz() {
         if (!this.fileInput || this.fileInput.files.length === 0) {
