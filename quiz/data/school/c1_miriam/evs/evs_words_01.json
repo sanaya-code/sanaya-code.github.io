@@ -58,90 +58,10 @@
         "user_response": ["", "", "", "", "", ""]
       }
   ],
-    "questions_bank": [
-      {
-        "type": "mcq",
-        "id": "001",
-        "question": "Eyes help us to",
-        "options": [
-          {"id": "A", "text": "hear"},
-          {"id": "B", "text": "See"},
-          {"id": "C", "text": "Taste"}
-        ],
-        "correct_answer": "B"
-      },
-      {
-        "type": "mcq",
-        "id": "004",
-        "question": "Ears help us to",
-        "options": [
-          {"id": "A", "text": "hear"},
-          {"id": "B", "text": "Feel"},
-          {"id": "C", "text": "Taste"}
-        ],
-        "correct_answer": "A"
-      },
-      {
-        "type": "mcq",
-        "id": "005",
-        "question": "Tongue help us to",
-        "options": [
-          {"id": "A", "text": "hear"},
-          {"id": "B", "text": "Feel"},
-          {"id": "C", "text": "Taste"}
-        ],
-        "correct_answer": "C"
-      },
-      {
-        "type": "mcq",
-        "id": "006",
-        "question": "Skin help us to",
-        "options": [
-          {"id": "A", "text": "hear"},
-          {"id": "B", "text": "Feel"},
-          {"id": "C", "text": "Taste"}
-        ],
-        "correct_answer": "B"
-      },
-      {
-        "type": "mcq",
-        "id": "008",
-        "question": "Name the body part that covers the body",
-        "options": [
-          {"id": "A", "text": "chin"},
-          {"id": "B", "text": "ear"},
-          {"id": "C", "text": "skin"}
-        ],
-        "correct_answer": "C"
-      },
-      {
-        "type": "mcq",
-        "id": "009",
-        "question": "Sid mother made cake. He is unable to guess. Which sense organ is not working",
-        "options": [
-          {"id": "A", "text": "Ear"},
-          {"id": "B", "text": "Skin"},
-          {"id": "C", "text": "Tongue"}
-        ],
-        "correct_answer": "C"
-      },
-      {
-        "type": "mcq",
-        "id": "012",
-        "question": "How do you taste various food items",
-        "options": [
-          {"id": "A", "text": "Ear"},
-          {"id": "B", "text": "Tongue"},
-          {"id": "C", "text": "Eyes"}
-        ],
-        "correct_answer": "B"
-      }
-      
-    ],
     "taxonomy": {
       "difficulty_levels": ["easy", "medium", "hard"],
       "subject_areas": ["science", "history", "geography", "computer-science"],
       "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
     }
-  }
+}
   
