@@ -66,6 +66,13 @@
         "description": "Body part 02",
         "topic": "Body part 02",
         "quiz_id": "maths_01_lines_angles"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/evs/evs_words_01.json",
+        "description": "Words pt-1",
+        "topic": "Words pt-1",
+        "quiz_id": "Words pt-1"
       }
     ],
     "Grammer": [
@@ -98,6 +105,13 @@
         "description": "English x",
         "topic": "English x",
         "quiz_id": "English x"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/evs/english_words_01.json",
+        "description": "Words pt-1",
+        "topic": "Words pt-1",
+        "quiz_id": "Words pt-1"
       }
     ],
     "Computer":[
