@@ -10,29 +10,7 @@ class QuizLoader {
 
     init() {
         this.loadQuizBtn?.addEventListener('click', () => this.handleLoadQuiz());
-        this.preventPullToRefresh();
     }
-
-    preventPullToRefresh() {
-        let maybePrevent = false;
-    
-        document.addEventListener('touchstart', (e) => {
-            if (window.scrollY === 0) {
-                maybePrevent = true;
-                this._startY = e.touches[0].clientY;
-            }
-        }, { passive: false });
-    
-        document.addEventListener('touchmove', (e) => {
-            const currentY = e.touches[0].clientY;
-    
-            if (maybePrevent && currentY > this._startY + 10) {
-                e.preventDefault();
-                maybePrevent = false; // prevent only once per gesture
-            }
-        }, { passive: false });
-    }
-    
 
     handleLoadQuiz() {
         if (!this.fileInput || this.fileInput.files.length === 0) {
