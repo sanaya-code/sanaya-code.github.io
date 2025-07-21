@@ -32,6 +32,48 @@
             ],
             "correct_answer": "C",
             "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "003",
+            "question": "बालक सदा किसकी सेवा करना चाहते हैं",
+            "options": [
+              {"id": "A", "text": "शहर की"},
+              {"id": "B", "text": "देश की"},
+              {"id": "C", "text": "प्रदेश की"}
+            ],
+            "correct_answer": "B",
+            "user_response" : ""
+        },
+        {
+          "type": "mcq",
+            "id": "004",
+            "question": "बच्चे ईश्वर से क्या वरदान मांग रहे हैं",
+            "options": [
+            {"id": "A", "text": "हमारा सब आज्ञा मिट जाए", "correct": true},
+            {"id": "B", "text": "हम पढ़ लिख कर महान बन जाएं", "correct": true},
+            {"id": "C", "text": "हम किसी का सम्मान ना करें", "correct": false},
+            {"id": "D", "text": "देश का नाम ऊंचा न करें", "correct": false},
+            {"id": "E", "text": "देश की सदा सेवा करें", "correct": true}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact",
+        },
+        {
+          "type": "mcq",
+            "id": "005",
+            "question": "",
+            "options": [
+            {"id": "A", "text": "पिंटू नदी किनारे रेत का घर बना रहा था ", "correct": false},
+            {"id": "B", "text": "पिंकी पिंटू का ताश का घर तोड़ देती है", "correct": true},
+            {"id": "C", "text": "पिंटू को अपनी गलती का एहसास हो जाता है", "correct": true}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact",
         }
       
   ],
