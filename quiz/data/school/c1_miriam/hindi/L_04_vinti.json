@@ -10,37 +10,37 @@
     },
     "questions": [
         {
-          "type": "mcq",
+          "type": "multi_select",
           "id": "001",
           "question": "बालक हाथ जोड़कर किससे विनती करते हैं ",
           "options": [
-            {"id": "A", "text": "भगवान से"},
-            {"id": "B", "text": "माता-पिता से"},
-            {"id": "C", "text": "अध्यापक से"}
+            {"id": "A", "text": "भगवान से", "correct": true},
+            {"id": "B", "text": "माता-पिता से", "correct": false},
+            {"id": "C", "text": "अध्यापक से", "correct": false}
           ],
           "correct_answer": "A",
           "user_response" : ""
         },
         {
-            "type": "mcq",
+            "type": "multi_select",
             "id": "002",
             "question": "पढ़ लिखकर बालक क्या बनना चाहते हैं",
             "options": [
-              {"id": "A", "text": "साहसी"},
-              {"id": "B", "text": "सुंदर"},
-              {"id": "C", "text": "महान"}
+              {"id": "A", "text": "साहसी", "correct": false},
+              {"id": "B", "text": "सुंदर", "correct": false},
+              {"id": "C", "text": "महान", "correct": true}
             ],
             "correct_answer": "C",
             "user_response" : ""
         },
         {
-            "type": "mcq",
+            "type": "multi_select",
             "id": "003",
             "question": "बालक सदा किसकी सेवा करना चाहते हैं",
             "options": [
-              {"id": "A", "text": "शहर की"},
-              {"id": "B", "text": "देश की"},
-              {"id": "C", "text": "प्रदेश की"}
+              {"id": "A", "text": "शहर की", "correct": false},
+              {"id": "B", "text": "देश की", "correct": true},
+              {"id": "C", "text": "प्रदेश की", "correct": false}
             ],
             "correct_answer": "B",
             "user_response" : ""
@@ -50,7 +50,7 @@
             "id": "004",
             "question": "बच्चे ईश्वर से क्या वरदान मांग रहे हैं",
             "options": [
-            {"id": "A", "text": "हमारा सब आज्ञा मिट जाए", "correct": false},
+            {"id": "A", "text": "हमारा सब अज्ञान मिट जाए", "correct": false},
             {"id": "B", "text": "हम पढ़ लिख कर महान बन जाएं", "correct": true},
             {"id": "C", "text": "हम किसी का सम्मान ना करें", "correct": false},
             {"id": "D", "text": "देश का नाम ऊंचा न करें", "correct": false},
