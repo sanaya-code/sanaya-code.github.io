@@ -46,7 +46,7 @@
             "user_response" : ""
         },
         {
-          "type": "mcq",
+          "type": "multi_select",
             "id": "004",
             "question": "बच्चे ईश्वर से क्या वरदान मांग रहे हैं",
             "options": [
@@ -62,7 +62,7 @@
           "scoring_method": "exact"
         },
         {
-          "type": "mcq",
+          "type": "multi_select",
             "id": "005",
             "question": "",
             "options": [
