@@ -74,6 +74,34 @@
           "minimum_selections": 1,
           "maximum_selections": 3,
           "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "भाषा के _________ रूप होते हैं ",
+            "options": [
+            {"id": "A", "text": "एक", "correct": false},
+            {"id": "B", "text": "दो", "correct": true},
+            {"id": "C", "text": "तीन", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "बोल सुनकर, लिख पड़ कर मन की बात एक दूसरे को समझाना _________ है",
+            "options": [
+            {"id": "A", "text": "संज्ञा", "correct": false},
+            {"id": "B", "text": "भाषा", "correct": true},
+            {"id": "C", "text": "लिंग", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
         }
       
   ],
