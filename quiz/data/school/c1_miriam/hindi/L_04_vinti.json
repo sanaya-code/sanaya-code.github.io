@@ -50,7 +50,7 @@
             "id": "004",
             "question": "बच्चे ईश्वर से क्या वरदान मांग रहे हैं",
             "options": [
-            {"id": "A", "text": "हमारा सब आज्ञा मिट जाए", "correct": true},
+            {"id": "A", "text": "हमारा सब आज्ञा मिट जाए", "correct": false},
             {"id": "B", "text": "हम पढ़ लिख कर महान बन जाएं", "correct": true},
             {"id": "C", "text": "हम किसी का सम्मान ना करें", "correct": false},
             {"id": "D", "text": "देश का नाम ऊंचा न करें", "correct": false},
@@ -67,7 +67,7 @@
             "question": "",
             "options": [
             {"id": "A", "text": "पिंटू नदी किनारे रेत का घर बना रहा था ", "correct": false},
-            {"id": "B", "text": "पिंकी पिंटू का ताश का घर तोड़ देती है", "correct": true},
+            {"id": "B", "text": "पिंकी पिंटू का ताश का घर तोड़ देती है", "correct": false},
             {"id": "C", "text": "पिंटू को अपनी गलती का एहसास हो जाता है", "correct": true}
           ],
           "user_response" : "",
