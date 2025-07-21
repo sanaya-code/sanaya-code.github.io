@@ -102,7 +102,7 @@
           "minimum_selections": 1,
           "maximum_selections": 3,
           "scoring_method": "exact"
-        },
+        }, 
         {
           "type": "multi_select",
             "id": "005",
@@ -111,6 +111,34 @@
             {"id": "A", "text": "एक", "correct": false},
             {"id": "B", "text": "दो", "correct": true},
             {"id": "C", "text": "तीन", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "हिंदी भाषा में कुल _________ स्वर हैं",
+            "options": [
+            {"id": "A", "text": "14", "correct": false},
+            {"id": "B", "text": "13", "correct": false},
+            {"id": "C", "text": "11", "correct": true}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "हिंदी भाषा में कुल _________ व्यंजन हैं",
+            "options": [
+            {"id": "A", "text": "33", "correct": true},
+            {"id": "B", "text": "34", "correct": false},
+            {"id": "C", "text": "35", "correct": false}
           ],
           "user_response" : "",
           "minimum_selections": 1,
