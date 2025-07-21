@@ -59,7 +59,7 @@
           "user_response" : "",
           "minimum_selections": 1,
           "maximum_selections": 3,
-          "scoring_method": "exact",
+          "scoring_method": "exact"
         },
         {
           "type": "mcq",
