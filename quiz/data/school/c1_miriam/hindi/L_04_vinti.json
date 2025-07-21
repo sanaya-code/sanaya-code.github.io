@@ -1,0 +1,44 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+          "type": "mcq",
+          "id": "001",
+          "question": "बालक हाथ जोड़कर किससे विनती करते हैं ",
+          "options": [
+            {"id": "A", "text": "भगवान से"},
+            {"id": "B", "text": "माता-पिता से"},
+            {"id": "C", "text": "अध्यापक से"}
+          ],
+          "correct_answer": "A",
+          "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "002",
+            "question": "पढ़ लिखकर बालक क्या बनना चाहते हैं",
+            "options": [
+              {"id": "A", "text": "साहसी"},
+              {"id": "B", "text": "सुंदर"},
+              {"id": "C", "text": "महान"}
+            ],
+            "correct_answer": "C",
+            "user_response" : ""
+        }
+      
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

@@ -108,11 +108,21 @@
       },
       {
         "id": "003",
-        "link": "data/school/c1_miriam/evs/english_words_01.json",
+        "link": "data/school/c1_miriam/english/english_words_01.json",
         "description": "Words pt-1",
         "topic": "Words pt-1",
         "quiz_id": "Words pt-1"
       }
+    ],
+    "Hindi":[
+      {
+        "id": "001",
+        "link": "data/school/c1_miriam/hindi/L_04_vinti.json",
+        "description": "vinti-04",
+        "topic": "vinti-04",
+        "quiz_id": "vinti-04"
+      }
+
     ],
     "Computer":[
       {
