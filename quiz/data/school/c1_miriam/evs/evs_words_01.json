@@ -56,6 +56,14 @@
         "items": ["P","R", "A", "N", "T", "E"],
         "correct_order": ["P", "A", "R", "E", "N", "T"],
         "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": "V  __   __   __   __    __",
+        "items": ["V","L", "A", "I", "E", "G"],
+        "correct_order": ["V", "I", "L", "L", "A", "G", "E"],
+        "user_response": ["", "", "", "", "", "", ""]
       }
   ],
     "taxonomy": {
