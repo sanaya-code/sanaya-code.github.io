@@ -102,6 +102,20 @@
           "minimum_selections": 1,
           "maximum_selections": 3,
           "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "वर्ण _________  प्रकार के होते है ",
+            "options": [
+            {"id": "A", "text": "एक", "correct": false},
+            {"id": "B", "text": "दो", "correct": true},
+            {"id": "C", "text": "तीन", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
         }
       
   ],
