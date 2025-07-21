@@ -45,7 +45,8 @@ class QuizDataLoader {
     static async fetchQuizFromCashUrl(url) {
         const cache = await caches.open('sami-quiz-cache');
         const cachedResponse = await cache.match(url);
-        
+        console.log(url);
+        console.log(cachedResponse);
         // If no cache exists, fetch fresh and cache it
         if (!cachedResponse) {
             console.log(" not chached: fetching from remote");
@@ -63,6 +64,7 @@ class QuizDataLoader {
             });
             
             if (networkResponse.status === 304) {
+                console.log(networkResponse);
                 console.log(" fetching from cache");
                 return await cachedResponse.json();
             }
