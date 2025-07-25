@@ -12,60 +12,75 @@
       {
         "type": "mcq",
         "id": "001",
-        "question": "Sense organ",
+        "question": "Biting an apple",
         "options": [
-          {"id": "A", "text": "leg"},
-          {"id": "B", "text": "Nose"}
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "eyes"}
         ],
         "correct_answer": "B"
       },
       {
         "type": "mcq",
         "id": "004",
-        "question": "Sense organ",
+        "question": "Listen to music",
         "options": [
-          {"id": "A", "text": "teeth"},
-          {"id": "B", "text": "tongue"}
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "eyes"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "Talk to friend",
+        "options": [
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "eyes"}
         ],
         "correct_answer": "B"
       },
       {
         "type": "mcq",
         "id": "005",
-        "question": "Sense organ",
+        "question": "Smelling a flower ",
         "options": [
-          {"id": "A", "text": "eyes"},
-          {"id": "B", "text": "neck"}
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "nose"}
         ],
-        "correct_answer": "A"
+        "correct_answer": "C"
       },
       {
         "type": "mcq",
         "id": "006",
-        "question": "Sense organ",
+        "question": "Kick a ball",
         "options": [
-          {"id": "A", "text": "skin"},
-          {"id": "B", "text": "hand"}
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "leg"},
+          {"id": "C", "text": "nose"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "008",
+        "question": "We have two hands",
+        "options": [
+          {"id": "A", "text": "yes"},
+          {"id": "B", "text": "no"}
         ],
         "correct_answer": "A"
       },
       {
         "type": "mcq",
         "id": "008",
-        "question": "Sense organ",
+        "question": "We taste with nose",
         "options": [
-          {"id": "A", "text": "chin"},
-          {"id": "B", "text": "ear"}
-        ],
-        "correct_answer": "B"
-      },
-      {
-        "type": "mcq",
-        "id": "009",
-        "question": "Our body has _________ parts",
-        "options": [
-          {"id": "A", "text": "one"},
-          {"id": "B", "text": "many"}
+          {"id": "A", "text": "yes"},
+          {"id": "B", "text": "no"}
         ],
         "correct_answer": "B"
       },
