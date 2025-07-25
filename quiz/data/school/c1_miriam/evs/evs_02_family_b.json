@@ -53,8 +53,7 @@
         ],
         "correct_answer": "C",
         "user_response" : ""
-      }, 
-      
+      }      
     ],
     "taxonomy": {
       "difficulty_levels": ["easy", "medium", "hard"],
