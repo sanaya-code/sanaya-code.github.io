@@ -119,6 +119,39 @@
         "user_response" : ""
       },
       {
+        "type": "mcq",
+        "id": "001",
+        "question": "_______ is the mother of your parents ",
+        "options": [
+          {"id": "A", "text": "Parents"},
+          {"id": "B", "text": "Grand mother"},
+          {"id": "C", "text": "siblings"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "We live with our friends",
+        "correct_answer": false,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "Father of father is grandfather",
+        "correct_answer": true,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "We should respect elders",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
         "type": "multi_fill_in_blank",
         "id": "003",
         "question": " Our body has ____ parts", 
