@@ -62,10 +62,17 @@
       },
       {
         "id": "002",
-        "link": "data/school/c1_miriam/evs/evs_01_b.json",
-        "description": "Body part 02",
-        "topic": "Body part 02",
-        "quiz_id": "maths_01_lines_angles"
+        "link": "data/school/c1_miriam/evs/evs_02_family_a.json",
+        "description": "Family 1",
+        "topic": "Family 1",
+        "quiz_id": "evs_02_family_a"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/evs/evs_02_family_b.json",
+        "description": "Family 2",
+        "topic": "Family 2",
+        "quiz_id": "evs_02_family_b"
       },
       {
         "id": "003",
