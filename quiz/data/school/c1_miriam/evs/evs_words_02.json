@@ -9,30 +9,6 @@
       "license": "CC BY-SA 4.0"
     },
     "questions": [
-      {
-        "type": "ordering_horizontal",
-        "id": "001",
-        "question": "B  __   __   __ ",
-        "items": ["B", "H", "T", "A"],
-        "correct_order": ["B", "A", "T", "H"],
-        "user_response": ["", "", "", ""]
-      },
-      {
-        "type": "ordering_horizontal",
-        "id": "001",
-        "question": "B  __   __   __   __",
-        "items": ["B", "S", "U", "R", "H"],
-        "correct_order": ["B", "R", "U", "S", "H"],
-        "user_response": ["", "", "", "", ""]
-      },
-      {
-        "type": "ordering_horizontal",
-        "id": "001",
-        "question": "C  __   __   __   __",
-        "items": ["C", "B", "O", "M"],
-        "correct_order": ["C", "O", "M", "B"],
-        "user_response": ["", "", "", "", ""]
-      }
   ],
     "taxonomy": {
       "difficulty_levels": ["easy", "medium", "hard"],
