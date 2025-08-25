@@ -1,0 +1,98 @@
+/* Tabs bar */
+#tabs-container {
+  display: flex;
+  background: #f7f7f7;
+  border-bottom: 2px solid #dedede;
+  margin-bottom: 0;
+  padding: 0 8px;
+  overflow-x: auto;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Tab buttons */
+.tab-btn {
+  background: none;
+  border: none;
+  color: #222;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 1.08rem;
+  padding: 15px 24px 13px 24px;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover:not(.active),
+.tab-btn:focus-visible:not(.active) {
+  color: #2368d2;
+}
+
+.tab-btn.active {
+  color: #132d42;
+  border-bottom: 2.5px solid #2074fc;
+  background: none;
+  pointer-events: none;
+}
+
+/* Content area */
+tab-component, .tab-content {
+  display: block;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 0;
+  padding: 28px 28px 20px 28px;
+  margin-top: 0;
+  margin-bottom: 18px;
+  min-height: 130px;
+  font-size: 1.08rem;
+  box-shadow: none;
+  color: #15395f;
+  line-height: 1.7;
+
+  /* Two column layout for links */
+  column-count: 2;
+  column-gap: 48px;
+}
+
+/* Resource/link style */
+.resource-link {
+  display: block;
+  color: #2368d2;
+  text-decoration: none;
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+  padding: 1px 0 1px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+  break-inside: avoid;
+  font-weight: 500;
+}
+
+.resource-link:hover,
+.resource-link:focus-visible {
+  color: #1b4486;
+  border-bottom: 1px solid #2074fc;
+  background: #f4f9ff;
+}
+
+/* Two column content collapses to single column on small screens */
+@media (max-width: 900px) {
+  tab-component, .tab-content {
+    column-count: 1;
+    padding: 18px 10px;
+  }
+  .resource-link {
+    margin-bottom: 14px;
+  }
+}
+
+/* Horizontally scroll tab bar if too many tabs */
+#tabs-container {
+  -webkit-overflow-scrolling: touch;
+}
