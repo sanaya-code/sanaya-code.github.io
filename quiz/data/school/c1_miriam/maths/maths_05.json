@@ -260,7 +260,98 @@
           "smallest": "",
           "greatest": ""
         }
-      }    
+      },
+      {
+        "type": "matching_connection",
+        "id": "013",
+        "question": "A   B   C   D    E    F   G   H",
+        "pairs": [
+          { "left": "A comes", "right": "First" },
+          { "left": "D comes", "right": "Fourth" },
+          { "left": "G comes", "right": "Seventh" },
+          { "left": "C comes", "right": "Third" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "013",
+        "question": "A   B   C   D    E    F    G   H",
+        "pairs": [
+          { "left": "B comes", "right": "Second" },
+          { "left": "E comes", "right": "Fifth" },
+          { "left": "F comes", "right": "Sixth" },
+          { "left": "H comes", "right": "Eighth" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "table_fill_in_the_blank",
+        "id": "005",
+        "question": "Write tens and ones :",
+        "column_labels": ["", "Ten", "ones"],
+        "row_labels": ["", "", ""],
+        "data": [
+          [
+            { "value": "13" },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+            { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+          ],
+          [
+            { "value": "18" },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+            { "value": "____", "correct_answer": "8", "acceptable_answers": ["8"] }
+          ],
+          [
+            { "value": "11" },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
+          ],
+          [
+            { "value": "17" },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+            { "value": "____", "correct_answer": "7", "acceptable_answers": ["7"] }
+          ]
+        ],
+        "user_response": [
+          ["2", "", ""],
+          ["", "6", ""],
+          ["", "", "12"]
+        ],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "015",
+        "question": "Ascending order:",
+        "items": ["16", "20", "17", "12", "14"],
+        "correct_order": ["12", "14", "16", "17", "20"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "015",
+        "question": "Descending order:",
+        "items": ["19", "15", "20", "14", "12"],
+        "correct_order": ["20", "19", "15", "14", "12"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "select_quantities_color",
+        "id": "19",
+        "question": "greater number green and smaller number red",
+        "quantities": [
+          {"id": "1", "value": 20},
+          {"id": "2", "value": 12}
+        ],
+        "required_selections": [
+          {"label": "Greatest", "key": "greatest"},
+          {"label": "Smallest", "key": "smallest"}
+        ],
+        "correct_answer": { "smallest": "2", "greatest": "1" },
+        "user_response":  {"smallest": "",  "greatest": ""}
+      }
   ],
   "taxonomy": {
     "difficulty_levels": ["easy", "medium", "hard"],
