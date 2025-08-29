@@ -1,4 +1,5 @@
-// mcq(mcq-question), true_false(true-false), multi_select(multi-select)
+// mcq(mcq-question), select_quantities(select-quantities), true_false(true-false)
+// multi_select(multi-select)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
@@ -27,6 +28,7 @@ class QuestionWrapperComponent extends HTMLElement {
     this.typeToComponentMap = {
       // json_key_name: 'html_tag_name'
       mcq: 'mcq-radio',
+      select_quantities: 'select-quantities',
       true_false: 'true-false',
       multi_select: 'multi-select',
       fill_in_blank: 'fill-in-blank',
