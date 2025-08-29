@@ -114,7 +114,7 @@
       {
         "type": "select_quantities",
         "id": "18",
-        "question": "Select the smallest and largest numbers from the list.",
+        "question": "Draw &#9675; on greatest and &#9633; on smallest",
         "quantities": [
           {"id": "1", "value": 12},
           {"id": "2", "value": 16},
@@ -127,6 +127,134 @@
         "correct_answer": {
           "smallest": "3",
           "greatest": "2"
+        },
+        "user_response": {
+          "smallest": "",
+          "greatest": ""
+        }
+      },
+      {
+        "type": "compare_quantities",
+        "id": "021",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "11"
+        },
+        "quantity_b": {
+          "value": "13"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "16"
+        },
+        "quantity_b": {
+          "value": "18"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "026",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "14"
+        },
+        "quantity_b": {
+          "value": "12"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "11"
+        },
+        "quantity_b": {
+          "value": "11"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "=",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "18"
+        },
+        "quantity_b": {
+          "value": "16"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {
+          "value": "10"
+        },
+        "quantity_b": {
+          "value": "10"
+        },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "=",
+        "user_response": ""
+      },
+      {
+        "type": "select_quantities",
+        "id": "21",
+        "question": "Draw &#9675; on greatest and &#9633; on smallest",
+        "quantities": [
+          {"id": "1", "value": 2},
+          {"id": "2", "value": 12},
+          {"id": "3", "value": 20}
+        ],
+        "required_selections": [
+          {"label": "Greatest", "key": "greatest"},
+          {"label": "Smallest", "key": "smallest"}
+        ],
+        "correct_answer": {
+          "smallest": "1",
+          "greatest": "3"
+        },
+        "user_response": {
+          "smallest": "",
+          "greatest": ""
+        }
+      },
+      {
+        "type": "select_quantities",
+        "id": "24",
+        "question": "Draw &#9675; on greatest and &#9633; on smallest",
+        "quantities": [
+          {"id": "1", "value": 16},
+          {"id": "2", "value": 14},
+          {"id": "3", "value": 19}
+        ],
+        "required_selections": [
+          {"label": "Greatest", "key": "greatest"},
+          {"label": "Smallest", "key": "smallest"}
+        ],
+        "correct_answer": {
+          "smallest": "2",
+          "greatest": "3"
         },
         "user_response": {
           "smallest": "",
