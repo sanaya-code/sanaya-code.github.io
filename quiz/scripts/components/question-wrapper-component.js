@@ -1,6 +1,6 @@
 // mcq(mcq-question)
 // select_quantities(select-quantities), select_quantities_color(select-quantities-color)
-// true_false(true-false), multi_select(multi-select)
+// true_false(true-false), multi_select(multi-select), multi_select_circle(multi-select-circle)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
@@ -33,6 +33,7 @@ class QuestionWrapperComponent extends HTMLElement {
       select_quantities: 'select-quantities',
       true_false: 'true-false',
       multi_select: 'multi-select',
+      multi_select_circle: 'multi-select-circle',
       fill_in_blank: 'fill-in-blank',
       multi_fill_in_blank: 'multi-fill-in-blank',
       options_fill_in_blank: 'options-fill-in-blank',

@@ -494,16 +494,8 @@
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
       "question": "click for appropriate symbol",
-      "quantity_a": {
-        "label": "A",
-        "value": "5",
-        "description": "Expression for car A's speed"
-      },
-      "quantity_b": {
-        "label": "B",
-        "value": "8",
-        "description": "Expression for car B's speed"
-      },
+      "quantity_a": { "label": "A", "value": "5" },
+      "quantity_b": { "label": "B", "value": "8"},
       "symbol_options": [" ", ">", "<", "="],
       "correct_answer": "<",
       "user_response": "",
@@ -590,6 +582,28 @@
       "tags": ["math", "number_comparison"],
       "points": 2,
       "time_limit": 45
+    },
+    {
+      "type": "multi_select_circle",
+      "id": "010",
+      "question": "Which of the following are programming languages? (Select all that apply)",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
+      "options": [
+        {"id": "A", "text": "Python", "correct": true},
+        {"id": "B", "text": "Linux", "correct": false},
+        {"id": "C", "text": "Java", "correct": true},
+        {"id": "D", "text": "Gimp", "correct": false},
+        {"id": "E", "text": "C++", "correct": true}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["computer-science", "programming"],
+      "points": 2,
+      "scoring_method": "exact",
+      "scoring_method_01": "partial"
     },
     {
       "type": "skip",

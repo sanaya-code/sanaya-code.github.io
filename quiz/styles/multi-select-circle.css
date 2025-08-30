@@ -1,0 +1,45 @@
+.msc-container {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+}
+
+.msc-question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.msc-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.msc-option {
+  padding: 10px 15px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+  text-align: center;
+}
+
+.msc-option:hover {
+  background-color: #e0e0e0;
+}
+
+.msc-option.selected {
+  border: 2px solid #007bff;
+  background-color: #e6f0ff;
+}
+
+@media (max-width: 600px) {
+  .msc-option {
+    min-width: 60px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}

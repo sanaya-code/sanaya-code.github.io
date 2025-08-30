@@ -137,12 +137,8 @@
         "type": "compare_quantities",
         "id": "021",
        "question": " Put > or < ",
-        "quantity_a": {
-          "value": "11"
-        },
-        "quantity_b": {
-          "value": "13"
-        },
+        "quantity_a": { "value": "11"},
+        "quantity_b": { "value": "13"},
         "symbol_options": [" ", ">", "<", "="],
         "correct_answer": "<",
         "user_response": ""
@@ -151,12 +147,8 @@
         "type": "compare_quantities",
         "id": "024",
        "question": " Put > or < ",
-        "quantity_a": {
-          "value": "16"
-        },
-        "quantity_b": {
-          "value": "18"
-        },
+        "quantity_a": {"value": "16"},
+        "quantity_b": {"value": "18"},
         "symbol_options": [" ", ">", "<", "="],
         "correct_answer": "<",
         "user_response": ""
@@ -165,12 +157,8 @@
         "type": "compare_quantities",
         "id": "026",
        "question": " Put > or < ",
-        "quantity_a": {
-          "value": "14"
-        },
-        "quantity_b": {
-          "value": "12"
-        },
+        "quantity_a": {"value": "14"},
+        "quantity_b": {"value": "12"},
         "symbol_options": [" ", ">", "<", "="],
         "correct_answer": ">",
         "user_response": ""
@@ -179,12 +167,8 @@
         "type": "compare_quantities",
         "id": "024",
        "question": " Put > or < ",
-        "quantity_a": {
-          "value": "11"
-        },
-        "quantity_b": {
-          "value": "11"
-        },
+        "quantity_a": {"value": "11"},
+        "quantity_b": {"value": "11"},
         "symbol_options": [" ", ">", "<", "="],
         "correct_answer": "=",
         "user_response": ""
@@ -193,12 +177,8 @@
         "type": "compare_quantities",
         "id": "024",
        "question": " Put > or < ",
-        "quantity_a": {
-          "value": "18"
-        },
-        "quantity_b": {
-          "value": "16"
-        },
+        "quantity_a": {"value": "18"},
+        "quantity_b": {"value": "16"},
         "symbol_options": [" ", ">", "<", "="],
         "correct_answer": ">",
         "user_response": ""
@@ -207,14 +187,40 @@
         "type": "compare_quantities",
         "id": "024",
        "question": " Put > or < ",
-        "quantity_a": {
-          "value": "10"
-        },
-        "quantity_b": {
-          "value": "10"
-        },
+        "quantity_a": {"value": "10"},
+        "quantity_b": {"value": "10" },
         "symbol_options": [" ", ">", "<", "="],
         "correct_answer": "=",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "2 tens"},
+        "quantity_b": {"value": "19" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "1 tens"},
+        "quantity_b": {"value": "1 ten 3 ones" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "1 tens 9 ones"},
+        "quantity_b": {"value": "1 ten 6 ones" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
         "user_response": ""
       },
       {
