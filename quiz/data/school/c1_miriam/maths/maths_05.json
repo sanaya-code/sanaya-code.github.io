@@ -112,28 +112,6 @@
         "user_response": ""
       },
       {
-        "type": "select_quantities",
-        "id": "18",
-        "question": "Draw &#9675; on greatest and &#9633; on smallest",
-        "quantities": [
-          {"id": "1", "value": 12},
-          {"id": "2", "value": 16},
-          {"id": "3", "value": 6}
-        ],
-        "required_selections": [
-          {"label": "Greatest", "key": "greatest"},
-          {"label": "Smallest", "key": "smallest"}
-        ],
-        "correct_answer": {
-          "smallest": "3",
-          "greatest": "2"
-        },
-        "user_response": {
-          "smallest": "",
-          "greatest": ""
-        }
-      },
-      {
         "type": "compare_quantities",
         "id": "021",
        "question": " Put > or < ",
@@ -224,50 +202,6 @@
         "user_response": ""
       },
       {
-        "type": "select_quantities",
-        "id": "21",
-        "question": "Draw &#9675; on greatest and &#9633; on smallest",
-        "quantities": [
-          {"id": "1", "value": 2},
-          {"id": "2", "value": 12},
-          {"id": "3", "value": 20}
-        ],
-        "required_selections": [
-          {"label": "Greatest", "key": "greatest"},
-          {"label": "Smallest", "key": "smallest"}
-        ],
-        "correct_answer": {
-          "smallest": "1",
-          "greatest": "3"
-        },
-        "user_response": {
-          "smallest": "",
-          "greatest": ""
-        }
-      },
-      {
-        "type": "select_quantities",
-        "id": "24",
-        "question": "Draw &#9675; on greatest and &#9633; on smallest",
-        "quantities": [
-          {"id": "1", "value": 16},
-          {"id": "2", "value": 14},
-          {"id": "3", "value": 19}
-        ],
-        "required_selections": [
-          {"label": "Greatest", "key": "greatest"},
-          {"label": "Smallest", "key": "smallest"}
-        ],
-        "correct_answer": {
-          "smallest": "2",
-          "greatest": "3"
-        },
-        "user_response": {
-          "smallest": "",
-          "greatest": ""
-        }
-      },
-      {
         "type": "matching_connection",
         "id": "013",
         "question": "A   B   C   D    E    F   G   H",
@@ -344,21 +278,6 @@
         "user_response": ["", "", "", "", ""]
       },
       {
-        "type": "select_quantities_color",
-        "id": "19",
-        "question": "greater number green and smaller number red",
-        "quantities": [
-          {"id": "1", "value": 20},
-          {"id": "2", "value": 12}
-        ],
-        "required_selections": [
-          {"label": "Greatest", "key": "greatest"},
-          {"label": "Smallest", "key": "smallest"}
-        ],
-        "correct_answer": { "smallest": "2", "greatest": "1" },
-        "user_response":  {"smallest": "",  "greatest": ""}
-      },
-      {
         "type": "multi_select_circle",
         "id": "010",
         "question": "Circle all the numbers which comes after 13",
@@ -426,6 +345,89 @@
         ],
         "correct_answer": { "smallest": "3", "greatest": "2" },
         "user_response": { "smallest": "", "greatest": "" }
+      },
+      {
+        "type": "multi_select_two",
+        "id": "18",
+        "question": "Highlight the largest and smallest numbers.",
+        "quantities": [ {"id": "1", "value": 20}, {"id": "2", "value": 12}],
+        "required_selections": [
+          {
+            "label": "Smallest", "key": "smallest",
+            "highlight_style": { "type": "color", "value": "red" }
+          },
+          {
+            "label": "Greatest", "key": "greatest",
+            "highlight_style": { "type": "color", "value": "green" }
+          }
+        ],
+        "correct_answer": { "smallest": "2", "greatest": "1" },
+        "user_response": { "smallest": "", "greatest": "" }
+      },
+      {
+        "type": "multi_select_two",
+        "id": "18",
+        "question": "Draw &#9675; on greatest and &#9633; on smallest",
+        "quantities": [
+          {"id": "1", "value": 12},
+          {"id": "2", "value": 16},
+          {"id": "3", "value": 6}
+        ],"required_selections": [
+          {
+            "label": "Smallest", "key": "smallest",
+            "highlight_style": { "type": "shape", "value": "square" }
+          },
+          {
+            "label": "Greatest", "key": "greatest",
+            "highlight_style": { "type": "shape", "value": "circle" }
+          }
+        ],
+        "correct_answer": { "smallest": "3", "greatest": "2" },
+        "user_response": { "smallest": "", "greatest": "" }
+      },
+      {
+        "type": "multi_select_two",
+        "id": "18",
+        "question": "Draw &#9675; on greatest and &#9633; on smallest",
+        "quantities": [
+          {"id": "1", "value": 2},
+          {"id": "2", "value": 12},
+          {"id": "3", "value": 20}
+        ],
+        "required_selections": [
+          {
+            "label": "Smallest", "key": "smallest",
+            "highlight_style": { "type": "shape", "value": "square" }
+          },
+          {
+            "label": "Greatest", "key": "greatest",
+            "highlight_style": { "type": "shape", "value": "circle" }
+          }
+        ],
+        "correct_answer": { "smallest": "1", "greatest": "3" },
+        "user_response": { "smallest": "", "greatest": "" }
+      },
+      {
+        "type": "select_quantities",
+        "id": "24",
+        "question": "Draw &#9675; on greatest and &#9633; on smallest",
+        "quantities": [
+          {"id": "1", "value": 16},
+          {"id": "2", "value": 14},
+          {"id": "3", "value": 19}
+        ],
+        "required_selections": [
+          {"label": "Greatest", "key": "greatest"},
+          {"label": "Smallest", "key": "smallest"}
+        ],
+        "correct_answer": {
+          "smallest": "2",
+          "greatest": "3"
+        },
+        "user_response": {
+          "smallest": "",
+          "greatest": ""
+        }
       }
   ],
   "taxonomy": {
