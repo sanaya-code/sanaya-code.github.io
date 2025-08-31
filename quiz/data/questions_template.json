@@ -538,52 +538,6 @@
       }
     },
     {
-      "type": "select_quantities",
-      "id": "18",
-      "question": "Draw circle(o) on largest and square([]) on smallest",
-      "quantities": [
-        {"id": "1", "value": 12},
-        {"id": "2", "value": 45},
-        {"id": "3", "value": 7},
-        {"id": "4", "value": 28},
-        {"id": "5", "value": 33}
-      ],
-      "required_selections": [
-        {"label": "Smallest", "key": "smallest"},
-        {"label": "Greatest", "key": "greatest"}
-      ],
-      "correct_answer": { "smallest": "3", "greatest": "2" },
-      "user_response":  {"smallest": "",  "greatest": ""},
-      "explanation": "7 is the smallest number and 45 is the greatest number in the list.",
-      "difficulty": "medium",
-      "tags": ["math", "number_comparison"],
-      "points": 2,
-      "time_limit": 45
-    },
-    {
-      "type": "select_quantities_color",
-      "id": "19",
-      "question": "greater number green and smaller number red",
-      "quantities": [
-        {"id": "1", "value": 12},
-        {"id": "2", "value": 45},
-        {"id": "3", "value": 7},
-        {"id": "4", "value": 28},
-        {"id": "5", "value": 33}
-      ],
-      "required_selections": [
-        {"label": "Smallest", "key": "smallest"},
-        {"label": "Greatest", "key": "greatest"}
-      ],
-      "correct_answer": { "smallest": "3", "greatest": "2" },
-      "user_response":  {"smallest": "",  "greatest": ""},
-      "explanation": "7 is the smallest number and 45 is the greatest number in the list.",
-      "difficulty": "medium",
-      "tags": ["math", "number_comparison"],
-      "points": 2,
-      "time_limit": 45
-    },
-    {
       "type": "multi_select_circle",
       "id": "010",
       "question": "Which of the following are programming languages? (Select all that apply)",

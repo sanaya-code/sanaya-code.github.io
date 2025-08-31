@@ -1,5 +1,4 @@
 // mcq(mcq-question)
-// select_quantities(select-quantities)
 // true_false(true-false), multi_select(multi-select), multi_select_circle(multi-select-circle)
 // multi_select_two(multi-select-two)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
@@ -77,7 +76,6 @@ class QuizResultEvaluator {
 
         const checkers = {
             mcq: () => userAnswer === question.correct_answer,
-            select_quantities: () => SelectQuantitiesEvaluator.checkAnswer(question, userAnswer),
             true_false: () => userAnswer === `${question.correct_answer}`,
             fill_in_blank: () => this.checkTextAnswer(
                 [question.correct_answer, ...(question.acceptable_answers || [])],
@@ -118,7 +116,6 @@ class QuizResultEvaluator {
 
         const formatters = {
             mcq: () => this.formatMcqAnswer(question, answer),
-            select_quantities: () => SelectQuantitiesEvaluator.formatUserAnswer(question, answer),
             true_false: () => answer ? 'True' : 'False',
             multi_select: () => this.formatMultiSelectAnswer(question, answer),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatUserAnswer(question, answer),
@@ -145,7 +142,6 @@ class QuizResultEvaluator {
     formatCorrectAnswer(question) {
         const formatters = {
             mcq: () => this.formatMcqCorrectAnswer(question),
-            select_quantities: () => SelectQuantitiesEvaluator.formatCorrectAnswer(question),
             true_false: () => question.correct_answer ? 'True' : 'False',
             fill_in_blank: () => question.correct_answer,
             multi_fill_in_blank: () => this.formatMultiFillCorrectAnswer(question),
