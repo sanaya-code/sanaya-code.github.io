@@ -1,6 +1,7 @@
 // mcq(mcq-question)
 // select_quantities(select-quantities), select_quantities_color(select-quantities-color)
 // true_false(true-false), multi_select(multi-select), multi_select_circle(multi-select-circle)
+// multi_select_two(multi-select-two)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
@@ -92,6 +93,7 @@ class QuizResultEvaluator {
             number_line_fill_in_blank: () => this.checkNumberLineFillInBlank(question, userAnswer),
             multi_select: () => this.checkMultiSelect(question, userAnswer),
             multi_select_circle: () => MultiSelectCircleEvaluator.checkAnswer(question, userAnswer),
+            multi_select_two: () => SelectTwoQuantitiesEvaluator.checkAnswer(question, userAnswer),
             ordering: () => this.arraysEqual(userAnswer, question.correct_order),
             ordering_horizontal: () => this.arraysEqual(userAnswer, question.correct_order),
             matching: () => this.checkMatching(question, userAnswer, false),
@@ -122,6 +124,7 @@ class QuizResultEvaluator {
             true_false: () => answer ? 'True' : 'False',
             multi_select: () => this.formatMultiSelectAnswer(question, answer),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatUserAnswer(question, answer),
+            multi_select_two: () => SelectTwoQuantitiesEvaluator.formatUserAnswer(question, answer),
             ordering: () => this.formatOrderingAnswer(question, answer),
             ordering_horizontal: () => answer.join(' → '),
             matching: () => this.formatMatchingAnswer(question, answer, false),
@@ -152,6 +155,7 @@ class QuizResultEvaluator {
             options_fill_in_blank: () => question.options.map(opt => opt.correct_answer).join(', '),
             multi_select: () => question.options.filter(opt => opt.correct).map(opt => opt.text).join(', '),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatCorrectAnswer(question),
+            multi_select_two: () => SelectTwoQuantitiesEvaluator.formatCorrectAnswer(question),
             table_fill_in_the_blank: () => this.formatTableCorrectAnswer(question),
             table_image_fill_in_the_blank: () => this.formatTableImageCorrectAnswer(question),
             table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColCorrectAnswer(question),

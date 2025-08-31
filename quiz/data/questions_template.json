@@ -606,6 +606,42 @@
       "scoring_method_01": "partial"
     },
     {
+      "type": "multi_select_two",
+      "id": "18",
+      "question": "Highlight the largest and smallest numbers.",
+      "quantities": [
+        { "id": "1", "value": 12 },
+        { "id": "2", "value": 45 },
+        { "id": "3", "value": 7 },
+        { "id": "4", "value": 28 },
+        { "id": "5", "value": 33 }
+      ],
+      "required_selections": [
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "color", "value": "red" }
+        },
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "shape", "value": "circle" }
+        }
+      ],
+      "correct_answer": { "smallest": "3", "greatest": "2" },
+      "user_response": { "smallest": "", "greatest": "" },
+      "available_highlight_styles": [
+        { "type": "shape", "value": "circle", "description": "Encircle the selection" },
+        { "type": "shape", "value": "square", "description": "Square border around selection" },
+        { "type": "color", "value": "red", "description": "Fill background with red" },
+        { "type": "color", "value": "green", "description": "Fill background with green" },
+        { "type": "mark", "value": "tick", "description": "Place a tick mark next to the selection" }
+      ],
+      "explanation": "7 is the smallest number and 45 is the greatest number in the list.",
+      "difficulty": "medium",
+      "tags": ["math", "number_comparison"],
+      "points": 2,
+      "time_limit": 45
+    },
+    {
       "type": "skip",
       "id": "020",
       "question": "Tick which are more in number."
