@@ -606,6 +606,24 @@
         { "a": 2, "b": "+" },
         { "a": 3, "b": "+" }
       ],
+      "value_choices": ["0", "1", "2", "3", "4", "5", "6"],
+      "correct_answer": ["3", "2", "1", "0"],
+      "user_response": ["", "", "", ""],
+      "difficulty": "medium",
+      "tags": ["math", "multiplication", "practice"],
+      "points": 3
+    },
+    {
+      "type": "fill_in_blank_multi_graph_text",
+      "id": "023",
+      "question": "Fill in the blanks to practice addition with 3.",
+      "center_label": "3",
+      "blocks": [
+        { "a": 0, "b": "+" },
+        { "a": 1, "b": "+" },
+        { "a": 2, "b": "+" },
+        { "a": 3, "b": "+" }
+      ],
       "correct_answer": ["3", "2", "1", "0"],
       "user_response": ["", "", "", ""],
       "difficulty": "medium",
@@ -614,7 +632,7 @@
     },    
     {
       "type": "skip",
-      "id": "023",
+      "id": "024",
       "question": "Tick which are more in number."
     }
   ],

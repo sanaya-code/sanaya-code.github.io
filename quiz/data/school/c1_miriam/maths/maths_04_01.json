@@ -9,40 +9,89 @@
     "license": "CC BY-SA 4.0"
   },
   "questions": [
-    
-    {
+      {
+        "type": "matching_drag_drop",
+        "id": "013",
+        "question": "  3 ",
+        "pairs": [
+          {"left": " 0   + ", "right": "3"},
+          {"left": " 1   + ", "right": "2"},
+          {"left": " 2   + ", "right": "1"},
+          {"left": " 3   + ", "right": "0"}
+        ],
+        "distractors": ["Radio", "Engine"],
+        "user_response" : "",
+        "difficulty": "hard",
+        "tags": ["history", "inventions"],
+        "points": 2
+      },
+      {
+        "type": "fill_in_blank_multi_graph",
+        "id": "08",
+        "question": "Fill in the blanks to practice addition with 3.",
+        "center_label": "3",
+        "blocks": [
+          { "a": 0, "b": "+" },
+          { "a": 1, "b": "+" },
+          { "a": 2, "b": "+" },
+          { "a": 3, "b": "+" }
+        ],
+        "value_choices": ["0", "1", "2", "3", "4", "5", "6"],
+        "correct_answer": ["3", "2", "1", "0"],
+        "user_response": ["", "", "", ""]
+      },
+      {
         "type": "table_fill_in_the_blank",
         "id": "005",
-        "question": " 3 ",
+        "question": " 4 ",
         "title": "Complete the Multiplication Table",
-        "column_labels": ["C1", "C2"],
-        "row_labels": ["", "", "", ""],
+        "column_labels": ["", ""],
+        "row_labels": ["", "", "", "", ""],
         "data": [
           [
-            { "value": " 0 + " },
-            { "value": "____", "correct_answer": "3", "acceptable_answers": ["2"] }
+            { "value": " 0   + " },
+            { "value": "____", "correct_answer": "5", "acceptable_answers": ["5"] }
           ],
           [
-            { "value": " 1 + " },
+            { "value": " 1   + " },
+            { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
+          ],
+          [
+            { "value": " 2   + " },
+            { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+          ],
+          [
+            { "value": " 3   + " },
             { "value": "____", "correct_answer": "2", "acceptable_answers": ["2"] }
           ],
           [
-            { "value": " 2 + " },
+            { "value": " 4   + " },
             { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
-          ],
-          [
-            { "value": " 3 + " },
-            { "value": "____", "correct_answer": "1", "acceptable_answers": ["0"] }
           ]
         ],
         "user_response": [
           ["0", ""],
           ["1", ""],
           ["2", ""],
-          ["3", ""]
+          ["3", ""],
+          ["4", ""]
         ],
         "case_sensitive": false,
         "scoring_method": "exact"
+      },
+      {
+        "type": "fill_in_blank_multi_graph",
+        "id": "11",
+        "question": "Fill in the blanks to practice addition with 3.",
+        "center_label": "2",
+        "blocks": [
+          { "a": 0, "b": "+" },
+          { "a": 1, "b": "+" },
+          { "a": 2, "b": "+" }
+        ],
+        "value_choices": ["0", "1", "2", "3", "4", "5", "6"],
+        "correct_answer": ["2", "1", "0"],
+        "user_response": ["", "", ""]
       }
   ],
   "taxonomy": {

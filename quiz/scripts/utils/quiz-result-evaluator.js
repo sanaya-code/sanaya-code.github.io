@@ -3,6 +3,7 @@
 // multi_select_two(multi-select-two)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
 // fill_in_blank_multi_graph(fill-in-blank-multi-graph),
+// fill_in_blank_multi_graph_text(fill-in-blank-multi-graph-text)
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
@@ -84,6 +85,7 @@ class QuizResultEvaluator {
                 question.case_sensitive
             ),
             fill_in_blank_multi_graph: () => FillInTheBlankMutiGraph.checkAnswer(question, userAnswer),
+            fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.checkAnswer(question, userAnswer),
             multi_fill_in_blank: () => this.checkMultiFillInBlank(question, userAnswer),
             options_fill_in_blank: () => this.checkOptionsFillInBlank(question, userAnswer),
             table_fill_in_the_blank: () => this.checkTableFillInBlank(question, userAnswer),
@@ -120,6 +122,7 @@ class QuizResultEvaluator {
             mcq: () => this.formatMcqAnswer(question, answer),
             true_false: () => answer ? 'True' : 'False',
             fill_in_blank_multi_graph: () => FillInTheBlankMutiGraph.formatUserAnswer(question, answer),
+            fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.formatUserAnswer(question, answer),
             multi_select: () => this.formatMultiSelectAnswer(question, answer),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatUserAnswer(question, answer),
             multi_select_two: () => SelectTwoQuantitiesEvaluator.formatUserAnswer(question, answer),
@@ -148,6 +151,7 @@ class QuizResultEvaluator {
             true_false: () => question.correct_answer ? 'True' : 'False',
             fill_in_blank: () => question.correct_answer,
             fill_in_blank_multi_graph: () => FillInTheBlankMutiGraph.formatCorrectAnswer(question),
+            fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.formatCorrectAnswer(question),
             multi_fill_in_blank: () => this.formatMultiFillCorrectAnswer(question),
             options_fill_in_blank: () => question.options.map(opt => opt.correct_answer).join(', '),
             multi_select: () => question.options.filter(opt => opt.correct).map(opt => opt.text).join(', '),

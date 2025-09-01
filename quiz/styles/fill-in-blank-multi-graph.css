@@ -1,71 +1,90 @@
-.fibmg-container {
+.fibg-container {
   text-align: center;
-  margin: 20px;
-}
-
-.fibmg-question {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.fibmg-board {
-  position: relative;
-  width: 100%;
   max-width: 500px;
-  height: 400px;
   margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 
-.fibmg-lines {
+.fibg-question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.fibg-graph {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 20px auto;
+}
+
+.fibg-center {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: center;
   z-index: 1;
 }
 
-.fibmg-lines line {
-  stroke: #aaa;
-  stroke-width: 2;
-}
-
-.fibmg-center {
+.fibg-block {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  background-color: #2196f3;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  z-index: 2;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.fibmg-block {
-  position: absolute;
-  background: #f9f9f9;
-  padding: 5px 10px;
+  width: 80px;
+  height: 40px;
+  background: #f0f0f0;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  gap: 5px;
-  z-index: 3;
+  cursor: pointer;
+  z-index: 2;
 }
 
-.fibmg-label {
+.fibg-block.active {
+  border: 2px solid #007bff;
+}
+
+.fibg-label,
+.fibg-operator,
+.fibg-selected {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.fibg-selected {
+  color: #007bff;
+}
+
+.fibg-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.fibg-choices {
+  margin-top: 20px;
+}
+
+.fibg-choice {
+  background: #ddd;
+  border: none;
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 14px;
 }
 
-.fibmg-input {
-  width: 40px;
-  height: 25px;
-  text-align: center;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.fibg-choice:hover {
+  background: #007bff;
+  color: #fff;
 }

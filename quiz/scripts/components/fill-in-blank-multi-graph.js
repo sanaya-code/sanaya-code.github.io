@@ -1,102 +1,142 @@
-class CentralBlockPractice extends HTMLElement {
+class FillInBlankMultiGraph extends HTMLElement {
   constructor() {
     super();
     this._config = {};
+    this._responses = [];
   }
 
   static get observedAttributes() {
-    return ['config'];
+    return ["config"];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'config' && newValue) {
-      this._config = JSON.parse(newValue);
+    if (name === "config" && newValue) {
+      this._setConfig(newValue);
       this.render();
     }
   }
 
   connectedCallback() {
-    if (this.hasAttribute('config')) {
-      this._config = JSON.parse(this.getAttribute('config'));
+    if (this.hasAttribute("config")) {
+      this._setConfig(this.getAttribute("config"));
       this.render();
     }
   }
 
+  _setConfig(configStr) {
+    this._config = JSON.parse(configStr);
+    this._responses = Array.isArray(this._config.user_response)
+      ? [...this._config.user_response]
+      : Array(this._config.blocks.length).fill("");
+  }
+
   render() {
-    const { question, center_label, blocks } = this._config;
+    const { question, center_label, blocks, value_choices } = this._config;
+
     this.innerHTML = `
-      <div class="fibmg-container">
-        <h3 class="fibmg-question">${question}</h3>
-        <div class="fibmg-board">
-          <svg class="fibmg-lines"></svg>
-          <div class="fibmg-center">${center_label}</div>
+      <div class="fibg-container">
+        <div class="fibg-question">${question}</div>
+        <div class="fibg-graph">
+          <div class="fibg-center">${center_label}</div>
           ${blocks
             .map(
-              (b, i) => `
-            <div class="fibmg-block" data-index="${i}">
-              <div class="fibmg-label">${b.a} ${b.b}</div>
-              <input class="fibmg-input" type="text" />
-            </div>
-          `
+              (block, idx) => `
+            <div class="fibg-block" data-index="${idx}">
+              <span class="fibg-label">${block.a}</span>
+              <span class="fibg-operator">${block.b}</span>
+              <span class="fibg-selected">${this._responses[idx] || "__"}</span>
+            </div>`
             )
-            .join('')}
+            .join("")}
+          <svg class="fibg-lines"></svg>
+        </div>
+        <div class="fibg-choices">
+          ${value_choices
+            .map(
+              val => `<button class="fibg-choice" data-value="${val}">${val}</button>`
+            )
+            .join("")}
         </div>
       </div>
     `;
 
     this._positionBlocks();
+    this._attachListeners();
   }
 
   _positionBlocks() {
-    const board = this.querySelector('.fibmg-board');
-    const center = this.querySelector('.fibmg-center');
-    const blocks = this.querySelectorAll('.fibmg-block');
-    const svg = this.querySelector('.fibmg-lines');
+    const graph = this.querySelector(".fibg-graph");
+    const blocks = graph.querySelectorAll(".fibg-block");
+    const svg = graph.querySelector(".fibg-lines");
+    const radius = 100;
+    const angleStep = (2 * Math.PI) / blocks.length;
 
-    const rect = board.getBoundingClientRect();
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const radius = Math.min(rect.width, rect.height) / 2.5;
+    const centerX = graph.clientWidth / 2;
+    const centerY = graph.clientHeight / 2;
 
-    svg.setAttribute('width', rect.width);
-    svg.setAttribute('height', rect.height);
-    svg.innerHTML = '';
+    svg.innerHTML = ""; // clear old lines
 
-    blocks.forEach((block, i) => {
-      const angle = (2 * Math.PI * i) / blocks.length;
-      const x = cx + radius * Math.cos(angle);
-      const y = cy + radius * Math.sin(angle);
+    blocks.forEach((block, idx) => {
+      const angle = idx * angleStep - Math.PI / 2;
+      const x = centerX + radius * Math.cos(angle);
+      const y = centerY + radius * Math.sin(angle);
 
       block.style.left = `${x - block.offsetWidth / 2}px`;
       block.style.top = `${y - block.offsetHeight / 2}px`;
 
-      // Draw line
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', cx);
-      line.setAttribute('y1', cy);
-      line.setAttribute('x2', x);
-      line.setAttribute('y2', y);
+      // draw a line from center to block
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", centerX);
+      line.setAttribute("y1", centerY);
+      line.setAttribute("x2", x);
+      line.setAttribute("y2", y);
+      line.setAttribute("stroke", "#aaa");
+      line.setAttribute("stroke-width", "2");
       svg.appendChild(line);
     });
+  }
 
-    // Position center
-    center.style.left = `${cx - center.offsetWidth / 2}px`;
-    center.style.top = `${cy - center.offsetHeight / 2}px`;
+  _attachListeners() {
+    const blocks = this.querySelectorAll(".fibg-block");
+    const choices = this.querySelectorAll(".fibg-choice");
+
+    let activeIndex = null;
+
+    // Click a block to activate it
+    blocks.forEach(block => {
+      block.addEventListener("click", () => {
+        blocks.forEach(b => b.classList.remove("active"));
+        block.classList.add("active");
+        activeIndex = parseInt(block.dataset.index);
+      });
+    });
+
+    // Click a choice to assign value
+    choices.forEach(choice => {
+      choice.addEventListener("click", () => {
+        if (activeIndex === null) return;
+        const value = choice.dataset.value;
+        this._responses[activeIndex] = value;
+        this.render();
+        this._emitChange();
+      });
+    });
+  }
+
+  _emitChange() {
+    this.dispatchEvent(
+      new CustomEvent("input-change", {
+        detail: { user_response: this.getUserAnswer() }
+      })
+    );
   }
 
   getUserAnswer() {
-    const answers = [];
-    const blocks = this.querySelectorAll('.fibmg-block');
-    blocks.forEach((block, i) => {
-      const input = block.querySelector('.fibmg-input').value.trim();
-      // answers[`block_${i}`] = input;
-      answers[i] = input;
-    });
-    return answers;
+    return [...this._responses];
   }
 }
 
-customElements.define('fill-in-blank-multi-graph', CentralBlockPractice);
+customElements.define("fill-in-blank-multi-graph", FillInBlankMultiGraph);
 
 /*
 
