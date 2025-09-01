@@ -53,10 +53,17 @@
       },
       {
         "id": "014",
-        "link": "data/school/c1_miriam/maths/maths_05.json",
-        "topic": "10 20",
-        "description": "10 20",
-        "quiz_id": "maths_05_Numbers"
+        "link": "data/school/c1_miriam/maths/maths_05_01.json",
+        "topic": "U5 01",
+        "description": "U5 01",
+        "quiz_id": "U5 01"
+      },
+      {
+        "id": "015",
+        "link": "data/school/c1_miriam/maths/maths_05_02.json",
+        "topic": "U5 02",
+        "description": "U5 02",
+        "quiz_id": "U5 02"
       }
     ],
     "EVS": [
