@@ -10,22 +10,6 @@
   },
   "questions": [
       {
-        "type": "matching_drag_drop",
-        "id": "013",
-        "question": "  3 ",
-        "pairs": [
-          {"left": " 0   + ", "right": "3"},
-          {"left": " 1   + ", "right": "2"},
-          {"left": " 2   + ", "right": "1"},
-          {"left": " 3   + ", "right": "0"}
-        ],
-        "distractors": ["Radio", "Engine"],
-        "user_response" : "",
-        "difficulty": "hard",
-        "tags": ["history", "inventions"],
-        "points": 2
-      },
-      {
         "type": "fill_in_blank_multi_graph",
         "id": "08",
         "question": "Fill in the blanks to practice addition with 3.",
@@ -83,15 +67,88 @@
         "type": "fill_in_blank_multi_graph",
         "id": "11",
         "question": "Fill in the blanks to practice addition with 3.",
-        "center_label": "2",
+        "center_label": "5",
         "blocks": [
           { "a": 0, "b": "+" },
           { "a": 1, "b": "+" },
-          { "a": 2, "b": "+" }
+          { "a": 2, "b": "+" },
+          { "a": 3, "b": "+" },
+          { "a": 4, "b": "+" },
+          { "a": 5, "b": "+" }
         ],
-        "value_choices": ["0", "1", "2", "3", "4", "5", "6"],
-        "correct_answer": ["2", "1", "0"],
-        "user_response": ["", "", ""]
+        "value_choices": ["4", "5", "2", "1", "0", "3", "6"],
+        "correct_answer":["5", "4", "3", "2", "1", "0"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "Make number 7",
+        "options": [
+          { "id": "01", "text": " 7 +  ____ .", "correct_answer": "0" },
+          { "id": "02", "text": " 4 +  ____ .", "correct_answer": "3" },
+          { "id": "03", "text": " 2 +  ____ .", "correct_answer": "5" },
+          { "id": "04", "text": " 0 +  ____ .", "correct_answer": "7" }
+        ],
+        "user_response": ["", "", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "Make number 5",
+        "options": [
+          { "id": "01", "text": " 5 +  ____ .", "correct_answer": "0" },
+          { "id": "02", "text": " 2 +  ____ .", "correct_answer": "3" },
+          { "id": "03", "text": " 4 +  ____ .", "correct_answer": "1" },
+          { "id": "04", "text": " 0 +  ____ .", "correct_answer": "5" }
+        ],
+        "user_response": ["", "", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " out of ____ cups take away ____ cups, ____ cups are left", 
+        "img_url": "data/school/c1_miriam/images/numbers_04.jpg",
+        "blanks": [
+          { "position": 1, "correct_answer": "6"},
+          { "position": 2, "correct_answer": "3" },
+          { "position": 3, "correct_answer": "3" }
+        ],
+        "user_response": ["", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " out of ____ mangoes take away ____ mangoes, ____ mangoes are left", 
+        "img_url": "data/school/c1_miriam/images/numbers_05.jpg",
+        "blanks": [
+          { "position": 1, "correct_answer": "6"},
+          { "position": 2, "correct_answer": "2" },
+          { "position": 3, "correct_answer": "4" }
+        ],
+        "user_response": ["", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " out of ____ apples take away ____ apples, ____ mangoes are left", 
+        "img_url": "data/school/c1_miriam/images/numbers_06.jpg",
+        "blanks": [
+          { "position": 1, "correct_answer": "5"},
+          { "position": 2, "correct_answer": "2" },
+          { "position": 3, "correct_answer": "3" }
+        ],
+        "user_response": ["", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
       }
   ],
   "taxonomy": {
