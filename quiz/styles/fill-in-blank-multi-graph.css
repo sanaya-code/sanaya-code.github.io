@@ -1,0 +1,71 @@
+.fibmg-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.fibmg-question {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.fibmg-board {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.fibmg-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.fibmg-lines line {
+  stroke: #aaa;
+  stroke-width: 2;
+}
+
+.fibmg-center {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #2196f3;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.fibmg-block {
+  position: absolute;
+  background: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 3;
+}
+
+.fibmg-label {
+  font-size: 14px;
+}
+
+.fibmg-input {
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

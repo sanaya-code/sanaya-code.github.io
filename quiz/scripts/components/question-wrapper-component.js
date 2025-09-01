@@ -2,6 +2,7 @@
 // true_false(true-false), multi_select(multi-select), multi_select_circle(multi-select-circle)
 // multi_select_two(multi-select-two)
 // fill_in_blank(fill-in-blank), multi_fill_in_blank(multi-fill-in-blank)
+// fill_in_blank_multi_graph(fill-in-blank-multi-graph),
 // options_fill_in_blank(options-fill-in-blank)
 // table_fill_in_the_blank(table-fill-in-the-blank)
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
@@ -34,6 +35,7 @@ class QuestionWrapperComponent extends HTMLElement {
       multi_select_two: 'multi-select-two',
       multi_select_circle: 'multi-select-circle',
       fill_in_blank: 'fill-in-blank',
+      fill_in_blank_multi_graph: 'fill-in-blank-multi-graph',
       multi_fill_in_blank: 'multi-fill-in-blank',
       options_fill_in_blank: 'options-fill-in-blank',
       table_fill_in_the_blank:'table-fill-in-the-blank',

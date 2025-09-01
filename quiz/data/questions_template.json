@@ -144,9 +144,9 @@
         ]
       ],
       "user_response": [
-        ["2", "", ""],
-        ["", "6", ""],
-        ["", "", "12"]
+        ["1", "", ""],
+        ["", "5", ""],
+        ["", "", "9"]
       ],
       "case_sensitive": false,
       "points": 6,
@@ -271,7 +271,7 @@
     },
     {
       "type": "number_line_fill_in_blank",
-      "id": "007",
+      "id": "008",
       "question": "Fill in the missing multiples of 3:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -294,7 +294,7 @@
     }, 
     {
       "type": "true_false",
-      "id": "008",
+      "id": "009",
       "question": "Water is solid.",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -307,7 +307,7 @@
     },
     {
       "type": "short_answer",
-      "id": "009",
+      "id": "010",
       "question": "Name of person, place or thing",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -328,7 +328,7 @@
     },
     {
       "type": "multi_select",
-      "id": "010",
+      "id": "011",
       "question": "Which of the following are programming languages? (Select all that apply)",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -350,7 +350,7 @@
     },
     {
       "type": "matching",
-      "id": "011",
+      "id": "012",
       "question": "Match the following:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -367,7 +367,7 @@
     },
     {
       "type": "matching_drag_drop",
-      "id": "012",
+      "id": "013",
       "question": "Match the inventors with their inventions:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -384,7 +384,7 @@
     },
     {
       "type": "matching_connection",
-      "id": "013",
+      "id": "014",
       "question": "Match the following software with their categories:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -398,7 +398,7 @@
     },
     {
       "type": "matching_connection_image",
-      "id": "014",
+      "id": "015",
       "question": "Connect each image to its correct property:",
       "rows": [
         {
@@ -462,7 +462,7 @@
     },
     {
       "type": "ordering",
-      "id": "015",
+      "id": "016",
       "question": "Arrange these events in order:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -480,7 +480,7 @@
     },
     {
       "type": "ordering_horizontal",
-      "id": "015",
+      "id": "017",
       "question": "Arrange these in order:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -490,7 +490,7 @@
     },
     {
       "type": "compare_quantities",
-      "id": "016",
+      "id": "018",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
       "question": "click for appropriate symbol",
@@ -506,7 +506,7 @@
     },
     {
       "type": "image_compare_quantities_tick",
-      "id": "017",
+      "id": "019",
       "question": "Tick which are more in number.",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
       "partition_direction": "vertical",
@@ -539,7 +539,7 @@
     },
     {
       "type": "multi_select_circle",
-      "id": "010",
+      "id": "020",
       "question": "Which of the following are programming languages? (Select all that apply)",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "https://media.baamboozle.com/uploads/images/156912/1647154273_67713.png",
@@ -561,7 +561,7 @@
     },
     {
       "type": "multi_select_two",
-      "id": "18",
+      "id": "21",
       "question": "Highlight the largest and smallest numbers.",
       "quantities": [
         { "id": "1", "value": 12 },
@@ -596,8 +596,25 @@
       "time_limit": 45
     },
     {
+      "type": "fill_in_blank_multi_graph",
+      "id": "022",
+      "question": "Fill in the blanks to practice addition with 3.",
+      "center_label": "3",
+      "blocks": [
+        { "a": 0, "b": "+" },
+        { "a": 1, "b": "+" },
+        { "a": 2, "b": "+" },
+        { "a": 3, "b": "+" }
+      ],
+      "correct_answer": ["3", "2", "1", "0"],
+      "user_response": ["", "", "", ""],
+      "difficulty": "medium",
+      "tags": ["math", "multiplication", "practice"],
+      "points": 3
+    },    
+    {
       "type": "skip",
-      "id": "020",
+      "id": "023",
       "question": "Tick which are more in number."
     }
   ],

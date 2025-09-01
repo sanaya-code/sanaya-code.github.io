@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    
+    {
+        "type": "table_fill_in_the_blank",
+        "id": "005",
+        "question": " 3 ",
+        "title": "Complete the Multiplication Table",
+        "column_labels": ["C1", "C2"],
+        "row_labels": ["", "", "", ""],
+        "data": [
+          [
+            { "value": " 0 + " },
+            { "value": "____", "correct_answer": "3", "acceptable_answers": ["2"] }
+          ],
+          [
+            { "value": " 1 + " },
+            { "value": "____", "correct_answer": "2", "acceptable_answers": ["2"] }
+          ],
+          [
+            { "value": " 2 + " },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
+          ],
+          [
+            { "value": " 3 + " },
+            { "value": "____", "correct_answer": "1", "acceptable_answers": ["0"] }
+          ]
+        ],
+        "user_response": [
+          ["0", ""],
+          ["1", ""],
+          ["2", ""],
+          ["3", ""]
+        ],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
