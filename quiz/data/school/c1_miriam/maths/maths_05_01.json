@@ -188,6 +188,19 @@
         "user_response": ""
       },
       {
+        "type": "matching_connection",
+        "id": "013",
+        "question": "Match",
+        "pairs": [
+          { "left": "2 tens", "right": "20" },
+          { "left": "1 tens 4 ones", "right": "14" },
+          { "left": "1 tens 3 ones", "right": "13" },
+          { "left": "1 tens 9 ones", "right": "19" },
+          { "left": "1 tens", "right": "10" }
+        ],
+        "user_response": ""
+      },
+      {
         "type": "compare_quantities",
         "id": "024",
        "question": " Put > or < ",
