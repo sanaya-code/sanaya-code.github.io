@@ -629,10 +629,27 @@
       "difficulty": "medium",
       "tags": ["math", "multiplication", "practice"],
       "points": 3
-    },    
+    },
+    {
+      "id": "24",
+      "type": "number_line_arcs",
+      "question": "Add 2 + 4",
+      "points": [0,1,2,3,4,5,6,7,8,9,10],
+      "number_line": { "start": 0, "end": 10, "step": 1 },
+      "pairs": [[2,7],[7,3]],
+      "user_response": [ ],
+      "explanation": "The first arc represents moving from 2 to 7 (adding 5). The second arc represents moving from 7 to 3 (subtracting 4).",
+      "metadata": {
+        "difficulty": "medium",
+        "points": 2,
+        "scoring_method": "exact",
+        "scoring_method_01": "partial",
+        "tags": ["number line", "addition", "subtraction"]
+      }
+    },
     {
       "type": "skip",
-      "id": "024",
+      "id": "025",
       "question": "Tick which are more in number."
     }
   ],

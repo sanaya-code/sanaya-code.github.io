@@ -9,6 +9,7 @@
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
 // table_image_fill_in_the_blank_2_col(table-image-fill-in-the-blank-2-col)
 // number_line_fill_in_blank(number-line-fill-in-blank)
+// number_line_arcs(number-line-arcs)
 // short_answer(short-answer),
 // matching(matching-select), matching_drag_drop(matching-drag-drop)
 // matching_connection(matching-connection)
@@ -92,6 +93,7 @@ class QuizResultEvaluator {
             table_image_fill_in_the_blank: () => this.checkTableImageFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank_2_col: () => this.checkTableImage2ColFillInBlank(question, userAnswer),
             number_line_fill_in_blank: () => this.checkNumberLineFillInBlank(question, userAnswer),
+            number_line_arcs: () => NumberLineArcsEvaluator.checkAnswer(question, userAnswer),
             multi_select: () => this.checkMultiSelect(question, userAnswer),
             multi_select_circle: () => MultiSelectCircleEvaluator.checkAnswer(question, userAnswer),
             multi_select_two: () => SelectTwoQuantitiesEvaluator.checkAnswer(question, userAnswer),
@@ -137,6 +139,7 @@ class QuizResultEvaluator {
             table_image_fill_in_the_blank: () => this.formatTableImageUserAnswer(question, answer),
             table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColUserAnswer(question, answer),
             number_line_fill_in_blank: () => this.formatNumberLineUserAnswer(question, answer),
+            number_line_arcs: () => NumberLineArcsEvaluator.formatUserAnswer(question, answer),
             compare_quantities: () => answer,
             image_compare_quantities_tick: () => answer === 'left' ? 'Left side' : 'Right side',
             default: () => answer
@@ -161,6 +164,7 @@ class QuizResultEvaluator {
             table_image_fill_in_the_blank: () => this.formatTableImageCorrectAnswer(question),
             table_image_fill_in_the_blank_2_col: () => this.formatTableImage2ColCorrectAnswer(question),
             number_line_fill_in_blank: () => this.formatNumberLineCorrectAnswer(question),
+            number_line_arcs: () => NumberLineArcsEvaluator.formatCorrectAnswer(question),
             ordering: () => this.formatOrderingCorrectAnswer(question),
             ordering_horizontal: () => question.correct_order.join(' → '),
             matching: () => this.formatMatchingCorrectAnswer(question),

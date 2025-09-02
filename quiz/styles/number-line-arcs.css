@@ -1,0 +1,17 @@
+.number-line-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .number-line-svg {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+  }
+  
+  .number-point {
+    fill: orange;
+    stroke: black;
+    cursor: pointer;
+  }
+  
