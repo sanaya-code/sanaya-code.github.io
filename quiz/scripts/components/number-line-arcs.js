@@ -6,12 +6,12 @@ class NumberLineArcs extends HTMLElement {
     this.arcsGroup = null;
     this.selectedPoints = [];
     this.userResponse = [];
+    this.activePoint = null; // Track the active (highlighted) point
   }
 
   connectedCallback() {
     this.data = JSON.parse(this.getAttribute("config"));
 
-    // Generate points dynamically if not defined
     if (!this.data.points && this.data.number_line) {
       const { start, end, step } = this.data.number_line;
       this.data.points = [];
@@ -28,7 +28,7 @@ class NumberLineArcs extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="number-line-question">
-          <p class="number-line-question-text">${this.data.question || ""}</p>
+        <p class="number-line-question-text">${this.data.question || ""}</p>
       </div>
       <div class="number-line-container">
         <svg class="number-line-svg"></svg>
@@ -79,43 +79,59 @@ class NumberLineArcs extends HTMLElement {
     });
   }
 
+  highlightPoint(value) {
+    const circle = this.svg.querySelector(`circle[data-value='${value}']`);
+    if (circle) {
+      // circle.setAttribute("fill", "red");
+      circle.style.fill = "red";
+    }
+    this.activePoint = value;
+  }
+
+  resetHighlight() {
+    if (this.activePoint !== null) {
+      const circle = this.svg.querySelector(`circle[data-value='${this.activePoint}']`);
+      if (circle) {
+        // circle.setAttribute("fill", "orange");
+        circle.style.fill = "orange";
+      }
+      this.activePoint = null;
+    }
+  }
+
   handlePointClick(value) {
     if (this.selectedPoints.length === 0) {
       this.selectedPoints.push(value);
+      this.highlightPoint(value);
     } else if (this.selectedPoints.length === 1) {
       const first = this.selectedPoints[0];
       const second = value;
 
       if (first === second) {
-        // Handle self-loop
         const existingIndex = this.userResponse.findIndex(
           pair => pair[0] === first && pair[1] === first
         );
-
         if (existingIndex !== -1) {
-          // Remove existing self-loop
           this.userResponse.splice(existingIndex, 1);
         } else {
-          // Add new self-loop
           this.userResponse.push([first, first]);
         }
       } else {
-        // Handle normal arc
         const existingIndex = this.userResponse.findIndex(
-          pair => (pair[0] === first && pair[1] === second) || (pair[0] === second && pair[1] === first)
+          pair =>
+            (pair[0] === first && pair[1] === second) ||
+            (pair[0] === second && pair[1] === first)
         );
-
         if (existingIndex !== -1) {
-          // Remove arc if clicked again
           this.userResponse.splice(existingIndex, 1);
         } else {
-          // Add new arc
           this.userResponse.push([first, second]);
         }
       }
 
       this.redrawArcs();
       this.selectedPoints = [];
+      this.resetHighlight();
     }
   }
 
@@ -134,9 +150,8 @@ class NumberLineArcs extends HTMLElement {
     const x2 = startX + idx2 * step;
 
     if (p1 === p2) {
-      // Draw self-loop as perfect circle above the point
-      const r = 10; // radius of loop
-      const offsetY = 10; // vertical offset above point
+      const r = 10;
+      const offsetY = 10;
       const loop = document.createElementNS("http://www.w3.org/2000/svg", "circle");
       loop.setAttribute("cx", x1);
       loop.setAttribute("cy", y - offsetY);
