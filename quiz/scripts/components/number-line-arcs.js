@@ -1,189 +1,305 @@
 class NumberLineArcs extends HTMLElement {
   constructor() {
     super();
+
     this.data = null;
     this.svg = null;
     this.arcsGroup = null;
-    this.selectedPoints = [];
+    this.pointsElems = [];
     this.userResponse = [];
-    this.activePoint = null; // Track the active (highlighted) point
+    this.activePoint = null;
+
+    this.logicalWidth = 600; // initial default width
+    this.logicalHeight = 200;
+    this.pointRadius = 10;
+    this.resizeObserver = null;
+  }
+
+  static get observedAttributes() {
+    return ['config'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'config' && oldValue !== newValue) {
+      this.data = JSON.parse(newValue);
+      this.preparePoints();
+      this.userResponse = this.data.user_response || [];
+      this.updateLogicalWidth();
+      this.render();
+      this.drawUserResponseArcs();
+    }
   }
 
   connectedCallback() {
-    this.data = JSON.parse(this.getAttribute("config"));
+    if (!this.data) {
+      try {
+        this.data = JSON.parse(this.getAttribute('config'));
+      } catch {
+        this.data = {};
+      }
+    }
+    this.preparePoints();
+    this.userResponse = this.data.user_response || [];
 
-    if (!this.data.points && this.data.number_line) {
+    this.updateLogicalWidth();
+    this.render();
+    this.drawUserResponseArcs();
+
+    this.resizeObserver = new ResizeObserver(() => {
+      const prevWidth = this.logicalWidth;
+      this.updateLogicalWidth();
+      if (this.logicalWidth !== prevWidth) {
+        this.render();
+        this.drawUserResponseArcs();
+      }
+    });
+    this.resizeObserver.observe(this);
+  }
+
+  disconnectedCallback() {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
+    }
+  }
+
+  // Updates logicalWidth dynamically based on current container width rounded
+  updateLogicalWidth() {
+    const width = this.offsetWidth;
+    if (width && width !== this.logicalWidth) {
+      this.logicalWidth = Math.round(width);
+    }
+  }
+
+  preparePoints() {
+    if (Array.isArray(this.data.points) && this.data.points.length > 0) {
+      // Use provided points array
+    } else if (this.data.number_line) {
       const { start, end, step } = this.data.number_line;
       this.data.points = [];
       for (let i = start; i <= end; i += step) {
         this.data.points.push(i);
       }
+    } else {
+      this.data.points = [];
     }
+  }
 
-    this.userResponse = this.data.user_response || [];
-    this.render();
-    this.drawUserResponseArcs();
+  getPointX(index) {
+    const totalPoints = this.data.points.length;
+    if (totalPoints === 0) return this.logicalWidth / 2;
+    if (totalPoints === 1) return this.logicalWidth / 2;
+    const usableWidth = this.logicalWidth - 2 * this.pointRadius;
+    return this.pointRadius + (usableWidth * index) / (totalPoints - 1);
+  }
+
+  getPointY() {
+    return this.logicalHeight * 0.8;
   }
 
   render() {
     this.innerHTML = `
-      <div class="number-line-question">
-        <p class="number-line-question-text">${this.data.question || ""}</p>
-      </div>
+      <style>
+        @import "${this.getAttribute('css-url')}";
+      </style>
       <div class="number-line-container">
-        <svg class="number-line-svg"></svg>
+        ${
+          this.data.question
+            ? `<div class="number-line-question"><div class="number-line-question-text">${this.data.question}</div></div>`
+            : ''
+        }
+        <svg class="number-line-svg" viewBox="0 0 ${this.logicalWidth} ${this.logicalHeight}" width="100%" height="${this.logicalHeight}" preserveAspectRatio="xMidYMid meet" role="img" tabindex="0" aria-label="Number line question"></svg>
       </div>
     `;
-    this.svg = this.querySelector(".number-line-svg");
-    this.arcsGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    this.svg.appendChild(this.arcsGroup);
 
-    const width = 600;
-    const height = 200;
-    this.svg.setAttribute("width", width);
-    this.svg.setAttribute("height", height);
+    this.svg = this.querySelector('svg.number-line-svg');
+    this.svg.innerHTML = '';
 
-    const startX = 50;
-    const endX = width - 50;
-    const y = height - 50;
-    const step = (endX - startX) / (this.data.points.length - 1);
+    this.drawBaseLine();
+    this.drawPoints();
+    this.attachListeners();
+  }
 
-    // Draw baseline
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", startX);
-    line.setAttribute("y1", y);
-    line.setAttribute("x2", endX);
-    line.setAttribute("y2", y);
-    line.setAttribute("stroke", "black");
+  drawBaseLine() {
+    const y = this.getPointY();
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', this.getPointX(0));
+    line.setAttribute('y1', y);
+    line.setAttribute('x2', this.getPointX(this.data.points.length - 1));
+    line.setAttribute('y2', y);
+    line.setAttribute('stroke', '#333');
+    line.setAttribute('stroke-width', '2');
     this.svg.appendChild(line);
+  }
 
-    // Draw points
-    this.data.points.forEach((point, idx) => {
-      const x = startX + idx * step;
+  drawPoints() {
+    const y = this.getPointY();
+    this.pointsElems = [];
 
-      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      circle.setAttribute("cx", x);
-      circle.setAttribute("cy", y);
-      circle.setAttribute("r", 8);
-      circle.setAttribute("class", "number-point");
-      circle.dataset.value = point;
-      circle.addEventListener("click", () => this.handlePointClick(point));
+    this.data.points.forEach((pt, i) => {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.classList.add('number-point');
+      circle.setAttribute('cx', this.getPointX(i));
+      circle.setAttribute('cy', y);
+      circle.setAttribute('r', this.pointRadius);
+      circle.setAttribute('data-index', i);
+      circle.setAttribute('tabindex', 0);
+      circle.setAttribute('role', 'button');
+      circle.setAttribute('aria-label', `Number point ${pt}`);
+      circle.style.fill = 'orange';
+      circle.style.stroke = 'black';
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', this.getPointX(i));
+      text.setAttribute('y', y + 30);
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('font-size', '16px');
+      text.setAttribute('fill', '#222');
+      text.textContent = pt;
+
       this.svg.appendChild(circle);
+      this.svg.appendChild(text);
 
-      const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      label.setAttribute("x", x);
-      label.setAttribute("y", y + 25);
-      label.setAttribute("text-anchor", "middle");
-      label.textContent = point;
-      this.svg.appendChild(label);
+      this.pointsElems.push(circle);
     });
   }
 
-  highlightPoint(value) {
-    const circle = this.svg.querySelector(`circle[data-value='${value}']`);
-    if (circle) {
-      // circle.setAttribute("fill", "red");
-      circle.style.fill = "red";
-    }
-    this.activePoint = value;
+  attachListeners() {
+    this.pointsElems.forEach((point) => {
+      point.addEventListener('click', this.handlePointClick.bind(this));
+      point.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          point.click();
+        }
+      });
+    });
   }
 
-  resetHighlight() {
-    if (this.activePoint !== null) {
-      const circle = this.svg.querySelector(`circle[data-value='${this.activePoint}']`);
-      if (circle) {
-        // circle.setAttribute("fill", "orange");
-        circle.style.fill = "orange";
-      }
+  handlePointClick(event) {
+    const idx = parseInt(event.target.getAttribute('data-index'), 10);
+
+    if (this.activePoint === null) {
+      this.activePoint = idx;
+      this.highlightPoint(idx, true);
+    } else {
+      const first = this.activePoint;
+      const second = idx;
+      this.toggleArcOrLoop(first, second);
+
+      this.highlightPoint(first, false);
       this.activePoint = null;
     }
   }
 
-  handlePointClick(value) {
-    if (this.selectedPoints.length === 0) {
-      this.selectedPoints.push(value);
-      this.highlightPoint(value);
-    } else if (this.selectedPoints.length === 1) {
-      const first = this.selectedPoints[0];
-      const second = value;
-
-      if (first === second) {
-        const existingIndex = this.userResponse.findIndex(
-          pair => pair[0] === first && pair[1] === first
-        );
-        if (existingIndex !== -1) {
-          this.userResponse.splice(existingIndex, 1);
-        } else {
-          this.userResponse.push([first, first]);
-        }
-      } else {
-        const existingIndex = this.userResponse.findIndex(
-          pair =>
-            (pair[0] === first && pair[1] === second) ||
-            (pair[0] === second && pair[1] === first)
-        );
-        if (existingIndex !== -1) {
-          this.userResponse.splice(existingIndex, 1);
-        } else {
-          this.userResponse.push([first, second]);
-        }
-      }
-
-      this.redrawArcs();
-      this.selectedPoints = [];
-      this.resetHighlight();
+  highlightPoint(index, highlight) {
+    if (this.pointsElems && this.pointsElems[index]) {
+      this.pointsElems[index].style.fill = highlight ? 'green' : 'orange';
     }
   }
 
-  drawArc(p1, p2) {
-    const width = this.svg.getAttribute("width");
-    const height = this.svg.getAttribute("height");
-    const startX = 50;
-    const endX = width - 50;
-    const y = height - 50;
-    const step = (endX - startX) / (this.data.points.length - 1);
+  toggleArcOrLoop(p1, p2) {
+    if (p1 > p2) [p1, p2] = [p2, p1];
 
-    const idx1 = this.data.points.indexOf(p1);
-    const idx2 = this.data.points.indexOf(p2);
+    let foundIndex = -1;
+    this.userResponse.forEach((pair, i) => {
+      if (pair[0] === p1 && pair[1] === p2) foundIndex = i;
+    });
 
-    const x1 = startX + idx1 * step;
-    const x2 = startX + idx2 * step;
-
-    if (p1 === p2) {
-      const r = 10;
-      const offsetY = 10;
-      const loop = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      loop.setAttribute("cx", x1);
-      loop.setAttribute("cy", y - offsetY);
-      loop.setAttribute("r", r);
-      loop.setAttribute("stroke", "red");
-      loop.setAttribute("fill", "none");
-      loop.setAttribute("stroke-width", 2);
-      this.arcsGroup.appendChild(loop);
+    if (foundIndex !== -1) {
+      this.userResponse.splice(foundIndex, 1);
     } else {
-      const midX = (x1 + x2) / 2;
-      const arcHeight = Math.abs(x2 - x1) / 2;
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("d", `M${x1},${y} Q${midX},${y - arcHeight} ${x2},${y}`);
-      path.setAttribute("stroke", "blue");
-      path.setAttribute("fill", "none");
-      path.setAttribute("stroke-width", 2);
-      this.arcsGroup.appendChild(path);
+      this.userResponse.push([p1, p2]);
     }
+
+    this.drawUserResponseArcs();
+    this.dispatchInputChange();
   }
 
-  redrawArcs() {
-    this.arcsGroup.innerHTML = "";
-    this.userResponse.forEach(pair => this.drawArc(pair[0], pair[1]));
+  dispatchInputChange() {
+    this.dispatchEvent(
+      new CustomEvent('input-change', {
+        detail: { userResponse: this.userResponse },
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   drawUserResponseArcs() {
-    this.redrawArcs();
+    if (this.arcsGroup && this.svg.contains(this.arcsGroup)) {
+      this.svg.removeChild(this.arcsGroup);
+    }
+
+    this.arcsGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    this.arcsGroup.classList.add('arcs-group');
+
+    this.userResponse.forEach(([p1, p2]) => {
+      if (p1 === p2) {
+        this.arcsGroup.appendChild(this.createSelfLoop(p1));
+      } else {
+        this.arcsGroup.appendChild(this.createArc(p1, p2));
+      }
+    });
+
+    this.svg.appendChild(this.arcsGroup);
+  }
+
+  createArc(p1, p2) {
+    const x1 = this.getPointX(p1);
+    const x2 = this.getPointX(p2);
+    const y = this.getPointY();
+  
+    const dx = x2 - x1;
+    const dy = 0; // points lie on horizontal line, so dy=0
+    const chordLength = Math.hypot(dx, dy);
+  
+    // Radius twice the chord length
+    const radius = chordLength;
+  
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  
+    // SVG arc path:
+    // 'A rx ry x-axis-rotation large-arc-flag sweep-flag x y'
+    // Since circle radius = rx = ry = radius, x-axis-rotation=0
+    // large-arc-flag=0 since arc < 180 deg, sweep-flag=1 for arc above line
+  
+    const d = `M ${x1} ${y} A ${radius} ${radius} 0 0 1 ${x2} ${y}`;
+  
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', 'blue');
+    path.setAttribute('stroke-width', '3');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('pointer-events', 'none');
+  
+    return path;
+  }  
+
+  createSelfLoop(p) {
+    const x = this.getPointX(p);
+    const y = this.getPointY();
+    const radius = 15;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    const d = `
+      M ${x} ${y}
+      m 0 -${radius}
+      a ${radius} ${radius} 0 1 1 0 ${2 * radius}
+      a ${radius} ${radius} 0 1 1 0 -${2 * radius}`;
+
+    path.setAttribute('d', d.trim());
+    path.setAttribute('stroke', 'blue');
+    path.setAttribute('stroke-width', '3');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('pointer-events', 'none');
+
+    return path;
   }
 
   getUserAnswer() {
-    return this.userResponse;
+    return [...this.userResponse];
   }
 }
 
-customElements.define("number-line-arcs", NumberLineArcs);
+customElements.define('number-line-arcs', NumberLineArcs);
