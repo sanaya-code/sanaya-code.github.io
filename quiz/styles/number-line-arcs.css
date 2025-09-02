@@ -3,6 +3,26 @@
     justify-content: center;
     margin: 20px;
   }
+
+  .number-line-question {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .number-line-question .number-line-question-text-01 {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .number-line-question .number-line-question-text {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    word-spacing: 12px;
+    letter-spacing: 1px;
+    color: #003366;
+    background-color: #e0f0ff; 
+  }
   
   .number-line-svg {
     border: 1px solid #ccc;

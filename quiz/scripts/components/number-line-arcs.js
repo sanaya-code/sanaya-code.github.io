@@ -27,6 +27,9 @@ class NumberLineArcs extends HTMLElement {
 
   render() {
     this.innerHTML = `
+      <div class="number-line-question">
+          <p class="number-line-question-text">${this.data.question || ""}</p>
+      </div>
       <div class="number-line-container">
         <svg class="number-line-svg"></svg>
       </div>

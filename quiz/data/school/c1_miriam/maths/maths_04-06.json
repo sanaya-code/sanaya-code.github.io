@@ -149,6 +149,39 @@
         "user_response": ["", "", ""],
         "case_sensitive": false,
         "scoring_method": "exact"
+      },
+      {
+        "id": "24",
+        "type": "number_line_arcs",
+        "question": " 4 + 3",
+        "number_line": { "start": 0, "end": 9, "step": 1 },
+        "pairs": [[0,4],[4,7], [0,7]],
+        "user_response": [],
+        "metadata": {
+          "scoring_method": "exact"
+        }
+      },
+      {
+        "id": "24",
+        "type": "number_line_arcs",
+        "question": " 8 + 5",
+        "number_line": { "start": 0, "end": 14, "step": 1 },
+        "pairs": [[0,8],[8,13], [0,13]],
+        "user_response": [],
+        "metadata": {
+          "scoring_method": "exact"
+        }
+      },
+      {
+        "id": "24",
+        "type": "number_line_arcs",
+        "question": " 10 - 7",
+        "number_line": { "start": 0, "end": 12, "step": 1 },
+        "pairs": [[0,10],[3,10]],
+        "user_response": [],
+        "metadata": {
+          "scoring_method": "exact"
+        }
       }
   ],
   "taxonomy": {

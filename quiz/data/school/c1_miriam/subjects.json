@@ -53,17 +53,17 @@
       },
       {
         "id": "015",
-        "link": "data/school/c1_miriam/maths/maths_04_01.json",
-        "topic": "U4 01",
-        "description": "U4 01",
-        "quiz_id": "U4 01"
+        "link": "data/school/c1_miriam/maths/maths_04-06.json",
+        "topic": "Numbers 4-6",
+        "description": "Numbers 4-6",
+        "quiz_id": "Numbers 4-6"
       },
       {
         "id": "016",
         "link": "data/school/c1_miriam/maths/maths_05_01.json",
-        "topic": "U5 01",
-        "description": "U5 01",
-        "quiz_id": "U5 01"
+        "topic": "Numbers 5",
+        "description": "Numbers 5",
+        "quiz_id": "Numbers 5"
       },
       {
         "id": "017",
