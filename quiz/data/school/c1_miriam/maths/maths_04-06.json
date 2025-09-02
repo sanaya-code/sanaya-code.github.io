@@ -34,23 +34,23 @@
         "data": [
           [
             { "value": " 0   + " },
-            { "value": "____", "correct_answer": "5", "acceptable_answers": ["5"] }
-          ],
-          [
-            { "value": " 1   + " },
             { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
           ],
           [
-            { "value": " 2   + " },
+            { "value": " 1   + " },
             { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
           ],
           [
-            { "value": " 3   + " },
+            { "value": " 2   + " },
             { "value": "____", "correct_answer": "2", "acceptable_answers": ["2"] }
           ],
           [
-            { "value": " 4   + " },
+            { "value": " 3   + " },
             { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
+          ],
+          [
+            { "value": " 4   + " },
+            { "value": "____", "correct_answer": "0", "acceptable_answers": ["0"] }
           ]
         ],
         "user_response": [
@@ -66,7 +66,7 @@
       {
         "type": "fill_in_blank_multi_graph",
         "id": "11",
-        "question": "Fill in the blanks to practice addition with 3.",
+        "question": " make 5",
         "center_label": "5",
         "blocks": [
           { "a": 0, "b": "+" },
