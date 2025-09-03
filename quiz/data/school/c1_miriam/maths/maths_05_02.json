@@ -10,30 +10,6 @@
   },
   "questions": [
     {
-      "type": "matching_connection",
-      "id": "013",
-      "question": "A   B   C   D    E    F   G   H",
-      "pairs": [
-        { "left": "A comes", "right": "First" },
-        { "left": "D comes", "right": "Fourth" },
-        { "left": "G comes", "right": "Seventh" },
-        { "left": "C comes", "right": "Third" }
-      ],
-      "user_response": ""
-    },
-    {
-      "type": "matching_connection",
-      "id": "013",
-      "question": "A   B   C   D    E    F    G   H",
-      "pairs": [
-        { "left": "B comes", "right": "Second" },
-        { "left": "E comes", "right": "Fifth" },
-        { "left": "F comes", "right": "Sixth" },
-        { "left": "H comes", "right": "Eighth" }
-      ],
-      "user_response": ""
-    },
-    {
       "type": "table_fill_in_the_blank",
       "id": "005",
       "question": "Write tens and ones :",
@@ -242,6 +218,30 @@
         "smallest": "",
         "greatest": ""
       }
+    },
+    {
+      "type": "matching_connection",
+      "id": "013",
+      "question": "A   B   C   D    E    F   G   H",
+      "pairs": [
+        { "left": "A comes", "right": "First" },
+        { "left": "D comes", "right": "Fourth" },
+        { "left": "G comes", "right": "Seventh" },
+        { "left": "C comes", "right": "Third" }
+      ],
+      "user_response": ""
+    },
+    {
+      "type": "matching_connection",
+      "id": "013",
+      "question": "A   B   C   D    E    F    G   H",
+      "pairs": [
+        { "left": "B comes", "right": "Second" },
+        { "left": "E comes", "right": "Fifth" },
+        { "left": "F comes", "right": "Sixth" },
+        { "left": "H comes", "right": "Eighth" }
+      ],
+      "user_response": ""
     }
   ],
   "taxonomy": {

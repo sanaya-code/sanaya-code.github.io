@@ -61,16 +61,16 @@
       {
         "id": "016",
         "link": "data/school/c1_miriam/maths/maths_05_01.json",
-        "topic": "Numbers 5",
-        "description": "Numbers 5",
-        "quiz_id": "Numbers 5"
+        "topic": "Numbers 5a",
+        "description": "Numbers 5a",
+        "quiz_id": "Numbers 5a"
       },
       {
         "id": "017",
         "link": "data/school/c1_miriam/maths/maths_05_02.json",
-        "topic": "U5 02",
-        "description": "U5 02",
-        "quiz_id": "U5 02"
+        "topic": "Numbers 5b",
+        "description": "Numbers 5b",
+        "quiz_id": "Numbers 5b"
       }
     ],
     "EVS": [
