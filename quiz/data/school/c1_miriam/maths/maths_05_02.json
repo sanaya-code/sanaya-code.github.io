@@ -63,7 +63,7 @@
     {
       "type": "multi_select_circle",
       "id": "010",
-      "question": "Circle all the numbers which before after 15",
+      "question": "Circle all the numbers which before 15",
       "options": [
         {"id": "A", "text": "13", "correct": true},
         {"id": "B", "text": "17", "correct": false},
@@ -78,7 +78,7 @@
     {
       "type": "multi_select_two",
       "id": "18",
-      "question": "Highlight the largest and smallest numbers.",
+      "question": "Greater number green smaller red",
       "quantities": [
         { "id": "1", "value": 12 },
         { "id": "2", "value": 45 },
@@ -102,7 +102,7 @@
     {
       "type": "multi_select_two",
       "id": "18",
-      "question": "Highlight the largest and smallest numbers.",
+      "question": "Greater number green smaller red",
       "quantities": [ {"id": "1", "value": 20}, {"id": "2", "value": 12}],
       "required_selections": [
         {
