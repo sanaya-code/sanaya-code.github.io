@@ -36,40 +36,6 @@
       },
       {
         "type": "multi_fill_in_blank",
-        "id": "003",
-        "question": " ____ +  ____  =  ____ ", 
-        "img_url": "data/school/c1_miriam/images/numbers_01.jpg",
-        "blanks": [
-          { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
-          },
-          { "position": 2, "correct_answer": "3", "acceptable_answers": ["3"]
-          },
-          { "position": 3, "correct_answer": "13", "acceptable_answers": ["13"]
-          }
-        ],
-        "user_response": ["", "", ""],
-        "case_sensitive": false,
-        "scoring_method": "exact"
-      },
-      {
-        "type": "multi_fill_in_blank",
-        "id": "003",
-        "question": " ____ +  ____  =  ____ ", 
-        "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
-        "blanks": [
-          { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
-          },
-          { "position": 2, "correct_answer": "5", "acceptable_answers": ["5"]
-          },
-          { "position": 3, "correct_answer": "15", "acceptable_answers": ["15"]
-          }
-        ],
-        "user_response": ["", "", ""],
-        "case_sensitive": false,
-        "scoring_method": "exact"
-      },
-      {
-        "type": "multi_fill_in_blank",
         "id": "007",
         "question": " ____ +  ____  =  ____ ", 
         "img_url": "data/school/c1_miriam/images/numbers_03.jpg",
@@ -95,19 +61,6 @@
           { "left": "Twelve", "right": "12" },
           { "left": "Nineteen", "right": "19" },
           { "left": "Sixteen", "right": "16" }
-        ],
-        "user_response": ""
-      },
-      {
-        "type": "matching_connection",
-        "id": "013",
-        "question": "Match",
-        "pairs": [
-          { "left": "Eleven", "right": "11" },
-          { "left": "Fourteen", "right": "14" },
-          { "left": "Eighteen", "right": "18" },
-          { "left": "Twenty", "right": "20" },
-          { "left": "Seventeen", "right": "17" }
         ],
         "user_response": ""
       },
@@ -235,5 +188,57 @@
     "difficulty_levels": ["easy", "medium", "hard"],
     "subject_areas": ["science", "history", "geography", "computer-science"],
     "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
-  }
+  },
+  "questions_01": [
+    {
+      "type": "skip",
+      "type_01": "multi_fill_in_blank",
+      "id": "003",
+      "question": " ____ +  ____  =  ____ ", 
+      "img_url": "data/school/c1_miriam/images/numbers_01.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
+        },
+        { "position": 2, "correct_answer": "3", "acceptable_answers": ["3"]
+        },
+        { "position": 3, "correct_answer": "13", "acceptable_answers": ["13"]
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type_01": "multi_fill_in_blank",
+      "id": "003",
+      "question": " ____ +  ____  =  ____ ", 
+      "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
+        },
+        { "position": 2, "correct_answer": "5", "acceptable_answers": ["5"]
+        },
+        { "position": 3, "correct_answer": "15", "acceptable_answers": ["15"]
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type_01": "matching_connection",
+      "id": "013",
+      "question": "Match",
+      "pairs": [
+        { "left": "Eleven", "right": "11" },
+        { "left": "Fourteen", "right": "14" },
+        { "left": "Eighteen", "right": "18" },
+        { "left": "Twenty", "right": "20" },
+        { "left": "Seventeen", "right": "17" }
+      ],
+      "user_response": ""
+    }
+  ]
 }

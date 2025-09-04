@@ -32,15 +32,16 @@
           { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
         ],
         [
-          { "value": "17" },
+          { "value": "27" },
           { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
           { "value": "____", "correct_answer": "7", "acceptable_answers": ["7"] }
         ]
       ],
       "user_response": [
-        ["2", "", ""],
-        ["", "6", ""],
-        ["", "", "12"]
+        ["13", "", ""],
+        ["18", "", ""],
+        ["11", "", ""],
+        ["27", "", ""]
       ],
       "case_sensitive": false,
       "scoring_method": "exact"
@@ -88,12 +89,12 @@
       ],
       "required_selections": [
         {
-          "label": "Smallest", "key": "smallest",
-          "highlight_style": { "type": "color", "value": "red" }
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "color", "value": "green" }
         },
         {
-          "label": "Greatest", "key": "greatest",
-          "highlight_style": { "type": "shape", "value": "circle" }
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "color", "value": "red" }
         }
       ],
       "correct_answer": { "smallest": "3", "greatest": "2" },
@@ -106,12 +107,12 @@
       "quantities": [ {"id": "1", "value": 20}, {"id": "2", "value": 12}],
       "required_selections": [
         {
-          "label": "Smallest", "key": "smallest",
-          "highlight_style": { "type": "color", "value": "red" }
-        },
-        {
           "label": "Greatest", "key": "greatest",
           "highlight_style": { "type": "color", "value": "green" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "color", "value": "red" }
         }
       ],
       "correct_answer": { "smallest": "2", "greatest": "1" },
@@ -127,12 +128,12 @@
         {"id": "3", "value": 6}
       ],"required_selections": [
         {
-          "label": "Smallest", "key": "smallest",
-          "highlight_style": { "type": "shape", "value": "square" }
-        },
-        {
           "label": "Greatest", "key": "greatest",
           "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "shape", "value": "square" }
         }
       ],
       "correct_answer": { "smallest": "3", "greatest": "2" },
@@ -149,12 +150,12 @@
       ],
       "required_selections": [
         {
-          "label": "Smallest", "key": "smallest",
-          "highlight_style": { "type": "shape", "value": "square" }
-        },
-        {
           "label": "Greatest", "key": "greatest",
           "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "shape", "value": "square" }
         }
       ],
       "correct_answer": { "smallest": "1", "greatest": "3" },
@@ -171,12 +172,12 @@
       ],
       "required_selections": [
         {
-          "label": "Smallest", "key": "smallest",
-          "highlight_style": { "type": "shape", "value": "square" }
-        },
-        {
           "label": "Greatest", "key": "greatest",
           "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "shape", "value": "square" }
         }
       ],
       "correct_answer": {
@@ -193,21 +194,19 @@
       "id": "24",
       "question": "Circle the largest and tick smallest",
       "quantities": [
-        {"id": "1", "value": 13},
         {"id": "2", "value": 19},
-        {"id": "3", "value": 12},
         {"id": "4", "value": 14},
         {"id": "5", "value": 11},
         {"id": "6", "value": 20}
       ],
       "required_selections": [
         {
-          "label": "Smallest", "key": "smallest",
-          "highlight_style": { "type": "mark", "value": "tick" }
-        },
-        {
           "label": "Greatest", "key": "greatest",
           "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "mark", "value": "tick" }
         }
       ],
       "correct_answer": {
@@ -248,5 +247,8 @@
     "difficulty_levels": ["easy", "medium", "hard"],
     "subject_areas": ["science", "history", "geography", "computer-science"],
     "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
-  }
+  },
+  "questions_01": [
+
+  ]
 }
