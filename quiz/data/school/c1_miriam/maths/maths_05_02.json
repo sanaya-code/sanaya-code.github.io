@@ -33,7 +33,7 @@
         ],
         [
           { "value": "27" },
-          { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+          { "value": "____", "correct_answer": "2", "acceptable_answers": ["7"] },
           { "value": "____", "correct_answer": "7", "acceptable_answers": ["7"] }
         ]
       ],
