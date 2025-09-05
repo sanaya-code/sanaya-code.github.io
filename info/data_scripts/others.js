@@ -1,10 +1,10 @@
 // Global variables - no export
 
-
-
-
 var others = `[
-    { "label": "test", "url": "https://google.com" }
+    { "label": "Chat GPT" "url": "https://chatgpt.com/" },
+    { "label": "Perplexity" "url": "https://www.perplexity.ai/" },
+    { "label": "Deepseek" "url": "https://chat.deepseek.com/" },
+    { "label": "Whatsapp", "url": "https://web.whatsapp.com/" }
   ]`;
   
 
