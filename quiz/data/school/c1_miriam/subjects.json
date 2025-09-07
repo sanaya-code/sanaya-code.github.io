@@ -154,6 +154,13 @@
         "description": "Words pt-1",
         "topic": "Words pt-1",
         "quiz_id": "Words pt-1"
+      },
+      {
+        "id": "005",
+        "link": "data/school/c1_miriam/english/english_04.json",
+        "description": "Thief",
+        "topic": "Thief",
+        "quiz_id": "Thief"
       }
     ],
     "Hindi":[
