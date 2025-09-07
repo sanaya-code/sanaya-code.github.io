@@ -2,7 +2,7 @@
     "questions": [
       {
         "type": "matching_connection",
-        "id": "014",
+        "id": "001",
         "question": " Rank activity ",
         "pairs": [
           { "left": "Going Home", "right": "5" },
@@ -15,16 +15,66 @@
       },
       {
         "type": "matching_connection",
-        "id": "014",
+        "id": "002",
         "question": " Rank activity ",
         "pairs": [
           { "left": "un well", "right": "Sick room" },
           { "left": "sing", "right": "Music room" },
           { "left": "study and spent time", "right": "Class room" },
-          { "left": "Teachers", "right": "Staff room" },
-          { "left": "Comming to school", "right": "1" }
+          { "left": "Teachers", "right": "Staff room" }
         ],
         "user_response": ""
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "Keeps the entire school clean",
+        "options": [
+          {"id": "A", "text": "Sweeper"},
+          {"id": "B", "text": "Peon"},
+          {"id": "C", "text": "Principal"},
+          {"id": "D", "text": "Teacher"}
+        ],
+        "correct_answer": "A",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "005",
+        "question": "head of the school",
+        "options": [
+          {"id": "A", "text": "Sweeper"},
+          {"id": "B", "text": "Peon"},
+          {"id": "C", "text": "Principal"},
+          {"id": "D", "text": "Teacher"}
+        ],
+        "correct_answer": "C",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "006",
+        "question": "ring the bell",
+        "options": [
+          {"id": "A", "text": "Sweeper"},
+          {"id": "B", "text": "Peon"},
+          {"id": "C", "text": "Principal"},
+          {"id": "D", "text": "Teacher"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      },
+      {
+        "type": "matching_drag_drop",
+        "id": "007",
+        "question": "Match the inventors with their inventions:",
+        "pairs": [
+          {"left": "Music Room", "right": "Sing"},
+          {"left": "Library", "right": "Books"},
+          {"left": "Play-ground", "right": "Play game"},
+          {"left": "Canteen", "right": "Eat lunch"}
+        ],
+        "user_response" : ""
       }
     ],
     "taxonomy": {
