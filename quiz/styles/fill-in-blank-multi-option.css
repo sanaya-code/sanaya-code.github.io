@@ -1,69 +1,93 @@
-/* options-fill-in-blank.css */
+.fibmo-question-type {
+  font-family: Arial, sans-serif;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
 
-.mfib-question-type {
-    font-family: Arial, sans-serif;
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-  }
-  
-  .mfib-question-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .mfib-svg-figure {
-    text-align: center;
-    margin: 1rem 0;
-  }
-  
-  .mfib-figure {
-    text-align: center;
-    margin: 1rem 0;
-  }
-  
-  .mfib-figure img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .mfib-option-list {
-    margin-top: 1rem;
-  }
-  
-  .mfib-option-item {
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  .mfib-option-label {
-    font-weight: bold;
-    margin-right: 0.5rem;
-  }
-  
-  .mfib-blank-span {
-    color: #d32f2f;
-    font-weight: bold;
-    cursor: pointer;
-    border-bottom: 1px dashed #d32f2f;
-    padding: 0 0.25rem;
-  }
-  
-  .mfib-blank-span:hover {
-    background-color: #fff3e0;
-  }
-  
-  .mfib-text-answer {
-    font-size: 1rem;
-    padding: 2px 6px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    min-width: 80px;
-  }
-  
+.fibmo-question {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #003366;
+}
+
+.fibmo-container {
+  margin-bottom: 15px;
+}
+
+.fibmo-svg {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.fibmo-img img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.fibmo-options {
+  margin-top: 10px;
+}
+
+.fibmo-option {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.fibmo-blank {
+  color: rgb(211, 47, 47);;
+  border-bottom: 1px dashed rgb(211, 47, 47);
+  padding: 0 4px;
+  cursor: pointer;
+}
+
+.fibmo-blank.filled {
+  font-weight: 500;
+}
+
+.fibmo-input_old {
+  border: none;
+  border-bottom: 2px solid red;
+  outline: none;
+  font-size: 16px;
+  color: red;
+  padding: 0 4px;
+  width: 60px;
+}
+
+.fibmo-input {
+  font-size: 1rem;
+  padding: 2px 6px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  min-width: 80px;
+}
+
+
+.fibmo-input:hover {
+  background-color: #fff3e0;
+}
+
+.fibmo-choices {
+  margin-top: 15px;
+}
+
+.fibmo-choice {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 12px;
+  border: 1px solid #888;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #f9f9f9;
+}
+
+.fibmo-choice.active {
+  background: #c2f0c2;
+  border-color: #2e7d32;
+  font-weight: bold;
+}

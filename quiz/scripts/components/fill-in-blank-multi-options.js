@@ -1,159 +1,121 @@
-class OptionsFillInBlankComponent extends HTMLElement {
-    constructor() {
-      super();
-      this._initialized = false;
-      this._currentInput = null;
-      this._responses = [];
-    }
-  
-    static get observedAttributes() {
-      return ['config'];
-    }
-  
-    connectedCallback() {
-      this.setup();
-    }
-  
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (name === 'config') {
-        this.setup();
-      }
-    }
-  
-    setup() {
-      if (!this._initialized) {
-        this.innerHTML = `
-          <div class="mfib-question-type">
-            <div class="mfib-question-text"></div>
-            <div class="mfib-svg-figure" style="display: none;"></div>
-            <div class="mfib-figure" style="display: none;"></div>
-            <div class="mfib-option-list"></div>
-          </div>
-        `;
-        this._questionEl = this.querySelector('.mfib-question-text');
-        this._svgEl = this.querySelector('.mfib-svg-figure');
-        this._figureEl = this.querySelector('.mfib-figure');
-        this._optionListEl = this.querySelector('.mfib-option-list');
-        this._initialized = true;
-      }
-  
-      try {
-        this._config = JSON.parse(this.getAttribute('config') || '{}');
-        this._responses = [...(this._config.user_response || [])];
-        this.renderQuestion();
-        this.renderOptions();
-        this.addSvg(this._config);
-        this.addImg(this._config);
-      } catch (err) {
-        console.warn("Invalid config:", err);
-      }
-    }
-  
-    renderQuestion() {
-      this._questionEl.textContent = this._config.question || '';
-    }
-  
-    renderOptions() {
-      this._optionListEl.innerHTML = '';
-      const options = this._config.options || [];
-  
-      options.forEach((opt, i) => {
-        const container = document.createElement('div');
-        container.className = 'mfib-option-item';
-  
-        const label = document.createElement('span');
-        label.className = 'mfib-option-label';
-        label.textContent = `${String.fromCharCode(97 + i)}) `;
-        // console.log(opt.text);
-        // const parts = opt.statement.split(/____+/g);
-        const parts = opt.text.split(/____+/g);
-        const frag = document.createDocumentFragment();
-  
-        parts.forEach((text, j) => {
-          frag.appendChild(document.createTextNode(text));
-          if (j === 0) {
-            const span = document.createElement('span');
-            span.className = 'mfib-blank-span';
-            span.dataset.index = i;
-            span.textContent = this._responses[i] || '____';
-            span.addEventListener('click', () => this.activateInput(i, span));
-            frag.appendChild(span);
-          }
-        });
-  
-        container.appendChild(label);
-        container.appendChild(frag);
-        this._optionListEl.appendChild(container);
-      });
-    }
-  
-    addSvg(config) {
-      if (config.svg_content) {
-        this._svgEl.style.display = '';
-        this._svgEl.innerHTML = config.svg_content;
-      } else {
-        this._svgEl.style.display = 'none';
-        this._svgEl.innerHTML = '';
-      }
-    }
-  
-    addImg(config) {
-      if (config.img_url) {
-        this._figureEl.style.display = '';
-        this._figureEl.innerHTML = `<img src="${config.img_url}" alt="figure" />`;
-      } else {
-        this._figureEl.style.display = 'none';
-        this._figureEl.innerHTML = '';
-      }
-    }
-  
-    activateInput(index, span) {
-      if (this._currentInput) {
-        this.commitCurrentInput();
-      }
-  
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.className = 'mfib-text-answer';
-      input.value = this._responses[index] || '';
-      input.dataset.index = index;
-  
-      input.addEventListener('blur', () => {
-        this.commitInput(input);
-      });
-  
-      span.replaceWith(input);
-      input.focus();
-      this._currentInput = input;
-    }
-  
-    commitCurrentInput() {
-      if (!this._currentInput) return;
-      this.commitInput(this._currentInput);
-    }
-  
-    commitInput(input) {
-      const index = parseInt(input.dataset.index, 10);
-      const value = input.value.trim();
-      this._responses[index] = value;
-  
-      const span = document.createElement('span');
-      span.className = 'mfib-blank-span';
-      span.dataset.index = index;
-      span.textContent = value || '____';
-      span.addEventListener('click', () => this.activateInput(index, span));
-  
-      input.replaceWith(span);
-      this._currentInput = null;
-    }
-  
-    getUserAnswer() {
-      this.commitCurrentInput();
-      return this._responses;
-    }
+class FillInBlankMultiOptions extends HTMLElement {
+  constructor() {
+    super();
+    this.data = null;
+    this.activeChoice = null; // track selected choice
   }
-  
-customElements.define('options-fill-in-blank', OptionsFillInBlankComponent);
+
+  connectedCallback() {
+    this.data = JSON.parse(this.getAttribute("config"));
+
+    // Initialize user_response if missing
+    if (!Array.isArray(this.data.user_response)) {
+      this.data.user_response = this.data.options.map(() => "");
+    }
+
+    this.render();
+  }
+
+  render() {
+    this.innerHTML = `
+    <div class="fibmo-question-type">
+      <div class="fibmo-question">${this.data.question}</div>
+      <div class="fibmo-container">
+        ${this.data.svg_content ? `<div class="fibmo-svg">${this.data.svg_content}</div>` : ""}
+        ${this.data.img_url ? `<div class="fibmo-img"><img src="${this.data.img_url}" /></div>` : ""}
+        <div class="fibmo-options">
+          ${this.data.options
+            .map(
+              (opt, idx) => `
+              <div class="fibmo-option" data-index="${idx}">
+                  ${opt.text.replace(
+                    "____",
+                    `<span class="fibmo-blank ${this.data.user_response[idx] ? "filled" : ""}" data-index="${idx}">
+                        ${this.data.user_response[idx] || "___"}
+                    </span>`
+                  )}
+              </div>`
+            )
+            .join("")}
+        </div>
+      </div>
+      ${
+        this.data.choices
+          ? `<div class="fibmo-choices">
+              ${this.data.choices
+                .map(
+                  (ch) =>
+                    `<span class="fibmo-choice" data-value="${ch}">${ch}</span>`
+                )
+                .join("")}
+             </div>`
+          : ""
+      }
+    </div>
+    `;
+
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    // Blank click -> turn into input (or apply choice if activeChoice exists)
+    this.querySelectorAll(".fibmo-blank").forEach((blank) => {
+      blank.addEventListener("click", (e) => {
+        const idx = parseInt(blank.dataset.index);
+
+        if (this.activeChoice) {
+          // insert chosen value
+          this.data.user_response[idx] = this.activeChoice;
+          blank.outerHTML = `<span class="fibmo-blank filled" data-index="${idx}">${this.activeChoice}</span>`;
+          this.clearActiveChoice();
+          this.bindEvents(); // rebind after replacing element
+        } else {
+          // make editable input
+          const input = document.createElement("input");
+          input.type = "text";
+          input.value = this.data.user_response[idx] || "";
+          input.className = "fibmo-input";
+          blank.replaceWith(input);
+          input.focus();
+
+          input.addEventListener("blur", () => {
+            this.data.user_response[idx] = input.value.trim();
+            const span = document.createElement("span");
+            span.className = "fibmo-blank filled";
+            span.dataset.index = idx;
+            span.textContent = input.value || "___";
+            input.replaceWith(span);
+            this.bindEvents();
+          });
+        }
+      });
+    });
+
+    // Choice click -> highlight
+    this.querySelectorAll(".fibmo-choice").forEach((choice) => {
+      choice.addEventListener("click", () => {
+        this.clearActiveChoice();
+        choice.classList.add("active");
+        this.activeChoice = choice.dataset.value;
+      });
+    });
+  }
+
+  clearActiveChoice() {
+    this.querySelectorAll(".fibmo-choice").forEach((c) =>
+      c.classList.remove("active")
+    );
+    this.activeChoice = null;
+  }
+
+  getUserAnswer() {
+    return this.data.user_response;
+  }
+}
+
+customElements.define("options-fill-in-blank", FillInBlankMultiOptions);
+
+
 
   /*
 
