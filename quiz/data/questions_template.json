@@ -105,6 +105,7 @@
         }
       ],
       "user_response": ["", "", ""],
+      "choices": ["0", "1", "2", "3", "4", "5", "6"],
       "case_sensitive": false,
       "difficulty": "easy",
       "tags": ["gk", "science", "maths"],

@@ -66,7 +66,7 @@
       },
       {
         "type": "matching_connection",
-        "id": "002",
+        "id": "007",
         "question": " Rank activity ",
         "pairs": [
           {"left": "Music Room", "right": "Sing"},
@@ -74,6 +74,47 @@
           {"left": "Play-ground", "right": "Play game"},
           {"left": "Canteen", "right": "Eat lunch"}
         ],
+        "user_response" : ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "008",
+        "question": " Rank activity ",
+        "pairs": [
+          {"left": "Principal", "right": "Head of school"},
+          {"left": "Teachers", "right": "Help childrean learn"},
+          {"left": "Sweeper", "right": "Keep school clean"},
+          {"left": "Peon", "right": "Ring the bell"},
+          {"left": "Librarian", "right": "keep record in library"}
+        ],
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "009",
+        "question": "We play in library",
+        "correct_answer": false,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "010",
+        "question": "Librarian ring the bell",
+        "correct_answer": false,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "011",
+        "question": "Our teacher sits in sick room",
+        "correct_answer": false,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "012",
+        "question": "Music instruments in dance room",
+        "correct_answer": false,
         "user_response" : ""
       }
     ],
