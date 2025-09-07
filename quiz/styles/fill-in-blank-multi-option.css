@@ -29,34 +29,32 @@
   margin-bottom: 12px;
 }
 
+.mfib-option-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: #333;
+}
+
+
 .fibmo-options {
   margin-top: 10px;
 }
 
 .fibmo-option {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 18px;
 }
 
 .fibmo-blank {
-  color: rgb(211, 47, 47);;
-  border-bottom: 1px dashed rgb(211, 47, 47);
+  color: red;
+  /* border-bottom: 2px solid red; */
+  border-bottom: 1px dashed rgb(211, 47, 47);  
   padding: 0 4px;
   cursor: pointer;
 }
 
 .fibmo-blank.filled {
   font-weight: 500;
-}
-
-.fibmo-input_old {
-  border: none;
-  border-bottom: 2px solid red;
-  outline: none;
-  font-size: 16px;
-  color: red;
-  padding: 0 4px;
-  width: 60px;
 }
 
 .fibmo-input {
@@ -66,7 +64,6 @@
   border-radius: 4px;
   min-width: 80px;
 }
-
 
 .fibmo-input:hover {
   background-color: #fff3e0;

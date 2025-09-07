@@ -116,6 +116,32 @@
         "question": "Music instruments in dance room",
         "correct_answer": false,
         "user_response" : ""
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
+          {
+            "id": "01",
+            "text": "Teacher sit and relax in  ____.",
+            "correct_answer": "Staff room"
+          },
+          {
+            "id": "02",
+            "text": "The  ____ keeps entire school neat and clean",
+            "correct_answer": "Sweaper"
+          },
+          {
+            "id": "03",
+            "text": "Items like foot-ball, bat are kept in  ____  ",
+            "correct_answer": "Sports room"
+          }
+        ],
+        "user_response": ["", "", ""],
+        "choices": ["Sports room", "Staff room", "Sweaper"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
       }
     ],
     "taxonomy": {
