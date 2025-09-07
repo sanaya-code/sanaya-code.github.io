@@ -1,11 +1,28 @@
 {
     "questions": [
       {
-        "type": "true_false",
-        "id": "001",
-        "question": "It was Amy's birthday",
-        "correct_answer": false,
-        "user_response" : ""
+        "type": "matching_connection",
+        "id": "014",
+        "question": "Match ",
+        "pairs": [
+          { "left": "Manu walked across", "right": "field to river" },
+          { "left": "Manu climbed up", "right": "tree" },
+          { "left": "In the nest there were", "right": "eggs" },
+          { "left": "Manu slipped and", "right": "fell into river" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "014",
+        "question": "Match ",
+        "pairs": [
+          { "left": "There was big crocodile", "right": "in river" },
+          { "left": "crocodile pulled manu", "right": "down under water" },
+          { "left": "King called manu", "right": "thief" },
+          { "left": "Crocodile lifted tail to", "right": "strike manu" }
+        ],
+        "user_response": ""
       }
     ]
   }

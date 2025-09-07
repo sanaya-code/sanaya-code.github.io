@@ -79,7 +79,7 @@
         "link": "data/school/c1_miriam/evs/evs_01_a.json",
         "description": "Body part 01",
         "topic": "Body part 01",
-        "quiz_id": "maths_01_lines_angles"
+        "quiz_id": "Body part 01"
       },
       {
         "id": "002",
@@ -97,13 +97,20 @@
       },
       {
         "id": "003",
+        "link": "data/school/c1_miriam/evs/evs_03_school.json",
+        "description": "School 3",
+        "topic": "School 3",
+        "quiz_id": "School 3"
+      },
+      {
+        "id": "004",
         "link": "data/school/c1_miriam/evs/evs_words_01.json",
         "description": "Words pt-1",
         "topic": "Words pt-1",
         "quiz_id": "Words pt-1"
       },
       {
-        "id": "004",
+        "id": "005",
         "link": "data/school/c1_miriam/evs/evs_words_02.json",
         "description": "Words pt-2",
         "topic": "Words pt-2",
