@@ -142,12 +142,28 @@
         "choices": ["Sports room", "Staff room", "Sweaper"],
         "case_sensitive": false,
         "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "014",
+        "question": "Fill in the blanks",
+        "options": [
+          {
+            "id": "01",
+            "text": "We borrow books from  ____.",
+            "correct_answer": "Library"
+          },
+          {
+            "id": "02",
+            "text": "The school peon rings  ____ ",
+            "correct_answer": "Bell"
+          }
+        ],
+        "user_response": ["", "", ""],
+        "choices": ["Bell", "Library"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
       }
-    ],
-    "taxonomy": {
-      "difficulty_levels": ["easy", "medium", "hard"],
-      "subject_areas": ["science", "history", "geography", "computer-science"],
-      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
-    }
+    ]
   }
   
