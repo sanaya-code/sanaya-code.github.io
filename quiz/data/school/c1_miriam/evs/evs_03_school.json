@@ -65,9 +65,9 @@
         "user_response" : ""
       },
       {
-        "type": "matching_drag_drop",
-        "id": "007",
-        "question": "Match the inventors with their inventions:",
+        "type": "matching_connection",
+        "id": "002",
+        "question": " Rank activity ",
         "pairs": [
           {"left": "Music Room", "right": "Sing"},
           {"left": "Library", "right": "Books"},
