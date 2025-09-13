@@ -1,0 +1,143 @@
+{
+    "questions": [
+      {
+        "type": "matching_connection",
+        "id": "001",
+        "question": " Match ",
+        "pairs": [
+          { "left": "Kutcha House", "right": "Mud and Wood (leaves)" },
+          { "left": "Pucca House", "right": "Bricks and Stones" },
+          { "left": "Drawing room", "right": "Sit and Talk" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "001",
+        "question": " Match ",
+        "pairs": [
+          { "left": "Bed room", "right": "Sleep" },
+          { "left": "Bathroom", "right": "Bath" },
+          { "left": "Dining room", "right": "Lunch and dinner" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "001",
+        "question": " Match ",
+        "pairs": [
+          { "left": "Mud", "right": "Kutcha House" },
+          { "left": "Steel", "right": "Pucca House" },
+          { "left": "Guest", "right": "Drawing room" },
+          { "left": "Cooking", "right": "Kitchen" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "true_false",
+        "id": "009",
+        "question": "We cover body with clothes",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "009",
+        "question": "kuccha house are made of bricks and stones",
+        "correct_answer": false,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "009",
+        "question": "kuccha house are found in villages",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "true_false",
+        "id": "009",
+        "question": "house in cities are made of bricks and cement",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
+          {
+            "id": "01",
+            "text": "In drawing room we sit and talk with  ____ ",
+            "correct_answer": "Guests"
+          },
+          {
+            "id": "02",
+            "text": "We sleep in  ____ ",
+            "correct_answer": "Bedroom"
+          },
+          {
+            "id": "03",
+            "text": "We  ____  food in kitchen",
+            "correct_answer": "Cook"
+          },
+          {
+            "id": "04",
+            "text": "We take bath in the  ____ ",
+            "correct_answer": "Bathroom"
+          }
+        ],
+        "user_response": ["", "", "", ""],
+        "choices": ["Bedroom", "Bathroom", "Guests", "Cook"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____ is a place we live in.",
+            "correct_answer": "House"
+          },
+          {
+            "id": "02",
+            "text": "Mud, wood and leaves used in making ____ house",
+            "correct_answer": "kutcha"
+          },
+          {
+            "id": "03",
+            "text": "There are many  ____  in house",
+            "correct_answer": "rooms"
+          },
+          {
+            "id": "04",
+            "text": "Breakfast, lunch and dinner are eaten in  ____  room",
+            "correct_answer": "dining"
+          }
+        ],
+        "user_response": ["", "", "", ""],
+        "choices": ["dining", "rooms", "House", "kutcha"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "011",
+        "question": "Tick cross",
+        "options": [
+          {"id": "A", "text": "House protect us from thieves and weather", "correct": true},
+          {"id": "B", "text": "Stone and steel for pucca house", "correct": true},
+          {"id": "C", "text": "We eat in bed room", "correct": false},
+          {"id": "D", "text": "Some house have more than one bathroom", "correct": true},
+          {"id": "E", "text": "We welcome guest in drawing room", "correct": true}
+        ],
+        "user_response" : "",
+        "scoring_method": "exact"
+      }
+    ]
+  }
+  

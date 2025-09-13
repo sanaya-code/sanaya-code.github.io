@@ -122,6 +122,13 @@
         "description": "Clothes-6",
         "topic": "Clothes-6",
         "quiz_id": "Clothes-6"
+      },
+      {
+        "id": "007",
+        "link": "data/school/c1_miriam/evs/evs_07_house.json",
+        "description": "House-7",
+        "topic": "House-7",
+        "quiz_id": "House-7"
       }
     ],
     "Grammer": [
