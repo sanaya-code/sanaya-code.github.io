@@ -115,6 +115,13 @@
         "description": "Words pt-2",
         "topic": "Words pt-2",
         "quiz_id": "Words pt-2"
+      },
+      {
+        "id": "006",
+        "link": "data/school/c1_miriam/evs/evs_06_clothes.json",
+        "description": "Clothes-6",
+        "topic": "Clothes-6",
+        "quiz_id": "Clothes-6"
       }
     ],
     "Grammer": [
