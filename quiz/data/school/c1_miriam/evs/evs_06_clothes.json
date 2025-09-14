@@ -18,6 +18,15 @@
         "pairs": [
           { "left": "Sun glasses", "right": "summer" },
           { "left": "Rain", "right": "umbrella" },
+          { "left": "Rain Coat", "right": "rainy season" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "003",
+        "question": " Match ",
+        "pairs": [
           { "left": "Rain Coat", "right": "rainy season" },
           { "left": "Winter", "right": "Woollen" },
           { "left": "Summer", "right": "Cotton" }
@@ -47,19 +56,41 @@
             "id": "01",
             "text": "We should take good  ____ of clothes.",
             "correct_answer": "care"
-          },
+          }
+        ],
+        "user_response": [""],
+        "choices": ["dry", "umbrella", "clean", "care"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
           {
             "id": "02",
             "text": "We should wear  ____ and ironed clothes",
             "correct_answer": "clean"
-          },
+          }
+        ],
+        "user_response": [""],
+        "choices": ["dry", "umbrella", "clean", "care"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
           {
             "id": "03",
             "text": "We should  ____  our clothes after washing",
             "correct_answer": "dry"
           }
         ],
-        "user_response": ["", "", ""],
+        "user_response": [""],
         "choices": ["dry", "umbrella", "clean", "care"],
         "case_sensitive": false,
         "scoring_method": "exact"
@@ -73,29 +104,73 @@
             "id": "01",
             "text": "In  ____ season we use sunglasses.",
             "correct_answer": "summer"
-          },
+          }
+        ],
+        "user_response": [""],
+        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
           {
             "id": "02",
             "text": "We wear rain coats during ____ season",
             "correct_answer": "rainy"
-          },
+          }
+        ],
+        "user_response": [""],
+        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [      
           {
             "id": "03",
             "text": "We use  ____  when it rains",
             "correct_answer": "umbrella"
-          },
+          }
+        ],
+        "user_response": [""],
+        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
           {
             "id": "04",
             "text": "We wear  ____  clothes in winter",
             "correct_answer": "woollen"
-          },
+          }
+        ],
+        "user_response": [""],
+        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
           {
             "id": "05",
             "text": " ____  clothes keep us cool in summer",
             "correct_answer": "cotton"
           }
         ],
-        "user_response": ["", "", ""],
+        "user_response": [""],
         "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
         "case_sensitive": false,
         "scoring_method": "exact"
@@ -107,8 +182,18 @@
         "options": [
           {"id": "A", "text": "We need clothes to be healthy", "correct": false},
           {"id": "B", "text": "We wear cotton clothes in summer", "correct": true},
-          {"id": "C", "text": "Rain coats protect us from cold", "correct": false},
+          {"id": "C", "text": "Rain coats protect us from cold", "correct": false}
+        ],
+        "user_response" : "",
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "011",
+        "question": "Tick cross",
+        "options": [
           {"id": "D", "text": "There is no need to wash our clothes", "correct": false},
+          {"id": "C", "text": "Rain coats protect us from cold", "correct": false},
           {"id": "E", "text": "We wear clothes to protect from weather", "correct": true}
         ],
         "user_response" : "",
