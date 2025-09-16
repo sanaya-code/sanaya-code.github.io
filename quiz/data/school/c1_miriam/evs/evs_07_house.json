@@ -74,22 +74,17 @@
           },
           {
             "id": "02",
-            "text": "We sleep in  ____ ",
-            "correct_answer": "Bedroom"
+            "text": "We ____ in Bedroom  ",
+            "correct_answer": "sleep"
           },
           {
             "id": "03",
             "text": "We  ____  food in kitchen",
             "correct_answer": "Cook"
-          },
-          {
-            "id": "04",
-            "text": "We take bath in the  ____ ",
-            "correct_answer": "Bathroom"
           }
         ],
-        "user_response": ["", "", "", ""],
-        "choices": ["Bedroom", "Bathroom", "Guests", "Cook"],
+        "user_response": ["", "", ""],
+        "choices": ["sleep", "Bathroom", "Guests", "Cook"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -99,10 +94,31 @@
         "question": "Fill in the blanks",
         "options": [
           {
+            "id": "04",
+            "text": "We take bath in the  ____ ",
+            "correct_answer": "Bathroom"
+          },
+          {
+            "id": "02",
+            "text": "We sleep in  ____ ",
+            "correct_answer": "Bedroom"
+          },
+          {
             "id": "01",
             "text": " ____ is a place we live in.",
             "correct_answer": "House"
-          },
+          }
+        ],
+        "user_response": ["", "", ""],
+        "choices": ["Bedroom", "Bathroom", "House"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "Fill in the blanks",
+        "options": [
           {
             "id": "02",
             "text": "Mud, wood and leaves used in making ____ house",
@@ -119,7 +135,7 @@
             "correct_answer": "dining"
           }
         ],
-        "user_response": ["", "", "", ""],
+        "user_response": ["", "", ""],
         "choices": ["dining", "rooms", "House", "kutcha"],
         "case_sensitive": false,
         "scoring_method": "exact"
