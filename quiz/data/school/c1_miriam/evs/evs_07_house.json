@@ -84,7 +84,7 @@
           }
         ],
         "user_response": ["", "", ""],
-        "choices": ["sleep", "Bathroom", "Guests", "Cook"],
+        "choices_01": ["sleep", "Bathroom", "Guests", "Cook"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -110,7 +110,7 @@
           }
         ],
         "user_response": ["", "", ""],
-        "choices": ["Bedroom", "Bathroom", "House"],
+        "choices_01": ["Bedroom", "Bathroom", "House"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -136,7 +136,7 @@
           }
         ],
         "user_response": ["", "", ""],
-        "choices": ["dining", "rooms", "House", "kutcha"],
+        "choices_01": ["dining", "rooms", "House", "kutcha"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },

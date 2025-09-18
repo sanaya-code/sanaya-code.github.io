@@ -59,7 +59,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["dry", "umbrella", "clean", "care"],
+        "choices_01": ["dry", "umbrella", "clean", "care"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -75,7 +75,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["dry", "umbrella", "clean", "care"],
+        "choices_01": ["dry", "umbrella", "clean", "care"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -91,7 +91,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["dry", "umbrella", "clean", "care"],
+        "choices_01": ["dry", "umbrella", "clean", "care"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -107,7 +107,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "choices_01": ["woollen","rainy", "cotton", "umbrella", "summer"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -123,7 +123,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "choices_01": ["woollen","rainy", "cotton", "umbrella", "summer"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -139,7 +139,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "choices_01": ["woollen","rainy", "cotton", "umbrella", "summer"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -155,7 +155,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "choices_01": ["woollen","rainy", "cotton", "umbrella", "summer"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -171,7 +171,7 @@
           }
         ],
         "user_response": [""],
-        "choices": ["woollen","rainy", "cotton", "umbrella", "summer"],
+        "choices_01": ["woollen","rainy", "cotton", "umbrella", "summer"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
