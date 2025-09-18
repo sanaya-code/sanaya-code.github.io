@@ -117,6 +117,13 @@
         "quiz_id": "Words pt-2"
       },
       {
+        "id": "005",
+        "link": "data/school/c1_miriam/evs/evs_words_03.json",
+        "description": "Words - 3",
+        "topic": "Words - 3",
+        "quiz_id": "Words - 3"
+      },
+      {
         "id": "006",
         "link": "data/school/c1_miriam/evs/evs_06_clothes.json",
         "description": "Clothes-6",
