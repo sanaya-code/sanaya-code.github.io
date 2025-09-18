@@ -15,15 +15,15 @@
             "question": " W  __   __   __   __   __",
             "img_url": "data/school/c1_miriam/evs/img/woolen.jpeg",
             "items": ["W", "L", "E", "O", "N"],
-            "correct_order": ["W", "O", "O", "L", "L", "E", "N"],
-            "user_response": ["", "", "", "", "", "", ""]
+            "correct_order": ["W", "O", "O", "L", "E", "N"],
+            "user_response": ["", "", "", "", "", ""]
         },
         {
           "type": "ordering_horizontal",
           "id": "002",
           "question": " C __   __   __   __   __",
           "img_url": "data/school/c1_miriam/evs/img/cotton.jpg",
-          "items": ["C", "T", "N", "O"],
+          "items": ["C", "T", "N", "O", "E"],
           "correct_order": ["C", "O", "T", "T", "O", "N"],
           "user_response": ["", "", "", "", "", ""]
         },
