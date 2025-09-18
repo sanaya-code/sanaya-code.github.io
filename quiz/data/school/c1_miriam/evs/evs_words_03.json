@@ -9,15 +9,69 @@
       "license": "CC BY-SA 4.0"
     },
     "questions": [
-      {
-        "type": "ordering_horizontal",
-        "id": "001",
-        "question": " W  __   __   __   __   __",
-        "img_url": "data/school/c1_miriam/evs/img/woolen.jpeg",
-        "items": ["W", "L", "E", "O", "N"],
-        "correct_order": ["W", "O", "O", "L", "L", "E", "N"],
-        "user_response": ["", "", "", "", "", "", ""]
-      }
+        {
+            "type": "ordering_horizontal",
+            "id": "001",
+            "question": " W  __   __   __   __   __",
+            "img_url": "data/school/c1_miriam/evs/img/woolen.jpeg",
+            "items": ["W", "L", "E", "O", "N"],
+            "correct_order": ["W", "O", "O", "L", "L", "E", "N"],
+            "user_response": ["", "", "", "", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "002",
+          "question": " C __   __   __   __   __",
+          "img_url": "data/school/c1_miriam/evs/img/cotton.jpg",
+          "items": ["C", "T", "N", "O"],
+          "correct_order": ["C", "O", "T", "T", "O", "N"],
+          "user_response": ["", "", "", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "003",
+          "question": " U __   __   __   __   __   __   __",
+          "img_url": "data/school/c1_miriam/evs/img/umbrella.jpeg",
+          "items": ["U", "B", "M", "R", "L", "A", "E"],
+          "correct_order": ["U", "M", "B", "R", "E", "L", "L", "A"],
+          "user_response": ["", "", "", "", "", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "004",
+          "question": " Good _______ ",
+          "img_url": "data/school/c1_miriam/evs/img/care.jpeg",
+          "items": ["R", "E", "C", "A"],
+          "correct_order": ["C", "A", "R", "E"],
+          "user_response": ["", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "005",
+          "question": "  ______  and ironed ",
+          "img_url": "data/school/c1_miriam/evs/img/clean.jpeg",
+          "items": ["A", "C", "E", "N", "L"],
+          "correct_order": ["C", "L", "E", "A", "N"],
+          "user_response": ["", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "006",
+          "question": " S __   __   __   __",
+          "img_url": "data/school/c1_miriam/evs/img/summer.jpeg",
+          "items": ["U", "S", "M", "R", "E"],
+          "correct_order": ["S", "U", "M", "M", "E", "R"],
+          "user_response": ["", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "007",
+          "question": " R __   __   __   __",
+          "img_url": "data/school/c1_miriam/evs/img/umbrella.jpeg",
+          "items": ["I", "A", "R", "Y", "N"],
+          "correct_order": ["R", "A", "I", "N", "Y"],
+          "user_response": ["", "", "", "", ""]
+        }     
   ],
     "taxonomy": {
       "difficulty_levels": ["easy", "medium", "hard"],
