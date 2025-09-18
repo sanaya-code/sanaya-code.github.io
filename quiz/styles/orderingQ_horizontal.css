@@ -9,6 +9,46 @@
     font-weight: 500;
 }
 
+/* SVG Figure Container */
+.oh-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    /* min-height: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.oh-svg-figure svg {
+    /* max-width: 300px; */
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Image Figure Container */
+.oh-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.oh-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .oh-sequence {
     display: flex;
     justify-content: center;

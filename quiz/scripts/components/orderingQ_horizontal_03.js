@@ -1,4 +1,3 @@
-
 class OrderingHorizontal extends HTMLElement {
     constructor() {
         super();
@@ -31,12 +30,10 @@ class OrderingHorizontal extends HTMLElement {
     }
 
     render() {
-        const { question, items, user_response = [], svg_content, img_url } = this._config;
+        const { question, items, user_response = [] } = this._config;
 
         this.innerHTML = `
             <div class="oh-question">${question}</div>
-            <div class="oh-svg-figure" style="display: none;"></div>
-            <div class="oh-figure" style="display: none;"></div>
             <div class="oh-sequence">
                 <div class="oh-line"></div>
                 ${this._userResponse.map((val, index) => `
@@ -52,35 +49,7 @@ class OrderingHorizontal extends HTMLElement {
             </div>
         `;
 
-        this.svgEl = this.querySelector('.oh-svg-figure');
-        this.imgEl = this.querySelector('.oh-figure');
-
-        this.addSvg(svg_content)
-        this.addImg(img_url)
-
         this.addEventListeners();
-    }
-
-    addSvg(svg_content) 
-    {
-        if (svg_content) {
-            this.svgEl.innerHTML = svg_content;
-            this.svgEl.style.display = '';
-        } else {
-            this.svgEl.innerHTML = '';
-            this.svgEl.style.display = 'none';
-        }
-    }
-
-    addImg(img_url) 
-    {
-        if (img_url) {
-            this.imgEl.innerHTML = `<img src="${img_url}" alt="Figure">`;
-            this.imgEl.style.display = '';
-        } else {
-            this.imgEl.innerHTML = '';
-            this.imgEl.style.display = 'none';
-        }
     }
 
     addEventListeners() {
