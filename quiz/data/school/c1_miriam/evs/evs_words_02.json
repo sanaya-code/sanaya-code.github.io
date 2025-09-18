@@ -30,7 +30,7 @@
       {
         "type": "ordering_horizontal",
         "id": "005", 
-        "question": " D  __   __   __   __   __",
+        "question": " ROOM ",
         "img_url": "data/school/c1_miriam/evs/img/drawing_room.jpeg",
         "items": ["A", "W", "D", "R", "I", "N", "G"],
         "correct_order": ["D", "R", "A", "W", "I", "N", "G"],
@@ -39,7 +39,7 @@
       {
         "type": "ordering_horizontal",
         "id": "005", 
-        "question": " D  __   __   __   __   __",
+        "question": " ROOM ",
         "img_url": "data/school/c1_miriam/evs/img/dining_room.jpeg",
         "items": ["I", "D","N", "G"],
         "correct_order": ["D", "I", "N", "I", "N", "G"],
@@ -66,7 +66,7 @@
       {
         "type": "ordering_horizontal",
         "id": "005", 
-        "question": " G  __   __   __   __   __",
+        "question": " S  __   __   __   __   __",
         "img_url": "data/school/c1_miriam/evs/img/sleeping.jpeg",
         "items": ["E", "S", "L", "P"],
         "correct_order": ["S", "L", "E", "E", "P"],
