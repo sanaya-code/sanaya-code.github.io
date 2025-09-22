@@ -50,7 +50,7 @@
             "id": "010",
             "question": " Book ",
             "img_url": "data/school/c1_miriam/english/img/book.jpeg",
-            "items": ["a", "This","Book", "is"],
+            "items": ["a", "This","book", "is"],
             "correct_order": ["This", "is", "a", "book"],
             "user_response": ["", "", "", ""]
         },

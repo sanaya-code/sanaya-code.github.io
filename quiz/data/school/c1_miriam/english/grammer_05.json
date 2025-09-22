@@ -1,0 +1,127 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+            "type": "ordering_horizontal",
+            "id": "001",
+            "question": "Dog",
+            "img_url": "data/school/c1_miriam/english/img/dog.jpeg",
+            "items": ["dog", "is", "a", "This"],
+            "correct_order": ["This", "is", "a", "dog"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "002",
+            "question": "Dog",
+            "img_url": "data/school/c1_miriam/english/img/dog.jpeg",
+            "items": ["my", "This", "dog", "is"],
+            "correct_order": ["This", "is", "my", "dog"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "003",
+            "question": "Dog",
+            "img_url": "data/school/c1_miriam/english/img/dog.jpeg",
+            "items": ["a", "It", "big", "is", "dog"],
+            "correct_order": ["It", "is", "a", "big", "dog"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "004",
+            "question": "Dog",
+            "img_url": "data/school/c1_miriam/english/img/dog.jpeg",
+            "items": ["tail", "has", "It", "long", "a"],
+            "correct_order": ["It", "has", "a", "long", "tail"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "005",
+            "question": "Dog",
+            "img_url": "data/school/c1_miriam/english/img/dog.jpeg",
+            "items": ["has", "teeth", "It", "sharp"],
+            "correct_order": ["It", "has", "sharp", "teeth"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "006",
+            "question": "My Dog - Sentence 6",
+            "img_url": "data/school/c1_miriam/english/img/dog.jpeg",
+            "items": ["friend", "my", "is", "best", "It"],
+            "correct_order": ["It", "is", "my", "best", "friend"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "007",
+            "question": "Ball - 1",
+            "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
+            "items": ["Rohan", "He", "is"],
+            "correct_order": ["He", "is", "Rohan"],
+            "user_response": ["", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "008",
+            "question": "Ball - 2",
+            "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
+            "items": ["is", "brother", "my", "He"],
+            "correct_order": ["He", "is", "my", "brother"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "009",
+            "question": "Ball - 3",
+            "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
+            "items": ["a", "has", "He", "ball"],
+            "correct_order": ["He", "has", "a", "ball"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "010",
+            "question": "Ball - 4",
+            "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
+            "items": ["a", "ball", "big", "is", "It"],
+            "correct_order": ["It", "is", "a", "big", "ball"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "011",
+            "question": "Ball - 5",
+            "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
+            "items": ["red", "The", "is", "ball"],
+            "correct_order": ["The", "is", "red", "ball"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "012",
+            "question": "Ball - 6",
+            "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
+            "items": ["the", "ball", "playing", "is", "Rohan", "with"],
+            "correct_order": ["Rohan", "is", "playing", "with", "the", "ball"],
+            "user_response": ["", "", "", "", "", ""]
+        }
+    ],    
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
