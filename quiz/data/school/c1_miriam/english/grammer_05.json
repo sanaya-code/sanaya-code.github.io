@@ -105,7 +105,7 @@
             "question": "Ball - 5",
             "img_url": "data/school/c1_miriam/english/img/ball.jpeg",
             "items": ["red", "The", "is", "ball"],
-            "correct_order": ["The", "is", "red", "ball"],
+            "correct_order": ["The", "ball", "is", "red"],
             "user_response": ["", "", "", ""]
         },
         {
