@@ -4,6 +4,7 @@ var parvez = `[
     { "label": "PHD", "url": "https://drive.google.com/drive/folders/1ICrY7PwX5_tEBEUe4-5jkXGUc33RN84Q?usp=drive_link" },
     { "label": "Didi Share", "url": "https://drive.google.com/drive/folders/1p2IAWyPVpYbCZXndjhbVmb7K_PBwHlQL" },
     {"label": "Mendeley", "url":"https://www.mendeley.com/search/"},
+    {"label": "scispace", "url":"https://scispace.com"},
     {"label": "Overleaf", "url":"https://www.overleaf.com/project/67ac877294ce4878abe42309"},
     {"label": "info", "url":"https://drive.google.com/drive/folders/1ZjrnteYLb4kPLZ8oLMR8S3zVZ4FdoZ9r?usp=drive_link"},
     {"label": "Family Drive", "url":"https://drive.google.com/drive/folders/1MUTMqBSMJrL2jt3TwSsHQeFs5QExT3p8?usp=drive_link"},
