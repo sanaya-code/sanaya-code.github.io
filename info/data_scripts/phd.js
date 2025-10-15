@@ -1,6 +1,6 @@
 
 
-var parvez = `[
+var phd = `[
     { "label": "PHD", "url": "https://drive.google.com/drive/folders/1ICrY7PwX5_tEBEUe4-5jkXGUc33RN84Q?usp=drive_link" },
     { "label": "Paper_Doc", "url": "https://docs.google.com/document/d/1ZIRn_VPI_FYx2c5YYSt8XfbKbVdPMLM_vYBKUOMWlR8/edit?usp=sharing" },
     { "label": "Didi Share", "url": "https://drive.google.com/drive/folders/1p2IAWyPVpYbCZXndjhbVmb7K_PBwHlQL" },
