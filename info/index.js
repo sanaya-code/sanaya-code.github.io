@@ -1,6 +1,7 @@
 // Map tab names to global JS variables (strings) holding JSON data
 var tabDataStrings = {
   Parvez:parvez,
+  Phd:phd,
   Firoz: firoz,
   Sanaya: sanaya,
   Miriam: miriam,
