@@ -8,69 +8,6 @@
         "topic": "Front  behind",
         "description": "front behind",
         "quiz_id": "maths_01_lines_angles"
-      },
-      {
-        "id": "003",
-        "link": "data/school/c1_miriam/maths/maths_01_on_under.json",
-        "topic": "ON under",
-        "description": "on under",
-        "quiz_id": "maths_01_lines_angles"
-      },
-      {
-        "id": "005",
-        "link": "data/school/c1_miriam/maths/maths_02_shapes.json",
-        "topic": "Shapes",
-        "description": "Shapes",
-        "quiz_id": "maths_01_lines_angles"
-      },
-      {
-        "id": "007",
-        "link": "data/school/c1_miriam/maths/maths_02_after.json",
-        "topic": "After",
-        "description": "After",
-        "quiz_id": "maths_02_after"
-      },
-      {
-        "id": "009",
-        "link": "data/school/c1_miriam/maths/maths_02_before.json",
-        "topic": "Before",
-        "description": "Before",
-        "quiz_id": "maths_02_before"
-      },
-      {
-        "id": "011",
-        "link": "data/school/c1_miriam/maths/maths_03_numbers_01.json",
-        "topic": "Numbers 1",
-        "description": "Numbers 1",
-        "quiz_id": "maths_03_Numbers"
-      },
-      {
-        "id": "013",
-        "link": "data/school/c1_miriam/maths/maths_03_numbers_02.json",
-        "topic": "Numbers 2",
-        "description": "Numbers 2",
-        "quiz_id": "maths_03_Numbers"
-      },
-      {
-        "id": "015",
-        "link": "data/school/c1_miriam/maths/maths_04-06.json",
-        "topic": "Numbers 4-6",
-        "description": "Numbers 4-6",
-        "quiz_id": "Numbers 4-6"
-      },
-      {
-        "id": "016",
-        "link": "data/school/c1_miriam/maths/maths_05_01.json",
-        "topic": "Numbers 5a",
-        "description": "Numbers 5a",
-        "quiz_id": "Numbers 5a"
-      },
-      {
-        "id": "017",
-        "link": "data/school/c1_miriam/maths/maths_05_02.json",
-        "topic": "Numbers 5b",
-        "description": "Numbers 5b",
-        "quiz_id": "Numbers 5b"
       }
     ],
     "EVS": [
@@ -87,55 +24,6 @@
         "description": "Family 1",
         "topic": "Family 1",
         "quiz_id": "evs_02_family_a"
-      },
-      {
-        "id": "002",
-        "link": "data/school/c1_miriam/evs/evs_02_family_b.json",
-        "description": "Family 2",
-        "topic": "Family 2",
-        "quiz_id": "evs_02_family_b"
-      },
-      {
-        "id": "003",
-        "link": "data/school/c1_miriam/evs/evs_03_school.json",
-        "description": "School 3",
-        "topic": "School 3",
-        "quiz_id": "School 3"
-      },
-      {
-        "id": "004",
-        "link": "data/school/c1_miriam/evs/evs_words_01.json",
-        "description": "Words pt-1",
-        "topic": "Words pt-1",
-        "quiz_id": "Words pt-1"
-      },
-      {
-        "id": "005",
-        "link": "data/school/c1_miriam/evs/evs_words_02.json",
-        "description": "Words pt-2",
-        "topic": "Words pt-2",
-        "quiz_id": "Words pt-2"
-      },
-      {
-        "id": "005",
-        "link": "data/school/c1_miriam/evs/evs_words_03.json",
-        "description": "Words - 3",
-        "topic": "Words - 3",
-        "quiz_id": "Words - 3"
-      },
-      {
-        "id": "006",
-        "link": "data/school/c1_miriam/evs/evs_06_clothes.json",
-        "description": "Clothes-6",
-        "topic": "Clothes-6",
-        "quiz_id": "Clothes-6"
-      },
-      {
-        "id": "007",
-        "link": "data/school/c1_miriam/evs/evs_07_house.json",
-        "description": "House-7",
-        "topic": "House-7",
-        "quiz_id": "House-7"
       }
     ],
     "Grammer": [
@@ -145,27 +33,6 @@
         "description": "Grammer 01",
         "topic": "Grammer 01",
         "quiz_id": "grammer_01"
-      },
-      {
-        "id": "002",
-        "link": "data/school/c1_miriam/english/grammer_02.json",
-        "description": "Grammer 02",
-        "topic": "Grammer 02",
-        "quiz_id": "grammer_02"
-      },
-      {
-        "id": "003",
-        "link": "data/school/c1_miriam/english/grammer_05.json",
-        "description": "Grammer 05",
-        "topic": "Grammer 05",
-        "quiz_id": "grammer_05"
-      },
-      {
-        "id": "004",
-        "link": "data/school/c1_miriam/english/grammer_06.json",
-        "description": "Grammer 06",
-        "topic": "Grammer 06",
-        "quiz_id": "grammer_06"
       }
     ],
     "English": [
@@ -189,20 +56,6 @@
         "description": "English x",
         "topic": "English x",
         "quiz_id": "English x"
-      },
-      {
-        "id": "004",
-        "link": "data/school/c1_miriam/english/english_words_01.json",
-        "description": "Words pt-1",
-        "topic": "Words pt-1",
-        "quiz_id": "Words pt-1"
-      },
-      {
-        "id": "005",
-        "link": "data/school/c1_miriam/english/english_04.json",
-        "description": "Thief",
-        "topic": "Thief",
-        "quiz_id": "Thief"
       }
     ],
     "Hindi":[
