@@ -35,6 +35,13 @@
         "description": "Dog",
         "topic": "Dog",
         "quiz_id": "english_01"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/english/sem_02/english_02.json",
+        "description": "Wind",
+        "topic": "Wind",
+        "quiz_id": "english_02"
       }
     ],
     "Hindi":[
