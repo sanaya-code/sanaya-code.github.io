@@ -7,7 +7,7 @@
     "grades": {
       "1": {
         "subjects": ["Math", "Hindi", "English", "EVS", "Computer", "Grammer"],
-        "url": "data/school/c1_miriam/subjects.json"
+        "url": "data/school/c1_miriam/subjects_sem_02.json"
       },
       "6": {
         "subjects": ["Math", "English", "Science", "Geography"],
