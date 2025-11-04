@@ -42,6 +42,13 @@
         "description": "Wind",
         "topic": "Wind",
         "quiz_id": "english_02"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/english/sem_02/english_03.json",
+        "description": "Teeth",
+        "topic": "Teeth",
+        "quiz_id": "english_03"
       }
     ],
     "Hindi":[
