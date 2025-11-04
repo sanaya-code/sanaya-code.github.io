@@ -1,0 +1,165 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "matching_connection",
+        "id": "001",
+        "question": "Match",
+        "pairs": [
+          {"left": "The dog has", "right": "long hair"},
+          {"left": "The dog has no", "right": "tail"},
+          {"left": "The ear of dog", "right": "stand up"}
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "multi_select",
+        "id": "005",
+        "question": "Tick",
+        "options": [
+          {"id": "A", "text": "All Dogs are pet dogs", "correct": false},
+          {"id": "B", "text": "Some dogs have no tail", "correct": true},
+          {"id": "C", "text": "All Dogs have black hair", "correct": false},
+          {"id": "D", "text": "All Dogs have long bodies", "correct": false}
+        ],
+        "user_response" : "",
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "007",
+        "question": "Choose the right word",
+        "options": [
+          {
+            "id": "01",
+            "text": "You should ____ with your pet.",
+            "correct_answer": "play"
+          },
+          {
+            "id": "02",
+            "text": "You should never ____  your pet.",
+            "correct_answer": "hurt"
+          },
+          {
+            "id": "03",
+            "text": "You should be ____ to your pet.",
+            "correct_answer": "kind"
+          },
+          {
+            "id": "04",
+            "text": "You should take ____ to your pet.",
+            "correct_answer": "care"
+          }
+        ],
+        "user_response": ["", "", "", ""],
+        "choices": ["kind", "care", "play", "hurt"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "matching_connection",
+        "id": "027",
+        "question": "Start With star",
+        "img_url": "data/school/c1_miriam/english/sem_02/images/animal_directions.jpeg",
+        "pairs": [
+          { "left": "Go Left", "right": "A Cat" },
+          { "left": "Go Right", "right": "A Dog" },
+          { "left": "Go Down", "right": "A Sheep" },
+          { "left": "Go Up", "right": "A Goat" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "Fill in the blanks in the following statements:",
+        "options": [
+          {
+            "id": "01",
+            "text": " Nitin ____ a big kite.",
+            "correct_answer": "has"
+          },
+          {
+            "id": "02",
+            "text": " Girls  ____ long hair.",
+            "correct_answer": "have"
+          },
+          {
+            "id": "03",
+            "text": " Monkeys ____ long tails.",
+            "correct_answer": "have"
+          },
+          {
+            "id": "04",
+            "text": " Nancy ____  a new frock.",
+            "correct_answer": "has"
+          },
+          {
+            "id": "05",
+            "text": " Classroom ____  20 desks.",
+            "correct_answer": "have"
+          }
+        ],
+        "user_response": ["", "", ""],
+        "choices": ["has", "have"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "010",
+        "question": "Cat",
+        "items": ["E", "M", "W"],
+        "correct_order": ["M", "E", "W"],
+        "user_response": ["", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "013",
+        "question": "Dogs",
+        "items": ["B", "R", "A", "K"],
+        "correct_order": ["B", "A", "R", "K"],
+        "user_response": ["", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "017",
+        "question": "Lions",
+        "items": ["O", "R", "A", "R"],
+        "correct_order": ["R", "O", "A", "R"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "skip",
+        "type_01": "ordering_horizontal",
+        "id": "021",
+        "question": "Goats",
+        "items": ["B", "L", "A", "E", "T"],
+        "correct_order": ["B", "L", "E", "A", "T"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "skip",
+        "type_01": "ordering_horizontal",
+        "id": "024",
+        "question": "Monkey",
+        "items": ["C", "T", "H", "A", "E", "R"],
+        "correct_order": ["C", "H", "A", "T", "T", "E", "R"],
+        "user_response": ["", "", "", ""]
+      }      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
