@@ -14,6 +14,7 @@ var phd = `[
     { "label": "Perplexity", "url":"https://www.perplexity.ai/"}, 
     { "label": "Overleaf", "url":"https://www.overleaf.com/project/67ac877294ce4878abe42309"},
     { "label": "scispace", "url":"https://scispace.com"},
+    { "label": "Git", "url":"https://github.com/parvezk-rdata/study"},
     { "label": "Test", "url":"test"}
   ]`;
   
