@@ -15,6 +15,7 @@ var phd = `[
     { "label": "Overleaf", "url":"https://www.overleaf.com/project/67ac877294ce4878abe42309"},
     { "label": "scispace", "url":"https://scispace.com"},
     { "label": "Git", "url":"https://github.com/parvezk-rdata/study"},
+    { "label": "Google Colab", "url":"https://colab.research.google.com/"},
     { "label": "Test", "url":"test"}
   ]`;
   
