@@ -1,12 +1,23 @@
 class FillInBlankOperation extends HTMLElement {
     constructor() {
         super();
+
+        // Stores filled numbers
         this._responses = {
             first_row: [],
             second_row: [],
             third_row: [],
             fourth_row: []
         };
+
+        // Stores strike-out states
+        this._strike = {
+            first_row: [],
+            second_row: [],
+            third_row: [],
+            fourth_row: []
+        };
+
         this.selectedChoice = null;
         this.config = null;
     }
@@ -31,33 +42,54 @@ class FillInBlankOperation extends HTMLElement {
         }
     }
 
-    /* Clone user_response safely (supports null, undefined, wrong shape) */
-    _initializeResponses() {
+    /* -----------------------------
+       Initialize _responses & _strike
+    ------------------------------ */
+    _initializeState() {
         const ur = this.config.user_response || {};
 
-        // Build empty structure
-        const empty = {
-            first_row: ["", "", ""],
-            second_row: ["", ""],
-            third_row: ["", "", ""],
-            fourth_row: ["", "", ""]
+        // Fallback empty rows based on initial_answer row lengths
+        const initial = this.config.initial_answer;
+
+        const emptyResponses = {
+            first_row: initial.first_row.map(() => ""),
+            second_row: initial.second_row.map(() => ""),
+            third_row: initial.third_row.map(() => ""),
+            fourth_row: initial.fourth_row.map(() => "")
         };
 
-        // Deep clone (prefer user data when valid)
+        const emptyStrike = {
+            first_row: initial.first_row.map(() => false),
+            second_row: initial.second_row.map(() => false),
+            third_row: initial.third_row.map(() => false),
+            fourth_row: initial.fourth_row.map(() => false)
+        };
+
+        /* ------- Build _responses ------- */
         this._responses = {
-            first_row: Array.isArray(ur.first_row) ? [...ur.first_row] : [...empty.first_row],
-            second_row: Array.isArray(ur.second_row) ? [...ur.second_row] : [...empty.second_row],
-            third_row: Array.isArray(ur.third_row) ? [...ur.third_row] : [...empty.third_row],
-            fourth_row: Array.isArray(ur.fourth_row) ? [...ur.fourth_row] : [...empty.fourth_row]
+            first_row: Array.isArray(ur.first_row) ? [...ur.first_row] : [...emptyResponses.first_row],
+            second_row: Array.isArray(ur.second_row) ? [...ur.second_row] : [...emptyResponses.second_row],
+            third_row: Array.isArray(ur.third_row) ? [...ur.third_row] : [...emptyResponses.third_row],
+            fourth_row: Array.isArray(ur.fourth_row) ? [...ur.fourth_row] : [...emptyResponses.fourth_row]
+        };
+
+        /* ------- Build _strike ------- */
+        this._strike = {
+            first_row: Array.isArray(ur.strike_first_row) ? [...ur.strike_first_row] : [...emptyStrike.first_row],
+            second_row: Array.isArray(ur.strike_second_row) ? [...ur.strike_second_row] : [...emptyStrike.second_row],
+            third_row: Array.isArray(ur.strike_third_row) ? [...ur.strike_third_row] : [...emptyStrike.third_row],
+            fourth_row: Array.isArray(ur.strike_fourth_row) ? [...ur.strike_fourth_row] : [...emptyStrike.fourth_row]
         };
     }
 
+    /* --------------------------
+       RENDER
+    --------------------------- */
     render() {
         this.config = this.getConfig();
         if (!this.config) return;
 
-        // Important: build local response copy
-        this._initializeResponses();
+        this._initializeState(); // Important!
 
         const html = `
             <div class="fibopr-container">
@@ -68,11 +100,7 @@ class FillInBlankOperation extends HTMLElement {
 
                 <div class="fibopr-choices">
                     ${this.config.choices
-                        .map(
-                            c => `
-                        <button class="fibopr-choice" data-value="${c}">${c}</button>
-                    `
-                        )
+                        .map(c => `<button class="fibopr-choice" data-value="${c}">${c}</button>`)
                         .join("")}
                 </div>
             </div>
@@ -84,30 +112,40 @@ class FillInBlankOperation extends HTMLElement {
         this.attachBoxHandlers();
     }
 
-    /* Unified row rendering */
+    /* --------------------------
+       Render ONE row
+    --------------------------- */
     renderRow(rowName) {
         const editableArr = this.config.editable_answer[rowName];
-        const valueArr = this.config.initial_answer[rowName];
+        const initialArr = this.config.initial_answer[rowName];
 
         return `
             <div class="fibopr-row" data-row="${rowName}">
-                ${valueArr
-                    .map(
-                        (val, i) => `
-                    <div 
-                        class="fibopr-box ${editableArr[i] ? "editable" : ""}"
-                        data-row="${rowName}"
-                        data-index="${i}">
-                        ${this._responses[rowName][i] || val || ""}
-                    </div>
-                `
-                    )
+                ${initialArr
+                    .map((initialVal, i) => {
+                        const displayVal =
+                            this._responses[rowName][i] !== ""
+                                ? this._responses[rowName][i]
+                                : initialVal || "";
+
+                        const strikeClass = this._strike[rowName][i] ? "striked" : "";
+
+                        return `
+                        <div 
+                            class="fibopr-box ${editableArr[i] ? "editable" : ""} ${strikeClass}"
+                            data-row="${rowName}"
+                            data-index="${i}">
+                            ${displayVal}
+                        </div>`;
+                    })
                     .join("")}
             </div>
         `;
     }
 
-    /* ===== CHOICE CLICK ===== */
+    /* --------------------------
+       CHOICE CLICK
+    --------------------------- */
     attachChoiceHandlers() {
         const choices = this.querySelectorAll(".fibopr-choice");
 
@@ -120,7 +158,9 @@ class FillInBlankOperation extends HTMLElement {
         });
     }
 
-    /* ===== BOX CLICK + DOUBLE CLICK ===== */
+    /* --------------------------
+       BOX CLICK + STRIKE
+    --------------------------- */
     attachBoxHandlers() {
         const boxes = this.querySelectorAll(".fibopr-box");
 
@@ -128,7 +168,7 @@ class FillInBlankOperation extends HTMLElement {
             const row = box.getAttribute("data-row");
             const index = parseInt(box.getAttribute("data-index"));
 
-            /* CLICK → fill only if choice is selected */
+            /* --- Click to fill value --- */
             if (box.classList.contains("editable")) {
                 box.addEventListener("click", () => {
                     if (!this.selectedChoice) return;
@@ -136,10 +176,9 @@ class FillInBlankOperation extends HTMLElement {
                     box.textContent = this.selectedChoice;
                     box.classList.add("filled");
 
-                    // update local response store
                     this._responses[row][index] = this.selectedChoice;
 
-                    // unhighlight choice
+                    // Unselect choice
                     const choices = this.querySelectorAll(".fibopr-choice");
                     choices.forEach(c => c.classList.remove("selected"));
                     this.selectedChoice = null;
@@ -152,16 +191,36 @@ class FillInBlankOperation extends HTMLElement {
                 });
             }
 
-            /* DOUBLE-CLICK → toggle strike-out */
+            /* --- Double click to strike toggle --- */
             box.addEventListener("dblclick", () => {
                 box.classList.toggle("striked");
+
+                this._strike[row][index] = !this._strike[row][index];
+
+                this.dispatchEvent(
+                    new CustomEvent("input-change", {
+                        detail: this.getUserAnswer()
+                    })
+                );
             });
         });
     }
 
-    /* ===== RETURN SAFE USER RESPONSE ===== */
+    /* --------------------------
+       RETURN USER ANSWER
+    --------------------------- */
     getUserAnswer() {
-        return this._responses;
+        return {
+            first_row: this._responses.first_row,
+            second_row: this._responses.second_row,
+            third_row: this._responses.third_row,
+            fourth_row: this._responses.fourth_row,
+
+            strike_first_row: this._strike.first_row,
+            strike_second_row: this._strike.second_row,
+            strike_third_row: this._strike.third_row,
+            strike_fourth_row: this._strike.fourth_row
+        };
     }
 }
 
