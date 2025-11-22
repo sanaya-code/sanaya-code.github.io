@@ -1,0 +1,101 @@
+/* =============================
+   FOUR ROW DIGIT OPERATION CSS
+   Prefix: fibopr-
+============================== */
+
+.fibopr-container {
+  font-family: Arial, sans-serif;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fibopr-row {
+  display: flex;
+  justify-content: flex-end;   /* RIGHT ALIGNMENT FIX */
+  margin: 8px 0;
+}
+
+.fibopr-box {
+  width: 45px;
+  height: 45px;
+  margin: 0 4px;
+  border: 2px solid #bbb;
+  background: #f7f7f7;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 45px;
+  text-align: center;
+  cursor: default;
+}
+
+
+/* ============================
+   MAKE FIRST ROW BOXES CIRCULAR
+=============================== */
+
+.fibopr-row[data-row="first_row"] .fibopr-box {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #0b9e1e;
+  border-radius: 50%;   /* circle */
+  line-height: 45px;
+}
+
+.fibopr-box.editable {
+  cursor: pointer;
+  background: #ffffff;
+  border-color: #007bff;
+}
+
+.fibopr-box.filled {
+  color: #007bff;
+}
+
+/* ----- STRIKE-OUT EFFECT (Diagonal Red Line) ----- */
+.fibopr-box.striked {
+  position: relative;
+  color: #aaa; /* faded text */
+}
+
+.fibopr-box.striked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: 2px;
+  background: red;
+  transform: rotate(-22deg);
+  pointer-events: none;
+}
+
+/* Choices container */
+.fibopr-choices {
+  margin-top: 15px;
+}
+
+/* Choice buttons */
+.fibopr-choice {
+  background: #e0e0e0;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.fibopr-choice:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* CLICKED/ACTIVE choice */
+.fibopr-choice.selected {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #0056c7;
+}
