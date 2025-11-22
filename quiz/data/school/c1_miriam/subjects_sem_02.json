@@ -4,10 +4,10 @@
     "Math": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/maths/maths_01_front_behind.json",
-        "topic": "Front  behind",
-        "description": "front behind",
-        "quiz_id": "maths_01_lines_angles"
+        "link": "data/school/c1_miriam/maths/sem_02/maths_01_add_sub.json",
+        "topic": "Add  Sub",
+        "description": "Add  Sub",
+        "quiz_id": "maths_01_add_sub"
       }
     ],
     "EVS": [
