@@ -171,11 +171,13 @@ class FillInBlankOperation extends HTMLElement {
             /* --- Click to fill value --- */
             if (box.classList.contains("editable")) {
                 box.addEventListener("click", () => {
-                    if (!this.selectedChoice) return;
+                    // if (!this.selectedChoice) return;
+                    if (this.selectedChoice === null) return;
 
                     box.textContent = this.selectedChoice;
                     box.classList.add("filled");
 
+                    console.log(this.selectedChoice)
                     this._responses[row][index] = this.selectedChoice;
 
                     // Unselect choice

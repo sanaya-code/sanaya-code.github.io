@@ -664,7 +664,7 @@
         "fourth_row": ["", "", ""]
       },
     
-      "choices": ["1", "2", "17", "8", "13", "6", "5"],
+      "choices": ["", "1", "2", "17", "8", "13", "6", "5"],
     
       "scoring_method": "exact",
       "case_sensitive": false,
