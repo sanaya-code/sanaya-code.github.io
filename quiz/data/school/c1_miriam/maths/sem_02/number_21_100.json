@@ -48,40 +48,20 @@
           }
         },
         {
-          "type": "number_line_fill_in_blank",
+          "type": "ordering_horizontal",
           "id": "004",
           "question": "Skip Count by 2",
-          "sequence": [
-            {"value": "71"},
-            {"value": "____", "acceptable_answers": ["73"]},
-            {"value": "____", "acceptable_answers": ["75"]},
-            {"value": "____", "acceptable_answers": ["77"]},
-            {"value": "____", "acceptable_answers": ["79"]}
-            
-          ],
-          "user_response": ["", ""],
-          "validation": {
-            "case_sensitive": false,
-            "scoring_method": "exact"
-          }
+          "items": ["71", "74", "72", "73", "75", "77","78","79"],
+          "correct_order": ["71", "73", "75", "77","79"],
+          "user_response": ["71", "", "", "", ""]
         },
         {
-          "type": "number_line_fill_in_blank",
+          "type": "ordering_horizontal",
           "id": "007",
           "question": "Skip Count by 3",
-          "sequence": [
-            {"value": "29"},
-            {"value": "____", "acceptable_answers": ["32"]},
-            {"value": "____", "acceptable_answers": ["35"]},
-            {"value": "____", "acceptable_answers": ["38"]},
-            {"value": "____", "acceptable_answers": ["41"]}
-            
-          ],
-          "user_response": ["", ""],
-          "validation": {
-            "case_sensitive": false,
-            "scoring_method": "exact"
-          }
+          "items": ["29", "31", "32", "34", "35", "38","37","41", "40"],
+          "correct_order": ["29", "32", "35", "38", "41"],
+          "user_response": ["71", "", "", "", ""]
         },
         {
           "type": "number_line_fill_in_blank",
