@@ -8,6 +8,13 @@
         "topic": "Add  Sub",
         "description": "Add  Sub",
         "quiz_id": "maths_01_add_sub"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/maths/sem_02/number_21_100.json",
+        "topic": "Number 21 100",
+        "description": "Number 21 100",
+        "quiz_id": "number_21_100"
       }
     ],
     "EVS": [
