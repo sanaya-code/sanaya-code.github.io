@@ -50,7 +50,7 @@
         {
           "type": "number_line_fill_in_blank",
           "id": "004",
-          "question": "Count by 2",
+          "question": "Skip Count by 2",
           "sequence": [
             {"value": "71"},
             {"value": "____", "acceptable_answers": ["73"]},
@@ -68,7 +68,7 @@
         {
           "type": "number_line_fill_in_blank",
           "id": "007",
-          "question": "Count by 3",
+          "question": "Skip Count by 3",
           "sequence": [
             {"value": "29"},
             {"value": "____", "acceptable_answers": ["32"]},
@@ -86,7 +86,7 @@
         {
           "type": "number_line_fill_in_blank",
           "id": "010",
-          "question": "Count by 5",
+          "question": "Skip Count by 5",
           "sequence": [
             {"value": "30"},
             {"value": "____", "acceptable_answers": ["35"]},
@@ -104,7 +104,7 @@
         {
           "type": "number_line_fill_in_blank",
           "id": "013",
-          "question": "Count by 10",
+          "question": "Skip Count by 10",
           "sequence": [
             {"value": "14"},
             {"value": "____", "acceptable_answers": ["24"]},
