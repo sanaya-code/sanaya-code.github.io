@@ -213,16 +213,42 @@
         "scoring_method": "exact"
       },
       {
-        "id": "25",
+        "id": "023",
         "type": "clock_set_time",
-        "question": "Set the time to 4:30 PM by drawing the hour and minute hands on the clock.",
+        "question": "11 o clock",
         "clock": {
           "radius": 120,
           "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
           "hour_hand": { "color": "red", "length_ratio": 0.65 },
           "minute_hand": { "color": "black", "length_ratio": 0.9 }
         },
-        "correct_answer": { "hour": 4, "minute": 4.5 },
+        "correct_answer": { "hour":11, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      }, 
+      {
+        "id": "026",
+        "type": "clock_set_time",
+        "question": "3 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":3, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      }, 
+      {
+        "id": "029",
+        "type": "clock_set_time",
+        "question": "8 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":8, "minute": 12 },
         "user_response": { "hour": null, "minute": null }
       }     
     ],
