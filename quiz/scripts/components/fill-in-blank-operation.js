@@ -118,6 +118,10 @@ class FillInBlankOperation extends HTMLElement {
     renderRow(rowName) {
         const editableArr = this.config.editable_answer[rowName];
         const initialArr = this.config.initial_answer[rowName];
+        
+        if (!initialArr || initialArr.length === 0) {
+            return `<div class="fibopr-row" data-row="${rowName}"> </div>`;
+        }
 
         return `
             <div class="fibopr-row" data-row="${rowName}">
