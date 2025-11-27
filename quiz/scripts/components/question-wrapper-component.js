@@ -19,6 +19,7 @@
 // ordering_horizontal(ordering-horizontal-drag-click)
 // compare_quantities(compare-quantities)
 // image_compare_quantities_tick(compare-image-objects)
+// clock_set_time(clock-set-time)
 
 class QuestionWrapperComponent extends HTMLElement {
   static get observedAttributes() {
@@ -56,7 +57,8 @@ class QuestionWrapperComponent extends HTMLElement {
       ordering: 'ordering-drag-drop',
       ordering_horizontal : 'ordering-horizontal-drag-click',
       compare_quantities: 'compare-quantities',
-      image_compare_quantities_tick: 'compare-image-objects'
+      image_compare_quantities_tick: 'compare-image-objects',
+      clock_set_time: 'clock-set-time'
     };
   }
 

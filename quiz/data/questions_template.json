@@ -696,8 +696,21 @@
       }
     },
     {
+      "id": "25",
+      "type": "clock_set_time",
+      "question": "Set the time to 4:30 PM by drawing the hour and minute hands on the clock.",
+      "clock": {
+        "radius": 120,
+        "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "hour_hand": { "color": "red", "length_ratio": 0.65 },
+        "minute_hand": { "color": "black", "length_ratio": 0.9 }
+      },
+      "correct_answer": { "hour": 4, "minute": 4.5 },
+      "user_response": { "hour": null, "minute": null }
+    },
+    {
       "type": "skip",
-      "id": "025",
+      "id": "026",
       "question": "Tick which are more in number."
     }
   ],

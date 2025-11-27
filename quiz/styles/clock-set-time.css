@@ -1,0 +1,61 @@
+/* Container styling */
+clock-set-time {
+    display: block;
+    max-width: 350px;
+    margin: 1rem auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Question text */
+  clock-set-time > div:first-child {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  /* Buttons container */
+  clock-set-time > div:nth-child(2) {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Buttons styling */
+  clock-set-time button {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #555;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+  
+  clock-set-time button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* SVG clock styling */
+  clock-set-time svg {
+    display: block;
+    margin: 0 auto;
+    background-color: #fdfdfd;
+    border-radius: 50%;
+  }
+  
+  /* Clock numbers styling */
+  clock-set-time svg text {
+    user-select: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    fill: #000;
+    cursor: pointer;
+  }
+  
+  /* Optional: highlight hovered number */
+  clock-set-time svg text:hover {
+    fill: #007bff;
+    font-weight: bold;
+  }
+  

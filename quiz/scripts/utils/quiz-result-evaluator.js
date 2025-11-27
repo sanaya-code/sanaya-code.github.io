@@ -19,6 +19,7 @@
 // ordering_horizontal(ordering-horizontal-drag-click)
 // compare_quantities(compare-quantities)
 // image_compare_quantities_tick(compare-image-objects)
+// clock_set_time(clock-set-time)
 
 // change following methods
 // checkAnswerCorrectness
@@ -92,6 +93,7 @@ class QuizResultEvaluator {
             multi_fill_in_blank: () => this.checkMultiFillInBlank(question, userAnswer),
             // options_fill_in_blank: () => this.checkOptionsFillInBlank(question, userAnswer),
             options_fill_in_blank: () => OptionsFillInBlankEvaluator.checkAnswer(question, userAnswer),
+            clock_set_time: () => ClockSetTimeOperationEvaluator.checkAnswer(question, userAnswer),
             table_fill_in_the_blank: () => this.checkTableFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank: () => this.checkTableImageFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank_2_col: () => this.checkTableImage2ColFillInBlank(question, userAnswer),
@@ -130,6 +132,7 @@ class QuizResultEvaluator {
             fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.formatUserAnswer(question, answer),
             fill_in_blank_operation: () => FillInBlankOperationEvaluator.formatUserAnswer(question, answer),
             options_fill_in_blank: () => OptionsFillInBlankEvaluator.formatUserAnswer(question, answer),
+            clock_set_time: () => ClockSetTimeOperationEvaluator.formatUserAnswer(question, answer),
             multi_select: () => this.formatMultiSelectAnswer(question, answer),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatUserAnswer(question, answer),
             multi_select_two: () => SelectTwoQuantitiesEvaluator.formatUserAnswer(question, answer),
@@ -164,6 +167,7 @@ class QuizResultEvaluator {
             multi_fill_in_blank: () => this.formatMultiFillCorrectAnswer(question),
             //options_fill_in_blank: () => question.options.map(opt => opt.correct_answer).join(', '),
             options_fill_in_blank: () => OptionsFillInBlankEvaluator.formatCorrectAnswer(question),
+            clock_set_time: () => ClockSetTimeOperationEvaluator.formatCorrectAnswer(question),
             multi_select: () => question.options.filter(opt => opt.correct).map(opt => opt.text).join(', '),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatCorrectAnswer(question),
             multi_select_two: () => SelectTwoQuantitiesEvaluator.formatCorrectAnswer(question),
