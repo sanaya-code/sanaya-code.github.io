@@ -3,7 +3,7 @@ class OptionsFillInBlankComponent extends HTMLElement {
     super();
     this._initialized = false;
     this._currentInput = null;
-    this._responses = [];
+    this._responses = [];         // now 2D: [optionIndex][blankIndex]
     this._activeChoice = null;
   }
 
@@ -42,7 +42,9 @@ class OptionsFillInBlankComponent extends HTMLElement {
 
     try {
       this._config = JSON.parse(this.getAttribute("config") || "{}");
-      this._responses = [...(this._config.user_response || this._config.options.map(() => ""))];
+
+      // Initialize 2D responses array based on config.user_response or option text blanks
+      this._initializeResponses();
 
       this.renderQuestion();
       this.renderOptions();
@@ -54,6 +56,34 @@ class OptionsFillInBlankComponent extends HTMLElement {
     }
   }
 
+  /* Build a 2D _responses array:
+     - If config.user_response is provided and shaped correctly, use it
+     - Otherwise auto-create arrays for each option based on number of "____" blanks in option.text
+  */
+  _initializeResponses() {
+    const opts = this._config.options || [];
+    const userResp = Array.isArray(this._config.user_response) ? this._config.user_response : null;
+
+    this._responses = opts.map((opt, optIndex) => {
+      // Count blanks by splitting on /____+/ (same logic as render)
+      const parts = (opt.text || "").split(/____+/g);
+      const blanksCount = Math.max(0, parts.length - 1);
+
+      if (userResp && Array.isArray(userResp[optIndex])) {
+        // If provided response for this option and matches length, use it; otherwise normalize
+        const provided = userResp[optIndex];
+        const arr = Array(blanksCount).fill("");
+        for (let i = 0; i < blanksCount; i++) {
+          arr[i] = typeof provided[i] !== "undefined" ? provided[i] : "";
+        }
+        return arr;
+      } else {
+        // Create empty response array for this option
+        return Array(blanksCount).fill("");
+      }
+    });
+  }
+
   renderQuestion() {
     this._questionEl.textContent = this._config.question || "";
   }
@@ -62,25 +92,37 @@ class OptionsFillInBlankComponent extends HTMLElement {
     this._optionsEl.innerHTML = "";
     const options = this._config.options || [];
 
-    options.forEach((opt, i) => {
+    options.forEach((opt, optIndex) => {
       const container = document.createElement("div");
       container.className = "fibmo-option";
 
       const label = document.createElement("span");
       label.className = "mfib-option-label";
-      label.textContent = `${String.fromCharCode(97 + i)}) `;
+      label.textContent = `${String.fromCharCode(97 + optIndex)}) `;
 
-      const parts = opt.text.split(/____+/g);
+      // Split text by blanks (one or more underscores sequence)
+      const parts = (opt.text || "").split(/____+/g);
       const frag = document.createDocumentFragment();
 
-      parts.forEach((text, j) => {
-        frag.appendChild(document.createTextNode(text));
-        if (j === 0) {
+      // For each segment, append text and (if not last) a blank span
+      parts.forEach((textPart, partIndex) => {
+        // add the text node
+        frag.appendChild(document.createTextNode(textPart || ""));
+
+        // if not the last segment, add a blank span
+        if (partIndex < parts.length - 1) {
+          const blankIndex = partIndex; // zero based
           const span = document.createElement("span");
-          span.className = "fibmo-blank" + (this._responses[i] ? " filled" : "");
-          span.dataset.index = i;
-          span.textContent = this._responses[i] || "___";
-          span.addEventListener("click", () => this.handleBlankClick(i, span));
+          span.className = "fibmo-blank";
+          // apply filled class if there is a response present
+          const value = (this._responses[optIndex] && this._responses[optIndex][blankIndex]) || "";
+          if (value !== "") span.classList.add("filled");
+
+          span.dataset.option = String(optIndex);
+          span.dataset.blank = String(blankIndex);
+          span.textContent = value || "___";
+          // click handler for this specific blank
+          span.addEventListener("click", (ev) => this.handleBlankClick(optIndex, blankIndex, span));
           frag.appendChild(span);
         }
       });
@@ -135,35 +177,68 @@ class OptionsFillInBlankComponent extends HTMLElement {
     });
   }
 
-  handleBlankClick(index, span) {
+  /**
+   * Handle click on a specific blank (optionIndex, blankIndex)
+   * If an active choice exists => fill that blank with choice
+   * Otherwise switch to inline input for that blank
+   */
+  handleBlankClick(optionIndex, blankIndex, spanEl) {
+    // If there is an active choice, fill this blank with it
     if (this._activeChoice) {
-      // Insert chosen value
-      this._responses[index] = this._activeChoice;
-      span.textContent = this._activeChoice;
-      span.classList.add("filled");
+      // ensure _responses shape
+      if (!Array.isArray(this._responses[optionIndex])) {
+        this._responses[optionIndex] = [];
+      }
+      this._responses[optionIndex][blankIndex] = this._activeChoice;
+
+      // update UI
+      spanEl.textContent = this._activeChoice;
+      spanEl.classList.add("filled");
+
+      // clear active choice after use
       this.clearActiveChoice();
     } else {
-      // Switch to editable input
-      this.activateInput(index, span);
+      // activate input for this blank
+      this.activateInput(optionIndex, blankIndex, spanEl);
     }
   }
 
-  activateInput(index, span) {
+  /**
+   * Replace blank span with input for editing that specific blank
+   */
+  activateInput(optionIndex, blankIndex, spanEl) {
+    // commit any existing input first
     if (this._currentInput) {
       this.commitCurrentInput();
     }
 
+    const value = (this._responses[optionIndex] && this._responses[optionIndex][blankIndex]) || "";
+
     const input = document.createElement("input");
     input.type = "text";
     input.className = "fibmo-input";
-    input.value = this._responses[index] || "";
-    input.dataset.index = index;
+    input.value = value;
+    input.dataset.option = String(optionIndex);
+    input.dataset.blank = String(blankIndex);
 
+    // When losing focus, commit value back to responses and replace with span
     input.addEventListener("blur", () => {
       this.commitInput(input);
     });
 
-    span.replaceWith(input);
+    // also commit on Enter key
+    input.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter") {
+        ev.preventDefault();
+        input.blur(); // triggers commitInput via blur handler
+      } else if (ev.key === "Escape") {
+        // cancel editing: restore previous span without change
+        this.commitCurrentInput(); // commitCurrentInput handles replace
+      }
+    });
+
+    // replace the span element with input
+    spanEl.replaceWith(input);
     input.focus();
     this._currentInput = input;
   }
@@ -173,18 +248,29 @@ class OptionsFillInBlankComponent extends HTMLElement {
     this.commitInput(this._currentInput);
   }
 
-  commitInput(input) {
-    const index = parseInt(input.dataset.index, 10);
-    const value = input.value.trim();
-    this._responses[index] = value;
+  /**
+   * Commit input value back to _responses and recreate span for the blank
+   */
+  commitInput(inputEl) {
+    const optionIndex = parseInt(inputEl.dataset.option, 10);
+    const blankIndex = parseInt(inputEl.dataset.blank, 10);
+    const value = inputEl.value.trim();
 
+    // ensure shape
+    if (!Array.isArray(this._responses[optionIndex])) {
+      this._responses[optionIndex] = [];
+    }
+    this._responses[optionIndex][blankIndex] = value;
+
+    // create a new span to replace input
     const span = document.createElement("span");
     span.className = "fibmo-blank" + (value ? " filled" : "");
-    span.dataset.index = index;
+    span.dataset.option = String(optionIndex);
+    span.dataset.blank = String(blankIndex);
     span.textContent = value || "___";
-    span.addEventListener("click", () => this.handleBlankClick(index, span));
+    span.addEventListener("click", (ev) => this.handleBlankClick(optionIndex, blankIndex, span));
 
-    input.replaceWith(span);
+    inputEl.replaceWith(span);
     this._currentInput = null;
   }
 
@@ -196,52 +282,11 @@ class OptionsFillInBlankComponent extends HTMLElement {
   }
 
   getUserAnswer() {
+    // Commit any open input first
     this.commitCurrentInput();
+    // Return the 2D responses array
     return this._responses;
   }
 }
 
 customElements.define("options-fill-in-blank", OptionsFillInBlankComponent);
-
-
-  /*
-
-function testOptionsFillInBlank() {
-  const el = document.createElement('options-fill-in-blank');
-
-  const configObj = {
-    type: "options_fill_in_blank",
-    id: "Q101",
-    question: "Fill the blanks in each option below:",
-    svg_content: "<svg width='100' height='50'><circle cx='25' cy='25' r='20' fill='skyblue' /></svg>",
-    img_url: "https://via.placeholder.com/150",
-    options: [
-      { label: "a", text: "The capital of France is ____.", correct_answer: "Paris", acceptable_answers: ["paris"], hint: "City of lights" },
-      { label: "b", text: "Water boils at ____ degrees Celsius.", correct_answer: "100", acceptable_answers: ["100", "one hundred"], hint: "Triple-digit boiling point" },
-      { label: "c", text: "The square root of 9 is ____.", correct_answer: "3", acceptable_answers: ["three"], hint: "Single-digit result" }
-    ],
-    user_response: ["", "", ""],
-    case_sensitive: false,
-    difficulty: "easy",
-    tags: ["gk", "science", "math"],
-    points: 3,
-    scoring_method: "exact",
-    feedback: {
-      full_credit: "Well done!",
-      partial_credit: "You got some correct!",
-      none: "Try again!"
-    }
-  };
-
-  el.setAttribute('config', JSON.stringify(configObj));
-  document.body.appendChild(el);
-
-  // Wait 5 seconds, then log the responses
-  setTimeout(() => {
-    const answers = el.getUserAnswer();
-    console.log("User responses:", answers);
-  }, 5000);
-}
-
-
-  */

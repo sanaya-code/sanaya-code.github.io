@@ -5,7 +5,7 @@
 // fill_in_blank_multi_graph(fill-in-blank-multi-graph),
 // fill_in_blank_multi_graph_text(fill-in-blank-multi-graph-text)
 // options_fill_in_blank(options-fill-in-blank)
-// options_fill_in_blank(options-fill-in-blank)
+// fill_in_blank_operation(fill-in-blank-operation)
 // table_fill_in_the_blank(table-fill-in-the-blank)
 // table_image_fill_in_the_blank(table-image-fill-in-the-blank)
 // table_image_fill_in_the_blank_2_col(table-image-fill-in-the-blank-2-col)
@@ -90,7 +90,8 @@ class QuizResultEvaluator {
             fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.checkAnswer(question, userAnswer),
             fill_in_blank_operation: () => FillInBlankOperationEvaluator.checkAnswer(question, userAnswer),
             multi_fill_in_blank: () => this.checkMultiFillInBlank(question, userAnswer),
-            options_fill_in_blank: () => this.checkOptionsFillInBlank(question, userAnswer),
+            // options_fill_in_blank: () => this.checkOptionsFillInBlank(question, userAnswer),
+            options_fill_in_blank: () => OptionsFillInBlankEvaluator.checkAnswer(question, userAnswer),
             table_fill_in_the_blank: () => this.checkTableFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank: () => this.checkTableImageFillInBlank(question, userAnswer),
             table_image_fill_in_the_blank_2_col: () => this.checkTableImage2ColFillInBlank(question, userAnswer),
@@ -128,6 +129,7 @@ class QuizResultEvaluator {
             fill_in_blank_multi_graph: () => FillInTheBlankMutiGraph.formatUserAnswer(question, answer),
             fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.formatUserAnswer(question, answer),
             fill_in_blank_operation: () => FillInBlankOperationEvaluator.formatUserAnswer(question, answer),
+            options_fill_in_blank: () => OptionsFillInBlankEvaluator.formatUserAnswer(question, answer),
             multi_select: () => this.formatMultiSelectAnswer(question, answer),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatUserAnswer(question, answer),
             multi_select_two: () => SelectTwoQuantitiesEvaluator.formatUserAnswer(question, answer),
@@ -160,7 +162,8 @@ class QuizResultEvaluator {
             fill_in_blank_multi_graph_text: () => FillInTheBlankMutiGraph.formatCorrectAnswer(question),
             fill_in_blank_operation: () => FillInBlankOperationEvaluator.formatCorrectAnswer(question),
             multi_fill_in_blank: () => this.formatMultiFillCorrectAnswer(question),
-            options_fill_in_blank: () => question.options.map(opt => opt.correct_answer).join(', '),
+            //options_fill_in_blank: () => question.options.map(opt => opt.correct_answer).join(', '),
+            options_fill_in_blank: () => OptionsFillInBlankEvaluator.formatCorrectAnswer(question),
             multi_select: () => question.options.filter(opt => opt.correct).map(opt => opt.text).join(', '),
             multi_select_circle: () => MultiSelectCircleEvaluator.formatCorrectAnswer(question),
             multi_select_two: () => SelectTwoQuantitiesEvaluator.formatCorrectAnswer(question),
