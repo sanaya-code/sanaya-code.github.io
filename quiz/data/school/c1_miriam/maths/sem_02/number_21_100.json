@@ -48,56 +48,73 @@
           }
         },
         {
-          "type": "ordering_horizontal",
+          "type": "options_fill_in_blank",
           "id": "004",
           "question": "Skip Count by 2",
-          "items": ["71", "74", "72", "73", "75", "77","78","79"],
-          "correct_order": ["71", "73", "75", "77","79"],
-          "user_response": ["71", "", "", "", ""]
+          "blank_type" : "box",
+          "options": [
+            {
+              "id": "01",
+              "text": "20, 22, ____ , ____  ",
+              "correct_answer": ["24", "26"]
+            },
+            {
+              "id": "02",
+              "text": "71, ____ , ____  ",
+              "correct_answer": ["73", "75"]
+            }
+          ],
+          "user_response": [["", ""], ["", ""]],
+          "choices": ["23", "24", "25", "26", "72", "73", "74", "75"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
         },
         {
           "type": "ordering_horizontal",
           "id": "007",
           "question": "Skip Count by 3",
-          "items": ["29", "31", "32", "34", "35", "38","37","41", "40"],
-          "correct_order": ["29", "32", "35", "38", "41"],
-          "user_response": ["71", "", "", "", ""]
+          "items": ["29", "30", "31", "32", "33", "34", "35", "36"],
+          "correct_order": ["29", "32", "35"],
+          "user_response": ["29", "", ""]
         },
         {
-          "type": "number_line_fill_in_blank",
+          "type": "options_fill_in_blank",
           "id": "010",
           "question": "Skip Count by 5",
-          "sequence": [
-            {"value": "30"},
-            {"value": "____", "acceptable_answers": ["35"]},
-            {"value": "____", "acceptable_answers": ["40"]},
-            {"value": "____", "acceptable_answers": ["45"]},
-            {"value": "____", "acceptable_answers": ["50"]}
-            
+          "blank_type" : "box",
+          "options": [
+            {
+              "id": "01",
+              "text": "30, ____ , ____ , ____ ",
+              "correct_answer": ["35", "40", "45"]
+            },
+            {
+              "id": "02",
+              "text": "28, ____ , ____ , ____",
+              "correct_answer": ["33", "38", "43"]
+            }
           ],
-          "user_response": ["", ""],
-          "validation": {
-            "case_sensitive": false,
-            "scoring_method": "exact"
-          }
+          "user_response": [["", "", ""], ["", "", ""]],
+          "choices": ["33", "35", "38", "40", "43", "45", "48"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
         },
         {
-          "type": "number_line_fill_in_blank",
+          "type": "options_fill_in_blank",
           "id": "013",
           "question": "Skip Count by 10",
-          "sequence": [
-            {"value": "14"},
-            {"value": "____", "acceptable_answers": ["24"]},
-            {"value": "____", "acceptable_answers": ["34"]},
-            {"value": "____", "acceptable_answers": ["44"]},
-            {"value": "____", "acceptable_answers": ["54"]}
-            
+          "blank_type" : "box",
+          "options": [
+            {
+              "id": "01",
+              "text": "14, ____ , ____ , ____  ",
+              "correct_answer": ["24", "34", "44"]
+            }
           ],
-          "user_response": ["", ""],
-          "validation": {
-            "case_sensitive": false,
-            "scoring_method": "exact"
-          }
+          "user_response": [["", "", ""]],
+          "choices": ["21", "24", "34", "42", "44"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
         },
         {
           "type": "compare_quantities",
@@ -113,7 +130,7 @@
           "type": "compare_quantities",
           "id": "019",
           "question": "click for appropriate symbol",
-          "quantity_a": { "value": "72" },
+          "quantity_a": { "value": "9" },
           "quantity_b": { "value": "78"},
           "symbol_options": [" ", ">", "<", "="],
           "correct_answer": "<",
@@ -125,16 +142,6 @@
           "question": "click for appropriate symbol",
           "quantity_a": { "value": "92" },
           "quantity_b": { "value": "36"},
-          "symbol_options": [" ", ">", "<", "="],
-          "correct_answer": ">",
-          "user_response": ""
-        },
-        {
-          "type": "compare_quantities",
-          "id": "025",
-          "question": "click for appropriate symbol",
-          "quantity_a": { "value": "74" },
-          "quantity_b": { "value": "47"},
           "symbol_options": [" ", ">", "<", "="],
           "correct_answer": ">",
           "user_response": ""
@@ -160,11 +167,6 @@
               "correct_answer": ["46"]
             },
             {
-              "id": "02",
-              "text": "79 ____ .",
-              "correct_answer": ["80"]
-            },
-            {
               "id": "03",
               "text": " ____ 58 .",
               "correct_answer": ["57"]
@@ -175,8 +177,8 @@
               "correct_answer": ["59"]
             }
           ],
-          "user_response": [[""], [""], [""], [""]],
-          "choices": ["44", "46", "78", "80", "57", "59", "61"],
+          "user_response": [[""], [""], [""]],
+          "choices": ["44", "46", "57", "59", "61"],
           "case_sensitive": false,
           "difficulty": "easy",
           "tags": ["gk", "science", "maths"],
@@ -189,8 +191,8 @@
           "options": [
             {
               "id": "01",
-              "text": "99 ____ .",
-              "correct_answer": ["100"]
+              "text": " 56 ____ 58 .",
+              "correct_answer": ["57"]
             },
             {
               "id": "02",
@@ -199,17 +201,12 @@
             },
             {
               "id": "03",
-              "text": " 56 ____ 58 .",
-              "correct_answer": ["57"]
-            },
-            {
-              "id": "04",
-              "text": " 55 ____ 57 .",
-              "correct_answer": ["56"]
+              "text": "99 ____ .",
+              "correct_answer": ["100"]
             }
           ],
-          "user_response": [[""], [""], [""], [""]],
-          "choices": ["74", "56", "98", "58", "100", "76", "57"],
+          "user_response": [[""], [""], [""]],
+          "choices": ["56", "57", "74", "76", "100"],
           "case_sensitive": false,
           "difficulty": "easy",
           "tags": ["gk", "science", "maths"],
@@ -219,17 +216,17 @@
           "type": "ordering_horizontal",
           "id": "037",
           "question": "incresing order:",
-          "items": ["95", "60", "80", "0", "100"],
-          "correct_order": ["0", "60", "80", "95", "100"],
-          "user_response": ["", "", "", "", ""]
+          "items": ["60", "80", "0", "100"],
+          "correct_order": ["0", "60", "80","100"],
+          "user_response": ["", "", "", ""]
         },
         {
           "type": "ordering_horizontal",
           "id": "037",
           "question": "decresing order:",
-          "items": ["23", "77", "44", "89", "3"],
-          "correct_order": ["89", "77", "44", "23", "3"],
-          "user_response": ["", "", "", "", ""]
+          "items": ["23", "77", "44", "3"],
+          "correct_order": ["77", "44", "23", "3"],
+          "user_response": ["", "", "", ""]
         }
     ],
     "taxonomy": {

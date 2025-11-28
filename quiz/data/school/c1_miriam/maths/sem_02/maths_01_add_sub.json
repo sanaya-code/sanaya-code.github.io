@@ -216,7 +216,6 @@
         "type": "options_fill_in_blank",
         "id": "023",
         "question": "Fill in the blank",
-        "blank_type" : "box",
         "options": [
           {
             "id": "01",
