@@ -10,19 +10,6 @@
     },
     "questions": [
       {
-        "id": "004",
-        "type": "clock_set_time",
-        "question": "11 o clock",
-        "clock": {
-          "radius": 120,
-          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-          "hour_hand": { "color": "red", "length_ratio": 0.65 },
-          "minute_hand": { "color": "black", "length_ratio": 0.9 }
-        },
-        "correct_answer": { "hour":11, "minute": 12 },
-        "user_response": { "hour": null, "minute": null }
-      }, 
-      {
         "id": "007",
         "type": "clock_set_time",
         "question": "3 o clock",
@@ -38,14 +25,14 @@
       {
         "id": "012",
         "type": "clock_set_time",
-        "question": "8 o clock",
+        "question": "12 o clock",
         "clock": {
           "radius": 120,
           "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
           "hour_hand": { "color": "red", "length_ratio": 0.65 },
           "minute_hand": { "color": "black", "length_ratio": 0.9 }
         },
-        "correct_answer": { "hour":8, "minute": 12 },
+        "correct_answer": { "hour":12, "minute": 12 },
         "user_response": { "hour": null, "minute": null }
       },
       {
@@ -85,7 +72,7 @@
           },
           {
             "id": "04",
-            "text": "One hour after before 12:00 ____.",
+            "text": "One hour before 12:00 ____.",
             "correct_answer": ["11:00"]
           }
         ],
@@ -115,11 +102,6 @@
             "id": "03",
             "text": "third monday ____ .",
             "correct_answer": ["20"]
-          },
-          {
-            "id": "04",
-            "text": "Fourth monday ____ .",
-            "correct_answer": ["27"]
           }
         ],
         "user_response": [[""], [""], [""]],
@@ -140,18 +122,13 @@
             "correct_answer": ["thursday"]
           },
           {
-            "id": "03",
-            "text": "data on last sunday ____ .",
-            "correct_answer": ["26"]
-          },
-          {
             "id": "04",
             "text": " day on 14th november ____ .",
             "correct_answer": ["tuesday"]
           }
         ],
-        "user_response": [[""], [""], [""]],
-        "choices": ["tuesday", "thursday", "25", "26", "28", "30"],
+        "user_response": [[""], [""]],
+        "choices": ["tuesday", "thursday", "30"],
         "case_sensitive": false,
         "scoring_method": "exact"
       }
