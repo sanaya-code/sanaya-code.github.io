@@ -1,0 +1,58 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "id": "004",
+        "type": "clock_set_time",
+        "question": "11 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":11, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      }, 
+      {
+        "id": "007",
+        "type": "clock_set_time",
+        "question": "3 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":3, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      }, 
+      {
+        "id": "012",
+        "type": "clock_set_time",
+        "question": "8 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":8, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      }     
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

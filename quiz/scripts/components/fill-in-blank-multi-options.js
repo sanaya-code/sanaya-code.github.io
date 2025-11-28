@@ -21,6 +21,15 @@ class OptionsFillInBlankComponent extends HTMLElement {
     }
   }
 
+  // Add this method to determine blank type class
+  getBlankTypeClass(blankType) {
+    if (blankType === 'box') {
+      return 'fib-blank-box';
+    }
+    return 'fib-blank-underline'; // default/current behavior
+  }
+
+
   setup() {
     if (!this._initialized) {
       this.innerHTML = `
@@ -113,7 +122,9 @@ class OptionsFillInBlankComponent extends HTMLElement {
         if (partIndex < parts.length - 1) {
           const blankIndex = partIndex; // zero based
           const span = document.createElement("span");
-          span.className = "fibmo-blank";
+          // span.className = "fibmo-blank";
+          span.className = "fibmo-blank " + this.getBlankTypeClass(this._config.blank_type);
+
           // apply filled class if there is a response present
           const value = (this._responses[optIndex] && this._responses[optIndex][blankIndex]) || "";
           if (value !== "") span.classList.add("filled");
@@ -121,6 +132,10 @@ class OptionsFillInBlankComponent extends HTMLElement {
           span.dataset.option = String(optIndex);
           span.dataset.blank = String(blankIndex);
           span.textContent = value || "___";
+          if(this.getBlankTypeClass(this._config.blank_type) == "fib-blank-box")
+          {
+            span.textContent = value || "\u00A0\u00A0\u00A0\u00A0\u00A0";
+          }          
           // click handler for this specific blank
           span.addEventListener("click", (ev) => this.handleBlankClick(optIndex, blankIndex, span));
           frag.appendChild(span);
@@ -264,10 +279,15 @@ class OptionsFillInBlankComponent extends HTMLElement {
 
     // create a new span to replace input
     const span = document.createElement("span");
-    span.className = "fibmo-blank" + (value ? " filled" : "");
+    // span.className = "fibmo-blank" + (value ? " filled" : "");
+    span.className = "fibmo-blank " + this.getBlankTypeClass(this._config.blank_type) + (value ? " filled" : "");
     span.dataset.option = String(optionIndex);
     span.dataset.blank = String(blankIndex);
     span.textContent = value || "___";
+    if(this.getBlankTypeClass(this._config.blank_type) == "fib-blank-box")
+    {
+      span.textContent = value || "\u00A0\u00A0\u00A0\u00A0\u00A0";
+    }          
     span.addEventListener("click", (ev) => this.handleBlankClick(optionIndex, blankIndex, span));
 
     inputEl.replaceWith(span);

@@ -213,44 +213,32 @@
         "scoring_method": "exact"
       },
       {
+        "type": "options_fill_in_blank",
         "id": "023",
-        "type": "clock_set_time",
-        "question": "11 o clock",
-        "clock": {
-          "radius": 120,
-          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-          "hour_hand": { "color": "red", "length_ratio": 0.65 },
-          "minute_hand": { "color": "black", "length_ratio": 0.9 }
-        },
-        "correct_answer": { "hour":11, "minute": 12 },
-        "user_response": { "hour": null, "minute": null }
-      }, 
-      {
-        "id": "026",
-        "type": "clock_set_time",
-        "question": "3 o clock",
-        "clock": {
-          "radius": 120,
-          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-          "hour_hand": { "color": "red", "length_ratio": 0.65 },
-          "minute_hand": { "color": "black", "length_ratio": 0.9 }
-        },
-        "correct_answer": { "hour":3, "minute": 12 },
-        "user_response": { "hour": null, "minute": null }
-      }, 
-      {
-        "id": "029",
-        "type": "clock_set_time",
-        "question": "8 o clock",
-        "clock": {
-          "radius": 120,
-          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-          "hour_hand": { "color": "red", "length_ratio": 0.65 },
-          "minute_hand": { "color": "black", "length_ratio": 0.9 }
-        },
-        "correct_answer": { "hour":8, "minute": 12 },
-        "user_response": { "hour": null, "minute": null }
-      }     
+        "question": "Fill in the blank",
+        "blank_type" : "box",
+        "options": [
+          {
+            "id": "01",
+            "text": "6 tens and 4 ones =  ____  +  ____  =  ____",
+            "correct_answer": ["60", "4", "64"]
+          },
+          {
+            "id": "02",
+            "text": "8 tens and 6 ones =  ____  +  ____  =  ____",
+            "correct_answer": ["80", "6", "86"]
+          },
+          {
+            "id": "03",
+            "text": "1 tens and 7 ones =  ____  +  ____  =  ____",
+            "correct_answer": ["10", "7", "17"]
+          }
+        ],
+        "user_response": [["", "", ""], ["", "", ""], ["", "", ""]],
+        "choices": ["4", "6", "7", "10", "60", "80", "64", "17", "86"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      }
     ],
     "taxonomy": {
       "difficulty_levels": ["easy", "medium", "hard"],

@@ -15,6 +15,13 @@
         "topic": "Number 21 100",
         "description": "Number 21 100",
         "quiz_id": "number_21_100"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/maths/sem_02/time.json",
+        "topic": "Time",
+        "description": "Time",
+        "quiz_id": "time"
       }
     ],
     "EVS": [
