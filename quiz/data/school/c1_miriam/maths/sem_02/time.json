@@ -47,6 +47,41 @@
         },
         "correct_answer": { "hour":8, "minute": 12 },
         "user_response": { "hour": null, "minute": null }
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "015",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/cal_nov_01.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "Sides in triangle ____ and ____ points.",
+            "correct_answer": ["3", "3"],
+            "acceptable_answers": [["3", "three"], ["3", "three"]],
+            "hint": "Freezing point of water"
+          },
+          {
+            "id": "02",
+            "text": "Sides in square is ____.",
+            "correct_answer": ["4"],
+            "acceptable_answers": [["4"]],
+            "hint": "City of lights"
+          },
+          {
+            "id": "03",
+            "text": "Sides in pentegaon is ____ .",
+            "correct_answer": ["5"],
+            "acceptable_answers": [["five", "5"]],
+            "hint": "Basic geometry"
+          }
+        ],
+        "user_response": [["", ""], [""], [""]],
+        "choices": ["0", "1", "2", "3", "4", "5", "6"],
+        "case_sensitive": false,
+        "points": 3,
+        "scoring_method": "exact"
       }     
     ],
     "taxonomy": {
