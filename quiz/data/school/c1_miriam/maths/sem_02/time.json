@@ -50,6 +50,52 @@
       },
       {
         "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/clock.jpg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "Time between 11:00 and 1:00 ____ .",
+            "correct_answer": ["12:00"]
+          },
+          {
+            "id": "03",
+            "text": "Time between 1:00 and 3:00 ____ .",
+            "correct_answer": ["2:00"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["11:00", "12:00", "1:00", "2:00", "3:00"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "014",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/clock.jpg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "02",
+            "text": "One hour after 12:00 ____.",
+            "correct_answer": ["1:00"]
+          },
+          {
+            "id": "04",
+            "text": "One hour after before 12:00 ____.",
+            "correct_answer": ["11:00"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["11:00", "12:00", "1:00", "2:00", "3:00"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
         "id": "015",
         "question": "statements",
         "img_url": "data/school/c1_miriam/maths/sem_02/images/cal_nov_01.jpeg",
@@ -80,7 +126,7 @@
         "choices": ["november", "10", "11", "12", "20", "27"],
         "case_sensitive": false,
         "scoring_method": "exact"
-      }     ,
+      },
       {
         "type": "options_fill_in_blank",
         "id": "018",
