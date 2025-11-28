@@ -57,30 +57,28 @@
         "options": [
           {
             "id": "01",
-            "text": "Sides in triangle ____ and ____ points.",
-            "correct_answer": ["3", "3"],
-            "acceptable_answers": [["3", "three"], ["3", "three"]],
-            "hint": "Freezing point of water"
+            "text": "Month ____ .",
+            "correct_answer": ["november"]
           },
           {
             "id": "02",
-            "text": "Sides in square is ____.",
-            "correct_answer": ["4"],
-            "acceptable_answers": [["4"]],
-            "hint": "City of lights"
+            "text": "date of second saturday ____.",
+            "correct_answer": ["11"]
           },
           {
             "id": "03",
-            "text": "Sides in pentegaon is ____ .",
-            "correct_answer": ["5"],
-            "acceptable_answers": [["five", "5"]],
-            "hint": "Basic geometry"
+            "text": "third monday ____ .",
+            "correct_answer": ["20"]
+          },
+          {
+            "id": "04",
+            "text": "Fourth monday ____ .",
+            "correct_answer": ["27"]
           }
         ],
-        "user_response": [["", ""], [""], [""]],
-        "choices": ["0", "1", "2", "3", "4", "5", "6"],
+        "user_response": [[""], [""], [""]],
+        "choices": ["november", "10", "11", "12", "20", "27"],
         "case_sensitive": false,
-        "points": 3,
         "scoring_method": "exact"
       }     
     ],
