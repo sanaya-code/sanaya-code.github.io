@@ -57,7 +57,7 @@
         "options": [
           {
             "id": "01",
-            "text": "Month ____ .",
+            "text": "Given calander which month ____ .",
             "correct_answer": ["november"]
           },
           {
@@ -90,7 +90,7 @@
         "options": [
           {
             "id": "02",
-            "text": "Last day ____.",
+            "text": "last day ____.",
             "correct_answer": ["thursday"]
           },
           {
