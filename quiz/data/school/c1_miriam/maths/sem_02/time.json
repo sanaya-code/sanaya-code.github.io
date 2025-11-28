@@ -80,7 +80,35 @@
         "choices": ["november", "10", "11", "12", "20", "27"],
         "case_sensitive": false,
         "scoring_method": "exact"
-      }     
+      }     ,
+      {
+        "type": "options_fill_in_blank",
+        "id": "018",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/cal_nov_01.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "02",
+            "text": "Last day ____.",
+            "correct_answer": ["thursday"]
+          },
+          {
+            "id": "03",
+            "text": "data on last sunday ____ .",
+            "correct_answer": ["26"]
+          },
+          {
+            "id": "04",
+            "text": " day on 14th november ____ .",
+            "correct_answer": ["tuesday"]
+          }
+        ],
+        "user_response": [[""], [""], [""]],
+        "choices": ["tuesday", "thursday", "25", "26", "28", "30"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      }
     ],
     "taxonomy": {
       "difficulty_levels": ["easy", "medium", "hard"],
