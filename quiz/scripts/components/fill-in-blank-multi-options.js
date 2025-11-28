@@ -36,14 +36,14 @@ class OptionsFillInBlankComponent extends HTMLElement {
         <div class="fibmo-question-type">
           <div class="fibmo-question"></div>
           <div class="fibmo-svg" style="display:none;"></div>
-          <div class="fibmo-img" style="display:none;"></div>
+          <div class="fibmo-img-new" style="display:none;"></div>
           <div class="fibmo-options"></div>
           <div class="fibmo-choices" style="display:none;"></div>
         </div>
       `;
       this._questionEl = this.querySelector(".fibmo-question");
       this._svgEl = this.querySelector(".fibmo-svg");
-      this._imgEl = this.querySelector(".fibmo-img");
+      this._imgEl = this.querySelector(".fibmo-img-new");
       this._optionsEl = this.querySelector(".fibmo-options");
       this._choicesEl = this.querySelector(".fibmo-choices");
       this._initialized = true;
