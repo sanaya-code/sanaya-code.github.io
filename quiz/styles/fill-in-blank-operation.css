@@ -10,6 +10,15 @@
   text-align: center;
 }
 
+.fibopr-question {
+  font-size: 20px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #003366;
+}
+
+
 .fibopr-row {
   display: flex;
   justify-content: flex-end;   /* RIGHT ALIGNMENT FIX */

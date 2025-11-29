@@ -93,6 +93,9 @@ class FillInBlankOperation extends HTMLElement {
 
         const html = `
             <div class="fibopr-container">
+
+                <div class="fibopr-question">${this.config.question || ""}</div>
+
                 ${this.renderRow("first_row")}
                 ${this.renderRow("second_row")}
                 ${this.renderRow("third_row")}

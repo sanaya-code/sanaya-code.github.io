@@ -639,7 +639,7 @@
     {
       "type": "fill_in_blank_operation",
       "id": "024",
-    
+      "question": "Perform substraction",
       "operation": {
         "name": "subtraction",
         "symbol": "-"
