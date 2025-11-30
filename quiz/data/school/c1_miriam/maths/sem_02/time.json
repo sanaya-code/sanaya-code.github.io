@@ -131,6 +131,38 @@
         "choices": ["tuesday", "thursday", "30"],
         "case_sensitive": false,
         "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "021",
+        "question": "",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "There are ____ months in a year.",
+            "correct_answer": ["12"]
+          },
+          {
+            "id": "02",
+            "text": " There are ____ days in a week.",
+            "correct_answer": ["7"]
+          },
+          {
+            "id": "03",
+            "text": " There are ____ days in a year.",
+            "correct_answer": ["365"]
+          },
+          {
+            "id": "04",
+            "text": " Leap year has ____ days.",
+            "correct_answer": ["366"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["366", "7", "365", "12"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
       }
     ],
     "taxonomy": {

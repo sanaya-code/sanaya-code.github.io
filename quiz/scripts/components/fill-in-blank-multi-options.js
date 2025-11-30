@@ -24,9 +24,9 @@ class OptionsFillInBlankComponent extends HTMLElement {
   // Add this method to determine blank type class
   getBlankTypeClass(blankType) {
     if (blankType === 'box') {
-      return 'fib-blank-box';
+      return 'fibmo-new-blank-box';
     }
-    return 'fib-blank-underline'; // default/current behavior
+    return 'fibmo-new-blank-underline'; // default/current behavior
   }
 
 
@@ -132,7 +132,7 @@ class OptionsFillInBlankComponent extends HTMLElement {
           span.dataset.option = String(optIndex);
           span.dataset.blank = String(blankIndex);
           span.textContent = value || "___";
-          if(this.getBlankTypeClass(this._config.blank_type) == "fib-blank-box")
+          if(this.getBlankTypeClass(this._config.blank_type) == "fibmo-new-blank-box")
           {
             span.textContent = value || "\u00A0\u00A0\u00A0\u00A0\u00A0";
           }          
@@ -284,7 +284,7 @@ class OptionsFillInBlankComponent extends HTMLElement {
     span.dataset.option = String(optionIndex);
     span.dataset.blank = String(blankIndex);
     span.textContent = value || "___";
-    if(this.getBlankTypeClass(this._config.blank_type) == "fib-blank-box")
+    if(this.getBlankTypeClass(this._config.blank_type) == "fibmo-new-blank-box")
     {
       span.textContent = value || "\u00A0\u00A0\u00A0\u00A0\u00A0";
     }          
