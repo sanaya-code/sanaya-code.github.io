@@ -94,18 +94,23 @@
             "correct_answer": ["november"]
           },
           {
-            "id": "02",
+            "id": "21",
+            "text": " How many days ____ .",
+            "correct_answer": ["30"]
+          },
+          {
+            "id": "03",
             "text": "date of second saturday ____.",
             "correct_answer": ["11"]
           },
           {
-            "id": "03",
+            "id": "04",
             "text": "third monday ____ .",
             "correct_answer": ["20"]
           }
         ],
-        "user_response": [[""], [""], [""]],
-        "choices": ["november", "10", "11", "12", "20", "27"],
+        "user_response": [[""], [""], [""], [""]],
+        "choices": ["november", "30", "10", "11", "12", "20", "27"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -117,18 +122,23 @@
         "blank_type" : "normal",
         "options": [
           {
-            "id": "02",
+            "id": "01",
             "text": "last day ____.",
             "correct_answer": ["thursday"]
           },
           {
-            "id": "04",
+            "id": "02",
             "text": " day on 14th november ____ .",
             "correct_answer": ["tuesday"]
+          },
+          {
+            "id": "03",
+            "text": " How many mondays ____ .",
+            "correct_answer": ["4"]
           }
         ],
-        "user_response": [[""], [""]],
-        "choices": ["tuesday", "thursday", "30"],
+        "user_response": [[""], [""], [""]],
+        "choices": ["tuesday", "thursday", "4", "30"],
         "case_sensitive": false,
         "scoring_method": "exact"
       },
@@ -157,12 +167,33 @@
             "id": "04",
             "text": " Leap year has ____ days.",
             "correct_answer": ["366"]
+          },
+          {
+            "id": "05",
+            "text": " Clock has number ____ days.",
+            "correct_answer": ["1 to 12"]
           }
         ],
         "user_response": [[""], [""]],
-        "choices": ["366", "7", "365", "12"],
+        "choices": ["366", "1 to 12", "7", "365", "12"],
         "case_sensitive": false,
         "scoring_method": "exact"
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "023",
+        "question": "Long hand clock",
+        "items": ["N", "I", "M", "U", "T", "E" ],
+        "correct_order": ["M", "I", "N", "U", "T", "E"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "023",
+        "question": "Short hand clock",
+        "items": ["U", "H", "R", "O"],
+        "correct_order": ["H", "O", "U", "R"],
+        "user_response": ["", "", "", ""]
       }
     ],
     "taxonomy": {
