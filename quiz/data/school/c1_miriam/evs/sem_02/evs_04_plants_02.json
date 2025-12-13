@@ -1,0 +1,37 @@
+{
+    "questions": [
+      {
+        "type": "fill_in_blank",
+        "id": "028",
+        "question": "I am small and green. Tongue burn. I am ____.",
+        "correct_answer": "chilli",
+        "user_response" : "",
+        "case_sensitive": false
+      },   
+      {
+        "type": "fill_in_blank",
+        "id": "032",
+        "question": "Fox gave up. Sour. I am ____.",
+        "correct_answer": "Grape",
+        "user_response" : "",
+        "case_sensitive": false
+      },   
+      {
+        "type": "fill_in_blank",
+        "id": "036",
+        "question": "Rabit loves me. I am ____.",
+        "correct_answer": "Carrot",
+        "user_response" : "",
+        "case_sensitive": false
+      },   
+      {
+        "type": "fill_in_blank",
+        "id": "040",
+        "question": "I make every food sweet. I am ____.",
+        "correct_answer": "Sugar",
+        "user_response" : "",
+        "case_sensitive": false
+      }
+    ]
+  }
+  

@@ -27,10 +27,31 @@
     "EVS": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/evs/sem_02/evs_01_a.json",
-        "description": "Body part 01",
-        "topic": "Body part 01",
-        "quiz_id": "Body part 01"
+        "link": "data/school/c1_miriam/evs/sem_02/evs_04_plants_01.json",
+        "description": "Plants 01",
+        "topic": "Plants 01",
+        "quiz_id": "Plants 01"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_04_plants_02.json",
+        "description": "Plants 02",
+        "topic": "Plants 02",
+        "quiz_id": "Plants 02"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_06_animal_food.json",
+        "description": "Animal Food",
+        "topic": "Animal Food",
+        "quiz_id": "Animal Food"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_06_animal_shelter.json",
+        "description": "Animal Shelter",
+        "topic": "Animal Shelter",
+        "quiz_id": "Animal Shelter"
       }
     ],
     "Grammer": [],
