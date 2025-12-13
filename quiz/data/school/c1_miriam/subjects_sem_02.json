@@ -27,21 +27,13 @@
     "EVS": [
       {
         "id": "001",
-        "link": "data/school/c1_miriam/evs/evs_01_a.json",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_01_a.json",
         "description": "Body part 01",
         "topic": "Body part 01",
         "quiz_id": "Body part 01"
       }
     ],
-    "Grammer": [
-      {
-        "id": "001",
-        "link": "data/school/c1_miriam/english/grammer_01.json",
-        "description": "Grammer 01",
-        "topic": "Grammer 01",
-        "quiz_id": "grammer_01"
-      }
-    ],
+    "Grammer": [],
     "English": [
       {
         "id": "001",
@@ -65,24 +57,7 @@
         "quiz_id": "english_03"
       }
     ],
-    "Hindi":[
-      {
-        "id": "001",
-        "link": "data/school/c1_miriam/hindi/PT_01.json",
-        "description": "vinti-04",
-        "topic": "vinti-04",
-        "quiz_id": "vinti-04"
-      }
-
-    ],
-    "Computer":[
-      {
-        "id": "001",
-        "link": "data/school/c1_miriam/comp/comp_01.json",
-        "description": "Unit 01",
-        "topic": "Unit 01",
-        "quiz_id": "maths_01_lines_angles"
-      }
-    ]
+    "Hindi":[ ],
+    "Computer":[]
   }
 }
