@@ -83,6 +83,13 @@
         "description": "Teeth",
         "topic": "Teeth",
         "quiz_id": "english_03"
+      },
+      {
+        "id": "004",
+        "link": "data/school/c1_miriam/english/sem_02/english_04.json",
+        "description": "Carrot",
+        "topic": "Carrot",
+        "quiz_id": "english_04"
       }
     ],
     "Hindi":[ ],

@@ -1,0 +1,232 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+          "type": "mcq",
+          "id": "001",
+          "question": "thoot",
+          "options": [
+            {"id": "A", "text": "Smile"},
+            {"id": "B", "text": "Loose"},
+            {"id": "C", "text": "Tooth"},
+            {"id": "D", "text": "Happy"},
+            {"id": "E", "text": "Mouth"}
+          ],
+          "correct_answer": "C",
+          "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "004",
+            "question": "oolse",
+            "options": [
+              {"id": "A", "text": "Smile"},
+              {"id": "B", "text": "Loose"},
+              {"id": "C", "text": "Tooth"},
+              {"id": "D", "text": "Happy"},
+              {"id": "E", "text": "Mouth"}
+            ],
+            "correct_answer": "B",
+            "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "007",
+            "question": "pyhap",
+            "options": [
+              {"id": "A", "text": "Smile"},
+              {"id": "B", "text": "Loose"},
+              {"id": "C", "text": "Tooth"},
+              {"id": "D", "text": "Happy"},
+              {"id": "E", "text": "Mouth"}
+            ],
+            "correct_answer": "D",
+            "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "009",
+            "question": "thoum",
+            "options": [
+              {"id": "A", "text": "Smile"},
+              {"id": "B", "text": "Loose"},
+              {"id": "C", "text": "Tooth"},
+              {"id": "D", "text": "Happy"},
+              {"id": "E", "text": "Mouth"}
+            ],
+            "correct_answer": "E",
+            "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "012",
+            "question": "elsmi",
+            "options": [
+              {"id": "A", "text": "Smile"},
+              {"id": "B", "text": "Loose"},
+              {"id": "C", "text": "Tooth"},
+              {"id": "D", "text": "Happy"},
+              {"id": "E", "text": "Mouth"}
+            ],
+            "correct_answer": "A",
+            "user_response" : ""
+        },
+        {
+            "type": "mcq",
+            "id": "012",
+            "question": "idlch",
+            "options": [
+              {"id": "A", "text": "Smile"},
+              {"id": "B", "text": "Loose"},
+              {"id": "C", "text": "Child"},
+              {"id": "D", "text": "Happy"},
+              {"id": "E", "text": "Mouth"}
+            ],
+            "correct_answer": "C",
+            "user_response" : ""
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "014",
+          "question": "Foot",
+          "items": ["F", "T", "E", "O", "I"],
+          "correct_order": ["F", "E", "E", "T"],
+          "user_response": ["", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "014",
+          "question": "Tooth",
+          "items": ["F", "T", "E", "H", "I"],
+          "correct_order": ["T", "E", "E", "T", "H"],
+          "user_response": ["", "", "", ""]
+        },
+        {
+          "type": "matching_connection",
+          "id": "016",
+          "question": "Opposite",
+          "pairs": [
+            { "left": "Bull", "right": "Cow" },
+            { "left": "Dog", "right": "Bitch" },
+            { "left": "Man", "right": "Woman" },
+            { "left": "Cock", "right": "Hen" }
+          ],
+          "user_response": ""
+        },
+        {
+          "type": "multi_select_circle",
+          "id": "019",
+          "question": "Circle correct spelling",
+          "options": [
+            {"id": "A", "text": "hapy", "correct": false},
+            {"id": "B", "text": "happy", "correct": true},
+            {"id": "C", "text": "hapey", "correct": false}
+          ],
+          "user_response" : "",
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select_circle",
+          "id": "020",
+          "question": "Circle correct spelling",
+          "options": [
+            {"id": "A", "text": "geft", "correct": false},
+            {"id": "B", "text": "gifet", "correct": false},
+            {"id": "C", "text": "gift", "correct": true}
+          ],
+          "user_response" : "",
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select_circle",
+          "id": "022",
+          "question": "Circle correct spelling",
+          "options": [
+            {"id": "A", "text": "tuth", "correct": false},
+            {"id": "B", "text": "tooth", "correct": true},
+            {"id": "C", "text": "toth", "correct": false}
+          ],
+          "user_response" : "",
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select_circle",
+          "id": "025",
+          "question": "Circle correct spelling",
+          "options": [
+            {"id": "A", "text": "fairy", "correct": true},
+            {"id": "B", "text": "fiary", "correct": false},
+            {"id": "C", "text": "fary", "correct": false}
+          ],
+          "user_response" : "",
+          "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "027",
+          "question": "Has and Have",
+          "options": [
+            {
+              "id": "01",
+              "text": " Tom ____ a car.",
+              "correct_answer": "has"
+            },
+            {
+              "id": "02",
+              "text": " Boys  ____ balls.",
+              "correct_answer": "have"
+            },
+            {
+              "id": "03",
+              "text": " Girls ____ dolls.",
+              "correct_answer": "have"
+            }
+          ],
+          "user_response": ["", "", ""],
+          "choices": ["has", "have"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "030",
+          "question": "Has and Have",
+          "options": [
+            {
+              "id": "01",
+              "text": " I ____ white teeth.",
+              "correct_answer": "have"
+            },
+            {
+              "id": "02",
+              "text": " You  ____ white teeth.",
+              "correct_answer": "have"
+            },
+            {
+              "id": "03",
+              "text": " Neena ____ dolls.",
+              "correct_answer": "has"
+            }
+          ],
+          "user_response": ["", "", ""],
+          "choices": ["has", "have"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        }
+      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  
