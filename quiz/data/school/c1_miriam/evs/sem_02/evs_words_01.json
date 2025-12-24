@@ -1,0 +1,100 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_01_chilli.jpg",
+        "items": ["I", "H", "C", "L"],
+        "correct_order": ["C", "H", "I", "L", "L", "I"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "002",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_02_grass.jpeg",
+        "items": ["A", "G", "S", "R"],
+        "correct_order": ["G", "R", "A", "S", "S"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "003",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_03_wheat.jpeg",
+        "items": ["E", "H", "W", "T", "A"],
+        "correct_order": ["W", "H", "E", "A", "T"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "004",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_04_moong.jpeg",
+        "items": ["M", "G", "O", "N"],
+        "correct_order": ["M", "O", "O", "N", "G"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "005",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_05_pea.jpeg",
+        "items": ["E", "A", "P"],
+        "correct_order": ["P", "E", "A"],
+        "user_response": ["", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "006",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_06_cabbage.jpeg",
+        "items": ["B", "C", "A", "E", "G"],
+        "correct_order": ["C", "A", "B", "B", "A", "G", "E"],
+        "user_response": ["", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "007",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_07_cauliflower.jpeg",
+        "items": ["U", "A", "C", "L", "I"],
+        "correct_order": ["C", "A", "U", "L", "I"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "008",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_08_sugar.jpeg",
+        "items": ["G", "S", "U", "R", "A"],
+        "correct_order": ["S", "U", "G", "A", "R"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "009",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_09_stem.jpg",
+        "items": ["S", "E", "T", "M", "A"],
+        "correct_order": ["S", "T", "E", "M"],
+        "user_response": ["", "", "", ""]
+      }
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

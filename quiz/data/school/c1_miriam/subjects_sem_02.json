@@ -66,6 +66,13 @@
         "description": "Words 1",
         "topic": "Words 1",
         "quiz_id": "evs_words_01"
+      },
+      {
+        "id": "006",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_words_02.json",
+        "description": "Words 2",
+        "topic": "Words 2",
+        "quiz_id": "evs_words_02"
       }
     ],
     "Grammer": [],
