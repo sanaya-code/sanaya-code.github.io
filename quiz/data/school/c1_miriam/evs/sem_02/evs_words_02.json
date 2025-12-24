@@ -13,82 +13,100 @@
         "type": "ordering_horizontal",
         "id": "001",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_01_chilli.jpg",
-        "items": ["I", "H", "C", "L"],
-        "correct_order": ["C", "H", "I", "L", "L", "I"],
-        "user_response": ["", "", "", "", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/bear.jpg",
+        "items": ["A", "B", "E", "R"],
+        "correct_order": ["B", "E", "A", "R"],
+        "user_response": ["", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "002",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_02_grass.jpeg",
-        "items": ["A", "G", "S", "R"],
-        "correct_order": ["G", "R", "A", "S", "S"],
-        "user_response": ["", "", "", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/crow.jpg",
+        "items": ["O", "W", "C", "R"],
+        "correct_order": ["C", "R", "O", "W"],
+        "user_response": ["", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "003",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_03_wheat.jpeg",
-        "items": ["E", "H", "W", "T", "A"],
-        "correct_order": ["W", "H", "E", "A", "T"],
-        "user_response": ["", "", "", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/dead_animal.jpg",
+        "items": ["E", "D", "A", "D"],
+        "correct_order": ["D", "E", "A", "D"],
+        "user_response": ["", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "004",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_04_moong.jpeg",
-        "items": ["M", "G", "O", "N"],
-        "correct_order": ["M", "O", "O", "N", "G"],
-        "user_response": ["", "", "", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/frog.jpg",
+        "items": ["R", "O", "F", "G"],
+        "correct_order": ["F", "R", "O", "G"],
+        "user_response": ["", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "005",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_05_pea.jpeg",
-        "items": ["E", "A", "P"],
-        "correct_order": ["P", "E", "A"],
-        "user_response": ["", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/frog_toad.jpg",
+        "items": ["T", "A", "D", "O"],
+        "correct_order": ["T", "O", "A", "D"],
+        "user_response": ["", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "006",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_06_cabbage.jpeg",
-        "items": ["B", "C", "A", "E", "G"],
-        "correct_order": ["C", "A", "B", "B", "A", "G", "E"],
-        "user_response": ["", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/Insects.jpg",
+        "items": ["N", "I", "S", "E", "T", "C"],
+        "correct_order": ["I", "N", "S", "E", "C", "T"],
+        "user_response": ["", "", "", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "007",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_07_cauliflower.jpeg",
-        "items": ["U", "A", "C", "L", "I"],
-        "correct_order": ["C", "A", "U", "L", "I"],
-        "user_response": ["", "", "", "", ""]
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/lion.jpeg",
+        "items": ["O", "N", "L", "I"],
+        "correct_order": ["L", "I", "O", "N"],
+        "user_response": ["", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "008",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_08_sugar.jpeg",
-        "items": ["G", "S", "U", "R", "A"],
-        "correct_order": ["S", "U", "G", "A", "R"],
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/lion_tiger.jpeg",
+        "items": ["G", "T", "I", "E", "R"],
+        "correct_order": ["T", "I", "G", "E", "R"],
         "user_response": ["", "", "", "", ""]
       },
       {
         "type": "ordering_horizontal",
         "id": "009",
         "question": "",
-        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_09_stem.jpg",
-        "items": ["S", "E", "T", "M", "A"],
-        "correct_order": ["S", "T", "E", "M"],
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/shed.jpg",
+        "items": ["H", "S", "D", "E"],
+        "correct_order": ["S", "H", "E", "D"],
         "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "010",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/squirrel.jpg",
+        "items": ["S", "U", "Q", "R", "I", "E", "L"],
+        "correct_order": ["S", "Q", "U", "I", "R", "R", "E", "L"],
+        "user_response": ["", "", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "011",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/vulture.jpg",
+        "items": ["V", "L", "U", "T", "E", "R"],
+        "correct_order": ["V", "U", "L", "T", "U", "R", "E"],
+        "user_response": ["", "", "", "", "", "", ""]
       }
   ],
     "taxonomy": {

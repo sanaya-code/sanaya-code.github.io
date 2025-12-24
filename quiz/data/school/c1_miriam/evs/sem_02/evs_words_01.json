@@ -89,6 +89,24 @@
         "items": ["S", "E", "T", "M", "A"],
         "correct_order": ["S", "T", "E", "M"],
         "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "010",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_10_rice.jpeg",
+        "items": ["I", "E", "R", "C"],
+        "correct_order": ["R", "I", "C", "E"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "011",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/I_11_stone.jpg",
+        "items": ["S", "E", "T", "O", "N"],
+        "correct_order": ["S", "T", "O", "N", "E"],
+        "user_response": ["", "", "", ""]
       }
   ],
     "taxonomy": {
