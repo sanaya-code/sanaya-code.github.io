@@ -74,6 +74,26 @@
           "choices": ["gm", "cm", "ml"],
           "case_sensitive": false,
           "scoring_method": "exact"
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "015",
+          "question": "Apple weight  ____ Kg", 
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/weight_01.jpg",
+          "blanks": [ { "position": 1, "correct_answer": "5"} ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "019",
+          "question": "Mango weight  ____ Kg", 
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/weight_02.jpg",
+          "blanks": [ { "position": 1, "correct_answer": "7"} ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"
         }
       
     ],
