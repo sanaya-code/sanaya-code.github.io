@@ -1,0 +1,86 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": "Convert liters(L) into milliliters(ml)",
+            "blank_type" : "normal",
+            "options": [
+              {
+                "id": "01",
+                "text": "4 L =  ____  ____ ",
+                "correct_answer": ["4000", "ml"]
+              },
+              {
+                "id": "02",
+                "text": "6 L =  ____  ____ ",
+                "correct_answer": ["6000", "ml"]
+              }
+            ],
+            "user_response": [["", ""], ["", ""], ["", ""]],
+            "choices": ["gm", "cm", "ml"],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "007",
+          "question": "Convert meter(m) into centemeter(cm)",
+          "blank_type" : "normal",
+          "options": [
+            {
+              "id": "02",
+              "text": "1 m =  ____  ____ ",
+              "correct_answer": ["100", "cm"]
+            },
+            {
+              "id": "03",
+              "text": "7 m =  ____  ____ ",
+              "correct_answer": ["700", "cm"]
+            }
+          ],
+          "user_response": [["", ""], ["", ""], ["", ""]],
+          "choices": ["gm", "cm", "ml"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "011",
+          "question": "Convert kilogram(m) into gram(gm)",
+          "blank_type" : "normal",
+          "options": [
+            {
+              "id": "01",
+              "text": "1 kg =  ____  ____ ",
+              "correct_answer": ["1000", "gm"]
+            },
+            {
+              "id": "02",
+              "text": "4 kg =  ____  ____ ",
+              "correct_answer": ["4000", "gm"]
+            }
+          ],
+          "user_response": [["", ""], ["", ""]],
+          "choices": ["gm", "cm", "ml"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        }
+      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

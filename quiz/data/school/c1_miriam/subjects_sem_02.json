@@ -29,6 +29,13 @@
         "topic": "Money 01",
         "description": "Money 01",
         "quiz_id": "Money 01"
+      },
+      {
+        "id": "005",
+        "link": "data/school/c1_miriam/maths/sem_02/measure.json",
+        "topic": "Measure 01",
+        "description": "Measure 01",
+        "quiz_id": "Measure 01"
       }
     ],
     "EVS": [
