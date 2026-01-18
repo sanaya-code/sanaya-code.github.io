@@ -2,6 +2,7 @@
 var tabDataStrings = {
   Parvez:parvez,
   Phd:phd,
+  Plot: plot,
   Firoz: firoz,
   Sanaya: sanaya,
   Miriam: miriam,
