@@ -1,0 +1,115 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+          "type": "table_fill_in_the_blank",
+          "id": "004",
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/data_01_fruits.jpeg",
+          "column_labels": ["", "Rohan", "Mehul"],
+          "row_labels": ["", "", "", ""],
+          "data": [
+            [
+              { "value": "Apple" },
+              { "value": "____", "correct_answer": "2" },
+              { "value": "____", "correct_answer": "4" }
+            ],
+            [
+              { "value": "Mango" },
+              { "value": "____", "correct_answer": "5" },
+              { "value": "____", "correct_answer": "3" }
+            ],
+            [
+              { "value": "Banana"},
+              { "value": "____", "correct_answer": "3" },
+              { "value": "____", "correct_answer": "3" }    
+            ],
+            [
+              { "value": "Total"},
+              { "value": "____", "correct_answer": "10" },
+              { "value": "____", "correct_answer": "10" }    
+            ]
+          ],
+          "user_response": [
+            ["Apple", "", ""],
+            ["Mango", "", ""],
+            ["Banana", "", ""]
+          ],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "006",
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/data_02_vehicles.jpeg",
+          "blank_type" : "normal",
+          "options": [
+            {
+              "id": "01",
+              "text": "How many bikes are there? . . . . . . . . . ____ ",
+              "correct_answer": ["4"]
+            },
+            {
+              "id": "02",
+              "text": "How many bus are there? . . . . . . . . . . ____ ",
+              "correct_answer": ["2"]
+            },
+            {
+              "id": "03",
+              "text": "Which two are equal in number? ____ ____ ",
+              "correct_answer": ["car", "bus"],
+              "acceptable_answers": [["car", "bus"], ["bus", "car"]]
+            },
+            {
+              "id": "04",
+              "text": "What is the total number of vehicles?. . . . . .  ____ ",
+              "correct_answer": ["11"]
+            }
+          ],
+          "user_response": [[""], [""], ["", ""], [""]],
+          "choices": ["2", "3", "4", "10", "11", "car","bus", "cycle"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "009",
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/data_03_statinary.jpeg",
+          "blank_type" : "normal",
+          "options": [
+            {
+              "id": "01",
+              "text": "How many sharpners . . . . . . . . . ____ ",
+              "correct_answer": ["3"]
+            },
+            {
+              "id": "02",
+              "text": "How many erazers . . . . . . . . . . ____ ",
+              "correct_answer": ["1"]
+            },
+            {
+              "id": "03",
+              "text": "How many pencils ____ ",
+              "correct_answer": ["2"]
+            },
+            {
+              "id": "04",
+              "text": "How many stationary items althogather. . . . . .  ____ ",
+              "correct_answer": ["6"]
+            }
+          ],
+          "user_response": [[""], [""], [""], [""]],
+          "choices": ["1", "2", "3", "4", "5", "6","7"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        }
+    ]
+  }
+  

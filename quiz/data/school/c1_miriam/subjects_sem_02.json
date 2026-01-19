@@ -36,6 +36,13 @@
         "topic": "Measure 01",
         "description": "Measure 01",
         "quiz_id": "Measure 01"
+      },
+      {
+        "id": "006",
+        "link": "data/school/c1_miriam/maths/sem_02/data.json",
+        "topic": "Data 01",
+        "description": "Data 01",
+        "quiz_id": "Data 01"
       }
     ],
     "EVS": [
@@ -69,13 +76,20 @@
       },
       {
         "id": "005",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_08_water.json",
+        "description": "Water 2",
+        "topic": "Water 2",
+        "quiz_id": "evs_08_water"
+      },
+      {
+        "id": "006",
         "link": "data/school/c1_miriam/evs/sem_02/evs_words_01.json",
         "description": "Words 1",
         "topic": "Words 1",
         "quiz_id": "evs_words_01"
       },
       {
-        "id": "006",
+        "id": "007",
         "link": "data/school/c1_miriam/evs/sem_02/evs_words_02.json",
         "description": "Words 2",
         "topic": "Words 2",

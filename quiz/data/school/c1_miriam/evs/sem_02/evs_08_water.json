@@ -1,0 +1,98 @@
+{
+  "questions": [
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "Plants need water to make ____ ",
+          "correct_answer": ["food"]
+        },
+        {
+          "id": "02",
+          "text": "We should ____ and store water",
+          "correct_answer": ["save"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "save", "animals", "food", "washing"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "008",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "  We need water for ____ clothes",
+          "correct_answer": ["washing"]
+        },
+        {
+          "id": "02",
+          "text": "  ____ drink water",
+          "correct_answer": ["animals"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "save", "animals", "food", "washing"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select",
+      "id": "011",
+      "question": "Tick Cross",
+      "options": [
+        {"id": "A", "text": "Plants do not need water", "correct": false},
+        {"id": "B", "text": "Water in river, pond and sea", "correct": true},
+        {"id": "C", "text": "We drink water every day", "correct": true},
+        {"id": "D", "text": "Water is stored in buckets and tanks", "correct": true},
+        {"id": "E", "text": "C++", "correct": true}
+      ],
+      "user_response" : "",
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select",
+      "id": "011",
+      "question": "Tick Cross",
+      "options": [
+        {"id": "A", "text": "Plants need water to make food", "correct": true},
+        {"id": "B", "text": "We should drink 3-4 glass water", "correct": false},
+        {"id": "C", "text": "We get drinking water from ocean", "correct": false},
+        {"id": "D", "text": "All living things need water", "correct": true},
+        {"id": "E", "text": "C++", "correct": true}
+      ],
+      "user_response" : "",
+      "scoring_method": "exact"
+    },
+    {
+      "type": "matching_connection",
+      "id": "016",
+      "question": "Match the following software with their categories:",
+      "pairs": [
+        { "left": "Bird", "right": "Nest" },
+        { "left": "Lion", "right": "Den" },
+        { "left": "Cow", "right": "Sheds" }
+      ],
+      "user_response": ""
+    },
+    {
+      "type": "matching_connection",
+      "id": "020",
+      "question": "Match the following software with their categories:",
+      "pairs": [
+        { "left": "Monkey", "right": "Tree" },
+        { "left": "Snake", "right": "Hole" },
+        { "left": "Hen", "right": "Coop" }
+      ],
+      "user_response": ""
+    }
+    
+  ]
+}
+

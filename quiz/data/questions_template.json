@@ -32,7 +32,7 @@
     },    
     {
       "type": "true_false",
-      "id": "009",
+      "id": "002",
       "question": "Water is solid.",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -45,7 +45,7 @@
     },
     {
       "type": "multi_select",
-      "id": "011",
+      "id": "003",
       "question": "Which of the following are programming languages? (Select all that apply)",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -67,7 +67,7 @@
     },    
     {
       "type": "fill_in_blank",
-      "id": "002",
+      "id": "004",
       "question": "Solid state of water is called ____.",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -81,7 +81,7 @@
     },
     {
       "type": "multi_fill_in_blank",
-      "id": "003",
+      "id": "005",
       "question": " ____ sides in triangle, ____ sides in square, ____sides in circle", 
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -112,7 +112,7 @@
     },
     {
       "type": "options_fill_in_blank",
-      "id": "004",
+      "id": "006",
       "question": "Fill in the blanks in the following statements:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -157,7 +157,7 @@
     },
     {
       "type": "table_fill_in_the_blank",
-      "id": "005",
+      "id": "007",
       "question": "Fill in the blanks :",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -198,7 +198,7 @@
     },
     {
       "type": "table_image_fill_in_the_blank",
-      "id": "006",
+      "id": "008",
       "question": "Complete the table with counts and number names:",
       "description": "Identify the objects in image and write their information in text box",
       "columns": 3,
@@ -258,7 +258,7 @@
     },   
     {
       "type": "table_image_fill_in_the_blank_2_col",
-      "id": "007",
+      "id": "009",
       "question": "Complete the table with counts and number names:",
       "description": "Identify the objects in image and write their information in text box",
       "column_headings": {
@@ -312,7 +312,7 @@
     },
     {
       "type": "number_line_fill_in_blank",
-      "id": "008",
+      "id": "010",
       "question": "Fill in the missing multiples of 3:",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -335,7 +335,7 @@
     },
     {
       "type": "short_answer",
-      "id": "010",
+      "id": "011",
       "question": "Name of person, place or thing",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
@@ -681,7 +681,7 @@
       }
     },    
     {
-      "id": "24",
+      "id": "25",
       "type": "number_line_arcs",
       "question": "Add 2 + 4",
       "points": [0,1,2,3,4,5,6,7,8,9,10],
@@ -698,7 +698,7 @@
       }
     },
     {
-      "id": "25",
+      "id": "26",
       "type": "clock_set_time",
       "question": "Set the time to 4:30 PM by drawing the hour and minute hands on the clock.",
       "clock": {
@@ -712,7 +712,7 @@
     },
     {
       "type": "skip",
-      "id": "026",
+      "id": "027",
       "question": "Tick which are more in number."
     }
   ],
