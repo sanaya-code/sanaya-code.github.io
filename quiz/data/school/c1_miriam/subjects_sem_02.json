@@ -43,6 +43,13 @@
         "topic": "Data 01",
         "description": "Data 01",
         "quiz_id": "Data 01"
+      },
+      {
+        "id": "007",
+        "link": "data/school/c1_miriam/maths/sem_02/multi.json",
+        "topic": "Multi 01",
+        "description": "Multi 01",
+        "quiz_id": "Multi 01"
       }
     ],
     "EVS": [

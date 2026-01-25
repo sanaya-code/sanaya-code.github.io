@@ -1,0 +1,123 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "options_fill_in_blank",
+        "id": "006",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/multi_02.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____ ",
+            "correct_answer": ["2"]
+          },
+          {
+            "id": "02",
+            "text": "____ ",
+            "correct_answer": ["12"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["2", "3", "4", "10", "11", "12", "13","14", "15"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "009",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/multi_03.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____ ",
+            "correct_answer": ["3"]
+          },
+          {
+            "id": "02",
+            "text": "____ ",
+            "correct_answer": ["15"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["2", "3", "4", "10", "11", "12", "13","14", "15"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "012",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/multi_01.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____ ",
+            "correct_answer": ["1"]
+          },
+          {
+            "id": "02",
+            "text": "____ ",
+            "correct_answer": ["5"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["1", "2", "3", "4", "5", "11", "12", "13","14", "15"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "015",
+        "blank_type" : "box",
+        "options": [
+          {
+            "id": "01",
+            "text": " 2 times 3 = ____ x ____ = ____  ",
+            "correct_answer": [["2"], ["3"], ["6"]]
+          }
+        ],
+        "user_response": [[""]],
+        "choices": ["2", "3", "4", "5", "6", "7", "8","9", "10"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "018",
+        "blank_type" : "box",
+        "options": [
+          {
+            "id": "01",
+            "text": " 2 times 5 = ____ x ____ = ____  ",
+            "correct_answer": [["2"], ["5"], ["10"]]
+          }
+        ],
+        "user_response": [[""]],
+        "choices": ["2", "3", "4", "5", "6", "7", "8","9", "10"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "matching_connection",
+        "id": "021",
+        "pairs": [
+          { "left": "5 time 3", "right": "5 x 3" },
+          { "left": "6 time 4", "right": "6 x 4" },
+          { "left": "5 time 4", "right": "5 x 4" },
+          { "left": "8 time 7", "right": "8 x 7" }
+        ],
+        "user_response": ""
+      }
+    ]
+  }
+  
