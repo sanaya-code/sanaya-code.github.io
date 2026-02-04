@@ -50,8 +50,7 @@
         {"id": "A", "text": "Plants do not need water", "correct": false},
         {"id": "B", "text": "Water in river, pond and sea", "correct": true},
         {"id": "C", "text": "We drink water every day", "correct": true},
-        {"id": "D", "text": "Water is stored in buckets and tanks", "correct": true},
-        {"id": "E", "text": "C++", "correct": true}
+        {"id": "D", "text": "Water is stored in buckets and tanks", "correct": true}
       ],
       "user_response" : "",
       "scoring_method": "exact"
@@ -64,8 +63,7 @@
         {"id": "A", "text": "Plants need water to make food", "correct": true},
         {"id": "B", "text": "We should drink 3-4 glass water", "correct": false},
         {"id": "C", "text": "We get drinking water from ocean", "correct": false},
-        {"id": "D", "text": "All living things need water", "correct": true},
-        {"id": "E", "text": "C++", "correct": true}
+        {"id": "D", "text": "All living things need water", "correct": true}
       ],
       "user_response" : "",
       "scoring_method": "exact"
