@@ -10,6 +10,66 @@
     },
     "questions": [
         {
+          "type": "options_fill_in_blank",
+          "id": "001",
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/data_05_statinary.jpeg",
+          "blank_type" : "normal",
+          "options": [
+            {
+              "id": "01",
+              "text": "How many children have box? . . . . . . . . . ____ ",
+              "correct_answer": ["24"]
+            },
+            {
+              "id": "02",
+              "text": "How many children have pencil? . . . . . . . . . . ____ ",
+              "correct_answer": ["62"]
+            },
+            {
+              "id": "03",
+              "text": " least  ____ ",
+              "correct_answer": ["box"]
+            },
+            {
+              "id": "04",
+              "text": " most  ____ ",
+              "correct_answer": ["pencil"]
+            }
+          ],
+          "user_response": [[""], [""], [""], [""]],
+          "choices": ["47", "62", "48", "24", "pen", "pencil","box", "eraser"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "options_fill_in_blank",
+          "id": "002",
+          "img_url": "data/school/c1_miriam/maths/sem_02/images/data_06_shapes.jpeg",
+          "blank_type" : "normal",
+          "options": [
+            {
+              "id": "01",
+              "text": "Most   ____ ",
+              "correct_answer": ["Rectangle"]
+            },
+            {
+              "id": "02",
+              "text": "least ____ ",
+              "correct_answer": ["Triangle"]
+            },
+            {
+              "id": "03",
+              "text": "equal ____ ____ ",
+              "correct_answer": ["Star", "Circle"],
+              "acceptable_answers": [["Star", "Circle"], ["Circle", "Star"]]
+            }
+          ],
+          "user_response": [[""], [""], [""], [""]],
+          "choices": ["Star", "Triangle","Circle", "Rectangle"],
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        {
           "type": "table_fill_in_the_blank",
           "id": "004",
           "img_url": "data/school/c1_miriam/maths/sem_02/images/data_01_fruits.jpeg",
