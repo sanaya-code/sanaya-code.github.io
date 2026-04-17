@@ -7,6 +7,7 @@ var others = `[
     { "label": "Youtube", "url": "https://www.youtube.com/" },
     { "label": "Amazon", "url": "https://www.amazon.in/" },
     { "label": "Chat GPT", "url": "https://chatgpt.com/" },
+    { "label": "Claud", "url": "https://claude.ai/new" },
     { "label": "Perplexity", "url": "https://www.perplexity.ai/" },
     { "label": "Deepseek", "url": "https://chat.deepseek.com/" }
   ]`;
