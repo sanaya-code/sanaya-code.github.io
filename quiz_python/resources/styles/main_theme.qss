@@ -1,0 +1,78 @@
+QMainWindow {
+    background: #f8fafc;
+}
+
+QWidget {
+    font-family: Arial;
+    color: #0f172a;
+}
+
+#pageTitle {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+#pageSubtitle {
+    font-size: 18px;
+    color: #475569;
+}
+
+#sectionTitle {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#primaryButton {
+    font-size: 17px;
+    font-weight: bold;
+    color: #5b21b6;
+    background: white;
+    border: 2px solid #7c3aed;
+    border-radius: 14px;
+    padding: 12px 24px;
+}
+
+#iconButton {
+    font-size: 22px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 10px 16px;
+}
+
+#studentCard {
+    background: white;
+    border: 1px solid #dbeafe;
+    border-radius: 22px;
+    min-width: 260px;
+    min-height: 190px;
+}
+
+#studentCard:hover {
+    border: 2px solid #7c3aed;
+    background: #f5f3ff;
+}
+
+#studentAvatar {
+    font-size: 58px;
+}
+
+#studentName {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#studentDetails {
+    font-size: 16px;
+    color: #475569;
+}
+
+#studentArrow {
+    font-size: 34px;
+    color: #2563eb;
+}
+
+#footerText {
+    font-size: 15px;
+    color: #64748b;
+}
