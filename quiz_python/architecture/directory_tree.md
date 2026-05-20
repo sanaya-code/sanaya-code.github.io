@@ -150,11 +150,17 @@ quiz_app/                                              # Root application folder
 ├── ui/                                                # All PyQt6 UI code
 │   │
 │   ├── pages/                                         # Full application screens/pages
-│   │   └── student_selection_page/                    # Student selection screen
-│   │       ├── student_selection_page.py              # Builds student selection UI
-│   │       ├── student_selection_page_controller.py   # Handles UI logic/events
-│   │       ├── student_selection_page_state.py        # Page-specific UI state
-│   │       └── student_selection_page_signals.py      # Custom PyQt signals
+│   │   ├── student_selection_page/                    # Student selection screen
+│   │   |   ├── student_selection_page.py              # Builds student selection UI
+│   │   |   ├── student_selection_page_controller.py   # Handles UI logic/events
+│   │   |   ├── student_selection_page_state.py        # Page-specific UI state
+│   │   |   └── student_selection_page_signals.py      # Custom PyQt signals
+|   |   |
+|   |   └── add_new_student_page/                      
+|   |       ├── add_new_student_page.py
+|   |       ├── add_new_student_page_controller.py
+|   |       ├── add_new_student_page_state.py
+|   |       └── add_new_student_page_signals.py
 │   │
 │   ├── components/                                    # Reusable UI components
 │   │   ├── common/                                    # Shared reusable widgets
@@ -202,7 +208,8 @@ quiz_app/                                              # Root application folder
 ├── services/                                          # Application business services
 │   └── student_profile/                               # Student profile services
 │       ├── load_students_service.py                   # Loads all students
-│       └── create_student_service.py                  # Creates new student profiles
+│       ├── create_student_service.py                  # Creates new student profiles
+│       └── student_profile_service.py                 
 │
 ├── state/                                             # Runtime application state
 │   ├── app_state.py                                   # Global app state object
