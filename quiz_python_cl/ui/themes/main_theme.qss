@@ -1,0 +1,98 @@
+/* quiz_app/ui/themes/main_theme.qss */
+
+QMainWindow, QWidget#AppRoot {
+    background-color: #F5F7FA;
+}
+
+QWidget#PageContainer {
+    background-color: #F5F7FA;
+}
+
+/* ── Student Card ─────────────────────────────────── */
+QFrame#StudentCard {
+    background-color: #FFFFFF;
+    border: 2px solid #E5E7EB;
+    border-radius: 16px;
+}
+
+QFrame#StudentCard:hover {
+    border-color: #4F46E5;
+    background-color: #EEF2FF;
+}
+
+/* ── Add Student Card ─────────────────────────────── */
+QFrame#AddStudentCard {
+    background-color: #FFFFFF;
+    border: 2px dashed #C7D2FE;
+    border-radius: 16px;
+}
+
+QFrame#AddStudentCard:hover {
+    border-color: #4F46E5;
+    background-color: #EEF2FF;
+}
+
+/* ── Primary Button ───────────────────────────────── */
+QPushButton#PrimaryButton {
+    background-color: #4F46E5;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+}
+
+QPushButton#PrimaryButton:hover {
+    background-color: #4338CA;
+}
+
+QPushButton#PrimaryButton:pressed {
+    background-color: #3730A3;
+}
+
+/* ── Section Title ────────────────────────────────── */
+QLabel#SectionTitle {
+    color: #1E1B4B;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+QLabel#SubTitle {
+    color: #6B7280;
+    font-size: 13px;
+}
+
+/* ── App Header ───────────────────────────────────── */
+QWidget#AppHeader {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+QLabel#AppTitle {
+    color: #4F46E5;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+QScrollBar:vertical {
+    width: 8px;
+    background: #F5F7FA;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #C7D2FE;
+    border-radius: 4px;
+    min-height: 30px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #4F46E5;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
