@@ -138,3 +138,118 @@ quiz_app/
     └── diagrams/                            # SVG/flow diagrams
 
 ```
+
+
+```
+
+
+quiz_app/                                              # Root application folder
+│
+├── main.py                                            # Application entry point
+│
+├── ui/                                                # All PyQt6 UI code
+│   │
+│   ├── pages/                                         # Full application screens/pages
+│   │   └── student_selection_page/                    # Student selection screen
+│   │       ├── student_selection_page.py              # Builds student selection UI
+│   │       ├── student_selection_page_controller.py   # Handles UI logic/events
+│   │       ├── student_selection_page_state.py        # Page-specific UI state
+│   │       └── student_selection_page_signals.py      # Custom PyQt signals
+│   │
+│   ├── components/                                    # Reusable UI components
+│   │   ├── common/                                    # Shared reusable widgets
+│   │   │   ├── app_header.py                          # Common top header widget
+│   │   │   ├── app_footer.py                          # Common footer/status widget
+│   │   │   ├── primary_button.py                      # Styled primary button
+│   │   │   ├── icon_button.py                         # Icon-based button widget
+│   │   │   ├── section_title.py                       # Reusable section heading widget
+│   │   │   ├── page_container.py                      # Standard page wrapper container
+│   │   │   └── empty_state_widget.py                  # Empty/no-data placeholder widget
+│   │   │
+│   │   └── student_selection_page/                    # Components used only here
+│   │       ├── student_grid.py                        # Grid container for student cards
+│   │       ├── student_card.py                        # Single student profile card
+│   │       ├── add_student_card.py                    # Add new student card/button
+│   │       └── student_statistics_badge.py            # Small stats badge widget
+│   │
+│   ├── navigation/                                    # Page navigation system
+│   │   ├── page_router.py                             # Handles page switching
+│   │   ├── stacked_page_manager.py                    # QStackedWidget wrapper
+│   │   └── route_names.py                             # Route/page name constants
+│   │
+│   ├── layouts/                                       # Shared layouts
+│   │   ├── app_layout.py                              # Main app layout
+│   │   ├── page_layout.py                             # Standard page layout
+│   │   └── responsive_grid_layout.py                  # Responsive grid helper layout
+│   │
+│   └── themes/                                        # Theme and styling system
+│       ├── theme_manager.py                           # Loads/applies themes
+│       ├── colors.py                                  # Shared color constants
+│       ├── fonts.py                                   # Shared font settings
+│       └── main_theme.qss                             # Main QSS stylesheet
+│
+├── models/                                            # Shared business/domain models
+│   └── student/                                       # Student-related models
+│       ├── student_profile.py                         # Full student profile model
+│       └── student_summary.py                         # Lightweight student card model
+│
+├── repositories/                                      # Persistence abstraction layer
+│   └── student/                                       # Student data repositories
+│       ├── student_repository.py                      # Main student repository
+│       ├── student_json_repository.py                 # JSON file implementation
+│       └── student_repository_interface.py            # Repository contract/interface
+│
+├── services/                                          # Application business services
+│   └── student_profile/                               # Student profile services
+│       ├── load_students_service.py                   # Loads all students
+│       └── create_student_service.py                  # Creates new student profiles
+│
+├── state/                                             # Runtime application state
+│   ├── app_state.py                                   # Global app state object
+│   └── student_selection_state.py                     # Student selection page state
+│
+├── composers/                                         # Dependency wiring/composition
+│   ├── ui_composer.py                                 # Creates UI objects
+│   ├── service_composer.py                            # Creates services/repositories
+│   └── app_composer.py                                # Builds complete application
+│
+├── resources/                                         # Static app resources
+│   ├── icons/                                         # SVG/app icons
+│   │   ├── add.svg                                    # Add icon
+│   │   ├── settings.svg                               # Settings icon
+│   │   ├── student.svg                                # Default student icon
+│   │   └── app_logo.svg                               # App logo
+│   │
+│   ├── images/                                        # Static image assets
+│   │   └── default_avatar.png                         # Default student avatar
+│   │
+│   └── styles/                                        # Additional QSS styles
+│       └── student_selection_page.qss                 # Page-specific styles
+│
+├── storage/                                           # Actual stored files/data
+│   └── students/                                      # Student profile storage
+│       └── students.json                              # Stored student profiles
+│
+├── config/                                            # Application configuration
+│   ├── app_config.py                                  # General app configuration
+│   └── paths.py                                       # File/folder path constants
+│
+├── utils/                                             # Stateless helper functions
+│   ├── qt_utils.py                                    # Shared PyQt helpers
+│   ├── file_utils.py                                  # File/path helper functions
+│   └── image_utils.py                                 # Image loading/scaling helpers
+│
+├── logging/                                           # Logging setup
+│   ├── app_logger.py                                  # Main application logger
+│   └── logger_factory.py                              # Creates/configures loggers
+│
+└── shared/                                            # Shared reusable items
+    ├── enums/                                         # Shared enums/constants
+    │   └── page_enums.py                              # Page-related enums/constants
+    │
+    └── validators/                                    # Shared validators
+        └── student_validator.py                       # Student profile validation
+
+
+
+```
