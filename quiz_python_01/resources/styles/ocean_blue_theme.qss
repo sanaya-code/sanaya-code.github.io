@@ -1,0 +1,48 @@
+QMainWindow {
+    background-color: #eef7ff;
+}
+
+QWidget#studentSelectionPage {
+    background-color: #eef7ff;
+}
+
+QLabel#pageTitle {
+    color: #0f3557;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+QLabel#pageSubtitle {
+    color: #557086;
+    font-size: 16px;
+}
+
+QFrame#studentCard {
+    background-color: white;
+    border: 1px solid #c9dff2;
+    border-radius: 12px;
+}
+
+QFrame#studentCard:hover {
+    background-color: #f2f9ff;
+    border: 1px solid #2d8fe3;
+}
+
+QLabel#studentAvatar {
+    background-color: #2d8fe3;
+    color: white;
+    border-radius: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+QLabel#studentName {
+    color: #0f3557;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+QLabel#studentGrade {
+    color: #667f94;
+    font-size: 14px;
+}
