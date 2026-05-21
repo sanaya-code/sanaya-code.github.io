@@ -1,5 +1,5 @@
 from app.event_handlers.event_handler_bundle import EventHandlerBundle
-from app.event_handlers.student_selection.select_student_handler import (
+from app.event_handlers.pages.student_selection.select_student_handler import (
     SelectStudentHandler,
 )
 from app.state.app_state_controller import AppStateController

@@ -4,6 +4,7 @@
 
 ## Directory Structure
 
+
 ```
 
 quiz_app/
@@ -12,8 +13,19 @@ quiz_app/
 ├── requirements.txt                            # Python dependencies
 │
 ├── app/                                        # Application runtime/control layer
+|   ├── state/
+|   |   └── pages/                              # Page-specific runtime state
+|   |
+|   └── event_handlers/
+|       ├── navigation                          # Cross-page navigation handlers 
+|       └── pages/                              # Event handlers partitioned by pages
+|   
 ├── ui/                                         # Pure PyQt6 pages, components, navigation
-├── page_data/                                  # Page data preparation layer
+|   ├── pages 
+|   ├── components 
+|   └── navigation
+|
+├── page_data/                                  # Data preparation partitioned by pages. 
 ├── composers/                                  # Object creation and dependency wiring
 ├── config/                                     # App constants/configuration
 ├── resources/                                  # Icons, images, QSS themes

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from app.event_handlers.student_selection.select_student_handler import (
+from app.event_handlers.pages.student_selection.select_student_handler import (
     SelectStudentHandler,
 )
 
