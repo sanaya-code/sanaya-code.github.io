@@ -6,7 +6,6 @@
 - Methods for signals if needed
 - Emit an external signal when a user interaction occurs
 - Handle internal signals (scrolling, focus, hover, animations)
-- Manage internal UI state
 - Prefer external styling over inline styling of UI widgets where possible
 - Never call any controller directly
 - Never read from or write to another Page
@@ -45,7 +44,7 @@
 
 - Frozen dataclass
 - One field per PageController
-- Passed to MainController, EventHandlers, and ScreenDataFetchers
+- Passed to MainController, EventHandlers, and PageDataBuilder
 
 ---
 
@@ -53,7 +52,7 @@
 
 - Contains a method to handle exactly one event
 - The only layer currently allowed to read/write `AppState` via `StateController`
-- Calls `ScreenDataFetcher` if a data refresh is needed after the event
+- Calls `PageDataBuilder` if a data refresh is needed after the event
 - Calls `PageController` methods to update the UI at the end
 - Does not contain business logic
 
@@ -63,7 +62,7 @@
 
 - A plain class that creates all EventHandlers
 - Single place where all EventHandlers are instantiated
-- Injects each EventHandler with the PageControllerBundle, StateController, and any ScreenDataFetchers it needs
+- Injects each EventHandler with the PageControllerBundle, StateController, and any PageDataBuilder it needs
 - Returns references of all EventHandlers as a frozen `EventHandlerBundle`
 
 ---
@@ -76,7 +75,7 @@
 
 ---
 
-## ScreenDataFetcher (Key responsibilities)
+## PageDataBuilder (Key responsibilities)
 
 - Assembles all data needed to render a screen
 - Called on initial navigation to a screen or after an event that requires a data refresh
@@ -88,7 +87,8 @@
 ## Router (Key responsibilities)
 
 - Manages navigation between screens on instruction from MainController or EventHandlers
-- On navigation, calls the relevant ScreenDataFetcher first, then hands the data bundle to the PageController to render
+- Router only switches screens.
+- MainController or EventHandler decides what data to fetch before navigation.
 - Holds navigation history
 
 ---
@@ -111,7 +111,7 @@
 
 - Single dataclass holding all global state that survives across events and screens
 - Modelling tip: if you can sketch SQL tables for the app's data, that structure maps well to AppState fields
-- Never accessed directly by Pages, PageControllers, or ScreenDataFetchers
+- Never accessed directly by Pages, PageControllers, or PageDataBuilder
 
 ---
 
