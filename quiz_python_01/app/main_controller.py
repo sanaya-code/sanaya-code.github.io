@@ -34,6 +34,10 @@ class MainController:
             self.ui_pages.student_selection_page.get_page_widget()
         )
 
+        self.router_controller.register_question_bank_selection_page(
+            self.ui_pages.question_bank_selection_page.get_page_widget()
+        )
+
     def _load_student_selection_page(self) -> None:
         view_model = self.student_selection_data_builder.build()
 

@@ -1,5 +1,5 @@
-from PyQt6.QtCore import pyqtSignal, Qt
-from PyQt6.QtWidgets import QFrame, QLabel, QVBoxLayout
+from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtWidgets import QFrame, QLabel, QVBoxLayout, QSizePolicy
 
 from page_data.student_selection.view_model import StudentCardViewModel
 
@@ -15,11 +15,13 @@ class StudentCard(QFrame):
         self.setObjectName("studentCard")
         self.setFixedSize(180, 160)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
 
         self._build_ui()
 
     def _build_ui(self) -> None:
-        layout = QVBoxLayout()
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(12, 12, 12, 12)
         layout.setSpacing(8)
 
         avatar = QLabel(self.view_model.avatar_text)
@@ -41,7 +43,6 @@ class StudentCard(QFrame):
         layout.addWidget(grade_label)
         layout.addStretch()
 
-        self.setLayout(layout)
-
     def mousePressEvent(self, event) -> None:
         self.clicked.emit(self.view_model.student_id)
+        super().mousePressEvent(event)

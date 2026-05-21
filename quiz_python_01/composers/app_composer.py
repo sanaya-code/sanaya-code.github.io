@@ -5,6 +5,9 @@ from app.main_controller import MainController
 from app.state.app_state import AppState
 from app.state.app_state_controller import AppStateController
 from config.app_config import APP_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH
+from page_data.question_bank_selection.render_data_builder import (
+    QuestionBankSelectionRenderDataBuilder,
+)
 from page_data.student_selection.render_data_builder import (
     StudentSelectionRenderDataBuilder,
 )
@@ -24,13 +27,16 @@ class AppComposer:
         router_controller = ui_composer.create_router_controller(main_window)
         ui_pages = ui_composer.create_ui()
 
+        student_selection_data_builder = StudentSelectionRenderDataBuilder()
+        question_bank_selection_data_builder = QuestionBankSelectionRenderDataBuilder()
+
         event_handler_composer = EventHandlerComposer()
         event_handlers = event_handler_composer.create_event_handlers(
             app_state_controller=app_state_controller,
             ui_pages=ui_pages,
+            router_controller=router_controller,
+            question_bank_selection_data_builder=question_bank_selection_data_builder,
         )
-
-        student_selection_data_builder = StudentSelectionRenderDataBuilder()
 
         main_controller = MainController(
             router_controller=router_controller,

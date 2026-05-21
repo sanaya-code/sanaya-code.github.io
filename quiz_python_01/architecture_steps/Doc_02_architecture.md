@@ -84,12 +84,34 @@
 
 ---
 
-## Router (Key responsibilities)
+> Router Layer (Key responsibilities)
 
-- Manages navigation between screens on instruction from MainController or EventHandlers
-- Router only switches screens.
-- MainController or EventHandler decides what data to fetch before navigation.
-- Holds navigation history
+### AppRouter
+
+- Low-level UI navigation class.
+- Registers page widgets with route names.
+- Switches visible page inside `QStackedWidget`.
+- Does not know why navigation happened.
+- Does not fetch page data.
+- Does not call `PageController` methods.
+- Does not access `AppState`.
+
+### AppRouterController
+
+- High-level semantic navigation API.
+- Provides readable methods such as `show_student_selection_page()`.
+- Hides raw route-name strings from `MainController` and `EventHandlers`.
+- Calls `AppRouter` internally.
+- May hold navigation history later.
+- Does not fetch page data.
+- Does not contain business logic.
+
+### Navigation Rule
+
+- `MainController` or `EventHandler` decides when navigation should happen.
+- `PageDataBuilder` prepares data before navigation if needed.
+- `PageController` renders the page before it is shown.
+- `AppRouterController` only performs the final page switch.
 
 ---
 
