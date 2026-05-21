@@ -21,7 +21,7 @@ class AppComposer:
         app_state_controller = AppStateController(app_state)
 
         ui_composer = UIComposer()
-        router = ui_composer.create_router(main_window)
+        router_controller = ui_composer.create_router_controller(main_window)
         ui_pages = ui_composer.create_ui()
 
         event_handler_composer = EventHandlerComposer()
@@ -33,7 +33,7 @@ class AppComposer:
         student_selection_data_builder = StudentSelectionRenderDataBuilder()
 
         main_controller = MainController(
-            router=router,
+            router_controller=router_controller,
             ui_pages=ui_pages,
             event_handlers=event_handlers,
             student_selection_data_builder=student_selection_data_builder,

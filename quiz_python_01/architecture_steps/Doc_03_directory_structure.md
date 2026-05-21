@@ -73,7 +73,9 @@ quiz_app/ui/
 │
 └── navigation/
     ├── __init__.py
-    └── app_router.py                           # Registers pages and switches visible page
+    ├── app_router.py               # low-level QStackedWidget operations. register/show raw widgets
+    ├── app_router_controller.py    # semantic navigation methods
+    └── route_names.py              # optional constants
 
 ```
 
