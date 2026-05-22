@@ -61,7 +61,8 @@ quiz_app/app/
         │
         ├── question_bank_selection/
         │   ├── __init__.py
-        │   └── select_question_bank_handler.py  # Handles selected question bank event
+        │   ├── select_question_bank_handler.py  # Handles selected hardcoded question bank event
+        │   └── load_question_bank_json_handler.py # Handles JSON question bank file loading
         │
         ├── quiz/
         │   ├── __init__.py
@@ -79,12 +80,100 @@ quiz_app/app/
             ├── show_correct_questions_handler.py     # Shows correct answered questions tab
             └── back_to_home_from_review_handler.py   # Returns from review page to home
 
+
+```
+
+
+```
+
+quiz_app/ui/
+├── __init__.py
+├── ui_composer.py                               # Creates page widgets and page controllers
+├── ui_page_bundle.py                            # Frozen bundle holding page controllers
+│
+├── pages/
+│   ├── student_selection_page/
+│   │   ├── __init__.py
+│   │   ├── student_selection_page.py
+│   │   └── student_selection_page_controller.py
+│   │
+│   ├── question_bank_selection_page/
+│   │   ├── __init__.py
+│   │   ├── question_bank_selection_page.py      # Includes JSON file-load action signal
+│   │   └── question_bank_selection_page_controller.py
+│   │
+│   ├── quiz_page/
+│   │   ├── __init__.py
+│   │   ├── quiz_page.py                         # Main quiz screen
+│   │   └── quiz_page_controller.py              # Quiz page controller
+│   │
+│   ├── result_page/
+│   │   ├── __init__.py
+│   │   ├── result_page.py                       # Quiz result screen
+│   │   └── result_page_controller.py            # Result page controller
+│   │
+│   └── review_page/
+│       ├── __init__.py
+│       ├── review_page.py                       # Tab-based quiz review screen
+│       └── review_page_controller.py            # Review page controller
+│
+├── components/
+│   ├── common/
+│   │   ├── __init__.py
+│   │   └── file_picker_button/
+│   │       ├── __init__.py
+│   │       └── file_picker_button.py            # Reusable JSON/file picker button
+│   │
+│   ├── student_selection/
+│   │   ├── __init__.py
+│   │   └── student_card.py
+│   │
+│   ├── question_bank_selection/
+│   │   ├── __init__.py
+│   │   └── question_bank_card.py
+│   │
+│   ├── result/
+│   │   ├── __init__.py
+│   │   └── result_summary_card.py               # Result summary card component
+│   │
+│   └── review/
+│       ├── __init__.py
+│       ├── review_question_card.py              # Shows one reviewed question
+│       ├── review_status_badge.py               # Shows correct/wrong/unanswered status
+│       └── review_answer_summary.py             # Shows user answer and correct answer
+│
+├── question_widgets/
+│   ├── __init__.py
+│   ├── base_question_widget.py                  # Base contract for all question widgets
+│   ├── widget_factory.py                        # Creates widgets using registry
+│   ├── widget_registry.py                       # Registry mapping question types to widgets
+│   │
+│   └── mcq/
+│       ├── __init__.py
+│       ├── mcq_question_widget.py               # MCQ question widget
+│
+└── navigation/
+    ├── __init__.py
+    ├── app_router.py                            # Low-level QStackedWidget register/show operations
+    ├── app_router_controller.py                 # Semantic navigation methods
+    └── route_names.py                           # Route name constants
+
+
 ```
 
 ```
 
 quiz_app/page_data/
 ├── __init__.py
+│
+├── services/
+│   ├── __init__.py
+│   └── question_bank_loader/
+│       ├── __init__.py
+│       ├── json_file_reader.py                  # Reads JSON file from selected path
+│       ├── question_bank_json_validator.py      # Validates question bank JSON structure
+│       ├── question_bank_parser.py              # Parses raw JSON into internal question list
+│       └── question_bank_loader_service.py      # Orchestrates read → validate → parse
 │
 ├── student_selection/
 │   ├── __init__.py
@@ -101,6 +190,7 @@ quiz_app/page_data/
 ├── quiz_page/
 │   ├── __init__.py
 │   ├── hardcoded_questions.py                   # Temporary hardcoded quiz questions
+│   ├── quiz_data_loader.py                      # Uses question bank loader service
 │   ├── view_model.py                            # Quiz page render models
 │   └── render_data_builder.py                   # Builds render-ready quiz page data
 │
@@ -113,6 +203,7 @@ quiz_app/page_data/
     ├── __init__.py
     ├── view_model.py                            # Tab-based review page render models
     └── render_data_builder.py                   # Builds wrong/left/correct tab data
+
 
 ```
 
@@ -135,9 +226,9 @@ quiz_app/question_types/
 │
 └── mcq/
     ├── __init__.py
-    ├── answer_model.py                          # MCQ user/correct answer model
-    ├── parser.py                                # Parses raw MCQ JSON/question data
-    ├── validator.py                             # Validates MCQ structure and answer data
+    ├── answer_model.py                          # Planned: MCQ answer model
+    ├── parser.py                                # Planned: parses raw MCQ JSON/question data
+    ├── validator.py                             # Planned: validates MCQ structure and answer data
     ├── scorer.py                                # Scores MCQ user answer
     └── review_builder.py                        # Builds MCQ review display data
 

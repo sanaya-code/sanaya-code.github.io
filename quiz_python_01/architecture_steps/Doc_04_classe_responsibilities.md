@@ -35,8 +35,8 @@
 * Stores selected student id.
 * Stores selected question bank id.
 * Stores current quiz question index.
-* Stores current review question index.
 * Stores raw user answers during quiz session.
+* Stores loaded questions from imported JSON.
 * Stores quiz result summary data.
 
 ---
@@ -91,9 +91,10 @@
 ## `QuestionBankSelectionPage`
 
 * QWidget for the question bank selection screen.
-* Renders title, subtitle, and question bank cards.
+* Renders title, subtitle, hardcoded question bank cards, and JSON load button.
 * Emits `question_bank_selected` signal.
-* Does not know what happens after selection.
+* Emits `question_bank_json_selected` signal with selected JSON file path.
+* Does not know what happens after selection or file loading.
 
 ---
 
@@ -103,6 +104,8 @@
 * Provides `render()`.
 * Provides `bind_events()`.
 * Provides `get_page_widget()`.
+* Binds question bank selection signal to handler.
+* Binds JSON file selected signal to handler.
 * Does not perform routing.
 * Does not access app state.
 
@@ -269,6 +272,16 @@
 
 ---
 
+
+## `FilePickerButton`
+
+* Reusable UI component for selecting files.
+* Opens a file picker dialog.
+* Emits selected file path.
+* Does not read, validate, or parse the selected file.
+
+---
+
 ## `QuestionWidgetFactory`
 
 * Creates interactive question widgets dynamically using registry lookup.
@@ -358,7 +371,8 @@
 * Handles question bank selection event.
 * Updates selected question bank id.
 * Resets current question index.
-* Builds quiz page data.
+* Builds quiz page data using loaded questions if available.
+* Falls back to hardcoded questions if no JSON questions are loaded.
 * Renders quiz page.
 * Navigates to quiz page.
 
@@ -369,6 +383,8 @@
 * Handles next-question workflow.
 * Reads current raw user answer from quiz page.
 * Stores raw answer in `AppState`.
+* Uses loaded questions from `AppState` if available.
+* Falls back to hardcoded questions if no JSON questions are loaded.
 * Advances current question index.
 * Renders next question if available.
 * Ends quiz when questions are exhausted.
@@ -432,6 +448,19 @@
 
 ---
 
+## `LoadQuestionBankJsonHandler`
+
+* Handles selected JSON file path from question bank selection page.
+* Calls `QuizDataLoader` to load questions from JSON.
+* Stores loaded questions in `AppState` through `AppStateController`.
+* Resets current question index.
+* Builds quiz page data from loaded questions.
+* Renders quiz page.
+* Navigates to quiz page.
+* Handles loading errors temporarily by printing them.
+
+---
+
 ## `StudentSelectionRenderDataBuilder`
 
 * Builds render-ready data for student selection page.
@@ -451,7 +480,8 @@
 ## `QuizPageRenderDataBuilder`
 
 * Builds render-ready data for quiz page.
-* Reads temporary hardcoded quiz questions.
+* Accepts a question list from loaded JSON or falls back to hardcoded quiz questions.
+* Converts raw question data into `QuizPageViewModel`.
 * Returns `QuizPageViewModel`.
 
 ---
@@ -467,7 +497,9 @@
 ## `ReviewPageRenderDataBuilder`
 
 * Builds render-ready tab-based data for review page.
-* Combines questions, raw user answers, and question-type review builders.
+* Combines active question list, raw user answers, and question-type review builders.
+* Uses loaded questions when available.
+* Falls back to hardcoded questions when no JSON questions are loaded.
 * Separates questions into wrong, unanswered, and correct groups internally.
 * Returns only questions for the active tab.
 * Returns `ReviewPageViewModel`.
@@ -551,6 +583,52 @@
 * Builds MCQ-specific review display data.
 * Converts option ids into readable option text.
 * Provides selected answer display and correct answer display.
+
+---
+
+## `QuizDataLoader`
+
+* Page-data helper for quiz page.
+* Uses `QuestionBankLoaderService`.
+* Loads questions from selected JSON file.
+* Returns parsed question data for quiz rendering.
+
+---
+
+## `JsonFileReader`
+
+* Reads JSON data from a selected file path.
+* Ensures the selected file exists.
+* Ensures the selected file has `.json` extension.
+* Returns raw JSON dictionary.
+
+---
+
+## `QuestionBankJsonValidator`
+
+* Validates question bank JSON structure.
+* Ensures the JSON contains a non-empty `questions` list.
+* Validates required question fields.
+* Currently validates MCQ-only question format.
+* Ensures `correct_option_id` exists in the option list.
+
+---
+
+## `QuestionBankParser`
+
+* Converts validated question bank JSON into internal question data.
+* Currently returns the validated `questions` list.
+
+
+---
+
+## `QuestionBankLoaderService`
+
+* Orchestrates question bank loading.
+* Calls `JsonFileReader`.
+* Calls `QuestionBankJsonValidator`.
+* Calls `QuestionBankParser`.
+* Returns parsed question list.
 
 ---
 
