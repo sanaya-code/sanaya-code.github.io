@@ -4,6 +4,9 @@ from app.event_handlers.pages.question_bank_selection.select_question_bank_handl
     SelectQuestionBankHandler,
 )
 from app.event_handlers.pages.quiz.next_question_handler import NextQuestionHandler
+from app.event_handlers.pages.result.restart_quiz_handler import (
+    RestartQuizHandler,
+)
 from app.event_handlers.pages.student_selection.select_student_handler import (
     SelectStudentHandler,
 )
@@ -14,3 +17,4 @@ class EventHandlerBundle:
     select_student_handler: SelectStudentHandler
     select_question_bank_handler: SelectQuestionBankHandler
     next_question_handler: NextQuestionHandler
+    restart_quiz_handler: RestartQuizHandler

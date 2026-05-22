@@ -37,6 +37,10 @@ class MainController:
             on_next_clicked=self.event_handlers.next_question_handler.handle
         )
 
+        self.ui_pages.result_page.bind_events(
+            on_restart_clicked=self.event_handlers.restart_quiz_handler.handle
+        )
+
     def _register_pages(self) -> None:
         self.router_controller.register_student_selection_page(
             self.ui_pages.student_selection_page.get_page_widget()
@@ -48,6 +52,10 @@ class MainController:
 
         self.router_controller.register_quiz_page(
             self.ui_pages.quiz_page.get_page_widget()
+        )
+
+        self.router_controller.register_result_page(
+            self.ui_pages.result_page.get_page_widget()
         )
 
     def _load_student_selection_page(self) -> None:

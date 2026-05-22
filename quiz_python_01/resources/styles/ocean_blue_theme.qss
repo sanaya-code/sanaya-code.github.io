@@ -131,3 +131,25 @@ QPushButton#primaryButton {
 QPushButton#primaryButton:hover {
     background-color: #1874c7;
 }
+
+QWidget#resultPage {
+    background-color: #eef7ff;
+}
+
+QFrame#resultSummaryCard {
+    background-color: white;
+    border: 1px solid #c9dff2;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+QLabel#resultScore {
+    color: #2d8fe3;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+QLabel#resultText {
+    color: #0f3557;
+    font-size: 18px;
+}
