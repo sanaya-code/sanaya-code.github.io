@@ -23,6 +23,8 @@ quiz_app/
 │   └── navigation/                              # Router and route controller
 │
 ├── page_data/                                   # Render-data preparation partitioned by pages
+├── question_types/                              # answer_model, scorer, review_builder, 
+|                                                  answer_status, question_type_registry
 ├── composers/                                   # Object creation and dependency wiring
 ├── config/                                      # App constants/configuration
 ├── resources/                                   # Icons, images, SVG, QSS themes
