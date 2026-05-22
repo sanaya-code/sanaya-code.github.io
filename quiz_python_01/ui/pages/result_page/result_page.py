@@ -7,6 +7,7 @@ from ui.components.result.result_summary_card import ResultSummaryCard
 
 class ResultPage(QWidget):
     restart_clicked = pyqtSignal()
+    open_review_clicked = pyqtSignal()
 
     def __init__(self):
         super().__init__()
@@ -25,13 +26,18 @@ class ResultPage(QWidget):
 
         summary_card = ResultSummaryCard(view_model)
 
+        review_button = QPushButton("Review Answers")
+        review_button.setObjectName("primaryButton")
+        review_button.clicked.connect(self.open_review_clicked.emit)
+
         restart_button = QPushButton("Back To Home")
-        restart_button.setObjectName("primaryButton")
+        restart_button.setObjectName("secondaryButton")
         restart_button.clicked.connect(self.restart_clicked.emit)
 
         self.main_layout.addWidget(title)
         self.main_layout.addWidget(summary_card)
         self.main_layout.addStretch()
+        self.main_layout.addWidget(review_button)
         self.main_layout.addWidget(restart_button)
 
     def _clear_layout(self) -> None:
@@ -39,6 +45,5 @@ class ResultPage(QWidget):
             item = self.main_layout.takeAt(0)
 
             widget = item.widget()
-
             if widget is not None:
                 widget.deleteLater()

@@ -9,17 +9,11 @@ from page_data.question_bank_selection.render_data_builder import (
     QuestionBankSelectionRenderDataBuilder,
 )
 from page_data.quiz_page.render_data_builder import QuizPageRenderDataBuilder
+from page_data.result_page.render_data_builder import ResultPageRenderDataBuilder
+from page_data.review_page.render_data_builder import ReviewPageRenderDataBuilder
 from page_data.student_selection.render_data_builder import (
     StudentSelectionRenderDataBuilder,
 )
-
-from page_data.result_page.render_data_builder import (
-    ResultPageRenderDataBuilder,
-)
-from page_data.student_selection.render_data_builder import (
-    StudentSelectionRenderDataBuilder,
-)
-
 from ui.ui_composer import UIComposer
 
 
@@ -40,6 +34,7 @@ class AppComposer:
         question_bank_selection_data_builder = QuestionBankSelectionRenderDataBuilder()
         quiz_page_data_builder = QuizPageRenderDataBuilder()
         result_page_data_builder = ResultPageRenderDataBuilder()
+        review_page_data_builder = ReviewPageRenderDataBuilder()
 
         event_handler_composer = EventHandlerComposer()
         event_handlers = event_handler_composer.create_event_handlers(
@@ -49,9 +44,9 @@ class AppComposer:
             question_bank_selection_data_builder=question_bank_selection_data_builder,
             quiz_page_data_builder=quiz_page_data_builder,
             result_page_data_builder=result_page_data_builder,
-            student_selection_data_builder=student_selection_data_builder
+            review_page_data_builder=review_page_data_builder,
+            student_selection_data_builder=student_selection_data_builder,
         )
-
 
         main_controller = MainController(
             router_controller=router_controller,

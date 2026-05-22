@@ -8,7 +8,6 @@ class ResultSummaryCard(QFrame):
         super().__init__()
 
         self.view_model = view_model
-
         self.setObjectName("resultSummaryCard")
 
         self._build_ui()
@@ -17,14 +16,10 @@ class ResultSummaryCard(QFrame):
         layout = QVBoxLayout(self)
         layout.setSpacing(12)
 
-        score = QLabel(
-            f"{self.view_model.score_percentage:.1f}%"
-        )
+        score = QLabel(f"{self.view_model.score_percentage:.1f}%")
         score.setObjectName("resultScore")
 
-        total = QLabel(
-            f"Total Questions: {self.view_model.total_questions}"
-        )
+        total = QLabel(f"Total Questions: {self.view_model.total_questions}")
         total.setObjectName("resultText")
 
         attempted = QLabel(
@@ -32,12 +27,20 @@ class ResultSummaryCard(QFrame):
         )
         attempted.setObjectName("resultText")
 
-        correct = QLabel(
-            f"Correct Answers: {self.view_model.correct_answers}"
-        )
+        correct = QLabel(f"Correct Answers: {self.view_model.correct_answers}")
         correct.setObjectName("resultText")
+
+        wrong = QLabel(f"Wrong Answers: {self.view_model.wrong_answers}")
+        wrong.setObjectName("resultText")
+
+        unanswered = QLabel(
+            f"Unanswered Questions: {self.view_model.unanswered_questions}"
+        )
+        unanswered.setObjectName("resultText")
 
         layout.addWidget(score)
         layout.addWidget(total)
         layout.addWidget(attempted)
         layout.addWidget(correct)
+        layout.addWidget(wrong)
+        layout.addWidget(unanswered)

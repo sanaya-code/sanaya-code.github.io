@@ -155,13 +155,18 @@
 ## `ReviewPage`
 
 * QWidget for reviewing completed quiz questions.
-* Renders grouped review sections.
-* Separates wrong answered questions, unanswered questions, and correct answered questions.
+* Shows three review tabs: wrong, left/unanswered, and correct.
+* Emits `wrong_tab_clicked` signal.
+* Emits `unanswered_tab_clicked` signal.
+* Emits `correct_tab_clicked` signal.
+* Emits `back_to_home_clicked` signal.
+* Displays only the questions for the active tab.
 * Shows user answer and correct answer for wrong questions.
 * Shows correct answer for unanswered questions.
 * Shows user answer/correct answer for correct questions.
 * Does not contain scoring or answer-comparison logic.
 * Does not contain workflow logic.
+
 
 ---
 
@@ -171,6 +176,8 @@
 * Provides `render()`.
 * Provides `bind_events()`.
 * Provides `get_page_widget()`.
+* Binds review tab signals to handlers.
+* Binds back-to-home signal to handler.
 * Does not perform routing.
 * Does not access app state.
 
@@ -207,9 +214,8 @@
 
 ## `ReviewSection`
 
-* Displays one grouped review section.
-* Section examples: wrong answers, unanswered questions, correct answers.
-* Holds multiple `ReviewQuestionCard` components.
+* Removed from current design.
+* Review page now uses tabs instead of grouped sections.
 
 ---
 
@@ -384,9 +390,45 @@
 ## `OpenReviewHandler`
 
 * Handles opening the review page from result page.
-* Builds grouped review page data.
+* Builds review page data with the default active tab set to wrong.
 * Renders review page.
 * Navigates to review page.
+
+---
+
+## `ShowWrongQuestionsHandler`
+
+* Handles wrong-tab click on review page.
+* Builds review page data for wrong questions.
+* Re-renders review page with wrong questions active.
+
+
+---
+
+## `ShowUnansweredQuestionsHandler`
+
+* Handles left/unanswered-tab click on review page.
+* Builds review page data for unanswered questions.
+* Re-renders review page with unanswered questions active.
+
+---
+
+
+## `ShowCorrectQuestionsHandler`
+
+* Handles correct-tab click on review page.
+* Builds review page data for correct questions.
+* Re-renders review page with correct questions active.
+
+---
+
+## `BackToHomeFromReviewHandler`
+
+* Handles back-to-home click from review page.
+* Clears quiz session state.
+* Rebuilds student selection page data.
+* Renders student selection page.
+* Navigates back to home screen.
 
 ---
 
@@ -424,9 +466,10 @@
 
 ## `ReviewPageRenderDataBuilder`
 
-* Builds render-ready grouped data for review page.
+* Builds render-ready tab-based data for review page.
 * Combines questions, raw user answers, and question-type review builders.
-* Separates questions into wrong, unanswered, and correct groups.
+* Separates questions into wrong, unanswered, and correct groups internally.
+* Returns only questions for the active tab.
 * Returns `ReviewPageViewModel`.
 
 ---
@@ -585,4 +628,7 @@
 ## `ReviewPageViewModel`
 
 * Dataclass for full review page render data.
-* Contains summary data and grouped review sections.
+* Contains page title.
+* Contains active tab name.
+* Contains total, correct, wrong, and unanswered counts.
+* Contains only the questions for the active tab.

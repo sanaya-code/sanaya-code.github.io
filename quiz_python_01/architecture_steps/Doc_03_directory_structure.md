@@ -32,6 +32,7 @@ quiz_app/
 
 ```
 
+
 ```
 
 quiz_app/app/
@@ -73,84 +74,10 @@ quiz_app/app/
         │
         └── review/
             ├── __init__.py
-            ├── review_next_question_handler.py
-            ├── review_previous_question_handler.py
-            └── review_jump_to_question_handler.py
-         
-
-```
-
-
-```
- 
- quiz_app/ui/
-├── __init__.py
-├── ui_composer.py                               # Creates page widgets and page controllers
-├── ui_page_bundle.py                            # Frozen bundle holding page controllers
-│
-├── pages/
-│   ├── student_selection_page/
-│   │   ├── __init__.py
-│   │   ├── student_selection_page.py
-│   │   └── student_selection_page_controller.py
-│   │
-│   ├── question_bank_selection_page/
-│   │   ├── __init__.py
-│   │   ├── question_bank_selection_page.py
-│   │   └── question_bank_selection_page_controller.py
-│   │
-│   ├── quiz_page/
-│   │   ├── __init__.py
-│   │   ├── quiz_page.py                         # Main quiz screen
-│   │   └── quiz_page_controller.py              # Quiz page controller
-│   │
-│   ├── result_page/
-│   │   ├── __init__.py
-│   │   ├── result_page.py                       # Quiz result screen
-│   │   └── result_page_controller.py            # Result page controller
-│   │
-│   └── review_page/
-│       ├── __init__.py
-│       ├── review_page.py                       # Quiz review screen
-│       └── review_page_controller.py            # Review page controller
-│
-├── components/
-│   ├── student_selection/
-│   │   ├── __init__.py
-│   │   └── student_card.py
-│   │
-│   ├── question_bank_selection/
-│   │   ├── __init__.py
-│   │   └── question_bank_card.py
-│   │
-│   ├── result/
-│   │   ├── __init__.py
-│   │   └── result_summary_card.py               # Result summary card component
-│   │
-│   └── review/
-│       ├── __init__.py
-│       ├── review_section.py                    # Groups correct/wrong/unanswered questions
-│       ├── review_question_card.py              # Shows one reviewed question
-│       ├── review_status_badge.py               # Shows correct/wrong/unanswered status
-│       └── review_answer_summary.py             # Shows user answer and correct answer
-│
-├── question_widgets/
-│   ├── __init__.py
-│   ├── base_question_widget.py                  # Base contract for all question widgets
-│   ├── widget_factory.py                        # Creates widgets using registry
-│   ├── widget_registry.py                       # Registry mapping question types to widgets
-│   ├── review_widget_factory.py                 # Creates read-only review widgets
-│   │
-│   └── mcq/
-│       ├── __init__.py
-│       ├── mcq_question_widget.py               # MCQ question widget
-│       └── mcq_review_widget.py                 # Read-only MCQ review widget
-│
-└── navigation/
-    ├── __init__.py
-    ├── app_router.py                            # Low-level QStackedWidget register/show operations
-    ├── app_router_controller.py                 # Semantic navigation methods
-    └── route_names.py                           # Route name constants
+            ├── show_wrong_questions_handler.py       # Shows wrong answered questions tab
+            ├── show_unanswered_questions_handler.py  # Shows left/unanswered questions tab
+            ├── show_correct_questions_handler.py     # Shows correct answered questions tab
+            └── back_to_home_from_review_handler.py   # Returns from review page to home
 
 ```
 
@@ -184,11 +111,11 @@ quiz_app/page_data/
 │
 └── review_page/
     ├── __init__.py
-    ├── view_model.py                            # Grouped review page render models
-    └── render_data_builder.py                   # Builds wrong/unanswered/correct review data
-    
-    
+    ├── view_model.py                            # Tab-based review page render models
+    └── render_data_builder.py                   # Builds wrong/left/correct tab data
+
 ```
+
 
 ```
 
@@ -226,16 +153,14 @@ quiz_app/composers/
 ```
 
 ```
-
 quiz_app/config/
 ├── __init__.py
 └── app_config.py                                # App title, window size, constants
 
-
 ```
 
-```
 
+```
 quiz_app/resources/
 ├── icons/                                       # App icons
 ├── images/                                      # Static images
@@ -244,6 +169,3 @@ quiz_app/resources/
     └── ocean_blue_theme.qss                     # Global QSS theme
 
 ```
-
----
-

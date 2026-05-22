@@ -1,11 +1,10 @@
-
+from page_data.quiz_page.view_model import QuestionViewModel
 from ui.question_widgets.widget_registry import QUESTION_WIDGET_REGISTRY
 
+
 class QuestionWidgetFactory:
-    def create_widget(self, question):
-        widget_class = QUESTION_WIDGET_REGISTRY.get(
-            question.question_type
-        )
+    def create_widget(self, question: QuestionViewModel):
+        widget_class = QUESTION_WIDGET_REGISTRY.get(question.question_type)
 
         if widget_class is None:
             raise ValueError(

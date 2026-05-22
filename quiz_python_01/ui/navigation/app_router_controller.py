@@ -15,6 +15,12 @@ class AppRouterController:
     def register_quiz_page(self, page_widget) -> None:
         self.router.register_page(RouteNames.QUIZ_PAGE, page_widget)
 
+    def register_result_page(self, page_widget) -> None:
+        self.router.register_page(RouteNames.RESULT_PAGE, page_widget)
+
+    def register_review_page(self, page_widget) -> None:
+        self.router.register_page(RouteNames.REVIEW_PAGE, page_widget)
+
     def show_student_selection_page(self) -> None:
         self.router.show_page(RouteNames.STUDENT_SELECTION_PAGE)
 
@@ -23,12 +29,9 @@ class AppRouterController:
 
     def show_quiz_page(self) -> None:
         self.router.show_page(RouteNames.QUIZ_PAGE)
-    
-    def register_result_page(self, page_widget) -> None:
-        self.router.register_page(
-            RouteNames.RESULT_PAGE,
-            page_widget,
-        )
 
     def show_result_page(self) -> None:
         self.router.show_page(RouteNames.RESULT_PAGE)
+
+    def show_review_page(self) -> None:
+        self.router.show_page(RouteNames.REVIEW_PAGE)

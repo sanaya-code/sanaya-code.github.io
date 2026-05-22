@@ -38,7 +38,15 @@ class MainController:
         )
 
         self.ui_pages.result_page.bind_events(
-            on_restart_clicked=self.event_handlers.restart_quiz_handler.handle
+            on_restart_clicked=self.event_handlers.restart_quiz_handler.handle,
+            on_open_review_clicked=self.event_handlers.open_review_handler.handle,
+        )
+
+        self.ui_pages.review_page.bind_events(
+            on_wrong_tab_clicked=self.event_handlers.show_wrong_questions_handler.handle,
+            on_unanswered_tab_clicked=self.event_handlers.show_unanswered_questions_handler.handle,
+            on_correct_tab_clicked=self.event_handlers.show_correct_questions_handler.handle,
+            on_back_to_home_clicked=self.event_handlers.back_to_home_from_review_handler.handle,
         )
 
     def _register_pages(self) -> None:
@@ -56,6 +64,10 @@ class MainController:
 
         self.router_controller.register_result_page(
             self.ui_pages.result_page.get_page_widget()
+        )
+
+        self.router_controller.register_review_page(
+            self.ui_pages.review_page.get_page_widget()
         )
 
     def _load_student_selection_page(self) -> None:

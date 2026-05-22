@@ -3,3 +3,4 @@ class RouteNames:
     QUESTION_BANK_SELECTION_PAGE = "question_bank_selection_page"
     QUIZ_PAGE = "quiz_page"
     RESULT_PAGE = "result_page"
+    REVIEW_PAGE = "review_page"
