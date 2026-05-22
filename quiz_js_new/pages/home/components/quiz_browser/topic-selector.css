@@ -1,0 +1,66 @@
+/* Container Grid */
+
+/*
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 5px;
+    margin-bottom: 10px;
+}
+*/
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    justify-content: center;    /* 👈 this centers the grid items */
+    gap: 5px;
+    padding: 10px;
+}
+
+/* Individual Subject Cards */
+.subject-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+/* Hover effect */
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: #3498db;
+}
+
+/* Link Styles */
+.subject-card a {
+    display: block;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 15px 0;
+    transition: color 0.3s;
+}
+
+.subject-card a:hover {
+    color: #3498db;
+}
+
+/* Responsive: 2 columns on medium screens */
+@media (max-width: 900px) {
+    .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive: 1 column on small screens */
+@media (max-width: 600px) {
+    .subject-grid {
+        /* grid-template-columns: 1fr; */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -32,7 +32,6 @@ h2 {
     font-size: 1.5rem;
 }
 
-/* Custom Quiz Section */
 .custom-quiz {
     margin-top: 40px;
     padding-top: 30px;
@@ -49,7 +48,8 @@ input[type="file"] {
     background-color: #f9f9f9;
 }
 
-button, #loadQuizBtn {
+button,
+#loadQuizBtn {
     padding: 12px 30px;
     background-color: #2ecc71;
     color: white;
@@ -61,16 +61,12 @@ button, #loadQuizBtn {
     font-weight: 500;
 }
 
-button:hover, #loadQuizBtn:hover {
+button:hover,
+#loadQuizBtn:hover {
     background-color: #27ae60;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 900px) {
-    .subject-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .container {
         width: 95%;
         padding: 20px;
@@ -78,14 +74,10 @@ button:hover, #loadQuizBtn:hover {
 }
 
 @media (max-width: 600px) {
-    .subject-grid {
-        grid-template-columns: 1fr;
-    }
-    
     h1 {
         font-size: 1.8rem;
     }
-    
+
     h2 {
         font-size: 1.3rem;
     }
@@ -95,8 +87,9 @@ button:hover, #loadQuizBtn:hover {
     .container {
         padding: 15px;
     }
-    
-    button, #loadQuizBtn {
+
+    button,
+    #loadQuizBtn {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
