@@ -8,6 +8,7 @@ from config.app_config import APP_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH
 from page_data.question_bank_selection.render_data_builder import (
     QuestionBankSelectionRenderDataBuilder,
 )
+from page_data.quiz_page.render_data_builder import QuizPageRenderDataBuilder
 from page_data.student_selection.render_data_builder import (
     StudentSelectionRenderDataBuilder,
 )
@@ -29,6 +30,7 @@ class AppComposer:
 
         student_selection_data_builder = StudentSelectionRenderDataBuilder()
         question_bank_selection_data_builder = QuestionBankSelectionRenderDataBuilder()
+        quiz_page_data_builder = QuizPageRenderDataBuilder()
 
         event_handler_composer = EventHandlerComposer()
         event_handlers = event_handler_composer.create_event_handlers(
@@ -36,6 +38,7 @@ class AppComposer:
             ui_pages=ui_pages,
             router_controller=router_controller,
             question_bank_selection_data_builder=question_bank_selection_data_builder,
+            quiz_page_data_builder=quiz_page_data_builder,
         )
 
         main_controller = MainController(

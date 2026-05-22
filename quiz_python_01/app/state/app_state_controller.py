@@ -11,14 +11,23 @@ class AppStateController:
     def get_selected_student_id(self) -> str | None:
         return self._app_state.selected_student_id
 
-    def clear_selected_student_id(self) -> None:
-        self._app_state.selected_student_id = None
-
     def set_selected_question_bank_id(self, question_bank_id: str) -> None:
         self._app_state.selected_question_bank_id = question_bank_id
 
     def get_selected_question_bank_id(self) -> str | None:
         return self._app_state.selected_question_bank_id
 
-    def clear_selected_question_bank_id(self) -> None:
-        self._app_state.selected_question_bank_id = None
+    def set_current_question_index(self, index: int) -> None:
+        self._app_state.current_question_index = index
+
+    def get_current_question_index(self) -> int:
+        return self._app_state.current_question_index
+
+    def move_to_next_question(self) -> None:
+        self._app_state.current_question_index += 1
+
+    def save_answer(self, question_id: str, answer: str | None) -> None:
+        self._app_state.answers[question_id] = answer
+
+    def get_answers(self) -> dict[str, str | None]:
+        return self._app_state.answers

@@ -94,3 +94,40 @@ QFrame#questionBankCard QLabel#questionBankCount {
     color: #667f94;
     font-size: 14px;
 }
+
+QWidget#quizPage {
+    background-color: #eef7ff;
+}
+
+QWidget#mcqQuestionWidget {
+    background-color: white;
+    border: 1px solid #c9dff2;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+QLabel#questionText {
+    color: #0f3557;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+QRadioButton#mcqOption {
+    color: #0f3557;
+    font-size: 16px;
+    padding: 8px;
+}
+
+QPushButton#primaryButton {
+    background-color: #2d8fe3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+QPushButton#primaryButton:hover {
+    background-color: #1874c7;
+}

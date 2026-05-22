@@ -29,6 +29,14 @@ class MainController:
             on_student_selected=self.event_handlers.select_student_handler.handle
         )
 
+        self.ui_pages.question_bank_selection_page.bind_events(
+            on_question_bank_selected=self.event_handlers.select_question_bank_handler.handle
+        )
+
+        self.ui_pages.quiz_page.bind_events(
+            on_next_clicked=self.event_handlers.next_question_handler.handle
+        )
+
     def _register_pages(self) -> None:
         self.router_controller.register_student_selection_page(
             self.ui_pages.student_selection_page.get_page_widget()
@@ -36,6 +44,10 @@ class MainController:
 
         self.router_controller.register_question_bank_selection_page(
             self.ui_pages.question_bank_selection_page.get_page_widget()
+        )
+
+        self.router_controller.register_quiz_page(
+            self.ui_pages.quiz_page.get_page_widget()
         )
 
     def _load_student_selection_page(self) -> None:
