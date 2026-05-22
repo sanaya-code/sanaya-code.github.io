@@ -30,7 +30,8 @@ class MainController:
         )
 
         self.ui_pages.question_bank_selection_page.bind_events(
-            on_question_bank_selected=self.event_handlers.select_question_bank_handler.handle
+            on_question_bank_selected=self.event_handlers.select_question_bank_handler.handle,
+            on_question_bank_json_selected=self.event_handlers.load_question_bank_json_handler.handle,
         )
 
         self.ui_pages.quiz_page.bind_events(

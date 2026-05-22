@@ -19,10 +19,12 @@ class OpenReviewHandler:
 
     def handle(self) -> None:
         answers = self.app_state_controller.get_answers()
+        questions = self.app_state_controller.get_loaded_questions()
 
         view_model = self.review_page_data_builder.build(
             user_answers=answers,
             active_tab="wrong",
+            questions=questions if questions else None,
         )
 
         self.ui_pages.review_page.render(view_model)

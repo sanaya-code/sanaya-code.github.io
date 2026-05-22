@@ -1,4 +1,7 @@
 from app.event_handlers.event_handler_bundle import EventHandlerBundle
+from app.event_handlers.pages.question_bank_selection.load_question_bank_json_handler import (
+    LoadQuestionBankJsonHandler,
+)
 from app.event_handlers.pages.question_bank_selection.select_question_bank_handler import (
     SelectQuestionBankHandler,
 )
@@ -24,6 +27,7 @@ from app.state.app_state_controller import AppStateController
 from page_data.question_bank_selection.render_data_builder import (
     QuestionBankSelectionRenderDataBuilder,
 )
+from page_data.quiz_page.quiz_data_loader import QuizDataLoader
 from page_data.quiz_page.render_data_builder import QuizPageRenderDataBuilder
 from page_data.result_page.render_data_builder import ResultPageRenderDataBuilder
 from page_data.review_page.render_data_builder import ReviewPageRenderDataBuilder
@@ -45,6 +49,7 @@ class EventHandlerComposer:
         result_page_data_builder: ResultPageRenderDataBuilder,
         review_page_data_builder: ReviewPageRenderDataBuilder,
         student_selection_data_builder: StudentSelectionRenderDataBuilder,
+        quiz_data_loader: QuizDataLoader,
     ) -> EventHandlerBundle:
         select_student_handler = SelectStudentHandler(
             app_state_controller=app_state_controller,
@@ -57,6 +62,14 @@ class EventHandlerComposer:
             app_state_controller=app_state_controller,
             ui_pages=ui_pages,
             router_controller=router_controller,
+            quiz_page_data_builder=quiz_page_data_builder,
+        )
+
+        load_question_bank_json_handler = LoadQuestionBankJsonHandler(
+            app_state_controller=app_state_controller,
+            ui_pages=ui_pages,
+            router_controller=router_controller,
+            quiz_data_loader=quiz_data_loader,
             quiz_page_data_builder=quiz_page_data_builder,
         )
 
@@ -110,6 +123,7 @@ class EventHandlerComposer:
         return EventHandlerBundle(
             select_student_handler=select_student_handler,
             select_question_bank_handler=select_question_bank_handler,
+            load_question_bank_json_handler=load_question_bank_json_handler,
             next_question_handler=next_question_handler,
             restart_quiz_handler=restart_quiz_handler,
             open_review_handler=open_review_handler,

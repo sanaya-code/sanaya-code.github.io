@@ -26,8 +26,12 @@ class NextQuestionHandler:
 
     def handle(self) -> None:
         current_index = self.app_state_controller.get_current_question_index()
+        questions = self._get_active_questions()
 
-        current_view_model = self.quiz_page_data_builder.build(current_index)
+        current_view_model = self.quiz_page_data_builder.build(
+            question_index=current_index,
+            questions=questions,
+        )
 
         answer = self.ui_pages.quiz_page.get_current_answer()
 
@@ -38,23 +42,28 @@ class NextQuestionHandler:
 
         next_index = current_index + 1
 
-        if next_index >= self.quiz_page_data_builder.get_total_questions():
+        if next_index >= self.quiz_page_data_builder.get_total_questions(questions):
             self._finish_quiz()
             return
 
         self.app_state_controller.set_current_question_index(next_index)
 
-        next_view_model = self.quiz_page_data_builder.build(next_index)
+        next_view_model = self.quiz_page_data_builder.build(
+            question_index=next_index,
+            questions=questions,
+        )
+
         self.ui_pages.quiz_page.render(next_view_model)
 
     def _finish_quiz(self) -> None:
         answers = self.app_state_controller.get_answers()
+        questions = self._get_active_questions()
 
         correct_answers = 0
         wrong_answers = 0
         unanswered_questions = 0
 
-        for question_data in HARDCODED_QUESTIONS:
+        for question_data in questions:
             question_id = question_data["question_id"]
             question_type = question_data["type"]
             user_answer = answers.get(question_id)
@@ -73,7 +82,7 @@ class NextQuestionHandler:
             else:
                 unanswered_questions += 1
 
-        total_questions = self.quiz_page_data_builder.get_total_questions()
+        total_questions = self.quiz_page_data_builder.get_total_questions(questions)
         attempted_questions = correct_answers + wrong_answers
 
         result_view_model = self.result_page_data_builder.build(
@@ -86,3 +95,11 @@ class NextQuestionHandler:
 
         self.ui_pages.result_page.render(result_view_model)
         self.router_controller.show_result_page()
+
+    def _get_active_questions(self) -> list[dict]:
+        loaded_questions = self.app_state_controller.get_loaded_questions()
+
+        if loaded_questions:
+            return loaded_questions
+
+        return HARDCODED_QUESTIONS

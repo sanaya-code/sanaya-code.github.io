@@ -15,12 +15,15 @@ class ReviewPageRenderDataBuilder:
         self,
         user_answers: dict[str, str | None],
         active_tab: str = "wrong",
+        questions: list[dict] | None = None,
     ) -> ReviewPageViewModel:
+        question_list = questions or HARDCODED_QUESTIONS
+
         correct_questions: list[ReviewQuestionViewModel] = []
         wrong_questions: list[ReviewQuestionViewModel] = []
         unanswered_questions: list[ReviewQuestionViewModel] = []
 
-        for question_data in HARDCODED_QUESTIONS:
+        for question_data in question_list:
             question_id = question_data["question_id"]
             question_type = question_data["type"]
             user_answer = user_answers.get(question_id)
@@ -59,7 +62,7 @@ class ReviewPageRenderDataBuilder:
         return ReviewPageViewModel(
             page_title="Quiz Review",
             active_tab=active_tab,
-            total_questions=len(HARDCODED_QUESTIONS),
+            total_questions=len(question_list),
             correct_count=len(correct_questions),
             wrong_count=len(wrong_questions),
             unanswered_count=len(unanswered_questions),

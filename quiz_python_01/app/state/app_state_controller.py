@@ -31,9 +31,19 @@ class AppStateController:
 
     def get_answers(self) -> dict[str, str | None]:
         return self._app_state.answers
-    
+
+    def set_loaded_questions(self, questions: list[dict]) -> None:
+        self._app_state.loaded_questions = questions
+
+    def get_loaded_questions(self) -> list[dict]:
+        return self._app_state.loaded_questions
+
+    def has_loaded_questions(self) -> bool:
+        return bool(self._app_state.loaded_questions)
+
     def reset_quiz_session(self) -> None:
         self._app_state.selected_student_id = None
         self._app_state.selected_question_bank_id = None
         self._app_state.current_question_index = 0
         self._app_state.answers.clear()
+        self._app_state.loaded_questions.clear()

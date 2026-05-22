@@ -4,11 +4,13 @@ from PyQt6.QtWidgets import QLabel, QGridLayout, QVBoxLayout, QWidget
 from page_data.question_bank_selection.view_model import (
     QuestionBankSelectionViewModel,
 )
+from ui.components.common.file_picker_button.file_picker_button import FilePickerButton
 from ui.components.question_bank_selection.question_bank_card import QuestionBankCard
 
 
 class QuestionBankSelectionPage(QWidget):
     question_bank_selected = pyqtSignal(str)
+    question_bank_json_selected = pyqtSignal(str)
 
     def __init__(self):
         super().__init__()
@@ -32,6 +34,9 @@ class QuestionBankSelectionPage(QWidget):
         subtitle.setObjectName("pageSubtitle")
         subtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
+        file_picker_button = FilePickerButton("Load Question Bank JSON")
+        file_picker_button.file_selected.connect(self.question_bank_json_selected.emit)
+
         grid = QGridLayout()
         grid.setSpacing(20)
 
@@ -45,6 +50,7 @@ class QuestionBankSelectionPage(QWidget):
 
         self.main_layout.addWidget(title)
         self.main_layout.addWidget(subtitle)
+        self.main_layout.addWidget(file_picker_button, alignment=Qt.AlignmentFlag.AlignCenter)
         self.main_layout.addSpacing(20)
         self.main_layout.addLayout(grid)
         self.main_layout.addStretch()

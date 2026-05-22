@@ -21,7 +21,12 @@ class SelectQuestionBankHandler:
         self.app_state_controller.set_selected_question_bank_id(question_bank_id)
         self.app_state_controller.set_current_question_index(0)
 
-        view_model = self.quiz_page_data_builder.build(question_index=0)
+        questions = self.app_state_controller.get_loaded_questions()
+
+        view_model = self.quiz_page_data_builder.build(
+            question_index=0,
+            questions=questions if questions else None,
+        )
 
         self.ui_pages.quiz_page.render(view_model)
         self.router_controller.show_quiz_page()

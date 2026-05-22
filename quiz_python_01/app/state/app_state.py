@@ -7,3 +7,4 @@ class AppState:
     selected_question_bank_id: str | None = None
     current_question_index: int = 0
     answers: dict[str, str | None] = field(default_factory=dict)
+    loaded_questions: list[dict] = field(default_factory=list)

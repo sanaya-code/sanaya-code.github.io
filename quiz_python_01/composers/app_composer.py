@@ -8,6 +8,7 @@ from config.app_config import APP_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH
 from page_data.question_bank_selection.render_data_builder import (
     QuestionBankSelectionRenderDataBuilder,
 )
+from page_data.quiz_page.quiz_data_loader import QuizDataLoader
 from page_data.quiz_page.render_data_builder import QuizPageRenderDataBuilder
 from page_data.result_page.render_data_builder import ResultPageRenderDataBuilder
 from page_data.review_page.render_data_builder import ReviewPageRenderDataBuilder
@@ -35,6 +36,7 @@ class AppComposer:
         quiz_page_data_builder = QuizPageRenderDataBuilder()
         result_page_data_builder = ResultPageRenderDataBuilder()
         review_page_data_builder = ReviewPageRenderDataBuilder()
+        quiz_data_loader = QuizDataLoader()
 
         event_handler_composer = EventHandlerComposer()
         event_handlers = event_handler_composer.create_event_handlers(
@@ -46,6 +48,7 @@ class AppComposer:
             result_page_data_builder=result_page_data_builder,
             review_page_data_builder=review_page_data_builder,
             student_selection_data_builder=student_selection_data_builder,
+            quiz_data_loader=quiz_data_loader,
         )
 
         main_controller = MainController(

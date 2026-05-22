@@ -1,5 +1,8 @@
 from dataclasses import dataclass
 
+from app.event_handlers.pages.question_bank_selection.load_question_bank_json_handler import (
+    LoadQuestionBankJsonHandler,
+)
 from app.event_handlers.pages.question_bank_selection.select_question_bank_handler import (
     SelectQuestionBankHandler,
 )
@@ -27,6 +30,7 @@ from app.event_handlers.pages.student_selection.select_student_handler import (
 class EventHandlerBundle:
     select_student_handler: SelectStudentHandler
     select_question_bank_handler: SelectQuestionBankHandler
+    load_question_bank_json_handler: LoadQuestionBankJsonHandler
     next_question_handler: NextQuestionHandler
     restart_quiz_handler: RestartQuizHandler
     open_review_handler: OpenReviewHandler
