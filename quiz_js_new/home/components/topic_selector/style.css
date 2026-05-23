@@ -1,6 +1,6 @@
 .subject-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     justify-content: center;
     gap: 5px;
     padding: 10px;
