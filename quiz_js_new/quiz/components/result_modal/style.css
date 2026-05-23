@@ -1,0 +1,85 @@
+.result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.modal-buttons:hover {
+    background-color: #2980b9;
+}
+
+.filter-options {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+}
+
+.filter-options input[type="radio"] {
+    accent-color: #4CAF50;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.result-items-container {
+    margin-top: 10px;
+}
+
+.result-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.result-item.correct {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+}
+
+.result-item.incorrect {
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+}
