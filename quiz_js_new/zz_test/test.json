@@ -1,0 +1,117 @@
+{
+    "title": "General Knowledge Quiz",
+    "questions": [
+        {
+            "type": "mcq",
+            "id": "001",
+            "question": "Which planet is the largest in our solar system?",
+            "options": [
+                { "id": "A", "text": "Earth" },
+                { "id": "B", "text": "Mars" },
+                { "id": "C", "text": "Jupiter" },
+                { "id": "D", "text": "Saturn" }
+            ],
+            "correct_answer": "C",
+            "explanation": "Jupiter is the largest planet, more than twice as massive as all other planets combined.",
+            "difficulty": "easy"
+        },
+        {
+            "type": "mcq",
+            "id": "002",
+            "question": "What is the capital of France?",
+            "options": [
+                { "id": "A", "text": "London" },
+                { "id": "B", "text": "Berlin" },
+                { "id": "C", "text": "Madrid" },
+                { "id": "D", "text": "Paris" }
+            ],
+            "correct_answer": "D",
+            "explanation": "Paris is the capital and largest city of France.",
+            "difficulty": "easy"
+        },
+        {
+            "type": "mcq",
+            "id": "003",
+            "question": "Which element has the chemical symbol 'O'?",
+            "options": [
+                { "id": "A", "text": "Gold" },
+                { "id": "B", "text": "Oxygen" },
+                { "id": "C", "text": "Osmium" },
+                { "id": "D", "text": "Oganesson" }
+            ],
+            "correct_answer": "B",
+            "explanation": "Oxygen has the chemical symbol O and atomic number 8.",
+            "difficulty": "easy"
+        },
+        {
+            "type": "mcq",
+            "id": "004",
+            "question": "How many sides does a hexagon have?",
+            "options": [
+                { "id": "A", "text": "5" },
+                { "id": "B", "text": "6" },
+                { "id": "C", "text": "7" },
+                { "id": "D", "text": "8" }
+            ],
+            "correct_answer": "B",
+            "explanation": "A hexagon has 6 sides. The prefix 'hex' means six.",
+            "difficulty": "easy"
+        },
+        {
+            "type": "mcq",
+            "id": "005",
+            "question": "Which ocean is the largest in the world?",
+            "options": [
+                { "id": "A", "text": "Atlantic Ocean" },
+                { "id": "B", "text": "Indian Ocean" },
+                { "id": "C", "text": "Pacific Ocean" },
+                { "id": "D", "text": "Arctic Ocean" }
+            ],
+            "correct_answer": "C",
+            "explanation": "The Pacific Ocean is the largest ocean, covering more than 30% of the Earth's surface.",
+            "difficulty": "easy"
+        },
+        {
+            "type": "mcq",
+            "id": "006",
+            "question": "What is 12 × 12?",
+            "options": [
+                { "id": "A", "text": "124" },
+                { "id": "B", "text": "144" },
+                { "id": "C", "text": "132" },
+                { "id": "D", "text": "148" }
+            ],
+            "correct_answer": "B",
+            "explanation": "12 × 12 = 144.",
+            "difficulty": "easy"
+        },
+        {
+            "type": "mcq",
+            "id": "007",
+            "question": "Who wrote the play 'Romeo and Juliet'?",
+            "options": [
+                { "id": "A", "text": "Charles Dickens" },
+                { "id": "B", "text": "Jane Austen" },
+                { "id": "C", "text": "William Shakespeare" },
+                { "id": "D", "text": "Mark Twain" }
+            ],
+            "correct_answer": "C",
+            "explanation": "Romeo and Juliet was written by William Shakespeare around 1594–1596.",
+            "difficulty": "medium"
+        },
+        {
+            "type": "mcq",
+            "id": "008",
+            "question": "What is the speed of light approximately?",
+            "options": [
+                { "id": "A", "text": "300,000 km/s" },
+                { "id": "B", "text": "150,000 km/s" },
+                { "id": "C", "text": "450,000 km/s" },
+                { "id": "D", "text": "100,000 km/s" }
+            ],
+            "correct_answer": "A",
+            "explanation": "The speed of light in a vacuum is approximately 299,792 km/s, commonly rounded to 300,000 km/s.",
+            "difficulty": "medium"
+        }
+    ]
+}
