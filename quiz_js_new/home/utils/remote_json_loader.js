@@ -2,7 +2,7 @@ class RemoteJsonLoader
 {
     async fetch(url) {
 		const resolvedUrl = this._resolveUrl(url);
-        const response = await fetch(url);
+        const response = await fetch(resolvedUrl);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return await response.json();
     }
@@ -10,6 +10,7 @@ class RemoteJsonLoader
     _resolveUrl(url) 
     {
         // if (url.startsWith('http://') || url.startsWith('https://')) return url;
+        console.log(url)
         return HomeConfig.URLS.BASE + url;
     }
 
