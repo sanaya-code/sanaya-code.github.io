@@ -1,8 +1,4 @@
 class TopicSelector extends HTMLElement {
-    constructor() {
-        super();
-        this._topics = [];
-    }
 
     static get observedAttributes() {
         return ['config'];
@@ -10,35 +6,56 @@ class TopicSelector extends HTMLElement {
 
     attributeChangedCallback(name, oldVal, newVal) {
         if (name === 'config' && newVal !== oldVal) {
-            try {
-                this._topics = JSON.parse(newVal);
-                this._render();
-            } catch (e) {
-                console.warn('Invalid JSON for config:', e);
-            }
+            this._render(this._parseConfig(newVal));
         }
     }
 
-    _render() {
+    // ── Config ────────────────────────────────────────────────
+
+    _parseConfig(raw) {
+        try {
+            return JSON.parse(raw) || [];
+        } catch (e) {
+            console.warn('TopicSelector: invalid config JSON', e);
+            return [];
+        }
+    }
+
+    // ── Render ────────────────────────────────────────────────
+
+    _render(topics) {
         this.innerHTML = `
             <div class="subject-grid">
-                ${this._topics.map(topic => `
-                    <div class="subject-card" title="${topic.description || ''}">
-                        <a href="#">${topic.topic}</a>
-                    </div>
-                `).join('')}
+                ${topics.map(topic => this._createCardHTML(topic)).join('')}
             </div>
         `;
+        this._bindCardEvents(topics);
+    }
 
+    _createCardHTML(topic) {
+        return `
+            <div class="subject-card" title="${topic.description || ''}">
+                <a href="#">${topic.topic}</a>
+            </div>
+        `;
+    }
+
+    // ── Events ────────────────────────────────────────────────
+
+    _bindCardEvents(topics) {
         this.querySelectorAll('.subject-card a').forEach((link, index) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.dispatchEvent(new CustomEvent('topicSelected', {
-                    detail: this._topics[index],
-                    bubbles: true,
-                }));
+                this._dispatchTopicSelected(topics[index]);
             });
         });
+    }
+
+    _dispatchTopicSelected(topic) {
+        this.dispatchEvent(new CustomEvent('topicSelected', {
+            detail: topic,
+            bubbles: true,
+        }));
     }
 }
 

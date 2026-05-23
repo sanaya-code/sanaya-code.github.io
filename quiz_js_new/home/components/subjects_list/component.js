@@ -1,27 +1,30 @@
 class GradeSubjects extends HTMLElement {
+
     constructor() {
         super();
         this._grades = {};
         this._selectEl = null;
-        this._radiosEl = null;
+        this._subjectOptionsEl = null;
     }
 
     static get observedAttributes() {
-        return ['config'];
+        return ['config', 'topics'];
     }
 
     connectedCallback() {
-        if (!this.innerHTML) {
-            this._render();
-        }
+        this._render();
         this._loadFromConfig();
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === 'config' && oldValue !== newValue) {
             this._loadFromConfig();
+        } else if (name === 'topics' && oldValue !== newValue) {
+            this._updateTopicSelector(JSON.parse(newValue || '[]'));
         }
     }
+
+    // ── Render ────────────────────────────────────────────────
 
     _render() {
         this.innerHTML = `
@@ -32,72 +35,102 @@ class GradeSubjects extends HTMLElement {
                 <div id="subject-options" class="subject-options"></div>
             </div>
         `;
-        this._selectEl = this.querySelector('#grade-select');
-        this._radiosEl = this.querySelector('#subject-options');
-
-        this._selectEl?.addEventListener('change', () => {
-            this._updateSubjects();
-            this.dispatchEvent(new CustomEvent('gradeSelected', {
-                detail: this._selectEl.value,
-                bubbles: true,
-            }));
-        });
+        this._selectEl         = this.querySelector('#grade-select');
+        this._subjectOptionsEl = this.querySelector('#subject-options');
+        this._selectEl.addEventListener('change', () => this._onGradeChange());
     }
+
+    // ── Config ────────────────────────────────────────────────
 
     _loadFromConfig() {
         try {
-            const config = JSON.parse(this.getAttribute('config') || '{}');
-            this._grades = config.grades || {};
+            this._grades = JSON.parse(this.getAttribute('config') || '{}');
         } catch (e) {
-            console.warn('Invalid config JSON for <grade-subjects>:', e);
+            console.warn('GradeSubjects: invalid config JSON', e);
             return;
         }
-        if (this._selectEl) this._populateDropdown();
+        this._populateGradeDropdown();
     }
 
-    _populateDropdown() {
+    // ── Grade dropdown ────────────────────────────────────────
+
+    _populateGradeDropdown() {
         this._selectEl.innerHTML = `<option value="">-- Select Grade --</option>`;
-        for (const grade in this._grades) {
+        Object.keys(this._grades).forEach(grade => {
             const opt = document.createElement('option');
             opt.value = grade;
             opt.textContent = `Grade ${grade}`;
             this._selectEl.appendChild(opt);
-        }
+        });
     }
 
-    _updateSubjects() {
-        if (!this._selectEl || !this._radiosEl) return;
-
+    _onGradeChange() {
         const grade = this._selectEl.value;
-        this._radiosEl.innerHTML = '';
+        this._clearSubjects();
+        this._clearTopicSelector();
+        if (grade) this._renderSubjects(grade);
+        this._dispatchGradeSelected(grade);
+    }
 
-        if (!grade || !this._grades[grade]) {
-            this._radiosEl.style.display = 'none';
-            return;
-        }
+    // ── Subject radios ────────────────────────────────────────
 
+    _renderSubjects(grade) {
         const { subjects, url } = this._grades[grade];
-
         subjects.forEach((subject, index) => {
-            const id = `subject-${grade}-${index}`;
-            const wrapper = document.createElement('div');
-            wrapper.className = 'radio-wrapper';
-
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = `subject-${grade}`;
-            input.id = id;
-            input.value = subject;
-            input.addEventListener('change', () => this._dispatchSubjectSelected(grade, subject, url));
-
-            const label = document.createElement('label');
-            label.htmlFor = id;
-            label.textContent = subject;
-
-            wrapper.appendChild(input);
-            wrapper.appendChild(label);
-            this._radiosEl.appendChild(wrapper);
+            const wrapper = this._createSubjectRadio(grade, subject, index, url);
+            this._subjectOptionsEl.appendChild(wrapper);
         });
+    }
+
+    _createSubjectRadio(grade, subject, index, url) {
+        const id = `subject-${grade}-${index}`;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'radio-wrapper';
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = `subject-${grade}`;
+        input.id = id;
+        input.value = subject;
+        input.addEventListener('change', () => this._dispatchSubjectSelected(grade, subject, url));
+
+        const label = document.createElement('label');
+        label.htmlFor = id;
+        label.textContent = subject;
+
+        wrapper.appendChild(input);
+        wrapper.appendChild(label);
+        return wrapper;
+    }
+
+    _clearSubjects() {
+        this._subjectOptionsEl.innerHTML = '';
+    }
+
+    // ── Topic selector ────────────────────────────────────────
+
+    _updateTopicSelector(topics) {
+        let topicSelector = this.querySelector('topic-selector');
+        if (!topicSelector) {
+            topicSelector = document.createElement('topic-selector');
+            this.querySelector('.grade-subjects').appendChild(topicSelector);
+        }
+        topicSelector.setAttribute('config', JSON.stringify(topics));
+    }
+
+    _clearTopicSelector() {
+        const topicSelector = this.querySelector('topic-selector');
+        if (topicSelector) topicSelector.setAttribute('config', JSON.stringify([]));
+    }
+
+    // ── Events ────────────────────────────────────────────────
+
+    _dispatchGradeSelected(grade) {
+        this.dispatchEvent(new CustomEvent('gradeSelected', {
+            detail: { grade },
+            bubbles: true,
+        }));
     }
 
     _dispatchSubjectSelected(grade, subject, url) {
