@@ -13,9 +13,6 @@ quiz.html
   runs quiz
   writes quizResult to sessionStorage
   redirects to result.html
-
-result.html
-  reads quizResult from sessionStorage
   shows result
 
 ```
