@@ -7,38 +7,37 @@ pages/ directory, Each page folder owns everything specific to it.
 
 ```
 
-
-
 quiz_app/
 │
 ├── home/
-│   ├── index.html                             	# Home page entry point
-│   ├── style.css                              	# Home page styles
-│   ├── page.js                                # <home-page> HTMLElement
-│   ├── config.js                              	# Home page constants (URLs, storage keys)
-│   ├── controller.js                          	# Boots home page, injects components
-│   ├── event_handler.js                       	# All home page event listeners
+│   ├── index.html                              # Home page entry point
+│   ├── style.css                               # Home page styles
+│   ├── config.js                               # Home page constants (URLs, storage keys)
+│   ├── state.js                                # In-memory subject JSON cache
+│   ├── controller.js                           # Boots home page, wires dependencies
+│   ├── event_handler.js                        # All home page event listeners
 │   │
 │   ├── storage/
-│   │   └── session_storage_service.js         	# Writes quizData to sessionStorage
+│   │   └── session_storage_service.js          # Writes quizData to sessionStorage
 │   │
 │   ├── utils/
-│   │   ├── file_reader.js                     	# Reads uploaded local JSON quiz file
-│   	├── remote_json_loader.js              	# Fetch + cache remote JSON (async/await)
-│   │   └── browser_environment.js             	# Detects file:/// vs server mode
+│   │   ├── file_reader.js                      # Reads uploaded local JSON quiz file
+│   │   ├── remote_json_loader.js               # Fetches remote JSON (async/await)
+│   │   └── browser_environment.js              # Detects file:/// vs server mode
 │   │
 │   └── components/
 │       ├── subjects_list/
-│       │   ├── component.js                   	# grade-subjects custom element
-│       │   └── style.css                      	# Grade/subject selector styles
+│       │   ├── component.js                    # <grade-subjects> custom element
+│       │   ├── controller.js                   # DOM access layer for grade-subjects
+│       │   └── style.css                       # Grade/subject/topic selector styles
 │       │
-│       ├── topic_selector/
-│       │   ├── component.js                   	# topic-selector custom element
-│       │   └── style.css                 	   	# Topic grid card styles
+│       ├── topic_selector/                     # <topic-selector> custom element
+│       │   ├── component.js                    # widget of grade-subjects
+│       │   └── style.css                       # Topic grid card styles
 │       │
-│       └── custom_quiz_loader/                	# Custom JSON upload component
-│           ├── component.js                   	# <custom-quiz-loader> HTMLElement
-│           └── style.css                      	# Upload component styles
+│       └── custom_quiz_loader/
+│           ├── component.js                    # <custom-quiz-loader> custom element
+│           └── style.css                       # Upload component styles
 │
 └── quiz/
     ├── index.html                              # Quiz page entry point
