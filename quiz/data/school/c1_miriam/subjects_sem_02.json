@@ -50,6 +50,13 @@
         "topic": "Multi 01",
         "description": "Multi 01",
         "quiz_id": "Multi 01"
+      },
+      {
+        "id": "008",
+        "link": "data/school/c1_miriam/comp/comp_01.json",
+        "description": "Comp",
+        "topic": "Comp",
+        "quiz_id": "Comp"
       }
     ],
     "EVS": [
