@@ -11,6 +11,7 @@ class RemoteJsonLoader
     {
         // if (url.startsWith('http://') || url.startsWith('https://')) return url;
         console.log(url)
+        console.log(HomeConfig.URLS.BASE + url)
         return HomeConfig.URLS.BASE + url;
     }
 
