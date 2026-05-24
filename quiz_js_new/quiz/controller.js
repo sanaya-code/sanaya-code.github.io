@@ -3,11 +3,19 @@ class QuizController {
         this._state           = new QuizState();
         this._wrapperCtrl     = new QuestionWrapperController();
         this._indexPanelCtrl  = new IndexPanelController();
+        this._navPanelCtrl    = new NavigationPanelController();
         this._resultModalCtrl = new ResultModalController();
     }
 
     async init() {
-        new QuizEventHandler(this).bindAll();
+        new QuizEventHandler(
+            this,
+            this._wrapperCtrl,
+            this._navPanelCtrl,
+            this._indexPanelCtrl,
+            this._resultModalCtrl
+        ).bindAll();
+
         try {
             const queList = SessionStorageService.loadQuizData();
             this._state.initialize(queList);
@@ -15,7 +23,7 @@ class QuizController {
             this._indexPanelCtrl.setCurrent(0);
             this._showCurrentQuestion();
         } catch (err) {
-            this._showError(err.message);
+            this._wrapperCtrl.showError(err.message);
         }
     }
 
@@ -61,15 +69,7 @@ class QuizController {
 
     restartWithWrong(questions) {
         this._state.initialize(questions);
-        this._indexPanelCtrl.removePanel();
-
-        const newPanel = document.createElement('question-index-panel');
-        newPanel.id = 'index-panel';
-        document.getElementById('quiz-container').appendChild(newPanel);
-        this._indexPanelCtrl = new IndexPanelController();
-        this._indexPanelCtrl.setTotal(this._state.getTotalQuestions());
-        this._indexPanelCtrl.setCurrent(0);
-
+        this._indexPanelCtrl.rebuildForQuestions(this._state.getTotalQuestions());
         this._showCurrentQuestion();
     }
 
@@ -85,16 +85,6 @@ class QuizController {
         const status = this._state.isAnswerEmpty(answer) ? 'not-answered' : 'answered';
         this._state.saveCurrentAnswer(answer);
         this._indexPanelCtrl.updateStatus(index, status);
-    }
-
-    _showError(message) {
-        document.getElementById('question-wrapper').innerHTML = `
-            <div class="error">
-                <p>⚠️ Could not load quiz.</p>
-                <p>${message}</p>
-                <a href="../home/index.html" class="nav-link">← Go back to Home</a>
-            </div>
-        `;
     }
 }
 
