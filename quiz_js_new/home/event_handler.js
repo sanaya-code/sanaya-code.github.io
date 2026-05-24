@@ -34,7 +34,7 @@ class HomeEventHandler {
 
     async _handleTopicSelected(e) {
         const url     = e.detail.link;
-        const baseUrl = this._getBaseUrl(url);
+        const baseUrl = HomeConfig.URLS.BASE;
         try {
             const quizData = await this._remoteLoader.fetch(url);
             SessionStorageService.saveAndRedirect(quizData, baseUrl);
@@ -53,13 +53,5 @@ class HomeEventHandler {
         const data = await this._remoteLoader.fetch(url);
         this._state.saveSubjectJson(url, data);
         return data;
-    }
-
-    _getBaseUrl(url) {
-        // "https://host/quiz/data/school/c1/maths/file.json"
-        // → "https://host/quiz/"
-        // img_url values in JSON are relative to the site root, not the JSON file
-        const remoteBase = HomeConfig.URLS.BASE;
-        return url.startsWith(remoteBase) ? remoteBase : '';
     }
 }
