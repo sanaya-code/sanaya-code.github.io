@@ -11,8 +11,8 @@ class QuizResultEvaluator {
             return {
                 number:        i + 1,
                 question:      question.question,
-                userAnswer:    this._formatAnswer(userAnswer),
-                correctAnswer: this._formatAnswer(question.correct_answer),
+                userAnswer:    this._formatAnswer(question.type, userAnswer),
+                correctAnswer: this._formatAnswer(question.type, question.correct_answer),
                 explanation:   question.explanation || '',
                 isCorrect,
             };
@@ -41,14 +41,17 @@ class QuizResultEvaluator {
     // ── Private ───────────────────────────────────────────────
 
     _checkAnswer(question, userAnswer) {
-        const checkers = {
-            mcq: () => userAnswer === question.correct_answer,
-            default: () => false,
-        };
-        return (checkers[question.type] || checkers.default)();
+        const evaluator = QuestionRegistry.getEvaluator(question.type);
+        if (!evaluator) {
+            console.warn(`QuizResultEvaluator: no evaluator for type "${question.type}"`);
+            return false;
+        }
+        return evaluator.checkAnswer(question, userAnswer);
     }
 
-    _formatAnswer(answer) {
+    _formatAnswer(type, answer) {
+        const evaluator = QuestionRegistry.getEvaluator(type);
+        if (evaluator?.formatAnswer) return evaluator.formatAnswer(answer);
         if (answer === null || answer === undefined) return '—';
         if (Array.isArray(answer)) return answer.join(', ');
         return String(answer);

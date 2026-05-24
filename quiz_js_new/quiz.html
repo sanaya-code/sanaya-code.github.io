@@ -39,9 +39,10 @@
     <script src="quiz/utils/quiz_result_evaluator.js"></script>
     <script src="quiz/utils/image_url_resolver.js"></script>
 
-    <!-- Question types -->
-    <script src="quiz/components/question_types/mcq_question/component.js"></script>
+    <!-- Question types: evaluators first, then registry, then components -->
     <script src="quiz/components/question_types/mcq_question/evaluator.js"></script>
+    <script src="quiz/components/question_types/question_registry.js"></script>
+    <script src="quiz/components/question_types/mcq_question/component.js"></script>
 
     <!-- Component controllers -->
     <script src="quiz/components/question_wrapper/question_wrapper.js"></script>

@@ -3,9 +3,6 @@ class QuestionWrapper extends HTMLElement {
     constructor() {
         super();
         this._currentComponent = null;
-        this._typeToTagMap = {
-            mcq: 'mcq-radio',
-        };
     }
 
     static get observedAttributes() {
@@ -13,21 +10,22 @@ class QuestionWrapper extends HTMLElement {
     }
 
     connectedCallback() {
-        this._renderFromAttribute();
+        const data = this.getAttribute('question-data');
+        if (data) this._renderFromAttribute(data);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        if (name === 'question-data' && newValue) {
-            this._renderFromAttribute();
+        if (name === 'question-data' && newValue && this.isConnected) {
+            this._renderFromAttribute(newValue);
         }
     }
 
     // ── Render ────────────────────────────────────────────────
 
-    _renderFromAttribute() {
+    _renderFromAttribute(raw) {
         let data = {};
         try {
-            data = JSON.parse(this.getAttribute('question-data') || '{}');
+            data = JSON.parse(raw);
         } catch (e) {
             console.warn('QuestionWrapper: invalid question-data JSON', e);
             return;
@@ -41,7 +39,7 @@ class QuestionWrapper extends HTMLElement {
             return;
         }
 
-        const tag = this._typeToTagMap[data.type];
+        const tag = QuestionRegistry.getTag(data.type);
         if (!tag) {
             console.warn(`QuestionWrapper: unknown question type "${data.type}"`);
             return;
