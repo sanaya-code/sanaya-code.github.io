@@ -1,17 +1,22 @@
 const SessionStorageService = {
-    saveQuizData(quizData, baseUrl) {
-        sessionStorage.setItem(HomeConfig.STORAGE_KEYS.QUIZ_DATA, JSON.stringify({
+    saveAndRedirect(quizData, baseUrl) {
+        const payload = JSON.stringify({
             baseUrl,
             questions: quizData.questions || [],
-        }));
-    },
+        });
 
-    redirectToQuiz() {
-        window.location.href = `${HomeConfig.URLS.QUIZ_PAGE}?source=custom`;
-    },
+        const base        = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+        const quizPageUrl = base + HomeConfig.URLS.QUIZ_PAGE;
 
-    saveAndRedirect(quizData, baseUrl) {
-        this.saveQuizData(quizData, baseUrl);
-        this.redirectToQuiz();
+        if (BrowserEnvironment.isLocal()) {
+            // file:/// — sessionStorage/localStorage don't share across file origins
+            // pass data via URL hash instead
+            console.log('[SessionStorageService] local mode: passing data via URL hash');
+            window.location.href = quizPageUrl + '?source=custom#' + encodeURIComponent(payload);
+        } else {
+            console.log('[SessionStorageService] server mode: saving to sessionStorage');
+            sessionStorage.setItem(HomeConfig.STORAGE_KEYS.QUIZ_DATA, payload);
+            window.location.href = quizPageUrl + '?source=custom';
+        }
     },
 };
