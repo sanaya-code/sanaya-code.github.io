@@ -7,6 +7,8 @@ class QuizState {
         this.userAnswers          = {};
     }
 
+    // ── Init ──────────────────────────────────────────────────
+
     initialize(queList, baseUrl = '') {
         this.queList = queList;
         this.baseUrl = baseUrl;
@@ -21,24 +23,20 @@ class QuizState {
         this._clearUserResponses();
     }
 
+    // ── Setters ───────────────────────────────────────────────
+
     saveCurrentAnswer(userResponse) {
-        this.queList[this.currentQuestionIndex]['user_response']  = userResponse;
-        this.userAnswers[this.currentQuestionIndex].answer        = userResponse;
+        this.queList[this.currentQuestionIndex]['user_response'] = userResponse;
+        this.userAnswers[this.currentQuestionIndex].answer       = userResponse;
     }
 
-    moveToQuestion(currUserResponse, newIndex) {
-        this.saveCurrentAnswer(currUserResponse);
-        this._setCurrentQuestion(newIndex);
+    setCurrentQuestion(index) {
+        this._setCurrentQuestion(index);
     }
 
-    isAnswerEmpty(answer) {
-        if (Array.isArray(answer))       return answer.length === 0 || answer.join('').trim() === '';
-        if (typeof answer === 'string')  return answer.trim() === '';
-        return answer == null;
-    }
-
-    getTotalQuestions() {
-        return this.queList.length;
+    toggleMarkReview() {
+        const curr = this.userAnswers[this.currentQuestionIndex];
+        curr.isMarked = !curr.isMarked;
     }
 
     // ── Private ───────────────────────────────────────────────

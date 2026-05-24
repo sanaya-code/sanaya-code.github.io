@@ -1,15 +1,17 @@
 class QuizController {
     constructor() {
         this._state           = new QuizState();
+        this._service         = new QuizService();
         this._wrapperCtrl     = new QuestionWrapperController();
         this._indexPanelCtrl  = new IndexPanelController();
         this._navPanelCtrl    = new NavigationPanelController();
         this._resultModalCtrl = new ResultModalController();
     }
 
-    async init() {
+    init() {
         new QuizEventHandler(
-            this,
+            this._state,
+            this._service,
             this._wrapperCtrl,
             this._navPanelCtrl,
             this._indexPanelCtrl,
@@ -19,76 +21,14 @@ class QuizController {
         try {
             const { questions, baseUrl } = SessionStorageService.loadQuizData();
             this._state.initialize(questions, baseUrl);
-            this._indexPanelCtrl.setTotal(this._state.getTotalQuestions());
+
+            // initial UI setup
+            this._indexPanelCtrl.setTotal(this._state.queList.length);
             this._indexPanelCtrl.setCurrent(0);
-            this._showCurrentQuestion();
+            this._wrapperCtrl.showQuestion(this._service.resolveQuestion(this._state));
         } catch (err) {
             this._wrapperCtrl.showError(err.message);
         }
-    }
-
-    // ── Navigation ────────────────────────────────────────────
-
-    navigateBy(step) {
-        let newIndex = this._state.currentQuestionIndex + step;
-        const total  = this._state.getTotalQuestions();
-        if      (newIndex >= total) newIndex = 0;
-        else if (newIndex < 0)      newIndex = total - 1;
-        this.navigateTo(newIndex);
-    }
-
-    navigateTo(newIndex) {
-        this._saveAndMarkCurrent();
-        this._indexPanelCtrl.setCurrent(newIndex);
-        this._state.moveToQuestion(this._wrapperCtrl.getUserAnswer(), newIndex);
-        this._showCurrentQuestion();
-    }
-
-    // ── Actions ───────────────────────────────────────────────
-
-    toggleMarkReview() {
-        const curr = this._state.userAnswers[this._state.currentQuestionIndex];
-        curr.isMarked = !curr.isMarked;
-    }
-
-    submitQuiz() {
-        if (!confirm('Are you sure you want to submit the quiz?')) return;
-        this._saveAndMarkCurrent();
-        const evaluator  = new QuizResultEvaluator(this._state.queList, this._state.userAnswers);
-        const resultJson = evaluator.getResultJson();
-        this._resultModalCtrl.show(resultJson);
-    }
-
-    restartQuiz() {
-        this._state.reset();
-        this._indexPanelCtrl.markAllUnanswered();
-        this._indexPanelCtrl.setCurrent(0);
-        this._showCurrentQuestion();
-        window.scrollTo(0, 0);
-    }
-
-    restartWithWrong(questions) {
-        this._state.initialize(questions, this._state.baseUrl);
-        this._indexPanelCtrl.rebuildForQuestions(this._state.getTotalQuestions());
-        this._showCurrentQuestion();
-    }
-
-    // ── Private ───────────────────────────────────────────────
-
-    _showCurrentQuestion() {
-        const question = ImageUrlResolver.resolve(
-            this._state.currentQuestion,
-            this._state.baseUrl
-        );
-        this._wrapperCtrl.showQuestion(question);
-    }
-
-    _saveAndMarkCurrent() {
-        const answer = this._wrapperCtrl.getUserAnswer();
-        const index  = this._state.currentQuestionIndex;
-        const status = this._state.isAnswerEmpty(answer) ? 'not-answered' : 'answered';
-        this._state.saveCurrentAnswer(answer);
-        this._indexPanelCtrl.updateStatus(index, status);
     }
 }
 
