@@ -11,8 +11,8 @@ class QuizResultEvaluator {
             return {
                 number:        i + 1,
                 question:      question.question,
-                userAnswer:    this._formatAnswer(question.type, userAnswer),
-                correctAnswer: this._formatAnswer(question.type, question.correct_answer),
+                userAnswer:    this._formatUserAnswer(question, userAnswer),
+                correctAnswer: this._formatCorrectAnswer(question),
                 explanation:   question.explanation || '',
                 isCorrect,
             };
@@ -49,11 +49,15 @@ class QuizResultEvaluator {
         return evaluator.checkAnswer(question, userAnswer);
     }
 
-    _formatAnswer(type, answer) {
-        const evaluator = QuestionRegistry.getEvaluator(type);
-        if (evaluator?.formatAnswer) return evaluator.formatAnswer(answer);
-        if (answer === null || answer === undefined) return '—';
-        if (Array.isArray(answer)) return answer.join(', ');
-        return String(answer);
+    _formatUserAnswer(question, userAnswer) {
+        const evaluator = QuestionRegistry.getEvaluator(question.type);
+        if (!evaluator) return String(userAnswer ?? '—');
+        return evaluator.formatUserAnswer(question, userAnswer);
+    }
+
+    _formatCorrectAnswer(question) {
+        const evaluator = QuestionRegistry.getEvaluator(question.type);
+        if (!evaluator) return String(question.correct_answer ?? '—');
+        return evaluator.formatCorrectAnswer(question);
     }
 }
