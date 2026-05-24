@@ -1,14 +1,17 @@
 const SessionStorageService = {
-    saveQuizData(quizData) {
-        sessionStorage.setItem(HomeConfig.STORAGE_KEYS.QUIZ_DATA, JSON.stringify(quizData));
+    saveQuizData(quizData, baseUrl) {
+        sessionStorage.setItem(HomeConfig.STORAGE_KEYS.QUIZ_DATA, JSON.stringify({
+            baseUrl,
+            questions: quizData.questions || [],
+        }));
     },
 
     redirectToQuiz() {
         window.location.href = `${HomeConfig.URLS.QUIZ_PAGE}?source=custom`;
     },
 
-    saveAndRedirect(quizData) {
-        this.saveQuizData(quizData);
+    saveAndRedirect(quizData, baseUrl) {
+        this.saveQuizData(quizData, baseUrl);
         this.redirectToQuiz();
     },
 };

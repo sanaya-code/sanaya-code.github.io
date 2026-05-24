@@ -17,8 +17,8 @@ class QuizController {
         ).bindAll();
 
         try {
-            const queList = SessionStorageService.loadQuizData();
-            this._state.initialize(queList);
+            const { questions, baseUrl } = SessionStorageService.loadQuizData();
+            this._state.initialize(questions, baseUrl);
             this._indexPanelCtrl.setTotal(this._state.getTotalQuestions());
             this._indexPanelCtrl.setCurrent(0);
             this._showCurrentQuestion();
@@ -68,7 +68,7 @@ class QuizController {
     }
 
     restartWithWrong(questions) {
-        this._state.initialize(questions);
+        this._state.initialize(questions, this._state.baseUrl);
         this._indexPanelCtrl.rebuildForQuestions(this._state.getTotalQuestions());
         this._showCurrentQuestion();
     }
@@ -76,7 +76,11 @@ class QuizController {
     // ── Private ───────────────────────────────────────────────
 
     _showCurrentQuestion() {
-        this._wrapperCtrl.showQuestion(this._state.currentQuestion);
+        const question = ImageUrlResolver.resolve(
+            this._state.currentQuestion,
+            this._state.baseUrl
+        );
+        this._wrapperCtrl.showQuestion(question);
     }
 
     _saveAndMarkCurrent() {

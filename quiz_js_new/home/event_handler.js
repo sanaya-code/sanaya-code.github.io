@@ -16,7 +16,7 @@ class HomeEventHandler {
     _handleQuizFileSelected(e) {
         FileReaderUtil.readJson(
             e.detail.file,
-            (quizData) => SessionStorageService.saveAndRedirect(quizData),
+            (quizData) => SessionStorageService.saveAndRedirect(quizData, ''),
             (err) => alert(err.message)
         );
     }
@@ -33,10 +33,11 @@ class HomeEventHandler {
     }
 
     async _handleTopicSelected(e) {
-        const url = e.detail.link;
+        const url     = e.detail.link;
+        const baseUrl = this._getBaseUrl(url);
         try {
             const quizData = await this._remoteLoader.fetch(url);
-            SessionStorageService.saveAndRedirect(quizData);
+            SessionStorageService.saveAndRedirect(quizData, baseUrl);
         } catch (err) {
             alert(`Failed to load quiz: ${err.message}`);
         }
@@ -52,5 +53,11 @@ class HomeEventHandler {
         const data = await this._remoteLoader.fetch(url);
         this._state.saveSubjectJson(url, data);
         return data;
+    }
+
+    _getBaseUrl(url) {
+        // "https://host/quiz/data/school/c1/maths/file.json"
+        // → "https://host/quiz/data/school/c1/maths/"
+        return url.substring(0, url.lastIndexOf('/') + 1);
     }
 }

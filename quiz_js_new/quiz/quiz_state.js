@@ -1,13 +1,15 @@
 class QuizState {
     constructor() {
-        this.queList             = [];
+        this.queList              = [];
+        this.baseUrl              = '';
         this.currentQuestionIndex = 0;
-        this.currentQuestion     = null;
-        this.userAnswers         = {};
+        this.currentQuestion      = null;
+        this.userAnswers          = {};
     }
 
-    initialize(queList) {
+    initialize(queList, baseUrl = '') {
         this.queList = queList;
+        this.baseUrl = baseUrl;
         this._setCurrentQuestion(0);
         this._initializeUserAnswers();
         this._clearUserResponses();
@@ -20,8 +22,8 @@ class QuizState {
     }
 
     saveCurrentAnswer(userResponse) {
-        this.queList[this.currentQuestionIndex]['user_response']   = userResponse;
-        this.userAnswers[this.currentQuestionIndex].answer         = userResponse;
+        this.queList[this.currentQuestionIndex]['user_response']  = userResponse;
+        this.userAnswers[this.currentQuestionIndex].answer        = userResponse;
     }
 
     moveToQuestion(currUserResponse, newIndex) {
@@ -30,8 +32,8 @@ class QuizState {
     }
 
     isAnswerEmpty(answer) {
-        if (Array.isArray(answer))        return answer.length === 0 || answer.join('').trim() === '';
-        if (typeof answer === 'string')   return answer.trim() === '';
+        if (Array.isArray(answer))       return answer.length === 0 || answer.join('').trim() === '';
+        if (typeof answer === 'string')  return answer.trim() === '';
         return answer == null;
     }
 
