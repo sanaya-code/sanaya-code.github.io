@@ -3,6 +3,6 @@ const QuizConfig = {
         QUIZ_DATA: 'customQuizData',
     },
     URLS: {
-        HOME_PAGE: '../home/index.html',
+        HOME_PAGE: 'index.html',
     },
 };

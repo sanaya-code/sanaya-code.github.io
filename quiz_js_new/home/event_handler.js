@@ -14,6 +14,8 @@ class HomeEventHandler {
     // ── Handlers ──────────────────────────────────────────────
 
     _handleQuizFileSelected(e) {
+        console.log("handleQuizFileSelected")
+        console.log(e.detail)
         FileReaderUtil.readJson(
             e.detail.file,
             (quizData) => SessionStorageService.saveAndRedirect(quizData, ''),

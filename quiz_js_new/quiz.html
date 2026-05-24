@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="quiz/style.css">
+</head>
+<body>
+    <div class="quiz-container" id="quiz-container">
+        <div class="quiz-content">
+
+            <div class="quiz-header-top">
+                <a href="index.html" class="nav-link">Home</a>
+                <h1 id="quiz-title">Quiz</h1>
+                <a href="#" id="restart-quiz" class="nav-link"
+                   onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('restart-quiz'))">
+                   Restart
+                </a>
+            </div>
+
+            <question-wrapper id="question-wrapper"></question-wrapper>
+            <navigation-panel id="navigation-panel"></navigation-panel>
+
+        </div>
+
+        <question-index-panel id="index-panel"></question-index-panel>
+    </div>
+
+    <!-- Config & services -->
+    <script src="quiz/config.js"></script>
+    <script src="quiz/storage/session_storage_service.js"></script>
+
+    <!-- State -->
+    <script src="quiz/quiz_state.js"></script>
+
+    <!-- Utils -->
+    <script src="quiz/utils/quiz_result_evaluator.js"></script>
+    <script src="quiz/utils/image_url_resolver.js"></script>
+
+    <!-- Question types -->
+    <script src="quiz/components/question_types/mcq_question/component.js"></script>
+    <script src="quiz/components/question_types/mcq_question/evaluator.js"></script>
+
+    <!-- Components -->
+    <script src="quiz/components/question_wrapper/question_wrapper.js"></script>
+    <script src="quiz/components/question_wrapper/question_wrapper_controller.js"></script>
+    <script src="quiz/components/navigation_panel/component.js"></script>
+    <script src="quiz/components/navigation_panel/controller.js"></script>
+    <script src="quiz/components/index_panel/component.js"></script>
+    <script src="quiz/components/index_panel/controller.js"></script>
+    <script src="quiz/components/result_modal/component.js"></script>
+    <script src="quiz/components/result_modal/controller.js"></script>
+
+    <!-- Page wiring -->
+    <script src="quiz/event_handler.js"></script>
+    <script src="quiz/controller.js"></script>
+</body>
+</html>

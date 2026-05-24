@@ -21,7 +21,7 @@ class QuestionWrapperController {
             <div class="error">
                 <p>⚠️ Could not load quiz.</p>
                 <p>${message}</p>
-                <a href="../home/index.html" class="nav-link">← Go back to Home</a>
+                <a href="index.html" class="nav-link">← Go back to Home</a>
             </div>
         `;
     }
