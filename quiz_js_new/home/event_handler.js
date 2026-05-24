@@ -57,7 +57,9 @@ class HomeEventHandler {
 
     _getBaseUrl(url) {
         // "https://host/quiz/data/school/c1/maths/file.json"
-        // → "https://host/quiz/data/school/c1/maths/"
-        return url.substring(0, url.lastIndexOf('/') + 1);
+        // → "https://host/quiz/"
+        // img_url values in JSON are relative to the site root, not the JSON file
+        const remoteBase = HomeConfig.URLS.BASE;
+        return url.startsWith(remoteBase) ? remoteBase : '';
     }
 }
