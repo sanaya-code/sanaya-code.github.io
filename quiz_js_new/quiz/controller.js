@@ -6,8 +6,7 @@ class QuizController {
     }
 
     init() {
-        const handler = new QuizEventHandler(this._state, this._service, this._ui);
-        this._bindAll(handler, this._ui);
+        this._bindAll(this._ui);
 
         try {
             const { questions, baseUrl } = SessionStorageService.loadQuizData();
@@ -15,29 +14,39 @@ class QuizController {
 
             this._ui.indexPanelCtrl.setTotal(this._state.queList.length);
             this._ui.indexPanelCtrl.setCurrent(0);
-            this._ui.wrapperCtrl.showQuestion(this._service.resolveQuestion(this._state));
+            this._ui.wrapperCtrl.showQuestion(
+                this._service.resolveQuestion(
+                    this._state.currentQuestion,
+                    this._state.baseUrl
+                )
+            );
         } catch (err) {
             this._ui.wrapperCtrl.showError(err.message);
         }
     }
 
-    _bindAll(handler, ui) {
+    _bindAll(ui) {
+        const navHandler     = new NavigationHandler(this._state, this._service, ui);
+        const indexHandler   = new IndexPanelHandler(this._state, this._service, ui);
+        const modalHandler   = new ResultModalHandler(this._state, this._service, ui);
+        const wrapperHandler = new WrapperHandler(this._state, this._service, ui);
+
         ui.navPanelCtrl.bindEvents(
-            ()  => handler._handlePrev(),
-            ()  => handler._handleNext(),
-            ()  => handler._handleMarkReview(),
-            ()  => handler._handleSubmit()
+            () => navHandler._handlePrev(),
+            () => navHandler._handleNext(),
+            () => navHandler._handleMarkReview(),
+            () => navHandler._handleSubmit()
         );
         ui.indexPanelCtrl.bindEvents(
-            (e) => handler._handleQuestionSelected(e)
+            (e) => indexHandler._handleQuestionSelected(e)
         );
         ui.resultModalCtrl.bindEvents(
-            ()  => handler._handleGoHome(),
-            (e) => handler._handleRestartWrong(e)
+            ()  => modalHandler._handleGoHome(),
+            (e) => modalHandler._handleRestartWrong(e)
         );
         ui.wrapperCtrl.bindEvents(
-            (e) => handler._handleKeydown(e),
-            ()  => handler._handleRestart()
+            (e) => wrapperHandler._handleKeydown(e),
+            ()  => wrapperHandler._handleRestart()
         );
     }
 }

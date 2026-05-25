@@ -2,9 +2,8 @@ class QuizService {
 
     // ── Navigation ────────────────────────────────────────────
 
-    getNextIndex(state, step) {
-        const total = state.queList.length;
-        let newIndex = state.currentQuestionIndex + step;
+    getNextIndex(currentIndex, total, step) {
+        let newIndex = currentIndex + step;
         if      (newIndex >= total) newIndex = 0;
         else if (newIndex < 0)      newIndex = total - 1;
         return newIndex;
@@ -18,19 +17,19 @@ class QuizService {
 
     // ── Question ──────────────────────────────────────────────
 
-    resolveQuestion(state) {
-        return ImageUrlResolver.resolve(state.currentQuestion, state.baseUrl);
+    resolveQuestion(question, baseUrl) {
+        return ImageUrlResolver.resolve(question, baseUrl);
     }
 
     // ── Result ────────────────────────────────────────────────
 
-    getResultJson(state) {
-        const evaluator = new QuizResultEvaluator(state.queList, state.userAnswers);
+    getResultJson(queList, userAnswers) {
+        const evaluator = new QuizResultEvaluator(queList, userAnswers);
         return evaluator.getResultJson();
     }
 
-    getWrongQuestions(state) {
-        const evaluator = new QuizResultEvaluator(state.queList, state.userAnswers);
+    getWrongQuestions(queList, userAnswers) {
+        const evaluator = new QuizResultEvaluator(queList, userAnswers);
         return evaluator.getWrongAnswersOnly();
     }
 
