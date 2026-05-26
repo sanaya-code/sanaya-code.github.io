@@ -117,3 +117,19 @@ quiz/
         │
         └── (one directory per question type...)
 ```
+
+
+> Break component class into 2 or more. one class will only have life cycle methods. while other classes will have helper methods that work on the DOM. Helper receives "this"
+
+```
+
+| Component Type         | Suggested Design                                              |
+| ---------------------- | ------------------------------------------------------------- |
+| Simple components      | Keep as one class                                             |
+| Medium components      | Main class + Renderer                                         |
+| Interactive components | Main class + Renderer + Interaction Handler                   |
+| Visual/SVG components  | Main class + Renderer + Geometry Helper + Interaction Handler |
+| Advanced               | Main class + Renderer + Geometry Helper + Interaction Handler + State + Event Handler |
+
+
+```
