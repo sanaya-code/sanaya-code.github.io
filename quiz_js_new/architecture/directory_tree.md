@@ -5,108 +5,115 @@ View switching: When swapping views in main.html,  inject/remove dynamically. Cl
 
 pages/ directory, Each page folder owns everything specific to it.
 
-```
 
+# Quiz App Directory Structure
+
+```
 quiz_app/
-│
+├── index.html
+├── quiz.html
 ├── home/
 └── quiz/
-
 ```
 
-```
+---
 
+## home/
+
+```
 home/
-├── index.html                              # Home page entry point
-├── style.css                               # Home page styles
-├── config.js                               # Home page constants (URLs, storage keys)
+├── config.js                               # Page constants (URLs, storage keys)
 ├── state.js                                # In-memory subject JSON cache
 ├── controller.js                           # Boots home page, wires dependencies
-├── event_handler.js                        # All home page event listeners
+├── event_handler.js                        # Home page event listeners
+├── style.css                               # Home page styles
 │
 ├── storage/
 │   └── session_storage_service.js          # Writes quizData to sessionStorage
 │
 ├── utils/
+│   ├── browser_environment.js              # Detects file:/// vs server mode
 │   ├── file_reader.js                      # Reads uploaded local JSON quiz file
-│   ├── remote_json_loader.js               # Fetches remote JSON (async/await)
-│   └── browser_environment.js              # Detects file:/// vs server mode
+│   └── remote_json_loader.js               # Fetches remote JSON
 │
 └── components/
     ├── subjects_list/
     │   ├── component.js                    # <grade-subjects> custom element
     │   ├── controller.js                   # DOM access layer for grade-subjects
-    │   └── style.css                       # Grade/subject/topic selector styles
+    │   └── style.css                       # Grade/subject selector styles
     │
-    ├── topic_selector/                     # <topic-selector> custom element
-    │   ├── component.js                    # widget of grade-subjects
+    ├── topic_selector/
+    │   ├── component.js                    # <topic-selector> custom element (widget of grade-subjects)
     │   └── style.css                       # Topic grid card styles
     │
     └── custom_quiz_loader/
         ├── component.js                    # <custom-quiz-loader> custom element
         └── style.css                       # Upload component styles
-
 ```
 
-```
+---
 
+## quiz/
+
+```
 quiz/
-├── index.html                              # Quiz page entry point
-├── page.js                                 # <quiz-page> HTMLElement
-├── style.css                               # Quiz page styles
-├── config.js                               # Quiz page constants (storage keys)
-├── controller.js                           # Boots quiz, manages state, navigation
-├── event_handler.js                        # All quiz page event listeners
+├── config.js                               # Page constants (storage keys, URLs)
+├── controller.js                           # Boots quiz page, wires dependencies
 ├── quiz_state.js                           # Quiz runtime state (current Q, answers)
+├── quiz_service.js                         # Pure calculation/data logic
+├── style.css                               # Quiz page styles
 │
 ├── storage/
-│   └── session_storage_service.js         	# Reads quizData from sessionStorage
+│   └── session_storage_service.js          # Reads quizData from sessionStorage
 │
 ├── utils/
-│   ├── quiz_result_evaluator.js           	# Evaluates answers, builds result object
-│   └── question-loader.js                 	# Builds question wrapper config
+│   ├── image_url_resolver.js               # Resolves relative image URLs
+│   └── quiz_result_evaluator.js            # Evaluates answers, builds result object
+│
+├── event_handlers/
+│   ├── navigation_handler.js               # Handles nav-prev, nav-next, mark-review, submit
+│   ├── index_panel_handler.js              # Handles question-selected
+│   ├── result_modal_handler.js             # Handles goHome, restartWithWrongQuestions
+│   └── wrapper_handler.js                  # Handles restart-quiz, keydown
 │
 └── components/
+    ├── ui_bundle.js                        # Data class holding all UI component controllers
+    ├── ui_bundle_factory.js                # Creates and returns the UI bundle
+    │
     ├── question_wrapper/
-    │   ├── question-wrapper.js            	# Wraps any question type, delegates getUserAnswer()
-    │   └── question-wrapper.css           	# Wrapper layout styles
+    │   ├── question_wrapper.js             # <question-wrapper> custom element
+    │   └── question_wrapper_controller.js  # DOM access layer for question-wrapper
     │
     ├── navigation_panel/
-    │   ├── component.js            	  	# Prev/Next/Submit/Mark buttons custom element
-    │   ├── controller.js                  	# Controls navigation events
-    │   └── style.css           			# Navigation panel styles
+    │   ├── component.js                    # <navigation-panel> custom element
+    │   └── controller.js                   # DOM access layer for navigation-panel
     │
     ├── index_panel/
-    │   ├── component.js                 	# Question index grid custom element
-    │   ├── controller.js                  	# Controls navigation events
-    │   └── style.css                		# Answered/unanswered state styles
+    │   ├── component.js                    # <question-index-panel> custom element
+    │   └── controller.js                   # DOM access layer for index-panel
     │
     ├── result_modal/
-    │   ├── component.js                  	# Result modal custom element
-    │   ├── controller.js                  	# Controls navigation events
-    │   ├── answer-review-builder.js        # Builds review data
-    │   ├── result-builder.js               # Builds result before redirect
-    │   └── style.css                      	# Modal styles
+    │   ├── component.js                    # <result-modal> custom element
+    │   └── controller.js                   # DOM access layer for result-modal
     │
     └── question_types/
-        ├── question_registry.js           	# Maps question type string → component tag
+        ├── question_registry.js            # Maps question type string → tag + evaluator
+        │
         ├── mcq_question/
-        │   ├── component.js               	# MCQ radio button custom element
-        │   ├── evaluator.js               	# Checks MCQ answer against correct answer
-        │   └── style.css                  	# MCQ option styles
+        │   ├── component.js                # <mcq-radio> custom element
+        │   └── evaluator.js               # checkAnswer, formatUserAnswer, formatCorrectAnswer
+        │
         ├── matching_question/
-        │   ├── component.js               	# Matching select dropdown custom element
-        │   ├── evaluator.js               	# Checks matching pairs answer
-        │   └── style.css                  	# Matching component styles
+        │   ├── component.js
+        │   └── evaluator.js
+        │
         ├── fill_in_blank_operation/
         │   ├── component.js
-        │   ├── evaluator.js
-        │   └── style.css
+        │   └── evaluator.js
+        │
         ├── multi_select_two/
         │   ├── component.js
-        │   ├── evaluator.js
-        │   └── style.css
+        │   └── evaluator.js
+        │
         └── (one directory per question type...)
-
-
 ```
