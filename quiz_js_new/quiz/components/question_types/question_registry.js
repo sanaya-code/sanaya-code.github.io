@@ -22,3 +22,4 @@ QuestionRegistry.register('matching_drag_drop',  'matching-select',    MatchingS
 QuestionRegistry.register('matching_select',     'matching-select',    MatchingSelectEvaluator);
 QuestionRegistry.register('matching_connection', 'matching-connection', MatchingConnectionEvaluator);
 QuestionRegistry.register('ordering_horizontal', 'ordering-horizontal-drag-click', OrderingHorizontalEvaluator);
+QuestionRegistry.register('fill_in_blank_operation', 'fill-in-blank-operation', FillInBlankOperationEvaluator);

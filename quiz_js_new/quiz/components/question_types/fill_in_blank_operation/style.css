@@ -1,0 +1,198 @@
+/* ── Fill In Blank Operation — self-contained styles ──────── */
+/* Prefix: fibopr- */
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.fibopr-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.fibopr-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.fibopr-section-header:hover {
+    background-color: #ebebeb;
+}
+
+.fibopr-section-header::after {
+    content: '▲';
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.fibopr-section.fibopr-collapsed .fibopr-section-header::after {
+    content: '▼';
+}
+
+.fibopr-section-body {
+    padding: 12px 14px;
+}
+
+.fibopr-section.fibopr-collapsed .fibopr-section-body {
+    display: none;
+}
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.fibopr-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.fibopr-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.fibopr-image {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.fibopr-image img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Container ────────────────────────────────────────────── */
+
+.fibopr-container {
+    font-family: Arial, sans-serif;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── Question text ────────────────────────────────────────── */
+
+.fibopr-question {
+    font-size: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #003366;
+}
+
+/* ── Rows ─────────────────────────────────────────────────── */
+
+.fibopr-row {
+    display: flex;
+    justify-content: flex-end;
+    margin: 8px 0;
+}
+
+/* ── Boxes ────────────────────────────────────────────────── */
+
+.fibopr-box {
+    width: 45px;
+    height: 45px;
+    margin: 0 4px;
+    border: 2px solid #bbb;
+    background: #f7f7f7;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+    text-align: center;
+    cursor: default;
+}
+
+/* First row boxes are circular */
+.fibopr-row[data-row="first_row"] .fibopr-box {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #0b9e1e;
+    border-radius: 50%;
+    line-height: 45px;
+}
+
+.fibopr-box.editable {
+    cursor: pointer;
+    background: #ffffff;
+    border-color: #007bff;
+}
+
+.fibopr-box.filled {
+    color: #007bff;
+}
+
+/* Strike-out effect */
+.fibopr-box.striked {
+    position: relative;
+    color: #aaa;
+}
+
+.fibopr-box.striked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: 2px;
+    background: red;
+    transform: rotate(-22deg);
+    pointer-events: none;
+}
+
+/* ── Choices ──────────────────────────────────────────────── */
+
+.fibopr-choices {
+    margin-top: 15px;
+}
+
+.fibopr-choice {
+    background: #e0e0e0;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.fibopr-choice:hover {
+    background: #007bff;
+    color: white;
+}
+
+.fibopr-choice.fibopr-selected {
+    background: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #0056c7;
+}
