@@ -15,8 +15,9 @@ const QuestionRegistry = {
 };
 
 // ── Register question types here ──────────────────────────
-QuestionRegistry.register('mcq',                'mcq-radio',         McqEvaluator);
-QuestionRegistry.register('true_false',         'true-false',        TrueFalseEvaluator);
-QuestionRegistry.register('multi_select',       'multi-select',      MultiSelectEvaluator);
-QuestionRegistry.register('matching_drag_drop', 'matching-select',   MatchingSelectEvaluator);
-QuestionRegistry.register('matching_select',    'matching-select',   MatchingSelectEvaluator);
+QuestionRegistry.register('mcq',                 'mcq-radio',          McqEvaluator);
+QuestionRegistry.register('true_false',          'true-false',         TrueFalseEvaluator);
+QuestionRegistry.register('multi_select',        'multi-select',       MultiSelectEvaluator);
+QuestionRegistry.register('matching_drag_drop',  'matching-select',    MatchingSelectEvaluator);
+QuestionRegistry.register('matching_select',     'matching-select',    MatchingSelectEvaluator);
+QuestionRegistry.register('matching_connection', 'matching-connection', MatchingConnectionEvaluator);
