@@ -101,11 +101,13 @@ quiz/
         │
         ├── mcq_question/
         │   ├── component.js                # <mcq-radio> custom element
-        │   └── evaluator.js               # checkAnswer, formatUserAnswer, formatCorrectAnswer
+        │   ├── style.css                   # styles for custom element
+        │   └── evaluator.js                # checkAnswer, formatUserAnswer, formatCorrectAnswer
         │
-        ├── matching_question/
-        │   ├── component.js
-        │   └── evaluator.js
+        ├── true_false_question/
+        │   ├── component.js                #  custom element
+        │   ├── style.css                   # styles for custom element
+        │   └── evaluator.js                # checkAnswer, formatUserAnswer, formatCorrectAnswer
         │
         ├── fill_in_blank_operation/
         │   ├── component.js

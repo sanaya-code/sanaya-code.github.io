@@ -15,4 +15,5 @@ const QuestionRegistry = {
 };
 
 // ── Register question types here ──────────────────────────
-QuestionRegistry.register('mcq', 'mcq-radio', McqEvaluator);
+QuestionRegistry.register('mcq',        'mcq-radio',  McqEvaluator);
+QuestionRegistry.register('true_false', 'true-false', TrueFalseEvaluator);
