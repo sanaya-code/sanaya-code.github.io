@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="quiz/style.css">
     <link rel="stylesheet" href="quiz/components/question_types/mcq_question/style.css">
     <link rel="stylesheet" href="quiz/components/question_types/true_false_question/style.css">
+    <link rel="stylesheet" href="quiz/components/question_types/multi_select/style.css">
 </head>
 <body>
     <div class="quiz-container" id="quiz-container">
@@ -44,9 +45,11 @@
     <!-- Question types: evaluators first, then registry, then components -->
     <script src="quiz/components/question_types/mcq_question/evaluator.js"></script>
     <script src="quiz/components/question_types/true_false_question/evaluator.js"></script>
+    <script src="quiz/components/question_types/multi_select/evaluator.js"></script>
     <script src="quiz/components/question_types/question_registry.js"></script>
     <script src="quiz/components/question_types/mcq_question/component.js"></script>
     <script src="quiz/components/question_types/true_false_question/component.js"></script>
+    <script src="quiz/components/question_types/multi_select/component.js"></script>
 
     <!-- Component controllers -->
     <script src="quiz/components/question_wrapper/question_wrapper.js"></script>
