@@ -5,21 +5,38 @@ class McqRenderer {
     createStructure(host) {
         if (host.querySelector('.mcq-question')) return;
         host.innerHTML = `
-            <div class="question-type question-panel mcq-question">
-                <div class="question-text"></div>
-                <div class="svg-figure" style="display: none;"></div>
-                <div class="figure" style="display: none;"></div>
-                <div class="options-container"></div>
+            <div class="mcq-question">
+
+                <div class="mcq-question-text"></div>
+
+                <div class="mcq-section" data-section="svg" style="display: none;">
+                    <div class="mcq-section-header">Figure</div>
+                    <div class="mcq-section-body">
+                        <div class="mcq-svg"></div>
+                    </div>
+                </div>
+
+                <div class="mcq-section" data-section="image" style="display: none;">
+                    <div class="mcq-section-header">Figure</div>
+                    <div class="mcq-section-body">
+                        <div class="mcq-image"></div>
+                    </div>
+                </div>
+
+                <div class="mcq-options"></div>
+
             </div>
         `;
     }
 
     cacheElements(host) {
-        const root       = host.querySelector('.mcq-question');
-        this._questionEl = root.querySelector('.question-text');
-        this._svgEl      = root.querySelector('.svg-figure');
-        this._imageEl    = root.querySelector('.figure');
-        this._optionsEl  = root.querySelector('.options-container');
+        const root          = host.querySelector('.mcq-question');
+        this._svgSection      = root.querySelector('[data-section="svg"]');
+        this._imageSection    = root.querySelector('[data-section="image"]');
+        this._questionEl      = root.querySelector('.mcq-question-text');
+        this._svgEl           = root.querySelector('.mcq-svg');
+        this._imageEl         = root.querySelector('.mcq-image');
+        this._optionsEl       = root.querySelector('.mcq-options');
     }
 
     clear() {
@@ -37,20 +54,20 @@ class McqRenderer {
 
     setSvg(svgContent) {
         if (svgContent) {
-            this._svgEl.style.display = '';
+            this._svgSection.style.display = '';
             this._svgEl.innerHTML = svgContent;
         } else {
-            this._svgEl.style.display = 'none';
+            this._svgSection.style.display = 'none';
             this._svgEl.innerHTML = '';
         }
     }
 
     setImage(imgUrl) {
         if (imgUrl) {
-            this._imageEl.style.display = '';
+            this._imageSection.style.display = '';
             this._imageEl.innerHTML = `<img src="${imgUrl}" alt="figure" />`;
         } else {
-            this._imageEl.style.display = 'none';
+            this._imageSection.style.display = 'none';
             this._imageEl.innerHTML = '';
         }
     }
@@ -67,7 +84,7 @@ class McqRenderer {
     createOptionElement(opt, questionId) {
         const optId   = `${questionId}-${opt.id}`;
         const div     = document.createElement('div');
-        div.className = 'option';
+        div.className = 'mcq-option';
         div.innerHTML = `
             <input  type="radio"
                     name="${questionId}"
@@ -161,12 +178,23 @@ class McqQuestion extends HTMLElement {
     bindEvents() {
         this._changeHandler = (e) => this.handleOptionChange(e);
         this._renderer.getOptionsEl().addEventListener('change', this._changeHandler);
+
+        // Delegated click for collapsible section headers
+        this._toggleHandler = (e) => this.handleSectionToggle(e);
+        this.addEventListener('click', this._toggleHandler);
     }
 
     handleOptionChange(e) {
         if (e.target.type === 'radio') {
             this.emitAnswerChanged(e.target.value);
         }
+    }
+
+    handleSectionToggle(e) {
+        const header = e.target.closest('.mcq-section-header');
+        if (!header) return;
+        const section = header.closest('.mcq-section');
+        if (section) section.classList.toggle('mcq-collapsed');
     }
 
     emitAnswerChanged(value) {
@@ -193,9 +221,11 @@ class McqQuestion extends HTMLElement {
 
     cleanup() {
         this._renderer.getOptionsEl()?.removeEventListener('change', this._changeHandler);
+        this.removeEventListener('click', this._toggleHandler);
         this.innerHTML      = '';
         this._initialized   = false;
         this._changeHandler = null;
+        this._toggleHandler = null;
         this._renderer      = new McqRenderer();
     }
 }
