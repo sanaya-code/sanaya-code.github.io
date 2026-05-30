@@ -102,3 +102,22 @@ Every directory contains `component.js`, `evaluator.js`, and `style.css`.
 | `FillInBlankOperationComponent` | Lifecycle, config, `_responses` and `_strike` state objects. Binds choice click (select) and box click (fill) and double-click (strikethrough) events. `getUserAnswer()` returns responses and strike states. |
 
 ---
+
+
+## Table Image Fill In Blank (`table_image_fill_in_blank/`)
+
+| Class | Description |
+|-------|-------------|
+| `TableImageFillInBlankRenderer` | Builds table skeleton with configurable 2 or 3 column layout. Renders question text, collapsible SVG/image sections, table headers, and rows. `_createFieldCell()` renders `.tifib-fixed-cell` (non-editable) when `field.value` is present, or `.tifib-input-field` (editable) when `field.acceptable_answers` is present. Returns input elements for event binding. |
+| `TableImageFillInBlankComponent` | Lifecycle, config parsing, validation. Initialises `_userResponses` state from `user_response` or empty arrays. `_bindInputEvents()` attaches input listeners only to editable fields. `getUserAnswer()` returns deep copy of `_userResponses`. |
+
+---
+
+## Table Fill In Blank (`table_fill_in_blank/`)
+
+| Class | Description |
+|-------|-------------|
+| `TableFillInBlankRenderer` | Builds table with corner cell + column label header row and row-labelled body. `_renderBody()` iterates `data[][]` — renders static `td` when `cell.value !== '____'`, editable `.tabfib-input` when `cell.value === '____'`. Returns input elements for event binding. Collapsible SVG/image sections follow standard pattern. |
+| `TableFillInBlankComponent` | Lifecycle, config parsing, validation. `_initResponses()` maps `data` shape to initialize `_responses` array from saved `user_response` or empty strings — guarantees shape matches `data` exactly. `_bindInputEvents()` attaches input listeners only to editable fields. `getUserAnswer()` returns deep copy of `_responses`. |
+
+---

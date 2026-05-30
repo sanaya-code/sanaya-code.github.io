@@ -1,0 +1,156 @@
+/* ── Table Fill In Blank — self-contained styles ──────────── */
+/* All classes prefixed with `tabfib-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.tabfib-wrapper {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.tabfib-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.tabfib-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.tabfib-section-header:hover { background-color: #ebebeb; }
+.tabfib-section-header::after { content: '▲'; font-size: 0.75rem; color: #888; }
+.tabfib-section.tabfib-collapsed .tabfib-section-header::after { content: '▼'; }
+.tabfib-section-body { padding: 12px 14px; }
+.tabfib-section.tabfib-collapsed .tabfib-section-body { display: none; }
+
+/* ── Question text ────────────────────────────────────────── */
+
+.tabfib-question-text {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #003366;
+    background-color: #e0f0ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.tabfib-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tabfib-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.tabfib-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tabfib-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Table ───────────────────────────────────────────────── */
+
+.tabfib-container {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.tabfib-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.tabfib-table th,
+.tabfib-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabfib-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+/* ── Editable input ──────────────────────────────────────── */
+
+.tabfib-input {
+    width: 90%;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #f8f9fa;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.tabfib-input:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: #fff;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .tabfib-table th,
+    .tabfib-table td {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .tabfib-input {
+        font-size: 13px;
+        padding: 5px;
+    }
+}

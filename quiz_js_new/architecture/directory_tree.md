@@ -108,6 +108,8 @@ quiz/
         ├── ordering_horizontal/
         ├── compare_quantities/
         ├── fill_in_blank_operation/
+        ├── table_image_fill_in_blank/
+        ├── table_fill_in_blank/
         └── (one directory per question type...)
 ```
 
