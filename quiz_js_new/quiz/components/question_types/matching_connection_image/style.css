@@ -1,0 +1,233 @@
+/* ── Matching Connection Image — self-contained styles ────── */
+/* All classes prefixed with `ipm-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.ipm-wrapper {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.ipm-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.ipm-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.ipm-section-header:hover       { background-color: #ebebeb; }
+.ipm-section-header::after      { content: '▲'; font-size: 0.75rem; color: #888; }
+
+.ipm-section.ipm-collapsed .ipm-section-header::after { content: '▼'; }
+
+.ipm-section-body { padding: 12px 14px; }
+.ipm-section.ipm-collapsed .ipm-section-body { display: none; }
+
+/* ── Question text ────────────────────────────────────────── */
+
+.ipm-question-text {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #003366;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+}
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.ipm-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.ipm-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.ipm-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.ipm-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Table container ─────────────────────────────────────── */
+
+.ipm-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    background: white;
+    position: relative;
+}
+
+.ipm-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ── Column headings ─────────────────────────────────────── */
+
+.ipm-table th {
+    background-color: #f1f3f5;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #212529;
+    border-bottom: 2px solid #dee2e6;
+    position: sticky;
+    top: 0;
+}
+
+.ipm-table th:nth-child(1),
+.ipm-table td:nth-child(1) { width: 40%; }
+
+.ipm-table th:nth-child(2),
+.ipm-table td:nth-child(2) { width: 20%; }
+
+.ipm-table th:nth-child(3),
+.ipm-table td:nth-child(3) { width: 40%; }
+
+/* ── Table cells ─────────────────────────────────────────── */
+
+.ipm-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9ecef;
+    height: 52px;
+    background: white;
+}
+
+/* ── Image wrapper ───────────────────────────────────────── */
+
+.ipm-image-wrapper {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: outline 0.15s;
+}
+
+.ipm-image-wrapper.ipm-selected {
+    outline: 2px solid #4dabf7;
+}
+
+.ipm-image-wrapper svg,
+.ipm-image-wrapper img {
+    max-width: 100%;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* ── Property items ──────────────────────────────────────── */
+
+.ipm-property {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    background: white;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+.ipm-property:hover { background-color: #f1f3f5; }
+
+/* ── Connection lines SVG layer ──────────────────────────── */
+
+.ipm-connections-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 10;
+}
+
+.ipm-connection-line {
+    stroke-linecap: round;
+    animation: ipm-draw 0.3s ease-out;
+}
+
+@keyframes ipm-draw {
+    from { stroke-dasharray: 0, 1000; }
+    to   { stroke-dasharray: 1000, 0; }
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .ipm-table th { padding: 12px; font-size: 14px; }
+    .ipm-table td { padding: 10px 12px; }
+    .ipm-property { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .ipm-table th:nth-child(1),
+    .ipm-table td:nth-child(1) { width: 50%; }
+    .ipm-table th:nth-child(2),
+    .ipm-table td:nth-child(2) { width: 15%; }
+    .ipm-table th:nth-child(3),
+    .ipm-table td:nth-child(3) { width: 35%; }
+    .ipm-image-wrapper,
+    .ipm-image-wrapper svg,
+    .ipm-image-wrapper img { height: 38px; }
+}
