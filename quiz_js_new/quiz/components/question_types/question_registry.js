@@ -26,3 +26,4 @@ QuestionRegistry.register('fill_in_blank_operation', 'fill-in-blank-operation', 
 QuestionRegistry.register('compare_quantities', 'compare-quantities', CompareQuantitiesEvaluator);
 QuestionRegistry.register('matching_connection_image', 'matching-connection-image', MatchingConnectionImageEvaluator);
 QuestionRegistry.register('ordering', 'ordering-drag-drop', OrderingEvaluator);
+QuestionRegistry.register('table_image_fill_in_the_blank', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);

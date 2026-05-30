@@ -96,27 +96,18 @@ quiz/
     │   ├── component.js                    # <result-modal> custom element
     │   └── controller.js                   # DOM access layer for result-modal
     │
-    └── question_types/
+    └── question_types/                     # component.js, style.css, evaluator.js
         ├── question_registry.js            # Maps question type string → tag + evaluator
-        │
         ├── mcq_question/
-        │   ├── component.js                # <mcq-radio> custom element
-        │   ├── style.css                   # styles for custom element
-        │   └── evaluator.js                # checkAnswer, formatUserAnswer, formatCorrectAnswer
-        │
         ├── true_false_question/
-        │   ├── component.js                #  custom element
-        │   ├── style.css                   # styles for custom element
-        │   └── evaluator.js                # checkAnswer, formatUserAnswer, formatCorrectAnswer
-        │
+        ├── multi_select/
+        ├── matching_select/
+        ├── matching_connection/
+        ├── matching_connection_image/
+        ├── ordering/
+        ├── ordering_horizontal/
+        ├── compare_quantities/
         ├── fill_in_blank_operation/
-        │   ├── component.js
-        │   └── evaluator.js
-        │
-        ├── multi_select_two/
-        │   ├── component.js
-        │   └── evaluator.js
-        │
         └── (one directory per question type...)
 ```
 

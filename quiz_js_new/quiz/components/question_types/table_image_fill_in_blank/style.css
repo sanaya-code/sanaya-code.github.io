@@ -1,0 +1,215 @@
+/* ── Table Image Fill In Blank — self-contained styles ────── */
+/* All classes prefixed with `tifib-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.tifib-wrapper {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.tifib-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.tifib-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.tifib-section-header:hover { background-color: #ebebeb; }
+.tifib-section-header::after { content: '▲'; font-size: 0.75rem; color: #888; }
+.tifib-section.tifib-collapsed .tifib-section-header::after { content: '▼'; }
+.tifib-section-body { padding: 12px 14px; }
+.tifib-section.tifib-collapsed .tifib-section-body { display: none; }
+
+/* ── Question text ────────────────────────────────────────── */
+
+.tifib-question-text {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #003366;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+}
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.tifib-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tifib-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.tifib-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tifib-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Table container ─────────────────────────────────────── */
+
+.tifib-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    background: white;
+}
+
+.tifib-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ── Column headings ─────────────────────────────────────── */
+
+.tifib-table th {
+    background-color: #f1f3f5;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #212529;
+    border-bottom: 2px solid #dee2e6;
+    position: sticky;
+    top: 0;
+}
+
+/* 3-column widths */
+.tifib-table.tifib-cols-3 th:nth-child(1),
+.tifib-table.tifib-cols-3 td:nth-child(1) { width: 60%; }
+.tifib-table.tifib-cols-3 th:nth-child(2),
+.tifib-table.tifib-cols-3 td:nth-child(2) { width: 20%; }
+.tifib-table.tifib-cols-3 th:nth-child(3),
+.tifib-table.tifib-cols-3 td:nth-child(3) { width: 20%; }
+
+/* 2-column widths */
+.tifib-table.tifib-cols-2 th:nth-child(1),
+.tifib-table.tifib-cols-2 td:nth-child(1) { width: 70%; }
+.tifib-table.tifib-cols-2 th:nth-child(2),
+.tifib-table.tifib-cols-2 td:nth-child(2) { width: 30%; }
+
+/* ── Table cells ─────────────────────────────────────────── */
+
+.tifib-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9ecef;
+    height: 52px;
+    background: white;
+}
+
+/* ── Image wrapper ───────────────────────────────────────── */
+
+.tifib-image-wrapper {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.tifib-image-wrapper svg,
+.tifib-image-wrapper img {
+    max-width: 100%;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* ── Editable input ──────────────────────────────────────── */
+
+.tifib-input-field {
+    height: 40px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tifib-input-field:focus {
+    border-color: #4dabf7;
+    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.3);
+    outline: none;
+}
+
+/* ── Fixed (non-editable) cell ───────────────────────────── */
+
+.tifib-fixed-cell {
+    height: 40px;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #f1f3f5;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #495057;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .tifib-table th { padding: 12px; font-size: 14px; }
+    .tifib-table td { padding: 10px 12px; }
+    .tifib-input-field { font-size: 14px; }
+    .tifib-fixed-cell  { font-size: 14px; }
+}
