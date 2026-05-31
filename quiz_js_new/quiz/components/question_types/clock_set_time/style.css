@@ -1,0 +1,120 @@
+/* ── Clock Set Time — self-contained styles ───────────────── */
+/* All classes prefixed with `cst-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.cst-wrapper {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, sans-serif;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.cst-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.cst-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.cst-section-header:hover { background-color: #ebebeb; }
+.cst-section-header::after { content: '▲'; font-size: 0.75rem; color: #888; }
+.cst-section.cst-collapsed .cst-section-header::after { content: '▼'; }
+.cst-section-body { padding: 12px 14px; }
+.cst-section.cst-collapsed .cst-section-body { display: none; }
+
+/* ── Question text ────────────────────────────────────────── */
+
+.cst-question {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.cst-question sup,
+.cst-question sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.cst-question sup { top: -0.5em; }
+.cst-question sub { bottom: -0.25em; }
+.cst-question math { vertical-align: middle; }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+
+.cst-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cst-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #555;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.cst-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.cst-btn.cst-btn-active {
+    background-color: #2196f3;
+    color: white;
+    border-color: #1976d2;
+}
+
+/* ── SVG clock ───────────────────────────────────────────── */
+
+.cst-svg {
+    display: block;
+    margin: 0 auto;
+    background-color: #fdfdfd;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.cst-svg text {
+    user-select: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    fill: #000;
+    cursor: pointer;
+}
+
+.cst-svg text:hover {
+    fill: #007bff;
+    font-weight: bold;
+}

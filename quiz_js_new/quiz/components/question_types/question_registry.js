@@ -30,3 +30,4 @@ QuestionRegistry.register('table_image_fill_in_the_blank', 'table-image-fill-in-
 QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
 QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
 QuestionRegistry.register('fill_in_blank_multi_graph_text', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
+QuestionRegistry.register('clock_set_time', 'clock-set-time', ClockSetTimeEvaluator);

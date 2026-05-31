@@ -481,6 +481,36 @@
 		  "difficulty": "medium",
 		  "tags": ["math", "multiplication", "practice"],
 		  "points": 3
+		},
+		{
+		  "id": "26",
+		  "type": "clock_set_time",
+		  "question": "Set the time to 4:30 PM by drawing the hour and minute hands on the clock.",
+		  "clock": {
+			"radius": 120,
+			"numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+			"hour_hand": { "color": "red", "length_ratio": 0.65 },
+			"minute_hand": { "color": "black", "length_ratio": 0.9 }
+		  },
+		  "correct_answer": { "hour": 4, "minute": 6 },
+		  "user_response": { "hour": null, "minute": null }
+		},    
+		{
+		  "id": "25",
+		  "type": "number_line_arcs",
+		  "question": "Add 2 + 4",
+		  "points": [0,1,2,3,4,5,6,7,8,9,10],
+		  "number_line": { "start": 0, "end": 10, "step": 1 },
+		  "pairs": [[2,7],[7,3]],
+		  "user_response": [ ],
+		  "explanation": "The first arc represents moving from 2 to 7 (adding 5). The second arc represents moving from 7 to 3 (subtracting 4).",
+		  "metadata": {
+			"difficulty": "medium",
+			"points": 2,
+			"scoring_method": "exact",
+			"scoring_method_01": "partial",
+			"tags": ["number line", "addition", "subtraction"]
+		  }
 		}
     ]
 }

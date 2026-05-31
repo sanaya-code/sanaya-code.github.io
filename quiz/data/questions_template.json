@@ -707,7 +707,7 @@
         "hour_hand": { "color": "red", "length_ratio": 0.65 },
         "minute_hand": { "color": "black", "length_ratio": 0.9 }
       },
-      "correct_answer": { "hour": 4, "minute": 4.5 },
+      "correct_answer": { "hour": 4, "minute": 6 },
       "user_response": { "hour": null, "minute": null }
     },
     {
