@@ -2,31 +2,9 @@
     "title": "General Knowledge Quiz",
     "questions": [
 
-{
-  "type": "ordering",
-  "id": "test_rich_ordering",
-  "question": "Arrange in ascending order (smallest to largest):",
-  "items": [
-    {
-      "id": "A",
-      "text": "<math><mfrac><mn>3</mn><mn>4</mn></mfrac></math>"
-    },
-    {
-      "id": "B",
-      "text": "x<sup>2</sup> + 2x + 1"
-    },
-    {
-      "id": "C",
-      "text": "<math><mfrac><mn>1</mn><mn>4</mn></mfrac></math>"
-    },
-    {
-      "id": "D",
-      "text": "(x+1)<sup>2</sup>"
-    }
-  ],
-  "correct_order": ["C", "A", "B", "D"],
-  "user_response": []
-},
+
+
+
 
 		{
 		  "type": "mcq",

@@ -58,7 +58,7 @@ class OrderingHorizontalRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvg(svgContent) {
@@ -122,10 +122,10 @@ class OrderingHorizontalRenderer {
         return items
             .filter(item => !fixedValues.includes(item))
             .map(item => {
-                const el       = document.createElement('div');
-                el.className   = 'oh-item';
+                const el         = document.createElement('div');
+                el.className     = 'oh-item';
                 el.dataset.value = item;
-                el.textContent = item;
+                el.innerHTML     = item;                       // ← innerHTML for rich content
                 this._itemsEl.appendChild(el);
                 return el;
             });

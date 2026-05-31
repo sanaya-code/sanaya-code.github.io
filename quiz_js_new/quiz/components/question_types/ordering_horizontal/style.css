@@ -145,7 +145,12 @@
     font-size: 1.1rem;
     font-weight: 500;
     transition: background 0.2s, border-color 0.2s;
+    line-height: 2;
 }
+
+.oh-node sup { vertical-align: super; font-size: 0.75em; }
+.oh-node sub { vertical-align: sub;   font-size: 0.75em; }
+.oh-node math { vertical-align: middle; }
 
 .oh-node-placeholder {
     color: #bbb;
@@ -186,7 +191,12 @@
     cursor: pointer;
     user-select: none;
     transition: background 0.2s, border-color 0.2s;
+    line-height: 2;
 }
+
+.oh-item sup { vertical-align: super; font-size: 0.75em; }
+.oh-item sub { vertical-align: sub;   font-size: 0.75em; }
+.oh-item math { vertical-align: middle; }
 
 .oh-item:hover {
     background: #e0f7fa;
