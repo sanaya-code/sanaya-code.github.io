@@ -28,3 +28,4 @@ QuestionRegistry.register('matching_connection_image', 'matching-connection-imag
 QuestionRegistry.register('ordering', 'ordering-drag-drop', OrderingEvaluator);
 QuestionRegistry.register('table_image_fill_in_the_blank', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
 QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
+QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
