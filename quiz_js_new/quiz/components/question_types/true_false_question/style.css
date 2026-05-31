@@ -67,7 +67,12 @@
     background-color: #e0f0ff;
     padding: 12px 14px;
     margin-bottom: 10px;
+    line-height: 2;
 }
+
+.tf-question-text sup { vertical-align: super; font-size: 0.75em; }
+.tf-question-text sub { vertical-align: sub;   font-size: 0.75em; }
+.tf-question-text math { vertical-align: middle; }
 
 /* ── SVG figure ───────────────────────────────────────────── */
 
