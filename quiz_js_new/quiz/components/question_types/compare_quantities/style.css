@@ -155,3 +155,16 @@
     color: white;
     cursor: default;
 }
+
+/* ── Inline rich content ──────────────────────────────────── */
+
+.cmp-qq-question-text .inline-part {
+    display: inline;
+    vertical-align: middle;
+}
+
+.cmp-qq-question-text .inline-image {
+    display: inline;
+    vertical-align: middle;
+    height: 1.2em;
+}
