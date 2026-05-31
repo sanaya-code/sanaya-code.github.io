@@ -196,3 +196,29 @@
     font-weight: bold;
     border: 1px solid #0056c7;
 }
+
+/* ── Inline rich content (MathML, SVG, HTML in question/labels) ── */
+
+.fibopr-question .inline-part {
+    display: inline;
+    vertical-align: middle;
+}
+
+.fibopr-question .inline-image {
+    display: inline;
+    vertical-align: middle;
+    height: 1.2em;
+}
+
+.fibopr-box .inline-part,
+.fibopr-choice .inline-part {
+    display: inline;
+    vertical-align: middle;
+}
+
+.fibopr-box .inline-image,
+.fibopr-choice .inline-image {
+    display: inline;
+    vertical-align: middle;
+    height: 1.2em;
+}

@@ -63,7 +63,7 @@ class FillInBlankOperationRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvg(svgContent) {
@@ -108,7 +108,7 @@ class FillInBlankOperationRenderer {
         box.className       = 'fibopr-box';
         box.dataset.row     = rowName;
         box.dataset.index   = index;
-        box.textContent     = displayVal;
+        box.innerHTML       = displayVal;
 
         if (editable)           box.classList.add('editable');
         if (response !== '')    box.classList.add('filled');
@@ -125,7 +125,7 @@ class FillInBlankOperationRenderer {
             const btn           = document.createElement('button');
             btn.className       = 'fibopr-choice';
             btn.dataset.value   = value;
-            btn.textContent     = value;
+            btn.innerHTML       = value;
             this._choicesEl.appendChild(btn);
             return btn;
         });
@@ -138,7 +138,7 @@ class FillInBlankOperationRenderer {
             `.fibopr-box[data-index="${index}"]`
         );
         if (!box) return;
-        box.textContent = value;
+        box.innerHTML = value;
         box.classList.toggle('filled',   value !== '');
         box.classList.toggle('striked',  striked);
     }
