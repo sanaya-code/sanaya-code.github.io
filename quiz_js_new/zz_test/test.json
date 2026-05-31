@@ -501,7 +501,7 @@
 		  "question": "Add 2 + 4",
 		  "points": [0,1,2,3,4,5,6,7,8,9,10],
 		  "number_line": { "start": 0, "end": 10, "step": 1 },
-		  "pairs": [[2,7],[7,3]],
+		  "pairs": [[0,2],[2,6]],
 		  "user_response": [ ],
 		  "explanation": "The first arc represents moving from 2 to 7 (adding 5). The second arc represents moving from 7 to 3 (subtracting 4).",
 		  "metadata": {
