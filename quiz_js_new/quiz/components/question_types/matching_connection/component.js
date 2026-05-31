@@ -96,7 +96,7 @@ class MatchingConnectionRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;             // ← innerHTML for rich content
     }
 
     setSvgFigure(svgContent) {
@@ -131,20 +131,22 @@ class MatchingConnectionRenderer {
 
         pairs.forEach((pair, idx) => {
             const row = document.createElement('div');
-            row.className = 'mconn-row';
+            row.className     = 'mconn-row';
             row.dataset.index = idx;
 
             const lhs = document.createElement('div');
-            lhs.className   = 'mconn-item mconn-lhs';
-            lhs.textContent = pair.left;
+            lhs.className     = 'mconn-item mconn-lhs';
+            lhs.innerHTML     = pair.left;                 // ← innerHTML for rich content
             lhs.dataset.index = idx;
-            lhs.tabIndex = 0;
+            lhs.dataset.value = pair.left;                 // ← raw value for matching
+            lhs.tabIndex      = 0;
 
             const rhs = document.createElement('div');
-            rhs.className   = 'mconn-item mconn-rhs';
-            rhs.textContent = shuffledRhs[idx];
+            rhs.className     = 'mconn-item mconn-rhs';
+            rhs.innerHTML     = shuffledRhs[idx];
             rhs.dataset.value = shuffledRhs[idx];
-            rhs.tabIndex = 0;
+            rhs.dataset.index = idx;                           // ← index for matching
+            rhs.tabIndex      = 0;
 
             row.appendChild(lhs);
             row.appendChild(rhs);
@@ -177,13 +179,8 @@ class MatchingConnectionRenderer {
         this._svgCanvas.appendChild(line);
     }
 
-    getSvgCanvas() {
-        return this._svgCanvas;
-    }
-
-    getContainer() {
-        return this._containerEl;
-    }
+    getSvgCanvas()  { return this._svgCanvas; }
+    getContainer()  { return this._containerEl; }
 }
 
 
@@ -212,8 +209,6 @@ class MatchingConnectionInteractionHandler {
     unbind() {
         document.removeEventListener('keydown', this._keyHandler);
     }
-
-    // ── Click events ──────────────────────────────────────────
 
     _bindClickEvents() {
         this._lhsEls.forEach((lhs, idx) => {
@@ -323,14 +318,14 @@ class MatchingConnectionComponent extends HTMLElement {
 
     constructor() {
         super();
-        this._initialized  = false;
-        this._geometry     = new MatchingConnectionGeometry();
-        this._renderer     = new MatchingConnectionRenderer(this._geometry);
-        this._handler      = null;
-        this._matches      = [];
-        this._lhsEls       = [];
-        this._rhsEls       = [];
-        this._lineColors   = [];
+        this._initialized   = false;
+        this._geometry      = new MatchingConnectionGeometry();
+        this._renderer      = new MatchingConnectionRenderer(this._geometry);
+        this._handler       = null;
+        this._matches       = [];
+        this._lhsEls        = [];
+        this._rhsEls        = [];
+        this._lineColors    = [];
         this._resizeHandler = () => this._drawLines();
     }
 
@@ -398,22 +393,23 @@ class MatchingConnectionComponent extends HTMLElement {
     // ── Connection logic ──────────────────────────────────────
 
     _makeConnection(lhsIndex, rhsEl) {
-        const rhsValue = rhsEl.textContent;
-        // clear any existing connection to this rhs value
-        this._matches = this._matches.map(val => val === rhsValue ? null : val);
-        this._matches[lhsIndex] = rhsValue;
+        const rhsIndex = parseInt(rhsEl.dataset.index);
+        // clear any existing connection to this rhs index
+        this._matches = this._matches.map(val => val === rhsIndex ? null : val);
+        this._matches[lhsIndex] = rhsIndex;
         this._drawLines();
         this.emitAnswerChanged();
     }
 
     _applyUserResponse(userResponse) {
+        // user_response is array of rhs values (strings) — find by value for backward compat
         const responses = Array.isArray(userResponse)
             ? userResponse
             : Array(this._lhsEls.length).fill(null);
 
         responses.forEach((rhsVal, lhsIndex) => {
             if (!rhsVal) return;
-            const rhsEl = this._rhsEls.find(r => r.textContent === rhsVal);
+            const rhsEl = this._rhsEls.find(r => r.dataset.value === rhsVal);
             if (rhsEl) this._makeConnection(lhsIndex, rhsEl);
         });
     }
@@ -423,10 +419,10 @@ class MatchingConnectionComponent extends HTMLElement {
     _drawLines() {
         this._renderer.clearSvgCanvas();
         const svgRect = this._renderer.getSvgCanvas().getBoundingClientRect();
-        this._matches.forEach((rhsVal, lhsIndex) => {
-            if (!rhsVal) return;
+        this._matches.forEach((rhsIndex, lhsIndex) => {
+            if (rhsIndex === null || rhsIndex === undefined) return;
             const lhsEl = this._lhsEls[lhsIndex];
-            const rhsEl = this._rhsEls.find(r => r.textContent === rhsVal);
+            const rhsEl = this._rhsEls[rhsIndex];           // ← direct index lookup
             if (!lhsEl || !rhsEl) return;
             const coords = this._geometry.getLineCoords(lhsEl, rhsEl, svgRect);
             this._renderer.drawLine(coords, this._lineColors[lhsIndex]);
@@ -476,7 +472,12 @@ class MatchingConnectionComponent extends HTMLElement {
     // ── User State API ────────────────────────────────────────
 
     getUserAnswer() {
-        return [...this._matches];
+        // return rhs values (not indices) so evaluator can compare against pairs[i].right
+        return this._matches.map(rhsIndex =>
+            rhsIndex !== null && rhsIndex !== undefined
+                ? this._rhsEls[rhsIndex]?.dataset.value || null
+                : null
+        );
     }
 
     // ── Internal Infrastructure ───────────────────────────────
