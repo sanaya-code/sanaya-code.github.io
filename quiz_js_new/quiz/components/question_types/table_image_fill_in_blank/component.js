@@ -59,7 +59,7 @@ class TableImageFillInBlankRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;             // ← innerHTML for rich content
     }
 
     setSvgFigure(svgContent) {
@@ -94,8 +94,8 @@ class TableImageFillInBlankRenderer {
             : [headings.image || 'Image', headings.count || 'Count', headings.word || 'Word'];
 
         headers.forEach(text => {
-            const th = document.createElement('th');
-            th.textContent = text;
+            const th    = document.createElement('th');
+            th.innerHTML = text;                           // ← innerHTML for rich content
             this._headerRow.appendChild(th);
         });
     }
@@ -148,21 +148,21 @@ class TableImageFillInBlankRenderer {
 
         // If field has "value" → non-editable display cell
         if (field?.value !== undefined) {
-            const div = document.createElement('div');
-            div.className   = 'tifib-fixed-cell';
-            div.textContent = field.value;
+            const div     = document.createElement('div');
+            div.className = 'tifib-fixed-cell';
+            div.innerHTML = field.value;                   // ← innerHTML for rich content
             td.appendChild(div);
             return { el: td, isInput: null };
         }
 
         // Otherwise → editable input
-        const input           = document.createElement('input');
-        input.type            = 'text';
-        input.className       = 'tifib-input-field';
-        input.dataset.row     = rowIdx;
-        input.dataset.col     = colIdx;
-        input.value           = savedValue;
-        input.placeholder     = '';
+        const input       = document.createElement('input');
+        input.type        = 'text';
+        input.className   = 'tifib-input-field';
+        input.dataset.row = rowIdx;
+        input.dataset.col = colIdx;
+        input.value       = savedValue;
+        input.placeholder = '';
         td.appendChild(input);
         return { el: td, isInput: input };
     }
@@ -224,7 +224,7 @@ class TableImageFillInBlankComponent extends HTMLElement {
         this._renderer.setSvgFigure(config.svg_content);
         this._renderer.setImageFigure(config.img_url);
 
-        const columns  = config.columns || 3;
+        const columns      = config.columns || 3;
         const fieldsPerRow = columns === 2 ? 1 : 2;
 
         this._initUserResponses(config, fieldsPerRow);

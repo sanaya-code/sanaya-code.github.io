@@ -124,7 +124,12 @@
     border-bottom: 2px solid #dee2e6;
     position: sticky;
     top: 0;
+    line-height: 1.6;
 }
+
+.tifib-table th sup { vertical-align: super; font-size: 0.75em; }
+.tifib-table th sub { vertical-align: sub;   font-size: 0.75em; }
+.tifib-table th math { vertical-align: middle; }
 
 /* 3-column widths */
 .tifib-table.tifib-cols-3 th:nth-child(1),
@@ -148,6 +153,7 @@
     border-bottom: 1px solid #e9ecef;
     height: 52px;
     background: white;
+    text-align: center;
 }
 
 /* ── Image wrapper ───────────────────────────────────────── */
@@ -181,6 +187,7 @@
     font-size: 15px;
     box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
+    text-align: center;
 }
 
 .tifib-input-field:focus {
@@ -192,7 +199,6 @@
 /* ── Fixed (non-editable) cell ───────────────────────────── */
 
 .tifib-fixed-cell {
-    height: 40px;
     width: 100%;
     padding: 8px 12px;
     background-color: #f1f3f5;
@@ -201,9 +207,15 @@
     font-size: 15px;
     color: #495057;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
+    display: block;
+    text-align: center;
+    line-height: 2.2;
 }
+
+.tifib-fixed-cell sup  { vertical-align: super; font-size: 0.75em; }
+.tifib-fixed-cell sub  { vertical-align: sub;   font-size: 0.75em; }
+.tifib-fixed-cell math { vertical-align: middle; }
+
 
 /* ── Responsive ───────────────────────────────────────────── */
 
