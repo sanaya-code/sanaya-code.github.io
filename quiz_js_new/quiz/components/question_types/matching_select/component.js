@@ -47,14 +47,14 @@ class MatchingSelectRenderer {
         this.setQuestion('');
         this.setSvg(null);
         this.setImage(null);
-        this._pairsEl.innerHTML  = '';
+        this._pairsEl.innerHTML   = '';
         this._optionsEl.innerHTML = '';
     }
 
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;             // ← innerHTML for rich content
     }
 
     setSvg(svgContent) {
@@ -82,9 +82,9 @@ class MatchingSelectRenderer {
     renderOptionBank(options = []) {
         this._optionsEl.innerHTML = '';
         return options.map(text => {
-            const opt       = document.createElement('div');
-            opt.className   = 'mdrag-option';
-            opt.textContent = text;
+            const opt         = document.createElement('div');
+            opt.className     = 'mdrag-option';
+            opt.innerHTML     = text;                      // ← innerHTML for rich content
             opt.dataset.value = text;
             this._optionsEl.appendChild(opt);
             return opt;
@@ -94,20 +94,20 @@ class MatchingSelectRenderer {
     renderPairs(pairs = [], userResponse = []) {
         this._pairsEl.innerHTML = '';
         return pairs.map((pair, idx) => {
-            const pairDiv       = document.createElement('div');
-            pairDiv.className   = 'mdrag-pair';
+            const pairDiv     = document.createElement('div');
+            pairDiv.className = 'mdrag-pair';
 
-            const leftDiv       = document.createElement('div');
-            leftDiv.className   = 'mdrag-left';
-            leftDiv.textContent = pair.left;
+            const leftDiv     = document.createElement('div');
+            leftDiv.className = 'mdrag-left';
+            leftDiv.innerHTML = pair.left;                 // ← innerHTML for rich content
 
-            const dropZone            = document.createElement('div');
-            dropZone.className        = 'mdrag-drop-zone';
-            dropZone.dataset.index    = idx;
+            const dropZone         = document.createElement('div');
+            dropZone.className     = 'mdrag-drop-zone';
+            dropZone.dataset.index = idx;
 
             if (userResponse[idx]) {
-                dropZone.textContent      = userResponse[idx];
-                dropZone.dataset.value    = userResponse[idx];
+                dropZone.innerHTML     = userResponse[idx];  // ← innerHTML for rich content
+                dropZone.dataset.value = userResponse[idx];
             }
 
             pairDiv.appendChild(leftDiv);
@@ -174,7 +174,7 @@ class MatchingSelectInteractionHandler {
     }
 
     _placeInDropZone(zone) {
-        zone.textContent   = this._selectedOption.dataset.value;
+        zone.innerHTML     = this._selectedOption.dataset.value; // ← innerHTML for rich content
         zone.dataset.value = this._selectedOption.dataset.value;
         this._deselectOption();
         this._onChange();
@@ -240,8 +240,8 @@ class MatchingSelectComponent extends HTMLElement {
         const userResponse = Array.isArray(config.user_response) ? config.user_response : [];
         const bankItems    = [...pairs.map(p => p.right), ...distractors];
 
-        const optionEls     = this._renderer.renderOptionBank(bankItems);
-        this._dropZones     = this._renderer.renderPairs(pairs, userResponse);
+        const optionEls  = this._renderer.renderOptionBank(bankItems);
+        this._dropZones  = this._renderer.renderPairs(pairs, userResponse);
 
         const handler = new MatchingSelectInteractionHandler(
             optionEls,
