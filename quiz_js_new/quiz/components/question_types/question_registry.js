@@ -34,3 +34,4 @@ QuestionRegistry.register('clock_set_time', 'clock-set-time', ClockSetTimeEvalua
 QuestionRegistry.register('number_line_arcs', 'number-line-arcs', NumberLineArcsEvaluator);
 QuestionRegistry.register('multi_select_circle', 'multi-select-circle', MultiSelectCircleEvaluator);
 QuestionRegistry.register('multi_select_two', 'multi-select-two', MultiSelectTwoEvaluator);
+QuestionRegistry.register('short_answer', 'short-answer', ShortAnswerEvaluator);
