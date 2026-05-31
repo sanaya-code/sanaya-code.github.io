@@ -51,7 +51,7 @@ class OrderingRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvg(svgContent) {
@@ -87,11 +87,11 @@ class OrderingRenderer {
     }
 
     createItemElement(itemId, itemText) {
-        const div       = document.createElement('div');
-        div.className   = 'ord-item';
-        div.draggable   = true;
-        div.dataset.id  = itemId;
-        div.textContent = itemText;
+        const div      = document.createElement('div');
+        div.className  = 'ord-item';
+        div.draggable  = true;
+        div.dataset.id = itemId;
+        div.innerHTML  = itemText;                             // ← innerHTML for rich content
         return div;
     }
 

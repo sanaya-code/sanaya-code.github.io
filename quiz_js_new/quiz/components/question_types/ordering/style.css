@@ -115,7 +115,12 @@
     cursor: move;
     transition: background 0.2s, box-shadow 0.2s;
     user-select: none;
+    line-height: 2;
 }
+
+.ord-item sup { vertical-align: super; font-size: 0.75em; }
+.ord-item sub { vertical-align: sub;   font-size: 0.75em; }
+.ord-item math { vertical-align: middle; }
 
 .ord-item:hover {
     background-color: #e9ecef;
