@@ -463,6 +463,24 @@
 			"partial_credit": "Some answers are correct. Try again.",
 			"none": "None of the blanks are correct."
 		  }
+		},
+		{
+		  "type": "fill_in_blank_multi_graph_text",
+		  "id": "023",
+		  "question": "Fill in the blanks to practice addition with 3.",
+		  "center_label": "3",
+		  "blocks": [
+			{ "a": 0, "b": "+" },
+			{ "a": 1, "b": "+" },
+			{ "a": 2, "b": "+" },
+			{ "a": 3, "b": "+" }
+		  ],
+		  "choices": ["", "1", "2", "3", "4", "13", "6", "5"],
+		  "correct_answer": ["3", "2", "1", "0"],
+		  "user_response": ["", "", "", ""],
+		  "difficulty": "medium",
+		  "tags": ["math", "multiplication", "practice"],
+		  "points": 3
 		}
     ]
 }

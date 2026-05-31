@@ -1,0 +1,274 @@
+/* ── Fill In Blank Multi Graph Text — self-contained styles── */
+/* All classes prefixed with `fibmgt-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.fibmgt-wrapper {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.fibmgt-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.fibmgt-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.fibmgt-section-header:hover { background-color: #ebebeb; }
+.fibmgt-section-header::after { content: '▲'; font-size: 0.75rem; color: #888; }
+.fibmgt-section.fibmgt-collapsed .fibmgt-section-header::after { content: '▼'; }
+.fibmgt-section-body { padding: 12px 14px; }
+.fibmgt-section.fibmgt-collapsed .fibmgt-section-body { display: none; }
+
+/* ── Container + question ────────────────────────────────── */
+
+.fibmgt-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.fibmgt-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.fibmgt-question sup,
+.fibmgt-question sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.fibmgt-question sup { top: -0.5em; }
+.fibmgt-question sub { bottom: -0.25em; }
+
+.fibmgt-question math {
+    vertical-align: middle;
+}
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.fibmgt-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.fibmgt-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.fibmgt-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.fibmgt-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Board ───────────────────────────────────────────────── */
+
+.fibmgt-board {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.fibmgt-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.fibmgt-lines line {
+    stroke: #aaa;
+    stroke-width: 2;
+}
+
+/* ── Center node ─────────────────────────────────────────── */
+
+.fibmgt-center {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Blocks ──────────────────────────────────────────────── */
+
+.fibmgt-block {
+    position: absolute;
+    background: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 5px;
+    z-index: 3;
+}
+
+.fibmgt-label {
+    font-size: 14px;
+    line-height: 1.6;
+    display: inline;
+}
+
+.fibmgt-label sup,
+.fibmgt-label sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.fibmgt-label sup { top: -0.5em; }
+.fibmgt-label sub { bottom: -0.25em; }
+
+.fibmgt-label math {
+    vertical-align: middle;
+}
+
+.fibmgt-input {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.fibmgt-input:focus {
+    border-color: #2196f3;
+    outline: none;
+    background-color: #e3f2fd;
+}
+
+.fibmgt-input.fibmgt-active-target {
+    border-color: #ff9800;
+    background-color: #fff3e0;
+}
+
+/* ── Choices bank ────────────────────────────────────────── */
+
+.fibmgt-choices {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fibmgt-choice {
+    padding: 6px 14px;
+    border: 1px solid #888;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #f9f9f9;
+    font-size: 14px;
+    line-height: 1.6;
+    display: inline-block;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.fibmgt-choice sup,
+.fibmgt-choice sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.fibmgt-choice sup { top: -0.5em; }
+.fibmgt-choice sub { bottom: -0.25em; }
+
+.fibmgt-choice math {
+    vertical-align: middle;
+}
+
+.fibmgt-choice:hover {
+    background: #e3f2fd;
+}
+
+.fibmgt-choice.fibmgt-choice-active {
+    background: #c2f0c2;
+    border-color: #2e7d32;
+    font-weight: bold;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 500px) {
+    .fibmgt-board {
+        height: 320px;
+    }
+    .fibmgt-center {
+        width: 48px;
+        height: 48px;
+        font-size: 14px;
+    }
+    .fibmgt-input {
+        width: 32px;
+        height: 22px;
+        font-size: 12px;
+    }
+}
