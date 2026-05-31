@@ -107,7 +107,7 @@ class ImagePropertyMatchingRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvgFigure(svgContent) {
@@ -173,7 +173,8 @@ class ImagePropertyMatchingRenderer {
             const propEl = document.createElement('div');
             propEl.className = 'ipm-property';
             propEl.dataset.property = prop;
-            propEl.textContent = prop;
+            propEl.dataset.index    = index;               // ← index for matching
+            propEl.innerHTML        = prop;                // ← innerHTML for rich content
             tdProp.appendChild(propEl);
             propertyEls.push(propEl);
 
@@ -262,8 +263,8 @@ class ImagePropertyMatchingInteractionHandler {
 
     _handlePropertyClick(propEl) {
         if (this._selectedImage === null) return;
-        const property = propEl.dataset.property;
-        this._onConnect(this._selectedImage, property, this._allowMultiple);
+        const propIndex = parseInt(propEl.dataset.index);   // ← index not value
+        this._onConnect(this._selectedImage, propIndex, this._allowMultiple);
         this._selectedImage = null;
         this._renderer.clearImageSelection();
     }
@@ -352,7 +353,7 @@ class ImagePropertyMatchingComponent extends HTMLElement {
 
     // ── Connection logic ──────────────────────────────────────
 
-    _handleConnect(imageIndex, property, allowMultiple) {
+    _handleConnect(imageIndex, propIndex, allowMultiple) {
         // remove existing connection from this image
         if (this._connections.has(imageIndex)) {
             this._connections.delete(imageIndex);
@@ -362,16 +363,16 @@ class ImagePropertyMatchingComponent extends HTMLElement {
             this._connections = new Map();
             existing.forEach((conn, idx) => {
                 this._connections.set(idx, {
-                    property: conn.property,
+                    propIndex: conn.propIndex,
                     color: this._geometry.getNextColor(),
                 });
             });
         }
 
-        // if not allowing multiple, remove any existing connection to this property
+        // if not allowing multiple, remove any existing connection to this propIndex
         if (!allowMultiple) {
             for (const [idx, conn] of this._connections) {
-                if (conn.property === property) {
+                if (conn.propIndex === propIndex) {
                     this._connections.delete(idx);
                     break;
                 }
@@ -379,7 +380,7 @@ class ImagePropertyMatchingComponent extends HTMLElement {
         }
 
         this._connections.set(imageIndex, {
-            property,
+            propIndex,
             color: this._geometry.getNextColor(),
         });
 
@@ -391,10 +392,14 @@ class ImagePropertyMatchingComponent extends HTMLElement {
         if (!Array.isArray(userResponse)) return;
         userResponse.forEach(conn => {
             if (conn.image_index !== undefined && conn.property !== undefined) {
-                this._connections.set(conn.image_index, {
-                    property: conn.property,
-                    color: this._geometry.getNextColor(),
-                });
+                // find propIndex by matching dataset.property value
+                const propEl = this.querySelector(`.ipm-property[data-property="${conn.property}"]`);
+                if (propEl) {
+                    this._connections.set(conn.image_index, {
+                        propIndex: parseInt(propEl.dataset.index),
+                        color: this._geometry.getNextColor(),
+                    });
+                }
             }
         });
         this._drawConnections();
@@ -408,7 +413,7 @@ class ImagePropertyMatchingComponent extends HTMLElement {
 
         this._connections.forEach((conn, imageIndex) => {
             const imageWrapper = this.querySelector(`.ipm-image-wrapper[data-image-index="${imageIndex}"]`);
-            const propertyEl   = this.querySelector(`.ipm-property[data-property="${conn.property}"]`);
+            const propertyEl   = this.querySelector(`.ipm-property[data-index="${conn.propIndex}"]`); // ← index lookup
             if (!imageWrapper || !propertyEl) return;
 
             const coords   = this._geometry.getConnectionCoords(imageWrapper, propertyEl, svgRect);
@@ -463,10 +468,14 @@ class ImagePropertyMatchingComponent extends HTMLElement {
     // ── User State API ────────────────────────────────────────
 
     getUserAnswer() {
-        return Array.from(this._connections.entries()).map(([imageIndex, conn]) => ({
-            image_index: imageIndex,
-            property:    conn.property,
-        }));
+        return Array.from(this._connections.entries()).map(([imageIndex, conn]) => {
+            // look up property value by index for evaluator compatibility
+            const propEl = this.querySelector(`.ipm-property[data-index="${conn.propIndex}"]`);
+            return {
+                image_index: imageIndex,
+                property:    propEl?.dataset.property || '',
+            };
+        });
     }
 
     // ── Internal Infrastructure ───────────────────────────────
