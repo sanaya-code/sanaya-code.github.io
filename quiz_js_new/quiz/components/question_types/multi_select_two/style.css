@@ -1,0 +1,189 @@
+/* ── Multi Select Two — self-contained styles ─────────────── */
+/* All classes prefixed with `stq-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.stq-wrapper {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.stq-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.stq-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.stq-section-header:hover { background-color: #ebebeb; }
+.stq-section-header::after { content: '▲'; font-size: 0.75rem; color: #888; }
+.stq-section.stq-collapsed .stq-section-header::after { content: '▼'; }
+.stq-section-body { padding: 12px 14px; }
+.stq-section.stq-collapsed .stq-section-body { display: none; }
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.stq-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.stq-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.stq-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.stq-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Container ───────────────────────────────────────────── */
+
+.stq-container {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ── Question text ────────────────────────────────────────── */
+
+.stq-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.stq-question sup,
+.stq-question sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.stq-question sup { top: -0.5em; }
+.stq-question sub { bottom: -0.25em; }
+.stq-question math { vertical-align: middle; }
+
+/* ── Quantities ──────────────────────────────────────────── */
+
+.stq-quantities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.stq-quantity {
+    background: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    min-width: 50px;
+    text-align: center;
+    user-select: none;
+    border: 2px solid transparent;
+    line-height: 1.6;
+    display: inline-block;
+}
+
+.stq-quantity sup,
+.stq-quantity sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.stq-quantity sup { top: -0.5em; }
+.stq-quantity sub { bottom: -0.25em; }
+.stq-quantity math { vertical-align: middle; }
+
+.stq-quantity:hover {
+    transform: scale(1.05);
+}
+
+/* ── Highlight styles ────────────────────────────────────── */
+
+.highlight-color-red {
+    background-color: #ffcccc;
+    border-color: #ff0000;
+}
+
+.highlight-color-green {
+    background-color: #ccffcc;
+    border-color: #00aa00;
+}
+
+.highlight-shape-circle {
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.highlight-shape-square {
+    border: 2px solid #000;
+    border-radius: 0;
+}
+
+/* ── Instructions ────────────────────────────────────────── */
+
+.stq-instructions {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 500px) {
+    .stq-quantities { gap: 8px; }
+    .stq-quantity { padding: 8px 10px; min-width: 40px; }
+}

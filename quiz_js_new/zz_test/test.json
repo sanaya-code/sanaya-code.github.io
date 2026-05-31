@@ -533,6 +533,63 @@
 		  "points": 2,
 		  "scoring_method": "exact",
 		  "scoring_method_01": "partial"
+		},
+		{
+		  "type": "multi_select_two",
+		  "id": "21",
+		  "question": "Highlight the largest and smallest numbers.",
+		  "quantities": [
+			{ "id": "1", "value": 12 },
+			{ "id": "2", "value": 45 },
+			{ "id": "3", "value": 7 },
+			{ "id": "4", "value": 28 },
+			{ "id": "5", "value": 33 }
+		  ],
+		  "required_selections": [
+			{
+			  "label": "Smallest", "key": "smallest",
+			  "highlight_style": { "type": "color", "value": "red" }
+			},
+			{
+			  "label": "Greatest", "key": "greatest",
+			  "highlight_style": { "type": "shape", "value": "circle" }
+			}
+		  ],
+		  "correct_answer": { "smallest": "3", "greatest": "2" },
+		  "user_response": { "smallest": "", "greatest": "" },
+		  "available_highlight_styles": [
+			{ "type": "shape", "value": "circle", "description": "Encircle the selection" },
+			{ "type": "shape", "value": "square", "description": "Square border around selection" },
+			{ "type": "color", "value": "red", "description": "Fill background with red" },
+			{ "type": "color", "value": "green", "description": "Fill background with green" },
+			{ "type": "mark", "value": "tick", "description": "Place a tick mark next to the selection" }
+		  ],
+		  "explanation": "7 is the smallest number and 45 is the greatest number in the list.",
+		  "difficulty": "medium",
+		  "tags": ["math", "number_comparison"],
+		  "points": 2,
+		  "time_limit": 45
+		},
+		{
+		  "type": "short_answer",
+		  "id": "011",
+		  "question": "Name of person, place or thing",
+		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+		  "correct_answer": "Noun",
+		  "acceptable_variations": [
+			"A body remains in its state of rest or uniform motion unless compelled to change by an external force.",
+			"Objects maintain their velocity unless a force acts upon them."
+		  ],
+		  "user_response" : "",
+		  "difficulty": "hard",
+		  "tags": ["science", "physics", "newton"],
+		  "points": 2,
+		  "grading_rubric": {
+			"full_credit": "Includes both parts (rest and motion) and mentions external force",
+			"partial_credit": "Mentions only one part correctly",
+			"no_credit": "Completely incorrect or missing key concepts"
+		  }
 		}
     ]
 }
