@@ -113,7 +113,18 @@
     padding: 10px;
     text-align: center;
     vertical-align: middle;
+    line-height: 2;
 }
+
+.tabfib-table th sup, .tabfib-table th sub, .tabfib-table th math,
+.tabfib-table td sup, .tabfib-table td sub, .tabfib-table td math {
+    vertical-align: middle;
+}
+
+.tabfib-table th sup { vertical-align: super; font-size: 0.75em; }
+.tabfib-table th sub { vertical-align: sub;   font-size: 0.75em; }
+.tabfib-table td sup { vertical-align: super; font-size: 0.75em; }
+.tabfib-table td sub { vertical-align: sub;   font-size: 0.75em; }
 
 .tabfib-table th {
     background-color: #3498db;

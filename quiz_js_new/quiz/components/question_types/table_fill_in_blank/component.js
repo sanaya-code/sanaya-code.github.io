@@ -53,7 +53,7 @@ class TableFillInBlankRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvg(svgContent) {
@@ -95,8 +95,8 @@ class TableFillInBlankRenderer {
         headRow.appendChild(document.createElement('th'));
 
         colLabels.forEach(label => {
-            const th       = document.createElement('th');
-            th.textContent = label;
+            const th      = document.createElement('th');
+            th.innerHTML  = label;
             headRow.appendChild(th);
         });
 
@@ -112,8 +112,8 @@ class TableFillInBlankRenderer {
             const tr = document.createElement('tr');
 
             // Row label
-            const rowLabelTd       = document.createElement('td');
-            rowLabelTd.textContent = rowLabels[rowIdx] || '';
+            const rowLabelTd      = document.createElement('td');
+            rowLabelTd.innerHTML  = rowLabels[rowIdx] || '';
             tr.appendChild(rowLabelTd);
 
             row.forEach((cell, colIdx) => {
@@ -129,7 +129,7 @@ class TableFillInBlankRenderer {
                     td.appendChild(input);
                     inputEls.push(input);
                 } else {
-                    td.textContent = cell.value;
+                    td.innerHTML = cell.value;
                 }
 
                 tr.appendChild(td);
