@@ -49,7 +49,7 @@ class MultiSelectRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvg(svgContent) {

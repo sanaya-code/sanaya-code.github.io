@@ -146,3 +146,27 @@
         max-width: 100%;
     }
 }
+
+/* ── Rich content in labels ──────────────────────────────── */
+
+.ms-option label {
+    line-height: 1.8;
+}
+
+.ms-option label math,
+.ms-option label sup,
+.ms-option label sub {
+    vertical-align: baseline;
+}
+
+.ms-option label sup {
+    vertical-align: super;
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+.ms-option label sub {
+    vertical-align: sub;
+    font-size: 0.75em;
+    line-height: 0;
+}
