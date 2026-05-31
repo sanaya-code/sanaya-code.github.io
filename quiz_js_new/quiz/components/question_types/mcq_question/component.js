@@ -30,13 +30,13 @@ class McqRenderer {
     }
 
     cacheElements(host) {
-        const root          = host.querySelector('.mcq-question');
-        this._svgSection      = root.querySelector('[data-section="svg"]');
-        this._imageSection    = root.querySelector('[data-section="image"]');
-        this._questionEl      = root.querySelector('.mcq-question-text');
-        this._svgEl           = root.querySelector('.mcq-svg');
-        this._imageEl         = root.querySelector('.mcq-image');
-        this._optionsEl       = root.querySelector('.mcq-options');
+        const root         = host.querySelector('.mcq-question');
+        this._svgSection   = root.querySelector('[data-section="svg"]');
+        this._imageSection = root.querySelector('[data-section="image"]');
+        this._questionEl   = root.querySelector('.mcq-question-text');
+        this._svgEl        = root.querySelector('.mcq-svg');
+        this._imageEl      = root.querySelector('.mcq-image');
+        this._optionsEl    = root.querySelector('.mcq-options');
     }
 
     clear() {
@@ -49,7 +49,7 @@ class McqRenderer {
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.textContent = question;
+        this._questionEl.innerHTML = question;
     }
 
     setSvg(svgContent) {
