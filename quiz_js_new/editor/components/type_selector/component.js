@@ -1,0 +1,97 @@
+// editor/components/type_selector/component.js
+
+class TypeSelectorComponent extends HTMLElement {
+
+  connectedCallback() {
+    this._types  = EditorConfig.SUPPORTED_TYPES;
+    this._query  = '';
+    this._render();
+    this._bindEvents();
+    this.querySelector('.ts-search').focus();
+  }
+
+  // ── Render shell ────────────────────────────────────
+  _render() {
+    this.innerHTML = `
+      <div class="type-selector">
+        <div class="ts-heading">
+          Select Question Type
+          <span>${this._types.length} types available</span>
+        </div>
+
+        <div class="ts-search-wrap">
+          <span class="ts-search-icon">🔍</span>
+          <input
+            class="ts-search"
+            type="text"
+            placeholder="Search question types..."
+            value="${this._query}"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="ts-grid">
+          ${this._renderCards()}
+        </div>
+
+        <div class="ts-skip-note">
+          💡 To mark a question as <strong>skip</strong>, open the question
+          and use the <em>Mark as Skip</em> button in the editor form.
+        </div>
+      </div>
+    `;
+  }
+
+  // ── Render filtered cards ───────────────────────────
+  _renderCards() {
+    const q        = this._query.toLowerCase().trim();
+    const filtered = q
+      ? this._types.filter(t =>
+          t.label.toLowerCase().includes(q)       ||
+          t.description.toLowerCase().includes(q) ||
+          t.type.toLowerCase().includes(q)
+        )
+      : this._types;
+
+    if (filtered.length === 0) {
+      return `
+        <div class="ts-empty">
+          <div class="ts-empty-icon">🔍</div>
+          <p>No question types found for <strong>"${this._query}"</strong></p>
+        </div>
+      `;
+    }
+
+    return filtered.map(t => `
+      <div class="ts-card" data-type="${t.type}">
+        <span class="ts-badge" style="background:${t.color}">${t.label}</span>
+        <div class="ts-card-label">${t.label}</div>
+        <div class="ts-card-desc">${t.description}</div>
+      </div>
+    `).join('');
+  }
+
+  // ── Events ──────────────────────────────────────────
+  _bindEvents() {
+    this.querySelector('.ts-search').addEventListener('input', (e) => {
+      this._query = e.target.value;
+      this.querySelector('.ts-grid').innerHTML = this._renderCards();
+      this._bindCardEvents();
+    });
+    this._bindCardEvents();
+  }
+
+  _bindCardEvents() {
+    this.querySelectorAll('.ts-card').forEach(card => {
+      card.addEventListener('click', () => {
+        this.dispatchEvent(new CustomEvent('type-selected', {
+          bubbles: true,
+          detail: { type: card.dataset.type }
+        }));
+      });
+    });
+  }
+
+}
+
+customElements.define('type-selector', TypeSelectorComponent);

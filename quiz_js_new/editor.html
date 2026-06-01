@@ -1,0 +1,79 @@
+<!-- editor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Editor</title>
+  <link rel="stylesheet" href="editor/style.css" />
+  <link rel="stylesheet" href="editor/components/type_selector/style.css" />
+  <link rel="stylesheet" href="editor/components/question_list/style.css" />
+</head>
+<body>
+
+  <!-- ── Topbar ──────────────────────────────────────── -->
+  <header id="topbar">
+    <div class="app-title">quiz<span>.</span>editor</div>
+    <div class="topbar-sep"></div>
+    <button class="btn btn-primary" id="btn-add-question">+ Add Question</button>
+    <div class="topbar-right">
+      <button class="btn btn-ghost" id="btn-load-json">Load JSON</button>
+      <button class="btn btn-ghost" id="btn-export-json">Export JSON</button>
+    </div>
+  </header>
+
+  <!-- ── Empty State ─────────────────────────────────── -->
+  <div id="empty-state">
+    <div class="empty-title">quiz<span>.</span>editor</div>
+    <div class="empty-subtitle">Create and edit quiz question banks</div>
+    <div class="empty-actions">
+      <button class="btn btn-empty-primary" id="btn-es-load">
+        Load JSON File
+      </button>
+      <button class="btn btn-empty-secondary" id="btn-es-fresh">
+        Start Fresh
+      </button>
+      <button class="btn btn-empty-draft hidden" id="btn-es-resume">
+        Resume Draft
+      </button>
+    </div>
+  </div>
+
+  <!-- ── 3-Panel Shell ───────────────────────────────── -->
+  <div id="shell" class="hidden">
+
+    <!-- Left panel — question list -->
+    <div id="panel-left">
+      <div class="panel-header">Questions</div>
+      <question-list id="question-list"></question-list>
+    </div>
+
+    <!-- Middle panel — editor form / type selector -->
+    <div id="panel-middle">
+      <div class="middle-placeholder">
+        <div class="placeholder-icon">✦</div>
+        <p>Click <strong>+ Add Question</strong><br>to get started</p>
+      </div>
+    </div>
+
+    <!-- Right panel — preview -->
+    <div id="panel-right">
+      <div class="panel-header">Preview</div>
+      <div class="preview-placeholder">
+        <div class="placeholder-icon">◎</div>
+        <p>Save a question to<br>see the live preview</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Scripts ─────────────────────────────────────── -->
+  <script src="editor/config.js"></script>
+  <script src="editor/state.js"></script>
+  <script src="editor/components/type_selector/component.js"></script>
+  <script src="editor/components/question_list/component.js"></script>
+  <script src="editor/event_handler/question_list/handler.js"></script>
+  <script src="editor/controller.js"></script>
+
+</body>
+</html>
