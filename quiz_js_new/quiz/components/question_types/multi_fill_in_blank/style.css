@@ -1,0 +1,153 @@
+/* ── Multi Fill In Blank — self-contained styles ──────────── */
+/* All classes prefixed with `mfib-` */
+
+/* ── Question wrapper ────────────────────────────────────── */
+
+.mfib-question {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ── Collapsible sections ─────────────────────────────────── */
+
+.mfib-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.mfib-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    background-color: #e0f0ff;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s;
+}
+
+.mfib-section-header:hover { background-color: #ebebeb; }
+.mfib-section-header::after { content: '▲'; font-size: 0.75rem; color: #888; }
+.mfib-section.mfib-collapsed .mfib-section-header::after { content: '▼'; }
+.mfib-section-body { padding: 12px 14px; }
+.mfib-section.mfib-collapsed .mfib-section-body { display: none; }
+
+/* ── SVG figure ───────────────────────────────────────────── */
+
+.mfib-svg-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.mfib-svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Image figure ─────────────────────────────────────────── */
+
+.mfib-figure {
+    margin: 0 auto 20px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.mfib-figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Question text with inline blanks ────────────────────── */
+
+.mfib-question-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    font-family: sans-serif;
+    color: #003366;
+    background-color: #e0f0ff;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.mfib-question-text sup,
+.mfib-question-text sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.mfib-question-text sup { top: -0.5em; }
+.mfib-question-text sub { bottom: -0.25em; }
+.mfib-question-text math { vertical-align: middle; }
+
+/* ── Blank span ──────────────────────────────────────────── */
+
+.mfib-blank {
+    display: inline;
+    color: red;
+    cursor: pointer;
+    padding: 0 4px;
+    border-bottom: 1px dashed #aaa;
+}
+
+.mfib-blank:hover {
+    background-color: #fff3f3;
+    border-radius: 2px;
+}
+
+.mfib-blank.mfib-filled {
+    color: #333;
+    border-bottom-color: #555;
+}
+
+/* ── Inline input ─────────────────────────────────────────── */
+
+.mfib-input {
+    display: inline;
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 80px;
+    width: 20ch;
+    max-width: 20ch;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .mfib-question { padding: 12px; }
+    .mfib-question-text { font-size: 20px; word-spacing: 8px; }
+    .mfib-figure img { max-width: 100%; }
+}

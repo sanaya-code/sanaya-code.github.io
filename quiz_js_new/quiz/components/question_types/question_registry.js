@@ -34,6 +34,7 @@ QuestionRegistry.register('image_compare_quantities_tick',         'compare-imag
 QuestionRegistry.register('fill_in_blank', 'fill-in-blank', FillInBlankEvaluator);
 QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
 QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
+QuestionRegistry.register('multi_fill_in_blank', 'multi-fill-in-blank', MultiFillInBlankEvaluator);
 
 QuestionRegistry.register('matching_drag_drop',  'matching-select',    MatchingSelectEvaluator);
 QuestionRegistry.register('matching_select',     'matching-select',    MatchingSelectEvaluator);
