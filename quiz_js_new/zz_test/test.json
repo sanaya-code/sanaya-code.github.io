@@ -607,6 +607,53 @@
 		  "difficulty": "hard",
 		  "tags": ["history", "inventions"],
 		  "points": 2
+		},
+		{
+		  "type": "image_compare_quantities_tick",
+		  "id": "019",
+		  "question": "Tick which are more in number.",
+		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
+		  "partition_direction": "vertical",
+		  "tick_zones": { "left": "top_left","right": "top_right" },
+		  "tick_zones_01": { "top": "top_right","bottom": "bottom_right" },
+		  "user_response": null,
+		  "correct_answer": "left",
+		  "feedback": {
+			"correct": "Correct! You picked the side with more objects.",
+			"incorrect": " Try again. Count the objects carefully."
+		  },
+		  "difficulty": "easy",
+		  "tags": ["counting", "visual reasoning", "comparison"],
+		  "points": 1,
+		  "description": [
+			"tick box position are top_right, bottom_right, top_left, bottom_left",
+			"partition_direction can be vertical or horizontal",
+			"Use viewBox and avoid fixed widths in svg",
+			"user response can be left, right, null, top, bottom"
+		  ],
+		  "guidelines": {
+			"svg_creation": [
+			  "Use viewBox='0 0 300 150'",
+			  "Set width='100%' with max-width in style",
+			  "Place objects 20-30% from edges",
+			  "Use contrasting colors for visibility",
+			  "Include <title> and <desc> for accessibility"
+			]
+		  }
+		},    
+		{
+		  "type": "fill_in_blank",
+		  "id": "004",
+		  "question": "Solid state of water is called ____.",
+		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+		  "correct_answer": "ice",
+		  "acceptable_answers": ["ice", "water"],
+		  "user_response" : "",
+		  "case_sensitive": false,
+		  "difficulty": "medium",
+		  "tags": ["science", "physics", "states-of-matter"],
+		  "points": 1.5
 		}
     ]
 }
