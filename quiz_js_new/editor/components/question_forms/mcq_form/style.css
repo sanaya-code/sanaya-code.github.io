@@ -60,10 +60,7 @@
   font-weight: 500;
   transition: background 0.15s, color 0.15s;
 }
-
-.btn-skip:hover {
-  background: rgba(127,140,141,0.12);
-}
+.btn-skip:hover { background: rgba(127,140,141,0.12); }
 
 .btn-unskip {
   background: transparent;
@@ -77,10 +74,7 @@
   font-weight: 500;
   transition: background 0.15s;
 }
-
-.btn-unskip:hover {
-  background: var(--accent-light);
-}
+.btn-unskip:hover { background: var(--accent-light); }
 
 /* ── Scrollable form body ────────────────────────────── */
 
@@ -140,7 +134,7 @@
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
-/* ── Live render preview ─────────────────────────────── */
+/* ── On-focus preview box ────────────────────────────── */
 
 .mcf-render-preview {
   padding: 10px 12px;
@@ -152,6 +146,12 @@
   color: var(--text-primary);
   line-height: 1.6;
   word-break: break-word;
+  display: none;          /* hidden until focused */
+  animation: mcf-fadein 0.15s ease;
+}
+
+.mcf-render-preview.visible {
+  display: block;
 }
 
 .mcf-render-preview:empty::before {
@@ -159,6 +159,11 @@
   color: var(--text-muted);
   font-style: italic;
   font-size: 12px;
+}
+
+@keyframes mcf-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Text input ──────────────────────────────────────── */
@@ -181,6 +186,56 @@
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.mcf-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.mcf-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.mcf-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.mcf-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.mcf-collapsible.open .mcf-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.mcf-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.mcf-collapsible.open .mcf-collapsible-body {
+  display: flex;
+}
+
 /* ── SVG preview ─────────────────────────────────────── */
 
 .mcf-svg-preview {
@@ -191,7 +246,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80px;
+  min-height: 60px;
 }
 
 .mcf-svg-preview svg {
@@ -245,10 +300,7 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-
-.mcf-remove-btn:hover {
-  background: var(--danger-light);
-}
+.mcf-remove-btn:hover { background: var(--danger-light); }
 
 /* ── Options section ─────────────────────────────────── */
 
@@ -273,77 +325,53 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-
-.mcf-add-option-btn:hover {
-  background: #b8d9f5;
-}
+.mcf-add-option-btn:hover { background: #b8d9f5; }
 
 .mcf-options-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 /* ── Option row ──────────────────────────────────────── */
 
 .mcf-option-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   background: var(--bg-card);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 8px 10px;
+  padding: 7px 10px;
   transition: border-color 0.15s;
 }
 
-.mcf-option-row:hover {
-  border-color: var(--border-focus);
-}
-
-.mcf-option-row.drag-over {
-  border-color: var(--accent-2);
-  border-style: dashed;
-}
-
-.mcf-option-row.dragging {
-  opacity: 0.4;
-}
+.mcf-option-row:hover       { border-color: var(--border-focus); }
+.mcf-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.mcf-option-row.dragging    { opacity: 0.4; }
+.mcf-option-row.focused-row { border-color: var(--accent); background: var(--accent-light); }
 
 .mcf-drag-handle {
   cursor: grab;
   color: var(--text-muted);
   font-size: 16px;
-  padding: 4px 2px;
+  padding: 2px;
   flex-shrink: 0;
   line-height: 1;
-  margin-top: 2px;
 }
-
-.mcf-drag-handle:active {
-  cursor: grabbing;
-}
+.mcf-drag-handle:active { cursor: grabbing; }
 
 .mcf-correct-radio {
   flex-shrink: 0;
-  margin-top: 6px;
   accent-color: var(--accent);
   width: 16px;
   height: 16px;
   cursor: pointer;
 }
 
-.mcf-option-inputs {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-}
-
 .mcf-option-text {
-  width: 100%;
-  padding: 7px 10px;
+  flex: 1;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
   background: #fff;
@@ -352,29 +380,9 @@
   color: var(--text-primary);
   outline: none;
   transition: border-color 0.15s;
+  min-width: 0;
 }
-
-.mcf-option-text:focus {
-  border-color: var(--border-focus);
-}
-
-.mcf-option-render {
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: #fff;
-  font-size: 12px;
-  color: var(--text-secondary);
-  min-height: 28px;
-  line-height: 1.5;
-  word-break: break-word;
-}
-
-.mcf-option-render:empty::before {
-  content: 'Preview...';
-  color: var(--text-muted);
-  font-style: italic;
-}
+.mcf-option-text:focus { border-color: var(--border-focus); }
 
 .mcf-option-delete {
   background: none;
@@ -385,16 +393,58 @@
   padding: 4px 6px;
   border-radius: 4px;
   flex-shrink: 0;
-  margin-top: 2px;
   transition: color 0.15s, background 0.15s;
 }
-
 .mcf-option-delete:hover {
   color: var(--danger);
   background: var(--danger-light);
 }
 
-/* ── Two-column row (points + time_limit) ────────────── */
+/* ── Shared option preview box ───────────────────────── */
+
+.mcf-option-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: mcf-fadein 0.15s ease;
+}
+
+.mcf-option-preview-box.visible {
+  display: flex;
+}
+
+.mcf-option-preview-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.mcf-option-preview-content {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 34px;
+  word-break: break-word;
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.mcf-error {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.mcf-error.visible { display: block; }
+
+/* ── Two-column row ──────────────────────────────────── */
 
 .mcf-row-2 {
   display: grid;
@@ -417,26 +467,9 @@
   cursor: pointer;
   transition: border-color 0.15s;
 }
-
 .mcf-select:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
-}
-
-/* ── Validation error ────────────────────────────────── */
-
-.mcf-error {
-  font-size: 12px;
-  color: var(--danger);
-  padding: 8px 12px;
-  background: var(--danger-light);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--danger);
-  display: none;
-}
-
-.mcf-error.visible {
-  display: block;
 }
 
 /* ── Save footer ─────────────────────────────────────── */
@@ -464,7 +497,6 @@
   transition: opacity 0.15s, box-shadow 0.15s;
   box-shadow: 0 2px 8px rgba(52,152,219,0.25);
 }
-
 .btn-save:hover {
   opacity: 0.9;
   box-shadow: 0 3px 12px rgba(52,152,219,0.35);
@@ -475,15 +507,32 @@
   color: var(--text-muted);
 }
 
-/* ── Disabled state (when marked as skip) ────────────── */
+/* ── Disabled state when marked as skip ──────────────── */
 
 .mcf-body.is-skip .mcf-field,
-.mcf-body.is-skip .mcf-options-header {
+.mcf-body.is-skip .mcf-options-header,
+.mcf-body.is-skip .mcf-collapsible,
+.mcf-body.is-skip .mcf-footer {
   opacity: 0.45;
   pointer-events: none;
 }
 
-.mcf-body.is-skip .mcf-footer {
-  opacity: 0.45;
-  pointer-events: none;
+/* ── Height chain fix ────────────────────────────────── */
+/* mcq-form is a custom element — must propagate height correctly */
+
+mcq-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.mcq-form {
+  min-height: 0;
+}
+
+/* This is the key fix — without min-height:0 on a flex child,
+   overflow:auto has nothing to scroll against */
+.mcf-body {
+  min-height: 0;
 }

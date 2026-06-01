@@ -12,9 +12,9 @@ const EditorController = (() => {
   const btnLoadJson    = document.getElementById('btn-load-json');
   const btnExportJson  = document.getElementById('btn-export-json');
 
-  // ── Component + handler refs ──────────────────────────
-  let _listHandler   = null;
-  let _panelHandler  = null;
+  // ── Handler refs ──────────────────────────────────────
+  let _listHandler      = null;
+  let _panelHandler     = null;
   let _typeSelectorOpen = false;
 
   // ── Init ──────────────────────────────────────────────
@@ -26,36 +26,31 @@ const EditorController = (() => {
 
   // ── Draft detection ───────────────────────────────────
   function _checkDraft() {
-    const hasDraft = !!localStorage.getItem(EditorConfig.STORAGE_KEY);
-    if (hasDraft) btnEsResume.classList.remove('hidden');
+    if (localStorage.getItem(EditorConfig.STORAGE_KEY)) {
+      btnEsResume.classList.remove('hidden');
+    }
   }
 
   // ── Wire components + handlers ────────────────────────
   function _initComponents() {
-    const listEl    = document.getElementById('question-list');
-    const panelEl   = document.getElementById('editor-panel');
-    const previewEl = document.getElementById('preview-panel');
+    const listEl  = document.getElementById('question-list');
+    const panelEl = document.getElementById('editor-panel');
 
-    // Instantiate handlers — cross-wire them
     _listHandler  = new QuestionListHandler(listEl, EditorState, null);
-    _panelHandler = new EditorPanelHandler(panelEl, previewEl, EditorState, _listHandler);
-
-    // Give list handler a reference to panel handler (for card click → load form)
+    _panelHandler = new EditorPanelHandler(panelEl, EditorState, _listHandler);
     _listHandler._panelHandler = _panelHandler;
 
-    // When a question card is clicked, load its form
+    // Card selected → load question into editor panel
     listEl.addEventListener('question-selected', (e) => {
       const { index } = e.detail;
       EditorState.setActiveIndex(index);
-      const q = EditorState.getQuestion(index);
-      _panelHandler.loadQuestion(index, q);
+      _panelHandler.loadQuestion(index, EditorState.getQuestion(index));
     });
 
-    // When active question is deleted, clear middle + preview
+    // Last question deleted → show placeholder
     listEl.addEventListener('question-deleted', () => {
       if (EditorState.getQuestions().length === 0) {
-        _showMiddlePlaceholder();
-        previewEl.clear();
+        document.getElementById('editor-panel').clear();
       }
     });
   }
@@ -65,33 +60,25 @@ const EditorController = (() => {
     emptyState.classList.add('hidden');
     shell.classList.remove('hidden');
     _listHandler.refresh();
-    _showMiddlePlaceholder();
+    document.getElementById('editor-panel').clear();
   }
 
-  // ── Middle panel helpers ──────────────────────────────
-  function _showMiddlePlaceholder() {
-    const panelEl = document.getElementById('editor-panel');
-    panelEl.innerHTML = `
-      <div class="middle-placeholder">
-        <div class="placeholder-icon">✦</div>
-        <p>Click <strong>+ Add Question</strong><br>to get started</p>
-      </div>
-    `;
-    _typeSelectorOpen = false;
-  }
-
+  // ── Type selector ─────────────────────────────────────
   function _showTypeSelector() {
     const panelEl = document.getElementById('editor-panel');
     panelEl.innerHTML = '<type-selector></type-selector>';
-
-    // type-selected fires from within editor-panel
     panelEl.addEventListener('type-selected', _handleTypeSelected, { once: true });
     _typeSelectorOpen = true;
   }
 
+  function _showEditorPlaceholder() {
+    document.getElementById('editor-panel').clear();
+    _typeSelectorOpen = false;
+  }
+
   function _handleTypeSelected(e) {
-    const { type }  = e.detail;
-    const index     = EditorState.addUnsavedQuestion(type);
+    const { type } = e.detail;
+    const index    = EditorState.addUnsavedQuestion(type);
     _listHandler.refresh(index);
     _panelHandler.loadNewQuestion(type, index);
     _typeSelectorOpen = false;
@@ -110,7 +97,7 @@ const EditorController = (() => {
     });
 
     btnEsResume.addEventListener('click', () => {
-      console.log('[EditorController] Resume Draft — Stage 5');
+      console.log('[EditorController] Resume Draft — Stage 7');
       _enterEditor();
     });
 
@@ -123,11 +110,7 @@ const EditorController = (() => {
     });
 
     btnAddQuestion.addEventListener('click', () => {
-      if (_typeSelectorOpen) {
-        _showMiddlePlaceholder();
-      } else {
-        _showTypeSelector();
-      }
+      _typeSelectorOpen ? _showEditorPlaceholder() : _showTypeSelector();
     });
 
   }
@@ -136,5 +119,4 @@ const EditorController = (() => {
 
 })();
 
-// Boot
 document.addEventListener('DOMContentLoaded', () => EditorController.init());

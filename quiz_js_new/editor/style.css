@@ -9,7 +9,6 @@
 }
 
 :root {
-  /* Ocean blue palette */
   --bg:              #e0f0ff;
   --bg-panel:        #c8e4fa;
   --bg-card:         #ffffff;
@@ -30,7 +29,6 @@
   --unsaved-dot:     #e07a22;
   --topbar-h:        52px;
   --left-w:          260px;
-  --right-w:         340px;
   --font-sans:       'DM Sans', sans-serif;
   --font-mono:       'DM Mono', monospace;
   --radius:          8px;
@@ -72,9 +70,7 @@ html, body {
   margin-right: 8px;
 }
 
-#topbar .app-title span {
-  color: #a8d8f8;
-}
+#topbar .app-title span { color: #a8d8f8; }
 
 .topbar-sep {
   width: 1px;
@@ -106,18 +102,15 @@ html, body {
   white-space: nowrap;
 }
 
-/* Topbar primary — white pill on blue bar */
 .btn-primary {
   background: #fff;
   color: var(--accent);
-  border: none;
 }
 .btn-primary:hover {
   background: var(--accent-light);
   box-shadow: 0 1px 6px rgba(0,0,0,0.12);
 }
 
-/* Topbar ghost — translucent on blue bar */
 .btn-ghost {
   background: rgba(255,255,255,0.15);
   color: #fff;
@@ -128,7 +121,6 @@ html, body {
   border-color: rgba(255,255,255,0.6);
 }
 
-/* Inline danger */
 .btn-danger {
   background: transparent;
   color: var(--danger);
@@ -139,17 +131,7 @@ html, body {
   border-color: var(--danger);
 }
 
-/* Generic panel button (blue outline) */
-.btn-panel {
-  background: #fff;
-  color: var(--accent);
-  border: 1.5px solid var(--border-focus);
-}
-.btn-panel:hover {
-  background: var(--accent-light);
-}
-
-/* ── Shell (3-panel layout) ─────────────────────────── */
+/* ── Shell — 2-panel layout (left + middle) ─────────── */
 
 #shell {
   display: flex;
@@ -173,17 +155,9 @@ html, body {
 #panel-middle {
   flex: 1;
   background: var(--bg);
-  overflow-y: auto;
+  overflow: clip;
   display: flex;
   flex-direction: column;
-}
-
-#panel-right {
-  width: var(--right-w);
-  min-width: var(--right-w);
-  background: var(--bg-panel);
-  border-left: 1.5px solid var(--border);
-  overflow-y: auto;
 }
 
 /* ── Panel headers ───────────────────────────────────── */
@@ -210,13 +184,11 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0;
   z-index: 50;
 }
 
 #empty-state.hidden { display: none; }
 
-/* Decorative background circles */
 #empty-state::before {
   content: '';
   position: absolute;
@@ -248,9 +220,7 @@ html, body {
   z-index: 1;
 }
 
-.empty-title span {
-  color: var(--accent);
-}
+.empty-title span { color: var(--accent); }
 
 .empty-subtitle {
   font-size: 14px;
@@ -304,34 +274,7 @@ html, body {
   color: var(--success);
   border: 1.5px solid var(--success);
 }
-.btn-empty-draft:hover {
-  background: rgba(39,174,122,0.08);
-}
-
-/* ── Right panel placeholder ─────────────────────────── */
-
-.preview-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  gap: 10px;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.preview-placeholder .placeholder-icon {
-  font-size: 32px;
-  opacity: 0.4;
-  color: var(--accent);
-}
-
-.preview-placeholder p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
+.btn-empty-draft:hover { background: rgba(39,174,122,0.08); }
 
 /* ── Middle panel placeholder ────────────────────────── */
 
@@ -358,9 +301,7 @@ html, body {
   color: var(--text-muted);
 }
 
-.middle-placeholder strong {
-  color: var(--accent);
-}
+.middle-placeholder strong { color: var(--accent); }
 
 /* ── Scrollbar ───────────────────────────────────────── */
 
@@ -368,3 +309,19 @@ html, body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Custom element height chain ─────────────────────── */
+/* Each custom element must fill its parent to pass height down */
+
+#panel-middle {
+  min-height: 0;   /* critical — prevents flex child from overflowing */
+}
+
+editor-panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+  height: 100%;
+}

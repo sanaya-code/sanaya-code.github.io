@@ -3,14 +3,12 @@
 class EditorPanelHandler {
 
   /**
-   * @param {EditorPanelComponent}  panelComponent
-   * @param {PreviewPanelComponent} previewComponent
-   * @param {EditorState}           state
-   * @param {QuestionListHandler}   listHandler
+   * @param {EditorPanelComponent} panelComponent
+   * @param {EditorState}          state
+   * @param {QuestionListHandler}  listHandler
    */
-  constructor(panelComponent, previewComponent, state, listHandler) {
+  constructor(panelComponent, state, listHandler) {
     this._panel       = panelComponent;
-    this._preview     = previewComponent;
     this._state       = state;
     this._listHandler = listHandler;
     this._bindEvents();
@@ -18,14 +16,10 @@ class EditorPanelHandler {
 
   // ── Public API ───────────────────────────────────────
 
-  // Called by QuestionListHandler or EditorController
   loadQuestion(index, question) {
     this._panel.loadQuestion(index, question);
-    // Clear preview when switching questions — restored on save
-    this._preview.clear();
   }
 
-  // Called by EditorController when a new type is selected
   loadNewQuestion(type, index) {
     const template = Object.assign(
       {},
@@ -33,7 +27,6 @@ class EditorPanelHandler {
       { _unsaved: true }
     );
     this._panel.loadQuestion(index, template);
-    this._preview.clear();
   }
 
   // ── Events ──────────────────────────────────────────
@@ -48,33 +41,32 @@ class EditorPanelHandler {
   // ── Save flow ────────────────────────────────────────
 
   _handleQuestionSaved(index, questionData) {
-    // 1. Persist to state (also reassigns all IDs)
+    // 1. Persist to state — also reassigns all IDs
     this._state.saveQuestion(index, questionData);
 
-    // 2. Refresh the question list, keeping saved card active
+    // 2. Refresh question list keeping saved card active
     this._listHandler.refresh(index);
 
-    // 3. Render live preview using existing quiz component
+    // 3. Switch to Preview tab — passes saved question to panel
     const saved = this._state.getQuestion(index);
-    this._preview.show(saved);
+    this._panel.showPreviewTab(saved);
 
     // 4. Persist draft to localStorage
     this._saveDraft();
 
-    console.log('[EditorPanelHandler] Saved question at index', index, saved);
+    console.log('[EditorPanelHandler] Saved index', index, saved);
   }
 
-  // ── Draft persistence ─────────────────────────────────
+  // ── Draft persistence ────────────────────────────────
 
   _saveDraft() {
     try {
-      const draft = {
-        questions:   this._state.exportQuestions(),
-        savedAt:     new Date().toISOString(),
-      };
       localStorage.setItem(
         EditorConfig.STORAGE_KEY,
-        JSON.stringify(draft)
+        JSON.stringify({
+          questions: this._state.exportQuestions(),
+          savedAt:   new Date().toISOString(),
+        })
       );
     } catch (e) {
       console.warn('[EditorPanelHandler] Draft save failed:', e);
