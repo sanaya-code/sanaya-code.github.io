@@ -11,6 +11,8 @@ const EditorController = (() => {
   const btnAddQuestion = document.getElementById('btn-add-question');
   const btnLoadJson    = document.getElementById('btn-load-json');
   const btnExportJson  = document.getElementById('btn-export-json');
+  const fileInput      = document.getElementById('file-input');
+  const esLoadError    = document.getElementById('es-load-error');
 
   // ── Handler refs ──────────────────────────────────────
   let _listHandler      = null;
@@ -61,9 +63,73 @@ const EditorController = (() => {
     shell.classList.remove('hidden');
     _listHandler.refresh();
     document.getElementById('editor-panel').clear();
+    _typeSelectorOpen = false;
+  }
+
+  // ── Load JSON helpers ─────────────────────────────────
+
+  function _triggerFilePicker(onSuccess) {
+    // Reset so same file can be re-picked
+    fileInput.value = '';
+    fileInput.onchange = async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        const questions = await JsonLoader.loadFromFile(file);
+        onSuccess(questions);
+      } catch (err) {
+        _showLoadError(err.message);
+      }
+    };
+    fileInput.click();
+  }
+
+  function _loadQuestions(questions) {
+    EditorState.reset();
+    EditorState.loadQuestions(questions);
+    _hideLoadError();
+    _enterEditor();
+  }
+
+  function _showLoadError(msg) {
+    esLoadError.textContent = '⚠ ' + msg;
+    esLoadError.classList.remove('hidden');
+  }
+
+  function _hideLoadError() {
+    esLoadError.classList.add('hidden');
+    esLoadError.textContent = '';
+  }
+
+  // ── Resume draft ──────────────────────────────────────
+
+  function _resumeDraft() {
+    try {
+      const raw   = localStorage.getItem(EditorConfig.STORAGE_KEY);
+      if (!raw) return;
+      const draft = JSON.parse(raw);
+      const questions = Array.isArray(draft.questions) ? draft.questions : [];
+      EditorState.reset();
+      EditorState.loadQuestions(questions);
+      _enterEditor();
+    } catch (e) {
+      _showLoadError('Failed to resume draft: ' + e.message);
+    }
+  }
+
+  // ── Export ────────────────────────────────────────────
+
+  function _exportJson() {
+    const questions = EditorState.exportQuestions();
+    if (questions.length === 0) {
+      alert('No questions to export.');
+      return;
+    }
+    JsonExporter.download(questions);
   }
 
   // ── Type selector ─────────────────────────────────────
+
   function _showTypeSelector() {
     const panelEl = document.getElementById('editor-panel');
     panelEl.innerHTML = '<type-selector></type-selector>';
@@ -87,28 +153,43 @@ const EditorController = (() => {
   // ── Event bindings ────────────────────────────────────
   function _bindEvents() {
 
+    // Empty state — Load JSON File
+    btnEsLoad.addEventListener('click', () => {
+      _hideLoadError();
+      _triggerFilePicker(_loadQuestions);
+    });
+
+    // Empty state — Start Fresh
     btnEsFresh.addEventListener('click', () => {
       EditorState.reset();
+      _hideLoadError();
       _enterEditor();
     });
 
-    btnEsLoad.addEventListener('click', () => {
-      console.log('[EditorController] Load JSON — Stage 7');
-    });
-
+    // Empty state — Resume Draft
     btnEsResume.addEventListener('click', () => {
-      console.log('[EditorController] Resume Draft — Stage 7');
-      _enterEditor();
+      _resumeDraft();
     });
 
+    // Topbar — Load JSON (available inside editor too)
     btnLoadJson.addEventListener('click', () => {
-      console.log('[EditorController] Topbar Load JSON — Stage 7');
+      _triggerFilePicker((questions) => {
+        if (EditorState.getQuestions().length > 0) {
+          if (!confirm(
+            'Loading a new file will replace your current questions.\n' +
+            'Unsaved changes will be lost. Continue?'
+          )) return;
+        }
+        _loadQuestions(questions);
+      });
     });
 
+    // Topbar — Export JSON
     btnExportJson.addEventListener('click', () => {
-      console.log('[EditorController] Topbar Export JSON — Stage 7');
+      _exportJson();
     });
 
+    // Topbar — Add Question
     btnAddQuestion.addEventListener('click', () => {
       _typeSelectorOpen ? _showEditorPlaceholder() : _showTypeSelector();
     });

@@ -325,3 +325,21 @@ editor-panel {
   overflow: clip;
   height: 100%;
 }
+
+/* ── Empty state load error ──────────────────────────── */
+
+.es-load-error {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--danger-light);
+  border: 1.5px solid var(--danger);
+  border-radius: var(--radius-sm);
+  color: var(--danger);
+  font-size: 13px;
+  max-width: 320px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.es-load-error.hidden { display: none; }

@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "Quiz Question Bank",
+    "description": "Exported from Quiz Editor",
+    "version": "2.0",
+    "created": "2026-06-01",
+    "last_modified": "2026-06-01",
+    "author": "",
+    "license": "CC BY-SA 4.0",
+    "total_questions": 3
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "apple  A",
+      "svg_content": "",
+      "img_url": "data/school/c1_miriam/images/clock_01.jpg",
+      "options": [
+        {
+          "id": "A",
+          "text": "cat"
+        },
+        {
+          "id": "B",
+          "text": "dog"
+        },
+        {
+          "id": "C",
+          "text": "bat"
+        }
+      ],
+      "correct_answer": "B",
+      "user_response": "",
+      "explanation": "no explanation A",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "001"
+    },
+    {
+      "type": "mcq",
+      "question": "Bat B",
+      "svg_content": "<svg width=\"300\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"200\" height=\"100\" x=\"10\" y=\"10\" rx=\"20\" ry=\"20\" fill=\"blue\" />\n</svg>",
+      "img_url": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "Manoj"
+        },
+        {
+          "id": "B",
+          "text": "Dheeraj"
+        },
+        {
+          "id": "C",
+          "text": "rahul"
+        }
+      ],
+      "correct_answer": "C",
+      "user_response": "",
+      "explanation": "no explanation B",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "002"
+    },
+    {
+      "type": "mcq",
+      "question": "Cat Cipla",
+      "svg_content": "",
+      "img_url": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ball"
+        },
+        {
+          "id": "B",
+          "text": "Bat"
+        },
+        {
+          "id": "C",
+          "text": "Stumps"
+        }
+      ],
+      "correct_answer": "A",
+      "user_response": "",
+      "explanation": "No explanation C",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "003"
+    }
+  ]
+}
