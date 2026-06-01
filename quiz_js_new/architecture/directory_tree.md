@@ -1,11 +1,13 @@
 # Quiz App Directory Structure
 
-```
-quiz_app/
+``` 
+quiz_app/  
 ├── index.html
 ├── quiz.html
+├── editor.html
 ├── home/
-└── quiz/
+├── quiz/
+└── editor/
 ```
 
 ---
@@ -112,34 +114,52 @@ quiz/
 
 ```
 
-editor/
-├── config.js
-├── state.js
-├── controller.js
-├── style.css
-├── storage/
-│   └── local_storage_service.js
-├── event_handler                   ← Top-level events (load, export, add, save)
-│   │   ├── question_list/              
-│   │   ├── editor_panel/             
-│   │   ├── preview_panel/             ←
-│   │   └── question_forms/            ← One directory per question 
-├── utils/
-│   ├── json_loader.js
-│   └── json_exporter.js
-└── components/
-    ├── question_list/
-    │   ├── component.js
-    │   └── style.css
-    ├── editor_panel/
-    │   ├── component.js
-    │   └── style.css
-    ├── preview_panel/
-    │   ├── component.js
-    │   └── style.css
-    └── question_forms/
-        └── mcq_form/
-            ├── component.js
-            └── style.css
+quiz_app/
+│
+├── index.html
+├── quiz.html
+├── editor.html
+│
+├── home/
+│
+├── quiz/
+│
+└── editor/
+    ├── config.js
+    ├── state.js
+    ├── controller.js
+    ├── style.css
+    │
+    ├── storage/
+    │   └── local_storage_service.js
+    │
+    ├── utils/
+    │   ├── json_loader.js
+    │   └── json_exporter.js
+    │
+    ├── event_handler/
+    │   ├── question_list/
+    │   │   └── handler.js
+    │   ├── editor_panel/
+    │   │   └── handler.js
+    │   └── preview_panel/
+    │       └── handler.js
+    │
+    └── components/
+        ├── question_list/
+        │   ├── component.js
+        │   └── style.css
+        ├── editor_panel/
+        │   ├── component.js
+        │   └── style.css
+        ├── preview_panel/
+        │   ├── component.js
+        │   └── style.css
+        └── question_forms/
+            └── mcq_form/
+                ├── component.js
+                └── style.css
+
+
 
 ```
