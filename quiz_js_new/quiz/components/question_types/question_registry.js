@@ -45,3 +45,4 @@ QuestionRegistry.register('table_image_fill_in_the_blank_2_col', 'table-image-fi
 QuestionRegistry.register('fill_in_blank_multi_graph_text', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
 QuestionRegistry.register('fill_in_blank_multi_graph', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
 
+// number_line_fill_in_blank  was removed. use ordering_horizontal for it.
