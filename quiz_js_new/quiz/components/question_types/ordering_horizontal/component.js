@@ -141,6 +141,34 @@ class OrderingHorizontalRenderer {
             : `<span class="oh-node-placeholder"></span>`;
     }
 
+    // Replace node content with an inline input for typing
+    activateNodeInput(index, currentValue, onCommit) {
+        const node = this._sequenceEl.querySelector(`.oh-node[data-index="${index}"]`);
+        if (!node) return;
+
+        node.innerHTML = '';
+        const input         = document.createElement('input');
+        input.type          = 'text';
+        input.className     = 'oh-node-input';
+        input.value         = currentValue || '';
+        input.style.cssText = 'width:90%;font-size:inherit;text-align:center;border:none;background:transparent;outline:none;';
+        node.appendChild(input);
+        input.focus();
+        input.select();
+
+        const commit = () => {
+            const val = input.value.trim();
+            this.updateNode(index, val);
+            onCommit(index, val);
+        };
+
+        input.addEventListener('blur',    commit);
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter')  { e.preventDefault(); input.blur(); }
+            if (e.key === 'Escape') { this.updateNode(index, currentValue); input.removeEventListener('blur', commit); input.blur(); }
+        });
+    }
+
     // ── Line position ─────────────────────────────────────────
 
     adjustLine() {
@@ -179,9 +207,11 @@ class OrderingHorizontalRenderer {
 
 class OrderingHorizontalInteractionHandler {
 
-    constructor(nodeInfos, itemEls, onPlace) {
-        this._nodeInfos    = nodeInfos;  // [{ el, fixed }]
+    constructor(nodeInfos, itemEls, renderer, userResponse, onPlace) {
+        this._nodeInfos    = nodeInfos;
         this._itemEls      = itemEls;
+        this._renderer     = renderer;
+        this._userResponse = userResponse;   // reference for current values
         this._onPlace      = onPlace;
         this._selectedItem = null;
     }
@@ -234,10 +264,18 @@ class OrderingHorizontalInteractionHandler {
     }
 
     _handleNodeClick(index) {
-        if (!this._selectedItem) return;
-        const value = this._selectedItem.dataset.value;
-        this._deselectItem();
-        this._onPlace(index, value);
+        if (this._selectedItem) {
+            // place selected item
+            const value = this._selectedItem.dataset.value;
+            this._deselectItem();
+            this._onPlace(index, value);
+        } else {
+            // no item selected — open inline input for typing
+            const currentValue = this._userResponse[index] || '';
+            this._renderer.activateNodeInput(index, currentValue, (idx, val) => {
+                this._onPlace(idx, val);
+            });
+        }
     }
 
     _handleNodeDrop(e, index) {
@@ -319,6 +357,8 @@ class OrderingHorizontalComponent extends HTMLElement {
         const handler = new OrderingHorizontalInteractionHandler(
             nodeInfos,
             itemEls,
+            this._renderer,
+            this._userResponse,
             (index, value) => this._handlePlace(index, value, config)
         );
         handler.bind();

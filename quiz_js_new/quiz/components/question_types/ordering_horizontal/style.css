@@ -161,6 +161,18 @@
     color: #333;
 }
 
+/* Inline typing input inside a node */
+.oh-node-input {
+    width: 90%;
+    font-size: inherit;
+    text-align: center;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-weight: 500;
+    color: #333;
+}
+
 /* ── Fixed (pre-filled non-editable) node ─────────────────── */
 
 .oh-node.oh-node-fixed {
