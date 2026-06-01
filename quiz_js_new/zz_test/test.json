@@ -2,10 +2,6 @@
     "title": "General Knowledge Quiz",
     "questions": [
 
-
-
-
-
 		{
 		  "type": "mcq",
 		  "id": "001",
@@ -475,7 +471,7 @@
 			{ "a": 2, "b": "+" },
 			{ "a": 3, "b": "+" }
 		  ],
-		  "choices": ["", "1", "2", "3", "4", "13", "6", "5"],
+		  "value_choices": ["", "1", "2", "3", "4", "13", "6", "5"],
 		  "correct_answer": ["3", "2", "1", "0"],
 		  "user_response": ["", "", "", ""],
 		  "difficulty": "medium",

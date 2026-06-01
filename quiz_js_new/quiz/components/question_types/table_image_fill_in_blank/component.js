@@ -54,12 +54,14 @@ class TableImageFillInBlankRenderer {
         this.setImageFigure(null);
         this._headerRow.innerHTML = '';
         this._tbody.innerHTML    = '';
+        // remove old column classes
+        this._table.className = 'tifib-table';
     }
 
     // ── UI Rendering Helpers ──────────────────────────────────
 
     setQuestion(question = '') {
-        this._questionEl.innerHTML = question;             // ← innerHTML for rich content
+        this._questionEl.innerHTML = question;              // ← innerHTML for rich content
     }
 
     setSvgFigure(svgContent) {
@@ -84,34 +86,47 @@ class TableImageFillInBlankRenderer {
 
     // ── Table ─────────────────────────────────────────────────
 
+    // columns = total columns including image column
+    // fieldsCount = columns - 1
+    // headings: object with keys: image, field1, field2, ... fieldN
+    //           OR legacy keys: image, count, word (for 2/3 col backward compat)
     renderHeaders(headings, columns) {
-        this._table.classList.remove('tifib-cols-2', 'tifib-cols-3');
         this._table.classList.add(`tifib-cols-${columns}`);
-
         this._headerRow.innerHTML = '';
-        const headers = columns === 2
-            ? [headings.image || 'Image', headings.count || 'Count']
-            : [headings.image || 'Image', headings.count || 'Count', headings.word || 'Word'];
 
-        headers.forEach(text => {
+        const fieldsCount = columns - 1;
+
+        // Image column header
+        const imgTh    = document.createElement('th');
+        imgTh.innerHTML = headings.image || 'Image';
+        this._headerRow.appendChild(imgTh);
+
+        // Field column headers — dynamic
+        for (let i = 1; i <= fieldsCount; i++) {
             const th    = document.createElement('th');
-            th.innerHTML = text;                           // ← innerHTML for rich content
+            // support both field1/field2 keys and legacy count/word keys
+            const label = headings[`field${i}`]
+                || (i === 1 ? headings.count : null)
+                || (i === 2 ? headings.word  : null)
+                || `Field ${i}`;
+            th.innerHTML = label;                           // ← innerHTML for rich content
             this._headerRow.appendChild(th);
-        });
+        }
     }
 
     // Renders all rows, returns input elements for event binding
     renderRows(rows, columns, userResponses) {
         this._tbody.innerHTML = '';
-        const inputEls = [];
+        const inputEls   = [];
+        const fieldsCount = columns - 1;
 
         rows.forEach((row, rowIdx) => {
             const tr = document.createElement('tr');
 
             // Image cell
-            const tdImg = document.createElement('td');
+            const tdImg     = document.createElement('td');
             tdImg.className = 'tifib-image-cell';
-            const wrapper = document.createElement('div');
+            const wrapper   = document.createElement('div');
             wrapper.className = 'tifib-image-wrapper';
             wrapper.innerHTML = row.svg_content
                 ? row.svg_content
@@ -119,20 +134,18 @@ class TableImageFillInBlankRenderer {
             tdImg.appendChild(wrapper);
             tr.appendChild(tdImg);
 
-            // Field 1
-            const { el: f1El, isInput: f1Input } = this._createFieldCell(
-                row.field1, rowIdx, 0, userResponses[rowIdx]?.[0] || ''
-            );
-            tr.appendChild(f1El);
-            if (f1Input) inputEls.push(f1Input);
-
-            // Field 2 — only if columns === 3
-            if (columns === 3) {
-                const { el: f2El, isInput: f2Input } = this._createFieldCell(
-                    row.field2, rowIdx, 1, userResponses[rowIdx]?.[1] || ''
+            // Dynamic field columns
+            for (let i = 1; i <= fieldsCount; i++) {
+                const fieldKey = `field${i}`;
+                const colIdx   = i - 1;
+                const { el, isInput } = this._createFieldCell(
+                    row[fieldKey],
+                    rowIdx,
+                    colIdx,
+                    userResponses[rowIdx]?.[colIdx] || ''
                 );
-                tr.appendChild(f2El);
-                if (f2Input) inputEls.push(f2Input);
+                tr.appendChild(el);
+                if (isInput) inputEls.push(isInput);
             }
 
             this._tbody.appendChild(tr);
@@ -146,30 +159,30 @@ class TableImageFillInBlankRenderer {
     _createFieldCell(field, rowIdx, colIdx, savedValue) {
         const td = document.createElement('td');
 
-        // If field has "value" → non-editable display cell
+        // field has "value" → non-editable display cell
         if (field?.value !== undefined) {
             const div     = document.createElement('div');
             div.className = 'tifib-fixed-cell';
-            div.innerHTML = field.value;                   // ← innerHTML for rich content
+            div.innerHTML = String(field.value);            // ← innerHTML for rich content
             td.appendChild(div);
             return { el: td, isInput: null };
         }
 
-        // Otherwise → editable input
-        const input       = document.createElement('input');
-        input.type        = 'text';
-        input.className   = 'tifib-input-field';
-        input.dataset.row = rowIdx;
-        input.dataset.col = colIdx;
-        input.value       = savedValue;
-        input.placeholder = '';
+        // field has "acceptable_answers" or is undefined → editable input
+        const input         = document.createElement('input');
+        input.type          = 'text';
+        input.className     = 'tifib-input-field';
+        input.dataset.row   = rowIdx;
+        input.dataset.col   = colIdx;
+        input.value         = savedValue;
+        input.placeholder   = '';
         td.appendChild(input);
         return { el: td, isInput: input };
     }
 
     // ── Accessors ─────────────────────────────────────────────
 
-    getTbody()  { return this._tbody; }
+    getTbody() { return this._tbody; }
 }
 
 
@@ -224,8 +237,9 @@ class TableImageFillInBlankComponent extends HTMLElement {
         this._renderer.setSvgFigure(config.svg_content);
         this._renderer.setImageFigure(config.img_url);
 
-        const columns      = config.columns || 3;
-        const fieldsPerRow = columns === 2 ? 1 : 2;
+        // Default to 2 columns if not specified
+        const columns      = config.columns || 2;
+        const fieldsPerRow = columns - 1;
 
         this._initUserResponses(config, fieldsPerRow);
 
@@ -263,7 +277,9 @@ class TableImageFillInBlankComponent extends HTMLElement {
     _handleInput(e) {
         const rowIdx = parseInt(e.target.dataset.row);
         const colIdx = parseInt(e.target.dataset.col);
-        if (!this._userResponses[rowIdx]) this._userResponses[rowIdx] = ['', ''];
+        if (!this._userResponses[rowIdx]) {
+            this._userResponses[rowIdx] = [];
+        }
         this._userResponses[rowIdx][colIdx] = e.target.value;
         this.emitAnswerChanged();
     }

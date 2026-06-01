@@ -26,15 +26,21 @@ QuestionRegistry.register('fill_in_blank_operation', 'fill-in-blank-operation', 
 QuestionRegistry.register('compare_quantities', 'compare-quantities', CompareQuantitiesEvaluator);
 QuestionRegistry.register('matching_connection_image', 'matching-connection-image', MatchingConnectionImageEvaluator);
 QuestionRegistry.register('ordering', 'ordering-drag-drop', OrderingEvaluator);
+
 QuestionRegistry.register('table_image_fill_in_the_blank', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
+QuestionRegistry.register('table_image_fill_in_the_blank_2_col', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
+
 QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
 QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
+
 QuestionRegistry.register('fill_in_blank_multi_graph_text', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
+QuestionRegistry.register('fill_in_blank_multi_graph', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
+
 QuestionRegistry.register('clock_set_time', 'clock-set-time', ClockSetTimeEvaluator);
 QuestionRegistry.register('number_line_arcs', 'number-line-arcs', NumberLineArcsEvaluator);
 QuestionRegistry.register('multi_select_circle', 'multi-select-circle', MultiSelectCircleEvaluator);
 QuestionRegistry.register('multi_select_two', 'multi-select-two', MultiSelectTwoEvaluator);
 QuestionRegistry.register('short_answer', 'short-answer', ShortAnswerEvaluator);
 QuestionRegistry.register('matching',          'matching-dropdown', MatchingDropdownEvaluator);
-QuestionRegistry.register('compare_image_objects',         'compare-image-objects', CompareImageObjectsEvaluator);
+QuestionRegistry.register('image_compare_quantities_tick',         'compare-image-objects', CompareImageObjectsEvaluator);
 QuestionRegistry.register('fill_in_blank', 'fill-in-blank', FillInBlankEvaluator);

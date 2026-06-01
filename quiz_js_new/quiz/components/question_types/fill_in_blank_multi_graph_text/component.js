@@ -366,7 +366,7 @@ class FillInBlankMultiGraphTextComponent extends HTMLElement {
         this._responses = this._initResponses(config);
 
         const inputEls  = this._renderer.renderBlocks(blocks, this._responses);
-        const choiceEls = this._renderer.renderChoices(config.choices || []);
+        const choiceEls = this._renderer.renderChoices(config.value_choices || []);
 
         const handler = new FillInBlankMultiGraphTextInteractionHandler(
             inputEls,
