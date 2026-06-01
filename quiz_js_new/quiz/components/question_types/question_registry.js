@@ -18,10 +18,6 @@ const QuestionRegistry = {
 QuestionRegistry.register('mcq',                 'mcq-radio',          McqEvaluator);
 QuestionRegistry.register('true_false',          'true-false',         TrueFalseEvaluator);
 QuestionRegistry.register('multi_select',        'multi-select',       MultiSelectEvaluator);
-
-QuestionRegistry.register('matching_drag_drop',  'matching-select',    MatchingSelectEvaluator);
-QuestionRegistry.register('matching_select',     'matching-select',    MatchingSelectEvaluator);
-
 QuestionRegistry.register('matching_connection', 'matching-connection', MatchingConnectionEvaluator);
 QuestionRegistry.register('ordering_horizontal', 'ordering-horizontal-drag-click', OrderingHorizontalEvaluator);
 QuestionRegistry.register('fill_in_blank_operation', 'fill-in-blank-operation', FillInBlankOperationEvaluator);
@@ -38,6 +34,9 @@ QuestionRegistry.register('image_compare_quantities_tick',         'compare-imag
 QuestionRegistry.register('fill_in_blank', 'fill-in-blank', FillInBlankEvaluator);
 QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
 QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
+
+QuestionRegistry.register('matching_drag_drop',  'matching-select',    MatchingSelectEvaluator);
+QuestionRegistry.register('matching_select',     'matching-select',    MatchingSelectEvaluator);
 
 QuestionRegistry.register('table_image_fill_in_the_blank', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
 QuestionRegistry.register('table_image_fill_in_the_blank_2_col', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
