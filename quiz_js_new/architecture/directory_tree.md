@@ -91,26 +91,33 @@ quiz/
     │   └── controller.js                   # DOM access layer for result-modal
     │
     └── question_types/
-        ├── question_registry.js            # Maps question type string → tag + evaluator
+        ├── question_registry.js                    # Maps question type string → tag + evaluator
         │
-        ├── mcq_question/
-        │   ├── component.js                # <mcq-radio> custom element
-        │   └── evaluator.js               # checkAnswer, formatUserAnswer, formatCorrectAnswer
-        │
-        ├── matching_question/
-        │   ├── component.js
-        │   └── evaluator.js
-        │
-        ├── fill_in_blank_operation/
-        │   ├── component.js
-        │   └── evaluator.js
-        │
-        ├── multi_select_two/
-        │   ├── component.js
-        │   └── evaluator.js
-        │
-        └── (one directory per question type...)
-```
+        ├── mcq_question/                           # type: mcq
+        ├── true_false_question/                    # type: true_false
+        ├── multi_select/                           # type: multi_select
+        ├── matching_select/                        # type: matching_select, matching_drag_drop
+        ├── matching_dropdown/                      # type: matching
+        ├── matching_connection/                    # type: matching_connection
+        ├── matching_connection_image/              # type: matching_connection_image
+        ├── ordering/                               # type: ordering
+        ├── ordering_horizontal/                    # type: ordering_horizontal
+        ├── compare_quantities/                     # type: compare_quantities
+        ├── compare_image_objects/                  # type: image_compare_quantities_tick
+        ├── fill_in_blank/                          # type: fill_in_blank
+        ├── multi_fill_in_blank/                    # type: multi_fill_in_blank
+        ├── options_fill_in_blank/                  # type: options_fill_in_blank
+        ├── fill_in_blank_operation/                # type: fill_in_blank_operation
+        ├── fill_in_blank_multi_graph_text/         # type: fill_in_blank_multi_graph_text, fill_in_blank_multi_graph
+        ├── table_fill_in_blank/                    # type: table_fill_in_the_blank
+        ├── table_image_fill_in_blank/              # type: table_image_fill_in_the_blank, table_image_fill_in_the_blank_2_col
+        ├── short_answer/                           # type: short_answer
+        ├── multi_select_circle/                    # type: multi_select_circle
+        ├── multi_select_two/                       # type: multi_select_two
+        ├── clock_set_time/                         # type: clock_set_time
+        └── number_line_arcs/                       # type: number_line_arcs
+ 
+ ```
 
 ```
 
