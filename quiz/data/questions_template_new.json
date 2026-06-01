@@ -1,655 +1,635 @@
 {
-    "title": "General Knowledge Quiz",
-    "questions": [
-
-		{
-		  "type": "mcq",
-		  "id": "001",
-		  "question": "Expand: (x+2)<sup>2</sup> = ?",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "options": [
-			{ "id": "A", "text": "x<sup>2</sup> + 4x + 4" },
-			{ "id": "B", "text": "x<sup>2</sup> + 2x + 4" },
-			{ "id": "C", "text": "x<sup>2</sup> + 4x + 2" },
-			{ "id": "D", "text": "x<sup>2</sup> + 4" }
-		  ],
-		  "correct_answer": "A",
-		  "user_response" : "",
-		  "explanation": "Jupiter is more than twice as massive as all other planets combined.",
-		  "difficulty": "easy",
-		  "tags": ["science", "astronomy", "solar-system"],
-		  "points": 1,
-		  "time_limit": 30
-		},
-		{
-		  "type": "true_false",
-		  "id": "002",
-		  "question": "Water is solid.",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "correct_answer": false,
-		  "user_response" : "",
-		  "explanation": "This is a common myth. The Great Wall is not visible to the naked eye from space.",
-		  "difficulty": "medium",
-		  "tags": ["geography", "myths"],
-		  "points": 1
-		},
-		{
-		  "type": "multi_select",
-		  "id": "003",
-		  "question": "Which of the following are programming languages? (Select all that apply)",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "options": [
-			{"id": "A", "text": "Python", "correct": true},
-			{"id": "B", "text": "Linux", "correct": false},
-			{"id": "C", "text": "Java", "correct": true},
-			{"id": "D", "text": "Gimp", "correct": false},
-			{"id": "E", "text": "C++", "correct": true}
-		  ],
-		  "user_response" : "",
-		  "minimum_selections": 1,
-		  "maximum_selections": 3,
-		  "difficulty": "easy",
-		  "tags": ["computer-science", "programming"],
-		  "points": 2,
-		  "scoring_method": "exact",
-		  "scoring_method_01": "partial"
-		},
-		{
-		  "type": "matching_drag_drop",
-		  "id": "013",
-		  "question": "Match the inventors with their inventions:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "pairs": [
-			{"left": "Language", "right": "Java"},
-			{"left": "Image", "right": "Gimp"},
-			{"left": "OS", "right": "linux"}
-		  ],
-		  "distractors": ["Radio", "Engine"],
-		  "user_response" : "",
-		  "difficulty": "hard",
-		  "tags": ["history", "inventions"],
-		  "points": 2
-		},
-		{
-		  "type": "matching_select",
-		  "id": "0131",
-		  "question": "Match the inventors with their inventions:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "pairs": [
-			{"left": "Language", "right": "Java"},
-			{"left": "Image", "right": "Gimp"},
-			{"left": "OS", "right": "linux"}
-		  ],
-		  "distractors": ["Radio", "Engine"],
-		  "user_response" : "",
-		  "difficulty": "hard",
-		  "tags": ["history", "inventions"],
-		  "points": 2
-		},
-		{
-		  "type": "matching_connection",
-		  "id": "014",
-		  "question": "Match the following software with their categories:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "pairs": [
-			{ "left": "Language", "right": "Java" },
-			{ "left": "Image Editor", "right": "Gimp" },
-			{ "left": "Operating System", "right": "Linux" },
-			{ "left": "Database", "right": "MySQL" }
-		  ],
-		  "user_response": ""
-		},
-		{
-		  "type": "ordering_horizontal",
-		  "id": "017",
-		  "question": "Arrange these in order:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "items": ["B", "A", "D", "C", "F"],
-		  "initial_items": ["A", "", "C", "", "E", ""],
-		  "correct_order": ["A", "B", "C", "D", "E", "F"],
-		  "user_response": ["", "", "", ""]
-		},
-		{
-		  "type": "fill_in_blank_operation",
-		  "id": "024",
-		  "question": "Perform substraction",
-		  "operation": {
-			"name": "subtraction",
-			"symbol": "-"
-		  },
-		
-		  "editable_answer": {
-			"first_row":  [true,  true,  true],
-			"second_row": [false, false],
-			"third_row":  [false, false, false],
-			"fourth_row": [true,  true,  true]
-		  },
-		
-		  "initial_answer": {
-			"first_row":  ["", "", ""],
-			"second_row": ["3", "7"],
-			"third_row":  ["-", "1", "9"],
-			"fourth_row": ["", "", ""]
-		  },
-		
-		  "correct_answer": {
-			"first_row":  ["", "2", "17"],
-			"fourth_row": ["", "1", "8"]
-		  },
-		
-		  "user_response": {
-			"first_row":  ["", "", ""],
-			"fourth_row": ["", "", ""]
-		  },
-		
-		  "choices": ["", "1", "2", "17", "8", "13", "6", "5"],
-		
-		  "scoring_method": "exact",
-		  "case_sensitive": false,
-		
-		  "metadata": {
-			"difficulty": "easy",
-			"points": 5,
-			"tags": ["math", "subtraction", "place-value", "borrow"]
-		  }
-		},
-		{
-			"type": "compare_quantities",
-			"id": "018",
-			"svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-			"img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-			"question": "click for appropriate symbol",
-			"quantity_a": { "label": "A", "value": "5" },
-			"quantity_b": { "label": "B", "value": "8"},
-			"symbol_options": [" ", ">", "<", "="],
-			"correct_answer": "<",
-			"user_response": "",
-			"explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
-			"difficulty": "medium",
-			"tags": ["algebra", "comparison", "quantities"],
-			"points": 1
-		},
-		{
-		  "type": "matching_connection_image",
-		  "id": "015",
-		  "question": "Connect each image to its correct property:",
-		  "rows": [
-			{
-			  "image_index": 1,
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
-			  "img_url": null,
-			  "alt_text": "Five red apples",
-			  "property": "5",
-			  "acceptable_properties": ["5"]
-			},
-			{
-			  "image_index": 2,
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
-			  "img_url": null,
-			  "alt_text": "Two brown chairs",
-			  "property": "2",
-			  "acceptable_properties": ["2"]
-			},
-			{
-			  "image_index": 3,
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
-			  "img_url": null,
-			  "alt_text": "Two green leaves",
-			  "property": "3",
-			  "acceptable_properties": ["3"]
-			}
-		  ],
-		  "properties_column": ["3", "5", "1", "2"],
-		  "user_response": [
-			
-		  ],
-		  "validation": {
-			"scoring_method": "exact",
-			"scoring_method_01": "partial",
-			"allow_multiple_connections": false,
-			"line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
-		  },
-		  "svg_design_description": [
-			"SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
-			"Always include: width='100%' height='40px' in SVG attributes",
-			"Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
-			"Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
-			"All graphical elements must fit within viewBox boundaries",
-			"Stroke widths should be 1.5px minimum for visibility",
-			"Include matching alt text for accessibility",
-			"For exact alignment: center elements vertically at y=20"
-		  ],
-		  "jpg_design_description": [
-			"Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
-			"Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
-			"Display size: Will render at 100% width × 40px height",
-			"Content guidelines:",
-			"- Key elements must be within center 40px vertical zone",
-			"- Ensure minimum 4.5:1 contrast for text/overlays"
-		 ],
-		  "description": [
-			"Match left side images with their properties on the right.",
-			"Use viewBox and avoid fixed widths in SVG.",
-			"Scoring method can be 'exact' or 'partial'."
-		  ]
-		},
-		{
-		  "type": "ordering",
-		  "id": "016",
-		  "question": "Arrange these events in order:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "items": [
-			{"id": "A", "text": "PHD"},
-			{"id": "B", "text": "Mtech"},
-			{"id": "C", "text": "BE"},
-			{"id": "D", "text": "schooling"}
-		  ],
-		  "correct_order": ["D", "C", "B", "A"],
-		  "user_response" : "",
-		  "difficulty": "medium",
-		  "tags": ["history", "chronology"],
-		  "points": 2
-		},
-		{
-		  "type": "table_image_fill_in_the_blank",
-		  "id": "008",
-		  "question": "Complete the table with counts and number names:",
-		  "description": "Identify the objects in image and write their information in text box",
-		  "columns": 3,
-		  "column_headings": {
-			"image": "Visual",
-			"count": "Count (Digit)",
-			"word": "Number Name"
-		  },
-		  "rows": [
-			{
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
-			  "alt_text": "Five apples",
-			  "field1": {"acceptable_answers": ["5"] },
-			  "field2": {"value": ["five"] }
-			},
-			{
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
-			  "alt_text": "Two chairs",
-			  "field1": {"acceptable_answers": ["2"] },
-			  "field2": {"acceptable_answers": ["two"] }
-			},
-			{
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
-			  "alt_text": "Two leaves",
-			  "field1": {"acceptable_answers": ["2"] },
-			  "field2": {"value": ["two"] }
-			}
-		  ],
-		  "user_response": [
-			["", ""],
-			["", ""],
-			["", ""]
-		  ],
-		  "validation": {
-			"case_sensitive": false,
-			"scoring_method": "exact",
-			"scoring_method_01": "partial"
-		  },
-		  "svg_design_description": [
-			"SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
-			"Always include: width='100%' height='40px' in SVG attributes",
-			"Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
-			"Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
-			"All graphical elements must fit within viewBox boundaries",
-			"Stroke widths should be 1.5px minimum for visibility",
-			"Include matching alt text for accessibility",
-			"For exact alignment: center elements vertically at y=20"
-		  ],
-		  "jpg_design_description": [
-			"Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
-			"Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
-			"Display size: Will render at 100% width × 40px height",
-			"Content guidelines:",
-			"- Key elements must be within center 40px vertical zone",
-			"- Ensure minimum 4.5:1 contrast for text/overlays"
-		  ]
-		},
-		{
-		  "type": "table_image_fill_in_the_blank",
-		  "id": "0081",
-		  "question": "Complete the table with counts and number names:",
-		  "description": "Identify the objects in image and write their information in text box",
-		  "columns": 2,
-		  "column_headings": {
-			"image": "Visual",
-			"count": "Count (Digit)"
-		  },
-		  "rows": [
-			{
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
-			  "alt_text": "Five apples",
-			  "field1": {"acceptable_answers": ["5"] }
-			},
-			{
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
-			  "alt_text": "Two chairs",
-			  "field1": {"acceptable_answers": ["2"] }
-			},
-			{
-			  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
-			  "alt_text": "Two leaves",
-			  "field1": {"value": ["2"] }
-			}
-		  ],
-		  "user_response": [
-			["", ""],
-			["", ""],
-			["", ""]
-		  ],
-		  "validation": {
-			"case_sensitive": false,
-			"scoring_method": "exact",
-			"scoring_method_01": "partial"
-		  },
-		  "svg_design_description": [
-			"SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
-			"Always include: width='100%' height='40px' in SVG attributes",
-			"Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
-			"Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
-			"All graphical elements must fit within viewBox boundaries",
-			"Stroke widths should be 1.5px minimum for visibility",
-			"Include matching alt text for accessibility",
-			"For exact alignment: center elements vertically at y=20"
-		  ],
-		  "jpg_design_description": [
-			"Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
-			"Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
-			"Display size: Will render at 100% width × 40px height",
-			"Content guidelines:",
-			"- Key elements must be within center 40px vertical zone",
-			"- Ensure minimum 4.5:1 contrast for text/overlays"
-		  ]
-		},
-		{
-		  "type": "table_fill_in_the_blank",
-		  "id": "007",
-		  "question": "Fill in the blanks :",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "title": "Complete the Multiplication Table",
-		  "column_labels": ["C1", "C2", "C3"],
-		  "row_labels": ["R1", "R2", "R3"],
-		  "data": [
-			[
-			  { "value": "1" },
-			  { "value": "____", "correct_answer": "2", "acceptable_answers": ["2"], "hint": "1 × 3" },
-			  { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
-			],
-			[
-			  { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"], "hint": "2 × 1" },
-			  { "value": "5" },
-			  { "value": "____", "correct_answer": "6", "acceptable_answers": ["6"] }
-			],
-			[
-			  { "value": "____", "correct_answer": "7", "acceptable_answers": ["7"] },
-			  { "value": "____", "correct_answer": "8", "acceptable_answers": ["8"] },
-			  { "value": "9" }
-			]
-		  ],
-		  "user_response": [
-			["1", "", ""],
-			["", "5", ""],
-			["", "", "9"]
-		  ],
-		  "case_sensitive": false,
-		  "points": 6,
-		  "scoring_method": "exact",
-		  "scoring_method_01": "partial",
-		  "feedback": {
-			"full_credit": "Perfect! All blanks are correctly filled.",
-			"partial_credit": "Some answers are correct. Review the table.",
-			"none": "No correct entries. Please try again."
-		  }
-		},
-		{
-		  "type": "options_fill_in_blank",
-		  "id": "006",
-		  "question": "Fill in the blanks in the following statements:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "blank_type" : "box",
-		  "blank_type_list" : "box, normal",
-		  "options": [
-			{
-			  "id": "01",
-			  "text": "Sides in triangle ____ and ____ points.",
-			  "correct_answer": ["3", "3"],
-			  "acceptable_answers": [["3", "three"], ["3", "three"]],
-			  "hint": "Freezing point of water"
-			},
-			{
-			  "id": "02",
-			  "text": "Sides in square is ____.",
-			  "correct_answer": ["4"],
-			  "acceptable_answers": [["4"]],
-			  "hint": "City of lights"
-			},
-			{
-			  "id": "03",
-			  "text": "Sides in pentegaon is ____ .",
-			  "correct_answer": ["5"],
-			  "acceptable_answers": [["five", "5"]],
-			  "hint": "Basic geometry"
-			}
-		  ],
-		  "user_response": [["", ""], [""], [""]],
-		  "choices": ["0", "1", "2", "3", "4", "5", "6"],
-		  "case_sensitive": false,
-		  "difficulty": "easy",
-		  "tags": ["gk", "science", "maths"],
-		  "points": 3,
-		  "scoring_method": "exact",
-		  "scoring_method_01": "partial",
-		  "feedback": {
-			"full_credit": "Great job! All answers are correct.",
-			"partial_credit": "Some answers are correct. Try again.",
-			"none": "None of the blanks are correct."
-		  }
-		},
-		{
-		  "type": "fill_in_blank_multi_graph_text",
-		  "id": "023",
-		  "question": "Fill in the blanks to practice addition with 3.",
-		  "center_label": "3",
-		  "blocks": [
-			{ "a": 0, "b": "+" },
-			{ "a": 1, "b": "+" },
-			{ "a": 2, "b": "+" },
-			{ "a": 3, "b": "+" }
-		  ],
-		  "value_choices": ["", "1", "2", "3", "4", "13", "6", "5"],
-		  "correct_answer": ["3", "2", "1", "0"],
-		  "user_response": ["", "", "", ""],
-		  "difficulty": "medium",
-		  "tags": ["math", "multiplication", "practice"],
-		  "points": 3
-		},
-		{
-		  "id": "26",
-		  "type": "clock_set_time",
-		  "question": "Set the time to 4:30 PM by drawing the hour and minute hands on the clock.",
-		  "clock": {
-			"radius": 120,
-			"numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-			"hour_hand": { "color": "red", "length_ratio": 0.65 },
-			"minute_hand": { "color": "black", "length_ratio": 0.9 }
-		  },
-		  "correct_answer": { "hour": 4, "minute": 6 },
-		  "user_response": { "hour": null, "minute": null }
-		},    
-		{
-		  "id": "25",
-		  "type": "number_line_arcs",
-		  "question": "Add 2 + 4",
-		  "points": [0,1,2,3,4,5,6,7,8,9,10],
-		  "number_line": { "start": 0, "end": 10, "step": 1 },
-		  "pairs": [[0,2],[2,6]],
-		  "user_response": [ ],
-		  "explanation": "The first arc represents moving from 2 to 7 (adding 5). The second arc represents moving from 7 to 3 (subtracting 4).",
-		  "metadata": {
-			"difficulty": "medium",
-			"points": 2,
-			"scoring_method": "exact",
-			"scoring_method_01": "partial",
-			"tags": ["number line", "addition", "subtraction"]
-		  }
-		},
-		{
-		  "type": "multi_select_circle",
-		  "id": "020",
-		  "question": "Which of the following are programming languages? (Select all that apply)",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "options": [
-			{"id": "A", "text": "Python", "correct": true},
-			{"id": "B", "text": "Linux", "correct": false},
-			{"id": "C", "text": "Java", "correct": true},
-			{"id": "D", "text": "Gimp", "correct": false},
-			{"id": "E", "text": "C++", "correct": true}
-		  ],
-		  "user_response" : "",
-		  "minimum_selections": 1,
-		  "maximum_selections": 4,
-		  "difficulty": "easy",
-		  "tags": ["computer-science", "programming"],
-		  "points": 2,
-		  "scoring_method": "exact",
-		  "scoring_method_01": "partial"
-		},
-		{
-		  "type": "multi_select_two",
-		  "id": "21",
-		  "question": "Highlight the largest and smallest numbers.",
-		  "quantities": [
-			{ "id": "1", "value": 12 },
-			{ "id": "2", "value": 45 },
-			{ "id": "3", "value": 7 },
-			{ "id": "4", "value": 28 },
-			{ "id": "5", "value": 33 }
-		  ],
-		  "required_selections": [
-			{
-			  "label": "Smallest", "key": "smallest",
-			  "highlight_style": { "type": "color", "value": "red" }
-			},
-			{
-			  "label": "Greatest", "key": "greatest",
-			  "highlight_style": { "type": "shape", "value": "circle" }
-			}
-		  ],
-		  "correct_answer": { "smallest": "3", "greatest": "2" },
-		  "user_response": { "smallest": "", "greatest": "" },
-		  "available_highlight_styles": [
-			{ "type": "shape", "value": "circle", "description": "Encircle the selection" },
-			{ "type": "shape", "value": "square", "description": "Square border around selection" },
-			{ "type": "color", "value": "red", "description": "Fill background with red" },
-			{ "type": "color", "value": "green", "description": "Fill background with green" },
-			{ "type": "mark", "value": "tick", "description": "Place a tick mark next to the selection" }
-		  ],
-		  "explanation": "7 is the smallest number and 45 is the greatest number in the list.",
-		  "difficulty": "medium",
-		  "tags": ["math", "number_comparison"],
-		  "points": 2,
-		  "time_limit": 45
-		},
-		{
-		  "type": "short_answer",
-		  "id": "011",
-		  "question": "Name of person, place or thing",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "correct_answer": "Noun",
-		  "acceptable_variations": [
-			"A body remains in its state of rest or uniform motion unless compelled to change by an external force.",
-			"Objects maintain their velocity unless a force acts upon them."
-		  ],
-		  "user_response" : "",
-		  "difficulty": "hard",
-		  "tags": ["science", "physics", "newton"],
-		  "points": 2,
-		  "grading_rubric": {
-			"full_credit": "Includes both parts (rest and motion) and mentions external force",
-			"partial_credit": "Mentions only one part correctly",
-			"no_credit": "Completely incorrect or missing key concepts"
-		  }
-		},
-		{
-		  "type": "matching",
-		  "id": "012",
-		  "question": "Match the following:",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "pairs": [
-			{"left": "Language", "right": "Java"},
-			{"left": "Image", "right": "Gimp"},
-			{"left": "OS", "right": "linux"}
-		  ],
-		  "distractors": ["Radio", "Engine"],
-		  "user_response" : "",
-		  "difficulty": "hard",
-		  "tags": ["history", "inventions"],
-		  "points": 2
-		},
-		{
-		  "type": "image_compare_quantities_tick",
-		  "id": "019",
-		  "question": "Tick which are more in number.",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
-		  "partition_direction": "vertical",
-		  "tick_zones": { "left": "top_left","right": "top_right" },
-		  "tick_zones_01": { "top": "top_right","bottom": "bottom_right" },
-		  "user_response": null,
-		  "correct_answer": "left",
-		  "feedback": {
-			"correct": "Correct! You picked the side with more objects.",
-			"incorrect": " Try again. Count the objects carefully."
-		  },
-		  "difficulty": "easy",
-		  "tags": ["counting", "visual reasoning", "comparison"],
-		  "points": 1,
-		  "description": [
-			"tick box position are top_right, bottom_right, top_left, bottom_left",
-			"partition_direction can be vertical or horizontal",
-			"Use viewBox and avoid fixed widths in svg",
-			"user response can be left, right, null, top, bottom"
-		  ],
-		  "guidelines": {
-			"svg_creation": [
-			  "Use viewBox='0 0 300 150'",
-			  "Set width='100%' with max-width in style",
-			  "Place objects 20-30% from edges",
-			  "Use contrasting colors for visibility",
-			  "Include <title> and <desc> for accessibility"
-			]
-		  }
-		},    
-		{
-		  "type": "fill_in_blank",
-		  "id": "004",
-		  "question": "Solid state of water is called ____.",
-		  "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
-		  "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
-		  "correct_answer": "ice",
-		  "acceptable_answers": ["ice", "water"],
-		  "user_response" : "",
-		  "case_sensitive": false,
-		  "difficulty": "medium",
-		  "tags": ["science", "physics", "states-of-matter"],
-		  "points": 1.5
-		}
-    ]
+  "metadata": {
+    "title": "Comprehensive Question Bank ",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "Which of these is the bigger in our universe?",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "options": [
+        {"id": "A", "text": "Earth"},
+        {"id": "B", "text": "Moon"},
+        {"id": "C", "text": "Solar System"},
+        {"id": "D", "text": "Sun"},
+        {"id": "E", "text": "Neptune"}
+      ],
+      "correct_answer": "C",
+      "user_response" : "",
+      "explanation": "Jupiter is more than twice as massive as all other planets combined.",
+      "difficulty": "easy",
+      "tags": ["science", "astronomy", "solar-system"],
+      "points": 1,
+      "time_limit": 30
+    },    
+    {
+      "type": "true_false",
+      "id": "002",
+      "question": "Water is solid.",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "correct_answer": false,
+      "user_response" : "",
+      "explanation": "This is a common myth. The Great Wall is not visible to the naked eye from space.",
+      "difficulty": "medium",
+      "tags": ["geography", "myths"],
+      "points": 1
+    },
+    {
+      "type": "multi_select",
+      "id": "003",
+      "question": "Which of the following are programming languages? (Select all that apply)",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "options": [
+        {"id": "A", "text": "Python", "correct": true},
+        {"id": "B", "text": "Linux", "correct": false},
+        {"id": "C", "text": "Java", "correct": true},
+        {"id": "D", "text": "Gimp", "correct": false},
+        {"id": "E", "text": "C++", "correct": true}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["computer-science", "programming"],
+      "points": 2,
+      "scoring_method": "exact",
+      "scoring_method_01": "partial"
+    },    
+    {
+      "type": "fill_in_blank",
+      "id": "004",
+      "question": "Solid state of water is called ____.",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "correct_answer": "ice",
+      "acceptable_answers": ["ice", "water"],
+      "user_response" : "",
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["science", "physics", "states-of-matter"],
+      "points": 1.5
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "005",
+      "question": " ____ sides in triangle, ____ sides in square, ____sides in circle", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "3", "acceptable_answers": ["three", "three"],
+          "hint": "Liquid to gas phase change"
+        },
+        {"position": 2, "correct_answer": "4", "acceptable_answers": ["4", "four"],
+          "hint": "Gaseous state of water"
+        },
+        {
+          "position": 3, "correct_answer": "0", "acceptable_answers": ["0", "zero"],
+          "hint": "Gas to liquid phase change"
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "difficulty": "medium",
+      "tags": ["science", "physics", "phase-changes"],
+      "points": 2,
+      "scoring_method": "exact",
+      "scoring_method_01": "partial",
+      "feedback": {
+        "full_credit": "All blanks filled correctly",
+        "partial_credit": "1-2 blanks correct",
+        "none": "No correct answers"
+      }
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "006",
+      "question": "Fill in the blanks in the following statements:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "blank_type" : "box",
+      "blank_type_list" : "box, normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "Sides in triangle ____ and ____ points.",
+          "correct_answer": ["3", "3"],
+          "acceptable_answers": [["3", "three"], ["3", "three"]],
+          "hint": "Freezing point of water"
+        },
+        {
+          "id": "02",
+          "text": "Sides in square is ____.",
+          "correct_answer": ["4"],
+          "acceptable_answers": [["4"]],
+          "hint": "City of lights"
+        },
+        {
+          "id": "03",
+          "text": "Sides in pentegaon is ____ .",
+          "correct_answer": ["5"],
+          "acceptable_answers": [["five", "5"]],
+          "hint": "Basic geometry"
+        }
+      ],
+      "user_response": [["", ""], [""], [""]],
+      "choices": ["0", "1", "2", "3", "4", "5", "6"],
+      "case_sensitive": false,
+      "difficulty": "easy",
+      "tags": ["gk", "science", "maths"],
+      "points": 3,
+      "scoring_method": "exact",
+      "scoring_method_01": "partial",
+      "feedback": {
+        "full_credit": "Great job! All answers are correct.",
+        "partial_credit": "Some answers are correct. Try again.",
+        "none": "None of the blanks are correct."
+      }
+    },
+    {
+      "type": "table_fill_in_the_blank",
+      "id": "007",
+      "question": "Fill in the blanks :",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "title": "Complete the Multiplication Table",
+      "column_labels": ["C1", "C2", "C3"],
+      "row_labels": ["R1", "R2", "R3"],
+      "data": [
+        [
+          { "value": "1" },
+          { "value": "____", "correct_answer": "2", "acceptable_answers": ["2"], "hint": "1 × 3" },
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"], "hint": "2 × 1" },
+          { "value": "5" },
+          { "value": "____", "correct_answer": "6", "acceptable_answers": ["6"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "7", "acceptable_answers": ["7"] },
+          { "value": "____", "correct_answer": "8", "acceptable_answers": ["8"] },
+          { "value": "9" }
+        ]
+      ],
+      "user_response": [
+        ["1", "", ""],
+        ["", "5", ""],
+        ["", "", "9"]
+      ],
+      "case_sensitive": false,
+      "points": 6,
+      "scoring_method": "exact",
+      "scoring_method_01": "partial",
+      "feedback": {
+        "full_credit": "Perfect! All blanks are correctly filled.",
+        "partial_credit": "Some answers are correct. Review the table.",
+        "none": "No correct entries. Please try again."
+      }
+    },
+    {
+      "type": "table_image_fill_in_the_blank",
+      "type_old": "table_image_fill_in_the_blank_2_col",
+      "id": "008",
+      "question": "Complete the table with counts and number names:",
+      "description": "Identify the objects in image and write their information in text box",
+      "columns": 3,
+      "column_headings": {
+        "image": "Visual",
+        "count": "Count (Digit)",
+        "word": "Number Name"
+      },
+      "rows": [
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
+          "alt_text": "Five apples",
+          "field1": {"acceptable_answers": ["5"] },
+          "field2": {"acceptable_answers": ["five"] }
+        },
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
+          "alt_text": "Two chairs",
+          "field1": {"acceptable_answers": ["2"] },
+          "field2": {"acceptable_answers": ["two"] }
+        },
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
+          "alt_text": "Two leaves",
+          "field1": {"acceptable_answers": ["2"] },
+          "field2": {"acceptable_answers": ["two"] }
+        }
+      ],
+      "user_response": [
+        ["", ""],
+        ["", ""],
+        ["", ""]
+      ],
+      "validation": {
+        "case_sensitive": false,
+        "scoring_method": "exact",
+        "scoring_method_01": "partial"
+      },
+      "svg_design_description": [
+        "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
+        "Always include: width='100%' height='40px' in SVG attributes",
+        "Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
+        "Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
+        "All graphical elements must fit within viewBox boundaries",
+        "Stroke widths should be 1.5px minimum for visibility",
+        "Include matching alt text for accessibility",
+        "For exact alignment: center elements vertically at y=20"
+      ],
+      "jpg_design_description": [
+        "Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
+        "Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
+        "Display size: Will render at 100% width × 40px height",
+        "Content guidelines:",
+        "- Key elements must be within center 40px vertical zone",
+        "- Ensure minimum 4.5:1 contrast for text/overlays"
+      ]
+    },
+    {
+      "type": "short_answer",
+      "id": "011",
+      "question": "Name of person, place or thing",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "correct_answer": "Noun",
+      "acceptable_variations": [
+        "A body remains in its state of rest or uniform motion unless compelled to change by an external force.",
+        "Objects maintain their velocity unless a force acts upon them."
+      ],
+      "user_response" : "",
+      "difficulty": "hard",
+      "tags": ["science", "physics", "newton"],
+      "points": 2,
+      "grading_rubric": {
+        "full_credit": "Includes both parts (rest and motion) and mentions external force",
+        "partial_credit": "Mentions only one part correctly",
+        "no_credit": "Completely incorrect or missing key concepts"
+      }
+    },
+    {
+      "type": "matching",
+      "id": "012",
+      "question": "Match the following:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "pairs": [
+        {"left": "Language", "right": "Java"},
+        {"left": "Image", "right": "Gimp"},
+        {"left": "OS", "right": "linux"}
+      ],
+      "distractors": ["Radio", "Engine"],
+      "user_response" : "",
+      "difficulty": "hard",
+      "tags": ["history", "inventions"],
+      "points": 2
+    },
+    {
+      "type": "matching_select",
+      "type_old": "matching_drag_drop",
+      "id": "013",
+      "question": "Match the inventors with their inventions:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "pairs": [
+        {"left": "Language", "right": "Java"},
+        {"left": "Image", "right": "Gimp"},
+        {"left": "OS", "right": "linux"}
+      ],
+      "distractors": ["Radio", "Engine"],
+      "user_response" : "",
+      "difficulty": "hard",
+      "tags": ["history", "inventions"],
+      "points": 2
+    },
+    {
+      "type": "matching_connection",
+      "id": "014",
+      "question": "Match the following software with their categories:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "pairs": [
+        { "left": "Language", "right": "Java" },
+        { "left": "Image Editor", "right": "Gimp" },
+        { "left": "Operating System", "right": "Linux" },
+        { "left": "Database", "right": "MySQL" }
+      ],
+      "user_response": ""
+    },
+    {
+      "type": "matching_connection_image",
+      "id": "015",
+      "question": "Connect each image to its correct property:",
+      "rows": [
+        {
+          "image_index": 1,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>",
+          "img_url": null,
+          "alt_text": "Five red apples",
+          "property": "5",
+          "acceptable_properties": ["5"]
+        },
+        {
+          "image_index": 2,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>",
+          "img_url": null,
+          "alt_text": "Two brown chairs",
+          "property": "2",
+          "acceptable_properties": ["2"]
+        },
+        {
+          "image_index": 3,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
+          "img_url": null,
+          "alt_text": "Two green leaves",
+          "property": "3",
+          "acceptable_properties": ["3"]
+        }
+      ],
+      "properties_column": ["3", "5", "1", "2"],
+      "user_response": [
+        
+      ],
+      "validation": {
+        "scoring_method": "exact",
+        "scoring_method_01": "partial",
+        "allow_multiple_connections": false,
+        "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
+      },
+      "svg_design_description": [
+        "SVG viewBox must be '0 0 300 40' (width 300 or 350, height 40)",
+        "Always include: width='100%' height='40px' in SVG attributes",
+        "Required structure: <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' width='100%' height='40px' preserveAspectRatio='xMidYMid meet'>",
+        "Background rectangle: <rect width='100%' height='100%' fill='#f8f9fa' rx='4'/>",
+        "All graphical elements must fit within viewBox boundaries",
+        "Stroke widths should be 1.5px minimum for visibility",
+        "Include matching alt text for accessibility",
+        "For exact alignment: center elements vertically at y=20"
+      ],
+      "jpg_design_description": [
+        "Image dimensions: Minimum 600×80px (2x resolution for sharpness)",
+        "Aspect ratio: Strictly 7.5:1 (width:height) to match SVG viewBox",
+        "Display size: Will render at 100% width × 40px height",
+        "Content guidelines:",
+        "- Key elements must be within center 40px vertical zone",
+        "- Ensure minimum 4.5:1 contrast for text/overlays"
+     ],
+      "description": [
+        "Match left side images with their properties on the right.",
+        "Use viewBox and avoid fixed widths in SVG.",
+        "Scoring method can be 'exact' or 'partial'."
+      ]
+    },
+    {
+      "type": "ordering",
+      "id": "016",
+      "question": "Arrange these events in order:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "items": [
+        {"id": "A", "text": "PHD"},
+        {"id": "B", "text": "Mtech"},
+        {"id": "C", "text": "BE"},
+        {"id": "D", "text": "schooling"}
+      ],
+      "correct_order": ["D", "C", "B", "A"],
+      "user_response" : "",
+      "difficulty": "medium",
+      "tags": ["history", "chronology"],
+      "points": 2
+    },
+    {
+      "type": "ordering_horizontal",
+      "type_old":"number_line_fill_in_blank",
+      "id": "017",
+      "question": "Arrange these in order:",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "items": ["B", "A", "D", "C"],
+      "initial_items": ["A", "", "C", "", "E", ""],
+	  "correct_order": ["A", "B", "C", "D"],
+      "user_response": ["", "", "", ""]
+    },
+    {
+      "type": "compare_quantities",
+      "id": "018",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "question": "click for appropriate symbol",
+      "quantity_a": { "label": "A", "value": "5" },
+      "quantity_b": { "label": "B", "value": "8"},
+      "symbol_options": [" ", ">", "<", "="],
+      "correct_answer": "<",
+      "user_response": "",
+      "explanation": "For most values of x < 3, B (2x+5) is greater than A (3x+2), so A < B.",
+      "difficulty": "medium",
+      "tags": ["algebra", "comparison", "quantities"],
+      "points": 1
+    },
+    {
+      "type": "image_compare_quantities_tick",
+      "id": "019",
+      "question": "Tick which are more in number.",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
+      "partition_direction": "vertical",
+      "tick_zones": { "left": "top_left","right": "top_right" },
+      "tick_zones_01": { "top": "top_right","bottom": "bottom_right" },
+      "user_response": null,
+      "correct_answer": "left",
+      "feedback": {
+        "correct": "Correct! You picked the side with more objects.",
+        "incorrect": " Try again. Count the objects carefully."
+      },
+      "difficulty": "easy",
+      "tags": ["counting", "visual reasoning", "comparison"],
+      "points": 1,
+      "description": [
+        "tick box position are top_right, bottom_right, top_left, bottom_left",
+        "partition_direction can be vertical or horizontal",
+        "Use viewBox and avoid fixed widths in svg",
+        "user response can be left, right, null, top, bottom"
+      ],
+      "guidelines": {
+        "svg_creation": [
+          "Use viewBox='0 0 300 150'",
+          "Set width='100%' with max-width in style",
+          "Place objects 20-30% from edges",
+          "Use contrasting colors for visibility",
+          "Include <title> and <desc> for accessibility"
+        ]
+      }
+    },
+    {
+      "type": "multi_select_circle",
+      "id": "020",
+      "question": "Which of the following are programming languages? (Select all that apply)",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "options": [
+        {"id": "A", "text": "Python", "correct": true},
+        {"id": "B", "text": "Linux", "correct": false},
+        {"id": "C", "text": "Java", "correct": true},
+        {"id": "D", "text": "Gimp", "correct": false},
+        {"id": "E", "text": "C++", "correct": true}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "difficulty": "easy",
+      "tags": ["computer-science", "programming"],
+      "points": 2,
+      "scoring_method": "exact",
+      "scoring_method_01": "partial"
+    },
+    {
+      "type": "multi_select_two",
+      "id": "21",
+      "question": "Highlight the largest and smallest numbers.",
+      "quantities": [
+        { "id": "1", "value": 12 },
+        { "id": "2", "value": 45 },
+        { "id": "3", "value": 7 },
+        { "id": "4", "value": 28 },
+        { "id": "5", "value": 33 }
+      ],
+      "required_selections": [
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "color", "value": "red" }
+        },
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "shape", "value": "circle" }
+        }
+      ],
+      "correct_answer": { "smallest": "3", "greatest": "2" },
+      "user_response": { "smallest": "", "greatest": "" },
+      "available_highlight_styles": [
+        { "type": "shape", "value": "circle", "description": "Encircle the selection" },
+        { "type": "shape", "value": "square", "description": "Square border around selection" },
+        { "type": "color", "value": "red", "description": "Fill background with red" },
+        { "type": "color", "value": "green", "description": "Fill background with green" },
+        { "type": "mark", "value": "tick", "description": "Place a tick mark next to the selection" }
+      ],
+      "explanation": "7 is the smallest number and 45 is the greatest number in the list.",
+      "difficulty": "medium",
+      "tags": ["math", "number_comparison"],
+      "points": 2,
+      "time_limit": 45
+    },
+    {
+      "type": "fill_in_blank_multi_graph",
+      "type_old": "fill_in_blank_multi_graph_text",
+      "id": "022",
+      "question": "Fill in the blanks to practice addition with 3.",
+      "center_label": "3",
+      "blocks": [
+        { "a": 0, "b": "+" },
+        { "a": 1, "b": "+" },
+        { "a": 2, "b": "+" },
+        { "a": 3, "b": "+" }
+      ],
+      "value_choices": ["0", "1", "2", "3", "4", "5", "6"],
+      "correct_answer": ["3", "2", "1", "0"],
+      "user_response": ["", "", "", ""],
+      "difficulty": "medium",
+      "tags": ["math", "multiplication", "practice"],
+      "points": 3
+    },
+    {
+      "type": "fill_in_blank_operation",
+      "id": "024",
+      "question": "Perform substraction",
+      "operation": {
+        "name": "subtraction",
+        "symbol": "-"
+      },
+    
+      "editable_answer": {
+        "first_row":  [true,  true,  true],
+        "second_row": [false, false],
+        "third_row":  [false, false, false],
+        "fourth_row": [true,  true,  true]
+      },
+    
+      "initial_answer": {
+        "first_row":  ["", "", ""],
+        "second_row": ["3", "7"],
+        "third_row":  ["-", "1", "9"],
+        "fourth_row": ["", "", ""]
+      },
+    
+      "correct_answer": {
+        "first_row":  ["", "2", "17"],
+        "fourth_row": ["", "1", "8"]
+      },
+    
+      "user_response": {
+        "first_row":  ["", "", ""],
+        "fourth_row": ["", "", ""]
+      },
+    
+      "choices": ["", "1", "2", "17", "8", "13", "6", "5"],
+    
+      "scoring_method": "exact",
+      "case_sensitive": false,
+    
+      "metadata": {
+        "difficulty": "easy",
+        "points": 5,
+        "tags": ["math", "subtraction", "place-value", "borrow"]
+      }
+    },    
+    {
+      "id": "25",
+      "type": "number_line_arcs",
+      "question": "Add 2 + 4",
+      "points": [0,1,2,3,4,5,6,7,8,9,10],
+      "number_line": { "start": 0, "end": 10, "step": 1 },
+      "pairs": [[0,2],[2,6]],
+      "user_response": [ ],
+      "explanation": "The first arc represents moving from 2 to 7 (adding 5). The second arc represents moving from 7 to 3 (subtracting 4).",
+      "metadata": {
+        "difficulty": "medium",
+        "points": 2,
+        "scoring_method": "exact",
+        "scoring_method_01": "partial",
+        "tags": ["number line", "addition", "subtraction"]
+      }
+    },
+    {
+      "id": "26",
+      "type": "clock_set_time",
+      "question": "Set the time to 4:30 PM by drawing the hour and minute hands on the clock.",
+      "clock": {
+        "radius": 120,
+        "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "hour_hand": { "color": "red", "length_ratio": 0.65 },
+        "minute_hand": { "color": "black", "length_ratio": 0.9 }
+      },
+      "correct_answer": { "hour": 4, "minute": 6 },
+      "user_response": { "hour": null, "minute": null }
+    },
+    {
+      "type": "skip",
+      "id": "027",
+      "question": "Tick which are more in number."
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
 }
