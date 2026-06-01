@@ -180,6 +180,19 @@ const EditorConfig = {
       points: '',
       time_limit: '',
     },
+    multi_select: {
+      type: 'multi_select',
+      question: '',
+      svg_content: '',
+      img_url: '',
+      options: [],
+      user_response: [],
+      explanation: '',
+      difficulty: 'easy',
+      tags: [],
+      points: '',
+      time_limit: '',
+    },
   },
 
   // ── localStorage key ────────────────────────────────

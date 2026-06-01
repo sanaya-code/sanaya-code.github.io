@@ -1,0 +1,51 @@
+/* editor/components/question_forms/multi_select_form/style.css */
+
+/* ── Correct checkbox per option ─────────────────────── */
+
+.mcf-correct-checkbox {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.mcf-option-row.is-correct {
+  border-color: var(--success);
+  background: rgba(39,174,122,0.06);
+}
+
+.mcf-option-row.is-correct .mcf-correct-checkbox {
+  accent-color: var(--success);
+}
+
+/* ── Correct count hint ──────────────────────────────── */
+
+.ms-correct-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ms-correct-hint.has-correct {
+  color: var(--success);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ── Height chain fix ────────────────────────────────── */
+
+multi-select-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+multi-select-form .mcq-form {
+  min-height: 0;
+}
+
+multi-select-form .mcf-body {
+  min-height: 0;
+}

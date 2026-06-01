@@ -7,7 +7,7 @@
     "last_modified": "2026-06-01",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 2
+    "total_questions": 3
   },
   "questions": [
     {
@@ -51,6 +51,36 @@
       "time_limit": "",
       "tags": [],
       "id": "002"
+    },
+    {
+      "type": "multi_select",
+      "question": "multi select edit",
+      "svg_content": "",
+      "img_url": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "appple",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "c cat",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "c orange",
+          "correct": false
+        }
+      ],
+      "user_response": [],
+      "explanation": "explm m s edit",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "003"
     }
   ]
 }

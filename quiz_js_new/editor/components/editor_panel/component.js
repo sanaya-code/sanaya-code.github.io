@@ -107,7 +107,8 @@ class EditorPanelComponent extends HTMLElement {
     // Form tag registry — add new types here as forms are built
     const FORM_TAGS = {
       'mcq':        'mcq-form',
-      'true_false': 'true-false-form',
+      'true_false':    'true-false-form',
+      'multi_select':  'multi-select-form',
     };
 
     const formTag = FORM_TAGS[type];
