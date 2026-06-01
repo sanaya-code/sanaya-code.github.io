@@ -36,12 +36,11 @@ QuestionRegistry.register('short_answer', 'short-answer', ShortAnswerEvaluator);
 QuestionRegistry.register('matching',          'matching-dropdown', MatchingDropdownEvaluator);
 QuestionRegistry.register('image_compare_quantities_tick',         'compare-image-objects', CompareImageObjectsEvaluator);
 QuestionRegistry.register('fill_in_blank', 'fill-in-blank', FillInBlankEvaluator);
+QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
+QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
 
 QuestionRegistry.register('table_image_fill_in_the_blank', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
 QuestionRegistry.register('table_image_fill_in_the_blank_2_col', 'table-image-fill-in-the-blank', TableImageFillInBlankEvaluator);
-
-QuestionRegistry.register('table_fill_in_the_blank', 'table-fill-in-the-blank', TableFillInBlankEvaluator);
-QuestionRegistry.register('options_fill_in_blank', 'options-fill-in-blank', OptionsFillInBlankEvaluator);
 
 QuestionRegistry.register('fill_in_blank_multi_graph_text', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
 QuestionRegistry.register('fill_in_blank_multi_graph', 'fill-in-blank-multi-graph-text', FillInBlankMultiGraphTextEvaluator);
