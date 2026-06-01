@@ -108,7 +108,8 @@ class EditorPanelComponent extends HTMLElement {
     const FORM_TAGS = {
       'mcq':        'mcq-form',
       'true_false':    'true-false-form',
-      'multi_select':  'multi-select-form',
+      'multi_select':   'multi-select-form',
+      'short_answer':   'short-answer-form',
     };
 
     const formTag = FORM_TAGS[type];
@@ -156,10 +157,40 @@ class EditorPanelComponent extends HTMLElement {
       return;
     }
 
-    // Look up component tag from registry
-    const tag = (typeof QuestionRegistry !== 'undefined')
+    // Local fallback map — mirrors question_registry.js
+    // Used when registry fails to load or evaluator is missing
+    const PREVIEW_TAGS = {
+      'mcq':                              'mcq-radio',
+      'true_false':                       'true-false',
+      'multi_select':                     'multi-select',
+      'short_answer':                     'short-answer',
+      'fill_in_blank':                    'fill-in-blank',
+      'multi_fill_in_blank':              'multi-fill-in-blank',
+      'options_fill_in_blank':            'options-fill-in-blank',
+      'table_fill_in_the_blank':          'table-fill-in-the-blank',
+      'table_image_fill_in_the_blank':    'table-image-fill-in-the-blank',
+      'matching':                         'matching-dropdown',
+      'matching_select':                  'matching-select',
+      'matching_drag_drop':               'matching-select',
+      'matching_connection':              'matching-connection',
+      'matching_connection_image':        'matching-connection-image',
+      'ordering':                         'ordering-drag-drop',
+      'ordering_horizontal':              'ordering-horizontal-drag-click',
+      'compare_quantities':               'compare-quantities',
+      'image_compare_quantities_tick':    'compare-image-objects',
+      'multi_select_circle':              'multi-select-circle',
+      'multi_select_two':                 'multi-select-two',
+      'fill_in_blank_multi_graph':        'fill-in-blank-multi-graph-text',
+      'fill_in_blank_multi_graph_text':   'fill-in-blank-multi-graph-text',
+      'fill_in_blank_operation':          'fill-in-blank-operation',
+      'number_line_arcs':                 'number-line-arcs',
+      'clock_set_time':                   'clock-set-time',
+    };
+
+    // Try registry first, fall back to local map
+    const tag = (typeof QuestionRegistry !== 'undefined' && QuestionRegistry.getTag(q.type))
       ? QuestionRegistry.getTag(q.type)
-      : null;
+      : (PREVIEW_TAGS[q.type] || null);
 
     if (tag) {
       content.innerHTML = `
@@ -172,16 +203,19 @@ class EditorPanelComponent extends HTMLElement {
       const el = content.querySelector(tag);
       if (el) el.setAttribute('config', JSON.stringify(q));
     } else {
-      // Registry tag not found — component not loaded
+      // Tag not found in registry or fallback map
       const typeConf = EditorConfig.getType(q.type);
       content.innerHTML = `
         <div class="ep-preview-wrap">
           <div class="ep-preview-scroll">
             <div class="ep-skip-notice">
               <div class="ep-skip-icon">🔧</div>
-              <p>Preview component for<br>
-                 <strong>${typeConf ? typeConf.label : q.type}</strong><br>
-                 is not loaded in this page.</p>
+              <p>No preview component found for<br>
+                 <strong>${typeConf ? typeConf.label : q.type}</strong>.<br>
+                 <span style="font-size:11px;color:var(--text-muted)">
+                   Add the quiz component script to editor.html
+                 </span>
+              </p>
             </div>
           </div>
         </div>

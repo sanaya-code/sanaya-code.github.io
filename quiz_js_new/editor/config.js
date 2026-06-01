@@ -193,6 +193,20 @@ const EditorConfig = {
       points: '',
       time_limit: '',
     },
+    short_answer: {
+      type: 'short_answer',
+      question: '',
+      svg_content: '',
+      img_url: '',
+      correct_answer: '',
+      acceptable_variations: [],
+      user_response: '',
+      explanation: '',
+      difficulty: 'easy',
+      tags: [],
+      points: '',
+      time_limit: '',
+    },
   },
 
   // ── localStorage key ────────────────────────────────

@@ -7,7 +7,7 @@
     "last_modified": "2026-06-01",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 3
+    "total_questions": 4
   },
   "questions": [
     {
@@ -81,6 +81,24 @@
       "time_limit": "",
       "tags": [],
       "id": "003"
+    },
+    {
+      "type": "short_answer",
+      "question": "short answer edit",
+      "svg_content": "",
+      "img_url": "",
+      "correct_answer": "Dog",
+      "acceptable_variations": [
+        "Orange",
+        "Banana"
+      ],
+      "user_response": "",
+      "explanation": "short answer exp edit",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "004"
     }
   ]
 }
