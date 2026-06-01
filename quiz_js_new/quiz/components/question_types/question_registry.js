@@ -37,3 +37,4 @@ QuestionRegistry.register('multi_select_two', 'multi-select-two', MultiSelectTwo
 QuestionRegistry.register('short_answer', 'short-answer', ShortAnswerEvaluator);
 QuestionRegistry.register('matching',          'matching-dropdown', MatchingDropdownEvaluator);
 QuestionRegistry.register('compare_image_objects',         'compare-image-objects', CompareImageObjectsEvaluator);
+QuestionRegistry.register('fill_in_blank', 'fill-in-blank', FillInBlankEvaluator);
