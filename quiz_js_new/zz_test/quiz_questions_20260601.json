@@ -7,7 +7,7 @@
     "last_modified": "2026-06-01",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 3
+    "total_questions": 2
   },
   "questions": [
     {
@@ -39,60 +39,18 @@
       "id": "001"
     },
     {
-      "type": "mcq",
-      "question": "Bat B",
+      "type": "true_false",
+      "question": "true false  edited",
       "svg_content": "<svg width=\"300\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"200\" height=\"100\" x=\"10\" y=\"10\" rx=\"20\" ry=\"20\" fill=\"blue\" />\n</svg>",
       "img_url": "",
-      "options": [
-        {
-          "id": "A",
-          "text": "Manoj"
-        },
-        {
-          "id": "B",
-          "text": "Dheeraj"
-        },
-        {
-          "id": "C",
-          "text": "rahul"
-        }
-      ],
-      "correct_answer": "C",
+      "correct_answer": false,
       "user_response": "",
-      "explanation": "no explanation B",
+      "explanation": "ex edited",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
       "tags": [],
       "id": "002"
-    },
-    {
-      "type": "mcq",
-      "question": "Cat Cipla",
-      "svg_content": "",
-      "img_url": "",
-      "options": [
-        {
-          "id": "A",
-          "text": "Ball"
-        },
-        {
-          "id": "B",
-          "text": "Bat"
-        },
-        {
-          "id": "C",
-          "text": "Stumps"
-        }
-      ],
-      "correct_answer": "A",
-      "user_response": "",
-      "explanation": "No explanation C",
-      "difficulty": "easy",
-      "points": "",
-      "time_limit": "",
-      "tags": [],
-      "id": "003"
     }
   ]
 }

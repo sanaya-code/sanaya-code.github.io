@@ -343,3 +343,12 @@ editor-panel {
 }
 
 .es-load-error.hidden { display: none; }
+
+/* ── true-false-form height chain ────────────────────── */
+
+true-false-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}

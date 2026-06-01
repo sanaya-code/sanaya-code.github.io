@@ -3,10 +3,10 @@
 class EditorPanelComponent extends HTMLElement {
 
   connectedCallback() {
-    this._currentIndex   = -1;
+    this._currentIndex    = -1;
     this._currentQuestion = null;
-    this._previewSaved   = false;   // preview tab enabled only after first save
-    this._activeTab      = 'edit';  // 'edit' | 'preview'
+    this._previewSaved    = false;
+    this._activeTab       = 'edit';
     this._showPlaceholder();
   }
 
@@ -21,7 +21,6 @@ class EditorPanelComponent extends HTMLElement {
     this._mountForm();
   }
 
-  // Called by EditorPanelHandler after save
   showPreviewTab(savedQuestion) {
     this._currentQuestion = JSON.parse(JSON.stringify(savedQuestion));
     this._previewSaved    = true;
@@ -38,7 +37,7 @@ class EditorPanelComponent extends HTMLElement {
     this._showPlaceholder();
   }
 
-  // ── Placeholder (no question selected) ──────────────
+  // ── Placeholder ──────────────────────────────────────
 
   _showPlaceholder() {
     this.innerHTML = `
@@ -49,7 +48,7 @@ class EditorPanelComponent extends HTMLElement {
     `;
   }
 
-  // ── Render full shell (tab bar + content area) ───────
+  // ── Shell ────────────────────────────────────────────
 
   _renderShell() {
     const q        = this._currentQuestion;
@@ -58,20 +57,16 @@ class EditorPanelComponent extends HTMLElement {
       isSkip ? (q.original_type || 'mcq') : (q?.type || 'mcq')
     );
     const badgeColor = typeConf ? typeConf.color : '#3498db';
-    const badgeLabel = typeConf ? typeConf.label : 'MCQ';
+    const badgeLabel = typeConf ? typeConf.label : '?';
+
+    const epBadgeHTML = isSkip
+      ? '<span class="ep-type-badge ep-badge-skip">⊘ SKIP</span>'
+      : '<span class="ep-type-badge" style="background:' + badgeColor + '">' + badgeLabel + '</span>';
 
     this.innerHTML = `
       <div class="ep-shell">
-
-        <!-- Tab bar -->
         <div class="ep-tabbar">
-          <div class="ep-tabbar-left">
-            ${isSkip
-              ? `<span class="ep-type-badge ep-badge-skip">⊘ SKIP</span>`
-              : `<span class="ep-type-badge"
-                       style="background:${badgeColor}">${badgeLabel}</span>`
-            }
-          </div>
+          <div class="ep-tabbar-left">${epBadgeHTML}</div>
           <div class="ep-tabs">
             <button class="ep-tab ep-tab-active" data-tab="edit">Edit</button>
             <button class="ep-tab ep-tab-preview ${this._previewSaved ? '' : 'ep-tab-disabled'}"
@@ -79,49 +74,71 @@ class EditorPanelComponent extends HTMLElement {
           </div>
           <div class="ep-tabbar-right"></div>
         </div>
-
-        <!-- Content area -->
         <div class="ep-content"></div>
-
       </div>
     `;
 
     this._bindTabEvents();
   }
 
-  // ── Update just the tab bar (after save) ────────────
+  // ── Tab bar update ───────────────────────────────────
 
   _updateTabBar() {
     const editTab    = this.querySelector('[data-tab="edit"]');
     const previewTab = this.querySelector('[data-tab="preview"]');
     if (!editTab || !previewTab) return;
-
-    editTab.classList.toggle('ep-tab-active', this._activeTab === 'edit');
+    editTab.classList.toggle('ep-tab-active',   this._activeTab === 'edit');
     editTab.classList.toggle('ep-tab-inactive', this._activeTab !== 'edit');
     previewTab.classList.remove('ep-tab-disabled');
-    previewTab.classList.toggle('ep-tab-active', this._activeTab === 'preview');
+    previewTab.classList.toggle('ep-tab-active',   this._activeTab === 'preview');
     previewTab.classList.toggle('ep-tab-inactive', this._activeTab !== 'preview');
   }
 
-  // ── Mount form into content area ─────────────────────
+  // ── Mount form — routes by type ──────────────────────
 
   _mountForm() {
     const content = this.querySelector('.ep-content');
     if (!content) return;
-    content.innerHTML = '<mcq-form></mcq-form>';
-    const form = content.querySelector('mcq-form');
-    if (form) form.loadQuestion(this._currentIndex, this._currentQuestion);
+
+    const type = this._currentQuestion?.type === EditorConfig.SKIP_TYPE
+      ? (this._currentQuestion.original_type || 'mcq')
+      : (this._currentQuestion?.type || 'mcq');
+
+    // Form tag registry — add new types here as forms are built
+    const FORM_TAGS = {
+      'mcq':        'mcq-form',
+      'true_false': 'true-false-form',
+    };
+
+    const formTag = FORM_TAGS[type];
+
+    if (formTag) {
+      content.innerHTML = `<${formTag}></${formTag}>`;
+      const form = content.querySelector(formTag);
+      if (form) form.loadQuestion(this._currentIndex, this._currentQuestion);
+    } else {
+      // Unsupported edit form — show info message
+      const typeConf = EditorConfig.getType(type);
+      content.innerHTML = `
+        <div class="middle-placeholder">
+          <div class="placeholder-icon">🔧</div>
+          <p>Edit form for <strong style="color:var(--accent)">
+            ${typeConf ? typeConf.label : type}
+          </strong><br>is not yet implemented.</p>
+        </div>
+      `;
+    }
   }
 
-  // ── Mount preview into content area ──────────────────
+  // ── Mount preview — uses QuestionRegistry for tag ────
 
   _mountPreview() {
     const content = this.querySelector('.ep-content');
     if (!content) return;
     const q = this._currentQuestion;
-
     if (!q) { content.innerHTML = ''; return; }
 
+    // Skip notice
     if (q.type === EditorConfig.SKIP_TYPE) {
       const typeConf = EditorConfig.getType(q.original_type || 'mcq');
       content.innerHTML = `
@@ -130,8 +147,7 @@ class EditorPanelComponent extends HTMLElement {
             <div class="ep-skip-notice">
               <div class="ep-skip-icon">⊘</div>
               <p>This question is marked as <strong>Skip</strong>.<br>
-                 Original type: <strong>${typeConf ? typeConf.label : q.original_type}</strong>
-              </p>
+                 Original type: <strong>${typeConf ? typeConf.label : q.original_type}</strong></p>
             </div>
           </div>
         </div>
@@ -139,35 +155,40 @@ class EditorPanelComponent extends HTMLElement {
       return;
     }
 
-    if (q.type === 'mcq') {
+    // Look up component tag from registry
+    const tag = (typeof QuestionRegistry !== 'undefined')
+      ? QuestionRegistry.getTag(q.type)
+      : null;
+
+    if (tag) {
       content.innerHTML = `
         <div class="ep-preview-wrap">
           <div class="ep-preview-scroll">
-            <mcq-radio></mcq-radio>
+            <${tag}></${tag}>
           </div>
         </div>
       `;
-      const mcqEl = content.querySelector('mcq-radio');
-      if (mcqEl) mcqEl.setAttribute('config', JSON.stringify(q));
-      return;
-    }
-
-    // Unsupported type preview
-    const typeConf = EditorConfig.getType(q.type);
-    content.innerHTML = `
-      <div class="ep-preview-wrap">
-        <div class="ep-preview-scroll">
-          <div class="ep-skip-notice">
-            <div class="ep-skip-icon">🔧</div>
-            <p>Preview for <strong>${typeConf ? typeConf.label : q.type}</strong><br>
-               will be available in a future stage.</p>
+      const el = content.querySelector(tag);
+      if (el) el.setAttribute('config', JSON.stringify(q));
+    } else {
+      // Registry tag not found — component not loaded
+      const typeConf = EditorConfig.getType(q.type);
+      content.innerHTML = `
+        <div class="ep-preview-wrap">
+          <div class="ep-preview-scroll">
+            <div class="ep-skip-notice">
+              <div class="ep-skip-icon">🔧</div>
+              <p>Preview component for<br>
+                 <strong>${typeConf ? typeConf.label : q.type}</strong><br>
+                 is not loaded in this page.</p>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   }
 
-  // ── Tab click events ─────────────────────────────────
+  // ── Tab events ───────────────────────────────────────
 
   _bindTabEvents() {
     this.querySelectorAll('.ep-tab').forEach(tab => {
@@ -175,11 +196,7 @@ class EditorPanelComponent extends HTMLElement {
         if (tab.classList.contains('ep-tab-disabled')) return;
         this._activeTab = tab.dataset.tab;
         this._updateTabBar();
-        if (this._activeTab === 'edit') {
-          this._mountForm();
-        } else {
-          this._mountPreview();
-        }
+        this._activeTab === 'edit' ? this._mountForm() : this._mountPreview();
       });
     });
   }

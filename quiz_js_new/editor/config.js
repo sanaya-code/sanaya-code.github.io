@@ -167,6 +167,19 @@ const EditorConfig = {
       points: '',
       time_limit: '',
     },
+    true_false: {
+      type: 'true_false',
+      question: '',
+      svg_content: '',
+      img_url: '',
+      correct_answer: '',   // true | false | '' (unset)
+      user_response: '',
+      explanation: '',
+      difficulty: 'easy',
+      tags: [],
+      points: '',
+      time_limit: '',
+    },
   },
 
   // ── localStorage key ────────────────────────────────
