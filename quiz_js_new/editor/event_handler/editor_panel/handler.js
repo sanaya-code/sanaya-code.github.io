@@ -2,11 +2,6 @@
 
 class EditorPanelHandler {
 
-  /**
-   * @param {EditorPanelComponent} panelComponent
-   * @param {EditorState}          state
-   * @param {QuestionListHandler}  listHandler
-   */
   constructor(panelComponent, state, listHandler) {
     this._panel       = panelComponent;
     this._state       = state;
@@ -16,39 +11,28 @@ class EditorPanelHandler {
 
   // ── Public API ───────────────────────────────────────
 
-  clearPanel() {
-    this._panel.clear();
-  }
-
-  // Update internal index without re-rendering the form.
-  // Used when a card above the active card is deleted or reordered —
-  // preserves any unsaved input currently in the form.
-  updateIndex(newIndex) {
-    if (newIndex < 0) {
-      // No questions left — clear instead
-      this._panel.clear();
-      return;
-    }
-    this._panel._currentIndex = newIndex;
-  }
-
   loadQuestion(index, question) {
     this._panel.loadQuestion(index, question);
   }
 
   loadNewQuestion(type, index) {
-    const template = Object.assign(
-      {},
-      EditorConfig.DEFAULTS[type] || { type, question: '' },
-      { _unsaved: true }
-    );
-    this._panel.loadQuestion(index, template);
+    const q = this._state.getQuestion(index);
+    if (q) this._panel.loadQuestion(index, q);
+  }
+
+  clearPanel() {
+    this._panel.clear();
+  }
+
+  // Silently update index — no re-render, preserves unsaved form input
+  updateCurrentIndex(newIndex) {
+    this._panel.updateCurrentIndex(newIndex);
   }
 
   // ── Events ──────────────────────────────────────────
 
   _bindEvents() {
-    // question-saved bubbles up from <mcq-form> through <editor-panel>
+    // question-saved bubbles up from any form through editor-panel
     this._panel.addEventListener('question-saved', (e) => {
       this._handleQuestionSaved(e.detail.index, e.detail.question);
     });
@@ -57,23 +41,21 @@ class EditorPanelHandler {
   // ── Save flow ────────────────────────────────────────
 
   _handleQuestionSaved(index, questionData) {
-    // 1. Persist to state — also reassigns all IDs
+    // 1. Write to state — state owns the data from here
     this._state.saveQuestion(index, questionData);
 
-    // 2. Refresh question list keeping saved card active
-    this._listHandler.refresh(index);
+    // 2. Refresh list — reads fresh from state
+    this._listHandler.refresh(this._state.getActiveIndex());
 
-    // 3. Switch to Preview tab — passes saved question to panel
+    // 3. Show preview — reads fresh from state
     const saved = this._state.getQuestion(index);
-    this._panel.showPreviewTab(saved);
+    if (saved) this._panel.showPreviewTab(saved);
 
-    // 4. Persist draft to localStorage
+    // 4. Persist draft
     this._saveDraft();
-
-    console.log('[EditorPanelHandler] Saved index', index, saved);
   }
 
-  // ── Draft persistence ────────────────────────────────
+  // ── Draft ────────────────────────────────────────────
 
   _saveDraft() {
     try {

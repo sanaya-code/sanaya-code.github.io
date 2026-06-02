@@ -145,7 +145,22 @@ const EditorController = (() => {
 
   function _showTypeSelector() {
     const panelEl = document.getElementById('editor-panel');
-    panelEl.innerHTML = '<type-selector></type-selector>';
+    panelEl.innerHTML = `
+      <div class="ep-shell">
+        <div class="ep-tabbar">
+          <div class="ep-tabbar-left">
+            <span style="font-size:13px;font-weight:600;color:var(--text-secondary)">
+              New Question
+            </span>
+          </div>
+          <div class="ep-tabbar-right"></div>
+        </div>
+        <div class="ep-content">
+          <div class="ep-form-host">
+            <type-selector></type-selector>
+          </div>
+        </div>
+      </div>`;
     panelEl.addEventListener('type-selected', _handleTypeSelected, { once: true });
     _typeSelectorOpen = true;
   }

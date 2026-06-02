@@ -173,3 +173,20 @@
   font-style: normal;
   font-weight: 600;
 }
+
+/* ── Height chain ────────────────────────────────────── */
+/* type-selector sits inside ep-form-host which handles   */
+/* flex:1 and min-height:0. We just need the inner div    */
+/* to also fill and scroll correctly.                     */
+
+type-selector {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.type-selector {
+  min-height: 0;
+  overflow-y: auto;
+}
