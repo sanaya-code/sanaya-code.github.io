@@ -31,7 +31,7 @@ const EditorState = (() => {
   // ── Write ────────────────────────────────────────────
 
   function addUnsavedQuestion(type) {
-    const template = EditorConfig.DEFAULTS[type] || { type, question: '' };
+    const template = EditorFormRegistry.getDefault(type) || { type, question: '' };
     _questions.push(Object.assign(_clone(template), { _unsaved: true }));
     _activeIndex = _questions.length - 1;
     return _activeIndex;

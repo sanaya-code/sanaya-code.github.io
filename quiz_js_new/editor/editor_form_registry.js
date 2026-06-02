@@ -1,23 +1,32 @@
 // editor/editor_form_registry.js
+//
+// Single registration per question type.
+// Adding a new type: add ONE register() call here + 2 files
+// (form component + style) + 4 lines in editor.html.
+// Nothing else needs to change.
 
 const EditorFormRegistry = {
 
   _registry: {},
 
-  // ── Register a question type ─────────────────────────
-  // formTag    — the editor custom element tag e.g. 'mcq-form'
-  //              pass null if no editor form exists yet
-  // previewTag — the quiz component tag e.g. 'mcq-radio'
-  //              pass null if no preview component exists
+  // ── Register ─────────────────────────────────────────
 
-  register(type, formTag, previewTag) {
+  register(type, config) {
     this._registry[type] = {
-      formTag:    formTag    || null,
-      previewTag: previewTag || null,
+      label:      config.label       || type,
+      description:config.description || '',
+      color:      config.color       || '#3498db',
+      formTag:    config.formTag     || null,
+      previewTag: config.previewTag  || null,
+      default:    config.default     || { type, question: '' },
     };
   },
 
   // ── Lookups ──────────────────────────────────────────
+
+  getType(type) {
+    return this._registry[type] || null;
+  },
 
   getFormTag(type) {
     return this._registry[type]?.formTag || null;
@@ -27,49 +36,258 @@ const EditorFormRegistry = {
     return this._registry[type]?.previewTag || null;
   },
 
-  hasForm(type) {
-    return !!this._registry[type]?.formTag;
+  getDefault(type) {
+    const def = this._registry[type]?.default;
+    return def ? JSON.parse(JSON.stringify(def)) : { type, question: '' };
   },
 
-  hasPreview(type) {
-    return !!this._registry[type]?.previewTag;
+  // Returns all registered types as an array (for type selector grid)
+  getAllTypes() {
+    return Object.entries(this._registry).map(([type, cfg]) => ({
+      type,
+      label:       cfg.label,
+      description: cfg.description,
+      color:       cfg.color,
+    }));
   },
+
+  hasForm(type)    { return !!this._registry[type]?.formTag;    },
+  hasPreview(type) { return !!this._registry[type]?.previewTag; },
 
 };
 
 // ── Register all question types ───────────────────────
 //
-// Columns:
-//   type string          | editor form tag          | quiz preview tag
-//
-// Add a new row here when implementing a new question type.
-// editor_panel/component.js never needs to be touched.
+// To add a new type: add one register() call below.
+// formTag:    the editor form custom element tag  (null = not yet built)
+// previewTag: the quiz preview component tag      (null = not yet built)
+// default:    the blank JSON template for this type
 
-EditorFormRegistry.register('mcq',                              'mcq-form',            'mcq-radio');
-EditorFormRegistry.register('true_false',                       'true-false-form',     'true-false');
-EditorFormRegistry.register('multi_select',                     'multi-select-form',   'multi-select');
-EditorFormRegistry.register('short_answer',                     'short-answer-form',   'short-answer');
-EditorFormRegistry.register('fill_in_blank',                    'fill-in-blank-form',  'fill-in-blank');
-EditorFormRegistry.register('ordering',                         'ordering-form',            'ordering-drag-drop');
-EditorFormRegistry.register('ordering_horizontal',               'ordering-horizontal-form', 'ordering-horizontal-drag-click');
+EditorFormRegistry.register('mcq', {
+  label:       'MCQ',
+  description: 'Multiple choice, one correct answer',
+  color:       '#3498db',
+  formTag:     'mcq-form',
+  previewTag:  'mcq-radio',
+  default: {
+    type: 'mcq', question: '', svg_content: '', img_url: '',
+    options: [], correct_answer: '', user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
 
-// ── Forms not yet implemented (preview only) ──────────
-EditorFormRegistry.register('multi_fill_in_blank',              null,  'multi-fill-in-blank');
-EditorFormRegistry.register('options_fill_in_blank',            null,  'options-fill-in-blank');
-EditorFormRegistry.register('table_fill_in_the_blank',          null,  'table-fill-in-the-blank');
-EditorFormRegistry.register('table_image_fill_in_the_blank',    null,  'table-image-fill-in-the-blank');
-EditorFormRegistry.register('table_image_fill_in_the_blank_2_col', null, 'table-image-fill-in-the-blank');
-EditorFormRegistry.register('matching',                         null,  'matching-dropdown');
-EditorFormRegistry.register('matching_select',                  null,  'matching-select');
-EditorFormRegistry.register('matching_drag_drop',               null,  'matching-select');
-EditorFormRegistry.register('matching_connection',              null,  'matching-connection');
-EditorFormRegistry.register('matching_connection_image',        null,  'matching-connection-image');
-EditorFormRegistry.register('compare_quantities',               null,  'compare-quantities');
-EditorFormRegistry.register('image_compare_quantities_tick',    null,  'compare-image-objects');
-EditorFormRegistry.register('multi_select_circle',              null,  'multi-select-circle');
-EditorFormRegistry.register('multi_select_two',                 null,  'multi-select-two');
-EditorFormRegistry.register('fill_in_blank_multi_graph',        null,  'fill-in-blank-multi-graph-text');
-EditorFormRegistry.register('fill_in_blank_multi_graph_text',   null,  'fill-in-blank-multi-graph-text');
-EditorFormRegistry.register('fill_in_blank_operation',          null,  'fill-in-blank-operation');
-EditorFormRegistry.register('number_line_arcs',                 null,  'number-line-arcs');
-EditorFormRegistry.register('clock_set_time',                   null,  'clock-set-time');
+EditorFormRegistry.register('true_false', {
+  label:       'True / False',
+  description: 'Simple true or false question',
+  color:       '#f7a24f',
+  formTag:     'true-false-form',
+  previewTag:  'true-false',
+  default: {
+    type: 'true_false', question: '', svg_content: '', img_url: '',
+    correct_answer: '', user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
+
+EditorFormRegistry.register('multi_select', {
+  label:       'Multi Select',
+  description: 'Multiple correct answers from a list',
+  color:       '#e05555',
+  formTag:     'multi-select-form',
+  previewTag:  'multi-select',
+  default: {
+    type: 'multi_select', question: '', svg_content: '', img_url: '',
+    options: [], user_response: [],
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
+
+EditorFormRegistry.register('short_answer', {
+  label:       'Short Answer',
+  description: 'Free text short answer question',
+  color:       '#7f8c8d',
+  formTag:     'short-answer-form',
+  previewTag:  'short-answer',
+  default: {
+    type: 'short_answer', question: '', svg_content: '', img_url: '',
+    correct_answer: '', acceptable_variations: [], user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
+
+EditorFormRegistry.register('fill_in_blank', {
+  label:       'Fill in Blank',
+  description: 'Type the answer in a blank',
+  color:       '#27ae7a',
+  formTag:     'fill-in-blank-form',
+  previewTag:  'fill-in-blank',
+  default: {
+    type: 'fill_in_blank', question: '', svg_content: '', img_url: '',
+    correct_answer: '', acceptable_answers: [], user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
+
+EditorFormRegistry.register('ordering', {
+  label:       'Ordering',
+  description: 'Arrange items in correct sequence',
+  color:       '#e91e8c',
+  formTag:     'ordering-form',
+  previewTag:  'ordering-drag-drop',
+  default: {
+    type: 'ordering', question: '', svg_content: '', img_url: '',
+    items: [], correct_order: [], user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
+
+EditorFormRegistry.register('ordering_horizontal', {
+  label:       'Ordering Horizontal',
+  description: 'Arrange items left to right in order',
+  color:       '#c2185b',
+  formTag:     'ordering-horizontal-form',
+  previewTag:  'ordering-horizontal-drag-click',
+  default: {
+    type: 'ordering_horizontal', question: '', svg_content: '', img_url: '',
+    items: [], correct_order: [], initial_items: [], user_response: [],
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
+});
+
+// ── Preview only (forms not yet implemented) ──────────
+
+EditorFormRegistry.register('multi_fill_in_blank', {
+  label: 'Multi Fill Blank', description: 'Multiple blanks in one question',
+  color: '#1a8a8a', previewTag: 'multi-fill-in-blank',
+  default: { type: 'multi_fill_in_blank', question: '', svg_content: '', img_url: '',
+    blanks: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('options_fill_in_blank', {
+  label: 'Options Fill Blank', description: 'Fill blanks by choosing from options',
+  color: '#8e44ad', previewTag: 'options-fill-in-blank',
+  default: { type: 'options_fill_in_blank', question: '', svg_content: '', img_url: '',
+    options: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('table_fill_in_the_blank', {
+  label: 'Table Fill Blank', description: 'Fill in blanks inside a table',
+  color: '#2980b9', previewTag: 'table-fill-in-the-blank',
+  default: { type: 'table_fill_in_the_blank', question: '', svg_content: '', img_url: '',
+    table: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('table_image_fill_in_the_blank', {
+  label: 'Table Image Fill', description: 'Table with images and fill blanks',
+  color: '#1a5f8a', previewTag: 'table-image-fill-in-the-blank',
+  default: { type: 'table_image_fill_in_the_blank', question: '', svg_content: '', img_url: '',
+    table: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('table_image_fill_in_the_blank_2_col', {
+  label: 'Table Image Fill 2col', description: 'Two-column table image fill',
+  color: '#1a5f8a', previewTag: 'table-image-fill-in-the-blank',
+  default: { type: 'table_image_fill_in_the_blank_2_col', question: '', svg_content: '', img_url: '',
+    table: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('matching', {
+  label: 'Matching', description: 'Match items from two columns',
+  color: '#d4a017', previewTag: 'matching-dropdown',
+  default: { type: 'matching', question: '', svg_content: '', img_url: '',
+    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('matching_select', {
+  label: 'Matching Select', description: 'Match by selecting from dropdowns',
+  color: '#c0892a', previewTag: 'matching-select',
+  default: { type: 'matching_select', question: '', svg_content: '', img_url: '',
+    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('matching_drag_drop', {
+  label: 'Matching Drag Drop', description: 'Match by dragging items',
+  color: '#b7530a', previewTag: 'matching-select',
+  default: { type: 'matching_drag_drop', question: '', svg_content: '', img_url: '',
+    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('matching_connection', {
+  label: 'Matching Connection', description: 'Draw lines to connect matching pairs',
+  color: '#a04000', previewTag: 'matching-connection',
+  default: { type: 'matching_connection', question: '', svg_content: '', img_url: '',
+    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('matching_connection_image', {
+  label: 'Match Connection Image', description: 'Connect matching image pairs',
+  color: '#7b3000', previewTag: 'matching-connection-image',
+  default: { type: 'matching_connection_image', question: '', svg_content: '', img_url: '',
+    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('compare_quantities', {
+  label: 'Compare Quantities', description: 'Compare two quantities with a symbol',
+  color: '#4f86f7', previewTag: 'compare-quantities',
+  default: { type: 'compare_quantities', question: '', svg_content: '', img_url: '',
+    left: '', right: '', correct_answer: '', user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('image_compare_quantities_tick', {
+  label: 'Image Compare Tick', description: 'Tick the image with greater quantity',
+  color: '#1565c0', previewTag: 'compare-image-objects',
+  default: { type: 'image_compare_quantities_tick', question: '', svg_content: '', img_url: '',
+    items: [], correct_answer: '', user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('multi_select_circle', {
+  label: 'Multi Select Circle', description: 'Select multiple items shown as circles',
+  color: '#b71c1c', previewTag: 'multi-select-circle',
+  default: { type: 'multi_select_circle', question: '', svg_content: '', img_url: '',
+    options: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('multi_select_two', {
+  label: 'Multi Select Two', description: 'Highlight items by two categories',
+  color: '#880e4f', previewTag: 'multi-select-two',
+  default: { type: 'multi_select_two', question: '', svg_content: '', img_url: '',
+    options: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('fill_in_blank_multi_graph', {
+  label: 'Fill Blank Graph', description: 'Fill blanks in a multi-node graph',
+  color: '#00838f', previewTag: 'fill-in-blank-multi-graph-text',
+  default: { type: 'fill_in_blank_multi_graph', question: '', svg_content: '', img_url: '',
+    nodes: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('fill_in_blank_multi_graph_text', {
+  label: 'Fill Blank Graph Text', description: 'Fill blanks in a text graph',
+  color: '#006064', previewTag: 'fill-in-blank-multi-graph-text',
+  default: { type: 'fill_in_blank_multi_graph_text', question: '', svg_content: '', img_url: '',
+    nodes: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('fill_in_blank_operation', {
+  label: 'Fill Operation', description: 'Fill in a math operation grid',
+  color: '#006064', previewTag: 'fill-in-blank-operation',
+  default: { type: 'fill_in_blank_operation', question: '', svg_content: '', img_url: '',
+    grid: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('number_line_arcs', {
+  label: 'Number Line', description: 'Arc based number line question',
+  color: '#4527a0', previewTag: 'number-line-arcs',
+  default: { type: 'number_line_arcs', question: '', svg_content: '', img_url: '',
+    arcs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
+
+EditorFormRegistry.register('clock_set_time', {
+  label: 'Clock', description: 'Set time on a clock face',
+  color: '#2e7d32', previewTag: 'clock-set-time',
+  default: { type: 'clock_set_time', question: '', svg_content: '', img_url: '',
+    correct_answer: '', user_response: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+});
