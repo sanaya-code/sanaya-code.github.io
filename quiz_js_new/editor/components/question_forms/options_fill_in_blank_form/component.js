@@ -360,6 +360,11 @@ class OptionsFillInBlankFormComponent extends HTMLElement {
           <button class="ofib-seg-add-blank"
                   data-opt="${optIndex}">+ Blank</button>
         </div>
+        <!-- Assembled sentence preview -->
+        <div class="mcf-render-preview" style="display:block;font-size:13px"
+             id="ofib-assembled-${optIndex}">
+          ${this._assembledPreview(opt)}
+        </div>
         ${editPanelHTML ? `<div class="ofib-edit-panel-wrap">${editPanelHTML}</div>` : ''}
         <div class="mcf-field">
           <label class="ofib-edit-label">Hint <span style="font-weight:400">(optional)</span></label>
@@ -384,10 +389,11 @@ class OptionsFillInBlankFormComponent extends HTMLElement {
       return `
         <div class="ofib-edit-panel">
           <div class="ofib-edit-title">Edit Text</div>
-          <label class="ofib-edit-label">Text content</label>
-          <input class="ofib-edit-input" id="ofib-seg-val-${optIndex}"
-                 type="text" placeholder="Enter text..."
-                 value="${this._esc(seg.value)}" />
+          <label class="ofib-edit-label">Text content (HTML/MathML supported)</label>
+          <textarea class="ofib-edit-input" id="ofib-seg-val-${optIndex}"
+                 rows="2" placeholder="Enter text (HTML/MathML supported)..."
+                 style="resize:vertical;min-height:48px;font-family:var(--font-mono);font-size:12px"
+          >${this._esc(seg.value)}</textarea>
           <div class="ofib-edit-actions">
             <button class="ofib-edit-save"
                     data-opt="${optIndex}" data-seg="${segIndex}">Save</button>
@@ -780,6 +786,20 @@ class OptionsFillInBlankFormComponent extends HTMLElement {
   _parseTags() {
     const raw = this.querySelector('#ofib-tags')?.value || '';
     return raw.split(',').map(t => t.trim()).filter(t => t.length > 0);
+  }
+
+  // ── Assembled option sentence preview ───────────────
+
+  _assembledPreview(opt) {
+    if (!opt.segments.length) return '<em style="color:var(--text-muted)">Empty option</em>';
+    let blankNum = 0;
+    return opt.segments.map(seg => {
+      if (seg.type === 'text') return seg.value;
+      blankNum++;
+      return `<span style="display:inline-block;min-width:36px;border-bottom:2px solid var(--accent);
+                           color:var(--accent);font-size:11px;text-align:center;
+                           margin:0 2px;padding:0 3px">_${blankNum}_</span>`;
+    }).join('');
   }
 
   _esc(str) {

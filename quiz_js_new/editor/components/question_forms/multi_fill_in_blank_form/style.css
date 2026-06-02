@@ -257,3 +257,22 @@
   font-style: normal;
   font-weight: 500;
 }
+
+/* ── Assembled question preview ──────────────────────── */
+
+#mfib-assembled-preview {
+  font-size: 14px;
+  line-height: 1.8;
+  min-height: 32px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+
+#mfib-assembled-preview:empty::before {
+  content: 'Question preview will appear here as you add segments';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}

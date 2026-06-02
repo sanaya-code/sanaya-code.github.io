@@ -93,6 +93,9 @@ class MultiFillInBlankFormComponent extends HTMLElement {
             <div class="mfib-builder" id="mfib-builder">
               ${this._renderSegmentPills()}
             </div>
+            <!-- Assembled question preview -->
+            <div class="mcf-render-preview" id="mfib-assembled-preview"
+                 style="display:block"></div>
             <div class="mfib-blanks-summary ${blankCount > 0 ? 'has-blanks' : ''}"
                  id="mfib-blanks-summary">
               ${blankCount === 0
@@ -310,12 +313,12 @@ class MultiFillInBlankFormComponent extends HTMLElement {
         <div class="mfib-edit-panel">
           <div class="mfib-edit-title">Edit Text</div>
           <div class="mfib-edit-field">
-            <label class="mfib-edit-label">Text content</label>
-            <input class="mfib-edit-input" id="mfib-seg-text-val"
-              type="text"
-              placeholder="Enter text..."
-              value="${this._esc(seg.value)}"
-            />
+            <label class="mfib-edit-label">Text content (HTML/MathML supported)</label>
+            <textarea class="mfib-edit-input" id="mfib-seg-text-val"
+              rows="2"
+              placeholder="Enter text (HTML/MathML supported)..."
+              style="resize:vertical;min-height:52px;font-family:var(--font-mono);font-size:12px"
+            >${this._esc(seg.value)}</textarea>
           </div>
           <div class="mfib-edit-actions">
             <button class="mfib-edit-save"   id="mfib-seg-save">Save</button>
@@ -385,8 +388,31 @@ class MultiFillInBlankFormComponent extends HTMLElement {
       summary.className = 'mfib-blanks-summary' + (blankCount > 0 ? ' has-blanks' : '');
     }
 
+    // Update assembled preview
+    this._updateAssembledPreview();
+
     // Re-bind pill click events
     this._bindPillEvents();
+  }
+
+  // ── Assembled question preview ───────────────────────
+
+  _updateAssembledPreview() {
+    const preview = this.querySelector('#mfib-assembled-preview');
+    if (!preview) return;
+    if (!this._segments.length) {
+      preview.innerHTML = '';
+      return;
+    }
+    let blankNum = 0;
+    const html = this._segments.map(seg => {
+      if (seg.type === 'text') return seg.value;
+      blankNum++;
+      return `<span style="display:inline-block;min-width:40px;border-bottom:2px solid var(--accent);
+                           color:var(--accent);font-size:11px;text-align:center;
+                           margin:0 2px;padding:0 4px">_${blankNum}_</span>`;
+    }).join('');
+    preview.innerHTML = html || '';
   }
 
   // ── Show/hide inline edit panel ──────────────────────
@@ -415,6 +441,8 @@ class MultiFillInBlankFormComponent extends HTMLElement {
 
   _bindEvents() {
     this._bindFocusPreview('mfib-explanation', 'mfib-explanation-preview');
+    // Show assembled preview on load
+    this._updateAssembledPreview();
 
     // SVG collapsible
     this.querySelector('#mfib-svg-toggle')?.addEventListener('click', () => {
@@ -507,7 +535,7 @@ class MultiFillInBlankFormComponent extends HTMLElement {
     // Save segment edit
     this.querySelector('#mfib-seg-save')?.addEventListener('click', () => {
       if (seg.type === 'text') {
-        seg.value = this.querySelector('#mfib-seg-text-val')?.value || '';
+        seg.value = this.querySelector('#mfib-seg-text-val')?.value.trim() || '';
       } else {
         seg.correct_answer     = this.querySelector('#mfib-seg-correct')?.value.trim() || '';
         seg.acceptable_answers = (this.querySelector('#mfib-seg-acceptable')?.value || '')

@@ -194,7 +194,7 @@
     },
     {
       "type": "multi_fill_in_blank",
-      "question": "appple is ____cat is____",
+      "question": "appple is ____cat is____In a <strong>right triangle</strong>, <math><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>",
       "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
       "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
       "blanks": [
@@ -244,10 +244,11 @@
       "options": [
         {
           "id": "01",
-          "text": "Sides in triangle____and____points",
+          "text": "Sides in triangle____and____pointsThe area of a circle is <math><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></math> where r is____In a <strong>right triangle</strong>, <math><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>",
           "correct_answer": [
             "3",
-            "3"
+            "3",
+            "dfsd"
           ],
           "acceptable_answers": [
             [
@@ -257,6 +258,9 @@
             [
               "three",
               "Three"
+            ],
+            [
+              "dfsd"
             ]
           ],
           "hint": ""
@@ -278,6 +282,7 @@
       ],
       "user_response": [
         [
+          "",
           "",
           ""
         ],

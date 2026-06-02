@@ -316,3 +316,22 @@
   font-family: var(--font-sans);
 }
 .ofib-edit-cancel:hover { background: var(--bg-panel); }
+
+/* ── Assembled option sentence preview ───────────────── */
+
+[id^="ofib-assembled-"] {
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 30px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+}
+
+[id^="ofib-assembled-"]:empty::before {
+  content: 'Sentence preview will appear here as you add segments';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 11px;
+}
