@@ -16,6 +16,22 @@ class EditorPanelHandler {
 
   // ── Public API ───────────────────────────────────────
 
+  clearPanel() {
+    this._panel.clear();
+  }
+
+  // Update internal index without re-rendering the form.
+  // Used when a card above the active card is deleted or reordered —
+  // preserves any unsaved input currently in the form.
+  updateIndex(newIndex) {
+    if (newIndex < 0) {
+      // No questions left — clear instead
+      this._panel.clear();
+      return;
+    }
+    this._panel._currentIndex = newIndex;
+  }
+
   loadQuestion(index, question) {
     this._panel.loadQuestion(index, question);
   }

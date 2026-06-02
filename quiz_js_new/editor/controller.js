@@ -120,10 +120,23 @@ const EditorController = (() => {
   // ── Export ────────────────────────────────────────────
 
   function _exportJson() {
+    const total    = EditorState.getCount();
     const questions = EditorState.exportQuestions();
-    if (questions.length === 0) {
+    if (total === 0) {
       alert('No questions to export.');
       return;
+    }
+    if (questions.length === 0) {
+      alert('No saved questions to export.\nSave at least one question before exporting.');
+      return;
+    }
+    const skipped = total - questions.length;
+    if (skipped > 0) {
+      const ok = confirm(
+        `Exporting ${questions.length} saved question${questions.length > 1 ? 's' : ''}.\n` +
+        `${skipped} unsaved question${skipped > 1 ? 's' : ''} will be excluded.\n\nContinue?`
+      );
+      if (!ok) return;
     }
     JsonExporter.download(questions);
   }

@@ -235,6 +235,21 @@ const EditorConfig = {
       points: '',
       time_limit: '',
     },
+    ordering_horizontal: {
+      type: 'ordering_horizontal',
+      question: '',
+      svg_content: '',
+      img_url: '',
+      items: [],
+      correct_order: [],
+      initial_items: [],
+      user_response: [],
+      explanation: '',
+      difficulty: 'easy',
+      tags: [],
+      points: '',
+      time_limit: '',
+    },
   },
 
   // ── localStorage key ────────────────────────────────

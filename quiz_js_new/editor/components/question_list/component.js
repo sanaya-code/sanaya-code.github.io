@@ -13,7 +13,8 @@ class QuestionListComponent extends HTMLElement {
 
   // Replace the full questions array and re-render
   setQuestions(questions, activeIndex = -1) {
-    this._questions   = questions;
+    // Store local copy — don't hold reference to state's array
+    this._questions   = questions.map(q => Object.assign({}, q));
     this._activeIndex = activeIndex;
     this._render();
   }

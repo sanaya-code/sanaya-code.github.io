@@ -1,0 +1,27 @@
+/* editor/components/question_forms/ordering_horizontal_form/style.css */
+
+/* ── Show checkbox on correct order row ──────────────── */
+
+.orh-show-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.orh-show-cb {
+  accent-color: var(--success);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.ord-correct-row.is-shown {
+  border-color: var(--success);
+  background: rgba(39,174,122,0.06);
+}

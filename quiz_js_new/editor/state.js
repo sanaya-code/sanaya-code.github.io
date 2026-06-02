@@ -2,17 +2,28 @@
 
 const EditorState = (() => {
 
-  let _questions   = [];   // array of question objects
-  let _activeIndex = -1;   // index of currently open question
+  let _questions   = [];
+  let _activeIndex = -1;
+
+  // ── Deep clone helper ────────────────────────────────
+  // All data entering and leaving state goes through this.
+  // No component ever holds a live reference into state.
+
+  function _clone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+  }
 
   // ── Getters ──────────────────────────────────────────
 
-  function getQuestions() {
-    return _questions;
+  // Returns a deep clone of one question — caller cannot mutate state
+  function getQuestion(index) {
+    if (index < 0 || index >= _questions.length) return null;
+    return _clone(_questions[index]);
   }
 
-  function getQuestion(index) {
-    return _questions[index] || null;
+  // Returns deep clones of all questions
+  function getQuestions() {
+    return _questions.map(q => _clone(q));
   }
 
   function getActiveIndex() {
@@ -23,33 +34,39 @@ const EditorState = (() => {
     _activeIndex = index;
   }
 
+  function getCount() {
+    return _questions.length;
+  }
+
   // ── Add unsaved question ─────────────────────────────
-  // Adds a blank template question marked as unsaved (_unsaved: true)
-  // Returns the new index
 
   function addUnsavedQuestion(type) {
     const template = EditorConfig.DEFAULTS[type] || { type, question: '' };
-    const newQ = Object.assign({}, template, { _unsaved: true });
+    // Deep clone template so no two questions share array references
+    const newQ = Object.assign(_clone(template), { _unsaved: true });
     _questions.push(newQ);
     _activeIndex = _questions.length - 1;
     return _activeIndex;
   }
 
-  // ── Save / update a question at index ───────────────
+  // ── Save / update ────────────────────────────────────
 
   function saveQuestion(index, questionData) {
     if (index < 0 || index >= _questions.length) return;
-    _questions[index] = Object.assign({}, questionData, { _unsaved: false });
+    // Deep clone incoming data — state owns its own copy
+    _questions[index] = Object.assign(_clone(questionData), { _unsaved: false });
     _reassignIds();
   }
 
   // ── Delete ───────────────────────────────────────────
 
   function deleteQuestion(index) {
+    if (index < 0 || index >= _questions.length) return;
     _questions.splice(index, 1);
-    // Adjust active index
-    if (_activeIndex >= _questions.length) {
-      _activeIndex = _questions.length - 1;
+    if (_activeIndex === index) {
+      _activeIndex = Math.min(_activeIndex, _questions.length - 1);
+    } else if (index < _activeIndex) {
+      _activeIndex--;
     }
     _reassignIds();
   }
@@ -57,23 +74,37 @@ const EditorState = (() => {
   // ── Reorder (drag-drop) ──────────────────────────────
 
   function reorderQuestions(from, to) {
+    if (from < 0 || to < 0 ||
+        from >= _questions.length || to >= _questions.length ||
+        from === to) return;
+
     const moved = _questions.splice(from, 1)[0];
     _questions.splice(to, 0, moved);
-    // Update active index to follow the moved card
+
+    // Track active index through the move
     if (_activeIndex === from) {
       _activeIndex = to;
+    } else if (from < to) {
+      if (_activeIndex > from && _activeIndex <= to) _activeIndex--;
+    } else {
+      if (_activeIndex >= to && _activeIndex < from) _activeIndex++;
     }
+
     _reassignIds();
   }
 
-  // ── Export (strips internal flags) ──────────────────
+  // ── Export ───────────────────────────────────────────
+  // Returns deep clones with internal flags stripped
 
   function exportQuestions() {
-    return _questions.map((q, i) => {
-      const clean = Object.assign({}, q);
-      delete clean._unsaved;
-      return clean;
-    });
+    // Only export saved questions — unsaved (blank/incomplete) are excluded
+    return _questions
+      .filter(q => !q._unsaved)
+      .map(q => {
+        const clean = _clone(q);
+        delete clean._unsaved;
+        return clean;
+      });
   }
 
   // ── Reset ────────────────────────────────────────────
@@ -83,11 +114,13 @@ const EditorState = (() => {
     _activeIndex = -1;
   }
 
-  // ── Load from array (used by Load JSON + Resume Draft) ─
+  // ── Load ─────────────────────────────────────────────
 
   function loadQuestions(arr) {
-    _questions   = arr.map(q => Object.assign({}, q, { _unsaved: false }));
+    // Deep clone every question — state is fully independent of source
+    _questions   = arr.map(q => Object.assign(_clone(q), { _unsaved: false }));
     _activeIndex = -1;
+    _reassignIds();
   }
 
   // ── Private: reassign IDs by position ───────────────
@@ -99,10 +132,11 @@ const EditorState = (() => {
   }
 
   return {
-    getQuestions,
     getQuestion,
+    getQuestions,
     getActiveIndex,
     setActiveIndex,
+    getCount,
     addUnsavedQuestion,
     saveQuestion,
     deleteQuestion,
