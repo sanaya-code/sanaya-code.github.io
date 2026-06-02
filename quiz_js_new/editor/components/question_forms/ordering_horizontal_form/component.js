@@ -23,9 +23,9 @@ class OrderingHorizontalFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.ordering_horizontal;
+    const q        = this._question || EditorFormRegistry.getDefault('ordering_horizontal');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'ordering_horizontal') : q.type
     );
     const badgeColor   = typeConf ? typeConf.color : '#c2185b';

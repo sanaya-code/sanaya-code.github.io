@@ -3,20 +3,26 @@
 class TypeSelectorComponent extends HTMLElement {
 
   connectedCallback() {
-    this._types  = EditorConfig.SUPPORTED_TYPES;
-    this._query  = '';
+    this._query = '';
     this._render();
     this._bindEvents();
-    this.querySelector('.ts-search').focus();
+    this.querySelector('.ts-search')?.focus();
+  }
+
+  // ── Get types lazily — called at render time ─────────
+  // Ensures EditorFormRegistry is fully initialised
+  _getTypes() {
+    return EditorFormRegistry.getAllTypes();
   }
 
   // ── Render shell ────────────────────────────────────
   _render() {
+    const types = this._getTypes();
     this.innerHTML = `
       <div class="type-selector">
         <div class="ts-heading">
           Select Question Type
-          <span>${this._types.length} types available</span>
+          <span>${types.length} types available</span>
         </div>
 
         <div class="ts-search-wrap">
@@ -31,7 +37,7 @@ class TypeSelectorComponent extends HTMLElement {
         </div>
 
         <div class="ts-grid">
-          ${this._renderCards()}
+          ${this._renderCards(types)}
         </div>
 
         <div class="ts-skip-note">
@@ -43,15 +49,15 @@ class TypeSelectorComponent extends HTMLElement {
   }
 
   // ── Render filtered cards ───────────────────────────
-  _renderCards() {
-    const q        = this._query.toLowerCase().trim();
+  _renderCards(types) {
+    const q = this._query.toLowerCase().trim();
     const filtered = q
-      ? this._types.filter(t =>
+      ? types.filter(t =>
           t.label.toLowerCase().includes(q)       ||
           t.description.toLowerCase().includes(q) ||
           t.type.toLowerCase().includes(q)
         )
-      : this._types;
+      : types;
 
     if (filtered.length === 0) {
       return `
@@ -73,9 +79,10 @@ class TypeSelectorComponent extends HTMLElement {
 
   // ── Events ──────────────────────────────────────────
   _bindEvents() {
-    this.querySelector('.ts-search').addEventListener('input', (e) => {
+    this.querySelector('.ts-search')?.addEventListener('input', (e) => {
       this._query = e.target.value;
-      this.querySelector('.ts-grid').innerHTML = this._renderCards();
+      const types = this._getTypes();
+      this.querySelector('.ts-grid').innerHTML = this._renderCards(types);
       this._bindCardEvents();
     });
     this._bindCardEvents();

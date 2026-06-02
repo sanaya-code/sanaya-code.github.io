@@ -22,9 +22,9 @@ class McqFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.mcq;
+    const q        = this._question || EditorFormRegistry.getDefault('mcq');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'mcq') : q.type
     );
     const badgeColor = typeConf ? typeConf.color : '#3498db';

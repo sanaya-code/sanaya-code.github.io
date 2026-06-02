@@ -23,9 +23,9 @@ class OrderingFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.ordering;
+    const q        = this._question || EditorFormRegistry.getDefault('ordering');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'ordering') : q.type
     );
     const badgeColor = typeConf ? typeConf.color : '#e91e8c';

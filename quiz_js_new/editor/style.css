@@ -149,7 +149,8 @@ html, body {
   border-right: 1.5px solid var(--border);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: clip;
+  min-height: 0;
 }
 
 #panel-middle {
@@ -339,3 +340,14 @@ editor-panel {
 }
 
 .es-load-error.hidden { display: none; }
+
+
+/* ── question-list height chain ──────────────────────── */
+
+question-list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

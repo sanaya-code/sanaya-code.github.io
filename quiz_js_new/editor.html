@@ -73,7 +73,11 @@
   <!-- ── Scripts: config + state + utils ─────────────── -->
   <script src="editor/config.js"></script>
   <script src="editor/editor_form_registry.js"></script>
-  <script src="editor/state.js"></script>
+  <!-- State layer -->
+  <script src="editor/state/question_state.js"></script>
+  <script src="editor/state/selection_state.js"></script>
+  <script src="editor/state/draft_state.js"></script>
+  <script src="editor/state/index.js"></script>
   <script src="editor/utils/json_loader.js"></script>
   <script src="editor/utils/json_exporter.js"></script>
 
@@ -91,14 +95,6 @@
 
   <!-- ── Scripts: quiz components (for preview tab) ───── -->
   <!-- Evaluators must load before registry -->
-  <script src="quiz/components/question_types/mcq_question/evaluator.js"></script>
-  <script src="quiz/components/question_types/true_false_question/evaluator.js"></script>
-  <script src="quiz/components/question_types/multi_select/evaluator.js"></script>
-  <script src="quiz/components/question_types/short_answer/evaluator.js"></script>
-  <script src="quiz/components/question_types/fill_in_blank/evaluator.js"></script>
-  <script src="quiz/components/question_types/ordering/evaluator.js"></script>
-  <script src="quiz/components/question_types/ordering_horizontal/evaluator.js"></script>
-  <script src="quiz/components/question_types/question_registry.js"></script>
   <script src="quiz/components/question_types/mcq_question/component.js"></script>
   <script src="quiz/components/question_types/true_false_question/component.js"></script>
   <script src="quiz/components/question_types/multi_select/component.js"></script>

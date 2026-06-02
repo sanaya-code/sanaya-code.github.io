@@ -21,9 +21,9 @@ class ShortAnswerFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.short_answer;
+    const q        = this._question || EditorFormRegistry.getDefault('short_answer');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'short_answer') : q.type
     );
     const badgeColor = typeConf ? typeConf.color : '#7f8c8d';

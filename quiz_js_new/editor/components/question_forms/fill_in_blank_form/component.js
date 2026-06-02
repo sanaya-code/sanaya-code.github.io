@@ -21,9 +21,9 @@ class FillInBlankFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.fill_in_blank;
+    const q        = this._question || EditorFormRegistry.getDefault('fill_in_blank');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'fill_in_blank') : q.type
     );
     const badgeColor = typeConf ? typeConf.color : '#27ae7a';

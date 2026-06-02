@@ -22,9 +22,9 @@ class MultiSelectFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.multi_select;
+    const q        = this._question || EditorFormRegistry.getDefault('multi_select');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'multi_select') : q.type
     );
     const badgeColor = typeConf ? typeConf.color : '#e05555';

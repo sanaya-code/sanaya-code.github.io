@@ -21,9 +21,9 @@ class TrueFalseFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorConfig.DEFAULTS.true_false;
+    const q        = this._question || EditorFormRegistry.getDefault('true_false');
     const isSkip   = q.type === 'skip';
-    const typeConf = EditorConfig.getType(
+    const typeConf = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'true_false') : q.type
     );
     const badgeColor = typeConf ? typeConf.color : '#f7a24f';

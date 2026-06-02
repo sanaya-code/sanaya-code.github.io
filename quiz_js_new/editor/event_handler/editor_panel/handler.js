@@ -2,9 +2,8 @@
 
 class EditorPanelHandler {
 
-  constructor(panelComponent, state, listHandler) {
+  constructor(panelComponent, listHandler) {
     this._panel       = panelComponent;
-    this._state       = state;
     this._listHandler = listHandler;
     this._bindEvents();
   }
@@ -16,7 +15,7 @@ class EditorPanelHandler {
   }
 
   loadNewQuestion(type, index) {
-    const q = this._state.getQuestion(index);
+    const q = StateController.getQuestion(index);
     if (q) this._panel.loadQuestion(index, q);
   }
 
@@ -24,51 +23,51 @@ class EditorPanelHandler {
     this._panel.clear();
   }
 
-  // Silently update index — no re-render, preserves unsaved form input
-  updateCurrentIndex(newIndex) {
-    this._panel.updateCurrentIndex(newIndex);
-  }
-
   // ── Events ──────────────────────────────────────────
 
   _bindEvents() {
-    // question-saved bubbles up from any form through editor-panel
+
+    // question-saved bubbles from any form
     this._panel.addEventListener('question-saved', (e) => {
-      this._handleQuestionSaved(e.detail.index, e.detail.question);
+      this._handleSave(e.detail.index, e.detail.question);
     });
+
+    // question-closed from Close button
+    this._panel.addEventListener('question-closed', (e) => {
+      this._handleClose(e.detail.isNew, e.detail.index);
+    });
+
   }
 
-  // ── Save flow ────────────────────────────────────────
+  // ── Save ─────────────────────────────────────────────
 
-  _handleQuestionSaved(index, questionData) {
-    // 1. Write to state — state owns the data from here
-    this._state.saveQuestion(index, questionData);
+  _handleSave(index, questionData) {
+    // Write to state — draft auto-saved inside StateController.saveQuestion
+    StateController.saveQuestion(index, questionData);
 
-    // 2. Refresh list — reads fresh from state
-    this._listHandler.refresh(this._state.getActiveIndex());
+    // Return to view mode
+    StateController.returnToView();
 
-    // 3. Show preview — reads fresh from state
-    const saved = this._state.getQuestion(index);
+    // Refresh list
+    this._listHandler.refresh();
+
+    // Show preview with fresh data
+    const saved = StateController.getQuestion(index);
     if (saved) this._panel.showPreviewTab(saved);
-
-    // 4. Persist draft
-    this._saveDraft();
   }
 
-  // ── Draft ────────────────────────────────────────────
+  // ── Close ─────────────────────────────────────────────
 
-  _saveDraft() {
-    try {
-      localStorage.setItem(
-        EditorConfig.STORAGE_KEY,
-        JSON.stringify({
-          questions: this._state.exportQuestions(),
-          savedAt:   new Date().toISOString(),
-        })
-      );
-    } catch (e) {
-      console.warn('[EditorPanelHandler] Draft save failed:', e);
+  _handleClose(isNew, index) {
+    if (isNew) {
+      // New question — remove it entirely
+      StateController.deleteQuestion(index);
     }
+    // Existing question — discard edits, state unchanged
+
+    StateController.returnToView();
+    this._listHandler.refresh();
+    this._panel.clear();
   }
 
 }

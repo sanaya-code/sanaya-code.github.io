@@ -59,7 +59,7 @@ class PreviewPanelComponent extends HTMLElement {
 
   _showSkipNotice(question) {
     const originalType = question.original_type || 'unknown';
-    const typeConf     = EditorConfig.getType(originalType);
+    const typeConf     = EditorFormRegistry.getType(originalType);
     const label        = typeConf ? typeConf.label : originalType;
 
     this.innerHTML = `

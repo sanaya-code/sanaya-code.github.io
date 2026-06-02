@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 10px 10px 16px;
   gap: 6px;
@@ -159,4 +160,32 @@
 
 .ql-card:hover::before {
   opacity: 1;
+}
+
+/* ── Drag handle ─────────────────────────────────────── */
+
+.ql-drag-handle {
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: grab;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.ql-card:hover .ql-drag-handle {
+  opacity: 1;
+}
+
+.ql-drag-handle.ql-drag-disabled {
+  opacity: 0.15;
+  cursor: default;
+}
+
+/* ── Delete disabled ─────────────────────────────────── */
+
+.ql-delete:disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
 }
