@@ -50,6 +50,7 @@ EditorFormRegistry.register('true_false',                       'true-false-form
 EditorFormRegistry.register('multi_select',                     'multi-select-form',   'multi-select');
 EditorFormRegistry.register('short_answer',                     'short-answer-form',   'short-answer');
 EditorFormRegistry.register('fill_in_blank',                    'fill-in-blank-form',  'fill-in-blank');
+EditorFormRegistry.register('ordering',                         'ordering-form',       'ordering-drag-drop');
 
 // ── Forms not yet implemented (preview only) ──────────
 EditorFormRegistry.register('multi_fill_in_blank',              null,  'multi-fill-in-blank');
@@ -62,7 +63,6 @@ EditorFormRegistry.register('matching_select',                  null,  'matching
 EditorFormRegistry.register('matching_drag_drop',               null,  'matching-select');
 EditorFormRegistry.register('matching_connection',              null,  'matching-connection');
 EditorFormRegistry.register('matching_connection_image',        null,  'matching-connection-image');
-EditorFormRegistry.register('ordering',                         null,  'ordering-drag-drop');
 EditorFormRegistry.register('ordering_horizontal',              null,  'ordering-horizontal-drag-click');
 EditorFormRegistry.register('compare_quantities',               null,  'compare-quantities');
 EditorFormRegistry.register('image_compare_quantities_tick',    null,  'compare-image-objects');

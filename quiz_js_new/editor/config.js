@@ -221,6 +221,20 @@ const EditorConfig = {
       points: '',
       time_limit: '',
     },
+    ordering: {
+      type: 'ordering',
+      question: '',
+      svg_content: '',
+      img_url: '',
+      items: [],
+      correct_order: [],
+      user_response: '',
+      explanation: '',
+      difficulty: 'easy',
+      tags: [],
+      points: '',
+      time_limit: '',
+    },
   },
 
   // ── localStorage key ────────────────────────────────

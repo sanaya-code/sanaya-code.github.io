@@ -1,0 +1,126 @@
+/* editor/components/question_forms/ordering_form/style.css */
+
+/* ── Items list (define the items) ──────────────────── */
+
+.ord-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ord-item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.ord-item-row:hover       { border-color: var(--border-focus); }
+.ord-item-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ord-item-row.dragging    { opacity: 0.4; }
+.ord-item-row.focused-row { border-color: var(--accent); background: var(--accent-light); }
+
+/* ── Correct order list (arrange the items) ──────────── */
+
+.ord-correct-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ord-correct-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  cursor: grab;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  user-select: none;
+}
+
+.ord-correct-row:hover {
+  border-color: var(--border-focus);
+  box-shadow: 0 2px 6px rgba(52,152,219,0.10);
+}
+
+.ord-correct-row.drag-over {
+  border-color: var(--accent-2);
+  border-style: dashed;
+}
+
+.ord-correct-row.dragging {
+  opacity: 0.4;
+  cursor: grabbing;
+}
+
+.ord-position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ord-correct-id {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-width: 18px;
+}
+
+.ord-correct-text {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.ord-correct-drag {
+  color: var(--text-muted);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ── Sync hint ───────────────────────────────────────── */
+
+.ord-sync-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 6px 0;
+}
+
+/* ── Height chain fix ────────────────────────────────── */
+
+ordering-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+ordering-form .mcq-form {
+  min-height: 0;
+}
+
+ordering-form .mcf-body {
+  min-height: 0;
+}

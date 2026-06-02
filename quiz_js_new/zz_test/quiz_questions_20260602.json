@@ -7,28 +7,9 @@
     "last_modified": "2026-06-02",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 5
+    "total_questions": 6
   },
   "questions": [
-    {
-      "type": "fill_in_blank",
-      "question": "Edit Fill in the blank ____",
-      "svg_content": "",
-      "img_url": "",
-      "correct_answer": "Cat",
-      "acceptable_answers": [
-        "Mango",
-        "Orange",
-        "Dog"
-      ],
-      "user_response": "",
-      "explanation": "Edit  Expl Fill in the blank",
-      "difficulty": "easy",
-      "points": "",
-      "time_limit": "",
-      "tags": [],
-      "id": "001"
-    },
     {
       "type": "mcq",
       "question": "apple  A",
@@ -55,7 +36,7 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "id": "002"
+      "id": "001"
     },
     {
       "type": "true_false",
@@ -69,7 +50,7 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "id": "003"
+      "id": "002"
     },
     {
       "type": "multi_select",
@@ -99,7 +80,7 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "id": "004"
+      "id": "003"
     },
     {
       "type": "short_answer",
@@ -117,7 +98,63 @@
       "points": "",
       "time_limit": "",
       "tags": [],
+      "id": "004"
+    },
+    {
+      "type": "fill_in_blank",
+      "question": "Edit Fill in the blank ____",
+      "svg_content": "",
+      "img_url": "",
+      "correct_answer": "Cat",
+      "acceptable_answers": [
+        "Mango",
+        "Orange",
+        "Dog"
+      ],
+      "user_response": "",
+      "explanation": "Edit  Expl Fill in the blank",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
       "id": "005"
+    },
+    {
+      "type": "ordering",
+      "question": "Edit ordering qun",
+      "svg_content": "",
+      "img_url": "",
+      "items": [
+        {
+          "id": "A",
+          "text": "banana"
+        },
+        {
+          "id": "B",
+          "text": "apple"
+        },
+        {
+          "id": "C",
+          "text": "Cat"
+        },
+        {
+          "id": "D",
+          "text": "Elephant"
+        }
+      ],
+      "correct_order": [
+        "D",
+        "C",
+        "A",
+        "B"
+      ],
+      "user_response": "",
+      "explanation": "Edit Exp ordering qun",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "006"
     }
   ]
 }

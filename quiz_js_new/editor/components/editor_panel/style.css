@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 0;
   overflow: clip;
 }
 
@@ -100,18 +101,29 @@
 
 .ep-content {
   flex: 1;
+  min-height: 0;
   overflow: clip;
   display: flex;
   flex-direction: column;
 }
 
-/* form elements fill the content area */
-.ep-content mcq-form,
-.ep-content true-false-form {
+/* ── Form host — all form custom elements fill this div ─ */
+/* Single rule replaces per-element height chain blocks    */
+
+.ep-form-host {
   flex: 1;
-  overflow: clip;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.ep-form-host .mcq-form {
+  min-height: 0;
+}
+
+.ep-form-host .mcf-body {
+  min-height: 0;
 }
 
 /* ── Preview wrap ────────────────────────────────────── */
@@ -157,18 +169,4 @@
 
 .ep-skip-notice strong {
   color: var(--accent-deep);
-}
-
-/* ── Height chain fix ────────────────────────────────── */
-
-.ep-shell {
-  min-height: 0;
-}
-
-.ep-content {
-  min-height: 0;   /* prevents flex child overflow */
-}
-
-.ep-content mcq-form {
-  min-height: 0;
 }

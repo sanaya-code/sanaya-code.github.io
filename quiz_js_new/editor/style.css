@@ -309,10 +309,6 @@ html, body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-/* ── Custom element height chain ─────────────────────── */
-/* Each custom element must fill its parent to pass height down */
-
 #panel-middle {
   min-height: 0;   /* critical — prevents flex child from overflowing */
 }
@@ -343,12 +339,3 @@ editor-panel {
 }
 
 .es-load-error.hidden { display: none; }
-
-/* ── true-false-form height chain ────────────────────── */
-
-true-false-form {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: 100%;
-}

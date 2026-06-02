@@ -107,7 +107,7 @@ class EditorPanelComponent extends HTMLElement {
     const formTag = EditorFormRegistry.getFormTag(type);
 
     if (formTag) {
-      content.innerHTML = `<${formTag}></${formTag}>`;
+      content.innerHTML = `<div class="ep-form-host"><${formTag}></${formTag}></div>`;
       const form = content.querySelector(formTag);
       if (form) form.loadQuestion(this._currentIndex, this._currentQuestion);
     } else {
