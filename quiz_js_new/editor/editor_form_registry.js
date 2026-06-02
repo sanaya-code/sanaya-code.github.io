@@ -165,7 +165,7 @@ EditorFormRegistry.register('multi_fill_in_blank', {
 
 EditorFormRegistry.register('options_fill_in_blank', {
   label: 'Options Fill Blank', description: 'Fill blanks by choosing from options',
-  color: '#8e44ad', previewTag: 'options-fill-in-blank',
+  color: '#8e44ad', formTag: 'options-fill-in-blank-form', previewTag: 'options-fill-in-blank',
   default: { type: 'options_fill_in_blank', question: '', svg_content: '', img_url: '',
     options: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });

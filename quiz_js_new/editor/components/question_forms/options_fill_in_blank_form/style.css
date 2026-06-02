@@ -1,0 +1,318 @@
+/* editor/components/question_forms/options_fill_in_blank_form/style.css */
+
+/* ── Choices pool ────────────────────────────────────── */
+
+.ofib-choices-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+}
+
+.ofib-choice-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+}
+
+.ofib-choice-input {
+  width: 60px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  outline: none;
+  text-align: center;
+}
+
+.ofib-choice-input:focus { border-color: var(--border-focus); }
+
+.ofib-choice-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 1px 3px;
+  border-radius: 3px;
+  transition: color 0.15s;
+}
+.ofib-choice-delete:hover { color: var(--danger); }
+
+/* ── Options list ────────────────────────────────────── */
+
+.ofib-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ofib-option-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ofib-option-card.active {
+  border-color: var(--accent);
+}
+
+.ofib-option-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.ofib-option-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ofib-option-preview-text {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ofib-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.ofib-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.ofib-option-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Segment builder (per option) ────────────────────── */
+
+.ofib-builder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+}
+
+.ofib-builder-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ofib-segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  transition: box-shadow 0.12s;
+  user-select: none;
+}
+
+.ofib-segment:hover { box-shadow: 0 2px 6px rgba(52,152,219,0.18); }
+.ofib-segment.active { box-shadow: 0 0 0 2px var(--accent); }
+
+.ofib-segment-text {
+  background: var(--bg-panel);
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ofib-segment-blank {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent-deep);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.ofib-seg-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ofib-seg-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.ofib-seg-add-text {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.15s, color 0.15s;
+}
+.ofib-seg-add-text:hover { border-color: var(--border-focus); color: var(--accent); }
+
+.ofib-seg-add-blank {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ofib-seg-add-blank:hover { background: #b8d9f5; }
+
+/* ── Inline edit panel ───────────────────────────────── */
+
+.ofib-edit-panel {
+  background: #fff;
+  border: 1.5px solid var(--border-focus);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: ofib-fadein 0.15s ease;
+}
+
+@keyframes ofib-fadein {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ofib-edit-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ofib-edit-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.ofib-edit-input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.ofib-edit-input:focus { border-color: var(--border-focus); }
+
+.ofib-edit-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.ofib-edit-save {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 5px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+.ofib-edit-save:hover { opacity: 0.88; }
+
+.ofib-edit-delete {
+  background: transparent;
+  color: var(--danger);
+  border: 1.5px solid var(--danger);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+.ofib-edit-delete:hover { background: var(--danger-light); }
+
+.ofib-edit-cancel {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+.ofib-edit-cancel:hover { background: var(--bg-panel); }

@@ -7,7 +7,7 @@
     "last_modified": "2026-06-02",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 8
+    "total_questions": 9
   },
   "questions": [
     {
@@ -234,6 +234,75 @@
       "time_limit": "",
       "tags": [],
       "id": "008"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "question": "aaaa",
+      "svg_content": "",
+      "img_url": "",
+      "blank_type": "box",
+      "options": [
+        {
+          "id": "01",
+          "text": "Sides in triangle____and____points",
+          "correct_answer": [
+            "3",
+            "3"
+          ],
+          "acceptable_answers": [
+            [
+              "three",
+              "Three"
+            ],
+            [
+              "three",
+              "Three"
+            ]
+          ],
+          "hint": ""
+        },
+        {
+          "id": "02",
+          "text": "Sides in square is____",
+          "correct_answer": [
+            "4"
+          ],
+          "acceptable_answers": [
+            [
+              "Four",
+              "four"
+            ]
+          ],
+          "hint": ""
+        }
+      ],
+      "user_response": [
+        [
+          "",
+          ""
+        ],
+        [
+          ""
+        ]
+      ],
+      "choices": [
+        "Three",
+        "three",
+        "3"
+      ],
+      "case_sensitive": false,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "",
+        "partial_credit": "",
+        "none": ""
+      },
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "009"
     }
   ]
 }
