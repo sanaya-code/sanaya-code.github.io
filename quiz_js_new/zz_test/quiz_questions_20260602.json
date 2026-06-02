@@ -7,7 +7,7 @@
     "last_modified": "2026-06-02",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 7
+    "total_questions": 8
   },
   "questions": [
     {
@@ -191,6 +191,49 @@
       "time_limit": "",
       "tags": [],
       "id": "007"
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "question": "appple is ____cat is____",
+      "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
+      "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
+      "blanks": [
+        {
+          "position": 1,
+          "correct_answer": "food",
+          "acceptable_answers": [
+            "food",
+            "red"
+          ],
+          "hint": ""
+        },
+        {
+          "position": 2,
+          "correct_answer": "animal",
+          "acceptable_answers": [
+            "mamal",
+            "living"
+          ],
+          "hint": ""
+        }
+      ],
+      "user_response": [
+        "",
+        ""
+      ],
+      "case_sensitive": false,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "",
+        "partial_credit": "",
+        "none": ""
+      },
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "008"
     }
   ]
 }

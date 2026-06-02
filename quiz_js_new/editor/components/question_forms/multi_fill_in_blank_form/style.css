@@ -1,0 +1,259 @@
+/* editor/components/question_forms/multi_fill_in_blank_form/style.css */
+
+/* ── Segment builder ─────────────────────────────────── */
+
+.mfib-builder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 52px;
+}
+
+.mfib-builder-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Segment pills ───────────────────────────────────── */
+
+.mfib-segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  transition: box-shadow 0.15s, transform 0.1s;
+  user-select: none;
+  max-width: 200px;
+}
+
+.mfib-segment:hover {
+  box-shadow: 0 2px 8px rgba(52,152,219,0.2);
+  transform: translateY(-1px);
+}
+
+.mfib-segment.active {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.mfib-segment-text {
+  background: var(--bg-panel);
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+}
+
+.mfib-segment-text .mfib-seg-val {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 160px;
+}
+
+.mfib-segment-blank {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent-deep);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.mfib-seg-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Add buttons ─────────────────────────────────────── */
+
+.mfib-add-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.mfib-add-text-btn {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.mfib-add-text-btn:hover {
+  border-color: var(--border-focus);
+  color: var(--accent);
+}
+
+.mfib-add-blank-btn {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+
+.mfib-add-blank-btn:hover {
+  background: #b8d9f5;
+}
+
+/* ── Inline edit panel ───────────────────────────────── */
+
+.mfib-edit-panel {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-focus);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: mfib-slidein 0.15s ease;
+}
+
+@keyframes mfib-slidein {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mfib-edit-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mfib-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mfib-edit-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.mfib-edit-input {
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.mfib-edit-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+.mfib-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.mfib-edit-save {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: opacity 0.15s;
+}
+
+.mfib-edit-save:hover { opacity: 0.88; }
+
+.mfib-edit-delete {
+  background: transparent;
+  color: var(--danger);
+  border: 1.5px solid var(--danger);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+
+.mfib-edit-delete:hover { background: var(--danger-light); }
+
+.mfib-edit-cancel {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+
+.mfib-edit-cancel:hover { background: var(--bg-panel); }
+
+/* ── Additional fields ───────────────────────────────── */
+
+.mfib-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.mfib-checkbox-row input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* ── Blanks summary ──────────────────────────────────── */
+
+.mfib-blanks-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.mfib-blanks-summary.has-blanks {
+  color: var(--success);
+  font-style: normal;
+  font-weight: 500;
+}

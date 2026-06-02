@@ -158,7 +158,7 @@ EditorFormRegistry.register('ordering_horizontal', {
 
 EditorFormRegistry.register('multi_fill_in_blank', {
   label: 'Multi Fill Blank', description: 'Multiple blanks in one question',
-  color: '#1a8a8a', previewTag: 'multi-fill-in-blank',
+  color: '#1a8a8a', formTag: 'multi-fill-in-blank-form', previewTag: 'multi-fill-in-blank',
   default: { type: 'multi_fill_in_blank', question: '', svg_content: '', img_url: '',
     blanks: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
