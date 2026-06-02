@@ -207,6 +207,20 @@ const EditorConfig = {
       points: '',
       time_limit: '',
     },
+    fill_in_blank: {
+      type: 'fill_in_blank',
+      question: '',
+      svg_content: '',
+      img_url: '',
+      correct_answer: '',
+      acceptable_answers: [],
+      user_response: '',
+      explanation: '',
+      difficulty: 'easy',
+      tags: [],
+      points: '',
+      time_limit: '',
+    },
   },
 
   // ── localStorage key ────────────────────────────────

@@ -1,0 +1,60 @@
+/* editor/components/question_forms/fill_in_blank_form/style.css */
+
+/* ── Blank hint below question textarea ──────────────── */
+
+.fib-blank-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--accent-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+}
+
+.fib-blank-hint code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-deep);
+  background: rgba(52,152,219,0.12);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ── Blank detector — highlights if ____ is present ─── */
+
+.fib-blank-status {
+  font-size: 12px;
+  font-weight: 500;
+  display: none;
+}
+
+.fib-blank-status.found {
+  display: inline;
+  color: var(--success);
+}
+
+.fib-blank-status.missing {
+  display: inline;
+  color: var(--unsaved-dot);
+}
+
+/* ── Height chain fix ────────────────────────────────── */
+
+fill-in-blank-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+fill-in-blank-form .mcq-form {
+  min-height: 0;
+}
+
+fill-in-blank-form .mcf-body {
+  min-height: 0;
+}

@@ -59,14 +59,14 @@ class EditorPanelComponent extends HTMLElement {
     const badgeColor = typeConf ? typeConf.color : '#3498db';
     const badgeLabel = typeConf ? typeConf.label : '?';
 
-    const epBadgeHTML = isSkip
-      ? '<span class="ep-type-badge ep-badge-skip">⊘ SKIP</span>'
-      : '<span class="ep-type-badge" style="background:' + badgeColor + '">' + badgeLabel + '</span>';
+    const badge = isSkip
+      ? `<span class="ep-type-badge ep-badge-skip">⊘ SKIP</span>`
+      : `<span class="ep-type-badge" style="background:${badgeColor}">${badgeLabel}</span>`;
 
     this.innerHTML = `
       <div class="ep-shell">
         <div class="ep-tabbar">
-          <div class="ep-tabbar-left">${epBadgeHTML}</div>
+          <div class="ep-tabbar-left">${badge}</div>
           <div class="ep-tabs">
             <button class="ep-tab ep-tab-active" data-tab="edit">Edit</button>
             <button class="ep-tab ep-tab-preview ${this._previewSaved ? '' : 'ep-tab-disabled'}"
@@ -94,7 +94,7 @@ class EditorPanelComponent extends HTMLElement {
     previewTab.classList.toggle('ep-tab-inactive', this._activeTab !== 'preview');
   }
 
-  // ── Mount form — routes by type ──────────────────────
+  // ── Mount form — resolved via EditorFormRegistry ─────
 
   _mountForm() {
     const content = this.querySelector('.ep-content');
@@ -104,22 +104,13 @@ class EditorPanelComponent extends HTMLElement {
       ? (this._currentQuestion.original_type || 'mcq')
       : (this._currentQuestion?.type || 'mcq');
 
-    // Form tag registry — add new types here as forms are built
-    const FORM_TAGS = {
-      'mcq':        'mcq-form',
-      'true_false':    'true-false-form',
-      'multi_select':   'multi-select-form',
-      'short_answer':   'short-answer-form',
-    };
-
-    const formTag = FORM_TAGS[type];
+    const formTag = EditorFormRegistry.getFormTag(type);
 
     if (formTag) {
       content.innerHTML = `<${formTag}></${formTag}>`;
       const form = content.querySelector(formTag);
       if (form) form.loadQuestion(this._currentIndex, this._currentQuestion);
     } else {
-      // Unsupported edit form — show info message
       const typeConf = EditorConfig.getType(type);
       content.innerHTML = `
         <div class="middle-placeholder">
@@ -127,12 +118,15 @@ class EditorPanelComponent extends HTMLElement {
           <p>Edit form for <strong style="color:var(--accent)">
             ${typeConf ? typeConf.label : type}
           </strong><br>is not yet implemented.</p>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:8px">
+            Register a form tag in <code>editor_form_registry.js</code> to enable editing.
+          </p>
         </div>
       `;
     }
   }
 
-  // ── Mount preview — uses QuestionRegistry for tag ────
+  // ── Mount preview — resolved via EditorFormRegistry ──
 
   _mountPreview() {
     const content = this.querySelector('.ep-content');
@@ -149,7 +143,9 @@ class EditorPanelComponent extends HTMLElement {
             <div class="ep-skip-notice">
               <div class="ep-skip-icon">⊘</div>
               <p>This question is marked as <strong>Skip</strong>.<br>
-                 Original type: <strong>${typeConf ? typeConf.label : q.original_type}</strong></p>
+                 Original type: <strong>
+                   ${typeConf ? typeConf.label : q.original_type}
+                 </strong></p>
             </div>
           </div>
         </div>
@@ -157,40 +153,7 @@ class EditorPanelComponent extends HTMLElement {
       return;
     }
 
-    // Local fallback map — mirrors question_registry.js
-    // Used when registry fails to load or evaluator is missing
-    const PREVIEW_TAGS = {
-      'mcq':                              'mcq-radio',
-      'true_false':                       'true-false',
-      'multi_select':                     'multi-select',
-      'short_answer':                     'short-answer',
-      'fill_in_blank':                    'fill-in-blank',
-      'multi_fill_in_blank':              'multi-fill-in-blank',
-      'options_fill_in_blank':            'options-fill-in-blank',
-      'table_fill_in_the_blank':          'table-fill-in-the-blank',
-      'table_image_fill_in_the_blank':    'table-image-fill-in-the-blank',
-      'matching':                         'matching-dropdown',
-      'matching_select':                  'matching-select',
-      'matching_drag_drop':               'matching-select',
-      'matching_connection':              'matching-connection',
-      'matching_connection_image':        'matching-connection-image',
-      'ordering':                         'ordering-drag-drop',
-      'ordering_horizontal':              'ordering-horizontal-drag-click',
-      'compare_quantities':               'compare-quantities',
-      'image_compare_quantities_tick':    'compare-image-objects',
-      'multi_select_circle':              'multi-select-circle',
-      'multi_select_two':                 'multi-select-two',
-      'fill_in_blank_multi_graph':        'fill-in-blank-multi-graph-text',
-      'fill_in_blank_multi_graph_text':   'fill-in-blank-multi-graph-text',
-      'fill_in_blank_operation':          'fill-in-blank-operation',
-      'number_line_arcs':                 'number-line-arcs',
-      'clock_set_time':                   'clock-set-time',
-    };
-
-    // Try registry first, fall back to local map
-    const tag = (typeof QuestionRegistry !== 'undefined' && QuestionRegistry.getTag(q.type))
-      ? QuestionRegistry.getTag(q.type)
-      : (PREVIEW_TAGS[q.type] || null);
+    const tag = EditorFormRegistry.getPreviewTag(q.type);
 
     if (tag) {
       content.innerHTML = `
@@ -203,7 +166,6 @@ class EditorPanelComponent extends HTMLElement {
       const el = content.querySelector(tag);
       if (el) el.setAttribute('config', JSON.stringify(q));
     } else {
-      // Tag not found in registry or fallback map
       const typeConf = EditorConfig.getType(q.type);
       content.innerHTML = `
         <div class="ep-preview-wrap">
