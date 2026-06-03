@@ -244,9 +244,10 @@ EditorFormRegistry.register('image_compare_quantities_tick', {
 
 EditorFormRegistry.register('multi_select_circle', {
   label: 'Multi Select Circle', description: 'Select multiple items shown as circles',
-  color: '#b71c1c', previewTag: 'multi-select-circle',
+  color: '#b71c1c', formTag: 'multi-select-circle-form', previewTag: 'multi-select-circle',
   default: { type: 'multi_select_circle', question: '', svg_content: '', img_url: '',
-    options: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    options: [], user_response: '', minimum_selections: 1, maximum_selections: null,
+    scoring_method: 'exact', explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('multi_select_two', {

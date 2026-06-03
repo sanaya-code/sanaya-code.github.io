@@ -35,19 +35,19 @@ class TrueFalseFormComponent extends HTMLElement {
     const falseSelected = ca === false || ca === 'false';
 
     this.innerHTML = `
-      <div class="mcq-form">
+      <div class="tf-form" data-form>
 
         <!-- Topbar -->
-        <div class="mcf-topbar">
+        <div class="tf-topbar">
           ${isSkip
-            ? `<span class="mcf-skip-badge">⊘ SKIP</span>
+            ? `<span class="tf-skip-badge">⊘ SKIP</span>
                <span style="font-size:12px;color:var(--text-muted)">
                  Originally: ${badgeLabel}
                </span>`
-            : `<span class="mcf-type-badge"
+            : `<span class="tf-type-badge"
                      style="background:${badgeColor}">${badgeLabel}</span>`
           }
-          <div class="mcf-topbar-actions">
+          <div class="tf-topbar-actions">
             ${isSkip
               ? `<button class="btn-unskip" id="tf-btn-unskip">↩ Un-mark Skip</button>`
               : `<button class="btn-skip"   id="tf-btn-skip">⊘ Mark as Skip</button>`
@@ -56,64 +56,64 @@ class TrueFalseFormComponent extends HTMLElement {
         </div>
 
         <!-- Body -->
-        <div class="mcf-body ${isSkip ? 'is-skip' : ''}">
+        <div class="tf-body" data-body ${isSkip ? 'tf-is-skip' : ''}">
 
           <!-- Question text -->
-          <div class="mcf-field">
-            <label class="mcf-label">Question Text</label>
-            <textarea class="mcf-textarea" id="tf-question"
+          <div class="tf-field">
+            <label class="tf-label">Question Text</label>
+            <textarea class="tf-textarea" id="tf-question"
               rows="3"
               placeholder="Enter question text (HTML/MathML supported)"
             >${this._esc(q.question || '')}</textarea>
-            <div class="mcf-render-preview" id="tf-question-preview"></div>
+            <div class="tf-render-preview" id="tf-question-preview"></div>
           </div>
 
           <!-- SVG — collapsible -->
-          <div class="mcf-collapsible" id="tf-svg-section">
-            <div class="mcf-collapsible-header" id="tf-svg-toggle">
+          <div class="tf-collapsible" id="tf-svg-section">
+            <div class="tf-collapsible-header" id="tf-svg-toggle">
               ▶ SVG Figure
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
+              <span class="tf-collapsible-arrow">▼</span>
             </div>
-            <div class="mcf-collapsible-body">
-              <textarea class="mcf-textarea" id="tf-svg"
+            <div class="tf-collapsible-body">
+              <textarea class="tf-textarea" id="tf-svg"
                 rows="3"
                 placeholder="Paste SVG code here..."
               >${this._esc(q.svg_content || '')}</textarea>
-              <div class="mcf-svg-preview" id="tf-svg-preview">
+              <div class="tf-svg-preview" id="tf-svg-preview">
                 ${q.svg_content || ''}
               </div>
-              <button class="mcf-remove-btn" id="tf-svg-remove">Remove SVG</button>
+              <button class="tf-remove-btn" id="tf-svg-remove">Remove SVG</button>
             </div>
           </div>
 
           <!-- Image — collapsible -->
-          <div class="mcf-collapsible" id="tf-img-section">
-            <div class="mcf-collapsible-header" id="tf-img-toggle">
+          <div class="tf-collapsible" id="tf-img-section">
+            <div class="tf-collapsible-header" id="tf-img-toggle">
               ▶ Image URL
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
+              <span class="tf-collapsible-arrow">▼</span>
             </div>
-            <div class="mcf-collapsible-body">
-              <input class="mcf-input" id="tf-img-url" type="text"
+            <div class="tf-collapsible-body">
+              <input class="tf-input" id="tf-img-url" type="text"
                 placeholder="Enter image URL or relative path..."
                 value="${this._esc(q.img_url || '')}"
               />
-              <div class="mcf-img-preview ${q.img_url ? 'visible' : ''}"
+              <div class="tf-img-preview ${q.img_url ? 'visible' : ''}"
                    id="tf-img-preview">
                 ${q.img_url
                   ? `<img src="${this._esc(q.img_url)}" alt="preview" />`
                   : ''}
               </div>
-              <button class="mcf-remove-btn" id="tf-img-remove">Remove Image</button>
+              <button class="tf-remove-btn" id="tf-img-remove">Remove Image</button>
             </div>
           </div>
 
           <!-- Correct Answer -->
-          <div class="mcf-field">
-            <label class="mcf-label">Correct Answer</label>
+          <div class="tf-field">
+            <label class="tf-label">Correct Answer</label>
             <div class="tf-answer-group">
 
               <label class="tf-answer-option ${trueSelected ? 'selected-true' : ''}"
@@ -139,26 +139,26 @@ class TrueFalseFormComponent extends HTMLElement {
                  </div>`
               : ''
             }
-            <div class="mcf-error" id="tf-error"></div>
+            <div class="tf-error" id="tf-error"></div>
           </div>
 
           <!-- Explanation -->
-          <div class="mcf-field">
-            <label class="mcf-label">
+          <div class="tf-field">
+            <label class="tf-label">
               Explanation
-              <span class="mcf-optional">(optional)</span>
+              <span class="tf-optional">(optional)</span>
             </label>
-            <textarea class="mcf-textarea" id="tf-explanation"
+            <textarea class="tf-textarea" id="tf-explanation"
               rows="2"
               placeholder="Explanation (HTML/MathML supported)"
             >${this._esc(q.explanation || '')}</textarea>
-            <div class="mcf-render-preview" id="tf-explanation-preview"></div>
+            <div class="tf-render-preview" id="tf-explanation-preview"></div>
           </div>
 
           <!-- Difficulty -->
-          <div class="mcf-field">
-            <label class="mcf-label">Difficulty</label>
-            <select class="mcf-select" id="tf-difficulty">
+          <div class="tf-field">
+            <label class="tf-label">Difficulty</label>
+            <select class="tf-select" id="tf-difficulty">
               ${EditorConfig.DIFFICULTY_LEVELS.map(d => `
                 <option value="${d}" ${q.difficulty === d ? 'selected' : ''}>${d}</option>
               `).join('')}
@@ -166,23 +166,23 @@ class TrueFalseFormComponent extends HTMLElement {
           </div>
 
           <!-- Points + Time Limit -->
-          <div class="mcf-row-2">
-            <div class="mcf-field">
-              <label class="mcf-label">
+          <div class="tf-row-2">
+            <div class="tf-field">
+              <label class="tf-label">
                 Points
-                <span class="mcf-optional">(optional)</span>
+                <span class="tf-optional">(optional)</span>
               </label>
-              <input class="mcf-input" id="tf-points" type="number"
+              <input class="tf-input" id="tf-points" type="number"
                 min="0" step="0.5" placeholder="e.g. 1"
                 value="${q.points !== '' && q.points != null ? q.points : ''}"
               />
             </div>
-            <div class="mcf-field">
-              <label class="mcf-label">
+            <div class="tf-field">
+              <label class="tf-label">
                 Time Limit (sec)
-                <span class="mcf-optional">(optional)</span>
+                <span class="tf-optional">(optional)</span>
               </label>
-              <input class="mcf-input" id="tf-time-limit" type="number"
+              <input class="tf-input" id="tf-time-limit" type="number"
                 min="0" step="1" placeholder="e.g. 30"
                 value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
               />
@@ -190,23 +190,23 @@ class TrueFalseFormComponent extends HTMLElement {
           </div>
 
           <!-- Tags -->
-          <div class="mcf-field">
-            <label class="mcf-label">
+          <div class="tf-field">
+            <label class="tf-label">
               Tags
-              <span class="mcf-optional">(comma separated)</span>
+              <span class="tf-optional">(comma separated)</span>
             </label>
-            <input class="mcf-input" id="tf-tags" type="text"
+            <input class="tf-input" id="tf-tags" type="text"
               placeholder="e.g. science, biology"
               value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
             />
           </div>
 
-        </div><!-- /.mcf-body -->
+        </div><!-- /.tf-body -->
 
         <!-- Footer -->
-        <div class="mcf-footer">
-          <button class="btn-save" id="tf-btn-save">Save</button>
-          <span class="mcf-save-hint">Correct answer can be set later</span>
+        <div class="tf-footer">
+          <button class="tf-btn-save" id="tf-tf-btn-save">Save</button>
+          <span class="tf-save-hint">Correct answer can be set later</span>
         </div>
 
       </div>
@@ -265,7 +265,7 @@ class TrueFalseFormComponent extends HTMLElement {
     });
 
     // Save
-    this.querySelector('#tf-btn-save')?.addEventListener('click', () => {
+    this.querySelector('#tf-tf-btn-save')?.addEventListener('click', () => {
       this._handleSave();
     });
   }

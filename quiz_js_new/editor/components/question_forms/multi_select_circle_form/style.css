@@ -1,0 +1,10 @@
+/* editor/components/question_forms/multi_select_circle_form/style.css */
+
+/* Reuses mcf-* and ms-* classes from mcq_form and multi_select_form.
+   Only adds the selection limits row. */
+
+.msc-limits-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
