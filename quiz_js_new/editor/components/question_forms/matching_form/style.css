@@ -1,0 +1,180 @@
+/* editor/components/question_forms/matching_form/style.css */
+
+/* ── Pairs list ──────────────────────────────────────── */
+
+.match-pairs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Column headers ──────────────────────────────────── */
+
+.match-col-headers {
+  display: grid;
+  grid-template-columns: 20px 1fr 24px 1fr 32px;
+  gap: 6px;
+  align-items: center;
+  padding: 0 2px;
+}
+
+.match-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Pair row ────────────────────────────────────────── */
+
+.match-pair-row {
+  display: grid;
+  grid-template-columns: 20px 1fr 24px 1fr 32px;
+  gap: 6px;
+  align-items: start;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  transition: border-color 0.15s;
+}
+
+.match-pair-row:hover {
+  border-color: var(--border-focus);
+}
+
+/* ── Left / right cell ───────────────────────────────── */
+
+.match-pair-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.match-pair-textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  resize: vertical;
+  min-height: 48px;
+  transition: border-color 0.15s;
+  line-height: 1.4;
+}
+
+.match-pair-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.08);
+}
+
+/* per-pair previews removed — shared preview used instead */
+
+/* ── Arrow connector ─────────────────────────────────── */
+
+.match-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Delete button ───────────────────────────────────── */
+
+.match-pair-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  padding-top: 10px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.match-pair-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Distractors ─────────────────────────────────────── */
+
+.match-distractors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.match-distractor-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  transition: border-color 0.15s;
+}
+
+.match-distractor-row:hover {
+  border-color: var(--border-focus);
+}
+
+.match-distractor-input {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.match-distractor-input:focus {
+  border-color: var(--border-focus);
+}
+
+.match-distractor-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.match-distractor-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.match-distractor-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Drag states ─────────────────────────────────────── */
+
+.match-pair-row.dragging  { opacity: 0.4; }
+.match-pair-row.drag-over {
+  border-color: var(--accent-2);
+  border-style: dashed;
+}

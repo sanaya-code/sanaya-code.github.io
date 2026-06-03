@@ -3,11 +3,11 @@
     "title": "Quiz Question Bank",
     "description": "Exported from Quiz Editor",
     "version": "2.0",
-    "created": "2026-06-02",
-    "last_modified": "2026-06-02",
+    "created": "2026-06-03",
+    "last_modified": "2026-06-03",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 9
+    "total_questions": 10
   },
   "questions": [
     {
@@ -308,6 +308,42 @@
       "time_limit": "",
       "tags": [],
       "id": "009"
+    },
+    {
+      "type": "matching",
+      "question": "edit matching   Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup>",
+      "svg_content": "",
+      "img_url": "",
+      "pairs": [
+        {
+          "left": "image",
+          "right": "gimp"
+        },
+        {
+          "left": "H<sub>2</sub>O",
+          "right": "Water"
+        },
+        {
+          "left": "E=mc<sup>2</sup>",
+          "right": "Energy"
+        }
+      ],
+      "distractors": [
+        "<math><msqrt><mn>16</mn></msqrt></math>",
+        "<math><mfrac><mn>1</mn><mn>4</mn></mfrac></math>"
+      ],
+      "user_response": [
+        "",
+        "",
+        ""
+      ],
+      "scoring_method": "exact",
+      "explanation": "edit matching exp",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "010"
     }
   ]
 }

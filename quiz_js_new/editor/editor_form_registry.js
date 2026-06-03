@@ -193,7 +193,7 @@ EditorFormRegistry.register('table_image_fill_in_the_blank_2_col', {
 
 EditorFormRegistry.register('matching', {
   label: 'Matching', description: 'Match items from two columns',
-  color: '#d4a017', previewTag: 'matching-dropdown',
+  color: '#d4a017', formTag: 'matching-form', previewTag: 'matching-dropdown',
   default: { type: 'matching', question: '', svg_content: '', img_url: '',
     pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
