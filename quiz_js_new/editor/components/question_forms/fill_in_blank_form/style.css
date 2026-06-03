@@ -1,6 +1,629 @@
 /* editor/components/question_forms/fill_in_blank_form/style.css */
+/* Self-contained — no dependency on other form stylesheets */
 
-/* ── Blank hint below question textarea ──────────────── */
+/* editor/components/question_forms/mcq_form/style.css */
+
+.fib-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Form topbar: type badge + skip button ───────────── */
+
+.fib-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+}
+
+.fib-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.fib-skip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #7f8c8d;
+  color: #fff;
+}
+
+.fib-topbar-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-skip:hover { background: rgba(127,140,141,0.12); }
+
+.btn-unskip {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.btn-unskip:hover { background: var(--accent-light); }
+
+/* ── Scrollable form body ────────────────────────────── */
+
+.fib-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field group ─────────────────────────────────────── */
+
+.fib-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fib-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.fib-label .fib-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* ── Textarea ────────────────────────────────────────── */
+
+.fib-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+
+.fib-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── On-focus preview box ────────────────────────────── */
+
+.fib-render-preview {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;          /* hidden until focused */
+  animation: fib-fadein 0.15s ease;
+}
+
+.fib-render-preview.visible {
+  display: block;
+}
+
+.fib-render-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+@keyframes fib-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Text input ──────────────────────────────────────── */
+
+.fib-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.fib-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.fib-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.fib-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.fib-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.fib-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.fib-collapsible.open .fib-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.fib-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.fib-collapsible.open .fib-collapsible-body {
+  display: flex;
+}
+
+/* ── SVG preview ─────────────────────────────────────── */
+
+.fib-svg-preview {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.fib-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.fib-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── Image thumbnail preview ─────────────────────────── */
+
+.fib-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.fib-img-preview.visible {
+  display: flex;
+}
+
+.fib-img-preview img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Remove buttons ──────────────────────────────────── */
+
+.fib-remove-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.fib-remove-btn:hover { background: var(--danger-light); }
+
+/* ── Options section ─────────────────────────────────── */
+
+.fib-options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fib-add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.fib-add-option-btn:hover { background: #b8d9f5; }
+
+.fib-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Option row ──────────────────────────────────────── */
+
+.fib-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.fib-option-row:hover       { border-color: var(--border-focus); }
+.fib-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.fib-option-row.dragging    { opacity: 0.4; }
+.fib-option-row.focused-row { border-color: var(--accent); background: var(--accent-light); }
+
+.fib-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.fib-drag-handle:active { cursor: grabbing; }
+
+.fib-correct-radio {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.fib-option-text {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+.fib-option-text:focus { border-color: var(--border-focus); }
+
+.fib-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.fib-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Shared option preview box ───────────────────────── */
+
+.fib-option-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: fib-fadein 0.15s ease;
+}
+
+.fib-option-preview-box.visible {
+  display: flex;
+}
+
+.fib-option-preview-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.fib-option-preview-content {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 34px;
+  word-break: break-word;
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.fib-error {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.fib-error.visible { display: block; }
+
+/* ── Two-column row ──────────────────────────────────── */
+
+.fib-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Select ──────────────────────────────────────────── */
+
+.fib-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.fib-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Save footer ─────────────────────────────────────── */
+
+.fib-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.fib-btn-save {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.fib-btn-save:hover {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+
+.fib-save-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── Disabled state when marked as skip ──────────────── */
+
+.fib-body.fib-is-skip .fib-field,
+.fib-body.fib-is-skip .fib-options-header,
+.fib-body.fib-is-skip .fib-collapsible,
+.fib-body.fib-is-skip .fib-footer {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Correct answer input ────────────────────────────── */
+
+.fib-correct-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--success);
+  background: rgba(39,174,122,0.05);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.fib-correct-input:focus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(39,174,122,0.12);
+}
+
+/* ── Acceptable answers list ─────────────────────────── */
+
+.fib-answers-list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fib-answer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  transition: border-color 0.15s;
+}
+
+.fib-answer-row:hover { border-color: var(--border-focus); }
+
+.fib-answer-bullet {
+  color: var(--text-muted);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.fib-answer-input-field {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.fib-answer-input-field:focus { border-color: var(--border-focus); }
+
+.fib-answer-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.fib-answer-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.fib-add-answer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+  align-self: flex-start;
+}
+
+.fib-add-answer-btn:hover { background: #b8d9f5; }
+
+.fib-answers-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Blank hint ──────────────────────────────────────── */
 
 .fib-blank-hint {
   display: inline-flex;
@@ -24,37 +647,21 @@
   border-radius: 3px;
 }
 
-/* ── Blank detector — highlights if ____ is present ─── */
-
 .fib-blank-status {
   font-size: 12px;
   font-weight: 500;
   display: none;
 }
 
-.fib-blank-status.found {
-  display: inline;
-  color: var(--success);
-}
+.fib-blank-status.found   { display: inline; color: var(--success); }
+.fib-blank-status.missing { display: inline; color: var(--unsaved-dot); }
 
-.fib-blank-status.missing {
-  display: inline;
-  color: var(--unsaved-dot);
-}
+/* ── Height chain ────────────────────────────────────── */
 
-/* ── Height chain fix ────────────────────────────────── */
-
-fill-in-blank-form {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: 100%;
-}
-
-fill-in-blank-form .mcq-form {
+fill-in-blank-form .fib-form {
   min-height: 0;
 }
 
-fill-in-blank-form .mcf-body {
+fill-in-blank-form .fib-body {
   min-height: 0;
 }

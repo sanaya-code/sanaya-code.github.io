@@ -205,7 +205,7 @@ class TrueFalseFormComponent extends HTMLElement {
 
         <!-- Footer -->
         <div class="tf-footer">
-          <button class="tf-btn-save" id="tf-tf-btn-save">Save</button>
+          <button class="tf-btn-save" id="tf-btn-save">Save</button>
           <span class="tf-save-hint">Correct answer can be set later</span>
         </div>
 
@@ -265,7 +265,7 @@ class TrueFalseFormComponent extends HTMLElement {
     });
 
     // Save
-    this.querySelector('#tf-tf-btn-save')?.addEventListener('click', () => {
+    this.querySelector('#tf-btn-save')?.addEventListener('click', () => {
       this._handleSave();
     });
   }

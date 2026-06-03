@@ -201,7 +201,7 @@ class ShortAnswerFormComponent extends HTMLElement {
 
         <!-- Footer -->
         <div class="sa-footer">
-          <button class="sa-btn-save" id="sa-sa-btn-save">Save</button>
+          <button class="sa-btn-save" id="sa-btn-save">Save</button>
           <span class="sa-save-hint">Correct answer can be set later</span>
         </div>
 
@@ -285,7 +285,7 @@ class ShortAnswerFormComponent extends HTMLElement {
     });
 
     // Save
-    this.querySelector('#sa-sa-btn-save')?.addEventListener('click', () => {
+    this.querySelector('#sa-btn-save')?.addEventListener('click', () => {
       this._handleSave();
     });
   }

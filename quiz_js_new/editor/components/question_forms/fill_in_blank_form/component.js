@@ -33,19 +33,19 @@ class FillInBlankFormComponent extends HTMLElement {
     const hasBlank   = (q.question || '').includes('____');
 
     this.innerHTML = `
-      <div class="mcq-form">
+      <div class="fib-form">
 
         <!-- Topbar -->
-        <div class="mcf-topbar">
+        <div class="fib-topbar">
           ${isSkip
-            ? `<span class="mcf-skip-badge">⊘ SKIP</span>
+            ? `<span class="fib-skip-badge">⊘ SKIP</span>
                <span style="font-size:12px;color:var(--text-muted)">
                  Originally: ${badgeLabel}
                </span>`
-            : `<span class="mcf-type-badge"
+            : `<span class="fib-type-badge"
                      style="background:${badgeColor}">${badgeLabel}</span>`
           }
-          <div class="mcf-topbar-actions">
+          <div class="fib-topbar-actions">
             ${isSkip
               ? `<button class="btn-unskip" id="fib-btn-unskip">↩ Un-mark Skip</button>`
               : `<button class="btn-skip"   id="fib-btn-skip">⊘ Mark as Skip</button>`
@@ -54,16 +54,16 @@ class FillInBlankFormComponent extends HTMLElement {
         </div>
 
         <!-- Body -->
-        <div class="mcf-body ${isSkip ? 'is-skip' : ''}">
+        <div class="fib-body ${isSkip ? 'fib-is-skip' : ''}">
 
           <!-- Question text -->
-          <div class="mcf-field">
-            <label class="mcf-label">Question Text</label>
-            <textarea class="mcf-textarea" id="fib-question"
+          <div class="fib-field">
+            <label class="fib-label">Question Text</label>
+            <textarea class="fib-textarea" id="fib-question"
               rows="3"
               placeholder='e.g. Solid state of water is called ____.'
             >${this._esc(q.question || '')}</textarea>
-            <div class="mcf-render-preview" id="fib-question-preview"></div>
+            <div class="fib-render-preview" id="fib-question-preview"></div>
             <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
               <div class="fib-blank-hint">
                 Type <code>____</code> (4 underscores) where the blank should appear
@@ -76,51 +76,51 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- SVG — collapsible -->
-          <div class="mcf-collapsible" id="fib-svg-section">
-            <div class="mcf-collapsible-header" id="fib-svg-toggle">
+          <div class="fib-collapsible" id="fib-svg-section">
+            <div class="fib-collapsible-header" id="fib-svg-toggle">
               ▶ SVG Figure
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
+              <span class="fib-collapsible-arrow">▼</span>
             </div>
-            <div class="mcf-collapsible-body">
-              <textarea class="mcf-textarea" id="fib-svg"
+            <div class="fib-collapsible-body">
+              <textarea class="fib-textarea" id="fib-svg"
                 rows="3" placeholder="Paste SVG code here..."
               >${this._esc(q.svg_content || '')}</textarea>
-              <div class="mcf-svg-preview" id="fib-svg-preview">
+              <div class="fib-svg-preview" id="fib-svg-preview">
                 ${q.svg_content || ''}
               </div>
-              <button class="mcf-remove-btn" id="fib-svg-remove">Remove SVG</button>
+              <button class="fib-remove-btn" id="fib-svg-remove">Remove SVG</button>
             </div>
           </div>
 
           <!-- Image — collapsible -->
-          <div class="mcf-collapsible" id="fib-img-section">
-            <div class="mcf-collapsible-header" id="fib-img-toggle">
+          <div class="fib-collapsible" id="fib-img-section">
+            <div class="fib-collapsible-header" id="fib-img-toggle">
               ▶ Image URL
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
+              <span class="fib-collapsible-arrow">▼</span>
             </div>
-            <div class="mcf-collapsible-body">
-              <input class="mcf-input" id="fib-img-url" type="text"
+            <div class="fib-collapsible-body">
+              <input class="fib-input" id="fib-img-url" type="text"
                 placeholder="Enter image URL or relative path..."
                 value="${this._esc(q.img_url || '')}"
               />
-              <div class="mcf-img-preview ${q.img_url ? 'visible' : ''}"
+              <div class="fib-img-preview ${q.img_url ? 'visible' : ''}"
                    id="fib-img-preview">
                 ${q.img_url
                   ? `<img src="${this._esc(q.img_url)}" alt="preview" />`
                   : ''}
               </div>
-              <button class="mcf-remove-btn" id="fib-img-remove">Remove Image</button>
+              <button class="fib-remove-btn" id="fib-img-remove">Remove Image</button>
             </div>
           </div>
 
           <!-- Correct Answer -->
-          <div class="mcf-field">
-            <label class="mcf-label">Correct Answer</label>
-            <input class="sa-correct-input" id="fib-correct-answer"
+          <div class="fib-field">
+            <label class="fib-label">Correct Answer</label>
+            <input class="fib-correct-input" id="fib-correct-answer"
               type="text"
               placeholder="The primary correct answer e.g. ice"
               value="${this._esc(q.correct_answer || '')}"
@@ -128,42 +128,42 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- Acceptable Answers -->
-          <div class="mcf-field">
-            <div class="mcf-options-header">
-              <label class="mcf-label">
+          <div class="fib-field">
+            <div class="fib-options-header">
+              <label class="fib-label">
                 Acceptable Answers
-                <span class="mcf-optional">(optional)</span>
+                <span class="fib-optional">(optional)</span>
               </label>
-              <button class="sa-add-variation-btn" id="fib-add-answer">
+              <button class="fib-add-answer-btn" id="fib-add-answer">
                 + Add Answer
               </button>
             </div>
-            <div class="sa-variations-hint">
+            <div class="fib-answers-hint">
               All answers that will be accepted as correct
               (including the canonical answer above)
             </div>
-            <div class="sa-variations-list" id="fib-answers-list">
+            <div class="fib-answers-list-wrap" id="fib-answers-list">
               ${answers.map((a, i) => this._answerRowHTML(a, i)).join('')}
             </div>
-            <div class="mcf-error" id="fib-error"></div>
+            <div class="fib-error" id="fib-error"></div>
           </div>
 
           <!-- Explanation -->
-          <div class="mcf-field">
-            <label class="mcf-label">
-              Explanation <span class="mcf-optional">(optional)</span>
+          <div class="fib-field">
+            <label class="fib-label">
+              Explanation <span class="fib-optional">(optional)</span>
             </label>
-            <textarea class="mcf-textarea" id="fib-explanation"
+            <textarea class="fib-textarea" id="fib-explanation"
               rows="2"
               placeholder="Explanation (HTML/MathML supported)"
             >${this._esc(q.explanation || '')}</textarea>
-            <div class="mcf-render-preview" id="fib-explanation-preview"></div>
+            <div class="fib-render-preview" id="fib-explanation-preview"></div>
           </div>
 
           <!-- Difficulty -->
-          <div class="mcf-field">
-            <label class="mcf-label">Difficulty</label>
-            <select class="mcf-select" id="fib-difficulty">
+          <div class="fib-field">
+            <label class="fib-label">Difficulty</label>
+            <select class="fib-select" id="fib-difficulty">
               ${EditorConfig.DIFFICULTY_LEVELS.map(d => `
                 <option value="${d}"
                   ${q.difficulty === d ? 'selected' : ''}>${d}</option>
@@ -172,21 +172,21 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- Points + Time Limit -->
-          <div class="mcf-row-2">
-            <div class="mcf-field">
-              <label class="mcf-label">
-                Points <span class="mcf-optional">(optional)</span>
+          <div class="fib-row-2">
+            <div class="fib-field">
+              <label class="fib-label">
+                Points <span class="fib-optional">(optional)</span>
               </label>
-              <input class="mcf-input" id="fib-points" type="number"
+              <input class="fib-input" id="fib-points" type="number"
                 min="0" step="0.5" placeholder="e.g. 1"
                 value="${q.points !== '' && q.points != null ? q.points : ''}"
               />
             </div>
-            <div class="mcf-field">
-              <label class="mcf-label">
-                Time Limit (sec) <span class="mcf-optional">(optional)</span>
+            <div class="fib-field">
+              <label class="fib-label">
+                Time Limit (sec) <span class="fib-optional">(optional)</span>
               </label>
-              <input class="mcf-input" id="fib-time-limit" type="number"
+              <input class="fib-input" id="fib-time-limit" type="number"
                 min="0" step="1" placeholder="e.g. 30"
                 value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
               />
@@ -194,22 +194,22 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- Tags -->
-          <div class="mcf-field">
-            <label class="mcf-label">
-              Tags <span class="mcf-optional">(comma separated)</span>
+          <div class="fib-field">
+            <label class="fib-label">
+              Tags <span class="fib-optional">(comma separated)</span>
             </label>
-            <input class="mcf-input" id="fib-tags" type="text"
+            <input class="fib-input" id="fib-tags" type="text"
               placeholder="e.g. science, states-of-matter"
               value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
             />
           </div>
 
-        </div><!-- /.mcf-body -->
+        </div><!-- /.fib-body -->
 
         <!-- Footer -->
-        <div class="mcf-footer">
-          <button class="btn-save" id="fib-btn-save">Save</button>
-          <span class="mcf-save-hint">
+        <div class="fib-footer">
+          <button class="fib-btn-save" id="fib-btn-save">Save</button>
+          <span class="fib-save-hint">
             Use <strong>____</strong> in question text for the blank
           </span>
         </div>
@@ -222,15 +222,15 @@ class FillInBlankFormComponent extends HTMLElement {
 
   _answerRowHTML(text, index) {
     return `
-      <div class="sa-variation-row" data-ans-index="${index}">
-        <span class="sa-variation-bullet">◦</span>
+      <div class="fib-answer-row" data-ans-index="${index}">
+        <span class="fib-answer-bullet">◦</span>
         <input type="text"
-               class="sa-variation-input fib-answer-input"
+               class="fib-answer-input-field fib-answer-input"
                placeholder="Acceptable answer..."
                value="${this._esc(text)}"
                data-ans-index="${index}"
         />
-        <button class="sa-variation-delete" title="Remove answer">✕</button>
+        <button class="fib-answer-delete" title="Remove answer">✕</button>
       </div>
     `;
   }
@@ -290,8 +290,8 @@ class FillInBlankFormComponent extends HTMLElement {
     const ansList = this.querySelector('#fib-answers-list');
     if (ansList) {
       ansList.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('sa-variation-delete')) return;
-        e.target.closest('.sa-variation-row').remove();
+        if (!e.target.classList.contains('fib-answer-delete')) return;
+        e.target.closest('.fib-answer-row').remove();
         this._reindexAnswers();
       });
     }
@@ -327,18 +327,18 @@ class FillInBlankFormComponent extends HTMLElement {
 
   _addAnswerRow() {
     const list  = this.querySelector('#fib-answers-list');
-    const count = list.querySelectorAll('.sa-variation-row').length;
+    const count = list.querySelectorAll('.fib-answer-row').length;
     const div   = document.createElement('div');
     div.innerHTML = this._answerRowHTML('', count);
     list.appendChild(div.firstElementChild);
     this._reindexAnswers();
-    list.querySelector('.sa-variation-row:last-child .sa-variation-input')?.focus();
+    list.querySelector('.fib-answer-row:last-child .fib-answer-input-field')?.focus();
   }
 
   // ── Reindex answer rows ──────────────────────────────
 
   _reindexAnswers() {
-    this.querySelectorAll('#fib-answers-list .sa-variation-row')
+    this.querySelectorAll('#fib-answers-list .fib-answer-row')
       .forEach((row, i) => {
         row.dataset.ansIndex = i;
         const inp = row.querySelector('.fib-answer-input');
