@@ -1,19 +1,19 @@
-/* editor/components/question_forms/true_false_form/style.css */
-/* Self-contained — no dependency on other form stylesheets */
+/* true_false_form/style.css — prefix: ef-tf- — self-contained */
+
+/* Self-contained — prefix: ef-tf- */
 
 /* editor/components/question_forms/mcq_form/style.css */
 
-.tf-form {
+.ef-tf-form {
   display: flex;
   flex-direction: column;
   gap: 0;
   height: 100%;
-  min-height: 0;
 }
 
 /* ── Form topbar: type badge + skip button ───────────── */
 
-.tf-topbar {
+.ef-tf-topbar {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -23,7 +23,7 @@
   flex-shrink: 0;
 }
 
-.tf-type-badge {
+.ef-tf-type-badge {
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
@@ -34,7 +34,7 @@
   letter-spacing: 0.3px;
 }
 
-.tf-skip-badge {
+.ef-tf-skip-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -46,13 +46,13 @@
   color: #fff;
 }
 
-.tf-topbar-actions {
+.ef-tf-topbar-actions {
   margin-left: auto;
   display: flex;
   gap: 8px;
 }
 
-.btn-skip {
+.ef-tf-btn-skip {
   background: transparent;
   color: #7f8c8d;
   border: 1.5px solid #7f8c8d;
@@ -64,9 +64,9 @@
   font-weight: 500;
   transition: background 0.15s, color 0.15s;
 }
-.btn-skip:hover { background: rgba(127,140,141,0.12); }
+.ef-tf-btn-skip:hover { background: rgba(127,140,141,0.12); }
 
-.btn-unskip {
+.ef-tf-btn-unskip {
   background: transparent;
   color: var(--accent);
   border: 1.5px solid var(--accent);
@@ -78,13 +78,12 @@
   font-weight: 500;
   transition: background 0.15s;
 }
-.btn-unskip:hover { background: var(--accent-light); }
+.ef-tf-btn-unskip:hover { background: var(--accent-light); }
 
 /* ── Scrollable form body ────────────────────────────── */
 
-.tf-body {
+.ef-tf-body {
   flex: 1;
-  min-height: 0;
   overflow-y: auto;
   padding: 20px;
   display: flex;
@@ -94,13 +93,13 @@
 
 /* ── Field group ─────────────────────────────────────── */
 
-.tf-field {
+.ef-tf-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.tf-label {
+.ef-tf-label {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.6px;
@@ -108,7 +107,7 @@
   color: var(--text-secondary);
 }
 
-.tf-label .tf-optional {
+.ef-tf-label .ef-tf-optional {
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
@@ -118,7 +117,7 @@
 
 /* ── Textarea ────────────────────────────────────────── */
 
-.tf-textarea {
+.ef-tf-textarea {
   width: 100%;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
@@ -134,14 +133,14 @@
   line-height: 1.5;
 }
 
-.tf-textarea:focus {
+.ef-tf-textarea:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
 /* ── On-focus preview box ────────────────────────────── */
 
-.tf-render-preview {
+.ef-tf-render-preview {
   padding: 10px 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -152,28 +151,28 @@
   line-height: 1.6;
   word-break: break-word;
   display: none;          /* hidden until focused */
-  animation: tf-fadein 0.15s ease;
+  animation: ef-tf-fadein 0.15s ease;
 }
 
-.tf-render-preview.visible {
+.ef-tf-render-preview.visible {
   display: block;
 }
 
-.tf-render-preview:empty::before {
+.ef-tf-render-preview:empty::before {
   content: 'Preview appears here...';
   color: var(--text-muted);
   font-style: italic;
   font-size: 12px;
 }
 
-@keyframes tf-fadein {
+@keyframes ef-tf-fadein {
   from { opacity: 0; transform: translateY(3px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Text input ──────────────────────────────────────── */
 
-.tf-input {
+.ef-tf-input {
   width: 100%;
   padding: 9px 12px;
   border-radius: var(--radius-sm);
@@ -186,19 +185,19 @@
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.tf-input:focus {
+.ef-tf-input:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
 /* ── Collapsible section (SVG / Image) ───────────────── */
 
-.tf-collapsible {
+.ef-tf-collapsible {
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
 }
 
-.tf-collapsible-header {
+.ef-tf-collapsible-header {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -212,23 +211,23 @@
   transition: background 0.15s;
 }
 
-.tf-collapsible-header:hover {
+.ef-tf-collapsible-header:hover {
   background: var(--bg-card);
   color: var(--accent);
 }
 
-.tf-collapsible-arrow {
+.ef-tf-collapsible-arrow {
   font-size: 10px;
   color: var(--text-muted);
   transition: transform 0.2s;
   margin-left: auto;
 }
 
-.tf-collapsible.open .tf-collapsible-arrow {
+.ef-tf-collapsible.open .ef-tf-collapsible-arrow {
   transform: rotate(180deg);
 }
 
-.tf-collapsible-body {
+.ef-tf-collapsible-body {
   display: none;
   flex-direction: column;
   gap: 8px;
@@ -237,13 +236,13 @@
   border-top: 1px solid var(--border);
 }
 
-.tf-collapsible.open .tf-collapsible-body {
+.ef-tf-collapsible.open .ef-tf-collapsible-body {
   display: flex;
 }
 
 /* ── SVG preview ─────────────────────────────────────── */
 
-.tf-svg-preview {
+.ef-tf-svg-preview {
   padding: 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -254,12 +253,12 @@
   min-height: 60px;
 }
 
-.tf-svg-preview svg {
+.ef-tf-svg-preview svg {
   max-width: 100%;
   height: auto;
 }
 
-.tf-svg-preview:empty::before {
+.ef-tf-svg-preview:empty::before {
   content: 'SVG preview appears here...';
   color: var(--text-muted);
   font-style: italic;
@@ -268,7 +267,7 @@
 
 /* ── Image thumbnail preview ─────────────────────────── */
 
-.tf-img-preview {
+.ef-tf-img-preview {
   display: none;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -280,11 +279,11 @@
   padding: 8px;
 }
 
-.tf-img-preview.visible {
+.ef-tf-img-preview.visible {
   display: flex;
 }
 
-.tf-img-preview img {
+.ef-tf-img-preview img {
   max-width: 100%;
   max-height: 140px;
   object-fit: contain;
@@ -293,7 +292,7 @@
 
 /* ── Remove buttons ──────────────────────────────────── */
 
-.tf-remove-btn {
+.ef-tf-remove-btn {
   align-self: flex-start;
   background: transparent;
   border: 1px solid var(--danger);
@@ -305,17 +304,17 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-.tf-remove-btn:hover { background: var(--danger-light); }
+.ef-tf-remove-btn:hover { background: var(--danger-light); }
 
 /* ── Options section ─────────────────────────────────── */
 
-.tf-options-header {
+.ef-tf-options-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.tf-add-option-btn {
+.ef-tf-add-option-btn {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -330,9 +329,9 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-.tf-add-option-btn:hover { background: #b8d9f5; }
+.ef-tf-add-option-btn:hover { background: #b8d9f5; }
 
-.tf-options-list {
+.ef-tf-options-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -340,7 +339,7 @@
 
 /* ── Option row ──────────────────────────────────────── */
 
-.tf-option-row {
+.ef-tf-option-row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -351,12 +350,12 @@
   transition: border-color 0.15s;
 }
 
-.tf-option-row:hover       { border-color: var(--border-focus); }
-.tf-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
-.tf-option-row.dragging    { opacity: 0.4; }
-.tf-option-row.tf-focused-row { border-color: var(--accent); background: var(--accent-light); }
+.ef-tf-option-row:hover       { border-color: var(--border-focus); }
+.ef-tf-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-tf-option-row.dragging    { opacity: 0.4; }
+.ef-tf-option-row.ef-tf-focused-row { border-color: var(--accent); background: var(--accent-light); }
 
-.tf-drag-handle {
+.ef-tf-drag-handle {
   cursor: grab;
   color: var(--text-muted);
   font-size: 16px;
@@ -364,9 +363,9 @@
   flex-shrink: 0;
   line-height: 1;
 }
-.tf-drag-handle:active { cursor: grabbing; }
+.ef-tf-drag-handle:active { cursor: grabbing; }
 
-.tf-correct-radio {
+.ef-tf-correct-radio {
   flex-shrink: 0;
   accent-color: var(--accent);
   width: 16px;
@@ -374,7 +373,7 @@
   cursor: pointer;
 }
 
-.tf-option-text {
+.ef-tf-option-text {
   flex: 1;
   padding: 6px 10px;
   border-radius: var(--radius-sm);
@@ -387,9 +386,9 @@
   transition: border-color 0.15s;
   min-width: 0;
 }
-.tf-option-text:focus { border-color: var(--border-focus); }
+.ef-tf-option-text:focus { border-color: var(--border-focus); }
 
-.tf-option-delete {
+.ef-tf-option-delete {
   background: none;
   border: none;
   cursor: pointer;
@@ -400,31 +399,31 @@
   flex-shrink: 0;
   transition: color 0.15s, background 0.15s;
 }
-.tf-option-delete:hover {
+.ef-tf-option-delete:hover {
   color: var(--danger);
   background: var(--danger-light);
 }
 
 /* ── Shared option preview box ───────────────────────── */
 
-.tf-option-preview-box {
+.ef-tf-option-preview-box {
   display: none;
   flex-direction: column;
   gap: 4px;
-  animation: tf-fadein 0.15s ease;
+  animation: ef-tf-fadein 0.15s ease;
 }
 
-.tf-option-preview-box.visible {
+.ef-tf-option-preview-box.visible {
   display: flex;
 }
 
-.tf-option-preview-label {
+.ef-tf-option-preview-label {
   font-size: 11px;
   color: var(--text-muted);
   font-style: italic;
 }
 
-.tf-option-preview-content {
+.ef-tf-option-preview-content {
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -438,7 +437,7 @@
 
 /* ── Validation error ────────────────────────────────── */
 
-.tf-error {
+.ef-tf-error {
   font-size: 12px;
   color: var(--danger);
   padding: 8px 12px;
@@ -447,11 +446,11 @@
   border: 1px solid var(--danger);
   display: none;
 }
-.tf-error.visible { display: block; }
+.ef-tf-error.visible { display: block; }
 
 /* ── Two-column row ──────────────────────────────────── */
 
-.tf-row-2 {
+.ef-tf-row-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -459,7 +458,7 @@
 
 /* ── Select ──────────────────────────────────────────── */
 
-.tf-select {
+.ef-tf-select {
   width: 100%;
   padding: 9px 12px;
   border-radius: var(--radius-sm);
@@ -472,14 +471,14 @@
   cursor: pointer;
   transition: border-color 0.15s;
 }
-.tf-select:focus {
+.ef-tf-select:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
 /* ── Save footer ─────────────────────────────────────── */
 
-.tf-footer {
+.ef-tf-footer {
   padding: 14px 20px;
   border-top: 1.5px solid var(--border);
   background: var(--bg-panel);
@@ -489,7 +488,7 @@
   flex-shrink: 0;
 }
 
-.tf-btn-save {
+.ef-tf-btn-save {
   background: linear-gradient(90deg, #1a5f8a, #3498db);
   color: #fff;
   border: none;
@@ -502,43 +501,50 @@
   transition: opacity 0.15s, box-shadow 0.15s;
   box-shadow: 0 2px 8px rgba(52,152,219,0.25);
 }
-.tf-btn-save:hover {
+.ef-tf-btn-save:hover {
   opacity: 0.9;
   box-shadow: 0 3px 12px rgba(52,152,219,0.35);
 }
 
-.tf-save-hint {
+.ef-tf-save-hint {
   font-size: 12px;
   color: var(--text-muted);
 }
 
 /* ── Disabled state when marked as skip ──────────────── */
 
-.tf-body.tf-is-skip .tf-field,
-.tf-body.tf-is-skip .tf-options-header,
-.tf-body.tf-is-skip .tf-collapsible,
-.tf-body.tf-is-skip .tf-footer {
+.ef-tf-body.ef-tf-is-skip .ef-tf-field,
+.ef-tf-body.ef-tf-is-skip .ef-tf-options-header,
+.ef-tf-body.ef-tf-is-skip .ef-tf-collapsible,
+.ef-tf-body.ef-tf-is-skip .ef-tf-footer {
   opacity: 0.45;
   pointer-events: none;
 }
 
+/* ── Height chain ────────────────────────────────────── */
 
-/* editor/components/question_forms/true_false_form/style.css */
-
-/* ── True/False answer selector ─────────────────────── */
-
-.tf-answer-group {
-  display: flex;
-  gap: 12px;
+true-false-form .ef-tf-form {
+  min-height: 0;
 }
 
-.tf-answer-option {
+true-false-form .ef-tf-body {
+  min-height: 0;
+}
+
+/* ── True/False answer options ───────────────────────── */
+
+.ef-tf-answer-group {
+  display: flex;
+  gap: 16px;
+}
+
+.ef-tf-answer-option {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 18px 12px;
+  padding: 20px 12px;
   border: 2px solid var(--border);
   border-radius: var(--radius);
   cursor: pointer;
@@ -548,70 +554,42 @@
   background: var(--bg-card);
   transition: border-color 0.15s, background 0.15s, color 0.15s;
   user-select: none;
-  position: relative;
 }
 
-.tf-answer-option:hover {
+.ef-tf-answer-option:hover {
   border-color: var(--border-focus);
   background: var(--accent-light);
   color: var(--accent);
 }
 
-/* True selected */
-.tf-answer-option.selected-true {
+.ef-tf-answer-option input[type="radio"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+.ef-tf-answer-option.selected-true {
   border-color: var(--success);
   background: rgba(39,174,122,0.08);
   color: var(--success);
 }
 
-/* False selected */
-.tf-answer-option.selected-false {
+.ef-tf-answer-option.selected-false {
   border-color: var(--danger);
-  background: rgba(224,85,85,0.08);
+  background: rgba(231,76,60,0.06);
   color: var(--danger);
 }
 
-.tf-answer-option input[type="radio"] {
-  accent-color: var(--accent);
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.tf-answer-option.selected-true input[type="radio"] {
-  accent-color: var(--success);
-}
-
-.tf-answer-option.selected-false input[type="radio"] {
-  accent-color: var(--danger);
-}
-
-.tf-answer-label {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.tf-answer-icon {
-  font-size: 20px;
-}
-
-/* Unset hint */
-.tf-unset-hint {
+.ef-tf-opt-true  { }
+.ef-tf-opt-false { }
+.ef-tf-answer-icon { font-size: 18px; }
+.ef-tf-unset-hint {
   font-size: 12px;
   color: var(--text-muted);
   font-style: italic;
-  margin-top: 2px;
 }
 
 /* ── Height chain ────────────────────────────────────── */
-/* ep-form-host > * handles the outer element.           */
-/* Inner wrappers still need min-height: 0 to scroll.   */
 
-true-false-form .tf-form {
-  min-height: 0;
-}
-
-true-false-form .tf-body {
-  min-height: 0;
-}
+true-false-form .ef-tf-form { min-height: 0; }
+true-false-form .ef-tf-body { min-height: 0; }

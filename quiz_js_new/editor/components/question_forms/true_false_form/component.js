@@ -35,130 +35,130 @@ class TrueFalseFormComponent extends HTMLElement {
     const falseSelected = ca === false || ca === 'false';
 
     this.innerHTML = `
-      <div class="tf-form" data-form>
+      <div class="ef-tf-form" data-form>
 
         <!-- Topbar -->
-        <div class="tf-topbar">
+        <div class="ef-tf-topbar">
           ${isSkip
-            ? `<span class="tf-skip-badge">⊘ SKIP</span>
+            ? `<span class="ef-tf-skip-badge">⊘ SKIP</span>
                <span style="font-size:12px;color:var(--text-muted)">
                  Originally: ${badgeLabel}
                </span>`
-            : `<span class="tf-type-badge"
+            : `<span class="ef-tf-type-badge"
                      style="background:${badgeColor}">${badgeLabel}</span>`
           }
-          <div class="tf-topbar-actions">
+          <div class="ef-tf-topbar-actions">
             ${isSkip
-              ? `<button class="btn-unskip" id="tf-btn-unskip">↩ Un-mark Skip</button>`
-              : `<button class="btn-skip"   id="tf-btn-skip">⊘ Mark as Skip</button>`
+              ? `<button class="ef-tf-btn-unskip" id="ef-tf-btn-unskip">↩ Un-mark Skip</button>`
+              : `<button class="ef-tf-btn-skip"   id="ef-tf-btn-skip">⊘ Mark as Skip</button>`
             }
           </div>
         </div>
 
         <!-- Body -->
-        <div class="tf-body" data-body ${isSkip ? 'tf-is-skip' : ''}">
+        <div class="ef-tf-body" data-body ${isSkip ? 'ef-tf-is-skip' : ''}">
 
           <!-- Question text -->
-          <div class="tf-field">
-            <label class="tf-label">Question Text</label>
-            <textarea class="tf-textarea" id="tf-question"
+          <div class="ef-tf-field">
+            <label class="ef-tf-label">Question Text</label>
+            <textarea class="ef-tf-textarea" id="ef-tf-question"
               rows="3"
               placeholder="Enter question text (HTML/MathML supported)"
             >${this._esc(q.question || '')}</textarea>
-            <div class="tf-render-preview" id="tf-question-preview"></div>
+            <div class="ef-tf-render-preview" id="ef-tf-question-preview"></div>
           </div>
 
           <!-- SVG — collapsible -->
-          <div class="tf-collapsible" id="tf-svg-section">
-            <div class="tf-collapsible-header" id="tf-svg-toggle">
+          <div class="ef-tf-collapsible" id="ef-tf-svg-section">
+            <div class="ef-tf-collapsible-header" id="ef-tf-svg-toggle">
               ▶ SVG Figure
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="tf-collapsible-arrow">▼</span>
+              <span class="ef-tf-collapsible-arrow">▼</span>
             </div>
-            <div class="tf-collapsible-body">
-              <textarea class="tf-textarea" id="tf-svg"
+            <div class="ef-tf-collapsible-body">
+              <textarea class="ef-tf-textarea" id="ef-tf-svg"
                 rows="3"
                 placeholder="Paste SVG code here..."
               >${this._esc(q.svg_content || '')}</textarea>
-              <div class="tf-svg-preview" id="tf-svg-preview">
+              <div class="ef-tf-svg-preview" id="ef-tf-svg-preview">
                 ${q.svg_content || ''}
               </div>
-              <button class="tf-remove-btn" id="tf-svg-remove">Remove SVG</button>
+              <button class="ef-tf-remove-btn" id="ef-tf-svg-remove">Remove SVG</button>
             </div>
           </div>
 
           <!-- Image — collapsible -->
-          <div class="tf-collapsible" id="tf-img-section">
-            <div class="tf-collapsible-header" id="tf-img-toggle">
+          <div class="ef-tf-collapsible" id="ef-tf-img-section">
+            <div class="ef-tf-collapsible-header" id="ef-tf-img-toggle">
               ▶ Image URL
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="tf-collapsible-arrow">▼</span>
+              <span class="ef-tf-collapsible-arrow">▼</span>
             </div>
-            <div class="tf-collapsible-body">
-              <input class="tf-input" id="tf-img-url" type="text"
+            <div class="ef-tf-collapsible-body">
+              <input class="ef-tf-input" id="ef-tf-img-url" type="text"
                 placeholder="Enter image URL or relative path..."
                 value="${this._esc(q.img_url || '')}"
               />
-              <div class="tf-img-preview ${q.img_url ? 'visible' : ''}"
-                   id="tf-img-preview">
+              <div class="ef-tf-img-preview ${q.img_url ? 'visible' : ''}"
+                   id="ef-tf-img-preview">
                 ${q.img_url
                   ? `<img src="${this._esc(q.img_url)}" alt="preview" />`
                   : ''}
               </div>
-              <button class="tf-remove-btn" id="tf-img-remove">Remove Image</button>
+              <button class="ef-tf-remove-btn" id="ef-tf-img-remove">Remove Image</button>
             </div>
           </div>
 
           <!-- Correct Answer -->
-          <div class="tf-field">
-            <label class="tf-label">Correct Answer</label>
-            <div class="tf-answer-group">
+          <div class="ef-tf-field">
+            <label class="ef-tf-label">Correct Answer</label>
+            <div class="ef-tf-answer-group">
 
-              <label class="tf-answer-option ${trueSelected ? 'selected-true' : ''}"
-                     id="tf-opt-true">
-                <input type="radio" name="tf-correct" value="true"
+              <label class="ef-tf-answer-option ${trueSelected ? 'selected-true' : ''}"
+                     id="ef-tf-opt-true">
+                <input type="radio" name="ef-tf-correct" value="true"
                        ${trueSelected ? 'checked' : ''} />
-                <span class="tf-answer-icon">✓</span>
-                <span class="tf-answer-label">True</span>
+                <span class="ef-tf-answer-icon">✓</span>
+                <span class="ef-tf-answer-label">True</span>
               </label>
 
-              <label class="tf-answer-option ${falseSelected ? 'selected-false' : ''}"
-                     id="tf-opt-false">
-                <input type="radio" name="tf-correct" value="false"
+              <label class="ef-tf-answer-option ${falseSelected ? 'selected-false' : ''}"
+                     id="ef-tf-opt-false">
+                <input type="radio" name="ef-tf-correct" value="false"
                        ${falseSelected ? 'checked' : ''} />
-                <span class="tf-answer-icon">✗</span>
-                <span class="tf-answer-label">False</span>
+                <span class="ef-tf-answer-icon">✗</span>
+                <span class="ef-tf-answer-label">False</span>
               </label>
 
             </div>
             ${(!trueSelected && !falseSelected)
-              ? `<div class="tf-unset-hint">
+              ? `<div class="ef-tf-unset-hint">
                    No answer selected — question can be saved as draft.
                  </div>`
               : ''
             }
-            <div class="tf-error" id="tf-error"></div>
+            <div class="ef-tf-error" id="ef-tf-error"></div>
           </div>
 
           <!-- Explanation -->
-          <div class="tf-field">
-            <label class="tf-label">
+          <div class="ef-tf-field">
+            <label class="ef-tf-label">
               Explanation
-              <span class="tf-optional">(optional)</span>
+              <span class="ef-tf-optional">(optional)</span>
             </label>
-            <textarea class="tf-textarea" id="tf-explanation"
+            <textarea class="ef-tf-textarea" id="ef-tf-explanation"
               rows="2"
               placeholder="Explanation (HTML/MathML supported)"
             >${this._esc(q.explanation || '')}</textarea>
-            <div class="tf-render-preview" id="tf-explanation-preview"></div>
+            <div class="ef-tf-render-preview" id="ef-tf-explanation-preview"></div>
           </div>
 
           <!-- Difficulty -->
-          <div class="tf-field">
-            <label class="tf-label">Difficulty</label>
-            <select class="tf-select" id="tf-difficulty">
+          <div class="ef-tf-field">
+            <label class="ef-tf-label">Difficulty</label>
+            <select class="ef-tf-select" id="ef-tf-difficulty">
               ${EditorConfig.DIFFICULTY_LEVELS.map(d => `
                 <option value="${d}" ${q.difficulty === d ? 'selected' : ''}>${d}</option>
               `).join('')}
@@ -166,23 +166,23 @@ class TrueFalseFormComponent extends HTMLElement {
           </div>
 
           <!-- Points + Time Limit -->
-          <div class="tf-row-2">
-            <div class="tf-field">
-              <label class="tf-label">
+          <div class="ef-tf-row-2">
+            <div class="ef-tf-field">
+              <label class="ef-tf-label">
                 Points
-                <span class="tf-optional">(optional)</span>
+                <span class="ef-tf-optional">(optional)</span>
               </label>
-              <input class="tf-input" id="tf-points" type="number"
+              <input class="ef-tf-input" id="ef-tf-points" type="number"
                 min="0" step="0.5" placeholder="e.g. 1"
                 value="${q.points !== '' && q.points != null ? q.points : ''}"
               />
             </div>
-            <div class="tf-field">
-              <label class="tf-label">
+            <div class="ef-tf-field">
+              <label class="ef-tf-label">
                 Time Limit (sec)
-                <span class="tf-optional">(optional)</span>
+                <span class="ef-tf-optional">(optional)</span>
               </label>
-              <input class="tf-input" id="tf-time-limit" type="number"
+              <input class="ef-tf-input" id="ef-tf-time-limit" type="number"
                 min="0" step="1" placeholder="e.g. 30"
                 value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
               />
@@ -190,23 +190,23 @@ class TrueFalseFormComponent extends HTMLElement {
           </div>
 
           <!-- Tags -->
-          <div class="tf-field">
-            <label class="tf-label">
+          <div class="ef-tf-field">
+            <label class="ef-tf-label">
               Tags
-              <span class="tf-optional">(comma separated)</span>
+              <span class="ef-tf-optional">(comma separated)</span>
             </label>
-            <input class="tf-input" id="tf-tags" type="text"
+            <input class="ef-tf-input" id="ef-tf-tags" type="text"
               placeholder="e.g. science, biology"
               value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
             />
           </div>
 
-        </div><!-- /.tf-body -->
+        </div><!-- /.ef-tf-body -->
 
         <!-- Footer -->
-        <div class="tf-footer">
-          <button class="tf-btn-save" id="tf-btn-save">Save</button>
-          <span class="tf-save-hint">Correct answer can be set later</span>
+        <div class="ef-tf-footer">
+          <button class="ef-tf-btn-save" id="ef-tf-btn-save">Save</button>
+          <span class="ef-tf-save-hint">Correct answer can be set later</span>
         </div>
 
       </div>
@@ -218,54 +218,54 @@ class TrueFalseFormComponent extends HTMLElement {
   _bindEvents() {
 
     // Question text — focus preview
-    this._bindFocusPreview('tf-question', 'tf-question-preview');
+    this._bindFocusPreview('ef-tf-question', 'ef-tf-question-preview');
 
     // Explanation — focus preview
-    this._bindFocusPreview('tf-explanation', 'tf-explanation-preview');
+    this._bindFocusPreview('ef-tf-explanation', 'ef-tf-explanation-preview');
 
     // SVG collapsible
-    this.querySelector('#tf-svg-toggle')?.addEventListener('click', () => {
-      this.querySelector('#tf-svg-section').classList.toggle('open');
+    this.querySelector('#ef-tf-svg-toggle')?.addEventListener('click', () => {
+      this.querySelector('#ef-tf-svg-section').classList.toggle('open');
     });
-    this.querySelector('#tf-svg')?.addEventListener('input', (e) => {
-      this.querySelector('#tf-svg-preview').innerHTML = e.target.value;
+    this.querySelector('#ef-tf-svg')?.addEventListener('input', (e) => {
+      this.querySelector('#ef-tf-svg-preview').innerHTML = e.target.value;
     });
-    this.querySelector('#tf-svg-remove')?.addEventListener('click', () => {
-      this.querySelector('#tf-svg').value = '';
-      this.querySelector('#tf-svg-preview').innerHTML = '';
+    this.querySelector('#ef-tf-svg-remove')?.addEventListener('click', () => {
+      this.querySelector('#ef-tf-svg').value = '';
+      this.querySelector('#ef-tf-svg-preview').innerHTML = '';
     });
 
     // Image collapsible
-    this.querySelector('#tf-img-toggle')?.addEventListener('click', () => {
-      this.querySelector('#tf-img-section').classList.toggle('open');
+    this.querySelector('#ef-tf-img-toggle')?.addEventListener('click', () => {
+      this.querySelector('#ef-tf-img-section').classList.toggle('open');
     });
-    this.querySelector('#tf-img-url')?.addEventListener('input', (e) => {
+    this.querySelector('#ef-tf-img-url')?.addEventListener('input', (e) => {
       this._updateImgPreview(e.target.value.trim());
     });
-    this.querySelector('#tf-img-remove')?.addEventListener('click', () => {
-      this.querySelector('#tf-img-url').value = '';
+    this.querySelector('#ef-tf-img-remove')?.addEventListener('click', () => {
+      this.querySelector('#ef-tf-img-url').value = '';
       this._updateImgPreview('');
     });
 
     // Answer radio — highlight selected option
-    this.querySelectorAll('input[name="tf-correct"]').forEach(radio => {
+    this.querySelectorAll('input[name="ef-tf-correct"]').forEach(radio => {
       radio.addEventListener('change', () => this._updateAnswerHighlight());
     });
 
     // Skip / Unskip
-    this.querySelector('#tf-btn-skip')?.addEventListener('click', () => {
+    this.querySelector('#ef-tf-btn-skip')?.addEventListener('click', () => {
       this._question.original_type = this._question.type;
       this._question.type = EditorConfig.SKIP_TYPE;
       this._render(); this._bindEvents();
     });
-    this.querySelector('#tf-btn-unskip')?.addEventListener('click', () => {
+    this.querySelector('#ef-tf-btn-unskip')?.addEventListener('click', () => {
       this._question.type = this._question.original_type || 'true_false';
       delete this._question.original_type;
       this._render(); this._bindEvents();
     });
 
     // Save
-    this.querySelector('#tf-btn-save')?.addEventListener('click', () => {
+    this.querySelector('#ef-tf-btn-save')?.addEventListener('click', () => {
       this._handleSave();
     });
   }
@@ -273,9 +273,9 @@ class TrueFalseFormComponent extends HTMLElement {
   // ── Highlight selected answer option ─────────────────
 
   _updateAnswerHighlight() {
-    const trueOpt  = this.querySelector('#tf-opt-true');
-    const falseOpt = this.querySelector('#tf-opt-false');
-    const val      = this.querySelector('input[name="tf-correct"]:checked')?.value;
+    const trueOpt  = this.querySelector('#ef-tf-opt-true');
+    const falseOpt = this.querySelector('#ef-tf-opt-false');
+    const val      = this.querySelector('input[name="ef-tf-correct"]:checked')?.value;
     trueOpt.classList.toggle('selected-true',   val === 'true');
     falseOpt.classList.toggle('selected-false', val === 'false');
     // Remove opposite
@@ -286,19 +286,19 @@ class TrueFalseFormComponent extends HTMLElement {
   // ── Save ─────────────────────────────────────────────
 
   _handleSave() {
-    const errEl       = this.querySelector('#tf-error');
+    const errEl       = this.querySelector('#ef-tf-error');
     errEl.classList.remove('visible');
-    const questionText = this.querySelector('#tf-question')?.value.trim() || '';
+    const questionText = this.querySelector('#ef-tf-question')?.value.trim() || '';
 
     if (questionText === '') {
       errEl.textContent = 'Question text is required.';
       errEl.classList.add('visible');
-      this.querySelector('#tf-question')?.focus();
+      this.querySelector('#ef-tf-question')?.focus();
       return;
     }
 
     // correct_answer: boolean or '' if unset
-    const radioVal = this.querySelector('input[name="tf-correct"]:checked')?.value;
+    const radioVal = this.querySelector('input[name="ef-tf-correct"]:checked')?.value;
     const correctAnswer = radioVal === 'true'
       ? true
       : radioVal === 'false'
@@ -308,14 +308,14 @@ class TrueFalseFormComponent extends HTMLElement {
     const saved = {
       type:           this._question?.type || 'true_false',
       question:       questionText,
-      svg_content:    this.querySelector('#tf-svg')?.value.trim()        || '',
-      img_url:        this.querySelector('#tf-img-url')?.value.trim()     || '',
+      svg_content:    this.querySelector('#ef-tf-svg')?.value.trim()        || '',
+      img_url:        this.querySelector('#ef-tf-img-url')?.value.trim()     || '',
       correct_answer: correctAnswer,
       user_response:  '',
-      explanation:    this.querySelector('#tf-explanation')?.value.trim() || '',
-      difficulty:     this.querySelector('#tf-difficulty')?.value         || 'easy',
-      points:         this._parseOptionalNumber('#tf-points'),
-      time_limit:     this._parseOptionalNumber('#tf-time-limit'),
+      explanation:    this.querySelector('#ef-tf-explanation')?.value.trim() || '',
+      difficulty:     this.querySelector('#ef-tf-difficulty')?.value         || 'easy',
+      points:         this._parseOptionalNumber('#ef-tf-points'),
+      time_limit:     this._parseOptionalNumber('#ef-tf-time-limit'),
       tags:           this._parseTags(),
     };
 
@@ -345,7 +345,7 @@ class TrueFalseFormComponent extends HTMLElement {
   }
 
   _updateImgPreview(url) {
-    const preview = this.querySelector('#tf-img-preview');
+    const preview = this.querySelector('#ef-tf-img-preview');
     if (!preview) return;
     if (url) {
       preview.innerHTML = `<img src="${this._esc(url)}" alt="preview" />`;
@@ -364,7 +364,7 @@ class TrueFalseFormComponent extends HTMLElement {
   }
 
   _parseTags() {
-    const raw = this.querySelector('#tf-tags')?.value || '';
+    const raw = this.querySelector('#ef-tf-tags')?.value || '';
     return raw.split(',').map(t => t.trim()).filter(t => t.length > 0);
   }
 

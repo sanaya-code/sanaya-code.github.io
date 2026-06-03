@@ -33,94 +33,94 @@ class FillInBlankFormComponent extends HTMLElement {
     const hasBlank   = (q.question || '').includes('____');
 
     this.innerHTML = `
-      <div class="fib-form">
+      <div class="ef-fib-form">
 
         <!-- Topbar -->
-        <div class="fib-topbar">
+        <div class="ef-fib-topbar">
           ${isSkip
-            ? `<span class="fib-skip-badge">⊘ SKIP</span>
+            ? `<span class="ef-fib-skip-badge">⊘ SKIP</span>
                <span style="font-size:12px;color:var(--text-muted)">
                  Originally: ${badgeLabel}
                </span>`
-            : `<span class="fib-type-badge"
+            : `<span class="ef-fib-type-badge"
                      style="background:${badgeColor}">${badgeLabel}</span>`
           }
-          <div class="fib-topbar-actions">
+          <div class="ef-fib-topbar-actions">
             ${isSkip
-              ? `<button class="btn-unskip" id="fib-btn-unskip">↩ Un-mark Skip</button>`
-              : `<button class="btn-skip"   id="fib-btn-skip">⊘ Mark as Skip</button>`
+              ? `<button class="ef-fib-btn-unskip" id="ef-fib-btn-unskip">↩ Un-mark Skip</button>`
+              : `<button class="ef-fib-btn-skip"   id="ef-fib-btn-skip">⊘ Mark as Skip</button>`
             }
           </div>
         </div>
 
         <!-- Body -->
-        <div class="fib-body ${isSkip ? 'fib-is-skip' : ''}">
+        <div class="ef-fib-body ${isSkip ? 'ef-fib-is-skip' : ''}">
 
           <!-- Question text -->
-          <div class="fib-field">
-            <label class="fib-label">Question Text</label>
-            <textarea class="fib-textarea" id="fib-question"
+          <div class="ef-fib-field">
+            <label class="ef-fib-label">Question Text</label>
+            <textarea class="ef-fib-textarea" id="ef-fib-question"
               rows="3"
               placeholder='e.g. Solid state of water is called ____.'
             >${this._esc(q.question || '')}</textarea>
-            <div class="fib-render-preview" id="fib-question-preview"></div>
+            <div class="ef-fib-render-preview" id="ef-fib-question-preview"></div>
             <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-              <div class="fib-blank-hint">
+              <div class="ef-fib-blank-hint">
                 Type <code>____</code> (4 underscores) where the blank should appear
               </div>
-              <span class="fib-blank-status ${hasBlank ? 'found' : 'missing'}"
-                    id="fib-blank-status">
+              <span class="ef-fib-blank-status ${hasBlank ? 'found' : 'missing'}"
+                    id="ef-fib-blank-status">
                 ${hasBlank ? '✓ Blank found' : '⚠ No blank detected'}
               </span>
             </div>
           </div>
 
           <!-- SVG — collapsible -->
-          <div class="fib-collapsible" id="fib-svg-section">
-            <div class="fib-collapsible-header" id="fib-svg-toggle">
+          <div class="ef-fib-collapsible" id="ef-fib-svg-section">
+            <div class="ef-fib-collapsible-header" id="ef-fib-svg-toggle">
               ▶ SVG Figure
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="fib-collapsible-arrow">▼</span>
+              <span class="ef-fib-collapsible-arrow">▼</span>
             </div>
-            <div class="fib-collapsible-body">
-              <textarea class="fib-textarea" id="fib-svg"
+            <div class="ef-fib-collapsible-body">
+              <textarea class="ef-fib-textarea" id="ef-fib-svg"
                 rows="3" placeholder="Paste SVG code here..."
               >${this._esc(q.svg_content || '')}</textarea>
-              <div class="fib-svg-preview" id="fib-svg-preview">
+              <div class="ef-fib-svg-preview" id="ef-fib-svg-preview">
                 ${q.svg_content || ''}
               </div>
-              <button class="fib-remove-btn" id="fib-svg-remove">Remove SVG</button>
+              <button class="ef-fib-remove-btn" id="ef-fib-svg-remove">Remove SVG</button>
             </div>
           </div>
 
           <!-- Image — collapsible -->
-          <div class="fib-collapsible" id="fib-img-section">
-            <div class="fib-collapsible-header" id="fib-img-toggle">
+          <div class="ef-fib-collapsible" id="ef-fib-img-section">
+            <div class="ef-fib-collapsible-header" id="ef-fib-img-toggle">
               ▶ Image URL
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="fib-collapsible-arrow">▼</span>
+              <span class="ef-fib-collapsible-arrow">▼</span>
             </div>
-            <div class="fib-collapsible-body">
-              <input class="fib-input" id="fib-img-url" type="text"
+            <div class="ef-fib-collapsible-body">
+              <input class="ef-fib-input" id="ef-fib-img-url" type="text"
                 placeholder="Enter image URL or relative path..."
                 value="${this._esc(q.img_url || '')}"
               />
-              <div class="fib-img-preview ${q.img_url ? 'visible' : ''}"
-                   id="fib-img-preview">
+              <div class="ef-fib-img-preview ${q.img_url ? 'visible' : ''}"
+                   id="ef-fib-img-preview">
                 ${q.img_url
                   ? `<img src="${this._esc(q.img_url)}" alt="preview" />`
                   : ''}
               </div>
-              <button class="fib-remove-btn" id="fib-img-remove">Remove Image</button>
+              <button class="ef-fib-remove-btn" id="ef-fib-img-remove">Remove Image</button>
             </div>
           </div>
 
           <!-- Correct Answer -->
-          <div class="fib-field">
-            <label class="fib-label">Correct Answer</label>
-            <input class="fib-correct-input" id="fib-correct-answer"
+          <div class="ef-fib-field">
+            <label class="ef-fib-label">Correct Answer</label>
+            <input class="ef-fib-correct-input" id="ef-fib-correct-answer"
               type="text"
               placeholder="The primary correct answer e.g. ice"
               value="${this._esc(q.correct_answer || '')}"
@@ -128,42 +128,42 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- Acceptable Answers -->
-          <div class="fib-field">
-            <div class="fib-options-header">
-              <label class="fib-label">
+          <div class="ef-fib-field">
+            <div class="ef-fib-options-header">
+              <label class="ef-fib-label">
                 Acceptable Answers
-                <span class="fib-optional">(optional)</span>
+                <span class="ef-fib-optional">(optional)</span>
               </label>
-              <button class="fib-add-answer-btn" id="fib-add-answer">
+              <button class="ef-fib-add-answer-btn" id="ef-fib-add-answer">
                 + Add Answer
               </button>
             </div>
-            <div class="fib-answers-hint">
+            <div class="ef-fib-answers-hint">
               All answers that will be accepted as correct
               (including the canonical answer above)
             </div>
-            <div class="fib-answers-list-wrap" id="fib-answers-list">
+            <div class="ef-fib-answers-list-wrap" id="ef-fib-answers-list">
               ${answers.map((a, i) => this._answerRowHTML(a, i)).join('')}
             </div>
-            <div class="fib-error" id="fib-error"></div>
+            <div class="ef-fib-error" id="ef-fib-error"></div>
           </div>
 
           <!-- Explanation -->
-          <div class="fib-field">
-            <label class="fib-label">
-              Explanation <span class="fib-optional">(optional)</span>
+          <div class="ef-fib-field">
+            <label class="ef-fib-label">
+              Explanation <span class="ef-fib-optional">(optional)</span>
             </label>
-            <textarea class="fib-textarea" id="fib-explanation"
+            <textarea class="ef-fib-textarea" id="ef-fib-explanation"
               rows="2"
               placeholder="Explanation (HTML/MathML supported)"
             >${this._esc(q.explanation || '')}</textarea>
-            <div class="fib-render-preview" id="fib-explanation-preview"></div>
+            <div class="ef-fib-render-preview" id="ef-fib-explanation-preview"></div>
           </div>
 
           <!-- Difficulty -->
-          <div class="fib-field">
-            <label class="fib-label">Difficulty</label>
-            <select class="fib-select" id="fib-difficulty">
+          <div class="ef-fib-field">
+            <label class="ef-fib-label">Difficulty</label>
+            <select class="ef-fib-select" id="ef-fib-difficulty">
               ${EditorConfig.DIFFICULTY_LEVELS.map(d => `
                 <option value="${d}"
                   ${q.difficulty === d ? 'selected' : ''}>${d}</option>
@@ -172,21 +172,21 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- Points + Time Limit -->
-          <div class="fib-row-2">
-            <div class="fib-field">
-              <label class="fib-label">
-                Points <span class="fib-optional">(optional)</span>
+          <div class="ef-fib-row-2">
+            <div class="ef-fib-field">
+              <label class="ef-fib-label">
+                Points <span class="ef-fib-optional">(optional)</span>
               </label>
-              <input class="fib-input" id="fib-points" type="number"
+              <input class="ef-fib-input" id="ef-fib-points" type="number"
                 min="0" step="0.5" placeholder="e.g. 1"
                 value="${q.points !== '' && q.points != null ? q.points : ''}"
               />
             </div>
-            <div class="fib-field">
-              <label class="fib-label">
-                Time Limit (sec) <span class="fib-optional">(optional)</span>
+            <div class="ef-fib-field">
+              <label class="ef-fib-label">
+                Time Limit (sec) <span class="ef-fib-optional">(optional)</span>
               </label>
-              <input class="fib-input" id="fib-time-limit" type="number"
+              <input class="ef-fib-input" id="ef-fib-time-limit" type="number"
                 min="0" step="1" placeholder="e.g. 30"
                 value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
               />
@@ -194,22 +194,22 @@ class FillInBlankFormComponent extends HTMLElement {
           </div>
 
           <!-- Tags -->
-          <div class="fib-field">
-            <label class="fib-label">
-              Tags <span class="fib-optional">(comma separated)</span>
+          <div class="ef-fib-field">
+            <label class="ef-fib-label">
+              Tags <span class="ef-fib-optional">(comma separated)</span>
             </label>
-            <input class="fib-input" id="fib-tags" type="text"
+            <input class="ef-fib-input" id="ef-fib-tags" type="text"
               placeholder="e.g. science, states-of-matter"
               value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
             />
           </div>
 
-        </div><!-- /.fib-body -->
+        </div><!-- /.ef-fib-body -->
 
         <!-- Footer -->
-        <div class="fib-footer">
-          <button class="fib-btn-save" id="fib-btn-save">Save</button>
-          <span class="fib-save-hint">
+        <div class="ef-fib-footer">
+          <button class="ef-fib-btn-save" id="ef-fib-btn-save">Save</button>
+          <span class="ef-fib-save-hint">
             Use <strong>____</strong> in question text for the blank
           </span>
         </div>
@@ -222,15 +222,15 @@ class FillInBlankFormComponent extends HTMLElement {
 
   _answerRowHTML(text, index) {
     return `
-      <div class="fib-answer-row" data-ans-index="${index}">
-        <span class="fib-answer-bullet">◦</span>
+      <div class="ef-fib-answer-row" data-ans-index="${index}">
+        <span class="ef-fib-answer-bullet">◦</span>
         <input type="text"
-               class="fib-answer-input-field fib-answer-input"
+               class="ef-fib-answer-input-field ef-fib-answer-input"
                placeholder="Acceptable answer..."
                value="${this._esc(text)}"
                data-ans-index="${index}"
         />
-        <button class="fib-answer-delete" title="Remove answer">✕</button>
+        <button class="ef-fib-answer-delete" title="Remove answer">✕</button>
       </div>
     `;
   }
@@ -240,9 +240,9 @@ class FillInBlankFormComponent extends HTMLElement {
   _bindEvents() {
 
     // Question text — focus preview + blank detector
-    const questionTA = this.querySelector('#fib-question');
-    const preview    = this.querySelector('#fib-question-preview');
-    const status     = this.querySelector('#fib-blank-status');
+    const questionTA = this.querySelector('#ef-fib-question');
+    const preview    = this.querySelector('#ef-fib-question-preview');
+    const status     = this.querySelector('#ef-fib-blank-status');
 
     if (questionTA) {
       questionTA.addEventListener('focus', () => {
@@ -255,61 +255,61 @@ class FillInBlankFormComponent extends HTMLElement {
       });
     }
 
-    this._bindFocusPreview('fib-explanation', 'fib-explanation-preview');
+    this._bindFocusPreview('ef-fib-explanation', 'ef-fib-explanation-preview');
 
     // SVG collapsible
-    this.querySelector('#fib-svg-toggle')?.addEventListener('click', () => {
-      this.querySelector('#fib-svg-section').classList.toggle('open');
+    this.querySelector('#ef-fib-svg-toggle')?.addEventListener('click', () => {
+      this.querySelector('#ef-fib-svg-section').classList.toggle('open');
     });
-    this.querySelector('#fib-svg')?.addEventListener('input', (e) => {
-      this.querySelector('#fib-svg-preview').innerHTML = e.target.value;
+    this.querySelector('#ef-fib-svg')?.addEventListener('input', (e) => {
+      this.querySelector('#ef-fib-svg-preview').innerHTML = e.target.value;
     });
-    this.querySelector('#fib-svg-remove')?.addEventListener('click', () => {
-      this.querySelector('#fib-svg').value = '';
-      this.querySelector('#fib-svg-preview').innerHTML = '';
+    this.querySelector('#ef-fib-svg-remove')?.addEventListener('click', () => {
+      this.querySelector('#ef-fib-svg').value = '';
+      this.querySelector('#ef-fib-svg-preview').innerHTML = '';
     });
 
     // Image collapsible
-    this.querySelector('#fib-img-toggle')?.addEventListener('click', () => {
-      this.querySelector('#fib-img-section').classList.toggle('open');
+    this.querySelector('#ef-fib-img-toggle')?.addEventListener('click', () => {
+      this.querySelector('#ef-fib-img-section').classList.toggle('open');
     });
-    this.querySelector('#fib-img-url')?.addEventListener('input', (e) => {
+    this.querySelector('#ef-fib-img-url')?.addEventListener('input', (e) => {
       this._updateImgPreview(e.target.value.trim());
     });
-    this.querySelector('#fib-img-remove')?.addEventListener('click', () => {
-      this.querySelector('#fib-img-url').value = '';
+    this.querySelector('#ef-fib-img-remove')?.addEventListener('click', () => {
+      this.querySelector('#ef-fib-img-url').value = '';
       this._updateImgPreview('');
     });
 
     // Add acceptable answer
-    this.querySelector('#fib-add-answer')?.addEventListener('click', () => {
+    this.querySelector('#ef-fib-add-answer')?.addEventListener('click', () => {
       this._addAnswerRow();
     });
 
     // Answers list — delegated delete
-    const ansList = this.querySelector('#fib-answers-list');
+    const ansList = this.querySelector('#ef-fib-answers-list');
     if (ansList) {
       ansList.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('fib-answer-delete')) return;
-        e.target.closest('.fib-answer-row').remove();
+        if (!e.target.classList.contains('ef-fib-answer-delete')) return;
+        e.target.closest('.ef-fib-answer-row').remove();
         this._reindexAnswers();
       });
     }
 
     // Skip / Unskip
-    this.querySelector('#fib-btn-skip')?.addEventListener('click', () => {
+    this.querySelector('#ef-fib-btn-skip')?.addEventListener('click', () => {
       this._question.original_type = this._question.type;
       this._question.type = EditorConfig.SKIP_TYPE;
       this._render(); this._bindEvents();
     });
-    this.querySelector('#fib-btn-unskip')?.addEventListener('click', () => {
+    this.querySelector('#ef-fib-btn-unskip')?.addEventListener('click', () => {
       this._question.type = this._question.original_type || 'fill_in_blank';
       delete this._question.original_type;
       this._render(); this._bindEvents();
     });
 
     // Save
-    this.querySelector('#fib-btn-save')?.addEventListener('click', () => {
+    this.querySelector('#ef-fib-btn-save')?.addEventListener('click', () => {
       this._handleSave();
     });
   }
@@ -320,28 +320,28 @@ class FillInBlankFormComponent extends HTMLElement {
     if (!statusEl) return;
     const hasBlank = text.includes('____');
     statusEl.textContent = hasBlank ? '✓ Blank found' : '⚠ No blank detected';
-    statusEl.className   = 'fib-blank-status ' + (hasBlank ? 'found' : 'missing');
+    statusEl.className   = 'ef-fib-blank-status ' + (hasBlank ? 'found' : 'missing');
   }
 
   // ── Add answer row ───────────────────────────────────
 
   _addAnswerRow() {
-    const list  = this.querySelector('#fib-answers-list');
-    const count = list.querySelectorAll('.fib-answer-row').length;
+    const list  = this.querySelector('#ef-fib-answers-list');
+    const count = list.querySelectorAll('.ef-fib-answer-row').length;
     const div   = document.createElement('div');
     div.innerHTML = this._answerRowHTML('', count);
     list.appendChild(div.firstElementChild);
     this._reindexAnswers();
-    list.querySelector('.fib-answer-row:last-child .fib-answer-input-field')?.focus();
+    list.querySelector('.ef-fib-answer-row:last-child .ef-fib-answer-input-field')?.focus();
   }
 
   // ── Reindex answer rows ──────────────────────────────
 
   _reindexAnswers() {
-    this.querySelectorAll('#fib-answers-list .fib-answer-row')
+    this.querySelectorAll('#ef-fib-answers-list .ef-fib-answer-row')
       .forEach((row, i) => {
         row.dataset.ansIndex = i;
-        const inp = row.querySelector('.fib-answer-input');
+        const inp = row.querySelector('.ef-fib-answer-input');
         if (inp) inp.dataset.ansIndex = i;
       });
   }
@@ -349,20 +349,20 @@ class FillInBlankFormComponent extends HTMLElement {
   // ── Save ─────────────────────────────────────────────
 
   _handleSave() {
-    const errEl        = this.querySelector('#fib-error');
+    const errEl        = this.querySelector('#ef-fib-error');
     errEl.classList.remove('visible');
-    const questionText = this.querySelector('#fib-question')?.value.trim() || '';
+    const questionText = this.querySelector('#ef-fib-question')?.value.trim() || '';
 
     if (questionText === '') {
       errEl.textContent = 'Question text is required.';
       errEl.classList.add('visible');
-      this.querySelector('#fib-question')?.focus();
+      this.querySelector('#ef-fib-question')?.focus();
       return;
     }
 
     // Collect acceptable answers — filter empty rows
     const acceptableAnswers = Array.from(
-      this.querySelectorAll('.fib-answer-input')
+      this.querySelectorAll('.ef-fib-answer-input')
     )
       .map(inp => inp.value.trim())
       .filter(a => a.length > 0);
@@ -370,15 +370,15 @@ class FillInBlankFormComponent extends HTMLElement {
     const saved = {
       type:               this._question?.type || 'fill_in_blank',
       question:           questionText,
-      svg_content:        this.querySelector('#fib-svg')?.value.trim()           || '',
-      img_url:            this.querySelector('#fib-img-url')?.value.trim()        || '',
-      correct_answer:     this.querySelector('#fib-correct-answer')?.value.trim() || '',
+      svg_content:        this.querySelector('#ef-fib-svg')?.value.trim()           || '',
+      img_url:            this.querySelector('#ef-fib-img-url')?.value.trim()        || '',
+      correct_answer:     this.querySelector('#ef-fib-correct-answer')?.value.trim() || '',
       acceptable_answers: acceptableAnswers,
       user_response:      '',
-      explanation:        this.querySelector('#fib-explanation')?.value.trim()    || '',
-      difficulty:         this.querySelector('#fib-difficulty')?.value            || 'easy',
-      points:             this._parseOptionalNumber('#fib-points'),
-      time_limit:         this._parseOptionalNumber('#fib-time-limit'),
+      explanation:        this.querySelector('#ef-fib-explanation')?.value.trim()    || '',
+      difficulty:         this.querySelector('#ef-fib-difficulty')?.value            || 'easy',
+      points:             this._parseOptionalNumber('#ef-fib-points'),
+      time_limit:         this._parseOptionalNumber('#ef-fib-time-limit'),
       tags:               this._parseTags(),
     };
 
@@ -408,7 +408,7 @@ class FillInBlankFormComponent extends HTMLElement {
   }
 
   _updateImgPreview(url) {
-    const preview = this.querySelector('#fib-img-preview');
+    const preview = this.querySelector('#ef-fib-img-preview');
     if (!preview) return;
     if (url) {
       preview.innerHTML = `<img src="${this._esc(url)}" alt="preview" />`;
@@ -427,7 +427,7 @@ class FillInBlankFormComponent extends HTMLElement {
   }
 
   _parseTags() {
-    const raw = this.querySelector('#fib-tags')?.value || '';
+    const raw = this.querySelector('#ef-fib-tags')?.value || '';
     return raw.split(',').map(t => t.trim()).filter(t => t.length > 0);
   }
 
