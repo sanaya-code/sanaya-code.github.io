@@ -7,7 +7,7 @@
     "last_modified": "2026-06-03",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 10
+    "total_questions": 11
   },
   "questions": [
     {
@@ -344,6 +344,34 @@
       "time_limit": "",
       "tags": [],
       "id": "010"
+    },
+    {
+      "type": "compare_quantities",
+      "question": "Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup>",
+      "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_09.jpg",
+      "quantity_a": {
+        "label": "A",
+        "value": "H<sub>2</sub>O"
+      },
+      "quantity_b": {
+        "label": "B",
+        "value": "E=mc<sup>2</sup>"
+      },
+      "symbol_options": [
+        "=",
+        ">",
+        "<",
+        "|"
+      ],
+      "correct_answer": ">",
+      "user_response": "",
+      "explanation": "<math><msqrt><mn>16</mn></msqrt></math>",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "011"
     }
   ]
 }

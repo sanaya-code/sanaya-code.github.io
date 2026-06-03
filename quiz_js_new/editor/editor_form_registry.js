@@ -228,7 +228,7 @@ EditorFormRegistry.register('matching_connection_image', {
 
 EditorFormRegistry.register('compare_quantities', {
   label: 'Compare Quantities', description: 'Compare two quantities with a symbol',
-  color: '#4f86f7', previewTag: 'compare-quantities',
+  color: '#4f86f7', formTag: 'compare-quantities-form', previewTag: 'compare-quantities',
   default: { type: 'compare_quantities', question: '', svg_content: '', img_url: '',
     left: '', right: '', correct_answer: '', user_response: '',
     explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },

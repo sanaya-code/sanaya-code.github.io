@@ -1,0 +1,124 @@
+/* editor/components/question_forms/compare_quantities_form/style.css */
+
+/* ── Quantities side by side ─────────────────────────── */
+
+.cq-quantities {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.cq-quantity-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.cq-quantity-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+.cq-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding-top: 36px;
+}
+
+/* ── Symbol options ──────────────────────────────────── */
+
+.cq-symbols-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.cq-symbol-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cq-symbol-input {
+  width: 48px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+
+.cq-symbol-input:focus {
+  border-color: var(--border-focus);
+}
+
+.cq-symbol-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: color 0.15s;
+}
+
+.cq-symbol-delete:hover {
+  color: var(--danger);
+}
+
+/* ── Correct answer selector ─────────────────────────── */
+
+.cq-correct-answer-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cq-answer-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.cq-answer-option:hover {
+  border-color: var(--border-focus);
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.cq-answer-option.selected {
+  border-color: var(--success);
+  background: rgba(39,174,122,0.08);
+  color: var(--success);
+}
