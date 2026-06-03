@@ -32,19 +32,19 @@ class ShortAnswerFormComponent extends HTMLElement {
       ? q.acceptable_variations : [];
 
     this.innerHTML = `
-      <div class="mcq-form">
+      <div class="sa-form">
 
         <!-- Topbar -->
-        <div class="mcf-topbar">
+        <div class="sa-topbar">
           ${isSkip
-            ? `<span class="mcf-skip-badge">⊘ SKIP</span>
+            ? `<span class="sa-skip-badge">⊘ SKIP</span>
                <span style="font-size:12px;color:var(--text-muted)">
                  Originally: ${badgeLabel}
                </span>`
-            : `<span class="mcf-type-badge"
+            : `<span class="sa-type-badge"
                      style="background:${badgeColor}">${badgeLabel}</span>`
           }
-          <div class="mcf-topbar-actions">
+          <div class="sa-topbar-actions">
             ${isSkip
               ? `<button class="btn-unskip" id="sa-btn-unskip">↩ Un-mark Skip</button>`
               : `<button class="btn-skip"   id="sa-btn-skip">⊘ Mark as Skip</button>`
@@ -53,63 +53,63 @@ class ShortAnswerFormComponent extends HTMLElement {
         </div>
 
         <!-- Body -->
-        <div class="mcf-body ${isSkip ? 'is-skip' : ''}">
+        <div class="sa-body ${isSkip ? 'sa-is-skip' : ''}">
 
           <!-- Question text -->
-          <div class="mcf-field">
-            <label class="mcf-label">Question Text</label>
-            <textarea class="mcf-textarea" id="sa-question"
+          <div class="sa-field">
+            <label class="sa-label">Question Text</label>
+            <textarea class="sa-textarea" id="sa-question"
               rows="3"
               placeholder="Enter question text (HTML/MathML supported)"
             >${this._esc(q.question || '')}</textarea>
-            <div class="mcf-render-preview" id="sa-question-preview"></div>
+            <div class="sa-render-preview" id="sa-question-preview"></div>
           </div>
 
           <!-- SVG — collapsible -->
-          <div class="mcf-collapsible" id="sa-svg-section">
-            <div class="mcf-collapsible-header" id="sa-svg-toggle">
+          <div class="sa-collapsible" id="sa-svg-section">
+            <div class="sa-collapsible-header" id="sa-svg-toggle">
               ▶ SVG Figure
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
+              <span class="sa-collapsible-arrow">▼</span>
             </div>
-            <div class="mcf-collapsible-body">
-              <textarea class="mcf-textarea" id="sa-svg"
+            <div class="sa-collapsible-body">
+              <textarea class="sa-textarea" id="sa-svg"
                 rows="3" placeholder="Paste SVG code here..."
               >${this._esc(q.svg_content || '')}</textarea>
-              <div class="mcf-svg-preview" id="sa-svg-preview">
+              <div class="sa-svg-preview" id="sa-svg-preview">
                 ${q.svg_content || ''}
               </div>
-              <button class="mcf-remove-btn" id="sa-svg-remove">Remove SVG</button>
+              <button class="sa-remove-btn" id="sa-svg-remove">Remove SVG</button>
             </div>
           </div>
 
           <!-- Image — collapsible -->
-          <div class="mcf-collapsible" id="sa-img-section">
-            <div class="mcf-collapsible-header" id="sa-img-toggle">
+          <div class="sa-collapsible" id="sa-img-section">
+            <div class="sa-collapsible-header" id="sa-img-toggle">
               ▶ Image URL
               <span style="font-weight:400;font-size:11px;margin-left:4px;
                            color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
+              <span class="sa-collapsible-arrow">▼</span>
             </div>
-            <div class="mcf-collapsible-body">
-              <input class="mcf-input" id="sa-img-url" type="text"
+            <div class="sa-collapsible-body">
+              <input class="sa-input" id="sa-img-url" type="text"
                 placeholder="Enter image URL or relative path..."
                 value="${this._esc(q.img_url || '')}"
               />
-              <div class="mcf-img-preview ${q.img_url ? 'visible' : ''}"
+              <div class="sa-img-preview ${q.img_url ? 'visible' : ''}"
                    id="sa-img-preview">
                 ${q.img_url
                   ? `<img src="${this._esc(q.img_url)}" alt="preview" />`
                   : ''}
               </div>
-              <button class="mcf-remove-btn" id="sa-img-remove">Remove Image</button>
+              <button class="sa-remove-btn" id="sa-img-remove">Remove Image</button>
             </div>
           </div>
 
           <!-- Correct Answer -->
-          <div class="mcf-field">
-            <label class="mcf-label">Correct Answer</label>
+          <div class="sa-field">
+            <label class="sa-label">Correct Answer</label>
             <div class="sa-correct-wrap">
               <input class="sa-correct-input" id="sa-correct-answer"
                 type="text"
@@ -120,11 +120,11 @@ class ShortAnswerFormComponent extends HTMLElement {
           </div>
 
           <!-- Acceptable Variations -->
-          <div class="mcf-field">
-            <div class="mcf-options-header">
-              <label class="mcf-label">
+          <div class="sa-field">
+            <div class="sa-options-header">
+              <label class="sa-label">
                 Acceptable Variations
-                <span class="mcf-optional">(optional)</span>
+                <span class="sa-optional">(optional)</span>
               </label>
               <button class="sa-add-variation-btn" id="sa-add-variation">
                 + Add Variation
@@ -137,26 +137,26 @@ class ShortAnswerFormComponent extends HTMLElement {
             <div class="sa-variations-list" id="sa-variations-list">
               ${variations.map((v, i) => this._variationRowHTML(v, i)).join('')}
             </div>
-            <div class="mcf-error" id="sa-error"></div>
+            <div class="sa-error-msg" id="sa-error"></div>
           </div>
 
           <!-- Explanation -->
-          <div class="mcf-field">
-            <label class="mcf-label">
+          <div class="sa-field">
+            <label class="sa-label">
               Explanation
-              <span class="mcf-optional">(optional)</span>
+              <span class="sa-optional">(optional)</span>
             </label>
-            <textarea class="mcf-textarea" id="sa-explanation"
+            <textarea class="sa-textarea" id="sa-explanation"
               rows="2"
               placeholder="Explanation (HTML/MathML supported)"
             >${this._esc(q.explanation || '')}</textarea>
-            <div class="mcf-render-preview" id="sa-explanation-preview"></div>
+            <div class="sa-render-preview" id="sa-explanation-preview"></div>
           </div>
 
           <!-- Difficulty -->
-          <div class="mcf-field">
-            <label class="mcf-label">Difficulty</label>
-            <select class="mcf-select" id="sa-difficulty">
+          <div class="sa-field">
+            <label class="sa-label">Difficulty</label>
+            <select class="sa-select" id="sa-difficulty">
               ${EditorConfig.DIFFICULTY_LEVELS.map(d => `
                 <option value="${d}"
                   ${q.difficulty === d ? 'selected' : ''}>${d}</option>
@@ -165,21 +165,21 @@ class ShortAnswerFormComponent extends HTMLElement {
           </div>
 
           <!-- Points + Time Limit -->
-          <div class="mcf-row-2">
-            <div class="mcf-field">
-              <label class="mcf-label">
-                Points <span class="mcf-optional">(optional)</span>
+          <div class="sa-row-2">
+            <div class="sa-field">
+              <label class="sa-label">
+                Points <span class="sa-optional">(optional)</span>
               </label>
-              <input class="mcf-input" id="sa-points" type="number"
+              <input class="sa-input" id="sa-points" type="number"
                 min="0" step="0.5" placeholder="e.g. 1"
                 value="${q.points !== '' && q.points != null ? q.points : ''}"
               />
             </div>
-            <div class="mcf-field">
-              <label class="mcf-label">
-                Time Limit (sec) <span class="mcf-optional">(optional)</span>
+            <div class="sa-field">
+              <label class="sa-label">
+                Time Limit (sec) <span class="sa-optional">(optional)</span>
               </label>
-              <input class="mcf-input" id="sa-time-limit" type="number"
+              <input class="sa-input" id="sa-time-limit" type="number"
                 min="0" step="1" placeholder="e.g. 30"
                 value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
               />
@@ -187,22 +187,22 @@ class ShortAnswerFormComponent extends HTMLElement {
           </div>
 
           <!-- Tags -->
-          <div class="mcf-field">
-            <label class="mcf-label">
-              Tags <span class="mcf-optional">(comma separated)</span>
+          <div class="sa-field">
+            <label class="sa-label">
+              Tags <span class="sa-optional">(comma separated)</span>
             </label>
-            <input class="mcf-input" id="sa-tags" type="text"
+            <input class="sa-input" id="sa-tags" type="text"
               placeholder="e.g. geography, capitals"
               value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
             />
           </div>
 
-        </div><!-- /.mcf-body -->
+        </div><!-- /.sa-body -->
 
         <!-- Footer -->
-        <div class="mcf-footer">
-          <button class="btn-save" id="sa-btn-save">Save</button>
-          <span class="mcf-save-hint">Correct answer can be set later</span>
+        <div class="sa-footer">
+          <button class="sa-btn-save" id="sa-sa-btn-save">Save</button>
+          <span class="sa-save-hint">Correct answer can be set later</span>
         </div>
 
       </div>
@@ -285,7 +285,7 @@ class ShortAnswerFormComponent extends HTMLElement {
     });
 
     // Save
-    this.querySelector('#sa-btn-save')?.addEventListener('click', () => {
+    this.querySelector('#sa-sa-btn-save')?.addEventListener('click', () => {
       this._handleSave();
     });
   }

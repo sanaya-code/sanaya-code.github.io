@@ -1,4 +1,527 @@
 /* editor/components/question_forms/short_answer_form/style.css */
+/* Self-contained — no dependency on other form stylesheets */
+
+/* editor/components/question_forms/mcq_form/style.css */
+
+.sa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Form topbar: type badge + skip button ───────────── */
+
+.sa-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+}
+
+.sa-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.sa-skip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #7f8c8d;
+  color: #fff;
+}
+
+.sa-topbar-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-skip:hover { background: rgba(127,140,141,0.12); }
+
+.btn-unskip {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.btn-unskip:hover { background: var(--accent-light); }
+
+/* ── Scrollable form body ────────────────────────────── */
+
+.sa-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field group ─────────────────────────────────────── */
+
+.sa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sa-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.sa-label .sa-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* ── Textarea ────────────────────────────────────────── */
+
+.sa-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+
+.sa-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── On-focus preview box ────────────────────────────── */
+
+.sa-render-preview {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;          /* hidden until focused */
+  animation: sa-fadein 0.15s ease;
+}
+
+.sa-render-preview.visible {
+  display: block;
+}
+
+.sa-render-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+@keyframes sa-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Text input ──────────────────────────────────────── */
+
+.sa-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.sa-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.sa-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.sa-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.sa-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.sa-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.sa-collapsible.open .sa-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.sa-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.sa-collapsible.open .sa-collapsible-body {
+  display: flex;
+}
+
+/* ── SVG preview ─────────────────────────────────────── */
+
+.sa-svg-preview {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.sa-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.sa-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── Image thumbnail preview ─────────────────────────── */
+
+.sa-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.sa-img-preview.visible {
+  display: flex;
+}
+
+.sa-img-preview img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Remove buttons ──────────────────────────────────── */
+
+.sa-remove-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.sa-remove-btn:hover { background: var(--danger-light); }
+
+/* ── Options section ─────────────────────────────────── */
+
+.sa-options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sa-add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.sa-add-option-btn:hover { background: #b8d9f5; }
+
+.sa-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Option row ──────────────────────────────────────── */
+
+.sa-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.sa-option-row:hover       { border-color: var(--border-focus); }
+.sa-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.sa-option-row.dragging    { opacity: 0.4; }
+.sa-option-row.focused-row { border-color: var(--accent); background: var(--accent-light); }
+
+.sa-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.sa-drag-handle:active { cursor: grabbing; }
+
+.sa-correct-radio {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.sa-option-text {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+.sa-option-text:focus { border-color: var(--border-focus); }
+
+.sa-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.sa-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Shared option preview box ───────────────────────── */
+
+.sa-option-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: sa-fadein 0.15s ease;
+}
+
+.sa-option-preview-box.visible {
+  display: flex;
+}
+
+.sa-option-preview-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.sa-option-preview-content {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 34px;
+  word-break: break-word;
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.sa-error-msg {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.sa-error-msg.visible { display: block; }
+
+/* ── Two-column row ──────────────────────────────────── */
+
+.sa-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Select ──────────────────────────────────────────── */
+
+.sa-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.sa-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Save footer ─────────────────────────────────────── */
+
+.sa-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.sa-btn-save {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.sa-btn-save:hover {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+
+.sa-save-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── Disabled state when marked as skip ──────────────── */
+
+.sa-body.sa-is-skip .sa-field,
+.sa-body.sa-is-skip .sa-options-header,
+.sa-body.sa-is-skip .sa-collapsible,
+.sa-body.sa-is-skip .sa-footer {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+
+/* editor/components/question_forms/short_answer_form/style.css */
 
 /* ── Correct answer input ────────────────────────────── */
 
@@ -121,19 +644,12 @@
   font-style: italic;
 }
 
-/* ── Height chain fix ────────────────────────────────── */
+/* ── Height chain ────────────────────────────────────── */
 
-short-answer-form {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: 100%;
-}
-
-short-answer-form .mcq-form {
+short-answer-form .sa-form {
   min-height: 0;
 }
 
-short-answer-form .mcf-body {
+short-answer-form .sa-body {
   min-height: 0;
 }
