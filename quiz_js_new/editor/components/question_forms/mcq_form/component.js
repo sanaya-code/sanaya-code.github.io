@@ -551,4 +551,4 @@ class McqFormComponent extends HTMLElement {
 
 }
 
-customElements.define('ef-mcq-form', McqFormComponent);
+customElements.define('mcq-form', McqFormComponent);
