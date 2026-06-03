@@ -1,6 +1,9 @@
 /* editor/components/question_forms/mcq_form/style.css */
+/* Self-contained — prefix: ef-mcq- */
 
-.mcq-form {
+/* editor/components/question_forms/mcq_form/style.css */
+
+.ef-mcq-form {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -9,7 +12,7 @@
 
 /* ── Form topbar: type badge + skip button ───────────── */
 
-.mcf-topbar {
+.ef-mcq-topbar {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -19,7 +22,7 @@
   flex-shrink: 0;
 }
 
-.mcf-type-badge {
+.ef-mcq-type-badge {
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
@@ -30,7 +33,7 @@
   letter-spacing: 0.3px;
 }
 
-.mcf-skip-badge {
+.ef-mcq-skip-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -42,13 +45,13 @@
   color: #fff;
 }
 
-.mcf-topbar-actions {
+.ef-mcq-topbar-actions {
   margin-left: auto;
   display: flex;
   gap: 8px;
 }
 
-.btn-skip {
+.ef-mcq-btn-skip {
   background: transparent;
   color: #7f8c8d;
   border: 1.5px solid #7f8c8d;
@@ -60,9 +63,9 @@
   font-weight: 500;
   transition: background 0.15s, color 0.15s;
 }
-.btn-skip:hover { background: rgba(127,140,141,0.12); }
+.ef-mcq-btn-skip:hover { background: rgba(127,140,141,0.12); }
 
-.btn-unskip {
+.ef-mcq-btn-unskip {
   background: transparent;
   color: var(--accent);
   border: 1.5px solid var(--accent);
@@ -74,11 +77,11 @@
   font-weight: 500;
   transition: background 0.15s;
 }
-.btn-unskip:hover { background: var(--accent-light); }
+.ef-mcq-btn-unskip:hover { background: var(--accent-light); }
 
 /* ── Scrollable form body ────────────────────────────── */
 
-.mcf-body {
+.ef-mcq-body {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
@@ -89,13 +92,13 @@
 
 /* ── Field group ─────────────────────────────────────── */
 
-.mcf-field {
+.ef-mcq-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.mcf-label {
+.ef-mcq-label {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.6px;
@@ -103,7 +106,7 @@
   color: var(--text-secondary);
 }
 
-.mcf-label .mcf-optional {
+.ef-mcq-label .ef-mcq-optional {
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
@@ -113,7 +116,7 @@
 
 /* ── Textarea ────────────────────────────────────────── */
 
-.mcf-textarea {
+.ef-mcq-textarea {
   width: 100%;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
@@ -129,14 +132,14 @@
   line-height: 1.5;
 }
 
-.mcf-textarea:focus {
+.ef-mcq-textarea:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
 /* ── On-focus preview box ────────────────────────────── */
 
-.mcf-render-preview {
+.ef-mcq-render-preview {
   padding: 10px 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -147,28 +150,28 @@
   line-height: 1.6;
   word-break: break-word;
   display: none;          /* hidden until focused */
-  animation: mcf-fadein 0.15s ease;
+  animation: ef-mcq-fadein 0.15s ease;
 }
 
-.mcf-render-preview.visible {
+.ef-mcq-render-preview.visible {
   display: block;
 }
 
-.mcf-render-preview:empty::before {
+.ef-mcq-render-preview:empty::before {
   content: 'Preview appears here...';
   color: var(--text-muted);
   font-style: italic;
   font-size: 12px;
 }
 
-@keyframes mcf-fadein {
+@keyframes ef-mcq-fadein {
   from { opacity: 0; transform: translateY(3px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Text input ──────────────────────────────────────── */
 
-.mcf-input {
+.ef-mcq-input {
   width: 100%;
   padding: 9px 12px;
   border-radius: var(--radius-sm);
@@ -181,19 +184,19 @@
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.mcf-input:focus {
+.ef-mcq-input:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
 /* ── Collapsible section (SVG / Image) ───────────────── */
 
-.mcf-collapsible {
+.ef-mcq-collapsible {
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
 }
 
-.mcf-collapsible-header {
+.ef-mcq-collapsible-header {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -207,23 +210,23 @@
   transition: background 0.15s;
 }
 
-.mcf-collapsible-header:hover {
+.ef-mcq-collapsible-header:hover {
   background: var(--bg-card);
   color: var(--accent);
 }
 
-.mcf-collapsible-arrow {
+.ef-mcq-collapsible-arrow {
   font-size: 10px;
   color: var(--text-muted);
   transition: transform 0.2s;
   margin-left: auto;
 }
 
-.mcf-collapsible.open .mcf-collapsible-arrow {
+.ef-mcq-collapsible.open .ef-mcq-collapsible-arrow {
   transform: rotate(180deg);
 }
 
-.mcf-collapsible-body {
+.ef-mcq-collapsible-body {
   display: none;
   flex-direction: column;
   gap: 8px;
@@ -232,13 +235,13 @@
   border-top: 1px solid var(--border);
 }
 
-.mcf-collapsible.open .mcf-collapsible-body {
+.ef-mcq-collapsible.open .ef-mcq-collapsible-body {
   display: flex;
 }
 
 /* ── SVG preview ─────────────────────────────────────── */
 
-.mcf-svg-preview {
+.ef-mcq-svg-preview {
   padding: 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -249,12 +252,12 @@
   min-height: 60px;
 }
 
-.mcf-svg-preview svg {
+.ef-mcq-svg-preview svg {
   max-width: 100%;
   height: auto;
 }
 
-.mcf-svg-preview:empty::before {
+.ef-mcq-svg-preview:empty::before {
   content: 'SVG preview appears here...';
   color: var(--text-muted);
   font-style: italic;
@@ -263,7 +266,7 @@
 
 /* ── Image thumbnail preview ─────────────────────────── */
 
-.mcf-img-preview {
+.ef-mcq-img-preview {
   display: none;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -275,11 +278,11 @@
   padding: 8px;
 }
 
-.mcf-img-preview.visible {
+.ef-mcq-img-preview.visible {
   display: flex;
 }
 
-.mcf-img-preview img {
+.ef-mcq-img-preview img {
   max-width: 100%;
   max-height: 140px;
   object-fit: contain;
@@ -288,7 +291,7 @@
 
 /* ── Remove buttons ──────────────────────────────────── */
 
-.mcf-remove-btn {
+.ef-mcq-remove-btn {
   align-self: flex-start;
   background: transparent;
   border: 1px solid var(--danger);
@@ -300,17 +303,17 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-.mcf-remove-btn:hover { background: var(--danger-light); }
+.ef-mcq-remove-btn:hover { background: var(--danger-light); }
 
 /* ── Options section ─────────────────────────────────── */
 
-.mcf-options-header {
+.ef-mcq-options-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.mcf-add-option-btn {
+.ef-mcq-add-option-btn {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -325,9 +328,9 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-.mcf-add-option-btn:hover { background: #b8d9f5; }
+.ef-mcq-add-option-btn:hover { background: #b8d9f5; }
 
-.mcf-options-list {
+.ef-mcq-options-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -335,7 +338,7 @@
 
 /* ── Option row ──────────────────────────────────────── */
 
-.mcf-option-row {
+.ef-mcq-option-row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -346,12 +349,12 @@
   transition: border-color 0.15s;
 }
 
-.mcf-option-row:hover       { border-color: var(--border-focus); }
-.mcf-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
-.mcf-option-row.dragging    { opacity: 0.4; }
-.mcf-option-row.focused-row { border-color: var(--accent); background: var(--accent-light); }
+.ef-mcq-option-row:hover       { border-color: var(--border-focus); }
+.ef-mcq-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-mcq-option-row.dragging    { opacity: 0.4; }
+.ef-mcq-option-row.ef-mcq-focused-row { border-color: var(--accent); background: var(--accent-light); }
 
-.mcf-drag-handle {
+.ef-mcq-drag-handle {
   cursor: grab;
   color: var(--text-muted);
   font-size: 16px;
@@ -359,9 +362,9 @@
   flex-shrink: 0;
   line-height: 1;
 }
-.mcf-drag-handle:active { cursor: grabbing; }
+.ef-mcq-drag-handle:active { cursor: grabbing; }
 
-.mcf-correct-radio {
+.ef-mcq-correct-radio {
   flex-shrink: 0;
   accent-color: var(--accent);
   width: 16px;
@@ -369,7 +372,7 @@
   cursor: pointer;
 }
 
-.mcf-option-text {
+.ef-mcq-option-text {
   flex: 1;
   padding: 6px 10px;
   border-radius: var(--radius-sm);
@@ -382,9 +385,9 @@
   transition: border-color 0.15s;
   min-width: 0;
 }
-.mcf-option-text:focus { border-color: var(--border-focus); }
+.ef-mcq-option-text:focus { border-color: var(--border-focus); }
 
-.mcf-option-delete {
+.ef-mcq-option-delete {
   background: none;
   border: none;
   cursor: pointer;
@@ -395,31 +398,31 @@
   flex-shrink: 0;
   transition: color 0.15s, background 0.15s;
 }
-.mcf-option-delete:hover {
+.ef-mcq-option-delete:hover {
   color: var(--danger);
   background: var(--danger-light);
 }
 
 /* ── Shared option preview box ───────────────────────── */
 
-.mcf-option-preview-box {
+.ef-mcq-option-preview-box {
   display: none;
   flex-direction: column;
   gap: 4px;
-  animation: mcf-fadein 0.15s ease;
+  animation: ef-mcq-fadein 0.15s ease;
 }
 
-.mcf-option-preview-box.visible {
+.ef-mcq-option-preview-box.visible {
   display: flex;
 }
 
-.mcf-option-preview-label {
+.ef-mcq-option-preview-label {
   font-size: 11px;
   color: var(--text-muted);
   font-style: italic;
 }
 
-.mcf-option-preview-content {
+.ef-mcq-option-preview-content {
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -433,7 +436,7 @@
 
 /* ── Validation error ────────────────────────────────── */
 
-.mcf-error {
+.ef-mcq-error {
   font-size: 12px;
   color: var(--danger);
   padding: 8px 12px;
@@ -442,11 +445,11 @@
   border: 1px solid var(--danger);
   display: none;
 }
-.mcf-error.visible { display: block; }
+.ef-mcq-error.visible { display: block; }
 
 /* ── Two-column row ──────────────────────────────────── */
 
-.mcf-row-2 {
+.ef-mcq-row-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -454,7 +457,7 @@
 
 /* ── Select ──────────────────────────────────────────── */
 
-.mcf-select {
+.ef-mcq-select {
   width: 100%;
   padding: 9px 12px;
   border-radius: var(--radius-sm);
@@ -467,14 +470,14 @@
   cursor: pointer;
   transition: border-color 0.15s;
 }
-.mcf-select:focus {
+.ef-mcq-select:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
 /* ── Save footer ─────────────────────────────────────── */
 
-.mcf-footer {
+.ef-mcq-footer {
   padding: 14px 20px;
   border-top: 1.5px solid var(--border);
   background: var(--bg-panel);
@@ -484,7 +487,7 @@
   flex-shrink: 0;
 }
 
-.btn-save {
+.ef-mcq-btn-save {
   background: linear-gradient(90deg, #1a5f8a, #3498db);
   color: #fff;
   border: none;
@@ -497,42 +500,32 @@
   transition: opacity 0.15s, box-shadow 0.15s;
   box-shadow: 0 2px 8px rgba(52,152,219,0.25);
 }
-.btn-save:hover {
+.ef-mcq-btn-save:hover {
   opacity: 0.9;
   box-shadow: 0 3px 12px rgba(52,152,219,0.35);
 }
 
-.mcf-save-hint {
+.ef-mcq-save-hint {
   font-size: 12px;
   color: var(--text-muted);
 }
 
 /* ── Disabled state when marked as skip ──────────────── */
 
-.mcf-body.is-skip .mcf-field,
-.mcf-body.is-skip .mcf-options-header,
-.mcf-body.is-skip .mcf-collapsible,
-.mcf-body.is-skip .mcf-footer {
+.ef-mcq-body.ef-mcq-is-skip .ef-mcq-field,
+.ef-mcq-body.ef-mcq-is-skip .ef-mcq-options-header,
+.ef-mcq-body.ef-mcq-is-skip .ef-mcq-collapsible,
+.ef-mcq-body.ef-mcq-is-skip .ef-mcq-footer {
   opacity: 0.45;
   pointer-events: none;
 }
 
-/* ── Height chain fix ────────────────────────────────── */
-/* mcq-form is a custom element — must propagate height correctly */
+/* ── Height chain ────────────────────────────────────── */
 
-mcq-form {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: 100%;
-}
-
-.mcq-form {
+ef-mcq-form .ef-mcq-form {
   min-height: 0;
 }
 
-/* This is the key fix — without min-height:0 on a flex child,
-   overflow:auto has nothing to scroll against */
-.mcf-body {
+ef-mcq-form .ef-mcq-body {
   min-height: 0;
 }
