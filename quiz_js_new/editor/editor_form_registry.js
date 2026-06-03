@@ -236,7 +236,7 @@ EditorFormRegistry.register('compare_quantities', {
 
 EditorFormRegistry.register('image_compare_quantities_tick', {
   label: 'Image Compare Tick', description: 'Tick the image with greater quantity',
-  color: '#1565c0', previewTag: 'compare-image-objects',
+  color: '#1565c0', formTag: 'compare-image-objects-form', previewTag: 'compare-image-objects',
   default: { type: 'image_compare_quantities_tick', question: '', svg_content: '', img_url: '',
     items: [], correct_answer: '', user_response: '',
     explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },

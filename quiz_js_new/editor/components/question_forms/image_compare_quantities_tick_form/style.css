@@ -1,0 +1,69 @@
+/* editor/components/question_forms/image_compare_quantities_tick_form/style.css */
+
+/* ── Tick zones grid ─────────────────────────────────── */
+
+.ict-zones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Correct answer selector ─────────────────────────── */
+
+.ict-answer-group {
+  display: flex;
+  gap: 12px;
+}
+
+.ict-answer-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.ict-answer-option:hover {
+  border-color: var(--border-focus);
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.ict-answer-option input[type="radio"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+.ict-answer-option.selected-left {
+  border-color: var(--success);
+  background: rgba(39,174,122,0.08);
+  color: var(--success);
+}
+
+.ict-answer-option.selected-right {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.ict-answer-option.selected-left  input[type="radio"] { accent-color: var(--success); }
+.ict-answer-option.selected-right input[type="radio"] { accent-color: var(--accent);  }
+
+/* ── Feedback fields ─────────────────────────────────── */
+
+.ict-feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
