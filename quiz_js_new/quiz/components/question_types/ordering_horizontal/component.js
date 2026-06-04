@@ -116,11 +116,11 @@ class OrderingHorizontalRenderer {
     // excludes items already placed via initial_items
     renderItems(items, initialItems) {
         this._itemsEl.innerHTML = '';
-        const hasInitial  = Array.isArray(initialItems) && initialItems.length > 0;
-        const fixedValues = hasInitial ? initialItems.filter(v => v !== '') : [];
+        // const hasInitial  = Array.isArray(initialItems) && initialItems.length > 0;
+        // const fixedValues = hasInitial ? initialItems.filter(v => v !== '') : [];
 
+        // .filter(item => !fixedValues.includes(item))
         return items
-            .filter(item => !fixedValues.includes(item))
             .map(item => {
                 const el         = document.createElement('div');
                 el.className     = 'oh-item';

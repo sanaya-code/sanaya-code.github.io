@@ -5,14 +5,23 @@ const OrderingHorizontalEvaluator = {
     // fixed positions (initial_items) are pre-filled, check remaining positions
     checkAnswer(question, userAnswer) {
         if (!Array.isArray(userAnswer)) return false;
-        const correct      = question.correct_order || [];
-        const initialItems = question.initial_items  || [];
+
+        const correct = question.correct_order || [];
+        const initialItems = question.initial_items || [];
 
         if (userAnswer.length !== correct.length) return false;
 
         return correct.every((val, i) => {
-            // skip fixed positions — always correct
-            if (Array.isArray(initialItems) && initialItems[i] !== '') return true;
+            // Skip fixed positions
+            if (initialItems[i] !== undefined && initialItems[i] !== '') {
+                return true;
+            }
+
+            // Editable positions must not be empty
+            if (String(userAnswer[i] ?? '').trim() === '') {
+                return false;
+            }
+
             return String(userAnswer[i]) === String(val);
         });
     },
