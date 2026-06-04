@@ -53,28 +53,23 @@
       "id": "002"
     },
     {
-      "type": "skip",
-      "question": "multi select edit dog",
+      "type": "multi_select",
+      "question": "multi select edit",
       "svg_content": "",
       "img_url": "",
       "options": [
         {
           "id": "A",
-          "text": "dog",
+          "text": "appple",
           "correct": true
         },
         {
           "id": "B",
-          "text": "appple",
-          "correct": false
-        },
-        {
-          "id": "C",
           "text": "c cat",
           "correct": false
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "c orange",
           "correct": false
         }
@@ -85,7 +80,6 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "original_type": "multi_select",
       "id": "003"
     },
     {
