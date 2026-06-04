@@ -12,8 +12,8 @@
       {
 		  "type": "ordering_horizontal",
 		  "id": "001",
-		  "question": " _____  Friend",
-		  "items": ["E", "T", "B", "A", "F", "S"],
+		  "question": " Her _____  friend Sanu",
+		  "items": ["E", "T", "B", "S"],
 		  "correct_order": ["B", "E", "S", "T"],
           "user_response": []
       },
@@ -21,7 +21,7 @@
         "type": "ordering_horizontal",
         "id": "002",
         "question": " Win against something _____  ",
-        "items": ["E", "H", "D", "A", "F", "R"],
+        "items": ["H", "D", "A", "R"],
         "correct_order": ["H", "A", "R", "D"],
         "user_response": []
       },
@@ -29,10 +29,58 @@
 		  "type": "ordering_horizontal",
 		  "id": "017",
 		  "question": " What makes Charu overcome her stage fright _____  ",
-          "items": ["H", "U", "O", "C", "R", "E", "G", "A"],
+          "items": ["U", "O", "C", "R", "E", "G", "A"],
 		  "initial_items": ["H", "E", "R", " ", "", "", "", "", "", "", ""],
 		  "correct_order": ["H", "E", "R", "", "C", "O", "U", "R", "A", "G", "E"],
 		  "user_response": []
+      },
+      {
+		  "type": "ordering_horizontal",
+		  "id": "017",
+		  "question": " Cow ?? Sumit's _____  ",
+          "items": ["C", "F", "E", "A"],
+		  "correct_order": ["F", "A", "C","E"],
+		  "user_response": []
+      },
+      {
+		  "type": "ordering_horizontal",
+		  "id": "017",
+		  "question": " Cow _____ Sumit's ??  ",
+          "items": ["C", "I", "L", "K", "S"],
+		  "correct_order": ["L", "I", "C","K", "S"],
+		  "user_response": []
+      },
+      {
+		  "type": "ordering_horizontal",
+		  "id": "017",
+		  "question": " She was _____ on the stage  ",
+          "items": ["C", "A", "S", "E", "D", "R"],
+		  "correct_order": ["S", "C", "A","R", "E", "D"],
+		  "user_response": []
+      },
+      {
+		  "type": "ordering_horizontal",
+		  "id": "001",
+		  "question": " Her best  _____ Sanu",
+		  "items": ["F", "I", "E", "R", "D", "N"],
+		  "correct_order": ["F", "R", "I", "E", "N", "D"],
+          "user_response": []
+      },
+      {
+		  "type": "ordering_horizontal",
+		  "id": "001",
+		  "question": " To do something  _____ and _____",
+		  "items": ["A", "I", "G", "N"],
+		  "correct_order": ["A", "G", "A", "I", "N"],
+          "user_response": []
+      },
+      {
+		  "type": "ordering_horizontal",
+		  "id": "001",
+		  "question": " I have courage to  _____ tree",
+		  "items": ["L", "I", "C", "M", "B"],
+		  "correct_order": ["C", "L", "I", "M", "B"],
+          "user_response": []
       }
   ],
     "taxonomy": {
