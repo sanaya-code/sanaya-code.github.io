@@ -102,18 +102,17 @@
     },
     {
       "type": "fill_in_blank",
-      "question": "Edit Fan Goat Fill in the blank ____",
+      "question": "Edit Fill in the blank ____",
       "svg_content": "",
       "img_url": "",
-      "correct_answer": "Fan",
+      "correct_answer": "Cat",
       "acceptable_answers": [
         "Mango",
         "Orange",
-        "Dog",
-        "Goat"
+        "Dog"
       ],
       "user_response": "",
-      "explanation": "Edit Fan Goat Expl Fill in the blank",
+      "explanation": "Edit  Expl Fill in the blank",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
@@ -122,13 +121,13 @@
     },
     {
       "type": "ordering",
-      "question": "Edit ordering qun",
+      "question": "Edit Dog ordering qun",
       "svg_content": "",
       "img_url": "",
       "items": [
         {
           "id": "A",
-          "text": "banana"
+          "text": "Dog"
         },
         {
           "id": "B",
@@ -144,13 +143,13 @@
         }
       ],
       "correct_order": [
+        "A",
         "D",
         "C",
-        "A",
         "B"
       ],
       "user_response": "",
-      "explanation": "Edit Exp ordering qun",
+      "explanation": "Edit Dog Exp ordering qun",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
