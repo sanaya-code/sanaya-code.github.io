@@ -39,38 +39,42 @@
       "id": "001"
     },
     {
-      "type": "skip",
-      "question": "true false  edited e true",
+      "type": "true_false",
+      "question": "true false  edited",
       "svg_content": "<svg width=\"300\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"200\" height=\"100\" x=\"10\" y=\"10\" rx=\"20\" ry=\"20\" fill=\"blue\" />\n</svg>",
       "img_url": "",
-      "correct_answer": true,
+      "correct_answer": false,
       "user_response": "",
-      "explanation": "ex edited e true",
+      "explanation": "ex edited",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
       "tags": [],
-      "original_type": "true_false",
       "id": "002"
     },
     {
-      "type": "multi_select",
-      "question": "multi select edit",
+      "type": "skip",
+      "question": "multi select edit dog",
       "svg_content": "",
       "img_url": "",
       "options": [
         {
           "id": "A",
-          "text": "appple",
+          "text": "dog",
           "correct": true
         },
         {
           "id": "B",
-          "text": "c cat",
+          "text": "appple",
           "correct": false
         },
         {
           "id": "C",
+          "text": "c cat",
+          "correct": false
+        },
+        {
+          "id": "D",
           "text": "c orange",
           "correct": false
         }
@@ -81,6 +85,7 @@
       "points": "",
       "time_limit": "",
       "tags": [],
+      "original_type": "multi_select",
       "id": "003"
     },
     {
