@@ -101,7 +101,7 @@
       "id": "004"
     },
     {
-      "type": "skip",
+      "type": "fill_in_blank",
       "question": "Edit Fan Goat Fill in the blank ____",
       "svg_content": "",
       "img_url": "",
@@ -118,7 +118,6 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "original_type": "fill_in_blank",
       "id": "005"
     },
     {
