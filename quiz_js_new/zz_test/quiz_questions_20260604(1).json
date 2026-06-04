@@ -12,13 +12,13 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "apple  A edit ele",
+      "question": "apple  A edit",
       "svg_content": "",
       "img_url": "",
       "options": [
         {
           "id": "A",
-          "text": "elephant"
+          "text": "cat"
         },
         {
           "id": "B",
@@ -26,16 +26,12 @@
         },
         {
           "id": "C",
-          "text": "cat"
-        },
-        {
-          "id": "D",
           "text": "bat"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "B",
       "user_response": "",
-      "explanation": "no explanation A edit",
+      "explanation": "no explanation A",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
@@ -43,17 +39,18 @@
       "id": "001"
     },
     {
-      "type": "true_false",
-      "question": "true false  edited",
+      "type": "skip",
+      "question": "true false  edited e true",
       "svg_content": "<svg width=\"300\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"200\" height=\"100\" x=\"10\" y=\"10\" rx=\"20\" ry=\"20\" fill=\"blue\" />\n</svg>",
       "img_url": "",
-      "correct_answer": false,
+      "correct_answer": true,
       "user_response": "",
-      "explanation": "ex edited",
+      "explanation": "ex edited e true",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
       "tags": [],
+      "original_type": "true_false",
       "id": "002"
     },
     {
