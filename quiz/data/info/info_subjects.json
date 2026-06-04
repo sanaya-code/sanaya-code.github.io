@@ -9,6 +9,10 @@
         "subjects": ["Math", "Hindi", "English", "EVS", "Computer", "Grammer"],
         "url": "data/school/c1_miriam/subjects_sem_02.json"
       },
+      "2": {
+        "subjects": ["Math", "Hindi", "English", "EVS", "Computer", "Grammer"],
+        "url": "data/school/c2_miriam/subjects_sem_01.json"
+      },
       "6": {
         "subjects": ["Math", "English", "Science", "Geography"],
         "url": "data/school/c6/subjects.json"
