@@ -120,14 +120,14 @@
       "id": "005"
     },
     {
-      "type": "skip",
-      "question": "Edit Dog ordering qun",
+      "type": "ordering",
+      "question": "Edit ordering qun",
       "svg_content": "",
       "img_url": "",
       "items": [
         {
           "id": "A",
-          "text": "Dog"
+          "text": "banana"
         },
         {
           "id": "B",
@@ -143,38 +143,40 @@
         }
       ],
       "correct_order": [
-        "A",
         "D",
         "C",
+        "A",
         "B"
       ],
       "user_response": "",
-      "explanation": "Edit Dog Exp ordering qun",
+      "explanation": "Edit Exp ordering qun",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
       "tags": [],
-      "original_type": "ordering",
       "id": "006"
     },
     {
-      "type": "ordering_horizontal",
-      "question": "ordering Hor",
+      "type": "skip",
+      "question": "ordering Hor KG",
       "svg_content": "",
       "img_url": "",
       "items": [
         "school",
         "Graduation",
         "PG",
-        "PHD"
+        "PHD",
+        "KG"
       ],
       "correct_order": [
         "PHD",
         "PG",
         "Graduation",
-        "school"
+        "school",
+        "KG"
       ],
       "initial_items": [
+        "",
         "",
         "",
         "",
@@ -184,13 +186,15 @@
         "",
         "",
         "",
+        "",
         ""
       ],
-      "explanation": "",
+      "explanation": "KG",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
       "tags": [],
+      "original_type": "ordering_horizontal",
       "id": "007"
     },
     {
