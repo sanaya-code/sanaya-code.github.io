@@ -133,9 +133,15 @@ quiz_app/
 │
 └── editor/
     ├── config.js
-    ├── state.js
     ├── controller.js
+    ├── editor_form_registry.js
     ├── style.css
+    │
+    ├── state/
+    │   ├── draft_state.js
+    │   ├── index.js
+    │   ├── question_state.js
+    │   └── selection_state.js
     │
     ├── storage/
     │   └── local_storage_service.js
@@ -145,11 +151,9 @@ quiz_app/
     │   └── json_exporter.js
     │
     ├── event_handler/
-    │   ├── question_list/
-    │   │   └── handler.js
     │   ├── editor_panel/
     │   │   └── handler.js
-    │   └── preview_panel/
+    │   └── question_list/
     │       └── handler.js
     │
     └── components/
