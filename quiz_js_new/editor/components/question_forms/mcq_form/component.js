@@ -22,27 +22,14 @@ class McqFormComponent extends HTMLElement {
   // ── Render ───────────────────────────────────────────
 
   _render() {
-    const q        = this._question || EditorFormRegistry.getDefault('mcq');
-    const isSkip   = q.type === 'skip';
-    const typeConf = EditorFormRegistry.getType(
+    const q          = this._question || EditorFormRegistry.getDefault('mcq');
+    const isSkip     = q.type === EditorConfig.SKIP_TYPE;
+    const typeConf   = EditorFormRegistry.getType(
       isSkip ? (q.original_type || 'mcq') : q.type
     );
-    const badgeColor = typeConf ? typeConf.color : '#3498db';
-    const badgeLabel = typeConf ? typeConf.label : 'MCQ';
-
-    // Pre-build conditional HTML to avoid nested backticks
-    const topbarBadgeHTML = isSkip
-      ? '<span class="ef-mcq-skip-badge">⊘ SKIP</span>' +
-        '<span style="font-size:12px;color:var(--text-muted)">Originally: ' + badgeLabel + '</span>'
-      : '<span class="ef-mcq-type-badge" style="background:' + badgeColor + '">' + badgeLabel + '</span>';
-
-    const skipBtnHTML = isSkip
-      ? '<button class="ef-mcq-btn-unskip" id="ef-mcq-btn-unskip">↩ Un-mark Skip</button>'
-      : '<button class="ef-mcq-btn-skip" id="ef-mcq-btn-skip">⊘ Mark as Skip</button>';
-
+    const typeLabel  = typeConf ? typeConf.label : 'MCQ';
     const bodyClass  = isSkip ? 'ef-mcq-body ef-mcq-is-skip' : 'ef-mcq-body';
-    const svgOpen    = 'ef-mcq-collapsible'; // always start collapsed
-    const imgOpen    = 'ef-mcq-collapsible'; // always start collapsed
+    const skipBtnLabel = isSkip ? `↩ Mark ${typeLabel}` : '⊘ Mark as Skip';
     const imgThumb   = q.img_url
       ? '<img src="' + this._esc(q.img_url) + '" alt="preview" />'
       : '';
@@ -51,16 +38,8 @@ class McqFormComponent extends HTMLElement {
     this.innerHTML = `
       <div class="ef-mcq-form">
 
-        <!-- Topbar -->
-        <div class="ef-mcq-topbar">
-          ${topbarBadgeHTML}
-          <div class="ef-mcq-topbar-actions">
-            ${skipBtnHTML}
-          </div>
-        </div>
-
         <!-- Body -->
-        <div class="${bodyClass}">
+        <div class="${bodyClass}" id="ef-mcq-body">
 
           <!-- Question text -->
           <div class="ef-mcq-field">
@@ -73,7 +52,7 @@ class McqFormComponent extends HTMLElement {
           </div>
 
           <!-- SVG — collapsible -->
-          <div class="${svgOpen}" id="ef-mcq-svg-section">
+          <div class="ef-mcq-collapsible" id="ef-mcq-svg-section">
             <div class="ef-mcq-collapsible-header" id="ef-mcq-svg-toggle">
               ▶ SVG Figure
               <span class="ef-mcq-optional" style="font-weight:400;font-size:11px;margin-left:4px;color:var(--text-muted)">(optional)</span>
@@ -90,7 +69,7 @@ class McqFormComponent extends HTMLElement {
           </div>
 
           <!-- Image — collapsible -->
-          <div class="${imgOpen}" id="ef-mcq-img-section">
+          <div class="ef-mcq-collapsible" id="ef-mcq-img-section">
             <div class="ef-mcq-collapsible-header" id="ef-mcq-img-toggle">
               ▶ Image URL
               <span class="ef-mcq-optional" style="font-weight:400;font-size:11px;margin-left:4px;color:var(--text-muted)">(optional)</span>
@@ -189,17 +168,17 @@ class McqFormComponent extends HTMLElement {
 
         </div><!-- /.ef-mcq-body -->
 
-        <!-- Footer -->
+        <!-- Footer: Save (left) + Mark as Skip (right) -->
         <div class="ef-mcq-footer">
           <button class="ef-mcq-btn-save" id="ef-mcq-btn-save">Save</button>
-          <span class="ef-mcq-save-hint">IDs (A, B, C…) are assigned on save</span>
+          <button class="ef-mcq-btn-skip" id="ef-mcq-btn-skip">${skipBtnLabel}</button>
         </div>
 
       </div>
     `;
   }
 
-  // ── Render option rows (no per-row preview) ──────────
+  // ── Render option rows ───────────────────────────────
 
   _renderOptions(options, correctAnswer) {
     if (!options.length) return '';
@@ -233,64 +212,61 @@ class McqFormComponent extends HTMLElement {
 
   _bindEvents() {
 
-    // ── Question text: show preview on focus, keep on blur
     this._bindFocusPreview('ef-mcq-question', 'ef-mcq-question-preview');
-
-    // ── Explanation: show preview on focus, keep on blur
     this._bindFocusPreview('ef-mcq-explanation', 'ef-mcq-explanation-preview');
 
-    // ── SVG collapsible toggle
     this.querySelector('#ef-mcq-svg-toggle')?.addEventListener('click', () => {
       this.querySelector('#ef-mcq-svg-section').classList.toggle('open');
     });
-
-    // ── SVG textarea: live update preview
     this.querySelector('#ef-mcq-svg')?.addEventListener('input', (e) => {
       this.querySelector('#ef-mcq-svg-preview').innerHTML = e.target.value;
     });
-
-    // ── Remove SVG
     this.querySelector('#ef-mcq-svg-remove')?.addEventListener('click', () => {
       this.querySelector('#ef-mcq-svg').value = '';
       this.querySelector('#ef-mcq-svg-preview').innerHTML = '';
     });
 
-    // ── Image collapsible toggle
     this.querySelector('#ef-mcq-img-toggle')?.addEventListener('click', () => {
       this.querySelector('#ef-mcq-img-section').classList.toggle('open');
     });
-
-    // ── Image URL: live thumbnail
     this.querySelector('#ef-mcq-img-url')?.addEventListener('input', (e) => {
       this._updateImgPreview(e.target.value.trim());
     });
-
-    // ── Remove Image
     this.querySelector('#ef-mcq-img-remove')?.addEventListener('click', () => {
       this.querySelector('#ef-mcq-img-url').value = '';
       this._updateImgPreview('');
     });
 
-    // ── Add option
     this.querySelector('#ef-mcq-add-option')?.addEventListener('click', () => {
       this._addOptionRow();
     });
 
-    // ── Options list: delegated events
     const optList = this.querySelector('#ef-mcq-options-list');
     if (optList) this._bindOptionListEvents(optList);
 
-    // ── Skip / Unskip
+    // ── Skip toggle
     this.querySelector('#ef-mcq-btn-skip')?.addEventListener('click', () => {
-      this._question.original_type = this._question.type;
-      this._question.type = EditorConfig.SKIP_TYPE;
-      this._render(); this._bindEvents();
-    });
+      const isSkip   = this._question.type === EditorConfig.SKIP_TYPE;
+      const typeConf = EditorFormRegistry.getType(
+        isSkip ? (this._question.original_type || 'mcq') : this._question.type
+      );
+      const typeLabel = typeConf ? typeConf.label : 'MCQ';
+      const body      = this.querySelector('#ef-mcq-body');
+      const btn       = this.querySelector('#ef-mcq-btn-skip');
 
-    this.querySelector('#ef-mcq-btn-unskip')?.addEventListener('click', () => {
-      this._question.type = this._question.original_type || 'mcq';
-      delete this._question.original_type;
-      this._render(); this._bindEvents();
+      if (isSkip) {
+        // Un-skip: restore original type, un-dim
+        this._question.type = this._question.original_type || 'mcq';
+        delete this._question.original_type;
+        body.classList.remove('ef-mcq-is-skip');
+        btn.textContent = '⊘ Mark as Skip';
+      } else {
+        // Mark as skip: store original type, dim
+        this._question.original_type = this._question.type;
+        this._question.type = EditorConfig.SKIP_TYPE;
+        body.classList.add('ef-mcq-is-skip');
+        btn.textContent = `↩ Mark ${typeLabel}`;
+      }
     });
 
     // ── Save
@@ -299,53 +275,40 @@ class McqFormComponent extends HTMLElement {
     });
   }
 
-  // ── Focus-driven preview (question text + explanation) ─
+  // ── Focus-driven preview ─────────────────────────────
 
   _bindFocusPreview(inputId, previewId) {
     const input   = this.querySelector(`#${inputId}`);
     const preview = this.querySelector(`#${previewId}`);
     if (!input || !preview) return;
-
-    // Show + populate on focus
     input.addEventListener('focus', () => {
       preview.innerHTML = input.value;
       preview.classList.add('visible');
     });
-
-    // Update live while typing (stays visible)
     input.addEventListener('input', () => {
       preview.innerHTML = input.value;
     });
-
-    // On blur: keep visible, don't hide
-    // (preview stays showing last content)
   }
 
   // ── Options list events ──────────────────────────────
 
   _bindOptionListEvents(optList) {
 
-    // Focus on option text → show shared preview, highlight row
     optList.addEventListener('focusin', (e) => {
       if (!e.target.classList.contains('ef-mcq-option-text')) return;
       const row   = e.target.closest('.ef-mcq-option-row');
       const index = parseInt(row.dataset.optIndex);
-
-      // Highlight focused row
       optList.querySelectorAll('.ef-mcq-option-row')
         .forEach(r => r.classList.remove('ef-mcq-focused-row'));
       row.classList.add('ef-mcq-focused-row');
-
-      // Show shared preview
       const box     = this.querySelector('#ef-mcq-option-preview-box');
       const label   = this.querySelector('#ef-mcq-option-preview-label');
       const content = this.querySelector('#ef-mcq-option-preview-content');
       box.classList.add('visible');
-      label.textContent   = `Previewing option ${index + 1}`;
-      content.innerHTML   = e.target.value;
+      label.textContent = `Previewing option ${index + 1}`;
+      content.innerHTML = e.target.value;
     });
 
-    // Live update shared preview while typing
     optList.addEventListener('input', (e) => {
       if (!e.target.classList.contains('ef-mcq-option-text')) return;
       const row     = e.target.closest('.ef-mcq-option-row');
@@ -358,24 +321,17 @@ class McqFormComponent extends HTMLElement {
       }
     });
 
-    // Blur: keep preview visible, showing last focused option
-    // (no action needed — box stays as-is)
-
-    // Delete option row
     optList.addEventListener('click', (e) => {
       if (!e.target.classList.contains('ef-mcq-option-delete')) return;
       const row = e.target.closest('.ef-mcq-option-row');
       row.remove();
       this._reindexOptions();
-      // Hide shared preview if no options left
       const remaining = optList.querySelectorAll('.ef-mcq-option-row').length;
       if (remaining === 0) {
-        this.querySelector('#ef-mcq-option-preview-box')
-          ?.classList.remove('visible');
+        this.querySelector('#ef-mcq-option-preview-box')?.classList.remove('visible');
       }
     });
 
-    // Drag reorder
     optList.addEventListener('dragstart', (e) => {
       const row = e.target.closest('.ef-mcq-option-row');
       if (!row) return;
@@ -481,7 +437,6 @@ class McqFormComponent extends HTMLElement {
       if (radio?.checked) correctIndex = i;
     });
 
-    // Validation
     if (questionText === '') {
       errEl.textContent = 'Question text is required.';
       errEl.classList.add('visible');
@@ -494,7 +449,6 @@ class McqFormComponent extends HTMLElement {
       return;
     }
 
-    // Assign A, B, C…
     const finalOptions = options.map((opt, i) => ({
       id:   String.fromCharCode(65 + i),
       text: opt.text,
@@ -505,13 +459,13 @@ class McqFormComponent extends HTMLElement {
     const saved = {
       type:           this._question?.type || 'mcq',
       question:       questionText,
-      svg_content:    this.querySelector('#ef-mcq-svg')?.value.trim()       || '',
-      img_url:        this.querySelector('#ef-mcq-img-url')?.value.trim()    || '',
+      svg_content:    this.querySelector('#ef-mcq-svg')?.value.trim()        || '',
+      img_url:        this.querySelector('#ef-mcq-img-url')?.value.trim()     || '',
       options:        finalOptions,
       correct_answer: correctAnswer,
       user_response:  '',
       explanation:    this.querySelector('#ef-mcq-explanation')?.value.trim() || '',
-      difficulty:     this.querySelector('#ef-mcq-difficulty')?.value        || 'easy',
+      difficulty:     this.querySelector('#ef-mcq-difficulty')?.value         || 'easy',
       points:         this._parseOptionalNumber('#ef-mcq-points'),
       time_limit:     this._parseOptionalNumber('#ef-mcq-time-limit'),
       tags:           this._parseTags(),
