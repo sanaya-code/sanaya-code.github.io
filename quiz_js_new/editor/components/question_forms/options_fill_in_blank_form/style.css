@@ -491,3 +491,28 @@ options-fill-in-blank-form .ef-ofib-body {
   font-size: 12px;
   color: var(--text-secondary);
 }
+
+/* ── Option delete + body ────────────────────────────── */
+
+.ef-ofib-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-ofib-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.ef-ofib-option-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
