@@ -303,7 +303,16 @@ class OFIBAnswerWidget {
         </div>
       </div>
 
-      <div class="ef-ofib-error" id="ef-ofib-error"></div>`;
+      <div class="ef-ofib-field">
+        <div class="ef-ofib-options-header">
+          <label class="ef-ofib-label">Options</label>
+          <button class="ef-ofib-add-option-btn" id="ef-ofib-add-option">+ Add Option</button>
+        </div>
+        <div class="ef-ofib-options-list" id="ef-ofib-options-list">
+          ${this._options.map((opt, i) => this._optionCardHTML(opt, i)).join('')}
+        </div>
+        <div class="ef-ofib-error" id="ef-ofib-error"></div>
+      </div>`;
   }
 
   bindEvents() {
@@ -311,6 +320,13 @@ class OFIBAnswerWidget {
       this._root.querySelector('#ef-ofib-feedback-toggle'),
       this._root.querySelector('#ef-ofib-feedback-section')
     );
+    this._root.querySelector('#ef-ofib-add-option')?.addEventListener('click', () => {
+      this._options.push({ segments: [], hint: '' });
+      this._activeOption = this._options.length - 1;
+      this._activeSeg    = -1;
+      this._refreshOptions();
+    });
+    this._bindOptionEvents();
   }
 
   getAnswerData() {
@@ -762,14 +778,16 @@ class OptionsFillInBlankFormComponent extends HTMLElement {
       this.querySelector('#ef-ofib-question')?.focus();
       return;
     }
+    const options      = this._ansWidget.getBuiltOptions();
+    const userResponse = options.map(opt => Array((opt.text.match(/____/g) || []).length).fill(''));
     const saved = {
       type:          this._question?.type || 'options_fill_in_blank',
       question:      questionText,
       svg_content:   this._mediaWidget.getSvg(),
       img_url:       this._mediaWidget.getImgUrl(),
       choices:       this._choicesWidget.getChoices(),
-      options:       this._question?.options       ?? [],
-      user_response: this._question?.user_response ?? [],
+      options,
+      user_response: userResponse,
       ...this._ansWidget.getAnswerData(),
       ...this._metaWidget.getData(),
     };
@@ -778,14 +796,16 @@ class OptionsFillInBlankFormComponent extends HTMLElement {
   }
 
   _collectData() {
+    const options      = this._ansWidget.getBuiltOptions();
+    const userResponse = options.map(opt => Array((opt.text.match(/____/g) || []).length).fill(''));
     return {
       type:          this._question?.type || 'options_fill_in_blank',
       question:      this._qWidget.getValue(),
       svg_content:   this._mediaWidget.getSvg(),
       img_url:       this._mediaWidget.getImgUrl(),
       choices:       this._choicesWidget.getChoices(),
-      options:       this._question?.options       ?? [],
-      user_response: this._question?.user_response ?? [],
+      options,
+      user_response: userResponse,
       ...this._ansWidget.getAnswerData(),
       ...this._metaWidget.getData(),
     };

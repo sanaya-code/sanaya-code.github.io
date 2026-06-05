@@ -250,135 +250,6 @@
 }
 .ef-ofib-remove-btn:hover { background: var(--danger-light); }
 
-/* ── Options section ─────────────────────────────────── */
-
-.ef-ofib-options-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.ef-ofib-add-option-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--accent-light);
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: background 0.15s;
-}
-.ef-ofib-add-option-btn:hover { background: #b8d9f5; }
-
-.ef-ofib-options-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-/* ── Option row ──────────────────────────────────────── */
-
-.ef-ofib-option-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 7px 10px;
-  transition: border-color 0.15s;
-}
-
-.ef-ofib-option-row:hover       { border-color: var(--border-focus); }
-.ef-ofib-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
-.ef-ofib-option-row.dragging    { opacity: 0.4; }
-.ef-ofib-option-row.ef-ofib-focused-row { border-color: var(--accent); background: var(--accent-light); }
-
-.ef-ofib-drag-handle {
-  cursor: grab;
-  color: var(--text-muted);
-  font-size: 16px;
-  padding: 2px;
-  flex-shrink: 0;
-  line-height: 1;
-}
-.ef-ofib-drag-handle:active { cursor: grabbing; }
-
-.ef-ofib-correct-radio {
-  flex-shrink: 0;
-  accent-color: var(--accent);
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-.ef-ofib-option-text {
-  flex: 1;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background: #fff;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.15s;
-  min-width: 0;
-}
-.ef-ofib-option-text:focus { border-color: var(--border-focus); }
-
-.ef-ofib-option-delete {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: 14px;
-  padding: 4px 6px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  transition: color 0.15s, background 0.15s;
-}
-.ef-ofib-option-delete:hover {
-  color: var(--danger);
-  background: var(--danger-light);
-}
-
-/* ── Shared option preview box ───────────────────────── */
-
-.ef-ofib-option-preview-box {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  animation: ef-ofib-fadein 0.15s ease;
-}
-
-.ef-ofib-option-preview-box.visible {
-  display: flex;
-}
-
-.ef-ofib-option-preview-label {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.ef-ofib-option-preview-content {
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background: #fff;
-  font-size: 13px;
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 34px;
-  word-break: break-word;
-}
-
 /* ── Validation error ────────────────────────────────── */
 
 .ef-ofib-error {
@@ -480,6 +351,29 @@ options-fill-in-blank-form .ef-ofib-body {
 }
 /* ── Choices pool ────────────────────────────────────── */
 
+.ef-ofib-options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ef-ofib-add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-ofib-add-option-btn:hover { background: #b8d9f5; }
+
 .ef-ofib-choices-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -546,6 +440,8 @@ options-fill-in-blank-form .ef-ofib-body {
   cursor: pointer;
 }
 
+
+
 /* ── Options list ────────────────────────────────────── */
 
 .ef-ofib-options-list {
@@ -558,302 +454,7 @@ options-fill-in-blank-form .ef-ofib-body {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .ef-ofib-option-card.active { border-color: var(--accent); }
-
-.ef-ofib-option-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  background: var(--bg-panel);
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-}
-
-.ef-ofib-option-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.ef-ofib-option-preview-text {
-  flex: 1;
-  font-size: 12px;
-  color: var(--text-secondary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ef-ofib-option-delete {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: 13px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  transition: color 0.15s, background 0.15s;
-}
-.ef-ofib-option-delete:hover { color: var(--danger); background: var(--danger-light); }
-
-.ef-ofib-option-body {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* ── Segment builder (per option) ────────────────────── */
-
-.ef-ofib-builder {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 5px;
-  padding: 10px;
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  min-height: 44px;
-}
-
-.ef-ofib-builder-empty {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.ef-ofib-segment {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 9px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: 12px;
-  transition: box-shadow 0.12s;
-  user-select: none;
-}
-
-.ef-ofib-segment:hover  { box-shadow: 0 2px 6px rgba(52,152,219,0.18); }
-.ef-ofib-segment.active { box-shadow: 0 0 0 2px var(--accent); }
-
-.ef-ofib-segment-text {
-  background: var(--bg-panel);
-  border: 1.5px solid var(--border);
-  color: var(--text-primary);
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ef-ofib-segment-blank {
-  background: var(--accent-light);
-  border: 1.5px solid var(--accent);
-  color: var(--accent-deep);
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.ef-ofib-seg-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.ef-ofib-seg-btns {
-  display: flex;
-  gap: 6px;
-}
-
-.ef-ofib-seg-add-text {
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  color: var(--text-secondary);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: border-color 0.15s, color 0.15s;
-}
-.ef-ofib-seg-add-text:hover { border-color: var(--border-focus); color: var(--accent); }
-
-.ef-ofib-seg-add-blank {
-  background: var(--accent-light);
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: background 0.15s;
-}
-.ef-ofib-seg-add-blank:hover { background: #b8d9f5; }
-
-/* ── Assembled sentence preview ──────────────────────── */
-
-.ef-ofib-assembled-preview {
-  font-size: 13px;
-  line-height: 1.8;
-  min-height: 30px;
-  background: #fff;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 7px 10px;
-  word-break: break-word;
-}
-
-.ef-ofib-assembled-preview:empty::before {
-  content: 'Sentence preview will appear here as you add segments';
-  color: var(--text-muted);
-  font-style: italic;
-  font-size: 11px;
-}
-
-/* ── Inline edit panel ───────────────────────────────── */
-
-.ef-ofib-edit-panel {
-  background: #fff;
-  border: 1.5px solid var(--border-focus);
-  border-radius: var(--radius-sm);
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  animation: ef-ofib-slidein 0.15s ease;
-}
-
-@keyframes ef-ofib-slidein {
-  from { opacity: 0; transform: translateY(-3px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.ef-ofib-edit-title {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.ef-ofib-edit-label {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  display: block;
-  margin-bottom: 3px;
-}
-
-.ef-ofib-edit-input {
-  width: 100%;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background: #fff;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.ef-ofib-edit-input:focus { border-color: var(--border-focus); }
-
-.ef-ofib-edit-actions { display: flex; gap: 6px; }
-
-.ef-ofib-edit-save {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 5px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-.ef-ofib-edit-save:hover { opacity: 0.88; }
-
-.ef-ofib-edit-delete {
-  background: transparent;
-  color: var(--danger);
-  border: 1.5px solid var(--danger);
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-.ef-ofib-edit-delete:hover { background: var(--danger-light); }
-
-.ef-ofib-edit-cancel {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1.5px solid var(--border);
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-.ef-ofib-edit-cancel:hover { background: var(--bg-panel); }
-
-/* ── Hint input (inside option body) ────────────────── */
-
-.ef-ofib-hint-input {
-  width: 100%;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background: var(--bg-card);
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.ef-ofib-hint-input:focus { border-color: var(--border-focus); }
-
-/* ── Case sensitive checkbox ─────────────────────────── */
-
-.ef-ofib-checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--text-secondary);
-  cursor: pointer;
-}
-
-.ef-ofib-checkbox-row input[type="checkbox"] {
-  accent-color: var(--accent);
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
