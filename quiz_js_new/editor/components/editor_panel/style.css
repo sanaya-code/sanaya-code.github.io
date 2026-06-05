@@ -1,5 +1,16 @@
 /* editor/components/editor_panel/style.css */
 
+/* ── Custom element height chain ────────────────────── */
+
+editor-panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+  height: 100%;
+}
+
 /* ── Shell ───────────────────────────────────────────── */
 
 .ep-shell {
@@ -107,8 +118,7 @@
   flex-direction: column;
 }
 
-/* ── Form host — all form custom elements fill this div ─ */
-/* Single rule replaces per-element height chain blocks    */
+/* ── Form host ───────────────────────────────────────── */
 
 .ep-form-host {
   flex: 1;
@@ -118,7 +128,6 @@
   height: 100%;
 }
 
-/* Every direct child custom element must fill the host */
 .ep-form-host > * {
   flex: 1;
   min-height: 0;
@@ -179,6 +188,33 @@
 .ep-skip-notice strong {
   color: var(--accent-deep);
 }
+
+/* ── Middle panel placeholder ────────────────────────── */
+
+.middle-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 10px;
+  text-align: center;
+  padding: 40px;
+}
+
+.middle-placeholder .placeholder-icon {
+  font-size: 36px;
+  opacity: 0.35;
+  color: var(--accent);
+}
+
+.middle-placeholder p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.middle-placeholder strong { color: var(--accent); }
 
 /* ── Close button ────────────────────────────────────── */
 

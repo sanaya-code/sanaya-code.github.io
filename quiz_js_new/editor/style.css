@@ -277,33 +277,6 @@ html, body {
 }
 .btn-empty-draft:hover { background: rgba(39,174,122,0.08); }
 
-/* ── Middle panel placeholder ────────────────────────── */
-
-.middle-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  gap: 10px;
-  text-align: center;
-  padding: 40px;
-}
-
-.middle-placeholder .placeholder-icon {
-  font-size: 36px;
-  opacity: 0.35;
-  color: var(--accent);
-}
-
-.middle-placeholder p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.middle-placeholder strong { color: var(--accent); }
-
 /* ── Scrollbar ───────────────────────────────────────── */
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -311,16 +284,7 @@ html, body {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 #panel-middle {
-  min-height: 0;   /* critical — prevents flex child from overflowing */
-}
-
-editor-panel {
-  flex: 1;
   min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: clip;
-  height: 100%;
 }
 
 /* ── Empty state load error ──────────────────────────── */
@@ -340,14 +304,3 @@ editor-panel {
 }
 
 .es-load-error.hidden { display: none; }
-
-
-/* ── question-list height chain ──────────────────────── */
-
-question-list {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}

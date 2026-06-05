@@ -1,5 +1,15 @@
 /* editor/components/question_list/style.css */
 
+/* ── Custom element height chain ────────────────────── */
+
+question-list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .question-list-wrap {
   display: flex;
   flex-direction: column;
@@ -65,7 +75,7 @@
   opacity: 0.45;
 }
 
-/* ── Card top row: badge + unsaved dot + delete ──────── */
+/* ── Card top row ────────────────────────────────────── */
 
 .ql-card-top {
   display: flex;
@@ -143,7 +153,7 @@
   font-style: italic;
 }
 
-/* ── Drag handle hint ────────────────────────────────── */
+/* ── Drag handle ─────────────────────────────────────── */
 
 .ql-card::before {
   content: '⠿';
@@ -161,8 +171,6 @@
 .ql-card:hover::before {
   opacity: 1;
 }
-
-/* ── Drag handle ─────────────────────────────────────── */
 
 .ql-drag-handle {
   color: var(--text-muted);
