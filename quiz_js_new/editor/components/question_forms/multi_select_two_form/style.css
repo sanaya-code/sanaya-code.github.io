@@ -299,16 +299,6 @@
 .ef-stq-option-row.dragging    { opacity: 0.4; }
 .ef-stq-option-row.ef-stq-focused-row { border-color: var(--accent); background: var(--accent-light); }
 
-.ef-stq-drag-handle {
-  cursor: grab;
-  color: var(--text-muted);
-  font-size: 16px;
-  padding: 2px;
-  flex-shrink: 0;
-  line-height: 1;
-}
-.ef-stq-drag-handle:active { cursor: grabbing; }
-
 .ef-stq-correct-radio {
   flex-shrink: 0;
   accent-color: var(--accent);
@@ -514,8 +504,8 @@ multi-select-two-form .ef-stq-body {
 
 .ef-stq-qty-row {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 0;
   background: var(--bg-card);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
@@ -523,23 +513,6 @@ multi-select-two-form .ef-stq-body {
   transition: border-color 0.15s;
 }
 .ef-stq-qty-row:hover { border-color: var(--border-focus); }
-
-.ef-stq-qty-id-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 28px;
-  height: 22px;
-  background: var(--accent-light);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent-deep);
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  padding: 0 6px;
-}
 
 .ef-stq-qty-value {
   flex: 1;
@@ -678,10 +651,109 @@ multi-select-two-form .ef-stq-body {
   flex-shrink: 0;
 }
 
-/* ── Highlight style — two cascading dropdowns ───────── */
+/* ── Quantity row — ID badge as drag handle ──────────── */
 
-.ef-stq-style-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.ef-stq-qty-id-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-deep);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  padding: 0 6px;
+  cursor: grab;
+  user-select: none;
+}
+.ef-stq-qty-id-badge:active { cursor: grabbing; }
+
+.ef-stq-qty-row.dragging  { opacity: 0.4; }
+.ef-stq-qty-row.drag-over { border-color: var(--accent-2); border-style: dashed; }
+
+/* ── Highlight checkbox label ────────────────────────── */
+
+.ef-stq-hidden { display: none !important; }
+
+/* ── Line 1: drag + badge + value + checkbox + delete ── */
+
+.ef-stq-qty-main {
+  display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+/* ── Line 2: style panel (below, when checkbox ticked) ── */
+
+.ef-stq-style-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: var(--bg-panel);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* dropdowns wrapper — transparent passthrough */
+.ef-stq-style-dropdowns {
+  display: contents;
+}
+
+.ef-stq-style-dropdowns .ef-stq-qty-type,
+.ef-stq-style-dropdowns .ef-stq-qty-style-value {
+  min-width: 0;
+}
+
+/* Label input — third column */
+.ef-stq-qty-label {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--success);
+  background: rgba(39,174,122,0.06);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  min-width: 0;
+}
+.ef-stq-qty-label:focus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(39,174,122,0.12);
+}
+.ef-stq-qty-label::placeholder { color: var(--text-muted); }
+.ef-stq-style-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.ef-stq-style-toggle input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ef-stq-style-check-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.ef-stq-style-toggle:has(input:checked) .ef-stq-style-check-label {
+  color: var(--accent);
 }

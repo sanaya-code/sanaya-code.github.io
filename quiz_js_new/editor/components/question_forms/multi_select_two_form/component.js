@@ -40,35 +40,35 @@ class STQFormUtils {
     header.addEventListener('click', () => section.classList.toggle('open'));
   }
 
-  // Build a label for a highlight style object
-  static styleLabel(style) {
-    if (!style) return '— None —';
-    return `${style.type}: ${style.value}`;
+  // Auto-generate a key from type + value e.g. "color_red", "shape_circle"
+  static makeKey(type, value) {
+    if (!type || !value) return '';
+    return `${type}_${value}`;
   }
 
 }
-
-// All available highlight styles — full list used to build cascading dropdowns
-STQFormUtils.DEFAULT_HIGHLIGHT_STYLES = [
-  { type: 'shape', value: 'circle',   description: 'Encircle the selection' },
-  { type: 'shape', value: 'square',   description: 'Square border around selection' },
-  { type: 'color', value: 'red',      description: 'Fill background with red' },
-  { type: 'color', value: 'green',    description: 'Fill background with green' },
-  { type: 'mark',  value: 'tick',     description: 'Place a tick mark next to the selection' }
-];
 
 // Cascading map: type → array of { value, description }
 STQFormUtils.HIGHLIGHT_VALUES_BY_TYPE = {
   shape: [
     { value: 'circle',   description: 'Encircle the selection' },
-    { value: 'square',   description: 'Square border around selection' }
+    { value: 'square',   description: 'Square border around selection' },
+    { value: 'triangle', description: 'Triangle border around selection' },
   ],
   color: [
     { value: 'red',    description: 'Fill background with red' },
-    { value: 'green',  description: 'Fill background with green' }
+    { value: 'green',  description: 'Fill background with green' },
+    { value: 'blue',   description: 'Fill background with blue' },
+    { value: 'yellow', description: 'Fill background with yellow' },
+    { value: 'orange', description: 'Fill background with orange' },
+    { value: 'purple', description: 'Fill background with purple' },
+    { value: 'pink',   description: 'Fill background with pink' },
+    { value: 'cyan',   description: 'Fill background with cyan' },
   ],
   mark: [
-    { value: 'tick',  description: 'Place a tick mark next to the selection' }
+    { value: 'tick',  description: 'Place a tick mark next to the selection' },
+    { value: 'cross', description: 'Place a cross mark next to the selection' },
+    { value: 'star',  description: 'Place a star next to the selection' },
   ],
 };
 
@@ -77,9 +77,7 @@ STQFormUtils.HIGHLIGHT_VALUES_BY_TYPE = {
 
 class STQQuestionWidget {
 
-  constructor(root) {
-    this._root = root;
-  }
+  constructor(root) { this._root = root; }
 
   render(q) {
     return `
@@ -112,9 +110,7 @@ class STQQuestionWidget {
 
 class STQMediaWidget {
 
-  constructor(root) {
-    this._root = root;
-  }
+  constructor(root) { this._root = root; }
 
   render(q) {
     const imgThumb   = q.img_url
@@ -205,47 +201,35 @@ class STQMediaWidget {
 
 // ── Answer Widget ─────────────────────────────────────────────────────────────
 // Owns:
-//   • Quantities list (id + value, add/delete)
-//   • Required Selections list (label, key, highlight_style picked from
-//     available_highlight_styles, id picked from quantities, add/delete)
-//   • Correct Answer — auto-derived from required_selections + quantities
-//     (user picks which quantity id answers each required_selection key)
+//   • Quantities list — each row: drag handle, id badge, value input,
+//     optional type+value dropdowns + label input, delete button
+//   • required_selections and correct_answer are AUTO-GENERATED on save
+//     from quantities that have a highlight style assigned
 //   • Scoring Method dropdown
 //   • Case Sensitive checkbox
 
 class STQAnswerWidget {
 
   constructor(root) {
-    this._root = root;
-    // Kept in memory — not stored in DOM, built fresh on render
-    this._availableStyles = [];
+    this._root    = root;
+    this._dragSrc = null;
   }
+
+  // ── Render ────────────────────────────────────────────
 
   render(q) {
-    const fromQuestion = q.available_highlight_styles;
-    this._availableStyles = (fromQuestion && fromQuestion.length)
-      ? fromQuestion
-      : STQFormUtils.DEFAULT_HIGHLIGHT_STYLES;
+    const quantities    = q.quantities         || [];
+    const correctAnswer = q.correct_answer      || {};
+    const scoringMethod = q.scoring_method      || 'exact';
+    const caseSensitive = !!q.case_sensitive;
 
-    const quantities         = q.quantities         || [];
-    const requiredSelections = q.required_selections || [];
-    const correctAnswer      = q.correct_answer      || {};
-    const scoringMethod      = q.scoring_method      || 'exact';
-    const caseSensitive      = !!q.case_sensitive;
+    // When loading an existing question, reconstruct highlight info from
+    // required_selections + correct_answer back onto each quantity row
+    const styleByQtyId = this._buildStyleByQtyId(
+      q.required_selections || [],
+      correctAnswer
+    );
 
-    return `
-      ${this._renderQuantities(quantities)}
-      ${this._renderRequiredSelections(requiredSelections, quantities)}
-      ${this._renderCorrectAnswer(requiredSelections, quantities, correctAnswer)}
-      ${this._renderScoringMethod(scoringMethod)}
-      ${this._renderCaseSensitive(caseSensitive)}
-      <div class="ef-stq-error" id="ef-stq-answer-error"></div>
-    `;
-  }
-
-  // ── Quantities ────────────────────────────────────────
-
-  _renderQuantities(quantities) {
     return `
       <div class="ef-stq-field">
         <div class="ef-stq-section-header">
@@ -253,90 +237,103 @@ class STQAnswerWidget {
           <button class="ef-stq-add-btn" id="ef-stq-add-quantity">+ Add Quantity</button>
         </div>
         <div class="ef-stq-qty-list" id="ef-stq-qty-list">
-          ${quantities.map((qt, i) => this._quantityRowHTML(qt.id || String(i + 1), qt.value ?? '', i)).join('')}
+          ${quantities.map((qt, i) => {
+            const id    = qt.id || String(i + 1);
+            const style = styleByQtyId[id] || null;
+            return this._quantityRowHTML(id, qt.value ?? '', i, style);
+          }).join('')}
+        </div>
+        <div class="ef-stq-hint">
+          Optionally assign a highlight style to a quantity to mark it as a correct selection.
+          Each style can only be used once.
         </div>
       </div>
+
+      ${this._renderScoringMethod(scoringMethod)}
+      ${this._renderCaseSensitive(caseSensitive)}
+      <div class="ef-stq-error" id="ef-stq-answer-error"></div>
     `;
   }
 
-  _quantityRowHTML(id, value, index) {
-    return `
-      <div class="ef-stq-qty-row" data-qty-index="${index}">
-        <span class="ef-stq-qty-id-badge">${STQFormUtils.escHtml(String(id))}</span>
-        <input type="text"
-               class="ef-stq-qty-value"
-               placeholder="Value (number or text)"
-               value="${STQFormUtils.escHtml(String(value))}"
-               data-qty-index="${index}"
-        />
-        <button class="ef-stq-row-delete" title="Delete quantity">✕</button>
-      </div>
-    `;
+  // Build a map of { qtyId → { type, value, label } } from existing
+  // required_selections + correct_answer so we can pre-fill rows on load
+  _buildStyleByQtyId(requiredSelections, correctAnswer) {
+    const map = {};
+    requiredSelections.forEach(sel => {
+      const key   = sel.key;
+      const qtyId = correctAnswer[key];
+      if (qtyId && sel.highlight_style) {
+        map[qtyId] = {
+          type:  sel.highlight_style.type  || '',
+          value: sel.highlight_style.value || '',
+          label: sel.label || '',
+        };
+      }
+    });
+    return map;
   }
 
-  // ── Required Selections ───────────────────────────────
+  // ── Quantity row ──────────────────────────────────────
+  // style = { type, value, label } or null
 
-  _renderRequiredSelections(requiredSelections, quantities) {
-    return `
-      <div class="ef-stq-field">
-        <div class="ef-stq-section-header">
-          <label class="ef-stq-label">Required Selections</label>
-          <button class="ef-stq-add-btn" id="ef-stq-add-selection">+ Add Selection</button>
-        </div>
-        <div class="ef-stq-sel-list" id="ef-stq-sel-list">
-          ${requiredSelections.map((sel, i) =>
-            this._selectionRowHTML(sel, i, quantities)
-          ).join('')}
-        </div>
-      </div>
-    `;
-  }
+  _quantityRowHTML(id, value, index, style) {
+    const selType    = style?.type  || '';
+    const selValue   = style?.value || '';
+    const selLabel   = style?.label || '';
+    const hasStyle   = !!(selType && selValue);
 
-  _selectionRowHTML(sel, index, quantities) {
-    const selectedType  = sel.highlight_style?.type  || '';
-    const selectedValue = sel.highlight_style?.value || '';
-
-    // Type dropdown — always shape / color / mark
     const typeOptions = ['', 'shape', 'color', 'mark'].map(t => {
-      const label = t === '' ? '— Type —' : t.charAt(0).toUpperCase() + t.slice(1);
-      return `<option value="${t}" ${selectedType === t ? 'selected' : ''}>${label}</option>`;
+      const lbl = t === '' ? '— Type —' : t.charAt(0).toUpperCase() + t.slice(1);
+      return `<option value="${t}" ${selType === t ? 'selected' : ''}>${lbl}</option>`;
     }).join('');
 
-    // Value dropdown — populated based on selectedType
-    const valueOptions = this._valueOptionsHTML(selectedType, selectedValue);
+    const valueOptions = this._valueOptionsHTML(selType, selValue);
+    const panelClass   = hasStyle ? 'ef-stq-style-panel' : 'ef-stq-style-panel ef-stq-hidden';
+    const labelClass   = (hasStyle && selValue) ? 'ef-stq-qty-label' : 'ef-stq-qty-label ef-stq-hidden';
 
     return `
-      <div class="ef-stq-sel-row" data-sel-index="${index}">
-        <div class="ef-stq-sel-fields">
+      <div class="ef-stq-qty-row" draggable="true" data-qty-index="${index}">
+        <div class="ef-stq-qty-main">
+          <span class="ef-stq-qty-id-badge" title="Drag to reorder">${STQFormUtils.escHtml(String(id))}</span>
           <input type="text"
-                 class="ef-stq-sel-label"
-                 placeholder="Label (e.g. Smallest)"
-                 value="${STQFormUtils.escHtml(sel.label || '')}"
-                 data-sel-index="${index}"
+                 class="ef-stq-qty-value"
+                 placeholder="Value (number or text)"
+                 value="${STQFormUtils.escHtml(String(value))}"
+                 data-qty-index="${index}"
           />
-          <input type="text"
-                 class="ef-stq-sel-key"
-                 placeholder="Key (e.g. smallest)"
-                 value="${STQFormUtils.escHtml(sel.key || '')}"
-                 data-sel-index="${index}"
-          />
-          <div class="ef-stq-style-row">
-            <select class="ef-stq-sel-type ef-stq-select" data-sel-index="${index}">
+          <label class="ef-stq-style-toggle" title="Assign highlight style">
+            <input type="checkbox"
+                   class="ef-stq-style-check"
+                   data-qty-index="${index}"
+                   ${hasStyle ? 'checked' : ''}
+            />
+            <span class="ef-stq-style-check-label">Highlight</span>
+          </label>
+          <button class="ef-stq-row-delete" title="Delete quantity">✕</button>
+        </div>
+        <div class="${panelClass}" data-qty-index="${index}">
+          <div class="ef-stq-style-dropdowns">
+            <select class="ef-stq-qty-type ef-stq-select" data-qty-index="${index}">
               ${typeOptions}
             </select>
-            <select class="ef-stq-sel-value ef-stq-select" data-sel-index="${index}">
+            <select class="ef-stq-qty-style-value ef-stq-select" data-qty-index="${index}">
               ${valueOptions}
             </select>
           </div>
+          <input type="text"
+                 class="${labelClass}"
+                 placeholder="Label (e.g. Smallest)"
+                 value="${STQFormUtils.escHtml(selLabel)}"
+                 data-qty-index="${index}"
+          />
         </div>
-        <button class="ef-stq-row-delete" title="Delete selection">✕</button>
       </div>
     `;
   }
 
   // Build value <option> list for a given type
   _valueOptionsHTML(type, selectedValue) {
-    const values = STQFormUtils.HIGHLIGHT_VALUES_BY_TYPE[type] || [];
+    const values      = STQFormUtils.HIGHLIGHT_VALUES_BY_TYPE[type] || [];
     const placeholder = `<option value="">— Value —</option>`;
     if (!values.length) return placeholder;
     return placeholder + values.map(v =>
@@ -347,58 +344,7 @@ class STQAnswerWidget {
     ).join('');
   }
 
-  // ── Correct Answer ────────────────────────────────────
-  // For each required_selection key, user picks which quantity id is the answer
-
-  _renderCorrectAnswer(requiredSelections, quantities, correctAnswer) {
-    if (!requiredSelections.length) {
-      return `
-        <div class="ef-stq-field">
-          <label class="ef-stq-label">Correct Answer</label>
-          <div class="ef-stq-hint">Add required selections above to set correct answers.</div>
-        </div>
-      `;
-    }
-
-    const qtyOptions = quantities.map((qt, i) => {
-      const id = qt.id || String(i + 1);
-      return `<option value="${STQFormUtils.escHtml(id)}">
-        ID ${STQFormUtils.escHtml(id)}: ${STQFormUtils.escHtml(String(qt.value ?? ''))}
-      </option>`;
-    }).join('');
-
-    const rows = requiredSelections.map((sel, i) => {
-      const key      = sel.key || `sel_${i}`;
-      const label    = sel.label || key;
-      const current  = correctAnswer[key] || '';
-      return `
-        <div class="ef-stq-ca-row">
-          <span class="ef-stq-ca-key-label">${STQFormUtils.escHtml(label)}</span>
-          <select class="ef-stq-select ef-stq-ca-select" data-key="${STQFormUtils.escHtml(key)}">
-            <option value="">— Select Quantity —</option>
-            ${quantities.map((qt, qi) => {
-              const id = qt.id || String(qi + 1);
-              return `<option value="${STQFormUtils.escHtml(id)}"
-                ${current === id ? 'selected' : ''}>
-                ID ${STQFormUtils.escHtml(id)}: ${STQFormUtils.escHtml(String(qt.value ?? ''))}
-              </option>`;
-            }).join('')}
-          </select>
-        </div>
-      `;
-    }).join('');
-
-    return `
-      <div class="ef-stq-field">
-        <label class="ef-stq-label">Correct Answer</label>
-        <div class="ef-stq-ca-list" id="ef-stq-ca-list">
-          ${rows}
-        </div>
-      </div>
-    `;
-  }
-
-  // ── Scoring Method ────────────────────────────────────
+  // ── Scoring + Case Sensitive ──────────────────────────
 
   _renderScoringMethod(scoringMethod) {
     return `
@@ -411,8 +357,6 @@ class STQAnswerWidget {
       </div>
     `;
   }
-
-  // ── Case Sensitive ────────────────────────────────────
 
   _renderCaseSensitive(caseSensitive) {
     return `
@@ -428,33 +372,33 @@ class STQAnswerWidget {
 
   // ── Bind Events ───────────────────────────────────────
 
-  bindEvents(q) {
-    this._bindQuantityEvents(q);
-    this._bindSelectionEvents(q);
+  bindEvents() {
+    this._bindAddDelete();
+    this._bindDragReorder();
+    this._bindStyleCascade();
   }
 
-  _bindQuantityEvents(q) {
+  _bindAddDelete() {
     this._root.querySelector('#ef-stq-add-quantity')
-      ?.addEventListener('click', () => this._addQuantityRow(q));
+      ?.addEventListener('click', () => this._addQuantityRow());
 
     this._root.querySelector('#ef-stq-qty-list')
       ?.addEventListener('click', (e) => {
         if (!e.target.classList.contains('ef-stq-row-delete')) return;
         e.target.closest('.ef-stq-qty-row').remove();
         this._reindexQuantities();
-        this._refreshCorrectAnswerDropdowns(q);
       });
   }
 
-  _addQuantityRow(q) {
+  _addQuantityRow() {
     const list  = this._root.querySelector('#ef-stq-qty-list');
     const count = list.querySelectorAll('.ef-stq-qty-row').length;
     const newId = String(count + 1);
     const div   = document.createElement('div');
-    div.innerHTML = this._quantityRowHTML(newId, '', count);
+    div.innerHTML = this._quantityRowHTML(newId, '', count, null);
     list.appendChild(div.firstElementChild);
     this._reindexQuantities();
-    this._refreshCorrectAnswerDropdowns(q);
+    list.querySelector('.ef-stq-qty-row:last-child .ef-stq-qty-value')?.focus();
   }
 
   _reindexQuantities() {
@@ -462,96 +406,110 @@ class STQAnswerWidget {
       row.dataset.qtyIndex = i;
       const badge = row.querySelector('.ef-stq-qty-id-badge');
       if (badge) badge.textContent = String(i + 1);
-      const inp = row.querySelector('.ef-stq-qty-value');
-      if (inp) inp.dataset.qtyIndex = i;
+      row.querySelectorAll('[data-qty-index]').forEach(el => {
+        el.dataset.qtyIndex = i;
+      });
     });
   }
 
-  _bindSelectionEvents(q) {
-    this._root.querySelector('#ef-stq-add-selection')
-      ?.addEventListener('click', () => this._addSelectionRow(q));
+  // ── Drag reorder ──────────────────────────────────────
 
-    this._root.querySelector('#ef-stq-sel-list')
-      ?.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('ef-stq-row-delete')) return;
-        e.target.closest('.ef-stq-sel-row').remove();
-        this._reindexSelections();
-        this._refreshCorrectAnswerDropdowns(q);
-      });
+  _bindDragReorder() {
+    const list = this._root.querySelector('#ef-stq-qty-list');
+    if (!list) return;
 
-    // Cascade: when type changes, repopulate the value dropdown
-    this._root.querySelector('#ef-stq-sel-list')
-      ?.addEventListener('change', (e) => {
-        if (!e.target.classList.contains('ef-stq-sel-type')) return;
-        const row       = e.target.closest('.ef-stq-sel-row');
-        const valueEl   = row.querySelector('.ef-stq-sel-value');
-        if (valueEl) valueEl.innerHTML = this._valueOptionsHTML(e.target.value, '');
-      });
+    list.addEventListener('dragstart', (e) => {
+      const row = e.target.closest('.ef-stq-qty-row');
+      if (!row) return;
+      this._dragSrc = parseInt(row.dataset.qtyIndex);
+      row.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
 
-    // When key/label changes, update the correct answer row label live
-    this._root.querySelector('#ef-stq-sel-list')
-      ?.addEventListener('input', (e) => {
-        if (e.target.classList.contains('ef-stq-sel-label') ||
-            e.target.classList.contains('ef-stq-sel-key')) {
-          this._refreshCorrectAnswerDropdowns(q);
+    list.addEventListener('dragend', () => {
+      list.querySelectorAll('.ef-stq-qty-row')
+        .forEach(r => r.classList.remove('dragging', 'drag-over'));
+    });
+
+    list.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const row = e.target.closest('.ef-stq-qty-row');
+      if (row && parseInt(row.dataset.qtyIndex) !== this._dragSrc) {
+        list.querySelectorAll('.ef-stq-qty-row')
+          .forEach(r => r.classList.remove('drag-over'));
+        row.classList.add('drag-over');
+      }
+    });
+
+    list.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const targetRow = e.target.closest('.ef-stq-qty-row');
+      if (!targetRow) return;
+      const to   = parseInt(targetRow.dataset.qtyIndex);
+      const from = this._dragSrc;
+      if (from === null || from === undefined || from === to) return;
+      targetRow.classList.remove('drag-over');
+      this._reorderRows(from, to);
+    });
+  }
+
+  _reorderRows(from, to) {
+    const list = this._root.querySelector('#ef-stq-qty-list');
+    const rows = Array.from(list.querySelectorAll('.ef-stq-qty-row'));
+    const moved = rows.splice(from, 1)[0];
+    rows.splice(to, 0, moved);
+    list.innerHTML = '';
+    rows.forEach(r => list.appendChild(r));
+    this._reindexQuantities();
+  }
+
+  // ── Style cascade: checkbox → show panel, type → value, value → label ───
+
+  _bindStyleCascade() {
+    const list = this._root.querySelector('#ef-stq-qty-list');
+    if (!list) return;
+
+    list.addEventListener('change', (e) => {
+      const row = e.target.closest('.ef-stq-qty-row');
+      if (!row) return;
+
+      // Checkbox toggled → show/hide the style panel, reset selections when hiding
+      if (e.target.classList.contains('ef-stq-style-check')) {
+        const panel   = row.querySelector('.ef-stq-style-panel');
+        const typeEl  = row.querySelector('.ef-stq-qty-type');
+        const valueEl = row.querySelector('.ef-stq-qty-style-value');
+        const labelEl = row.querySelector('.ef-stq-qty-label');
+        if (e.target.checked) {
+          panel?.classList.remove('ef-stq-hidden');
+        } else {
+          panel?.classList.add('ef-stq-hidden');
+          if (typeEl)  { typeEl.value  = ''; }
+          if (valueEl) { valueEl.innerHTML = this._valueOptionsHTML('', ''); }
+          if (labelEl) { labelEl.value = ''; labelEl.classList.add('ef-stq-hidden'); }
         }
-      });
-  }
+        return;
+      }
 
-  _addSelectionRow(q) {
-    const list  = this._root.querySelector('#ef-stq-sel-list');
-    const count = list.querySelectorAll('.ef-stq-sel-row').length;
-    const quantities = this.getQuantities();
-    const div   = document.createElement('div');
-    div.innerHTML = this._selectionRowHTML({}, count, quantities);
-    list.appendChild(div.firstElementChild);
-    this._reindexSelections();
-    this._refreshCorrectAnswerDropdowns(q);
-  }
+      // Type changed → repopulate value dropdown, hide label
+      if (e.target.classList.contains('ef-stq-qty-type')) {
+        const valueEl = row.querySelector('.ef-stq-qty-style-value');
+        const labelEl = row.querySelector('.ef-stq-qty-label');
+        if (valueEl) valueEl.innerHTML = this._valueOptionsHTML(e.target.value, '');
+        if (labelEl) { labelEl.value = ''; labelEl.classList.add('ef-stq-hidden'); }
+        return;
+      }
 
-  _reindexSelections() {
-    this._root.querySelectorAll('.ef-stq-sel-row').forEach((row, i) => {
-      row.dataset.selIndex = i;
-      row.querySelectorAll('[data-sel-index]').forEach(el => {
-        el.dataset.selIndex = i;
-      });
+      // Value changed → show label only when both type and value are set
+      if (e.target.classList.contains('ef-stq-qty-style-value')) {
+        const typeEl  = row.querySelector('.ef-stq-qty-type');
+        const labelEl = row.querySelector('.ef-stq-qty-label');
+        if (labelEl) {
+          const hasStyle = !!(typeEl?.value && e.target.value);
+          labelEl.classList.toggle('ef-stq-hidden', !hasStyle);
+          if (!hasStyle) labelEl.value = '';
+        }
+      }
     });
-  }
-
-  // Rebuild the correct answer section live when quantities or selections change
-  _refreshCorrectAnswerDropdowns(q) {
-    const caList = this._root.querySelector('#ef-stq-ca-list');
-    if (!caList) return;
-
-    // Capture current correct answer selections before rebuild
-    const currentCA = this.getCorrectAnswer();
-    const quantities = this.getQuantities();
-    const selections = this.getRequiredSelections();
-
-    if (!selections.length) {
-      caList.innerHTML = '<div class="ef-stq-hint">Add required selections above to set correct answers.</div>';
-      return;
-    }
-
-    caList.innerHTML = selections.map((sel) => {
-      const key     = sel.key || '';
-      const label   = sel.label || key || '(unnamed)';
-      const current = currentCA[key] || '';
-      return `
-        <div class="ef-stq-ca-row">
-          <span class="ef-stq-ca-key-label">${STQFormUtils.escHtml(label)}</span>
-          <select class="ef-stq-select ef-stq-ca-select" data-key="${STQFormUtils.escHtml(key)}">
-            <option value="">— Select Quantity —</option>
-            ${quantities.map(qt => `
-              <option value="${STQFormUtils.escHtml(qt.id)}"
-                ${current === qt.id ? 'selected' : ''}>
-                ID ${STQFormUtils.escHtml(qt.id)}: ${STQFormUtils.escHtml(String(qt.value ?? ''))}
-              </option>
-            `).join('')}
-          </select>
-        </div>
-      `;
-    }).join('');
   }
 
   // ── Getters ───────────────────────────────────────────
@@ -563,24 +521,17 @@ class STQAnswerWidget {
     }));
   }
 
-  getRequiredSelections() {
-    return Array.from(this._root.querySelectorAll('.ef-stq-sel-row')).map(row => {
-      const type  = row.querySelector('.ef-stq-sel-type')?.value  || '';
-      const value = row.querySelector('.ef-stq-sel-value')?.value || '';
-      const highlight_style = (type && value) ? { type, value } : null;
-      return {
-        label:           row.querySelector('.ef-stq-sel-label')?.value.trim() || '',
-        key:             row.querySelector('.ef-stq-sel-key')?.value.trim()   || '',
-        highlight_style,
-      };
-    });
-  }
-
-  getCorrectAnswer() {
+  // Returns the highlight info for quantities that have a style assigned
+  // { qtyId: { type, value, label } }
+  getQuantityStyles() {
     const result = {};
-    this._root.querySelectorAll('.ef-stq-ca-select').forEach(sel => {
-      const key = sel.dataset.key;
-      if (key) result[key] = sel.value || '';
+    this._root.querySelectorAll('.ef-stq-qty-row').forEach((row, i) => {
+      const type  = row.querySelector('.ef-stq-qty-type')?.value        || '';
+      const value = row.querySelector('.ef-stq-qty-style-value')?.value || '';
+      const label = row.querySelector('.ef-stq-qty-label')?.value.trim()|| '';
+      if (type && value) {
+        result[String(i + 1)] = { type, value, label };
+      }
     });
     return result;
   }
@@ -607,9 +558,7 @@ class STQAnswerWidget {
 
 class STQMetadataWidget {
 
-  constructor(root) {
-    this._root = root;
-  }
+  constructor(root) { this._root = root; }
 
   render(q) {
     const diffOptions = EditorConfig.DIFFICULTY_LEVELS.map(d =>
@@ -743,8 +692,6 @@ class STQFormComponent extends HTMLElement {
   // ── Bind ─────────────────────────────────────────────
 
   _bindAll() {
-    const q = this._question || EditorFormRegistry.getDefault('multi_select_two');
-
     this._qWidget     = new STQQuestionWidget(this);
     this._mediaWidget = new STQMediaWidget(this);
     this._ansWidget   = new STQAnswerWidget(this);
@@ -752,7 +699,7 @@ class STQFormComponent extends HTMLElement {
 
     this._qWidget.bindEvents();
     this._mediaWidget.bindEvents();
-    this._ansWidget.bindEvents(q);
+    this._ansWidget.bindEvents();
     this._metaWidget.bindEvents();
 
     this._bindFooter();
@@ -807,9 +754,19 @@ class STQFormComponent extends HTMLElement {
       return;
     }
 
-    const requiredSelections = this._ansWidget.getRequiredSelections();
-    if (requiredSelections.length < 1) {
-      this._ansWidget.showError('At least 1 required selection is needed.');
+    // Validate: no duplicate highlight styles
+    const styles     = this._ansWidget.getQuantityStyles();
+    const styleKeys  = Object.values(styles).map(s => STQFormUtils.makeKey(s.type, s.value));
+    const uniqueKeys = new Set(styleKeys);
+    if (styleKeys.length !== uniqueKeys.size) {
+      this._ansWidget.showError('Each highlight style can only be assigned to one quantity.');
+      return;
+    }
+
+    // Validate: label required for every style-assigned quantity
+    const missingLabel = Object.values(styles).some(s => !s.label.trim());
+    if (missingLabel) {
+      this._ansWidget.showError('Please enter a label for every quantity with a highlight style.');
       return;
     }
 
@@ -827,33 +784,37 @@ class STQFormComponent extends HTMLElement {
   // ── Collect ──────────────────────────────────────────
 
   _collectData() {
-    const quantities         = this._ansWidget.getQuantities();
-    const requiredSelections = this._ansWidget.getRequiredSelections();
-    const correctAnswer      = this._ansWidget.getCorrectAnswer();
+    const quantities    = this._ansWidget.getQuantities();
+    const stylesByQtyId = this._ansWidget.getQuantityStyles();
 
-    // Build user_response skeleton from required_selection keys
-    const userResponse = {};
-    requiredSelections.forEach(sel => {
-      if (sel.key) userResponse[sel.key] = '';
+    // Auto-generate required_selections and correct_answer
+    // from quantities that have a highlight style assigned
+    const requiredSelections = [];
+    const correctAnswer      = {};
+    const userResponse       = {};
+
+    Object.entries(stylesByQtyId).forEach(([qtyId, style]) => {
+      const key = STQFormUtils.makeKey(style.type, style.value);
+      requiredSelections.push({
+        label:           style.label,
+        key,
+        highlight_style: { type: style.type, value: style.value },
+      });
+      correctAnswer[key] = qtyId;
+      userResponse[key]  = '';
     });
 
-    // Preserve available_highlight_styles — fall back to defaults if original was empty
-    const availableStyles = (this._question?.available_highlight_styles?.length)
-      ? this._question.available_highlight_styles
-      : STQFormUtils.DEFAULT_HIGHLIGHT_STYLES;
-
     return {
-      type:                      this._question?.type || 'multi_select_two',
-      question:                  this._qWidget.getValue(),
-      svg_content:               this._mediaWidget.getSvg(),
-      img_url:                   this._mediaWidget.getImgUrl(),
+      type:                this._question?.type || 'multi_select_two',
+      question:            this._qWidget.getValue(),
+      svg_content:         this._mediaWidget.getSvg(),
+      img_url:             this._mediaWidget.getImgUrl(),
       quantities,
-      required_selections:       requiredSelections,
-      correct_answer:            correctAnswer,
-      user_response:             userResponse,
-      available_highlight_styles: availableStyles,
-      scoring_method:            this._ansWidget.getScoringMethod(),
-      case_sensitive:            this._ansWidget.getCaseSensitive(),
+      required_selections: requiredSelections,
+      correct_answer:      correctAnswer,
+      user_response:       userResponse,
+      scoring_method:      this._ansWidget.getScoringMethod(),
+      case_sensitive:      this._ansWidget.getCaseSensitive(),
       ...this._metaWidget.getData(),
     };
   }
