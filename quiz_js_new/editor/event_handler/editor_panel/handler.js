@@ -66,7 +66,7 @@ class EditorPanelHandler {
     // Existing question — discard edits, state unchanged
 
     StateController.returnToView();
-    // this._listHandler.refresh();
+    this._listHandler.refresh();
     this._panel.clear();
   }
 

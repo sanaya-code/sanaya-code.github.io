@@ -50,7 +50,7 @@ class EditorPanelComponent extends HTMLElement {
           <div class="ep-tabbar-left">${badge}</div>
           <div class="ep-tabs">
             <button class="ep-tab ep-tab-active" data-tab="edit">Edit</button>
-            <button class="ep-tab ep-tab-disabled" data-tab="preview">
+            <button class="ep-tab ep-tab-active" data-tab="preview">
               Preview
             </button>
           </div>
