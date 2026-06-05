@@ -516,3 +516,66 @@ options-fill-in-blank-form .ef-ofib-body {
   flex-direction: column;
   gap: 8px;
 }
+
+/* ── Segment builder ─────────────────────────────────── */
+
+.ef-ofib-builder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+}
+
+.ef-ofib-builder-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ef-ofib-segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  transition: box-shadow 0.12s;
+  user-select: none;
+}
+
+.ef-ofib-segment:hover  { box-shadow: 0 2px 6px rgba(52,152,219,0.18); }
+.ef-ofib-segment.active { box-shadow: 0 0 0 2px var(--accent); }
+
+.ef-ofib-segment-text {
+  background: var(--bg-panel);
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+}
+
+.ef-ofib-segment-blank {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent-deep);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.ef-ofib-seg-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
