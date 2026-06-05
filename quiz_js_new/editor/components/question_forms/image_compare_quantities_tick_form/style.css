@@ -407,11 +407,3 @@ compare-image-objects-form .ef-ict-body {
 
 .ef-ict-answer-option.selected-left  input[type="radio"] { accent-color: var(--success); }
 .ef-ict-answer-option.selected-right input[type="radio"] { accent-color: var(--accent);  }
-
-/* ── Feedback fields ─────────────────────────────────── */
-
-.ef-ict-feedback-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}

@@ -375,7 +375,7 @@
     },
     {
       "type": "skip",
-      "question": "compare images edit",
+      "question": "compare images edit skip. tick which is smaller",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
       "img_url": "",
       "partition_direction": "vertical",
@@ -383,9 +383,13 @@
         "left": "top_left",
         "right": "top_right"
       },
-      "correct_answer": "left",
+      "correct_answer": "right",
       "user_response": null,
-      "explanation": "expnaatiion comp img edit",
+      "feedback": {
+        "correct": "",
+        "incorrect": ""
+      },
+      "explanation": "expnaatiion comp img edit skip",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",

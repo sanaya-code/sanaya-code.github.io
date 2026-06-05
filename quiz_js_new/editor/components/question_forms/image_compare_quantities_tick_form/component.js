@@ -187,7 +187,6 @@ class ICTAnswerWidget {
   render(q) {
     const dir      = q.partition_direction || 'vertical';
     const zones    = q.tick_zones          || { left: 'top_left', right: 'top_right' };
-    const feedback = q.feedback            || { correct: '', incorrect: '' };
     const ca       = q.correct_answer      || '';
 
     const ZONE_OPTIONS = ['top_left', 'top_right', 'bottom_left', 'bottom_right'];
@@ -244,27 +243,6 @@ class ICTAnswerWidget {
         </div>
       </div>
 
-      <div class="ef-ict-field">
-        <label class="ef-ict-label">
-          Feedback <span class="ef-ict-optional">(optional)</span>
-        </label>
-        <div class="ef-ict-feedback-grid">
-          <div class="ef-ict-field">
-            <label class="ef-ict-label" style="font-size:10px">✓ Correct</label>
-            <input class="ef-ict-input" id="ef-ict-feedback-correct" type="text"
-              placeholder="e.g. Correct! You picked the right side."
-              value="${ICTFormUtils.escHtml(feedback.correct || '')}"
-            />
-          </div>
-          <div class="ef-ict-field">
-            <label class="ef-ict-label" style="font-size:10px">✗ Incorrect</label>
-            <input class="ef-ict-input" id="ef-ict-feedback-incorrect" type="text"
-              placeholder="e.g. Try again. Count carefully."
-              value="${ICTFormUtils.escHtml(feedback.incorrect || '')}"
-            />
-          </div>
-        </div>
-      </div>
     `;
   }
 
@@ -287,13 +265,6 @@ class ICTAnswerWidget {
 
   getCorrectAnswer() {
     return this._root.querySelector('input[name="ef-ict-correct"]:checked')?.value || '';
-  }
-
-  getFeedback() {
-    return {
-      correct:   this._root.querySelector('#ef-ict-feedback-correct')?.value.trim()   || '',
-      incorrect: this._root.querySelector('#ef-ict-feedback-incorrect')?.value.trim() || '',
-    };
   }
 
   // ── Private ──────────────────────────────────────────
@@ -508,7 +479,7 @@ class ImageCompareQuantitiesTickFormComponent extends HTMLElement {
       tick_zones:          this._ansWidget.getTickZones(),
       correct_answer:      this._ansWidget.getCorrectAnswer(),
       user_response:       null,
-      feedback:            this._ansWidget.getFeedback(),
+      feedback:            this._question?.feedback ?? {},
       ...this._metaWidget.getData(),
     };
 
@@ -534,7 +505,7 @@ class ImageCompareQuantitiesTickFormComponent extends HTMLElement {
       tick_zones:          this._ansWidget.getTickZones(),
       correct_answer:      this._ansWidget.getCorrectAnswer(),
       user_response:       null,
-      feedback:            this._ansWidget.getFeedback(),
+      feedback:            this._question?.feedback ?? {},
       ...this._metaWidget.getData(),
     };
   }
