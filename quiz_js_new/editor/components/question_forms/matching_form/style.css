@@ -622,7 +622,12 @@ matching-form .ef-match-body {
   transition: border-color 0.15s;
 }
 
-.ef-match-distractor-row:hover { border-color: var(--border-focus); }
+.ef-match-distractor-row:hover    { border-color: var(--border-focus); }
+.ef-match-distractor-row.dragging { opacity: 0.4; }
+.ef-match-distractor-row.drag-over {
+  border-color: var(--accent-2);
+  border-style: dashed;
+}
 
 .ef-match-distractor-input {
   flex: 1;

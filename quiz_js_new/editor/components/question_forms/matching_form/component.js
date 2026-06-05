@@ -180,8 +180,9 @@ class MATCHMediaWidget {
 class MATCHAnswerWidget {
 
   constructor(root) {
-    this._root       = root;
-    this._pairDragSrc = null;
+    this._root          = root;
+    this._pairDragSrc   = null;
+    this._distDragSrc   = null;
   }
 
   render(q) {
@@ -229,6 +230,13 @@ class MATCHAnswerWidget {
         </div>
         <div class="ef-match-distractors-list" id="ef-match-distractors-list">
           ${distractors.map((d, i) => this._distractorRowHTML(d, i)).join('')}
+        </div>
+        <div class="ef-match-option-preview-box" id="ef-match-distractor-preview-box">
+          <div class="ef-match-option-preview-label" id="ef-match-distractor-preview-label">
+            Previewing distractor
+          </div>
+          <div class="ef-match-option-preview-content"
+               id="ef-match-distractor-preview-content"></div>
         </div>
       </div>
 
@@ -336,7 +344,8 @@ class MATCHAnswerWidget {
 
   _distractorRowHTML(val, index) {
     return `
-      <div class="ef-match-distractor-row" data-dist-index="${index}">
+      <div class="ef-match-distractor-row" draggable="true" data-dist-index="${index}">
+        <span class="ef-match-drag-handle" title="Drag to reorder">⠿</span>
         <input type="text"
                class="ef-match-distractor-input"
                placeholder="Wrong answer option..."
@@ -445,9 +454,73 @@ class MATCHAnswerWidget {
   }
 
   _bindDistractorListEvents(list) {
+
+    // Focus → shared preview
+    list.addEventListener('focusin', (e) => {
+      if (!e.target.classList.contains('ef-match-distractor-input')) return;
+      const index   = parseInt(e.target.dataset.distIndex);
+      const box     = this._root.querySelector('#ef-match-distractor-preview-box');
+      const label   = this._root.querySelector('#ef-match-distractor-preview-label');
+      const preview = this._root.querySelector('#ef-match-distractor-preview-content');
+      box.classList.add('visible');
+      label.textContent = `Previewing distractor ${index + 1}`;
+      preview.innerHTML = e.target.value;
+    });
+
+    // Live update preview while typing
+    list.addEventListener('input', (e) => {
+      if (!e.target.classList.contains('ef-match-distractor-input')) return;
+      const index   = parseInt(e.target.dataset.distIndex);
+      const label   = this._root.querySelector('#ef-match-distractor-preview-label');
+      const preview = this._root.querySelector('#ef-match-distractor-preview-content');
+      if (label)   label.textContent = `Previewing distractor ${index + 1}`;
+      if (preview) preview.innerHTML = e.target.value;
+    });
+
+    // Delete
     list.addEventListener('click', (e) => {
       if (!e.target.classList.contains('ef-match-distractor-delete')) return;
       e.target.closest('.ef-match-distractor-row').remove();
+      this._reindexDistractors();
+      if (!list.querySelectorAll('.ef-match-distractor-row').length) {
+        this._root.querySelector('#ef-match-distractor-preview-box')?.classList.remove('visible');
+      }
+    });
+
+    // Drag reorder
+    list.addEventListener('dragstart', (e) => {
+      const row = e.target.closest('.ef-match-distractor-row');
+      if (!row) return;
+      this._distDragSrc = parseInt(row.dataset.distIndex);
+      row.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    list.addEventListener('dragend', () => {
+      list.querySelectorAll('.ef-match-distractor-row')
+        .forEach(r => r.classList.remove('dragging', 'drag-over'));
+    });
+    list.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const row = e.target.closest('.ef-match-distractor-row');
+      if (row && parseInt(row.dataset.distIndex) !== this._distDragSrc) {
+        list.querySelectorAll('.ef-match-distractor-row')
+          .forEach(r => r.classList.remove('drag-over'));
+        row.classList.add('drag-over');
+      }
+    });
+    list.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const target = e.target.closest('.ef-match-distractor-row');
+      if (!target) return;
+      const to   = parseInt(target.dataset.distIndex);
+      const from = this._distDragSrc;
+      if (from === null || from === to) return;
+      target.classList.remove('drag-over');
+      const rows  = Array.from(list.querySelectorAll('.ef-match-distractor-row'));
+      const moved = rows.splice(from, 1)[0];
+      rows.splice(to, 0, moved);
+      list.innerHTML = '';
+      rows.forEach(r => list.appendChild(r));
       this._reindexDistractors();
     });
   }

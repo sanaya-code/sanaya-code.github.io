@@ -194,7 +194,7 @@
     },
     {
       "type": "multi_fill_in_blank",
-      "question": "appple is sweet____cat is____In a <strong>right triangle</strong>, <math><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>",
+      "question": "appple is ____cat is____In a <strong>right triangle</strong>, <math><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>",
       "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
       "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
       "blanks": [
@@ -202,7 +202,7 @@
           "position": 1,
           "correct_answer": "food",
           "acceptable_answers": [
-            "sweet",
+            "food",
             "red"
           ],
           "hint": ""
@@ -347,7 +347,7 @@
     },
     {
       "type": "compare_quantities",
-      "question": "Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup>",
+      "question": "Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup> edit =",
       "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_09.jpg",
       "quantity_a": {
@@ -364,9 +364,9 @@
         "<",
         "|"
       ],
-      "correct_answer": ">",
+      "correct_answer": "=",
       "user_response": "",
-      "explanation": "<math><msqrt><mn>16</mn></msqrt></math>",
+      "explanation": "<math><msqrt><mn>16</mn></msqrt></math> edit =",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",

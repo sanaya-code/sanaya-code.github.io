@@ -193,8 +193,8 @@
       "id": "007"
     },
     {
-      "type": "skip",
-      "question": "appple is sweet____cat is____In a <strong>right triangle</strong>, <math><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>",
+      "type": "multi_fill_in_blank",
+      "question": "appple is ____cat is____In a <strong>right triangle</strong>, <math><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>",
       "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
       "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
       "blanks": [
@@ -233,7 +233,6 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "original_type": "multi_fill_in_blank",
       "id": "008"
     },
     {
@@ -347,7 +346,7 @@
       "id": "010"
     },
     {
-      "type": "compare_quantities",
+      "type": "skip",
       "question": "Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup>",
       "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_09.jpg",
@@ -372,6 +371,7 @@
       "points": "",
       "time_limit": "",
       "tags": [],
+      "original_type": "compare_quantities",
       "id": "011"
     },
     {
