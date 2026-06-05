@@ -1,8 +1,486 @@
-/* editor/components/question_forms/options_fill_in_blank_form/style.css */
+/* options_fill_in_blank_form/style.css — prefix: ef-ofib- — self-contained */
+/* Self-contained — prefix: ef-ofib- */
 
+.ef-ofib-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Skip button (footer) ────────────────────────────── */
+
+.ef-ofib-btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.ef-ofib-btn-skip:hover { background: rgba(127,140,141,0.12); }
+
+/* ── Scrollable form body ────────────────────────────── */
+
+.ef-ofib-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field group ─────────────────────────────────────── */
+
+.ef-ofib-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ef-ofib-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ef-ofib-label .ef-ofib-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* ── Textarea ────────────────────────────────────────── */
+
+.ef-ofib-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+
+.ef-ofib-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── On-focus preview box ────────────────────────────── */
+
+.ef-ofib-render-preview {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;          /* hidden until focused */
+  animation: ef-ofib-fadein 0.15s ease;
+}
+
+.ef-ofib-render-preview.visible {
+  display: block;
+}
+
+.ef-ofib-render-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+@keyframes ef-ofib-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Text input ──────────────────────────────────────── */
+
+.ef-ofib-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ef-ofib-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.ef-ofib-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ef-ofib-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.ef-ofib-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.ef-ofib-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.ef-ofib-collapsible.open .ef-ofib-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.ef-ofib-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.ef-ofib-collapsible.open .ef-ofib-collapsible-body {
+  display: flex;
+}
+
+/* ── SVG preview ─────────────────────────────────────── */
+
+.ef-ofib-svg-preview {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.ef-ofib-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.ef-ofib-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── Image thumbnail preview ─────────────────────────── */
+
+.ef-ofib-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.ef-ofib-img-preview.visible {
+  display: flex;
+}
+
+.ef-ofib-img-preview img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Remove buttons ──────────────────────────────────── */
+
+.ef-ofib-remove-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-ofib-remove-btn:hover { background: var(--danger-light); }
+
+/* ── Options section ─────────────────────────────────── */
+
+.ef-ofib-options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ef-ofib-add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-ofib-add-option-btn:hover { background: #b8d9f5; }
+
+.ef-ofib-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Option row ──────────────────────────────────────── */
+
+.ef-ofib-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.ef-ofib-option-row:hover       { border-color: var(--border-focus); }
+.ef-ofib-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-ofib-option-row.dragging    { opacity: 0.4; }
+.ef-ofib-option-row.ef-ofib-focused-row { border-color: var(--accent); background: var(--accent-light); }
+
+.ef-ofib-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.ef-ofib-drag-handle:active { cursor: grabbing; }
+
+.ef-ofib-correct-radio {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.ef-ofib-option-text {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+.ef-ofib-option-text:focus { border-color: var(--border-focus); }
+
+.ef-ofib-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-ofib-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Shared option preview box ───────────────────────── */
+
+.ef-ofib-option-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: ef-ofib-fadein 0.15s ease;
+}
+
+.ef-ofib-option-preview-box.visible {
+  display: flex;
+}
+
+.ef-ofib-option-preview-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ef-ofib-option-preview-content {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 34px;
+  word-break: break-word;
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.ef-ofib-error {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.ef-ofib-error.visible { display: block; }
+
+/* ── Two-column row ──────────────────────────────────── */
+
+.ef-ofib-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Select ──────────────────────────────────────────── */
+
+.ef-ofib-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.ef-ofib-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Save footer ─────────────────────────────────────── */
+
+.ef-ofib-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.ef-ofib-btn-save {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.ef-ofib-btn-save:hover {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+
+/* ── Disabled state when marked as skip ──────────────── */
+
+.ef-ofib-body.ef-ofib-is-skip .ef-ofib-field,
+.ef-ofib-body.ef-ofib-is-skip .ef-ofib-options-header,
+.ef-ofib-body.ef-ofib-is-skip .ef-ofib-collapsible {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Body dims but footer stays fully interactive */
+.ef-ofib-body.ef-ofib-is-skip {
+  opacity: 0.6;
+}
+
+.ef-ofib-body.ef-ofib-is-skip ~ .ef-ofib-footer {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Height chain ────────────────────────────────────── */
+
+options-fill-in-blank-form .ef-ofib-form {
+  min-height: 0;
+}
+
+options-fill-in-blank-form .ef-ofib-body {
+  min-height: 0;
+}
 /* ── Choices pool ────────────────────────────────────── */
 
-.ofib-choices-wrap {
+.ef-ofib-choices-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -13,7 +491,7 @@
   min-height: 44px;
 }
 
-.ofib-choice-row {
+.ef-ofib-choice-row {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -23,8 +501,8 @@
   padding: 3px 8px;
 }
 
-.ofib-choice-input {
-  width: 60px;
+.ef-ofib-choice-input {
+  width: 80px;
   padding: 3px 6px;
   border-radius: 3px;
   border: 1px solid var(--border);
@@ -36,10 +514,9 @@
   outline: none;
   text-align: center;
 }
+.ef-ofib-choice-input:focus { border-color: var(--border-focus); }
 
-.ofib-choice-input:focus { border-color: var(--border-focus); }
-
-.ofib-choice-delete {
+.ef-ofib-choice-delete {
   background: none;
   border: none;
   cursor: pointer;
@@ -49,289 +526,4 @@
   border-radius: 3px;
   transition: color 0.15s;
 }
-.ofib-choice-delete:hover { color: var(--danger); }
-
-/* ── Options list ────────────────────────────────────── */
-
-.ofib-options-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ofib-option-card {
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.ofib-option-card.active {
-  border-color: var(--accent);
-}
-
-.ofib-option-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  background: var(--bg-panel);
-  border-bottom: 1px solid var(--border);
-}
-
-.ofib-option-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.ofib-option-preview-text {
-  flex: 1;
-  font-size: 12px;
-  color: var(--text-secondary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ofib-option-delete {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: 13px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  transition: color 0.15s, background 0.15s;
-}
-.ofib-option-delete:hover {
-  color: var(--danger);
-  background: var(--danger-light);
-}
-
-.ofib-option-body {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* ── Segment builder (per option) ────────────────────── */
-
-.ofib-builder {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 5px;
-  padding: 10px;
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  min-height: 44px;
-}
-
-.ofib-builder-empty {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.ofib-segment {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 9px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: 12px;
-  transition: box-shadow 0.12s;
-  user-select: none;
-}
-
-.ofib-segment:hover { box-shadow: 0 2px 6px rgba(52,152,219,0.18); }
-.ofib-segment.active { box-shadow: 0 0 0 2px var(--accent); }
-
-.ofib-segment-text {
-  background: var(--bg-panel);
-  border: 1.5px solid var(--border);
-  color: var(--text-primary);
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ofib-segment-blank {
-  background: var(--accent-light);
-  border: 1.5px solid var(--accent);
-  color: var(--accent-deep);
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.ofib-seg-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.ofib-seg-btns {
-  display: flex;
-  gap: 6px;
-}
-
-.ofib-seg-add-text {
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  color: var(--text-secondary);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: border-color 0.15s, color 0.15s;
-}
-.ofib-seg-add-text:hover { border-color: var(--border-focus); color: var(--accent); }
-
-.ofib-seg-add-blank {
-  background: var(--accent-light);
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: background 0.15s;
-}
-.ofib-seg-add-blank:hover { background: #b8d9f5; }
-
-/* ── Inline edit panel ───────────────────────────────── */
-
-.ofib-edit-panel {
-  background: #fff;
-  border: 1.5px solid var(--border-focus);
-  border-radius: var(--radius-sm);
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  animation: ofib-fadein 0.15s ease;
-}
-
-@keyframes ofib-fadein {
-  from { opacity: 0; transform: translateY(-3px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.ofib-edit-title {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.ofib-edit-label {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  display: block;
-  margin-bottom: 3px;
-}
-
-.ofib-edit-input {
-  width: 100%;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background: #fff;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.15s;
-}
-.ofib-edit-input:focus { border-color: var(--border-focus); }
-
-.ofib-edit-actions {
-  display: flex;
-  gap: 6px;
-}
-
-.ofib-edit-save {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 5px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-.ofib-edit-save:hover { opacity: 0.88; }
-
-.ofib-edit-delete {
-  background: transparent;
-  color: var(--danger);
-  border: 1.5px solid var(--danger);
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-.ofib-edit-delete:hover { background: var(--danger-light); }
-
-.ofib-edit-cancel {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1.5px solid var(--border);
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-.ofib-edit-cancel:hover { background: var(--bg-panel); }
-
-/* ── Assembled option sentence preview ───────────────── */
-
-[id^="ofib-assembled-"] {
-  font-size: 13px;
-  line-height: 1.8;
-  min-height: 30px;
-  background: #fff;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 7px 10px;
-}
-
-[id^="ofib-assembled-"]:empty::before {
-  content: 'Sentence preview will appear here as you add segments';
-  color: var(--text-muted);
-  font-style: italic;
-  font-size: 11px;
-}
+.ef-ofib-choice-delete:hover { color: var(--danger); }
