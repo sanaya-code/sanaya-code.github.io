@@ -52,8 +52,8 @@ class EditorPanelHandler {
     this._listHandler.refresh();
 
     // Show preview with fresh data
-    const saved = StateController.getQuestion(index);
-    if (saved) this._panel.showPreviewTab(saved);
+    // const saved = StateController.getQuestion(index);
+    // if (saved) this._panel.showPreviewTab(saved);
   }
 
   // ── Close ─────────────────────────────────────────────
@@ -66,7 +66,7 @@ class EditorPanelHandler {
     // Existing question — discard edits, state unchanged
 
     StateController.returnToView();
-    this._listHandler.refresh();
+    // this._listHandler.refresh();
     this._panel.clear();
   }
 
