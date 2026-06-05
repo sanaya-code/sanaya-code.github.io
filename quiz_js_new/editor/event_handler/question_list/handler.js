@@ -19,7 +19,7 @@ class QuestionListHandler {
         return;
       }
       StateController.selectExisting(index);
-      this.refresh();
+      // this.refresh();
       const q = StateController.getQuestion(index);
       if (q && this._panelHandler) this._panelHandler.loadQuestion(index, q);
     });
