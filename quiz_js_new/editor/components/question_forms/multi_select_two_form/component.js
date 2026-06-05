@@ -297,7 +297,7 @@ class STQAnswerWidget {
           <span class="ef-stq-qty-id-badge" title="Drag to reorder">${STQFormUtils.escHtml(String(id))}</span>
           <input type="text"
                  class="ef-stq-qty-value"
-                 placeholder="Value (number or text)"
+                 placeholder="Value (HTML/MathML supported)"
                  value="${STQFormUtils.escHtml(String(value))}"
                  data-qty-index="${index}"
           />
@@ -310,6 +310,9 @@ class STQAnswerWidget {
             <span class="ef-stq-style-check-label">Highlight</span>
           </label>
           <button class="ef-stq-row-delete" title="Delete quantity">✕</button>
+        </div>
+        <div class="ef-stq-qty-preview-wrap">
+          <div class="ef-stq-qty-display-preview ef-stq-render-preview"></div>
         </div>
         <div class="${panelClass}" data-qty-index="${index}">
           <div class="ef-stq-style-dropdowns">
@@ -376,6 +379,28 @@ class STQAnswerWidget {
     this._bindAddDelete();
     this._bindDragReorder();
     this._bindStyleCascade();
+    this._bindDisplayPreviews();
+  }
+
+  // Focus/input on ef-stq-qty-value → update its sibling preview
+  _bindDisplayPreviews() {
+    const list = this._root.querySelector('#ef-stq-qty-list');
+    if (!list) return;
+    list.addEventListener('focusin', (e) => {
+      if (!e.target.classList.contains('ef-stq-qty-value')) return;
+      const preview = e.target.closest('.ef-stq-qty-row')
+        ?.querySelector('.ef-stq-qty-display-preview');
+      if (preview) {
+        preview.innerHTML = e.target.value;
+        preview.classList.add('visible');
+      }
+    });
+    list.addEventListener('input', (e) => {
+      if (!e.target.classList.contains('ef-stq-qty-value')) return;
+      const preview = e.target.closest('.ef-stq-qty-row')
+        ?.querySelector('.ef-stq-qty-display-preview');
+      if (preview) preview.innerHTML = e.target.value;
+    });
   }
 
   _bindAddDelete() {

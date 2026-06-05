@@ -757,3 +757,30 @@ multi-select-two-form .ef-stq-body {
 .ef-stq-style-toggle:has(input:checked) .ef-stq-style-check-label {
   color: var(--accent);
 }
+
+/* ── Quantity display row (HTML/MathML rich content) ─── */
+
+.ef-stq-qty-preview-wrap {
+  margin-top: 4px;
+}
+
+.ef-stq-qty-display-preview {
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 32px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;
+  animation: ef-stq-fadein 0.15s ease;
+}
+.ef-stq-qty-display-preview.visible { display: block; }
+.ef-stq-qty-display-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
