@@ -458,3 +458,29 @@ options-fill-in-blank-form .ef-ofib-body {
 }
 
 .ef-ofib-option-card.active { border-color: var(--accent); }
+
+/* ── Option header row ───────────────────────────────── */
+
+.ef-ofib-option-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.ef-ofib-option-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
