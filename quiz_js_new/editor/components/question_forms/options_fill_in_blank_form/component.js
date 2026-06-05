@@ -366,16 +366,18 @@ class OFIBAnswerWidget {
   // ── Private: HTML builders ────────────────────────────
 
   _optionCardHTML(opt, optIndex) {
-    const preview = opt.segments.map(s =>
-      s.type === 'text' ? OFIBFormUtils.escHtml(s.value) : '<strong>____</strong>'
-    ).join('') || '<em style="color:var(--text-muted)">Empty option</em>';
     const isActive = this._activeOption === optIndex;
     return `
-      <div class="ef-ofib-option-card ${isActive ? 'active' : ''}" data-opt-index="${optIndex}">
+      <div class="ef-ofib-option-card ${isActive ? 'active' : ''}"
+           data-opt-index="${optIndex}">
         <div class="ef-ofib-option-header">
           <span class="ef-ofib-option-num">${optIndex + 1}</span>
-          <span class="ef-ofib-option-preview-text">${preview}</span>
-          <button class="ef-ofib-option-delete" data-opt-index="${optIndex}" title="Delete">✕</button>
+          <span class="ef-ofib-option-header-preview">
+            ${this._assembledPreview(opt)}
+          </span>
+          <button class="ef-ofib-option-delete"
+                  data-opt-index="${optIndex}"
+                  title="Delete option">✕</button>
         </div>
         ${isActive ? this._optionBodyHTML(opt, optIndex) : ''}
       </div>`;
@@ -409,9 +411,6 @@ class OFIBAnswerWidget {
         <div class="ef-ofib-seg-btns">
           <button class="ef-ofib-seg-add-text"  data-opt="${optIndex}">+ Text</button>
           <button class="ef-ofib-seg-add-blank" data-opt="${optIndex}">+ Blank</button>
-        </div>
-        <div class="ef-ofib-assembled-preview" id="ef-ofib-assembled-${optIndex}">
-          ${this._assembledPreview(opt)}
         </div>
         ${editHTML ? `<div>${editHTML}</div>` : ''}
         <div class="ef-ofib-field">
