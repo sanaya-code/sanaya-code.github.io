@@ -1,370 +1,30 @@
 // editor/components/question_forms/image_compare_quantities_tick_form/component.js
 
-class ImageCompareQuantitiesTickFormComponent extends HTMLElement {
+// ── Utilities ─────────────────────────────────────────────────────────────────
 
-  connectedCallback() {
-    this._question = null;
-    this._index    = -1;
-    this._render();
-    this._bindEvents();
+class ICTFormUtils {
+
+  static escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
   }
 
-  // ── Public API ───────────────────────────────────────
-
-  loadQuestion(index, question) {
-    this._index    = index;
-    this._question = JSON.parse(JSON.stringify(question));
-    this._render();
-    this._bindEvents();
+  static parseOptionalNumber(el) {
+    const val = el?.value.trim();
+    if (!val) return '';
+    const n = parseFloat(val);
+    return isNaN(n) ? '' : n;
   }
 
-  // ── Render ───────────────────────────────────────────
-
-  _render() {
-    const q          = this._question ||
-      EditorFormRegistry.getDefault('image_compare_quantities_tick');
-    const isSkip     = q.type === 'skip';
-    const typeConf   = EditorFormRegistry.getType(
-      isSkip ? (q.original_type || 'image_compare_quantities_tick') : q.type
-    );
-    const badgeColor  = typeConf ? typeConf.color : '#1565c0';
-    const badgeLabel  = typeConf ? typeConf.label : 'Image Compare Tick';
-
-    const dir         = q.partition_direction || 'vertical';
-    const zones       = q.tick_zones          || { left: 'top_left', right: 'top_right' };
-    const feedback    = q.feedback            || { correct: '', incorrect: '' };
-    const ca          = q.correct_answer      || '';
-
-    const ZONE_OPTIONS = ['top_left', 'top_right', 'bottom_left', 'bottom_right'];
-
-    const zoneSelect = (id, current) => `
-      <select class="mcf-select" id="${id}">
-        ${ZONE_OPTIONS.map(z => `
-          <option value="${z}" ${current === z ? 'selected' : ''}>
-            ${z.replace(/_/g, ' ')}
-          </option>`).join('')}
-      </select>`;
-
-    this.innerHTML = `
-      <div class="mcq-form">
-
-        <!-- Topbar -->
-        <div class="mcf-topbar">
-          ${isSkip
-            ? `<span class="mcf-skip-badge">⊘ SKIP</span>
-               <span style="font-size:12px;color:var(--text-muted)">
-                 Originally: ${badgeLabel}
-               </span>`
-            : `<span class="mcf-type-badge"
-                     style="background:${badgeColor}">${badgeLabel}</span>`
-          }
-          <div class="mcf-topbar-actions">
-            ${isSkip
-              ? `<button class="btn-unskip" id="ict-btn-unskip">↩ Un-mark Skip</button>`
-              : `<button class="btn-skip"   id="ict-btn-skip">⊘ Mark as Skip</button>`
-            }
-          </div>
-        </div>
-
-        <!-- Body -->
-        <div class="mcf-body ${isSkip ? 'is-skip' : ''}">
-
-          <!-- Question text -->
-          <div class="mcf-field">
-            <label class="mcf-label">Question Text</label>
-            <textarea class="mcf-textarea" id="ict-question"
-              rows="2"
-              placeholder="Enter question text (HTML/MathML supported)"
-            >${this._esc(q.question || '')}</textarea>
-            <div class="mcf-render-preview" id="ict-question-preview"></div>
-          </div>
-
-          <!-- SVG — collapsible -->
-          <div class="mcf-collapsible" id="ict-svg-section">
-            <div class="mcf-collapsible-header" id="ict-svg-toggle">
-              ▶ SVG Figure
-              <span style="font-weight:400;font-size:11px;margin-left:4px;
-                           color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
-            </div>
-            <div class="mcf-collapsible-body">
-              <textarea class="mcf-textarea" id="ict-svg"
-                rows="3" placeholder="Paste SVG code here..."
-              >${this._esc(q.svg_content || '')}</textarea>
-              <div class="mcf-svg-preview" id="ict-svg-preview">
-                ${q.svg_content || ''}
-              </div>
-              <button class="mcf-remove-btn" id="ict-svg-remove">Remove SVG</button>
-            </div>
-          </div>
-
-          <!-- Image — collapsible -->
-          <div class="mcf-collapsible" id="ict-img-section">
-            <div class="mcf-collapsible-header" id="ict-img-toggle">
-              ▶ Image URL
-              <span style="font-weight:400;font-size:11px;margin-left:4px;
-                           color:var(--text-muted)">(optional)</span>
-              <span class="mcf-collapsible-arrow">▼</span>
-            </div>
-            <div class="mcf-collapsible-body">
-              <input class="mcf-input" id="ict-img-url" type="text"
-                placeholder="Enter image URL or relative path..."
-                value="${this._esc(q.img_url || '')}"
-              />
-              <div class="mcf-img-preview ${q.img_url ? 'visible' : ''}"
-                   id="ict-img-preview">
-                ${q.img_url
-                  ? `<img src="${this._esc(q.img_url)}" alt="preview" />`
-                  : ''}
-              </div>
-              <button class="mcf-remove-btn" id="ict-img-remove">Remove Image</button>
-            </div>
-          </div>
-
-          <!-- Partition direction -->
-          <div class="mcf-field">
-            <label class="mcf-label">Partition Direction</label>
-            <select class="mcf-select" id="ict-partition-dir">
-              <option value="vertical"   ${dir === 'vertical'   ? 'selected' : ''}>
-                Vertical (left / right)
-              </option>
-              <option value="horizontal" ${dir === 'horizontal' ? 'selected' : ''}>
-                Horizontal (top / bottom)
-              </option>
-            </select>
-          </div>
-
-          <!-- Tick zones -->
-          <div class="mcf-field">
-            <label class="mcf-label">Tick Zones</label>
-            <div class="ict-zones-grid">
-              <div class="mcf-field">
-                <label class="mcf-label" style="font-size:10px">Left Zone</label>
-                ${zoneSelect('ict-zone-left', zones.left)}
-              </div>
-              <div class="mcf-field">
-                <label class="mcf-label" style="font-size:10px">Right Zone</label>
-                ${zoneSelect('ict-zone-right', zones.right)}
-              </div>
-            </div>
-          </div>
-
-          <!-- Correct answer -->
-          <div class="mcf-field">
-            <label class="mcf-label">Correct Answer</label>
-            <div class="ict-answer-group">
-              <label class="ict-answer-option ${ca === 'left' ? 'selected-left' : ''}"
-                     id="ict-opt-left">
-                <input type="radio" name="ict-correct" value="left"
-                       ${ca === 'left' ? 'checked' : ''} />
-                ← Left
-              </label>
-              <label class="ict-answer-option ${ca === 'right' ? 'selected-right' : ''}"
-                     id="ict-opt-right">
-                <input type="radio" name="ict-correct" value="right"
-                       ${ca === 'right' ? 'checked' : ''} />
-                Right →
-              </label>
-            </div>
-          </div>
-
-          <!-- Feedback -->
-          <div class="mcf-field">
-            <label class="mcf-label">
-              Feedback <span class="mcf-optional">(optional)</span>
-            </label>
-            <div class="ict-feedback-grid">
-              <div class="mcf-field">
-                <label class="mcf-label" style="font-size:10px">✓ Correct</label>
-                <input class="mcf-input" id="ict-feedback-correct" type="text"
-                  placeholder="e.g. Correct! You picked the right side."
-                  value="${this._esc(feedback.correct || '')}"
-                />
-              </div>
-              <div class="mcf-field">
-                <label class="mcf-label" style="font-size:10px">✗ Incorrect</label>
-                <input class="mcf-input" id="ict-feedback-incorrect" type="text"
-                  placeholder="e.g. Try again. Count carefully."
-                  value="${this._esc(feedback.incorrect || '')}"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Explanation -->
-          <div class="mcf-field">
-            <label class="mcf-label">
-              Explanation <span class="mcf-optional">(optional)</span>
-            </label>
-            <textarea class="mcf-textarea" id="ict-explanation"
-              rows="2"
-              placeholder="Explanation (HTML/MathML supported)"
-            >${this._esc(q.explanation || '')}</textarea>
-            <div class="mcf-render-preview" id="ict-explanation-preview"></div>
-          </div>
-
-          <!-- Difficulty -->
-          <div class="mcf-field">
-            <label class="mcf-label">Difficulty</label>
-            <select class="mcf-select" id="ict-difficulty">
-              ${EditorConfig.DIFFICULTY_LEVELS.map(d => `
-                <option value="${d}"
-                  ${q.difficulty === d ? 'selected' : ''}>${d}</option>
-              `).join('')}
-            </select>
-          </div>
-
-          <!-- Points + Time Limit -->
-          <div class="mcf-row-2">
-            <div class="mcf-field">
-              <label class="mcf-label">
-                Points <span class="mcf-optional">(optional)</span>
-              </label>
-              <input class="mcf-input" id="ict-points" type="number"
-                min="0" step="0.5" placeholder="e.g. 1"
-                value="${q.points !== '' && q.points != null ? q.points : ''}"
-              />
-            </div>
-            <div class="mcf-field">
-              <label class="mcf-label">
-                Time Limit (sec) <span class="mcf-optional">(optional)</span>
-              </label>
-              <input class="mcf-input" id="ict-time-limit" type="number"
-                min="0" step="1" placeholder="e.g. 30"
-                value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
-              />
-            </div>
-          </div>
-
-          <!-- Tags -->
-          <div class="mcf-field">
-            <label class="mcf-label">
-              Tags <span class="mcf-optional">(comma separated)</span>
-            </label>
-            <input class="mcf-input" id="ict-tags" type="text"
-              placeholder="e.g. counting, visual reasoning"
-              value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
-            />
-          </div>
-
-        </div><!-- /.mcf-body -->
-
-        <!-- Footer -->
-        <div class="mcf-footer">
-          <button class="btn-save" id="ict-btn-save">Save</button>
-          <span class="mcf-save-hint">Correct answer can be set later</span>
-        </div>
-
-      </div>
-    `;
+  static parseTags(el) {
+    const raw = el?.value || '';
+    return raw.split(',').map(t => t.trim()).filter(t => t.length > 0);
   }
 
-  // ── Bind events ──────────────────────────────────────
-
-  _bindEvents() {
-    this._bindFocusPreview('ict-question',    'ict-question-preview');
-    this._bindFocusPreview('ict-explanation', 'ict-explanation-preview');
-
-    // SVG collapsible
-    this.querySelector('#ict-svg-toggle')?.addEventListener('click', () => {
-      this.querySelector('#ict-svg-section').classList.toggle('open');
-    });
-    this.querySelector('#ict-svg')?.addEventListener('input', (e) => {
-      this.querySelector('#ict-svg-preview').innerHTML = e.target.value;
-    });
-    this.querySelector('#ict-svg-remove')?.addEventListener('click', () => {
-      this.querySelector('#ict-svg').value = '';
-      this.querySelector('#ict-svg-preview').innerHTML = '';
-    });
-
-    // Image collapsible
-    this.querySelector('#ict-img-toggle')?.addEventListener('click', () => {
-      this.querySelector('#ict-img-section').classList.toggle('open');
-    });
-    this.querySelector('#ict-img-url')?.addEventListener('input', (e) => {
-      this._updateImgPreview(e.target.value.trim());
-    });
-    this.querySelector('#ict-img-remove')?.addEventListener('click', () => {
-      this.querySelector('#ict-img-url').value = '';
-      this._updateImgPreview('');
-    });
-
-    // Correct answer radio — highlight selected
-    this.querySelectorAll('input[name="ict-correct"]').forEach(radio => {
-      radio.addEventListener('change', () => this._updateAnswerHighlight());
-    });
-
-    // Skip / Unskip
-    this.querySelector('#ict-btn-skip')?.addEventListener('click', () => {
-      this._question.original_type = this._question.type;
-      this._question.type = EditorConfig.SKIP_TYPE;
-      this._render(); this._bindEvents();
-    });
-    this.querySelector('#ict-btn-unskip')?.addEventListener('click', () => {
-      this._question.type = this._question.original_type || 'image_compare_quantities_tick';
-      delete this._question.original_type;
-      this._render(); this._bindEvents();
-    });
-
-    // Save
-    this.querySelector('#ict-btn-save')?.addEventListener('click', () => {
-      this._handleSave();
-    });
-  }
-
-  // ── Answer highlight ─────────────────────────────────
-
-  _updateAnswerHighlight() {
-    const val      = this.querySelector('input[name="ict-correct"]:checked')?.value;
-    const leftOpt  = this.querySelector('#ict-opt-left');
-    const rightOpt = this.querySelector('#ict-opt-right');
-    leftOpt?.classList.toggle('selected-left',   val === 'left');
-    rightOpt?.classList.toggle('selected-right', val === 'right');
-    if (val === 'left')  rightOpt?.classList.remove('selected-right');
-    if (val === 'right') leftOpt?.classList.remove('selected-left');
-  }
-
-  // ── Save ─────────────────────────────────────────────
-
-  _handleSave() {
-    const saved = {
-      type:                this._question?.type || 'image_compare_quantities_tick',
-      question:            this.querySelector('#ict-question')?.value.trim()          || '',
-      svg_content:         this.querySelector('#ict-svg')?.value.trim()               || '',
-      img_url:             this.querySelector('#ict-img-url')?.value.trim()            || '',
-      partition_direction: this.querySelector('#ict-partition-dir')?.value            || 'vertical',
-      tick_zones: {
-        left:  this.querySelector('#ict-zone-left')?.value  || 'top_left',
-        right: this.querySelector('#ict-zone-right')?.value || 'top_right',
-      },
-      correct_answer: this.querySelector('input[name="ict-correct"]:checked')?.value || '',
-      user_response:  null,
-      feedback: {
-        correct:   this.querySelector('#ict-feedback-correct')?.value.trim()   || '',
-        incorrect: this.querySelector('#ict-feedback-incorrect')?.value.trim() || '',
-      },
-      explanation:  this.querySelector('#ict-explanation')?.value.trim()              || '',
-      difficulty:   this.querySelector('#ict-difficulty')?.value                      || 'easy',
-      points:       this._parseOptionalNumber('#ict-points'),
-      time_limit:   this._parseOptionalNumber('#ict-time-limit'),
-      tags:         this._parseTags(),
-    };
-
-    if (this._question?.original_type) {
-      saved.original_type = this._question.original_type;
-    }
-
-    this.dispatchEvent(new CustomEvent('question-saved', {
-      bubbles: true,
-      detail:  { index: this._index, question: saved }
-    }));
-  }
-
-  // ── Helpers ──────────────────────────────────────────
-
-  _bindFocusPreview(inputId, previewId) {
-    const input   = this.querySelector(`#${inputId}`);
-    const preview = this.querySelector(`#${previewId}`);
+  static bindFocusPreview(input, preview) {
     if (!input || !preview) return;
     input.addEventListener('focus', () => {
       preview.innerHTML = input.value;
@@ -375,11 +35,135 @@ class ImageCompareQuantitiesTickFormComponent extends HTMLElement {
     });
   }
 
+  static bindCollapsible(header, section) {
+    if (!header || !section) return;
+    header.addEventListener('click', () => section.classList.toggle('open'));
+  }
+
+}
+
+// ── Question Widget ───────────────────────────────────────────────────────────
+// Owns: question textarea + focus preview
+
+class ICTQuestionWidget {
+
+  constructor(root) {
+    this._root = root;
+  }
+
+  render(q) {
+    return `
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">Question Text</label>
+        <textarea class="ef-ict-textarea" id="ef-ict-question"
+          rows="3"
+          placeholder="Enter question text (HTML/MathML supported)"
+        >${ICTFormUtils.escHtml(q.question || '')}</textarea>
+        <div class="ef-ict-render-preview" id="ef-ict-question-preview"></div>
+      </div>
+    `;
+  }
+
+  bindEvents() {
+    ICTFormUtils.bindFocusPreview(
+      this._root.querySelector('#ef-ict-question'),
+      this._root.querySelector('#ef-ict-question-preview')
+    );
+  }
+
+  getValue() {
+    return this._root.querySelector('#ef-ict-question')?.value.trim() || '';
+  }
+
+}
+
+// ── Media Widget ──────────────────────────────────────────────────────────────
+// Owns: SVG collapsible + Image URL collapsible
+
+class ICTMediaWidget {
+
+  constructor(root) {
+    this._root = root;
+  }
+
+  render(q) {
+    const imgThumb   = q.img_url
+      ? `<img src="${ICTFormUtils.escHtml(q.img_url)}" alt="preview" />`
+      : '';
+    const imgVisible = q.img_url ? 'ef-ict-img-preview visible' : 'ef-ict-img-preview';
+
+    return `
+      <div class="ef-ict-collapsible" id="ef-ict-svg-section">
+        <div class="ef-ict-collapsible-header" id="ef-ict-svg-toggle">
+          ▶ SVG Figure
+          <span style="font-weight:400;font-size:11px;margin-left:4px;
+                       color:var(--text-muted)">(optional)</span>
+          <span class="ef-ict-collapsible-arrow">▼</span>
+        </div>
+        <div class="ef-ict-collapsible-body">
+          <textarea class="ef-ict-textarea" id="ef-ict-svg"
+            rows="3" placeholder="Paste SVG code here..."
+          >${ICTFormUtils.escHtml(q.svg_content || '')}</textarea>
+          <div class="ef-ict-svg-preview" id="ef-ict-svg-preview">
+            ${q.svg_content || ''}
+          </div>
+          <button class="ef-ict-remove-btn" id="ef-ict-svg-remove">Remove SVG</button>
+        </div>
+      </div>
+
+      <div class="ef-ict-collapsible" id="ef-ict-img-section">
+        <div class="ef-ict-collapsible-header" id="ef-ict-img-toggle">
+          ▶ Image URL
+          <span style="font-weight:400;font-size:11px;margin-left:4px;
+                       color:var(--text-muted)">(optional)</span>
+          <span class="ef-ict-collapsible-arrow">▼</span>
+        </div>
+        <div class="ef-ict-collapsible-body">
+          <input class="ef-ict-input" id="ef-ict-img-url" type="text"
+            placeholder="Enter image URL or relative path..."
+            value="${ICTFormUtils.escHtml(q.img_url || '')}"
+          />
+          <div class="${imgVisible}" id="ef-ict-img-preview">${imgThumb}</div>
+          <button class="ef-ict-remove-btn" id="ef-ict-img-remove">Remove Image</button>
+        </div>
+      </div>
+    `;
+  }
+
+  bindEvents() {
+    ICTFormUtils.bindCollapsible(
+      this._root.querySelector('#ef-ict-svg-toggle'),
+      this._root.querySelector('#ef-ict-svg-section')
+    );
+    this._root.querySelector('#ef-ict-svg')?.addEventListener('input', (e) => {
+      this._root.querySelector('#ef-ict-svg-preview').innerHTML = e.target.value;
+    });
+    this._root.querySelector('#ef-ict-svg-remove')?.addEventListener('click', () => {
+      this._root.querySelector('#ef-ict-svg').value = '';
+      this._root.querySelector('#ef-ict-svg-preview').innerHTML = '';
+    });
+
+    ICTFormUtils.bindCollapsible(
+      this._root.querySelector('#ef-ict-img-toggle'),
+      this._root.querySelector('#ef-ict-img-section')
+    );
+    this._root.querySelector('#ef-ict-img-url')?.addEventListener('input', (e) => {
+      this._updateImgPreview(e.target.value.trim());
+    });
+    this._root.querySelector('#ef-ict-img-remove')?.addEventListener('click', () => {
+      this._root.querySelector('#ef-ict-img-url').value = '';
+      this._updateImgPreview('');
+    });
+  }
+
+  getSvg()    { return this._root.querySelector('#ef-ict-svg')?.value.trim()     || ''; }
+  getImgUrl() { return this._root.querySelector('#ef-ict-img-url')?.value.trim() || ''; }
+
   _updateImgPreview(url) {
-    const preview = this.querySelector('#ict-img-preview');
+    const preview = this._root.querySelector('#ef-ict-img-preview');
     if (!preview) return;
     if (url) {
-      preview.innerHTML = `<img src="${this._esc(url)}" alt="preview" />`;
+      preview.innerHTML = `<img src="${ICTFormUtils.escHtml(url)}" alt="preview" />`;
       preview.classList.add('visible');
     } else {
       preview.innerHTML = '';
@@ -387,27 +171,374 @@ class ImageCompareQuantitiesTickFormComponent extends HTMLElement {
     }
   }
 
-  _parseOptionalNumber(selector) {
-    const val = this.querySelector(selector)?.value.trim();
-    if (!val) return '';
-    const n = parseFloat(val);
-    return isNaN(n) ? '' : n;
+}
+
+// ── Answer Widget ─────────────────────────────────────────────────────────────
+// Owns: partition direction, tick zones grid, correct answer Left/Right radios,
+//       feedback grid (correct / incorrect)
+// Unique to image_compare_quantities_tick form
+
+class ICTAnswerWidget {
+
+  constructor(root) {
+    this._root = root;
   }
 
-  _parseTags() {
-    const raw = this.querySelector('#ict-tags')?.value || '';
-    return raw.split(',').map(t => t.trim()).filter(t => t.length > 0);
+  render(q) {
+    const dir      = q.partition_direction || 'vertical';
+    const zones    = q.tick_zones          || { left: 'top_left', right: 'top_right' };
+    const feedback = q.feedback            || { correct: '', incorrect: '' };
+    const ca       = q.correct_answer      || '';
+
+    const ZONE_OPTIONS = ['top_left', 'top_right', 'bottom_left', 'bottom_right'];
+    const zoneSelect = (id, current) => `
+      <select class="ef-ict-select" id="${id}">
+        ${ZONE_OPTIONS.map(z => `
+          <option value="${z}" ${current === z ? 'selected' : ''}>
+            ${z.replace(/_/g, ' ')}
+          </option>`).join('')}
+      </select>`;
+
+    return `
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">Partition Direction</label>
+        <select class="ef-ict-select" id="ef-ict-partition-dir">
+          <option value="vertical"   ${dir === 'vertical'   ? 'selected' : ''}>
+            Vertical (left / right)
+          </option>
+          <option value="horizontal" ${dir === 'horizontal' ? 'selected' : ''}>
+            Horizontal (top / bottom)
+          </option>
+        </select>
+      </div>
+
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">Tick Zones</label>
+        <div class="ef-ict-zones-grid">
+          <div class="ef-ict-field">
+            <label class="ef-ict-label" style="font-size:10px">Left Zone</label>
+            ${zoneSelect('ef-ict-zone-left', zones.left)}
+          </div>
+          <div class="ef-ict-field">
+            <label class="ef-ict-label" style="font-size:10px">Right Zone</label>
+            ${zoneSelect('ef-ict-zone-right', zones.right)}
+          </div>
+        </div>
+      </div>
+
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">Correct Answer</label>
+        <div class="ef-ict-answer-group">
+          <label class="ef-ict-answer-option ${ca === 'left' ? 'selected-left' : ''}"
+                 id="ef-ict-opt-left">
+            <input type="radio" name="ef-ict-correct" value="left"
+                   ${ca === 'left' ? 'checked' : ''} />
+            ← Left
+          </label>
+          <label class="ef-ict-answer-option ${ca === 'right' ? 'selected-right' : ''}"
+                 id="ef-ict-opt-right">
+            <input type="radio" name="ef-ict-correct" value="right"
+                   ${ca === 'right' ? 'checked' : ''} />
+            Right →
+          </label>
+        </div>
+      </div>
+
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">
+          Feedback <span class="ef-ict-optional">(optional)</span>
+        </label>
+        <div class="ef-ict-feedback-grid">
+          <div class="ef-ict-field">
+            <label class="ef-ict-label" style="font-size:10px">✓ Correct</label>
+            <input class="ef-ict-input" id="ef-ict-feedback-correct" type="text"
+              placeholder="e.g. Correct! You picked the right side."
+              value="${ICTFormUtils.escHtml(feedback.correct || '')}"
+            />
+          </div>
+          <div class="ef-ict-field">
+            <label class="ef-ict-label" style="font-size:10px">✗ Incorrect</label>
+            <input class="ef-ict-input" id="ef-ict-feedback-incorrect" type="text"
+              placeholder="e.g. Try again. Count carefully."
+              value="${ICTFormUtils.escHtml(feedback.incorrect || '')}"
+            />
+          </div>
+        </div>
+      </div>
+    `;
   }
 
-  _esc(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+  bindEvents() {
+    this._root.querySelectorAll('input[name="ef-ict-correct"]').forEach(radio => {
+      radio.addEventListener('change', () => this._updateAnswerHighlight());
+    });
+  }
+
+  getPartitionDirection() {
+    return this._root.querySelector('#ef-ict-partition-dir')?.value || 'vertical';
+  }
+
+  getTickZones() {
+    return {
+      left:  this._root.querySelector('#ef-ict-zone-left')?.value  || 'top_left',
+      right: this._root.querySelector('#ef-ict-zone-right')?.value || 'top_right',
+    };
+  }
+
+  getCorrectAnswer() {
+    return this._root.querySelector('input[name="ef-ict-correct"]:checked')?.value || '';
+  }
+
+  getFeedback() {
+    return {
+      correct:   this._root.querySelector('#ef-ict-feedback-correct')?.value.trim()   || '',
+      incorrect: this._root.querySelector('#ef-ict-feedback-incorrect')?.value.trim() || '',
+    };
+  }
+
+  // ── Private ──────────────────────────────────────────
+
+  _updateAnswerHighlight() {
+    const val      = this._root.querySelector('input[name="ef-ict-correct"]:checked')?.value;
+    const leftOpt  = this._root.querySelector('#ef-ict-opt-left');
+    const rightOpt = this._root.querySelector('#ef-ict-opt-right');
+    leftOpt?.classList.toggle('selected-left',   val === 'left');
+    rightOpt?.classList.toggle('selected-right', val === 'right');
+    if (val === 'left')  rightOpt?.classList.remove('selected-right');
+    if (val === 'right') leftOpt?.classList.remove('selected-left');
   }
 
 }
 
-customElements.define('compare-image-objects-form',
-  ImageCompareQuantitiesTickFormComponent);
+// ── Metadata Widget ───────────────────────────────────────────────────────────
+// Owns: explanation + difficulty + points + time limit + tags
+
+class ICTMetadataWidget {
+
+  constructor(root) {
+    this._root = root;
+  }
+
+  render(q) {
+    const diffOptions = EditorConfig.DIFFICULTY_LEVELS.map(d =>
+      `<option value="${d}" ${q.difficulty === d ? 'selected' : ''}>${d}</option>`
+    ).join('');
+
+    return `
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">
+          Explanation <span class="ef-ict-optional">(optional)</span>
+        </label>
+        <textarea class="ef-ict-textarea" id="ef-ict-explanation"
+          rows="2" placeholder="Explanation (HTML/MathML supported)"
+        >${ICTFormUtils.escHtml(q.explanation || '')}</textarea>
+        <div class="ef-ict-render-preview" id="ef-ict-explanation-preview"></div>
+      </div>
+
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">Difficulty</label>
+        <select class="ef-ict-select" id="ef-ict-difficulty">
+          ${diffOptions}
+        </select>
+      </div>
+
+      <div class="ef-ict-row-2">
+        <div class="ef-ict-field">
+          <label class="ef-ict-label">
+            Points <span class="ef-ict-optional">(optional)</span>
+          </label>
+          <input class="ef-ict-input" id="ef-ict-points" type="number"
+            min="0" step="0.5" placeholder="e.g. 1"
+            value="${q.points !== '' && q.points != null ? q.points : ''}"
+          />
+        </div>
+        <div class="ef-ict-field">
+          <label class="ef-ict-label">
+            Time Limit (sec) <span class="ef-ict-optional">(optional)</span>
+          </label>
+          <input class="ef-ict-input" id="ef-ict-time-limit" type="number"
+            min="0" step="1" placeholder="e.g. 30"
+            value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
+          />
+        </div>
+      </div>
+
+      <div class="ef-ict-field">
+        <label class="ef-ict-label">
+          Tags <span class="ef-ict-optional">(comma separated)</span>
+        </label>
+        <input class="ef-ict-input" id="ef-ict-tags" type="text"
+          placeholder="e.g. counting, visual reasoning"
+          value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
+        />
+      </div>
+    `;
+  }
+
+  bindEvents() {
+    ICTFormUtils.bindFocusPreview(
+      this._root.querySelector('#ef-ict-explanation'),
+      this._root.querySelector('#ef-ict-explanation-preview')
+    );
+  }
+
+  getData() {
+    return {
+      explanation: this._root.querySelector('#ef-ict-explanation')?.value.trim() || '',
+      difficulty:  this._root.querySelector('#ef-ict-difficulty')?.value || 'easy',
+      points:      ICTFormUtils.parseOptionalNumber(this._root.querySelector('#ef-ict-points')),
+      time_limit:  ICTFormUtils.parseOptionalNumber(this._root.querySelector('#ef-ict-time-limit')),
+      tags:        ICTFormUtils.parseTags(this._root.querySelector('#ef-ict-tags')),
+    };
+  }
+
+}
+
+// ── Orchestrator ──────────────────────────────────────────────────────────────
+
+class ImageCompareQuantitiesTickFormComponent extends HTMLElement {
+
+  connectedCallback() {
+    this._question = null;
+    this._index    = -1;
+    this._render();
+    this._bindAll();
+  }
+
+  // ── Public API ───────────────────────────────────────
+
+  loadQuestion(index, question) {
+    this._index    = index;
+    this._question = JSON.parse(JSON.stringify(question));
+    this._render();
+    this._bindAll();
+  }
+
+  // ── Render ───────────────────────────────────────────
+
+  _render() {
+    const q          = this._question ||
+      EditorFormRegistry.getDefault('image_compare_quantities_tick');
+    const isSkip     = q.type === EditorConfig.SKIP_TYPE;
+    const typeConf   = EditorFormRegistry.getType(
+      isSkip ? (q.original_type || 'image_compare_quantities_tick') : q.type
+    );
+    const typeLabel    = typeConf ? typeConf.label : 'Image Compare Tick';
+    const bodyClass    = isSkip ? 'ef-ict-body ef-ict-is-skip' : 'ef-ict-body';
+    const skipBtnLabel = isSkip ? `↩ Mark ${typeLabel}` : '⊘ Mark as Skip';
+
+    const qWidget     = new ICTQuestionWidget(this);
+    const mediaWidget = new ICTMediaWidget(this);
+    const ansWidget   = new ICTAnswerWidget(this);
+    const metaWidget  = new ICTMetadataWidget(this);
+
+    this.innerHTML = `
+      <div class="ef-ict-form">
+        <div class="${bodyClass}" id="ef-ict-body">
+          ${qWidget.render(q)}
+          ${mediaWidget.render(q)}
+          ${ansWidget.render(q)}
+          ${metaWidget.render(q)}
+        </div>
+        <div class="ef-ict-footer">
+          <button class="ef-ict-btn-save" id="ef-ict-btn-save">Save</button>
+          <button class="ef-ict-btn-skip" id="ef-ict-btn-skip">${skipBtnLabel}</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // ── Bind all widgets + footer ────────────────────────
+
+  _bindAll() {
+    this._qWidget     = new ICTQuestionWidget(this);
+    this._mediaWidget = new ICTMediaWidget(this);
+    this._ansWidget   = new ICTAnswerWidget(this);
+    this._metaWidget  = new ICTMetadataWidget(this);
+
+    this._qWidget.bindEvents();
+    this._mediaWidget.bindEvents();
+    this._ansWidget.bindEvents();
+    this._metaWidget.bindEvents();
+
+    this._bindFooter();
+  }
+
+  // ── Footer: Save + Skip toggle ───────────────────────
+
+  _bindFooter() {
+    this.querySelector('#ef-ict-btn-save')
+      ?.addEventListener('click', () => this._handleSave());
+
+    this.querySelector('#ef-ict-btn-skip')
+      ?.addEventListener('click', () => this._handleSkipToggle());
+  }
+
+  _handleSkipToggle() {
+    const isSkip   = this._question.type === EditorConfig.SKIP_TYPE;
+    const typeConf = EditorFormRegistry.getType(
+      isSkip ? (this._question.original_type || 'image_compare_quantities_tick') : this._question.type
+    );
+    const typeLabel = typeConf ? typeConf.label : 'Image Compare Tick';
+    const body      = this.querySelector('#ef-ict-body');
+    const btn       = this.querySelector('#ef-ict-btn-skip');
+
+    if (isSkip) {
+      this._question.type = this._question.original_type || 'image_compare_quantities_tick';
+      delete this._question.original_type;
+      body.classList.remove('ef-ict-is-skip');
+      btn.textContent = '⊘ Mark as Skip';
+    } else {
+      this._question.original_type = this._question.type;
+      this._question.type = EditorConfig.SKIP_TYPE;
+      body.classList.add('ef-ict-is-skip');
+      btn.textContent = `↩ Mark ${typeLabel}`;
+    }
+  }
+
+  // ── Save ─────────────────────────────────────────────
+
+  _handleSave() {
+    const saved = {
+      type:                this._question?.type || 'image_compare_quantities_tick',
+      question:            this._qWidget.getValue(),
+      svg_content:         this._mediaWidget.getSvg(),
+      img_url:             this._mediaWidget.getImgUrl(),
+      partition_direction: this._ansWidget.getPartitionDirection(),
+      tick_zones:          this._ansWidget.getTickZones(),
+      correct_answer:      this._ansWidget.getCorrectAnswer(),
+      user_response:       null,
+      feedback:            this._ansWidget.getFeedback(),
+      ...this._metaWidget.getData(),
+    };
+
+    if (this._question?.original_type) {
+      saved.original_type = this._question.original_type;
+    }
+
+    this.dispatchEvent(new CustomEvent('question-saved', {
+      bubbles: true,
+      detail:  { index: this._index, question: saved },
+    }));
+  }
+
+  // ── Collect all data ─────────────────────────────────
+
+  _collectData() {
+    return {
+      type:                this._question?.type || 'image_compare_quantities_tick',
+      question:            this._qWidget.getValue(),
+      svg_content:         this._mediaWidget.getSvg(),
+      img_url:             this._mediaWidget.getImgUrl(),
+      partition_direction: this._ansWidget.getPartitionDirection(),
+      tick_zones:          this._ansWidget.getTickZones(),
+      correct_answer:      this._ansWidget.getCorrectAnswer(),
+      user_response:       null,
+      feedback:            this._ansWidget.getFeedback(),
+      ...this._metaWidget.getData(),
+    };
+  }
+
+}
+
+customElements.define('compare-image-objects-form', ImageCompareQuantitiesTickFormComponent);

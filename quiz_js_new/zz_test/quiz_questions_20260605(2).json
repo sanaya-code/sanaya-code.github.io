@@ -347,7 +347,7 @@
     },
     {
       "type": "compare_quantities",
-      "question": "Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup> edit =",
+      "question": "Water is H<sub>2</sub>O and Energy is E=mc<sup>2</sup>",
       "svg_content": "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
       "img_url": "data/school/c1_miriam/images/front_behind_09.jpg",
       "quantity_a": {
@@ -364,9 +364,9 @@
         "<",
         "|"
       ],
-      "correct_answer": "=",
+      "correct_answer": ">",
       "user_response": "",
-      "explanation": "<math><msqrt><mn>16</mn></msqrt></math> edit =",
+      "explanation": "<math><msqrt><mn>16</mn></msqrt></math>",
       "difficulty": "easy",
       "points": "",
       "time_limit": "",
@@ -375,7 +375,7 @@
     },
     {
       "type": "image_compare_quantities_tick",
-      "question": "compare images edit",
+      "question": "compare images edit 22",
       "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150' width='100%'  style='max-width: 400px; display: block; margin: auto;'><rect width='100%' height='100%' fill='#e0f7ff' /><line x1='150' y1='0' x2='150' y2='150' stroke='black' stroke-width='2' /><ellipse cx='50' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='30' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='75' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='50' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='100' cy='120' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='200' cy='60' rx='15' ry='20' fill='white' stroke='#aaa' /><ellipse cx='250' cy='90' rx='15' ry='20' fill='white' stroke='#aaa' /></svg>",
       "img_url": "",
       "partition_direction": "vertical",
@@ -383,12 +383,8 @@
         "left": "top_left",
         "right": "top_right"
       },
-      "correct_answer": "left",
+      "correct_answer": "right",
       "user_response": null,
-      "feedback": {
-        "correct": "",
-        "incorrect": ""
-      },
       "explanation": "expnaatiion comp img edit",
       "difficulty": "easy",
       "points": "",
