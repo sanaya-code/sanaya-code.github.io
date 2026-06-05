@@ -7,7 +7,7 @@
     "last_modified": "2026-06-05",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 13
+    "total_questions": 14
   },
   "questions": [
     {
@@ -436,6 +436,87 @@
       "tags": [],
       "scoring_method_01": "exact",
       "id": "013"
+    },
+    {
+      "type": "multi_select_two",
+      "question": "multi select 2 red dgreen",
+      "svg_content": "",
+      "img_url": "",
+      "quantities": [
+        {
+          "id": "1",
+          "value": "apple"
+        },
+        {
+          "id": "2",
+          "value": "leaf"
+        },
+        {
+          "id": "3",
+          "value": "lemon"
+        }
+      ],
+      "required_selections": [
+        {
+          "label": "Red",
+          "key": "red",
+          "highlight_style": {
+            "type": "shape",
+            "value": "circle"
+          }
+        },
+        {
+          "label": "Green",
+          "key": "green",
+          "highlight_style": {
+            "type": "mark",
+            "value": "tick"
+          }
+        }
+      ],
+      "correct_answer": {
+        "red": "1",
+        "green": "2"
+      },
+      "user_response": {
+        "red": "",
+        "green": ""
+      },
+      "available_highlight_styles": [
+        {
+          "type": "shape",
+          "value": "circle",
+          "description": "Encircle the selection"
+        },
+        {
+          "type": "shape",
+          "value": "square",
+          "description": "Square border around selection"
+        },
+        {
+          "type": "color",
+          "value": "red",
+          "description": "Fill background with red"
+        },
+        {
+          "type": "color",
+          "value": "green",
+          "description": "Fill background with green"
+        },
+        {
+          "type": "mark",
+          "value": "tick",
+          "description": "Place a tick mark next to the selection"
+        }
+      ],
+      "scoring_method": "exact",
+      "case_sensitive": false,
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "014"
     }
   ]
 }

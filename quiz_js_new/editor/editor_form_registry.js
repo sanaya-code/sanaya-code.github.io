@@ -252,9 +252,20 @@ EditorFormRegistry.register('multi_select_circle', {
 
 EditorFormRegistry.register('multi_select_two', {
   label: 'Multi Select Two', description: 'Highlight items by two categories',
-  color: '#880e4f', previewTag: 'multi-select-two',
-  default: { type: 'multi_select_two', question: '', svg_content: '', img_url: '',
-    options: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+  color: '#880e4f', formTag: 'multi-select-two-form', previewTag: 'multi-select-two',
+  default: {
+    type: 'multi_select_two', question: '', svg_content: '', img_url: '',
+    quantities: [], required_selections: [], correct_answer: {}, user_response: {},
+    available_highlight_styles: [
+      { type: 'shape', value: 'circle',  description: 'Encircle the selection' },
+      { type: 'shape', value: 'square',  description: 'Square border around selection' },
+      { type: 'color', value: 'red',     description: 'Fill background with red' },
+      { type: 'color', value: 'green',   description: 'Fill background with green' },
+      { type: 'mark',  value: 'tick',    description: 'Place a tick mark next to the selection' },
+    ],
+    scoring_method: 'exact', case_sensitive: false,
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
 });
 
 EditorFormRegistry.register('fill_in_blank_multi_graph', {
