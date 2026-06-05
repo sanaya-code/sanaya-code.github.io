@@ -579,3 +579,58 @@ options-fill-in-blank-form .ef-ofib-body {
   font-weight: 700;
   flex-shrink: 0;
 }
+
+/* ── Seg add buttons + assembled preview ─────────────── */
+
+.ef-ofib-seg-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.ef-ofib-seg-add-text {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.15s, color 0.15s;
+}
+.ef-ofib-seg-add-text:hover {
+  border-color: var(--border-focus);
+  color: var(--accent);
+}
+
+.ef-ofib-seg-add-blank {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-ofib-seg-add-blank:hover { background: #b8d9f5; }
+
+.ef-ofib-assembled-preview {
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 30px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+}
+
+.ef-ofib-assembled-preview:empty::before {
+  content: 'Sentence preview will appear here as you add segments';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 11px;
+}
