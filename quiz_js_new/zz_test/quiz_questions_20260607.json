@@ -3,11 +3,11 @@
     "title": "Quiz Question Bank",
     "description": "Exported from Quiz Editor",
     "version": "2.0",
-    "created": "2026-06-05",
-    "last_modified": "2026-06-05",
+    "created": "2026-06-06",
+    "last_modified": "2026-06-06",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 14
+    "total_questions": 17
   },
   "questions": [
     {
@@ -438,7 +438,7 @@
       "id": "013"
     },
     {
-      "type": "skip",
+      "type": "multi_select_two",
       "question": "multi select 2 red dgreen",
       "svg_content": "",
       "img_url": "",
@@ -516,8 +516,283 @@
       "points": "",
       "time_limit": "",
       "tags": [],
-      "original_type": "multi_select_two",
       "id": "014"
+    },
+    {
+      "type": "table_fill_in_the_blank",
+      "question": "Fill in the blanks :",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' markerWidth='10' markerHeight='7' refX='9' refY='3.5' orient='auto'><polygon points='0 0, 10 3.5, 0 7' fill='black'></polygon></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='black'></circle></marker></defs><line x1='30' y1='50' x2='70' y2='50' stroke='black' stroke-width='2'></line><circle cx='30' cy='50' r='3' fill='black'></circle><circle cx='70' cy='50' r='3' fill='black'></circle><text x='25' y='50' text-anchor='end' dominant-baseline='middle' font-size='12' fill='black'>A</text><text x='75' y='50' text-anchor='start' dominant-baseline='middle' font-size='12' fill='black'>B</text><line x1='100' y1='30' x2='100' y2='70' stroke='black' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)'></line><line x1='130' y1='50' x2='170' y2='50' stroke='black' stroke-width='2' stroke-dasharray='5,5'></line></svg>",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "title": "Complete the Multiplication Table",
+      "column_labels": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "row_labels": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "data": [
+        [
+          {
+            "value": "1"
+          },
+          {
+            "value": "____",
+            "correct_answer": "2",
+            "acceptable_answers": [
+              "2"
+            ]
+          },
+          {
+            "value": "____",
+            "correct_answer": "3",
+            "acceptable_answers": [
+              "3"
+            ]
+          }
+        ],
+        [
+          {
+            "value": "____",
+            "correct_answer": "4",
+            "acceptable_answers": [
+              "4"
+            ]
+          },
+          {
+            "value": "5"
+          },
+          {
+            "value": "____",
+            "correct_answer": "6",
+            "acceptable_answers": [
+              "6"
+            ]
+          }
+        ],
+        [
+          {
+            "value": "____",
+            "correct_answer": "7",
+            "acceptable_answers": [
+              "7"
+            ]
+          },
+          {
+            "value": "____",
+            "correct_answer": "8",
+            "acceptable_answers": [
+              "8"
+            ]
+          },
+          {
+            "value": "9"
+          }
+        ]
+      ],
+      "user_response": [
+        [
+          "1",
+          "",
+          ""
+        ],
+        [
+          "",
+          "5",
+          ""
+        ],
+        [
+          "",
+          "",
+          "9"
+        ]
+      ],
+      "scoring_method": "exact",
+      "case_sensitive": false,
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "015"
+    },
+    {
+      "type": "table_image_fill_in_the_blank",
+      "question": "Complete the table with counts and number names:",
+      "svg_content": "",
+      "img_url": "",
+      "columns": 3,
+      "column_headings": {
+        "image": "Visual",
+        "field1": "Field 1",
+        "field2": "Field 2"
+      },
+      "rows": [
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='30' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='90' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='150' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='210' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/><circle cx='270' cy='19' r='12' fill='#ff5252' stroke='#d32f2f'/></svg>\n          ",
+          "alt_text": "Five apples",
+          "field1": {
+            "acceptable_answers": [
+              "5"
+            ]
+          },
+          "field2": {
+            "acceptable_answers": [
+              "five"
+            ]
+          }
+        },
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M30,28 L90,28 L90,8 L120,8 L120,28 L180,28' fill='#8d6e63' stroke='#5d4037'/><path d='M120,28 L180,28 L180,8 L210,8 L210,28 L270,28' fill='#8d6e63' stroke='#5d4037'/></svg>\n          ",
+          "alt_text": "Two chairs",
+          "field1": {
+            "acceptable_answers": [
+              "2"
+            ]
+          },
+          "field2": {
+            "acceptable_answers": [
+              "two"
+            ]
+          }
+        },
+        {
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>\n          ",
+          "alt_text": "Two leaves",
+          "field1": {
+            "acceptable_answers": [
+              "3"
+            ]
+          },
+          "field2": {
+            "acceptable_answers": [
+              "three"
+            ]
+          }
+        }
+      ],
+      "user_response": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "validation": {
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "016"
+    },
+    {
+      "type": "fill_in_blank_operation",
+      "question": "Perform substraction",
+      "svg_content": "",
+      "img_url": "",
+      "operation": {
+        "name": "substraction",
+        "symbol": "-"
+      },
+      "editable_answer": {
+        "first_row": [
+          true,
+          true,
+          true
+        ],
+        "second_row": [
+          false,
+          false
+        ],
+        "third_row": [
+          false,
+          false,
+          false
+        ],
+        "fourth_row": [
+          true,
+          true,
+          true
+        ]
+      },
+      "initial_answer": {
+        "first_row": [
+          "",
+          "",
+          ""
+        ],
+        "second_row": [
+          "3",
+          "7"
+        ],
+        "third_row": [
+          "-",
+          "1",
+          "9"
+        ],
+        "fourth_row": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "correct_answer": {
+        "first_row": [
+          "",
+          "2",
+          "17"
+        ],
+        "fourth_row": [
+          "",
+          "1",
+          "8"
+        ]
+      },
+      "user_response": {
+        "first_row": [
+          "",
+          "",
+          ""
+        ],
+        "fourth_row": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "choices": [
+        "",
+        "1",
+        "2",
+        "17",
+        "8",
+        "13",
+        "6",
+        "5"
+      ],
+      "scoring_method": "exact",
+      "case_sensitive": false,
+      "description": "Perform substraction",
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "017"
     }
   ]
 }

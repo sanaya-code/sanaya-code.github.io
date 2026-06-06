@@ -285,9 +285,12 @@ EditorFormRegistry.register('fill_in_blank_multi_graph_text', {
 
 EditorFormRegistry.register('fill_in_blank_operation', {
   label: 'Fill Operation', description: 'Fill in a math operation grid',
-  color: '#006064', previewTag: 'fill-in-blank-operation',
+  color: '#006064', formTag: 'fill-in-blank-operation-form', previewTag: 'fill-in-blank-operation',
   default: { type: 'fill_in_blank_operation', question: '', svg_content: '', img_url: '',
-    grid: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    operation: { name: '', symbol: '' },
+    editable_answer: {}, initial_answer: {}, correct_answer: {}, user_response: {},
+    choices: [], scoring_method: 'exact', case_sensitive: false, description: '',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('number_line_arcs', {

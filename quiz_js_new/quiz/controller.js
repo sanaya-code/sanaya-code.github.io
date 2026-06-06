@@ -51,4 +51,9 @@ class QuizController {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => new QuizController().init());
+// document.addEventListener('DOMContentLoaded', () => new QuizController().init());
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.obj = new QuizController();
+    window.obj.init();
+});

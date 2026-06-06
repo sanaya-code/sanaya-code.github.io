@@ -1,0 +1,682 @@
+/* editor/components/question_forms/fill_in_blank_operation_form/style.css */
+/* Self-contained — prefix: ef-fibopr- */
+
+.ef-fibopr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Skip button (footer) ────────────────────────────── */
+
+.ef-fibopr-btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.ef-fibopr-btn-skip:hover { background: rgba(127,140,141,0.12); }
+
+/* ── Scrollable form body ────────────────────────────── */
+
+.ef-fibopr-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field group ─────────────────────────────────────── */
+
+.ef-fibopr-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ef-fibopr-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ef-fibopr-label .ef-fibopr-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+.ef-fibopr-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+/* ── Textarea ────────────────────────────────────────── */
+
+.ef-fibopr-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+
+.ef-fibopr-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── On-focus preview box ────────────────────────────── */
+
+.ef-fibopr-render-preview {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;
+  animation: ef-fibopr-fadein 0.15s ease;
+}
+
+.ef-fibopr-render-preview.visible { display: block; }
+
+.ef-fibopr-render-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+@keyframes ef-fibopr-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Text input ──────────────────────────────────────── */
+
+.ef-fibopr-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ef-fibopr-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.ef-fibopr-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ef-fibopr-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.ef-fibopr-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.ef-fibopr-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.ef-fibopr-collapsible.open .ef-fibopr-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.ef-fibopr-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.ef-fibopr-collapsible.open .ef-fibopr-collapsible-body {
+  display: flex;
+}
+
+/* ── SVG preview ─────────────────────────────────────── */
+
+.ef-fibopr-svg-preview {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.ef-fibopr-svg-preview svg { max-width: 100%; height: auto; }
+
+.ef-fibopr-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── Image thumbnail preview ─────────────────────────── */
+
+.ef-fibopr-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.ef-fibopr-img-preview.visible { display: flex; }
+
+.ef-fibopr-img-preview img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Remove buttons ──────────────────────────────────── */
+
+.ef-fibopr-remove-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-fibopr-remove-btn:hover { background: var(--danger-light); }
+
+/* ── Two-column row ──────────────────────────────────── */
+
+.ef-fibopr-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Select ──────────────────────────────────────────── */
+
+.ef-fibopr-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.ef-fibopr-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.ef-fibopr-error {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.ef-fibopr-error.visible { display: block; }
+
+/* ── Checkbox label ──────────────────────────────────── */
+
+.ef-fibopr-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.ef-fibopr-checkbox {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Save footer ─────────────────────────────────────── */
+
+.ef-fibopr-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.ef-fibopr-btn-save {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.ef-fibopr-btn-save:hover {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+
+/* ── Disabled state when marked as skip ──────────────── */
+
+.ef-fibopr-body.ef-fibopr-is-skip .ef-fibopr-field,
+.ef-fibopr-body.ef-fibopr-is-skip .ef-fibopr-collapsible {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ef-fibopr-body.ef-fibopr-is-skip {
+  opacity: 0.6;
+}
+
+.ef-fibopr-body.ef-fibopr-is-skip ~ .ef-fibopr-footer {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Height chain ────────────────────────────────────── */
+
+fill-in-blank-operation-form .ef-fibopr-form { min-height: 0; }
+fill-in-blank-operation-form .ef-fibopr-body { min-height: 0; }
+
+/* ════════════════════════════════════════════════════════
+   GRID BUILDER — unique to fill_in_blank_operation_form
+   ════════════════════════════════════════════════════════ */
+
+/* ── Grid wrap ───────────────────────────────────────── */
+
+.ef-fibopr-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  min-height: 48px;
+}
+
+.ef-fibopr-grid-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* ── Grid row ────────────────────────────────────────── */
+
+.ef-fibopr-grid-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.ef-fibopr-row-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  min-width: 62px;
+  padding-top: 10px;
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+}
+
+/* ── Cells container ─────────────────────────────────── */
+
+.ef-fibopr-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Single cell ─────────────────────────────────────── */
+
+.ef-fibopr-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+  min-width: 80px;
+  transition: border-color 0.15s;
+}
+
+.ef-fibopr-cell:hover {
+  border-color: var(--border-focus);
+}
+
+/* Green border when editable */
+.ef-fibopr-cell.ef-fibopr-cell-editable {
+  border-color: var(--success);
+  background: rgba(39,174,122,0.05);
+}
+
+/* ── Cell toggle (editable checkbox + mode icon) ─────── */
+
+.ef-fibopr-cell-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ef-fibopr-cell-toggle {
+  width: 13px;
+  height: 13px;
+  accent-color: var(--success);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ef-fibopr-cell-mode {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.ef-fibopr-cell.ef-fibopr-cell-editable .ef-fibopr-cell-mode {
+  color: var(--success);
+}
+
+/* ── Cell value input ────────────────────────────────── */
+
+.ef-fibopr-cell-input {
+  width: 100%;
+  padding: 5px 7px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+
+.ef-fibopr-cell-input:focus {
+  border-color: var(--border-focus);
+}
+
+.ef-fibopr-cell.ef-fibopr-cell-editable .ef-fibopr-cell-input {
+  border-color: var(--success);
+}
+
+.ef-fibopr-cell.ef-fibopr-cell-editable .ef-fibopr-cell-input:focus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(39,174,122,0.12);
+}
+
+/* ── Delete last cell button ─────────────────────────── */
+
+.ef-fibopr-del-cell-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.ef-fibopr-del-cell-btn:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.ef-fibopr-cell-spacer {
+  width: 20px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* ── Add cell button (per row) ───────────────────────── */
+
+.ef-fibopr-add-cell-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+  background: transparent;
+  border: 1.5px dashed var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.15s, color 0.15s;
+}
+.ef-fibopr-add-cell-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Add row bar ─────────────────────────────────────── */
+
+.ef-fibopr-add-row-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ef-fibopr-cell-count-input {
+  width: 90px;
+  flex-shrink: 0;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.ef-fibopr-add-row-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.ef-fibopr-add-row-btn:hover { background: #b8d9f5; }
+
+.ef-fibopr-del-row-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1.5px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.ef-fibopr-del-row-btn:hover { background: var(--danger-light); }
+.ef-fibopr-del-row-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Choices (word bank) ─────────────────────────────── */
+
+.ef-fibopr-choices-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ef-fibopr-choices-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+}
+
+.ef-fibopr-choice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 3px 10px 3px 10px;
+  font-size: 12px;
+  color: var(--accent-deep);
+  font-family: var(--font-mono);
+}
+
+.ef-fibopr-choice-text {
+  line-height: 1;
+}
+
+.ef-fibopr-choice-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 10px;
+  padding: 1px 2px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.ef-fibopr-choice-remove:hover { color: var(--danger); }
+
+.ef-fibopr-choices-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.ef-fibopr-choices-input-row .ef-fibopr-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.ef-fibopr-add-choice-btn {
+  flex-shrink: 0;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.ef-fibopr-add-choice-btn:hover { background: #b8d9f5; }
