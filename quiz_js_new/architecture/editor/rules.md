@@ -21,6 +21,8 @@ ADDING A NEW FORM — STEPS & RULES
 1.4  [RULE] Form fires two events only:
      - question-saved   → detail: { index, question }
      - question-closed  → detail: { isNew, index }
+     These bubble up to editor-panel, which MainController listens to.
+     EditorPanelHandler.onQuestionSaved / onQuestionClosed handle them.
 
 1.5  [RULE] Footer layout: Save button LEFT, ⊘ Mark as Skip / ↩ Mark {Label}
      RIGHT. justify-content: space-between. No topbar inside the form.
@@ -34,6 +36,10 @@ ADDING A NEW FORM — STEPS & RULES
 
 1.8  [RULE] No imports, no shared utilities. Every helper lives inside
      {Type}FormUtils in this file only.
+
+1.9  [RULE] Form component is dumb — never calls StateController, never calls
+     any ComponentController. It only reads the question data passed into
+     loadQuestion() and fires events upward.
 
 
 --- 2. CREATE THE FORM STYLE CSS ---
@@ -51,7 +57,7 @@ ADDING A NEW FORM — STEPS & RULES
      on MCQ's style.css, then append only the unique rules for the new
      answer widget. Never write the base from scratch.
 
-2.5  [RULE] Include height chain:
+2.5  [RULE] Include height chain at the bottom:
      {element-tag} .ef-{prefix}-form { min-height: 0; }
      {element-tag} .ef-{prefix}-body { min-height: 0; }
 
@@ -75,16 +81,16 @@ ADDING A NEW FORM — STEPS & RULES
 --- 4. WIRE INTO editor.html ---
 
 4.1  [UPDATE] Add CSS link — editor form styles section:
-     <link rel="stylesheet" href="editor/components/question_forms/{type}_form/style.css" />
+     
 
 4.2  [UPDATE] Add script tag — editor form scripts section:
-     <script src="editor/components/question_forms/{type}_form/component.js"></script>
+     
 
 4.3  [UPDATE] Add CSS link — quiz preview component:
-     <link rel="stylesheet" href="quiz/components/question_types/{preview_dir}/style.css" />
+     
 
 4.4  [UPDATE] Add script tag — quiz preview component:
-     <script src="quiz/components/question_types/{preview_dir}/component.js"></script>
+     
 
 4.5  [RULE] Exactly 4 lines added to editor.html. Nothing else changes.
 
@@ -98,3 +104,5 @@ ADDING A NEW FORM — STEPS & RULES
      question-closed fires with { isNew, index }
 5.5  Preview component receives config attribute set BEFORE DOM insertion
 5.6  No code, utility, or CSS shared with any other form file
+5.7  Form never accesses StateController, ComponentControllers, or any
+     global app state — it is fully passive
