@@ -172,9 +172,12 @@ EditorFormRegistry.register('options_fill_in_blank', {
 
 EditorFormRegistry.register('table_fill_in_the_blank', {
   label: 'Table Fill Blank', description: 'Fill in blanks inside a table',
-  color: '#2980b9', previewTag: 'table-fill-in-the-blank',
+  color: '#2980b9', formTag: 'table-fill-in-the-blank-form', previewTag: 'table-fill-in-the-blank',
   default: { type: 'table_fill_in_the_blank', question: '', svg_content: '', img_url: '',
-    table: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    title: '', column_labels: ['C1', 'C2'], row_labels: ['R1', 'R2'],
+    data: [[{value:''},{value:''}],[{value:''},{value:''}]],
+    user_response: [], scoring_method: 'exact', case_sensitive: false,
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('table_image_fill_in_the_blank', {
@@ -256,13 +259,6 @@ EditorFormRegistry.register('multi_select_two', {
   default: {
     type: 'multi_select_two', question: '', svg_content: '', img_url: '',
     quantities: [], required_selections: [], correct_answer: {}, user_response: {},
-    available_highlight_styles: [
-      { type: 'shape', value: 'circle',  description: 'Encircle the selection' },
-      { type: 'shape', value: 'square',  description: 'Square border around selection' },
-      { type: 'color', value: 'red',     description: 'Fill background with red' },
-      { type: 'color', value: 'green',   description: 'Fill background with green' },
-      { type: 'mark',  value: 'tick',    description: 'Place a tick mark next to the selection' },
-    ],
     scoring_method: 'exact', case_sensitive: false,
     explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
   },
