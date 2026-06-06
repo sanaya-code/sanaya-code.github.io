@@ -1,137 +1,113 @@
 // editor/controller.js
 
-const EditorController = (() => {
+class MainController {
 
-  // ── DOM refs ──────────────────────────────────────────
-  const emptyState     = document.getElementById('empty-state');
-  const shell          = document.getElementById('shell');
-  const btnEsLoad      = document.getElementById('btn-es-load');
-  const btnEsFresh     = document.getElementById('btn-es-fresh');
-  const btnEsResume    = document.getElementById('btn-es-resume');
-  const btnAddQuestion = document.getElementById('btn-add-question');
-  const btnLoadJson    = document.getElementById('btn-load-json');
-  const btnExportJson  = document.getElementById('btn-export-json');
-  const fileInput      = document.getElementById('file-input');
-  const esLoadError    = document.getElementById('es-load-error');
+  constructor() {
+    // ── Shell DOM ref (layout wrapper only) ─────────────
+    this._shell = document.getElementById('shell');
 
-  // ── Handler refs ──────────────────────────────────────
-  let _listHandler  = null;
-  let _panelHandler = null;
+    // ── Component controllers ───────────────────────────
+    this._topbarCtrl     = new TopbarController(
+      new TopbarComponent(document.getElementById('topbar'))
+    );
+    this._emptyStateCtrl = new EmptyStateController(
+      new EmptyStateComponent(document.getElementById('empty-state'))
+    );
+    this._listCtrl       = new QuestionListController(
+      document.getElementById('question-list')
+    );
+    this._panelCtrl      = new EditorPanelController(
+      document.getElementById('editor-panel')
+    );
 
-  // ── Init ──────────────────────────────────────────────
-  function init() {
-    _checkDraft();
-    _initComponents();
-    _bindEvents();
+    // ── Event handlers ──────────────────────────────────
+    this._listHandler  = new QuestionListHandler(this._listCtrl, this._panelCtrl);
+    this._panelHandler = new EditorPanelHandler(this._listCtrl, this._panelCtrl);
+
+    // ── Boot ────────────────────────────────────────────
+    this._checkDraft();
+    this._bindCustomEvents();
+    this._bindDomEvents();
   }
 
   // ── Draft detection ───────────────────────────────────
-  function _checkDraft() {
+
+  _checkDraft() {
     if (StateController.hasDraft()) {
-      btnEsResume.classList.remove('hidden');
+      this._emptyStateCtrl.showDraftButton();
     }
   }
 
-  // ── Wire components ───────────────────────────────────
-  function _initComponents() {
+  // ── Bind custom events from components ────────────────
+
+  _bindCustomEvents() {
     const listEl  = document.getElementById('question-list');
     const panelEl = document.getElementById('editor-panel');
 
-    _listHandler  = new QuestionListHandler(listEl, null);
-    _panelHandler = new EditorPanelHandler(panelEl, _listHandler);
-    _listHandler._panelHandler = _panelHandler;
+    listEl.addEventListener('question-selected', (e) =>
+      this._listHandler.onQuestionSelected(e.detail.index));
+
+    listEl.addEventListener('question-deleted', (e) =>
+      this._listHandler.onQuestionDeleted(e.detail.index));
+
+    listEl.addEventListener('question-reordered', (e) =>
+      this._listHandler.onQuestionReordered(e.detail.from, e.detail.to));
+
+    panelEl.addEventListener('question-saved', (e) =>
+      this._panelHandler.onQuestionSaved(e.detail.index, e.detail.question));
+
+    panelEl.addEventListener('question-closed', (e) =>
+      this._panelHandler.onQuestionClosed(e.detail.isNew, e.detail.index));
+
+    panelEl.addEventListener('type-selected', (e) =>
+      this._panelHandler.onTypeSelected(e.detail.type));
+
+    panelEl.addEventListener('type-selector-closed', () =>
+      this._panelHandler.onTypeSelectorClosed());
   }
 
   // ── Enter editor ──────────────────────────────────────
-  function _enterEditor() {
-    emptyState.classList.add('hidden');
-    shell.classList.remove('hidden');
-    _listHandler.refresh();
-    _panelHandler.clearPanel();
-  }
 
-  // ── Type selector ─────────────────────────────────────
-  function _showTypeSelector() {
-    const panelEl = document.getElementById('editor-panel');
-    panelEl.innerHTML = `
-      <div class="ep-shell">
-        <div class="ep-tabbar">
-          <div class="ep-tabbar-left">
-            <span style="font-size:13px;font-weight:600;
-                         color:var(--text-secondary)">New Question</span>
-          </div>
-          <div class="ep-tabbar-right">
-            <button class="ep-close-btn" id="ts-close-btn">✕ Close</button>
-          </div>
-        </div>
-        <div class="ep-content">
-          <div class="ep-form-host">
-            <type-selector></type-selector>
-          </div>
-        </div>
-      </div>`;
-
-    panelEl.querySelector('#ts-close-btn')?.addEventListener('click', () => {
-      StateController.returnToView();
-      _listHandler.refresh();
-      _panelHandler.clearPanel();
-    });
-
-    panelEl.addEventListener('type-selected', _handleTypeSelected, { once: true });
-  }
-
-  function _handleTypeSelected(e) {
-    const { type } = e.detail;
-    const index    = StateController.addUnsavedQuestion(type);
-    // addUnsavedQuestion calls StateController.startNew(index)
-    _listHandler.refresh();
-    _panelHandler.loadNewQuestion(type, index);
+  _enterEditor() {
+    this._emptyStateCtrl.hide();
+    this._shell.classList.remove('hidden');
+    this._listCtrl.refresh();
+    this._panelCtrl.clear();
   }
 
   // ── Load JSON ─────────────────────────────────────────
-  function _triggerFilePicker(onSuccess) {
-    fileInput.value = '';
-    fileInput.onchange = async (e) => {
+
+  _triggerFilePicker(onSuccess) {
+    this._topbarCtrl.onFileSelected((e) => {
       const file = e.target.files[0];
       if (!file) return;
-      try {
-        const questions = await JsonLoader.loadFromFile(file);
-        onSuccess(questions);
-      } catch (err) {
-        _showLoadError(err.message);
-      }
-    };
-    fileInput.click();
+      JsonLoader.loadFromFile(file)
+        .then((questions) => onSuccess(questions))
+        .catch((err) => this._emptyStateCtrl.showError(err.message));
+    });
+    this._topbarCtrl.openFilePicker();
   }
 
-  function _loadQuestions(questions) {
+  _loadQuestions(questions) {
     StateController.loadQuestions(questions);
-    _hideLoadError();
-    _enterEditor();
-  }
-
-  function _showLoadError(msg) {
-    esLoadError.textContent = '⚠ ' + msg;
-    esLoadError.classList.remove('hidden');
-  }
-
-  function _hideLoadError() {
-    esLoadError.classList.add('hidden');
-    esLoadError.textContent = '';
+    this._emptyStateCtrl.hideError();
+    this._enterEditor();
   }
 
   // ── Resume draft ──────────────────────────────────────
-  function _resumeDraft() {
+
+  _resumeDraft() {
     const ok = StateController.loadDraft();
     if (ok) {
-      _enterEditor();
+      this._enterEditor();
     } else {
-      _showLoadError('Failed to resume draft.');
+      this._emptyStateCtrl.showError('Failed to resume draft.');
     }
   }
 
   // ── Export ────────────────────────────────────────────
-  function _exportJson() {
+
+  _exportJson() {
     const total     = StateController.getCount();
     const questions = StateController.exportQuestions();
     if (total === 0) {
@@ -153,48 +129,47 @@ const EditorController = (() => {
     JsonExporter.download(questions);
   }
 
-  // ── Events ────────────────────────────────────────────
-  function _bindEvents() {
+  // ── Bind DOM events ───────────────────────────────────
 
-    btnEsFresh.addEventListener('click', () => {
+  _bindDomEvents() {
+
+    this._emptyStateCtrl.onFresh(() => {
       StateController.reset();
-      _hideLoadError();
-      _enterEditor();
+      this._emptyStateCtrl.hideError();
+      this._enterEditor();
     });
 
-    btnEsLoad.addEventListener('click', () => {
-      _hideLoadError();
-      _triggerFilePicker(_loadQuestions);
+    this._emptyStateCtrl.onLoad(() => {
+      this._emptyStateCtrl.hideError();
+      this._triggerFilePicker((q) => this._loadQuestions(q));
     });
 
-    btnEsResume.addEventListener('click', _resumeDraft);
+    this._emptyStateCtrl.onResume(() => this._resumeDraft());
 
-    btnLoadJson.addEventListener('click', () => {
-      _triggerFilePicker((questions) => {
+    this._topbarCtrl.onLoadJson(() => {
+      this._triggerFilePicker((questions) => {
         if (StateController.getCount() > 0) {
           if (!confirm(
             'Loading a new file will replace your current questions.\n' +
             'Unsaved changes will be lost. Continue?'
           )) return;
         }
-        _loadQuestions(questions);
+        this._loadQuestions(questions);
       });
     });
 
-    btnExportJson.addEventListener('click', _exportJson);
+    this._topbarCtrl.onExportJson(() => this._exportJson());
 
-    btnAddQuestion.addEventListener('click', () => {
+    this._topbarCtrl.onAddQuestion(() => {
       if (!StateController.canAdd()) {
         StateController.promptFinishEditing();
         return;
       }
-      _showTypeSelector();
+      this._panelCtrl.showTypeSelector();
     });
 
   }
 
-  return { init };
+}
 
-})();
-
-document.addEventListener('DOMContentLoaded', () => EditorController.init());
+document.addEventListener('DOMContentLoaded', () => new MainController());

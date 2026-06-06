@@ -4,13 +4,15 @@ class EditorPanelComponent extends HTMLElement {
 
   connectedCallback() {
     this._currentIndex = -1;
+    this._isNew        = false;
     this.clear();
   }
 
   // ── Public API ───────────────────────────────────────
 
-  loadQuestion(index, question) {
+  loadQuestion(index, question, isNew = false) {
     this._currentIndex = index;
+    this._isNew        = isNew;
     this._renderShell(question);
     this._mountForm(question);
   }
@@ -20,8 +22,33 @@ class EditorPanelComponent extends HTMLElement {
     this._mountPreview(question);
   }
 
+  showTypeSelector() {
+    this.innerHTML = `
+      <div class="ep-shell">
+        <div class="ep-tabbar">
+          <div class="ep-tabbar-left">
+            <span style="font-size:13px;font-weight:600;
+                         color:var(--text-secondary)">New Question</span>
+          </div>
+          <div class="ep-tabbar-right">
+            <button class="ep-close-btn" id="ep-ts-close-btn">✕ Close</button>
+          </div>
+        </div>
+        <div class="ep-content">
+          <div class="ep-form-host">
+            <type-selector></type-selector>
+          </div>
+        </div>
+      </div>`;
+
+    this.querySelector('#ep-ts-close-btn')?.addEventListener('click', () => {
+      this.dispatchEvent(new CustomEvent('type-selector-closed', { bubbles: true }));
+    });
+  }
+
   clear() {
     this._currentIndex = -1;
+    this._isNew        = false;
     this.innerHTML = `
       <div class="middle-placeholder">
         <div class="placeholder-icon">✦</div>
@@ -32,13 +59,12 @@ class EditorPanelComponent extends HTMLElement {
   // ── Shell ────────────────────────────────────────────
 
   _renderShell(question) {
-    const isSkip   = question?.type === EditorConfig.SKIP_TYPE;
-    const typeConf = EditorFormRegistry.getType(
+    const isSkip     = question?.type === EditorConfig.SKIP_TYPE;
+    const typeConf   = EditorFormRegistry.getType(
       isSkip ? (question.original_type || 'mcq') : (question?.type || 'mcq')
     );
     const badgeColor = typeConf ? typeConf.color : '#3498db';
     const badgeLabel = typeConf ? typeConf.label : '?';
-    const isNew      = StateController.isNew();
 
     const badge = isSkip
       ? `<span class="ep-type-badge ep-badge-skip">⊘ SKIP</span>`
@@ -50,13 +76,11 @@ class EditorPanelComponent extends HTMLElement {
           <div class="ep-tabbar-left">${badge}</div>
           <div class="ep-tabs">
             <button class="ep-tab ep-tab-active" data-tab="edit">Edit</button>
-            <button class="ep-tab ep-tab-active" data-tab="preview">
-              Preview
-            </button>
+            <button class="ep-tab ep-tab-inactive" data-tab="preview">Preview</button>
           </div>
           <div class="ep-tabbar-right">
             <button class="ep-close-btn" id="ep-close-btn"
-                    title="${isNew ? 'Discard new question' : 'Close editor'}">
+                    title="${this._isNew ? 'Discard new question' : 'Close editor'}">
               ✕ Close
             </button>
           </div>
@@ -65,7 +89,7 @@ class EditorPanelComponent extends HTMLElement {
       </div>`;
 
     this._bindTabEvents(question);
-    this._bindCloseButton(isNew);
+    this._bindCloseButton();
   }
 
   // ── Tab bar ──────────────────────────────────────────
@@ -77,18 +101,17 @@ class EditorPanelComponent extends HTMLElement {
 
     editTab.classList.toggle('ep-tab-active',   activeTab === 'edit');
     editTab.classList.toggle('ep-tab-inactive', activeTab !== 'edit');
-    previewTab.classList.remove('ep-tab-disabled');
     previewTab.classList.toggle('ep-tab-active',   activeTab === 'preview');
     previewTab.classList.toggle('ep-tab-inactive', activeTab !== 'preview');
   }
 
   // ── Close button ─────────────────────────────────────
 
-  _bindCloseButton(isNew) {
+  _bindCloseButton() {
     this.querySelector('#ep-close-btn')?.addEventListener('click', () => {
       this.dispatchEvent(new CustomEvent('question-closed', {
         bubbles: true,
-        detail:  { isNew, index: this._currentIndex }
+        detail:  { isNew: this._isNew, index: this._currentIndex }
       }));
     });
   }
@@ -152,12 +175,8 @@ class EditorPanelComponent extends HTMLElement {
 
     const tag = EditorFormRegistry.getPreviewTag(question?.type);
     if (tag) {
-      // Create element and set config BEFORE inserting into DOM
-      // so connectedCallback fires with config already present —
-      // prevents the "missing options" warning from mcq-radio
       const previewEl = document.createElement(tag);
       previewEl.setAttribute('config', JSON.stringify(question));
-
       const wrap   = document.createElement('div');
       wrap.className = 'ep-preview-wrap';
       const scroll = document.createElement('div');
@@ -187,16 +206,13 @@ class EditorPanelComponent extends HTMLElement {
   _bindTabEvents(question) {
     this.querySelectorAll('.ep-tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        if (tab.classList.contains('ep-tab-disabled')) return;
+
         const active = tab.dataset.tab;
         this._updateTabBar(active);
-        if (active === 'edit') {
-          const q = StateController.getQuestion(this._currentIndex);
-          this._mountForm(q || question);
-        } else {
-          const q = StateController.getQuestion(this._currentIndex);
-          this._mountPreview(q || question);
-        }
+        this.dispatchEvent(new CustomEvent('tab-switched', {
+          bubbles: true,
+          detail:  { tab: active, index: this._currentIndex }
+        }));
       });
     });
   }

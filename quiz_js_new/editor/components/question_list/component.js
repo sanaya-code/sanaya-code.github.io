@@ -83,14 +83,12 @@ class QuestionListComponent extends HTMLElement {
 
   _bindCardEvents(card, index, canDrag) {
 
-    // Select
     card.addEventListener('click', (e) => {
       if (e.target.classList.contains('ql-delete')) return;
       this.dispatchEvent(new CustomEvent('question-selected',
         { bubbles: true, detail: { index } }));
     });
 
-    // Delete
     card.querySelector('.ql-delete')?.addEventListener('click', (e) => {
       e.stopPropagation();
       this.dispatchEvent(new CustomEvent('question-deleted',
@@ -99,7 +97,6 @@ class QuestionListComponent extends HTMLElement {
 
     if (!canDrag) return;
 
-    // Drag
     card.addEventListener('dragstart', (e) => {
       this._dragSrcIdx = index;
       card.classList.add('dragging');

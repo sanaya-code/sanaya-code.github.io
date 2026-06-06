@@ -2,72 +2,36 @@
 
 class EditorPanelHandler {
 
-  constructor(panelComponent, listHandler) {
-    this._panel       = panelComponent;
-    this._listHandler = listHandler;
-    this._bindEvents();
+  constructor(listController, panelController) {
+    this._listCtrl  = listController;
+    this._panelCtrl = panelController;
   }
 
-  // ── Public API ───────────────────────────────────────
+  // ── Event handler methods (called by MainController) ─
 
-  loadQuestion(index, question) {
-    this._panel.loadQuestion(index, question);
-  }
-
-  loadNewQuestion(type, index) {
-    const q = StateController.getQuestion(index);
-    if (q) this._panel.loadQuestion(index, q);
-  }
-
-  clearPanel() {
-    this._panel.clear();
-  }
-
-  // ── Events ──────────────────────────────────────────
-
-  _bindEvents() {
-
-    // question-saved bubbles from any form
-    this._panel.addEventListener('question-saved', (e) => {
-      this._handleSave(e.detail.index, e.detail.question);
-    });
-
-    // question-closed from Close button
-    this._panel.addEventListener('question-closed', (e) => {
-      this._handleClose(e.detail.isNew, e.detail.index);
-    });
-
-  }
-
-  // ── Save ─────────────────────────────────────────────
-
-  _handleSave(index, questionData) {
-    // Write to state — draft auto-saved inside StateController.saveQuestion
+  onQuestionSaved(index, questionData) {
     StateController.saveQuestion(index, questionData);
-
-    // Return to view mode
     StateController.returnToView();
-
-    // Refresh list
-    this._listHandler.refresh();
-
-    // Show preview with fresh data
-    // const saved = StateController.getQuestion(index);
-    // if (saved) this._panel.showPreviewTab(saved);
+    this._listCtrl.refresh();
   }
 
-  // ── Close ─────────────────────────────────────────────
-
-  _handleClose(isNew, index) {
-    if (isNew) {
-      // New question — remove it entirely
-      StateController.deleteQuestion(index);
-    }
-    // Existing question — discard edits, state unchanged
-
+  onQuestionClosed(isNew, index) {
+    if (isNew) StateController.deleteQuestion(index);
     StateController.returnToView();
-    this._listHandler.refresh();
-    this._panel.clear();
+    this._listCtrl.refresh();
+    this._panelCtrl.clear();
+  }
+
+  onTypeSelected(type) {
+    const index = StateController.addUnsavedQuestion(type);
+    this._listCtrl.refresh();
+    this._panelCtrl.loadNewQuestion(index);
+  }
+
+  onTypeSelectorClosed() {
+    StateController.returnToView();
+    this._listCtrl.refresh();
+    this._panelCtrl.clear();
   }
 
 }
