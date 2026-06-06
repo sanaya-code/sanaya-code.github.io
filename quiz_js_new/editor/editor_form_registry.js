@@ -182,9 +182,14 @@ EditorFormRegistry.register('table_fill_in_the_blank', {
 
 EditorFormRegistry.register('table_image_fill_in_the_blank', {
   label: 'Table Image Fill', description: 'Table with images and fill blanks',
-  color: '#1a5f8a', previewTag: 'table-image-fill-in-the-blank',
+  color: '#1a5f8a', formTag: 'table-image-fill-in-blank-form', previewTag: 'table-image-fill-in-the-blank',
   default: { type: 'table_image_fill_in_the_blank', question: '', svg_content: '', img_url: '',
-    table: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    columns: 3,
+    column_headings: { image: 'Visual', count: 'Count (Digit)', word: 'Number Name' },
+    rows: [],
+    user_response: [],
+    validation: { case_sensitive: false, scoring_method: 'exact' },
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('table_image_fill_in_the_blank_2_col', {
