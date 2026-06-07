@@ -206,9 +206,11 @@ EditorFormRegistry.register('matching', {
 
 EditorFormRegistry.register('matching_select', {
   label: 'Matching Select', description: 'Match by selecting from dropdowns',
-  color: '#c0892a', previewTag: 'matching-select',
+  color: '#c0892a', formTag: 'matching-select-form', previewTag: 'matching-select',
   default: { type: 'matching_select', question: '', svg_content: '', img_url: '',
-    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    pairs: [], distractors: [], user_response: '',
+    scoring_method: 'exact', description: '', case_sensitive: false,
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('matching_drag_drop', {
