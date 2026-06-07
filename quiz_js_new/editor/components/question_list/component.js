@@ -73,35 +73,48 @@ class QuestionCardWidget {
     el.addEventListener('dragend', () => {
       el.classList.remove('dragging');
       component.querySelectorAll('[data-index]')
-        .forEach(c => c.classList.remove('drag-over'));
+        .forEach(c => {
+          c.classList.remove('drag-over-top');
+          c.classList.remove('drag-over-bottom');
+        });
     });
 
     el.addEventListener('dragover', (e) => {
       e.preventDefault();
-      if (index !== component._dragSrcIdx) {
-        component.querySelectorAll('[data-index]')
-          .forEach(c => c.classList.remove('drag-over'));
-        el.classList.add('drag-over');
-      }
+      if (index === component._dragSrcIdx) return;
+      component.querySelectorAll('[data-index]')
+        .forEach(c => {
+          c.classList.remove('drag-over-top');
+          c.classList.remove('drag-over-bottom');
+        });
+      const rect     = el.getBoundingClientRect();
+      const isTop    = e.clientY < rect.top + rect.height / 2;
+      component._dropIndex = isTop ? index : index + 1;
+      el.classList.add(isTop ? 'drag-over-top' : 'drag-over-bottom');
     });
 
-    el.addEventListener('dragleave', () => el.classList.remove('drag-over'));
+    el.addEventListener('dragleave', () => {
+      el.classList.remove('drag-over-top');
+      el.classList.remove('drag-over-bottom');
+    });
 
     el.addEventListener('drop', (e) => {
       e.preventDefault();
-      el.classList.remove('drag-over');
+      el.classList.remove('drag-over-top');
+      el.classList.remove('drag-over-bottom');
       const from = component._dragSrcIdx;
-      const to   = index;
-      if (from === null || from === to) return;
+      const to   = component._dropIndex;
       component._dragSrcIdx = null;
+      component._dropIndex  = null;
+      if (from === null || to === null) return;
+      // Adjust for the removal of the dragged item shifting indices
+      const adjustedTo = to > from ? to - 1 : to;
+      if (from === adjustedTo) return;
       component.dispatchEvent(new CustomEvent('question-reordered',
-        { bubbles: true, detail: { from, to } }));
+        { bubbles: true, detail: { from, to: adjustedTo } }));
     });
-  }
-
+  } 
 }
-
-// ── Question Dot Widget ───────────────────────────────────────────────────────
 
 class QuestionDotWidget {
 
@@ -149,29 +162,44 @@ class QuestionDotWidget {
     el.addEventListener('dragend', () => {
       el.classList.remove('dragging');
       component.querySelectorAll('[data-index]')
-        .forEach(c => c.classList.remove('drag-over'));
+        .forEach(c => {
+          c.classList.remove('drag-over-top');
+          c.classList.remove('drag-over-bottom');
+        });
     });
 
     el.addEventListener('dragover', (e) => {
       e.preventDefault();
-      if (index !== component._dragSrcIdx) {
-        component.querySelectorAll('[data-index]')
-          .forEach(c => c.classList.remove('drag-over'));
-        el.classList.add('drag-over');
-      }
+      if (index === component._dragSrcIdx) return;
+      component.querySelectorAll('[data-index]')
+        .forEach(c => {
+          c.classList.remove('drag-over-top');
+          c.classList.remove('drag-over-bottom');
+        });
+      const rect  = el.getBoundingClientRect();
+      const isTop = e.clientX < rect.left + rect.width / 2;
+      component._dropIndex = isTop ? index : index + 1;
+      el.classList.add(isTop ? 'drag-over-top' : 'drag-over-bottom');
     });
 
-    el.addEventListener('dragleave', () => el.classList.remove('drag-over'));
+    el.addEventListener('dragleave', () => {
+      el.classList.remove('drag-over-top');
+      el.classList.remove('drag-over-bottom');
+    });
 
     el.addEventListener('drop', (e) => {
       e.preventDefault();
-      el.classList.remove('drag-over');
+      el.classList.remove('drag-over-top');
+      el.classList.remove('drag-over-bottom');
       const from = component._dragSrcIdx;
-      const to   = index;
-      if (from === null || from === to) return;
+      const to   = component._dropIndex;
       component._dragSrcIdx = null;
+      component._dropIndex  = null;
+      if (from === null || to === null) return;
+      const adjustedTo = to > from ? to - 1 : to;
+      if (from === adjustedTo) return;
       component.dispatchEvent(new CustomEvent('question-reordered',
-        { bubbles: true, detail: { from, to } }));
+        { bubbles: true, detail: { from, to: adjustedTo } }));
     });
   }
 
@@ -183,6 +211,7 @@ class QuestionListComponent extends HTMLElement {
 
   connectedCallback() {
     this._dragSrcIdx  = null;
+    this._dropIndex   = null;
     this._mode        = 'view';
     this._viewMode    = 'card';
     this._questions   = [];
