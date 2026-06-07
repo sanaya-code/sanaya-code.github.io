@@ -22,7 +22,7 @@ const JsonExporter = (() => {
       questions: reindexed,
     };
 
-    const json = _compactStringify(payload);
+    const json = _stringifyPayload(payload);
     _triggerDownload(json, filename, 'application/json');
   }
 
@@ -39,115 +39,218 @@ const JsonExporter = (() => {
       },
       questions: reindexed,
     };
-    const json = _compactStringify(payload);
+    const json = _stringifyPayload(payload);
     return navigator.clipboard.writeText(json);
   }
 
-  // ── Compact JSON serializer ───────────────────────────
-  // Like JSON.stringify(x, null, 2) but collapses objects
-  // that contain only primitive values onto a single line.
-  // e.g. {"id":"A","text":"cat"} stays on one line.
+  // ── Type-aware formatting rules ───────────────────────
+  //
+  // INLINE_OBJ_FIELDS: these array-of-objects fields render
+  //   each object on ONE LINE  e.g. {"id":"A","text":"Earth"}
+  //
+  // EXPAND_FIELDS: these array-of-objects fields always
+  //   render EXPANDED (one key per line per object)
+  //
+  // All other fields follow generic rules:
+  //   - array-of-primitives        → inline  ["a","b"]
+  //   - array-of-primitive-arrays  → inline  [["a"],["b"]]
+  //   - everything else            → expanded
 
-  function _compactStringify(value, indent) {
-    indent = indent || 2;
+  const INLINE_OBJ_FIELDS = {
+    mcq:                    ['options'],
+    multi_select:           ['options'],
+    multi_select_circle:    ['options'],
+    multi_select_two:       ['quantities', 'blocks'],
+    ordering:               ['items'],
+    fill_in_blank_multi_graph: ['blocks'],
+    matching:               ['pairs'],
+    matching_select:        ['pairs'],
+    matching_drag_drop:     ['pairs'],
+    matching_connection:    ['pairs'],
+    multi_fill_in_blank:    ['blanks'],
+    options_fill_in_blank:  ['options'],
+    number_line_arcs:       [],
+  };
 
-    function _isPrimitive(v) {
-      return v === null || typeof v !== 'object';
+  // Fields that must always expand even if they look shallow
+  const EXPAND_FIELDS = {
+    multi_select_two:             ['required_selections', 'available_highlight_styles'],
+    matching_connection_image:    ['rows'],
+    table_image_fill_in_the_blank:['rows'],
+  };
+
+  // ── Top-level payload serializer ──────────────────────
+
+  function _stringifyPayload(payload) {
+    const indent = 2;
+    const lines  = [];
+    lines.push('{');
+    const entries = Object.entries(payload);
+    entries.forEach(([k, v], i) => {
+      const comma = i < entries.length - 1 ? ',' : '';
+      if (k === 'questions' && Array.isArray(v)) {
+        lines.push(`  "questions": [`);
+        v.forEach((q, qi) => {
+          const qComma = qi < v.length - 1 ? ',' : '';
+          lines.push(_serializeQuestion(q, indent) + qComma);
+        });
+        lines.push(`  ]${comma}`);
+      } else {
+        lines.push(`  ${JSON.stringify(k)}: ${_serializeValue(v, 1, null, null, indent)}${comma}`);
+      }
+    });
+    lines.push('}');
+    return lines.join('\n');
+  }
+
+  // ── Serialize a single question object ───────────────
+
+  function _serializeQuestion(q, indent) {
+    const type      = q.type === 'skip' ? (q.original_type || '') : (q.type || '');
+    const pad1      = ' '.repeat(indent);
+    const pad2      = ' '.repeat(indent * 2);
+    const entries   = Object.entries(q);
+    const lines     = [];
+
+    lines.push(`${pad1}{`);
+    entries.forEach(([k, v], i) => {
+      const comma    = i < entries.length - 1 ? ',' : '';
+      const inlineFields = (INLINE_OBJ_FIELDS[type] || []);
+      const expandFields = (EXPAND_FIELDS[type]      || []);
+
+      let serialized;
+
+      if (expandFields.includes(k)) {
+        // Always expand
+        serialized = _serializeValue(v, 2, null, null, indent);
+      } else if (inlineFields.includes(k) && Array.isArray(v)) {
+        // Each object on one line
+        serialized = _serializeInlineObjArray(v, 2, indent);
+      } else {
+        // Generic — pass type + fieldName for context
+        serialized = _serializeValue(v, 2, type, k, indent);
+      }
+
+      lines.push(`${pad2}${JSON.stringify(k)}: ${serialized}${comma}`);
+    });
+    lines.push(`${pad1}}`);
+    return lines.join('\n');
+  }
+
+  // ── Serialize array where each object renders on one line
+
+  function _serializeInlineObjArray(arr, depth, indent) {
+    if (!Array.isArray(arr) || arr.length === 0) return '[]';
+    const outerPad = ' '.repeat(depth * indent);
+    const innerPad = ' '.repeat((depth + 1) * indent);
+    const items = arr.map(item => {
+      if (item === null || typeof item !== 'object' || Array.isArray(item)) {
+        return `${innerPad}${JSON.stringify(item)}`;
+      }
+      const pairs = Object.entries(item).map(([k, v]) =>
+        `${JSON.stringify(k)}: ${_inlinePrimOrPrimArr(v)}`
+      ).join(', ');
+      return `${innerPad}{${pairs}}`;
+    });
+    return `[\n${items.join(',\n')}\n${outerPad}]`;
+  }
+
+  // ── Generic value serializer ──────────────────────────
+  // type + fieldName give context for smart decisions
+
+  function _serializeValue(val, depth, type, fieldName, indent) {
+    const outerPad = ' '.repeat(depth * indent);
+    const innerPad = ' '.repeat((depth + 1) * indent);
+
+    if (val === null || typeof val !== 'object') {
+      return JSON.stringify(_cleanStr(val));
     }
 
-    function _isShallowObject(obj) {
-      if (Array.isArray(obj)) return false;
-      return Object.values(obj).every(_isPrimitive);
-    }
+    if (Array.isArray(val)) {
+      if (val.length === 0) return '[]';
 
-    function _isArrayOfShallowObjects(arr) {
-      if (!Array.isArray(arr)) return false;
-      return arr.every(item =>
-        item !== null && typeof item === 'object' &&
-        !Array.isArray(item) && _isShallowObjectWithPrimitiveArrays(item)
-      );
-    }
+      // Array of primitive arrays → inline  [[0,2],[2,6]]
+      if (_isArrOfPrimArrs(val)) {
+        return `[${val.map(inner =>
+          `[${inner.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`
+        ).join(', ')}]`;
+      }
 
-    function _isArrayOfPrimitives(arr) {
-      if (!Array.isArray(arr)) return false;
-      return arr.every(_isPrimitive);
-    }
+      // Array of primitives → inline  ["a","b"]
+      if (_isArrOfPrims(val)) {
+        return `[${val.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`;
+      }
 
-    function _isArrayOfPrimitiveArrays(arr) {
-      if (!Array.isArray(arr)) return false;
-      return arr.every(item => Array.isArray(item) && _isArrayOfPrimitives(item));
-    }
-
-    // Object whose every value is a primitive OR an array of primitives
-    function _isShallowObjectWithPrimitiveArrays(obj) {
-      if (Array.isArray(obj)) return false;
-      return Object.values(obj).every(v =>
-        _isPrimitive(v) || _isArrayOfPrimitives(v)
-      );
-    }
-
-    // Strip wrapping quotes from strings e.g. "\"geography\"" → "geography"
-    function _cleanString(str) {
-      if (typeof str !== 'string') return str;
-      return str.replace(/^"+|"+$/g, '').trim();
-    }
-
-    function _serialize(val, depth) {
-      const outerPad = ' '.repeat(depth * indent);
-      const innerPad = ' '.repeat((depth + 1) * indent);
-
-      if (_isPrimitive(val)) return JSON.stringify(val);
-
-      if (Array.isArray(val)) {
-        if (val.length === 0) return '[]';
-
-        // Array of primitive arrays → all inner arrays on one line each, outer on one line
-        if (_isArrayOfPrimitiveArrays(val)) {
-          const items = val.map(inner => {
-            const elems = inner.map(item =>
-              JSON.stringify(typeof item === 'string' ? _cleanString(item) : item)
-            );
-            return `[${elems.join(', ')}]`;
-          });
-          return `[${items.join(', ')}]`;
-        }
-
-        // Array of primitives → all on one line e.g. ["math", "time"]
-        if (_isArrayOfPrimitives(val)) {
-          const items = val.map(item =>
-            JSON.stringify(typeof item === 'string' ? _cleanString(item) : item)
+      // Array of arrays (non-primitive inner) → expand, recurse inner
+      if (val.every(item => Array.isArray(item))) {
+        const items = val.map(inner => {
+          const innerItems = inner.map(cell =>
+            `${innerPad}  ${_serializeValue(cell, depth + 2, type, fieldName, indent)}`
           );
-          return `[${items.join(', ')}]`;
-        }
-
-        // Array of shallow objects → each item on one line
-        if (_isArrayOfShallowObjects(val)) {
-          const items = val.map(item => {
-            const pairs = Object.entries(item).map(([k, v]) => {
-              if (Array.isArray(v) && _isArrayOfPrimitives(v)) {
-                const elems = v.map(e => JSON.stringify(typeof e === 'string' ? _cleanString(e) : e));
-                return `${JSON.stringify(k)}: [${elems.join(', ')}]`;
-              }
-              return `${JSON.stringify(k)}: ${JSON.stringify(v)}`;
-            }).join(', ');
-            return `${innerPad}{${pairs}}`;
-          });
-          return `[\n${items.join(',\n')}\n${outerPad}]`;
-        }
-
-        // Regular array — recurse
-        const items = val.map(item => `${innerPad}${_serialize(item, depth + 1)}`);
+          return `${innerPad}[\n${innerItems.join(',\n')}\n${innerPad}]`;
+        });
         return `[\n${items.join(',\n')}\n${outerPad}]`;
       }
 
-      // Object
-      const pairs = Object.entries(val).map(([k, v]) => {
-        return `${innerPad}${JSON.stringify(k)}: ${_serialize(v, depth + 1)}`;
-      });
-      return `{\n${pairs.join(',\n')}\n${outerPad}}`;
+      // Array of objects — recurse each
+      const items = val.map(item =>
+        `${innerPad}${_serializeValue(item, depth + 1, type, fieldName, indent)}`
+      );
+      return `[\n${items.join(',\n')}\n${outerPad}]`;
     }
 
-    return _serialize(value, 0);
+    // Object — check if it should inline
+    if (_shouldInlineObj(val, type, fieldName, depth)) {
+      const pairs = Object.entries(val).map(([k, v]) =>
+        `${JSON.stringify(k)}: ${_inlinePrimOrPrimArr(v)}`
+      ).join(', ');
+      return `{${pairs}}`;
+    }
+
+    // Expand object
+    const pairs = Object.entries(val).map(([k, v]) => {
+      return `${innerPad}${JSON.stringify(k)}: ${_serializeValue(v, depth + 1, type, k, indent)}`;
+    });
+    return `{\n${pairs.join(',\n')}\n${outerPad}}`;
+  }
+
+  // ── Inline an object if it qualifies ─────────────────
+  // Rules: all values are primitives or prim-arrays AND ≤ 4 keys
+  // Exception: never inline at depth < 2 (top-level question objects)
+
+  function _shouldInlineObj(obj, type, fieldName, depth) {
+    if (depth < 2) return false;
+    if (!_isShallowObj(obj)) return false;
+    // Explicitly named expand fields never inline
+    const expandFields = (EXPAND_FIELDS[type] || []);
+    if (fieldName && expandFields.includes(fieldName)) return false;
+    return Object.keys(obj).length <= 4;
+  }
+
+  // ── Primitive helpers ─────────────────────────────────
+
+  function _isPrim(v)          { return v === null || typeof v !== 'object'; }
+  function _isArrOfPrims(arr)  { return Array.isArray(arr) && arr.every(_isPrim); }
+  function _isArrOfPrimArrs(a) { return Array.isArray(a) && a.every(i => Array.isArray(i) && _isArrOfPrims(i)); }
+  function _isShallowObj(obj)  {
+    if (Array.isArray(obj)) return false;
+    return Object.values(obj).every(v => _isPrim(v) || _isArrOfPrims(v));
+  }
+
+  // Render a value that is known to be prim or prim-array
+  function _inlinePrimOrPrimArr(v) {
+    if (_isPrim(v)) return JSON.stringify(_cleanStr(v));
+    if (_isArrOfPrims(v)) return `[${v.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`;
+    if (_isArrOfPrimArrs(v)) return `[${v.map(inner =>
+      `[${inner.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`
+    ).join(', ')}]`;
+    return JSON.stringify(v);
+  }
+
+  // Strip wrapping quotes  "\"geography\"" → "geography"
+  function _cleanStr(v) {
+    if (typeof v !== 'string') return v;
+    return v.replace(/^"+|"+$/g, '').trim();
   }
 
   // ── Helpers ──────────────────────────────────────────
@@ -171,8 +274,6 @@ const JsonExporter = (() => {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
-
-  // ── Reassign ids sequentially for export ─────────────
 
   function _reassignExportIds(questions) {
     return questions.map((q, i) => {
