@@ -7,7 +7,7 @@
     "last_modified": "2026-06-07",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 20
+    "total_questions": 21
   },
   "questions": [
     {
@@ -908,6 +908,60 @@
       "time_limit": "",
       "tags": [],
       "id": "020"
+    },
+    {
+      "type": "fill_in_blank_multi_graph",
+      "question": "Fill in the blanks to practice addition with 3",
+      "svg_content": "",
+      "img_url": "",
+      "center_label": "3",
+      "blocks": [
+        {
+          "a": "0",
+          "b": "+"
+        },
+        {
+          "a": "1",
+          "b": "+"
+        },
+        {
+          "a": "2",
+          "b": "+"
+        },
+        {
+          "a": "3",
+          "b": "+"
+        }
+      ],
+      "value_choices": [
+        "2",
+        "0",
+        "1",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": [
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "user_response": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "scoring_method": "exact",
+      "description": "",
+      "case_sensitive": false,
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "021"
     }
   ]
 }

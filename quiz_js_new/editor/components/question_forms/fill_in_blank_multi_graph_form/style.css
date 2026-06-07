@@ -1,0 +1,745 @@
+/* editor/components/question_forms/mcq_form/style.css */
+/* Self-contained — prefix: ef-fibmgt- */
+
+.ef-fibmgt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Skip button (footer) ────────────────────────────── */
+
+.ef-fibmgt-btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.ef-fibmgt-btn-skip:hover { background: rgba(127,140,141,0.12); }
+
+/* ── Scrollable form body ────────────────────────────── */
+
+.ef-fibmgt-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field group ─────────────────────────────────────── */
+
+.ef-fibmgt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ef-fibmgt-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ef-fibmgt-label .ef-fibmgt-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* ── Textarea ────────────────────────────────────────── */
+
+.ef-fibmgt-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+
+.ef-fibmgt-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── On-focus preview box ────────────────────────────── */
+
+.ef-fibmgt-render-preview {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;          /* hidden until focused */
+  animation: ef-fibmgt-fadein 0.15s ease;
+}
+
+.ef-fibmgt-render-preview.visible {
+  display: block;
+}
+
+.ef-fibmgt-render-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+@keyframes ef-fibmgt-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Text input ──────────────────────────────────────── */
+
+.ef-fibmgt-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ef-fibmgt-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.ef-fibmgt-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ef-fibmgt-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.ef-fibmgt-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.ef-fibmgt-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.ef-fibmgt-collapsible.open .ef-fibmgt-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.ef-fibmgt-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.ef-fibmgt-collapsible.open .ef-fibmgt-collapsible-body {
+  display: flex;
+}
+
+/* ── SVG preview ─────────────────────────────────────── */
+
+.ef-fibmgt-svg-preview {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.ef-fibmgt-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.ef-fibmgt-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── Image thumbnail preview ─────────────────────────── */
+
+.ef-fibmgt-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.ef-fibmgt-img-preview.visible {
+  display: flex;
+}
+
+.ef-fibmgt-img-preview img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Remove buttons ──────────────────────────────────── */
+
+.ef-fibmgt-remove-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-fibmgt-remove-btn:hover { background: var(--danger-light); }
+
+/* ── Options section ─────────────────────────────────── */
+
+.ef-fibmgt-options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ef-fibmgt-add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-fibmgt-add-option-btn:hover { background: #b8d9f5; }
+
+.ef-fibmgt-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Option row ──────────────────────────────────────── */
+
+.ef-fibmgt-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.ef-fibmgt-option-row:hover       { border-color: var(--border-focus); }
+.ef-fibmgt-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-fibmgt-option-row.dragging    { opacity: 0.4; }
+.ef-fibmgt-option-row.ef-fibmgt-focused-row { border-color: var(--accent); background: var(--accent-light); }
+
+.ef-fibmgt-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.ef-fibmgt-drag-handle:active { cursor: grabbing; }
+
+.ef-fibmgt-correct-radio {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.ef-fibmgt-option-text {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+.ef-fibmgt-option-text:focus { border-color: var(--border-focus); }
+
+.ef-fibmgt-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-fibmgt-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Shared option preview box ───────────────────────── */
+
+.ef-fibmgt-option-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: ef-fibmgt-fadein 0.15s ease;
+}
+
+.ef-fibmgt-option-preview-box.visible {
+  display: flex;
+}
+
+.ef-fibmgt-option-preview-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ef-fibmgt-option-preview-content {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 34px;
+  word-break: break-word;
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.ef-fibmgt-error {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.ef-fibmgt-error.visible { display: block; }
+
+/* ── Two-column row ──────────────────────────────────── */
+
+.ef-fibmgt-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Select ──────────────────────────────────────────── */
+
+.ef-fibmgt-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.ef-fibmgt-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Save footer ─────────────────────────────────────── */
+
+.ef-fibmgt-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.ef-fibmgt-btn-save {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.ef-fibmgt-btn-save:hover {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+
+/* ── Disabled state when marked as skip ──────────────── */
+
+.ef-fibmgt-body.ef-fibmgt-is-skip .ef-fibmgt-field,
+.ef-fibmgt-body.ef-fibmgt-is-skip .ef-fibmgt-options-header,
+.ef-fibmgt-body.ef-fibmgt-is-skip .ef-fibmgt-collapsible {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Body dims but footer stays fully interactive */
+.ef-fibmgt-body.ef-fibmgt-is-skip {
+  opacity: 0.6;
+}
+
+.ef-fibmgt-body.ef-fibmgt-is-skip ~ .ef-fibmgt-footer {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Height chain ────────────────────────────────────── */
+
+fill-in-blank-multi-graph-text .ef-fibmgt-form {
+  min-height: 0;
+}
+
+fill-in-blank-multi-graph-text .ef-fibmgt-body {
+  min-height: 0;
+}
+/* ── Checkbox label ──────────────────────────────────── */
+
+.ef-fibmgt-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ef-fibmgt-checkbox {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Choice pills (horizontal wrapping) ──────────────── */
+
+.ef-fibmgt-choices-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 32px;
+  align-items: flex-start;
+}
+
+.ef-fibmgt-choice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  border-radius: 20px;
+  padding: 5px 10px 5px 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  max-width: 160px;
+  user-select: none;
+}
+
+.ef-fibmgt-choice-pill:hover     { background: #b8d9f5; border-color: var(--accent-hover); }
+.ef-fibmgt-choice-pill.drag-over { border-color: var(--accent-2); border-style: dashed; background: var(--accent-light); }
+.ef-fibmgt-choice-pill.dragging  { opacity: 0.4; }
+
+.ef-fibmgt-pill-handle {
+  font-size: 13px;
+  color: var(--accent);
+  flex-shrink: 0;
+  cursor: grab;
+  line-height: 1;
+  padding: 0;
+}
+.ef-fibmgt-pill-handle:active { cursor: grabbing; }
+
+.ef-fibmgt-pill-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--accent-deep);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ef-fibmgt-pill-editor {
+  flex: 1;
+  min-width: 80px;
+  max-width: 120px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-focus);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.ef-fibmgt-pill-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 12px;
+  padding: 1px 3px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-fibmgt-pill-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Choice shared preview box ───────────────────────── */
+
+.ef-fibmgt-choice-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: ef-fibmgt-fadein 0.15s ease;
+}
+
+.ef-fibmgt-choice-preview-box.visible {
+  display: flex;
+}
+
+/* ── Block card ──────────────────────────────────────── */
+
+.ef-fibmgt-blocks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ef-fibmgt-block-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+  overflow: hidden;
+}
+
+.ef-fibmgt-block-card:hover     { border-color: var(--border-focus); }
+.ef-fibmgt-block-card.drag-over { border-color: var(--accent-2); border-style: dashed; }
+.ef-fibmgt-block-card.dragging  { opacity: 0.4; }
+
+/* Block header — always visible, click to expand */
+
+.ef-fibmgt-block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ef-fibmgt-block-card.ef-fibmgt-block-open .ef-fibmgt-block-header {
+  border-bottom-color: var(--border);
+  background: var(--accent-light);
+}
+
+.ef-fibmgt-block-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+.ef-fibmgt-block-summary {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ef-fibmgt-block-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.ef-fibmgt-block-card.ef-fibmgt-block-open .ef-fibmgt-block-arrow {
+  transform: rotate(180deg);
+}
+
+.ef-fibmgt-block-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 3px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-fibmgt-block-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* Block body — hidden unless open */
+
+.ef-fibmgt-block-body {
+  display: none;
+  padding: 14px;
+}
+
+.ef-fibmgt-block-card.ef-fibmgt-block-open .ef-fibmgt-block-body {
+  display: block;
+}
+
+.ef-fibmgt-block-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 3-col inputs row */
+.ef-fibmgt-block-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.ef-fibmgt-block-inputs-row .ef-fibmgt-field {
+  gap: 4px;
+}
+
+/* 3-col previews row — mirrors the inputs row */
+.ef-fibmgt-block-previews-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.ef-fibmgt-block-previews-row .ef-fibmgt-render-preview {
+  min-height: 32px;
+  font-size: 12px;
+}
+
+/* ── Skip disabled state ─────────────────────────────── */
+
+.ef-fibmgt-body.ef-fibmgt-is-skip .ef-fibmgt-field,
+.ef-fibmgt-body.ef-fibmgt-is-skip .ef-fibmgt-options-header,
+.ef-fibmgt-body.ef-fibmgt-is-skip .ef-fibmgt-collapsible {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ef-fibmgt-body.ef-fibmgt-is-skip {
+  opacity: 0.6;
+}
+
+.ef-fibmgt-body.ef-fibmgt-is-skip ~ .ef-fibmgt-footer {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Height chain ────────────────────────────────────── */
+
+fill-in-blank-multi-graph-text .ef-fibmgt-form {
+  min-height: 0;
+}
+
+fill-in-blank-multi-graph-text .ef-fibmgt-body {
+  min-height: 0;
+}

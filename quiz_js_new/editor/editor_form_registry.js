@@ -231,7 +231,7 @@ EditorFormRegistry.register('matching_connection', {
 EditorFormRegistry.register('matching_connection_image', {
   label: 'Match Connection Image', description: 'Connect matching image pairs',
   color: '#7b3000',
-  formTag:    'matching-connection-image',
+  formTag:    'matching-connection-image-form',
   previewTag: 'matching-connection-image',
   default: {
     type: 'matching_connection_image', question: '', svg_content: '', img_url: '',
@@ -284,9 +284,11 @@ EditorFormRegistry.register('multi_select_two', {
 
 EditorFormRegistry.register('fill_in_blank_multi_graph', {
   label: 'Fill Blank Graph', description: 'Fill blanks in a multi-node graph',
-  color: '#00838f', previewTag: 'fill-in-blank-multi-graph-text',
+  color: '#00838f', formTag: 'fill-in-blank-multi-graph-form', previewTag: 'fill-in-blank-multi-graph-text',
   default: { type: 'fill_in_blank_multi_graph', question: '', svg_content: '', img_url: '',
-    nodes: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    center_label: '', blocks: [], value_choices: [], correct_answer: [], user_response: [],
+    scoring_method: 'exact', description: '', case_sensitive: false,
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('fill_in_blank_multi_graph_text', {

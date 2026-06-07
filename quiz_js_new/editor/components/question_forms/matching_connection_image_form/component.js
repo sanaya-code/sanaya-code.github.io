@@ -476,6 +476,8 @@ class IPMAnswerWidget {
                value="${safe}"
                placeholder="#rrggbb"
                maxlength="30" />
+        <div class="ef-ipm-color-swatch"
+             style="background:${safe}"></div>
         <button class="ef-ipm-color-delete" title="Remove color">✕</button>
       </div>
     `;
@@ -1116,4 +1118,4 @@ class IPMFormComponent extends HTMLElement {
 
 }
 
-customElements.define('matching-connection-image', IPMFormComponent);
+customElements.define('matching-connection-image-form', IPMFormComponent);
