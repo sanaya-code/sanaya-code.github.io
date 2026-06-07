@@ -220,9 +220,10 @@ EditorFormRegistry.register('matching_drag_drop', {
 
 EditorFormRegistry.register('matching_connection', {
   label: 'Matching Connection', description: 'Draw lines to connect matching pairs',
-  color: '#a04000', previewTag: 'matching-connection',
+  color: '#a04000', formTag: 'matching-connection-form', previewTag: 'matching-connection',
   default: { type: 'matching_connection', question: '', svg_content: '', img_url: '',
-    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+    pairs: [], user_response: '', scoring_method: 'exact',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
 });
 
 EditorFormRegistry.register('matching_connection_image', {
