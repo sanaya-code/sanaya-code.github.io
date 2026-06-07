@@ -244,7 +244,7 @@ class IPMAnswerWidget {
       : (row.property ? `property: ${IPMFormUtils.escHtml(row.property)}` : 'empty row');
 
     return `
-      <div class="ef-ipm-row-card" draggable="true" data-row-index="${index}">
+      <div class="ef-ipm-row-card ef-ipm-row-collapsed" draggable="true" data-row-index="${index}">
 
         <div class="ef-ipm-row-card-header" data-collapse-toggle>
           <span class="ef-ipm-drag-handle">⠿</span>
@@ -256,27 +256,30 @@ class IPMAnswerWidget {
 
         <div class="ef-ipm-row-card-body">
 
-          <!-- Media toggle -->
+          <!-- Media toggle — label + radios on one line, panel below is collapsible -->
           <div class="ef-ipm-field">
-            <label class="ef-ipm-label">Image Source</label>
-            <div class="ef-ipm-toggle-group">
-              <label class="ef-ipm-toggle-option">
-                <input type="radio" name="ef-ipm-row-mode-${index}"
-                  class="ef-ipm-row-mode-radio" value="svg"
-                  ${mode === 'svg' ? 'checked' : ''} />
-                SVG
-              </label>
-              <label class="ef-ipm-toggle-option">
-                <input type="radio" name="ef-ipm-row-mode-${index}"
-                  class="ef-ipm-row-mode-radio" value="url"
-                  ${mode === 'url' ? 'checked' : ''} />
-                Image URL
-              </label>
+            <div class="ef-ipm-row-media-header" data-media-toggle>
+              <label class="ef-ipm-label" style="pointer-events:none">Image Source</label>
+              <div class="ef-ipm-toggle-group">
+                <label class="ef-ipm-toggle-option">
+                  <input type="radio" name="ef-ipm-row-mode-${index}"
+                    class="ef-ipm-row-mode-radio" value="svg"
+                    ${mode === 'svg' ? 'checked' : ''} />
+                  SVG
+                </label>
+                <label class="ef-ipm-toggle-option">
+                  <input type="radio" name="ef-ipm-row-mode-${index}"
+                    class="ef-ipm-row-mode-radio" value="url"
+                    ${mode === 'url' ? 'checked' : ''} />
+                  Image URL
+                </label>
+              </div>
+              <span class="ef-ipm-row-media-arrow">▼</span>
             </div>
           </div>
 
           <!-- SVG panel -->
-          <div class="ef-ipm-row-panel ef-ipm-row-svg-panel
+          <div class="ef-ipm-row-panel ef-ipm-row-svg-panel ef-ipm-row-media-panel
                ${mode === 'svg' ? 'active' : ''}">
             <textarea class="ef-ipm-textarea ef-ipm-row-svg-input"
               rows="3" placeholder="Paste SVG markup..."
@@ -287,7 +290,7 @@ class IPMAnswerWidget {
           </div>
 
           <!-- Image URL panel -->
-          <div class="ef-ipm-row-panel ef-ipm-row-url-panel
+          <div class="ef-ipm-row-panel ef-ipm-row-url-panel ef-ipm-row-media-panel
                ${mode === 'url' ? 'active' : ''}">
             <input class="ef-ipm-input ef-ipm-row-url-input" type="text"
               placeholder="Image URL or relative path..."
@@ -473,8 +476,6 @@ class IPMAnswerWidget {
                value="${safe}"
                placeholder="#rrggbb"
                maxlength="30" />
-        <div class="ef-ipm-color-swatch"
-             style="background:${safe}"></div>
         <button class="ef-ipm-color-delete" title="Remove color">✕</button>
       </div>
     `;
@@ -497,6 +498,19 @@ class IPMAnswerWidget {
 
     const list = this._root.querySelector('#ef-ipm-rows-list');
     if (!list) return;
+
+    // Media header click → collapse/expand the active SVG or URL panel
+    list.addEventListener('click', (e) => {
+      const mediaHeader = e.target.closest('[data-media-toggle]');
+      if (!mediaHeader) return;
+      const card = mediaHeader.closest('.ef-ipm-row-card');
+      if (!card) return;
+      const panels = card.querySelectorAll('.ef-ipm-row-media-panel');
+      const arrow  = mediaHeader.querySelector('.ef-ipm-row-media-arrow');
+      const isHidden = [...panels].every(p => p.classList.contains('ef-ipm-media-hidden'));
+      panels.forEach(p => p.classList.toggle('ef-ipm-media-hidden', !isHidden));
+      if (arrow) arrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(-90deg)';
+    });
 
     // Collapse toggle — click header to expand/collapse body
     list.addEventListener('click', (e) => {

@@ -819,21 +819,11 @@
           "acceptable_properties": [
             "2"
           ]
-        },
-        {
-          "image_index": 3,
-          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><path d='M60,19 Q120,9 180,19 Q120,29 60,19' fill='#4caf50' stroke='#2e7d32'/><path d='M180,19 Q240,9 300,19 Q240,29 180,19' fill='#4caf50' stroke='#2e7d32'/></svg>",
-          "img_url": null,
-          "alt_text": "Two green leaves",
-          "property": "3",
-          "acceptable_properties": [
-            "3"
-          ]
         }
       ],
       "properties_column": [
-        "5",
         "3",
+        "5",
         "1",
         "2"
       ],
@@ -842,11 +832,10 @@
         "scoring_method": "exact",
         "allow_multiple_connections": false,
         "line_colors": [
-          "#FF5733",
-          "#33FF57",
-          "#3357FF",
-          "#F333FF",
-          "#f6d32d",
+          "#3498db",
+          "#33ff57",
+          "#ffa348",
+          "#c0bfbc",
           "#3d3846",
           "#986a44"
         ]
