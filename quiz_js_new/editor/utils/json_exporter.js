@@ -64,7 +64,7 @@ const JsonExporter = (() => {
       if (!Array.isArray(arr)) return false;
       return arr.every(item =>
         item !== null && typeof item === 'object' &&
-        !Array.isArray(item) && _isShallowObject(item)
+        !Array.isArray(item) && _isShallowObjectWithPrimitiveArrays(item)
       );
     }
 
@@ -76,6 +76,14 @@ const JsonExporter = (() => {
     function _isArrayOfPrimitiveArrays(arr) {
       if (!Array.isArray(arr)) return false;
       return arr.every(item => Array.isArray(item) && _isArrayOfPrimitives(item));
+    }
+
+    // Object whose every value is a primitive OR an array of primitives
+    function _isShallowObjectWithPrimitiveArrays(obj) {
+      if (Array.isArray(obj)) return false;
+      return Object.values(obj).every(v =>
+        _isPrimitive(v) || _isArrayOfPrimitives(v)
+      );
     }
 
     // Strip wrapping quotes from strings e.g. "\"geography\"" → "geography"
@@ -115,9 +123,13 @@ const JsonExporter = (() => {
         // Array of shallow objects → each item on one line
         if (_isArrayOfShallowObjects(val)) {
           const items = val.map(item => {
-            const pairs = Object.entries(item)
-              .map(([k, v]) => `${JSON.stringify(k)}: ${JSON.stringify(v)}`)
-              .join(', ');
+            const pairs = Object.entries(item).map(([k, v]) => {
+              if (Array.isArray(v) && _isArrayOfPrimitives(v)) {
+                const elems = v.map(e => JSON.stringify(typeof e === 'string' ? _cleanString(e) : e));
+                return `${JSON.stringify(k)}: [${elems.join(', ')}]`;
+              }
+              return `${JSON.stringify(k)}: ${JSON.stringify(v)}`;
+            }).join(', ');
             return `${innerPad}{${pairs}}`;
           });
           return `[\n${items.join(',\n')}\n${outerPad}]`;
