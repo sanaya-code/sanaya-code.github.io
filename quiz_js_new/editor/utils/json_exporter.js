@@ -68,12 +68,15 @@ const JsonExporter = (() => {
     matching_drag_drop:     ['pairs'],
     matching_connection:    ['pairs'],
     multi_fill_in_blank:    ['blanks'],
-    options_fill_in_blank:  ['options'],
     number_line_arcs:       [],
   };
 
   // Fields that must always expand even if they look shallow
   const EXPAND_FIELDS = {
+    short_answer:                 ['acceptable_variations'],
+    options_fill_in_blank:        ['options'],
+    table_fill_in_the_blank:      ['user_response'],
+    fill_in_blank_operation:      ['editable_answer', 'initial_answer', 'correct_answer', 'user_response'],
     multi_select_two:             ['required_selections', 'available_highlight_styles'],
     matching_connection_image:    ['rows'],
     table_image_fill_in_the_blank:['rows'],
@@ -121,8 +124,8 @@ const JsonExporter = (() => {
       let serialized;
 
       if (expandFields.includes(k)) {
-        // Always expand
-        serialized = _serializeValue(v, 2, null, null, indent);
+        // Always expand — pass type + fieldName so _serializeValue honours the rule
+        serialized = _serializeValue(v, 2, type, k, indent);
       } else if (inlineFields.includes(k) && Array.isArray(v)) {
         // Each object on one line
         serialized = _serializeInlineObjArray(v, 2, indent);
@@ -169,23 +172,30 @@ const JsonExporter = (() => {
     if (Array.isArray(val)) {
       if (val.length === 0) return '[]';
 
-      // Array of primitive arrays → inline  [[0,2],[2,6]]
-      if (_isArrOfPrimArrs(val)) {
+      // If field is explicitly marked to expand, skip all inline rules
+      const shouldExpand = fieldName && (EXPAND_FIELDS[type] || []).includes(fieldName);
+
+      // Array of primitive arrays → inline  [[0,2],[2,6]]  (unless expand rule)
+      if (!shouldExpand && _isArrOfPrimArrs(val)) {
         return `[${val.map(inner =>
           `[${inner.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`
         ).join(', ')}]`;
       }
 
       // Array of primitives → inline  ["a","b"]
-      if (_isArrOfPrims(val)) {
+      if (!shouldExpand && _isArrOfPrims(val)) {
         return `[${val.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`;
       }
 
-      // Array of arrays (non-primitive inner) → expand, recurse inner
+      // Array of arrays (non-primitive inner) → expand outer, inline inner primitives
       if (val.every(item => Array.isArray(item))) {
         const items = val.map(inner => {
+          // inner arrays of primitives → inline on one line
+          if (_isArrOfPrims(inner)) {
+            return `${innerPad}[${inner.map(e => JSON.stringify(_cleanStr(e))).join(', ')}]`;
+          }
           const innerItems = inner.map(cell =>
-            `${innerPad}  ${_serializeValue(cell, depth + 2, type, fieldName, indent)}`
+            `${innerPad}  ${_serializeValue(cell, depth + 2, type, null, indent)}`
           );
           return `${innerPad}[\n${innerItems.join(',\n')}\n${innerPad}]`;
         });
