@@ -7,7 +7,7 @@
     "last_modified": "2026-06-07",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 22
+    "total_questions": 23
   },
   "questions": [
     {
@@ -1003,6 +1003,53 @@
         "case_sensitive": false
       },
       "id": "022"
+    },
+    {
+      "type": "clock_set_time",
+      "question": "Set the time to 6:20 PM by drawing the hour and minute hands on the clock.",
+      "svg_content": "",
+      "img_url": "",
+      "clock": {
+        "radius": "120",
+        "numbers": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "hour_hand": {
+          "color": "red",
+          "length_ratio": "0.65"
+        },
+        "minute_hand": {
+          "color": "black",
+          "length_ratio": "0.9"
+        }
+      },
+      "correct_answer": {
+        "hour": "6",
+        "minute": "4"
+      },
+      "user_response": {
+        "hour": null,
+        "minute": null
+      },
+      "description": "",
+      "scoring_method": "exact",
+      "explanation": "",
+      "difficulty": "easy",
+      "points": "",
+      "time_limit": "",
+      "tags": [],
+      "id": "023"
     }
   ]
 }

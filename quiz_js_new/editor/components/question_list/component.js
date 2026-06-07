@@ -35,6 +35,15 @@ class QuestionListComponent extends HTMLElement {
     }
 
     this.appendChild(wrap);
+    this._scrollToIndex(activeIndex);
+  }
+
+  // ── Scroll active card into view ─────────────────────
+
+  _scrollToIndex(index) {
+    if (index < 0) return;
+    const card = this.querySelector(`.ql-card[data-index="${index}"]`);
+    card?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
   // ── Build card ───────────────────────────────────────

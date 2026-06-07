@@ -327,8 +327,18 @@ EditorFormRegistry.register('number_line_arcs', {
 
 EditorFormRegistry.register('clock_set_time', {
   label: 'Clock', description: 'Set time on a clock face',
-  color: '#2e7d32', previewTag: 'clock-set-time',
-  default: { type: 'clock_set_time', question: '', svg_content: '', img_url: '',
-    correct_answer: '', user_response: '',
-    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+  color: '#2e7d32', formTag: 'clock-set-time-form', previewTag: 'clock-set-time',
+  default: {
+    type: 'clock_set_time', question: '', svg_content: '', img_url: '',
+    clock: {
+      radius: 120,
+      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      hour_hand:   { color: 'red',   length_ratio: 0.65 },
+      minute_hand: { color: 'black', length_ratio: 0.9  },
+    },
+    correct_answer:  { hour: 4, minute: 6 },
+    user_response:   { hour: null, minute: null },
+    description: '', scoring_method: 'exact',
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
 });
