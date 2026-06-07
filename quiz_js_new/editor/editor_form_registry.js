@@ -154,8 +154,6 @@ EditorFormRegistry.register('ordering_horizontal', {
   },
 });
 
-// ── Preview only (forms not yet implemented) ──────────
-
 EditorFormRegistry.register('multi_fill_in_blank', {
   label: 'Multi Fill Blank', description: 'Multiple blanks in one question',
   color: '#1a8a8a', formTag: 'multi-fill-in-blank-form', previewTag: 'multi-fill-in-blank',
@@ -229,9 +227,21 @@ EditorFormRegistry.register('matching_connection', {
 
 EditorFormRegistry.register('matching_connection_image', {
   label: 'Match Connection Image', description: 'Connect matching image pairs',
-  color: '#7b3000', previewTag: 'matching-connection-image',
-  default: { type: 'matching_connection_image', question: '', svg_content: '', img_url: '',
-    pairs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+  color: '#7b3000',
+  formTag:    'matching-connection-image',
+  previewTag: 'matching-connection-image',
+  default: {
+    type: 'matching_connection_image', question: '', svg_content: '', img_url: '',
+    rows: [],
+    properties_column: [],
+    user_response: [],
+    validation: {
+      scoring_method: 'exact',
+      allow_multiple_connections: false,
+      line_colors: ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#ffa500', '#ffffff'],
+    },
+    explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '',
+  },
 });
 
 EditorFormRegistry.register('compare_quantities', {

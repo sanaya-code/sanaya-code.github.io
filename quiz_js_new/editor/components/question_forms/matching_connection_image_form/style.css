@@ -1,0 +1,845 @@
+/* editor/components/question_forms/matching_connection_image_form/style.css */
+/* Self-contained — prefix: ef-ipm- */
+
+.ef-ipm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Skip button (footer) ────────────────────────────── */
+
+.ef-ipm-btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.ef-ipm-btn-skip:hover { background: rgba(127,140,141,0.12); }
+
+/* ── Scrollable form body ────────────────────────────── */
+
+.ef-ipm-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field group ─────────────────────────────────────── */
+
+.ef-ipm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ef-ipm-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ef-ipm-label .ef-ipm-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* ── Textarea ────────────────────────────────────────── */
+
+.ef-ipm-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+
+.ef-ipm-textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── On-focus preview box ────────────────────────────── */
+
+.ef-ipm-render-preview {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-word;
+  display: none;          /* hidden until focused */
+  animation: ef-ipm-fadein 0.15s ease;
+}
+
+.ef-ipm-render-preview.visible {
+  display: block;
+}
+
+.ef-ipm-render-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+@keyframes ef-ipm-fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Text input ──────────────────────────────────────── */
+
+.ef-ipm-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ef-ipm-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Collapsible section (SVG / Image) ───────────────── */
+
+.ef-ipm-collapsible {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ef-ipm-collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.ef-ipm-collapsible-header:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.ef-ipm-collapsible-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.ef-ipm-collapsible.open .ef-ipm-collapsible-arrow {
+  transform: rotate(180deg);
+}
+
+.ef-ipm-collapsible-body {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.ef-ipm-collapsible.open .ef-ipm-collapsible-body {
+  display: flex;
+}
+
+/* ── SVG preview ─────────────────────────────────────── */
+
+.ef-ipm-svg-preview {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.ef-ipm-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.ef-ipm-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ── Image thumbnail preview ─────────────────────────── */
+
+.ef-ipm-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.ef-ipm-img-preview.visible {
+  display: flex;
+}
+
+.ef-ipm-img-preview img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Remove buttons ──────────────────────────────────── */
+
+.ef-ipm-remove-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-ipm-remove-btn:hover { background: var(--danger-light); }
+
+/* ── Options section ─────────────────────────────────── */
+
+.ef-ipm-options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ef-ipm-add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+}
+.ef-ipm-add-option-btn:hover { background: #b8d9f5; }
+
+.ef-ipm-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Option row ──────────────────────────────────────── */
+
+.ef-ipm-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.ef-ipm-option-row:hover       { border-color: var(--border-focus); }
+.ef-ipm-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-ipm-option-row.dragging    { opacity: 0.4; }
+.ef-ipm-option-row.ef-ipm-focused-row { border-color: var(--accent); background: var(--accent-light); }
+
+.ef-ipm-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.ef-ipm-drag-handle:active { cursor: grabbing; }
+
+.ef-ipm-correct-radio {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.ef-ipm-option-text {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+.ef-ipm-option-text:focus { border-color: var(--border-focus); }
+
+.ef-ipm-option-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-ipm-option-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Shared option preview box ───────────────────────── */
+
+.ef-ipm-option-preview-box {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  animation: ef-ipm-fadein 0.15s ease;
+}
+
+.ef-ipm-option-preview-box.visible {
+  display: flex;
+}
+
+.ef-ipm-option-preview-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ef-ipm-option-preview-content {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 34px;
+  word-break: break-word;
+}
+
+/* ── Validation error ────────────────────────────────── */
+
+.ef-ipm-error {
+  font-size: 12px;
+  color: var(--danger);
+  padding: 8px 12px;
+  background: var(--danger-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--danger);
+  display: none;
+}
+.ef-ipm-error.visible { display: block; }
+
+/* ── Two-column row ──────────────────────────────────── */
+
+.ef-ipm-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Select ──────────────────────────────────────────── */
+
+.ef-ipm-select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.ef-ipm-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
+}
+
+/* ── Save footer ─────────────────────────────────────── */
+
+.ef-ipm-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.ef-ipm-btn-save {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.ef-ipm-btn-save:hover {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+
+/* ── Disabled state when marked as skip ──────────────── */
+
+.ef-ipm-body.ef-ipm-is-skip .ef-ipm-field,
+.ef-ipm-body.ef-ipm-is-skip .ef-ipm-options-header,
+.ef-ipm-body.ef-ipm-is-skip .ef-ipm-collapsible {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Body dims but footer stays fully interactive */
+.ef-ipm-body.ef-ipm-is-skip {
+  opacity: 0.6;
+}
+
+.ef-ipm-body.ef-ipm-is-skip ~ .ef-ipm-footer {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Height chain ────────────────────────────────────── */
+
+matching-connection-image .ef-ipm-form {
+  min-height: 0;
+}
+
+matching-connection-image .ef-ipm-body {
+  min-height: 0;
+}
+/* ═══════════════════════════════════════════════════════
+   MATCHING CONNECTION IMAGE — unique answer widget rules
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Section header (label + button row) ─────────────── */
+
+.ef-ipm-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ef-ipm-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.ef-ipm-add-btn:hover { background: #b8d9f5; }
+
+/* ── Hint text ───────────────────────────────────────── */
+
+.ef-ipm-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--accent-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  line-height: 1.5;
+}
+
+/* ── Image row card ──────────────────────────────────── */
+
+.ef-ipm-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ef-ipm-row-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+
+.ef-ipm-row-card:hover       { border-color: var(--border-focus); }
+.ef-ipm-row-card.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-ipm-row-card.dragging    { opacity: 0.4; }
+
+.ef-ipm-row-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.ef-ipm-row-num {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex: 1;
+  min-width: 0;
+}
+
+.ef-ipm-row-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.ef-ipm-row-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+.ef-ipm-row-card-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── SVG / URL toggle ────────────────────────────────── */
+
+.ef-ipm-toggle-group {
+  display: flex;
+  gap: 16px;
+}
+
+.ef-ipm-toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ef-ipm-toggle-option input[type="radio"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Row panels (SVG / URL) ──────────────────────────── */
+
+.ef-ipm-row-panel {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ef-ipm-row-panel.active {
+  display: flex;
+}
+
+.ef-ipm-row-svg-preview {
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+}
+
+.ef-ipm-row-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.ef-ipm-row-svg-preview:empty::before {
+  content: 'SVG preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+.ef-ipm-row-img-preview {
+  display: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  max-height: 120px;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.ef-ipm-row-img-preview.visible {
+  display: flex;
+}
+
+.ef-ipm-row-img-preview img {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ── Properties column list ──────────────────────────── */
+
+.ef-ipm-props-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ef-ipm-prop-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  transition: border-color 0.15s;
+}
+
+.ef-ipm-prop-row:hover     { border-color: var(--border-focus); }
+.ef-ipm-prop-row.drag-over { border-color: var(--accent-2); border-style: dashed; }
+.ef-ipm-prop-row.dragging  { opacity: 0.4; }
+
+.ef-ipm-prop-auto {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.ef-ipm-lock-icon {
+  font-size: 12px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.ef-ipm-prop-value-input {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.ef-ipm-prop-value-input:focus { border-color: var(--border-focus); }
+.ef-ipm-prop-value-input[readonly] {
+  background: var(--accent-light);
+  color: var(--accent-deep);
+  cursor: default;
+}
+
+.ef-ipm-prop-auto-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent-deep);
+  background: rgba(52,152,219,0.15);
+  padding: 2px 7px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+}
+
+.ef-ipm-prop-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-ipm-prop-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Drag handle (shared) ────────────────────────────── */
+
+.ef-ipm-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.ef-ipm-drag-handle:active { cursor: grabbing; }
+
+/* ── Validation block ────────────────────────────────── */
+
+.ef-ipm-validation-block {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Checkbox label ──────────────────────────────────── */
+
+.ef-ipm-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ef-ipm-checkbox {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Color rows ──────────────────────────────────────── */
+
+.ef-ipm-colors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ef-ipm-color-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ef-ipm-color-picker {
+  width: 36px;
+  height: 32px;
+  padding: 2px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ef-ipm-color-text {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.ef-ipm-color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+}
+
+.ef-ipm-color-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-ipm-color-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}

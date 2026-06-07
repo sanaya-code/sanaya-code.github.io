@@ -1,0 +1,132 @@
+GENERIC FORM CLASS BREAKDOWN — TEMPLATE
+========================================
+Use this as the design blueprint for every new form.
+
+
+── 1. {TYPE}FormUtils  ──────────────────────────────────────
+Static helper methods only. No state. No DOM refs.
+Copy identically into every form — never shared across files.
+
+  static escHtml(str)
+  static parseOptionalNumber(el)
+  static parseTags(el)
+  static bindFocusPreview(input, preview)
+  static bindCollapsible(header, section)
+
+  + add any type-specific static helpers here
+    (e.g. parseColorList, buildSegmentHTML, etc.)
+
+
+── 2. {TYPE}QuestionWidget  ─────────────────────────────────
+Owns: question textarea + focus render preview.
+Identical across all forms — only prefix changes.
+
+  constructor(root)
+  render(q)             → returns HTML string
+  bindEvents()          → binds focus preview
+  getValue()            → returns trimmed string
+
+
+── 3. {TYPE}MediaWidget  ────────────────────────────────────
+Owns: question-level SVG collapsible + Image URL collapsible.
+Identical across all forms — only prefix changes.
+
+  constructor(root)
+  render(q)             → returns HTML string
+  bindEvents()          → binds collapsibles, svg preview, img preview
+  getSvg()              → returns string
+  getImgUrl()           → returns string
+  _updateImgPreview(url)  [private]
+
+
+── 4. {TYPE}AnswerWidget  ───────────────────────────────────
+Owns: everything specific to this question type.
+This is the ONLY class that differs meaningfully between forms.
+Design this class fresh for each form type.
+
+  constructor(root)
+  render(q)             → returns HTML string
+  bindEvents()          → binds all answer-area interactions
+
+  get*()                → one getter per logical data group
+                          e.g. getOptions(), getPairs(), getRows(),
+                               getScoringMethod(), getLimits() ...
+
+  showError(msg)        → shows/hides validation error message
+
+  _private helpers      → reindex, reorder, drag handlers,
+                          row builders, sync logic, etc.
+
+
+── 5. {TYPE}MetadataWidget  ─────────────────────────────────
+Owns: explanation + difficulty + points + time_limit + tags.
+Identical across all forms — only prefix changes.
+
+  constructor(root)
+  render(q)             → returns HTML string
+  bindEvents()          → binds explanation focus preview
+  getData()             → returns { explanation, difficulty,
+                                    points, time_limit, tags }
+
+
+── 6. {TYPE}FormComponent extends HTMLElement  ──────────────
+Owns: lifecycle, rendering, wiring, save/close/skip.
+Structure identical across all forms — only type string changes.
+
+  connectedCallback()           → init _question, _index, _render(), _bindAll()
+  loadQuestion(index, question) → deep clone, _render(), _bindAll()
+
+  _render()             → builds full innerHTML from all 5 widgets
+                          sets bodyClass (ef-{prefix}-is-skip if skip)
+                          sets skipBtnLabel
+
+  _bindAll()            → instantiates all 5 widgets, calls bindEvents()
+                          on each, then calls _bindFooter()
+
+  _bindFooter()         → binds Save button → _handleSave()
+                          binds Skip button → _handleSkipToggle()
+
+  _handleSkipToggle()   → toggles type ↔ SKIP_TYPE
+                          updates body class + skip button label
+                          no re-render
+
+  _handleSave()         → validates via answerWidget
+                          calls _collectData()
+                          dispatches question-saved event
+
+  _collectData()        → reads all widgets via their get*() methods
+                          assembles and returns clean question object
+
+  [last line]
+  customElements.define('{element-tag}', {TYPE}FormComponent)
+
+
+── FOOTER LAYOUT RULE  ──────────────────────────────────────
+
+  [Save]                        [⊘ Mark as Skip / ↩ Mark {Label}]
+  justify-content: space-between
+
+
+── SKIP STATE RULE  ─────────────────────────────────────────
+
+  Body dims:   .ef-{prefix}-body.ef-{prefix}-is-skip { opacity: 0.6 }
+  Footer stays active:
+               .ef-{prefix}-body.ef-{prefix}-is-skip
+               ~ .ef-{prefix}-footer { opacity: 1; pointer-events: all; }
+
+
+── WHAT NEVER CHANGES BETWEEN FORMS  ────────────────────────
+
+  - FormUtils       — identical 5 static methods (copy verbatim)
+  - QuestionWidget  — identical (only prefix differs)
+  - MediaWidget     — identical (only prefix differs)
+  - MetadataWidget  — identical (only prefix differs)
+  - FormComponent   — identical structure (only type string + prefix differ)
+  - customElements.define tag — never renamed after registration
+
+
+── WHAT ALWAYS CHANGES  ─────────────────────────────────────
+
+  - AnswerWidget    — designed fresh per type
+  - CSS file        — generated from MCQ base via sed, then
+                      unique answer widget rules appended
