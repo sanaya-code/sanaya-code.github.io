@@ -525,7 +525,7 @@ matching-connection-image .ef-ipm-body {
 .ef-ipm-rows-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
 .ef-ipm-row-card {
@@ -547,14 +547,48 @@ matching-connection-image .ef-ipm-body {
   background: var(--bg-panel);
   border-bottom: 1px solid var(--border);
   border-radius: var(--radius) var(--radius) 0 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* When collapsed — remove bottom border radius on header,
+   hide the body, flip the arrow */
+.ef-ipm-row-card.ef-ipm-row-collapsed .ef-ipm-row-card-header {
+  border-bottom: none;
+  border-radius: var(--radius);
+}
+
+.ef-ipm-row-card.ef-ipm-row-collapsed .ef-ipm-row-card-body {
+  display: none;
+}
+
+.ef-ipm-row-card.ef-ipm-row-collapsed .ef-ipm-row-collapse-arrow {
+  transform: rotate(-90deg);
 }
 
 .ef-ipm-row-num {
   font-size: 12px;
   font-weight: 600;
   color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.ef-ipm-row-summary {
+  font-size: 11px;
+  color: var(--text-muted);
   flex: 1;
   min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.ef-ipm-row-collapse-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  flex-shrink: 0;
 }
 
 .ef-ipm-row-delete {
@@ -792,19 +826,24 @@ matching-connection-image .ef-ipm-body {
 
 .ef-ipm-colors-list {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .ef-ipm-color-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
 }
 
 .ef-ipm-color-picker {
-  width: 36px;
-  height: 32px;
+  width: 30px;
+  height: 28px;
   padding: 2px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
@@ -814,15 +853,14 @@ matching-connection-image .ef-ipm-body {
 }
 
 .ef-ipm-color-text {
-  flex: 1;
-  min-width: 0;
+  width: 80px;
   font-family: var(--font-mono);
   font-size: 12px;
 }
 
 .ef-ipm-color-swatch {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
   flex-shrink: 0;
@@ -834,10 +872,11 @@ matching-connection-image .ef-ipm-body {
   cursor: pointer;
   color: var(--text-muted);
   font-size: 13px;
-  padding: 2px 5px;
+  padding: 1px 4px;
   border-radius: 4px;
   flex-shrink: 0;
   transition: color 0.15s, background 0.15s;
+  line-height: 1;
 }
 .ef-ipm-color-delete:hover {
   color: var(--danger);

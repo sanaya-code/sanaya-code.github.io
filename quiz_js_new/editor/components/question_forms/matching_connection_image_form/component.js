@@ -239,12 +239,18 @@ class IPMAnswerWidget {
       ? row.acceptable_properties.join(', ')
       : (row.acceptable_properties || '');
 
+    const summary = row.alt_text
+      ? IPMFormUtils.escHtml(row.alt_text)
+      : (row.property ? `property: ${IPMFormUtils.escHtml(row.property)}` : 'empty row');
+
     return `
       <div class="ef-ipm-row-card" draggable="true" data-row-index="${index}">
 
-        <div class="ef-ipm-row-card-header">
+        <div class="ef-ipm-row-card-header" data-collapse-toggle>
           <span class="ef-ipm-drag-handle">⠿</span>
           <span class="ef-ipm-row-num">Row ${index + 1}</span>
+          <span class="ef-ipm-row-summary">${summary}</span>
+          <span class="ef-ipm-row-collapse-arrow">▼</span>
           <button class="ef-ipm-row-delete" title="Delete row">✕</button>
         </div>
 
@@ -492,6 +498,16 @@ class IPMAnswerWidget {
     const list = this._root.querySelector('#ef-ipm-rows-list');
     if (!list) return;
 
+    // Collapse toggle — click header to expand/collapse body
+    list.addEventListener('click', (e) => {
+      const header = e.target.closest('[data-collapse-toggle]');
+      if (!header) return;
+      // Don't toggle if clicking the delete button
+      if (e.target.classList.contains('ef-ipm-row-delete')) return;
+      const card = header.closest('.ef-ipm-row-card');
+      if (card) card.classList.toggle('ef-ipm-row-collapsed');
+    });
+
     // Delegated events on list
     list.addEventListener('click', (e) => {
       // Delete row
@@ -539,13 +555,19 @@ class IPMAnswerWidget {
       }
     });
 
-    // Property input → on blur, sync auto-entry in properties column
+    // Property input → on blur, sync auto-entry in properties column + update summary
     list.addEventListener('blur', (e) => {
-      if (!e.target.classList.contains('ef-ipm-row-property-input')) return;
-      const card    = e.target.closest('.ef-ipm-row-card');
-      const idx     = parseInt(card.dataset.rowIndex);
-      const newVal  = e.target.value.trim();
-      this._syncAutoProperty(idx, newVal);
+      const card = e.target.closest('.ef-ipm-row-card');
+      if (!card) return;
+      if (e.target.classList.contains('ef-ipm-row-property-input')) {
+        const idx    = parseInt(card.dataset.rowIndex);
+        const newVal = e.target.value.trim();
+        this._syncAutoProperty(idx, newVal);
+        this._updateRowSummary(card);
+      }
+      if (e.target.classList.contains('ef-ipm-row-alt-input')) {
+        this._updateRowSummary(card);
+      }
     }, true); // capture=true for blur
 
     // Drag reorder rows
@@ -576,6 +598,16 @@ class IPMAnswerWidget {
         r.name = `ef-ipm-row-mode-${i}`;
       });
     });
+  }
+
+  _updateRowSummary(card) {
+    const altText  = card.querySelector('.ef-ipm-row-alt-input')?.value.trim();
+    const property = card.querySelector('.ef-ipm-row-property-input')?.value.trim();
+    const summary  = card.querySelector('.ef-ipm-row-summary');
+    if (!summary) return;
+    summary.textContent = altText
+      ? altText
+      : (property ? `property: ${property}` : 'empty row');
   }
 
   // ── Properties column events ──────────────────────────
