@@ -6,6 +6,7 @@ const JsonExporter = (() => {
 
   function download(questions, filename) {
     filename = filename || _defaultFilename();
+    const reindexed = _reassignExportIds(questions);
 
     const payload = {
       metadata: {
@@ -16,9 +17,9 @@ const JsonExporter = (() => {
         last_modified: new Date().toISOString().slice(0, 10),
         author:        '',
         license:       'CC BY-SA 4.0',
-        total_questions: questions.length,
+        total_questions: reindexed.length,
       },
-      questions: questions,
+      questions: reindexed,
     };
 
     const json = JSON.stringify(payload, null, 2);
@@ -28,14 +29,15 @@ const JsonExporter = (() => {
   // ── Copy to clipboard ────────────────────────────────
 
   function copyToClipboard(questions) {
+    const reindexed = _reassignExportIds(questions);
     const payload = {
       metadata: {
         title:           'Quiz Question Bank',
         version:         '2.0',
         last_modified:   new Date().toISOString().slice(0, 10),
-        total_questions: questions.length,
+        total_questions: reindexed.length,
       },
-      questions: questions,
+      questions: reindexed,
     };
     const json = JSON.stringify(payload, null, 2);
     return navigator.clipboard.writeText(json);
@@ -61,6 +63,15 @@ const JsonExporter = (() => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  }
+
+  // ── Reassign ids sequentially for export ─────────────
+
+  function _reassignExportIds(questions) {
+    return questions.map((q, i) => {
+      const { id: _discarded, ...rest } = JSON.parse(JSON.stringify(q));
+      return { id: String(i + 1).padStart(3, '0'), ...rest };
+    });
   }
 
   return { download, copyToClipboard };

@@ -114,6 +114,8 @@ class EditorPanelComponent extends HTMLElement {
         detail:  { isNew: this._isNew, index: this._currentIndex }
       }));
     });
+
+    this.addEventListener('question-saved', () => { this._isNew = false; }, { once: true });
   }
 
   // ── Mount form ───────────────────────────────────────
