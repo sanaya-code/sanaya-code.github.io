@@ -73,6 +73,11 @@ const JsonExporter = (() => {
       return arr.every(_isPrimitive);
     }
 
+    function _isArrayOfPrimitiveArrays(arr) {
+      if (!Array.isArray(arr)) return false;
+      return arr.every(item => Array.isArray(item) && _isArrayOfPrimitives(item));
+    }
+
     // Strip wrapping quotes from strings e.g. "\"geography\"" → "geography"
     function _cleanString(str) {
       if (typeof str !== 'string') return str;
@@ -87,6 +92,17 @@ const JsonExporter = (() => {
 
       if (Array.isArray(val)) {
         if (val.length === 0) return '[]';
+
+        // Array of primitive arrays → all inner arrays on one line each, outer on one line
+        if (_isArrayOfPrimitiveArrays(val)) {
+          const items = val.map(inner => {
+            const elems = inner.map(item =>
+              JSON.stringify(typeof item === 'string' ? _cleanString(item) : item)
+            );
+            return `[${elems.join(', ')}]`;
+          });
+          return `[${items.join(', ')}]`;
+        }
 
         // Array of primitives → all on one line e.g. ["math", "time"]
         if (_isArrayOfPrimitives(val)) {
