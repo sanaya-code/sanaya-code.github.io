@@ -5,6 +5,7 @@ class TopbarComponent {
   constructor(element) {
     this._el             = element;
     this._btnAddQuestion = element.querySelector('#btn-add-question');
+    this._btnNew         = element.querySelector('#btn-new');
     this._btnLoadJson    = element.querySelector('#btn-load-json');
     this._btnExportJson  = element.querySelector('#btn-export-json');
     this._fileInput      = document.getElementById('file-input');
@@ -14,6 +15,10 @@ class TopbarComponent {
 
   onAddQuestion(fn) {
     this._btnAddQuestion.addEventListener('click', fn);
+  }
+
+  onNew(fn) {
+    this._btnNew.addEventListener('click', fn);
   }
 
   onLoadJson(fn) {

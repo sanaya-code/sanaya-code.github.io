@@ -9,6 +9,7 @@ class TopbarController {
   // ── Signal binding (called by MainController) ─────────
 
   onAddQuestion(fn) { this._component.onAddQuestion(fn); }
+  onNew(fn)         { this._component.onNew(fn);         }
   onLoadJson(fn)    { this._component.onLoadJson(fn);    }
   onExportJson(fn)  { this._component.onExportJson(fn);  }
   onFileSelected(fn){ this._component.onFileSelected(fn);}

@@ -23,6 +23,15 @@ class MainController {
     // ── Event handlers ──────────────────────────────────
     this._listHandler  = new QuestionListHandler(this._listCtrl, this._panelCtrl);
     this._panelHandler = new EditorPanelHandler(this._listCtrl, this._panelCtrl);
+    this._topbarHandler = new TopbarHandler(
+      this._topbarCtrl,
+      this._emptyStateCtrl,
+      this._panelCtrl,
+      this._shell,
+      (cb) => this._triggerFilePicker(cb),
+      (qs) => this._loadQuestions(qs),
+      ()   => this._exportJson()
+    );
 
     // ── Boot ────────────────────────────────────────────
     this._checkDraft();
@@ -145,28 +154,6 @@ class MainController {
     });
 
     this._emptyStateCtrl.onResume(() => this._resumeDraft());
-
-    this._topbarCtrl.onLoadJson(() => {
-      this._triggerFilePicker((questions) => {
-        if (StateController.getCount() > 0) {
-          if (!confirm(
-            'Loading a new file will replace your current questions.\n' +
-            'Unsaved changes will be lost. Continue?'
-          )) return;
-        }
-        this._loadQuestions(questions);
-      });
-    });
-
-    this._topbarCtrl.onExportJson(() => this._exportJson());
-
-    this._topbarCtrl.onAddQuestion(() => {
-      if (!StateController.canAdd()) {
-        StateController.promptFinishEditing();
-        return;
-      }
-      this._panelCtrl.showTypeSelector();
-    });
 
   }
 
