@@ -173,6 +173,9 @@ html, body {
   color: var(--text-secondary);
   flex-shrink: 0;
   background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* ── Empty State ─────────────────────────────────────── */
@@ -276,6 +279,7 @@ html, body {
   border: 1.5px solid var(--success);
 }
 .btn-empty-draft:hover { background: rgba(39,174,122,0.08); }
+
 
 /* ── Scrollbar ───────────────────────────────────────── */
 

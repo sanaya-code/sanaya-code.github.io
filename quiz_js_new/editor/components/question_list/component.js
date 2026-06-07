@@ -1,61 +1,20 @@
 // editor/components/question_list/component.js
 
-class QuestionListComponent extends HTMLElement {
+// ── Config ───────────────────────────────────────────────────────────────────
 
-  connectedCallback() {
-    this._dragSrcIdx = null;
-    this._mode       = 'view';
-    this._render([], -1);
-  }
+const DOT_COLUMNS = 4;   // number of dot widgets per row
 
-  // ── Public API ───────────────────────────────────────
+// ── Question Card Widget ──────────────────────────────────────────────────────
 
-  setQuestions(questions, activeIndex = -1, mode = 'view') {
-    this._mode = mode;
-    this._render(questions, activeIndex);
-  }
+class QuestionCardWidget {
 
-  // ── Render ───────────────────────────────────────────
-
-  _render(questions, activeIndex) {
-    this.innerHTML = '';
-    const wrap = document.createElement('div');
-    wrap.className = 'question-list-wrap';
-
-    if (!questions.length) {
-      wrap.innerHTML = `
-        <div class="question-list-empty">
-          <div class="ql-empty-icon">📋</div>
-          <p>No questions yet.<br>
-             Click <strong>+ Add Question</strong> to begin.</p>
-        </div>`;
-    } else {
-      questions.forEach((q, i) =>
-        wrap.appendChild(this._makeCard(q, i, activeIndex)));
-    }
-
-    this.appendChild(wrap);
-    this._scrollToIndex(activeIndex);
-  }
-
-  // ── Scroll active card into view ─────────────────────
-
-  _scrollToIndex(index) {
-    if (index < 0) return;
-    const card = this.querySelector(`.ql-card[data-index="${index}"]`);
-    card?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  }
-
-  // ── Build card ───────────────────────────────────────
-
-  _makeCard(q, index, activeIndex) {
+  render(q, index, activeIndex, canDrag) {
     const isSkip     = q.type === 'skip';
     const typeConf   = isSkip ? null : EditorFormRegistry.getType(q.type);
     const badgeColor = typeConf ? typeConf.color : '#7f8c8d';
     const badgeLabel = isSkip ? 'SKIP' : (typeConf ? typeConf.label : q.type);
     const rawText    = (q.question || '').replace(/<[^>]*>/g, '').trim();
     const isActive   = index === activeIndex;
-    const canDrag    = this._mode === 'view';
 
     const card = document.createElement('div');
     card.className = 'ql-card' + (isActive ? ' active' : '');
@@ -84,63 +43,215 @@ class QuestionListComponent extends HTMLElement {
       </div>
     `;
 
-    this._bindCardEvents(card, index, canDrag);
     return card;
   }
 
-  // ── Card events ──────────────────────────────────────
-
-  _bindCardEvents(card, index, canDrag) {
-
-    card.addEventListener('click', (e) => {
+  bindEvents(el, index, canDrag, component) {
+    el.addEventListener('click', (e) => {
       if (e.target.classList.contains('ql-delete')) return;
-      this.dispatchEvent(new CustomEvent('question-selected',
+      component.dispatchEvent(new CustomEvent('question-selected',
         { bubbles: true, detail: { index } }));
     });
 
-    card.querySelector('.ql-delete')?.addEventListener('click', (e) => {
+    el.querySelector('.ql-delete')?.addEventListener('click', (e) => {
       e.stopPropagation();
-      this.dispatchEvent(new CustomEvent('question-deleted',
+      component.dispatchEvent(new CustomEvent('question-deleted',
         { bubbles: true, detail: { index } }));
     });
 
     if (!canDrag) return;
+    this._bindDragEvents(el, index, component);
+  }
 
-    card.addEventListener('dragstart', (e) => {
-      this._dragSrcIdx = index;
-      card.classList.add('dragging');
+  _bindDragEvents(el, index, component) {
+    el.addEventListener('dragstart', (e) => {
+      component._dragSrcIdx = index;
+      el.classList.add('dragging');
       e.dataTransfer.effectAllowed = 'move';
     });
 
-    card.addEventListener('dragend', () => {
-      card.classList.remove('dragging');
-      this.querySelectorAll('.ql-card')
+    el.addEventListener('dragend', () => {
+      el.classList.remove('dragging');
+      component.querySelectorAll('[data-index]')
         .forEach(c => c.classList.remove('drag-over'));
     });
 
-    card.addEventListener('dragover', (e) => {
+    el.addEventListener('dragover', (e) => {
       e.preventDefault();
-      if (index !== this._dragSrcIdx) {
-        this.querySelectorAll('.ql-card')
+      if (index !== component._dragSrcIdx) {
+        component.querySelectorAll('[data-index]')
           .forEach(c => c.classList.remove('drag-over'));
-        card.classList.add('drag-over');
+        el.classList.add('drag-over');
       }
     });
 
-    card.addEventListener('dragleave', () => {
-      card.classList.remove('drag-over');
-    });
+    el.addEventListener('dragleave', () => el.classList.remove('drag-over'));
 
-    card.addEventListener('drop', (e) => {
+    el.addEventListener('drop', (e) => {
       e.preventDefault();
-      card.classList.remove('drag-over');
-      const from = this._dragSrcIdx;
+      el.classList.remove('drag-over');
+      const from = component._dragSrcIdx;
       const to   = index;
       if (from === null || from === to) return;
-      this._dragSrcIdx = null;
-      this.dispatchEvent(new CustomEvent('question-reordered',
+      component._dragSrcIdx = null;
+      component.dispatchEvent(new CustomEvent('question-reordered',
         { bubbles: true, detail: { from, to } }));
     });
+  }
+
+}
+
+// ── Question Dot Widget ───────────────────────────────────────────────────────
+
+class QuestionDotWidget {
+
+  render(q, index, activeIndex, canDrag) {
+    const isSkip   = q.type === 'skip';
+    const typeConf = isSkip ? null : EditorFormRegistry.getType(q.type);
+    const color    = typeConf ? typeConf.color : '#7f8c8d';
+    const rawText  = (q.question || '').replace(/<[^>]*>/g, '').trim();
+    const isActive = index === activeIndex;
+    const label    = String(index + 1).padStart(3, '0');
+    const tooltip  = rawText || 'Untitled question';
+
+    const dot = document.createElement('div');
+    dot.className = 'ql-dot' + (isActive ? ' active' : '') + (isSkip ? ' ql-dot-skip' : '');
+    dot.dataset.index = index;
+    dot.draggable = canDrag;
+    dot.title = `#${label} — ${tooltip}`;
+    dot.style.setProperty('--dot-color', isSkip ? '#7f8c8d' : color);
+
+    dot.innerHTML = `
+      <span class="ql-dot-num">${label}</span>
+      ${q._unsaved ? '<span class="ql-dot-unsaved"></span>' : ''}
+    `;
+
+    return dot;
+  }
+
+  bindEvents(el, index, canDrag, component) {
+    el.addEventListener('click', () => {
+      component.dispatchEvent(new CustomEvent('question-selected',
+        { bubbles: true, detail: { index } }));
+    });
+
+    if (!canDrag) return;
+    this._bindDragEvents(el, index, component);
+  }
+
+  _bindDragEvents(el, index, component) {
+    el.addEventListener('dragstart', (e) => {
+      component._dragSrcIdx = index;
+      el.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+
+    el.addEventListener('dragend', () => {
+      el.classList.remove('dragging');
+      component.querySelectorAll('[data-index]')
+        .forEach(c => c.classList.remove('drag-over'));
+    });
+
+    el.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      if (index !== component._dragSrcIdx) {
+        component.querySelectorAll('[data-index]')
+          .forEach(c => c.classList.remove('drag-over'));
+        el.classList.add('drag-over');
+      }
+    });
+
+    el.addEventListener('dragleave', () => el.classList.remove('drag-over'));
+
+    el.addEventListener('drop', (e) => {
+      e.preventDefault();
+      el.classList.remove('drag-over');
+      const from = component._dragSrcIdx;
+      const to   = index;
+      if (from === null || from === to) return;
+      component._dragSrcIdx = null;
+      component.dispatchEvent(new CustomEvent('question-reordered',
+        { bubbles: true, detail: { from, to } }));
+    });
+  }
+
+}
+
+// ── Question List Component ───────────────────────────────────────────────────
+
+class QuestionListComponent extends HTMLElement {
+
+  connectedCallback() {
+    this._dragSrcIdx  = null;
+    this._mode        = 'view';
+    this._viewMode    = 'card';
+    this._questions   = [];
+    this._activeIndex = -1;
+    this._render();
+  }
+
+  // ── Public API ───────────────────────────────────────
+
+  setQuestions(questions, activeIndex = -1, mode = 'view') {
+    this._mode        = mode;
+    this._questions   = questions;
+    this._activeIndex = activeIndex;
+    this._render();
+  }
+
+  setViewMode(mode) {
+    if (this._viewMode === mode) return;
+    this._viewMode = mode;
+    this._render();
+  }
+
+  // ── Get active widget ─────────────────────────────────
+
+  _getWidget() {
+    return this._viewMode === 'dot'
+      ? new QuestionDotWidget()
+      : new QuestionCardWidget();
+  }
+
+  // ── Render ───────────────────────────────────────────
+
+  _render() {
+    const questions   = this._questions;
+    const activeIndex = this._activeIndex;
+    const canDrag     = this._mode === 'view';
+    const widget      = this._getWidget();
+    const isDot       = this._viewMode === 'dot';
+
+    this.innerHTML = '';
+    const wrap = document.createElement('div');
+    wrap.className = isDot ? 'ql-dot-wrap' : 'question-list-wrap';
+    if (isDot) wrap.style.setProperty('--dot-columns', DOT_COLUMNS);
+
+    if (!questions.length) {
+      wrap.innerHTML = `
+        <div class="question-list-empty">
+          <div class="ql-empty-icon">📋</div>
+          <p>No questions yet.<br>
+             Click <strong>+ Add Question</strong> to begin.</p>
+        </div>`;
+    } else {
+      questions.forEach((q, i) => {
+        const el = widget.render(q, i, activeIndex, canDrag);
+        widget.bindEvents(el, i, canDrag, this);
+        wrap.appendChild(el);
+      });
+    }
+
+    this.appendChild(wrap);
+    this._scrollToIndex(activeIndex);
+  }
+
+  // ── Scroll active item into view ─────────────────────
+
+  _scrollToIndex(index) {
+    if (index < 0) return;
+    const el = this.querySelector(`[data-index="${index}"]`);
+    el?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
 }

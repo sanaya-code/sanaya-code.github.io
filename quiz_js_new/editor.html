@@ -92,7 +92,13 @@
   <div id="shell" class="hidden">
 
     <div id="panel-left">
-      <div class="panel-header">Questions</div>
+      <div class="panel-header">
+        <span class="panel-header-label">Questions</span>
+        <div class="ql-view-toggle">
+          <button class="ql-view-btn ql-view-btn-active" id="btn-view-card" title="Card view">▤</button>
+          <button class="ql-view-btn" id="btn-view-dot" title="Dot view">⬡</button>
+        </div>
+      </div>
       <question-list id="question-list"></question-list>
     </div>
 

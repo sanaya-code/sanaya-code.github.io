@@ -197,3 +197,129 @@ question-list {
   cursor: default;
   pointer-events: none;
 }
+
+/* ── Panel header with toggle ────────────────────────── */
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-header-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ql-view-toggle {
+  display: flex;
+  gap: 3px;
+}
+
+.ql-view-btn {
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 14px;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  line-height: 1;
+}
+
+.ql-view-btn:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--border);
+}
+
+.ql-view-btn-active {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--border-focus);
+}
+
+/* ── Dot wrap ────────────────────────────────────────── */
+
+.ql-dot-wrap {
+  display: grid;
+  grid-template-columns: repeat(var(--dot-columns, 4), 1fr);
+  gap: 8px;
+  padding: 10px 10px 16px;
+  overflow-y: auto;
+  align-content: start;
+}
+
+/* ── Dot ─────────────────────────────────────────────── */
+
+.ql-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--dot-color, var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: transform 0.12s, box-shadow 0.12s, outline 0.12s;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+
+.ql-dot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.ql-dot.active {
+  outline-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.ql-dot.drag-over {
+  outline-color: var(--accent-2);
+  outline-style: dashed;
+}
+
+.ql-dot.dragging {
+  opacity: 0.45;
+}
+
+.ql-dot-skip {
+  background: #7f8c8d;
+}
+
+/* ── Dot number label ────────────────────────────────── */
+
+.ql-dot-num {
+  font-size: 9px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #fff;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* ── Dot unsaved indicator ───────────────────────────── */
+
+.ql-dot-unsaved {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--unsaved-dot);
+  border: 1.5px solid #fff;
+}
