@@ -13,6 +13,7 @@ class EditorPanelHandler {
     StateController.saveQuestion(index, questionData);
     StateController.returnToView();
     this._listCtrl.refresh();
+    this._listCtrl.scrollToIndex(index);
   }
 
   onQuestionClosed(isNew, index) {

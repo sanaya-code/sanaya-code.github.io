@@ -16,4 +16,8 @@ class QuestionListController {
     );
   }
 
+  scrollToIndex(index) {
+    this._component._scrollToIndex(index);
+  }
+
 }
