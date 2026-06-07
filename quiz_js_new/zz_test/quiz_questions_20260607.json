@@ -7,7 +7,7 @@
     "last_modified": "2026-06-07",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 21
+    "total_questions": 22
   },
   "questions": [
     {
@@ -962,6 +962,47 @@
       "time_limit": "",
       "tags": [],
       "id": "021"
+    },
+    {
+      "type": "number_line_arcs",
+      "question": "Add 2 + 4",
+      "svg_content": "",
+      "img_url": "",
+      "points": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "pairs": [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "2",
+          "6"
+        ]
+      ],
+      "user_response": [],
+      "explanation": "",
+      "description": "Add 2 + 4",
+      "metadata": {
+        "difficulty": "easy",
+        "points": "",
+        "time_limit": "",
+        "tags": [],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      "id": "022"
     }
   ]
 }

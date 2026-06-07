@@ -310,9 +310,19 @@ EditorFormRegistry.register('fill_in_blank_operation', {
 
 EditorFormRegistry.register('number_line_arcs', {
   label: 'Number Line', description: 'Arc based number line question',
-  color: '#4527a0', previewTag: 'number-line-arcs',
-  default: { type: 'number_line_arcs', question: '', svg_content: '', img_url: '',
-    arcs: [], user_response: [], explanation: '', difficulty: 'easy', tags: [], points: '', time_limit: '' },
+  color: '#4527a0',
+  formTag:    'number-line-arcs-form',
+  previewTag: 'number-line-arcs',
+  default: {
+    type: 'number_line_arcs', question: '', svg_content: '', img_url: '',
+    points: [], pairs: [], user_response: [],
+    explanation: '', description: '',
+    metadata: {
+      difficulty: 'easy', points: '', time_limit: '',
+      tags: [], scoring_method: 'exact', scoring_method_01: '',
+      case_sensitive: false,
+    },
+  },
 });
 
 EditorFormRegistry.register('clock_set_time', {
