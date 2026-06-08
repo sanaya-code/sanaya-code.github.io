@@ -18,6 +18,7 @@ body {
     width: 90%;
     max-width: 1200px;
     text-align: center;
+    /* position: relative; */
 }
 
 h1 {
@@ -25,6 +26,61 @@ h1 {
     margin-bottom: 30px;
     font-size: 2.2rem;
 }
+
+/* ── Editor link ─────────────────────────────────────── */
+
+.top-bar {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+}
+
+
+.editor-link {
+    padding: 4px 12px;
+    background-color: #2ecc71;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.editor-link:hover {
+    background-color: #27ae60;
+}
+
+/*
+.editor-link {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    padding: 5px 10px;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    background: #f8f9fa;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.editor-link span {
+    color: #3498db;
+}
+
+.editor-link:hover {
+    background: #ebf5fb;
+    border-color: #3498db;
+    color: #1a5f8a;
+}
+    
+*/
+
+/* ── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 900px) {
     .container {
