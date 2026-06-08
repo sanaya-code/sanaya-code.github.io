@@ -1,0 +1,92 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "Match the words with same meaning",
+        "pairs": [
+          { "left": "big", "right": "large" },
+          { "left": "jump", "right": "leap" },
+          { "left": "make", "right": "build" },
+          { "left": "start", "right": "begin" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "Match the words with same meaning",
+        "pairs": [
+          { "left": "look", "right": "see" },
+          { "left": "small", "right": "little" },
+          { "left": "sick", "right": "ill" },
+          { "left": "kind", "right": "type" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "Match ",
+        "pairs": [
+          { "left": "Raghu's goat", "right": "garden" },
+          { "left": "Raghu's hen", "right": "women's kitchen" },
+          { "left": "Raghu's chicks", "right": "old man's head" },
+          { "left": "Raghu's monkey", "right": "fruit shop" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "opposite",
+        "pairs": [
+          { "left": "sad", "right": "happy" },
+          { "left": "hot", "right": "cold" },
+          { "left": "wise", "right": "stupid" },
+          { "left": "good", "right": "bad" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "opposite",
+        "pairs": [
+          { "left": "clean", "right": "dirty" },
+          { "left": "white", "right": "black" },
+          { "left": "sweet", "right": "bitter" },
+          { "left": "lovely", "right": "ugly" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "012",
+        "question": "opposite",
+        "pairs": [
+          { "left": "He", "right": "himself" },
+          { "left": "She", "right": "herself" },
+          { "left": "You", "right": "yourself" },
+          { "left": "We", "right": "ourself" },
+          { "left": "I", "right": "myself" }
+        ],
+        "user_response": ""
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

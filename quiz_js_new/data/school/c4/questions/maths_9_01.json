@@ -1,0 +1,63 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "1 kilo-meter is",
+      "answers": [ "10 meters", "100 meters", "1000 meters" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "1 meter is ",
+      "answers": [ "<math><mfrac><mrow>1</mrow><mrow>1000</mrow></mfrac></math> Km",
+                   "<math><mfrac><mrow>1</mrow><mrow>100</mrow></mfrac></math> Km",
+                   "<math><mfrac><mrow>1</mrow><mrow>10</mrow></mfrac></math> Km" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "1 meter is ",
+      "answers": [ "10 centi-meters", "100 centi-meters", "1000 centi-meters" ], "correct_answer": 2
+    },
+    {
+      "number": 4,
+      "question": "1 centi-meter is ",
+      "answers": [ "<math><mfrac><mrow>1</mrow><mrow>1000</mrow></mfrac></math> meters",
+                   "<math><mfrac><mrow>1</mrow><mrow>100</mrow></mfrac></math> meters",
+                   "<math><mfrac><mrow>1</mrow><mrow>10</mrow></mfrac></math> meters" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "1 kilo-gram is",
+      "answers": [ "1000 grams", "100 grams", "10 grams" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "1 gram is ",
+      "answers": [ "<math><mfrac><mrow>1</mrow><mrow>100</mrow></mfrac></math> Kg",
+                   "<math><mfrac><mrow>1</mrow><mrow>1000</mrow></mfrac></math> Kg",
+                   "<math><mfrac><mrow>1</mrow><mrow>10</mrow></mfrac></math> Kg" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "1 liter is",
+      "answers": [ "100 mili-liters", "1000 mili-liters", "10 mili-liters" ], "correct_answer": 2
+    },
+    {
+      "number": 8,
+      "question": "1 mili-liter is ",
+      "answers": [ "<math><mfrac><mrow>1</mrow><mrow>1000</mrow></mfrac></math> liter",
+                   "<math><mfrac><mrow>1</mrow><mrow>100</mrow></mfrac></math> liter",
+                   "<math><mfrac><mrow>1</mrow><mrow>10</mrow></mfrac></math> liter" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "convert kilo into smaller unit, multiply by",
+      "answers": [ "100 units", "1000 units", "10 unit" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "convert milli into biggers unit, divide by",
+      "answers": [ "100 units", "10 units", "1000 unit" ], "correct_answer": 3
+    }
+  ]
+}
+

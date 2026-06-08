@@ -1,0 +1,43 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+            "type": "ordering_horizontal",
+            "id": "001",
+            "question": " I want to _______",
+            "items": ["N", "F", "I", "O", "M", "R"],
+            "correct_order": ["I", "N", "F", "O", "R", "M"],
+            "user_response": ["", "", "", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "002",
+          "question": " I am _________ from f***",
+          "items": ["U", "S", "F", "E", "R"],
+          "correct_order": ["S", "U", "F", "F", "E", "R"],
+          "user_response": ["", "", "", "", "", ""]
+        },
+        {
+          "type": "ordering_horizontal",
+          "id": "003",
+          "question": " I am s*** from ______",
+          "items": ["F", "V", "E", "R"],
+          "correct_order": ["F", "E", "V", "E", "R"],
+          "user_response": ["", "", "", "", ""]
+        }
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

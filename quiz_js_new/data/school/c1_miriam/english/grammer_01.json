@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "multi_select",
+      "id": "009",
+      "question": "write a or an",
+      "options": [
+        {"id": "A", "text": "Elephant", "correct": true},
+        {"id": "B", "text": "Banana", "correct": false},
+        {"id": "C", "text": "Umpire", "correct": true},
+        {"id": "D", "text": "Orange", "correct": true},
+        {"id": "E", "text": "Horse", "correct": false},
+        {"id": "E", "text": "Shop", "correct": false}
+      ],
+      "user_response" : "",
+      "minimum_selections": 3,
+      "maximum_selections": 3,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select",
+      "id": "009",
+      "question": "write a or an",
+      "options": [
+        {"id": "A", "text": "Player", "correct": false},
+        {"id": "B", "text": "Artist", "correct": true},
+        {"id": "C", "text": "Mango", "correct": false},
+        {"id": "D", "text": "Octer", "correct": true},
+        {"id": "E", "text": "Tiger", "correct": false},
+        {"id": "E", "text": "Bicycle", "correct": false}
+      ],
+      "user_response" : "",
+      "minimum_selections": 3,
+      "maximum_selections": 3,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type1": "options_fill_in_blank",
+      "id": "004",
+      "question": "Look at the picture and write",
+      "img_url": "data/school/c1_miriam/english/img/a_an_test_03.jpg",
+      "options": [
+        {
+          "id": "01",
+          "text": " ____",
+          "correct_answer": "a snake",
+          "acceptable_answers": ["a snake", "an elephant"]
+        },
+        {
+          "id": "02",
+          "text": " ____ giraffe",
+          "correct_answer": "a", "acceptable_answers": ["a"]
+        },
+        {
+          "id": "03",
+          "text": " ____ ostrich",
+          "correct_answer": "an",
+          "acceptable_answers": ["a snake", "an elephant"]
+        },
+        {
+          "id": "04",
+          "text": " ____ elephant",
+          "correct_answer": "an ",
+          "acceptable_answers": ["an"]
+        },
+        {
+          "id": "05",
+          "text": " ____ crocodile",
+          "correct_answer": "a", "acceptable_answers": ["a"]
+        }
+      ],
+      "user_response": ["", "", "", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "question": "Names of four persons",
+      "options": [
+        {
+          "id": "01",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        },
+        {
+          "id": "02",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        },
+        {
+          "id": "03",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        },
+        {
+          "id": "04",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["", "miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        },
+        {
+          "id": "05",
+          "text": "____ ",
+          "correct_answer": "Miriam", "acceptable_answers": ["", "miriam", "sanaya", "adam", "amy", "bob", "tom"]
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "question": "Write any four countries:",
+      "options": [
+        {
+          "id": "01",
+          "text": "____ ",
+          "correct_answer": "india",
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru", 
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
+        },
+        {
+          "id": "02",
+          "text": "____ ",
+          "correct_answer": "india",
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru",
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
+        },
+        {
+          "id": "03",
+          "text": "____ ",
+          "correct_answer": "india",
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru",
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
+        },
+        {
+          "id": "04",
+          "text": "____ ",
+          "correct_answer": "",
+          "acceptable_answers": [ "INDIA", "India", "Nepal", "NEPAL", "peru",
+                                  "Denmark", "DENMARK", "Italy", "ITALY"]
+        }
+      ],
+      "user_response": ["", "", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "question": "Write any four cities:",
+      "options": [
+        {
+          "id": "01",
+          "text": "____ ",
+          "correct_answer": "bhopal",
+          "acceptable_answers": ["bhopal", "sagar","pune", "satna"]
+        },
+        {
+          "id": "02",
+          "text": "____ ",
+          "correct_answer": "pune",
+          "acceptable_answers": ["bhopal", "sagar","pune", "satna"]
+        },
+        {
+          "id": "03",
+          "text": "____ ",
+          "correct_answer": "sagar",
+          "acceptable_answers": ["", "bhopal", "sagar","pune", "satna"]
+        },
+        {
+          "id": "04",
+          "text": "____ ",
+          "correct_answer": "satna",
+          "acceptable_answers": ["", "bhopal", "sagar","pune", "satna"]
+        }
+      ],
+      "user_response": ["", "", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "matching_connection",
+      "id": "012",
+      "question": "Match the following software with their categories:",
+      "pairs": [
+        { "left": "Fifth day", "right": "Thursday" },
+        { "left": "Second day", "right": "Monday" },
+        { "left": "Fourth month", "right": "April" },
+        { "left": "Third month", "right": "March" }
+      ],
+      "user_response": ""
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}
+  

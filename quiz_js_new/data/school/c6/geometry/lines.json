@@ -1,0 +1,288 @@
+{
+    "metadata": {
+      "title": "Lines and Angles for Kids",
+      "description": "Interactive questions to build understanding of basic geometry concepts",
+      "version": "1.1",
+      "created": "2023-11-16",
+      "author": "Math Educator",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+            "type": "mcq",
+            "id": "001",
+            "question": "Which of these represents a point?",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'> <circle cx='50' cy='50' r='3' fill='red'/> <line x1='100' y1='30' x2='100' y2='70' stroke='blue' stroke-width='2'/> <rect x='150' y='30' width='40' height='40' fill='pink' stroke='black'/></svg>",
+            "options": [
+              {"id": "1", "text": "Left figure"},
+              {"id": "2", "text": "Middle figure"},
+              {"id": "3", "text": "Right figure"}
+            ],
+            "correct_answer": "1",
+            "explanation": "The small black dot on the left is how we represent a point.",
+            "difficulty": "easy",
+            "tags": ["points"]
+        },
+        {
+            "type": "mcq",
+            "id": "002",
+            "question": "Which figure shows a line segment?",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 0 L 10 5 L 0 10 z' fill='LightSkyBlue'></path></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='LightSkyBlue'></circle></marker></defs><line x1='70' y1='30' x2='70' y2='70' stroke-width='2' marker-end='url(#dot)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='100' y1='30' x2='100' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='130' y1='30' x2='130' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#arrow)' stroke='LightSkyBlue' ></line></svg>",
+            "options": [
+              {"id": "1", "text": "First figure (with two endpoints)"},
+              {"id": "2", "text": "Second figure (with arrow)"},
+              {"id": "3", "text": "Third figure (dashed line)"}
+            ],
+            "correct_answer": "1",
+            "explanation": "The first figure shows a line segment between two points.",
+            "difficulty": "easy",
+            "tags": ["line segments"]
+        },
+        {
+            "type": "mcq",
+            "id": "003",
+            "question": "Which figure represents a line?",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 0 L 10 5 L 0 10 z' fill='LightSkyBlue'></path></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='LightSkyBlue'></circle></marker></defs><line x1='70' y1='30' x2='70' y2='70' stroke-width='2' marker-end='url(#dot)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='100' y1='30' x2='100' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='130' y1='30' x2='130' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#arrow)' stroke='LightSkyBlue' ></line></svg>",
+            "options": [
+              {"id": "1", "text": "First figure (with two endpoints)"},
+              {"id": "2", "text": "Second figure (with arrows both ends)"},
+              {"id": "3", "text": "Third figure (dashed line)"}
+            ],
+            "correct_answer": "3",
+            "explanation": "The figure with arrows at both ends represents a line extending infinitely.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+            "type": "mcq",
+            "id": "004",
+            "question": "Which figure shows a ray?",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 0 L 10 5 L 0 10 z' fill='LightSkyBlue'></path></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='LightSkyBlue'></circle></marker></defs><line x1='70' y1='30' x2='70' y2='70' stroke-width='2' marker-end='url(#dot)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='100' y1='30' x2='100' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='130' y1='30' x2='130' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#arrow)' stroke='LightSkyBlue' ></line></svg>",
+            "options": [
+              {"id": "1", "text": "First figure (no arrows)"},
+              {"id": "2", "text": "Second figure (one arrow)"},
+              {"id": "3", "text": "Third figure (two arrows)"}
+            ],
+            "correct_answer": "2",
+            "explanation": "The figure with one endpoint and one arrow represents a ray.",
+            "difficulty": "easy",
+            "tags": ["rays"]
+        },
+        {
+            "type": "multi_select",
+            "id": "007",
+            "question": "Two lines can intersect at",
+            "svg_content": "<svg width='400' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><g transform='translate(50, 80)'><line x1='-25' y1='0' x2='25' y1='0' stroke='#FF5252' stroke-width='3'/><line x1='0' y1='-25' x2='0' y1='25' stroke='#FF5252' stroke-width='3'/></g><g transform='translate(200, 80)'><line x1='-30' y1='-15' x2='30' y2='-15' stroke='#4285F4' stroke-width='3'/><line x1='-30' y1='15' x2='30' y2='15' stroke='#4285F4' stroke-width='3'/></g><g transform='translate(350, 80)'><line x1='-25' y1='-20' x2='25' y1='20' stroke='#0F9D58' stroke-width='3'/><line x1='-25' y1='20' x2='25' y1='-20' stroke='#0F9D58' stroke-width='3'/></g></svg>",
+            "options": [
+              {"id": "A", "text": "Two points", "correct": false},
+              {"id": "B", "text": "No points", "correct": true},
+              {"id": "C", "text": "One points", "correct": true},
+              {"id": "D", "text": "Three points", "correct": false}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+            "type": "mcq",
+            "id": "008",
+            "question": "Two lines that do not intersect are",
+            "options": [
+              {"id": "A", "text": "Perpendicular Lines"},
+              {"id": "B", "text": "Normal Lines"},
+              {"id": "C", "text": "Parallel Lines"},
+              {"id": "D", "text": "Angle lines"}
+            ],
+            "correct_answer": "C",
+            "explanation": "Parallel lines do not intersect.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+          "type": "mcq",
+          "id": "009",
+          "question": "Angle between two perpendicular lines is:",
+          "svg_content": "<svg width='400' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><line x1='140' y1='60' x2='140' y2='110' stroke='#FF5252' stroke-width='3'/><line x1='120' y1='110' x2='160' y2='110' stroke='black' stroke-width='3'/><line x1='200' y1='60' x2='200' y2='110' stroke='Teal' stroke-width='3'/><line x1='199' y1='110' x2='240' y2='110' stroke='Teal' stroke-width='3'/><line x1='260' y1='60' x2='260' y2='110' stroke='Navy' stroke-width='3'/><line x1='259' y1='85' x2='300' y2='85' stroke='Navy' stroke-width='3'/></svg>",
+          "options": [
+            {"id": "A", "text": "Acute angle"},
+            {"id": "B", "text": "Right angle (90°)"},
+            {"id": "C", "text": "Obtuse angle"},
+            {"id": "D", "text": "Straight angle"}
+          ],
+          "correct_answer": "B",
+          "explanation": "Perpendicular lines always cross at 90° right angles.",
+          "difficulty": "easy",
+          "tags": ["lines", "perpendicular"]
+        },
+        {
+          "type": "mcq",
+          "id": "012",
+          "question": "Which pair of lines is perpendicular?",
+          "svg_content": "<svg width='400' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><text x='38' y='30' fill='Black'>1</text><text x='95' y='30' fill='Black'>2</text><text x='150' y='30' fill='Black'>3</text><text x='205' y='30' fill='Black'>4</text><text x='260' y='30' fill='Black'>5</text><line x1='40' y1='60' x2='40' y2='110' stroke='#FF5252' stroke-width='3'/><line x1='20' y1='110' x2='60' y2='110' stroke='black' stroke-width='3'/><line x1='80' y1='90' x2='120' y2='90' stroke='Navy' stroke-width='3'/><line x1='80' y1='110' x2='120' y2='110' stroke='Navy' stroke-width='3'/><line x1='140' y1='90' x2='180' y2='100' stroke='SlateGrey' stroke-width='3'/><line x1='140' y1='110' x2='180' y2='100' stroke='SlateGrey' stroke-width='3'/><line x1='200' y1='60' x2='200' y2='110' stroke='Teal' stroke-width='3'/><line x1='199' y1='110' x2='240' y2='110' stroke='Teal' stroke-width='3'/><line x1='260' y1='60' x2='260' y2='110' stroke='Navy' stroke-width='3'/><line x1='259' y1='85' x2='300' y2='85' stroke='Navy' stroke-width='3'/></svg>",
+          "options": [
+            {"id": "1", "text": "1, 2, 3"},
+            {"id": "2", "text": "1, 4, 5"},
+            {"id": "3", "text": "2, 4, 5"},
+            {"id": "3", "text": "1, 3, 5"}
+
+          ],
+          "correct_answer": "2",
+          "explanation": "The first pair forms perfect right angles (90°).",
+          "difficulty": "easy",
+          "tags": ["lines", "perpendicular"]
+        },
+        {
+          "type": "mcq",
+          "id": "013",
+          "question": "Which pair of lines is parallel?",
+          "svg_content": "<svg width='400' height='200' viewBox='0 0 400 200' xmlns='http://www.w3.org/2000/svg'><text x='38' y='30' fill='Black'>1</text><text x='95' y='30' fill='Black'>2</text><text x='150' y='30' fill='Black'>3</text><text x='205' y='30' fill='Black'>4</text><text x='260' y='30' fill='Black'>5</text><line x1='40' y1='60' x2='40' y2='110' stroke='#FF5252' stroke-width='3'/><line x1='20' y1='110' x2='60' y2='110' stroke='black' stroke-width='3'/><line x1='80' y1='90' x2='120' y2='90' stroke='Navy' stroke-width='3'/><line x1='80' y1='110' x2='120' y2='110' stroke='Navy' stroke-width='3'/><line x1='140' y1='90' x2='180' y2='100' stroke='SlateGrey' stroke-width='3'/><line x1='140' y1='110' x2='180' y2='100' stroke='SlateGrey' stroke-width='3'/><line x1='200' y1='60' x2='200' y2='110' stroke='#FF5252' stroke-width='3'/><line x1='220' y1='60' x2='220' y2='110' stroke='#FF5252' stroke-width='3'/><line x1='260' y1='60' x2='260' y2='110' stroke='Navy' stroke-width='3'/><line x1='259' y1='85' x2='300' y2='85' stroke='Navy' stroke-width='3'/></svg>",
+          "options": [
+            {"id": "1", "text": "2, 3"},
+            {"id": "2", "text": "4, 5"},
+            {"id": "3", "text": "2, 4"},
+            {"id": "3", "text": "2, 5"}
+
+          ],
+          "correct_answer": "3",
+          "explanation": "The first pair forms perfect right angles (90°).",
+          "difficulty": "easy",
+          "tags": ["lines", "perpendicular"]
+        },
+        {
+          "type": "mcq",
+          "id": "014",
+          "question": "How many lines pass through 1 point?",
+          "svg_content": "<svg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='7' fill='Navy'/><line x1='100' y1='100' x2='180' y2='100' stroke='RoyalBlue' stroke-width='2'/><line x1='100' y1='100' x2='140' y2='40' stroke='RoyalBlue' stroke-width='2'/><line x1='100' y1='100' x2='60' y2='40' stroke='RoyalBlue' stroke-width='2'/><line x1='100' y1='100' x2='20' y2='100' stroke='RoyalBlue' stroke-width='2'/><line x1='100' y1='100' x2='60' y2='160' stroke='RoyalBlue' stroke-width='2'/><line x1='100' y1='100' x2='140' y2='160' stroke='RoyalBlue' stroke-width='2'/></svg>",
+          "options": [
+            {"id": "1", "text": "one"},
+            {"id": "2", "text": "two"},
+            {"id": "3", "text": "infinite"}
+          ],
+          "correct_answer": "3",
+          "explanation": "The first pair forms perfect right angles (90°).",
+          "difficulty": "easy",
+          "tags": ["lines", "perpendicular"]
+        },
+        {
+          "type": "mcq",
+          "id": "015",
+          "question": "How many lines pass through 2 points?",
+          "options": [
+            {"id": "1", "text": "one"},
+            {"id": "2", "text": "two"},
+            {"id": "3", "text": "infinite"}
+          ],
+          "correct_answer": "1",
+          "explanation": "The first pair forms perfect right angles (90°).",
+          "difficulty": "easy",
+          "tags": ["lines", "perpendicular"]
+        },
+        {
+            "type": "multi_select",
+            "id": "018",
+            "question": "Which of the following has definite(fixed) length?",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 0 L 10 5 L 0 10 z' fill='LightSkyBlue'></path></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='LightSkyBlue'></circle></marker></defs><line x1='70' y1='30' x2='70' y2='70' stroke-width='2' marker-end='url(#dot)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='100' y1='30' x2='100' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='130' y1='30' x2='130' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#arrow)' stroke='LightSkyBlue' ></line></svg>",
+            "options": [
+              {"id": "A", "text": "Line Segment", "correct": true},
+              {"id": "B", "text": "Ray", "correct": false},
+              {"id": "C", "text": "Line", "correct": false}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+            "type": "multi_select",
+            "id": "019",
+            "question": "line can extend?",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><defs><marker id='arrow' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 0 L 10 5 L 0 10 z' fill='LightSkyBlue'></path></marker><marker id='dot' markerWidth='5' markerHeight='5' refX='2.5' refY='2.5' orient='auto'><circle cx='2.5' cy='2.5' r='2.5' fill='LightSkyBlue'></circle></marker></defs><line x1='70' y1='30' x2='70' y2='70' stroke-width='2' marker-end='url(#dot)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='100' y1='30' x2='100' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#dot)' stroke='LightSkyBlue' ></line><line x1='130' y1='30' x2='130' y2='70' stroke-width='2' marker-end='url(#arrow)' marker-start='url(#arrow)' stroke='LightSkyBlue' ></line></svg>",
+            "options": [
+              {"id": "A", "text": "Line Segment(one directions)", "correct": false},
+              {"id": "A", "text": "Line Segment(can not extend)", "correct": true},
+              {"id": "B", "text": "Ray(one diection)", "correct": true},
+              {"id": "B", "text": "Ray(both diection)", "correct": false},
+              {"id": "C", "text": "Line(one diection)", "correct": false},
+              {"id": "D", "text": "Line(both diection)", "correct": true}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+          "type": "fill_in_blank",
+          "id": "023",
+          "question": "Difference between line segment, ray and line  ____.",
+          "correct_answer": "dlee",
+          "acceptable_answers": ["dlee", "dlee"],
+          "case_sensitive": false,
+          "difficulty": "medium",
+          "tags": ["lines", "maths"],
+          "points": 1.5
+        },
+        {
+            "type": "multi_select",
+            "id": "024",
+            "question": "Which of the following points lie on exactly 1 line segments?",
+            "svg_content": "<svg viewBox='0 0 130 130' xmlns='http://www.w3.org/2000/svg'><style>.label { font-size: 8px; fill: black; text-anchor: middle; }</style><circle cx='20' cy='60' fill= 'red' r='2'/><text x='20' y='55' class='label'>L</text><line x1='20' y1='60' x2='38.7939' y2='53.1596' stroke= 'red'/><circle cx='38.7939' cy='53.1596' fill= 'red' r='2'/><text x='38.7939' y='48.1596' class='label'>M</text><line x1='38.7939' y1='53.1596' x2='57.5878' y2='60.0000' stroke= 'blue'/><circle cx='57.5878' cy='60.0000' fill= 'red' r='2'/><text x='57.5878' y='55.0000' class='label'>P</text><line x1='57.5878' y1='60.0000' x2='77.5878' y2='60.0000' stroke= 'red'/><circle cx='77.5878' cy='60.0000' fill= 'red' r='2'/><text x='77.5878' y='55.0000' class='label'>Q</text><line x1='77.5878' y1='60.0000' x2='92.8920' y2='72.8564' stroke= 'blue'/><circle cx='92.8920' cy='72.8564' fill= 'red' r='2'/><text x='92.8920' y='67.8564' class='label'>R</text></svg>",
+            "options": [
+              {"id": "A", "text": "L", "correct": true},
+              {"id": "A", "text": "M", "correct": false},
+              {"id": "B", "text": "P", "correct": false},
+              {"id": "B", "text": "Q", "correct": false},
+              {"id": "B", "text": "R", "correct": true}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+            "type": "multi_select",
+            "id": "025",
+            "question": "Which of the following points lie on exactly 2 line segments?",
+            "svg_content": "<svg viewBox='0 0 130 130' xmlns='http://www.w3.org/2000/svg'><style>.label { font-size: 8px; fill: black; text-anchor: middle; }</style><circle cx='20' cy='60' fill= 'red' r='2'/><text x='20' y='55' class='label'>L</text><line x1='20' y1='60' x2='38.7939' y2='53.1596' stroke= 'red'/><circle cx='38.7939' cy='53.1596' fill= 'red' r='2'/><text x='38.7939' y='48.1596' class='label'>M</text><line x1='38.7939' y1='53.1596' x2='57.5878' y2='60.0000' stroke= 'blue'/><circle cx='57.5878' cy='60.0000' fill= 'red' r='2'/><text x='57.5878' y='55.0000' class='label'>P</text><line x1='57.5878' y1='60.0000' x2='77.5878' y2='60.0000' stroke= 'red'/><circle cx='77.5878' cy='60.0000' fill= 'red' r='2'/><text x='77.5878' y='55.0000' class='label'>Q</text><line x1='77.5878' y1='60.0000' x2='92.8920' y2='72.8564' stroke= 'blue'/><circle cx='92.8920' cy='72.8564' fill= 'red' r='2'/><text x='92.8920' y='67.8564' class='label'>R</text></svg>",
+            "options": [
+              {"id": "A", "text": "L", "correct": false},
+              {"id": "A", "text": "M", "correct": true},
+              {"id": "B", "text": "P", "correct": true},
+              {"id": "B", "text": "Q", "correct": true},
+              {"id": "B", "text": "R", "correct": false}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "points": 2,
+            "explanation": "A line segment is part of a line between two points.",
+            "difficulty": "easy",
+            "tags": ["lines"]
+        },
+        {
+          "type": "fill_in_blank",
+          "id": "fib_001",
+          "question": "P lie on line segments  ____.",
+          "svg_content": "<svg viewBox='0 0 130 130' xmlns='http://www.w3.org/2000/svg'><style>.label { font-size: 8px; fill: black; text-anchor: middle; }</style><circle cx='20' cy='60' fill= 'red' r='2'/><text x='20' y='55' class='label'>L</text><line x1='20' y1='60' x2='38.7939' y2='53.1596' stroke= 'red'/><circle cx='38.7939' cy='53.1596' fill= 'red' r='2'/><text x='38.7939' y='48.1596' class='label'>M</text><line x1='38.7939' y1='53.1596' x2='57.5878' y2='60.0000' stroke= 'blue'/><circle cx='57.5878' cy='60.0000' fill= 'red' r='2'/><text x='57.5878' y='55.0000' class='label'>P</text><line x1='57.5878' y1='60.0000' x2='77.5878' y2='60.0000' stroke= 'red'/><circle cx='77.5878' cy='60.0000' fill= 'red' r='2'/><text x='77.5878' y='55.0000' class='label'>Q</text><line x1='77.5878' y1='60.0000' x2='92.8920' y2='72.8564' stroke= 'blue'/><circle cx='92.8920' cy='72.8564' fill= 'red' r='2'/><text x='92.8920' y='67.8564' class='label'>R</text></svg>",
+          "correct_answer": "MP PQ",
+          "acceptable_answers": ["MP QP", "PM PQ", "PM QP", "QP MP", "PQ PM", "QP PM", "PQ MP"],
+          "case_sensitive": false,
+          "difficulty": "medium",
+          "tags": ["science", "physics", "states-of-matter"],
+          "points": 1.5
+        }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium"],
+      "subject_areas": ["geometry"],
+      "question_types": ["mcq", "true_false", "fill_in_blank", "geometry"]
+    }
+  }
+  

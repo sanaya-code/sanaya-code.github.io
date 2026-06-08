@@ -1,0 +1,392 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "fill_in_blank_operation",
+        "id": "001",
+      
+        "operation": {
+          "name": "subtraction",
+          "symbol": "-"
+        },
+      
+        "editable_answer": {
+          "first_row":  [true,  true,  true],
+          "second_row": [false, false],
+          "third_row":  [false, false, false],
+          "fourth_row": [true,  true,  true]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["3", "2"],
+          "third_row":  ["-", "1", "9"],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "first_row":  ["", "2", "12"],
+          "fourth_row": ["", "1", "3"]
+        },
+      
+        "user_response": {
+          "first_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+        "choices": ["", "0", "1", "2", "3", "4", "12", "13"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "005",
+      
+        "operation": {
+          "name": "subtraction",
+          "symbol": "-"
+        },
+      
+        "editable_answer": {
+          "first_row":  [true,  true,  true],
+          "second_row": [false, false],
+          "third_row":  [false, false, false],
+          "fourth_row": [true,  true,  true]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["2", "4"],
+          "third_row":  ["-", "1", "3"],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "first_row":  ["", "", ""],
+          "fourth_row": ["", "1", "1"]
+        },
+      
+        "user_response": {
+          "first_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+        "choices": ["", "0", "1", "2", "3", "6", "12", "14"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "007",
+
+        "operation": {
+          "name": "addition",
+          "symbol": "+"
+        },
+      
+        "editable_answer": {
+          "first_row":  [true,  true,  true],
+          "second_row": [false, false],
+          "third_row":  [false, false, false],
+          "fourth_row": [true,  true,  true]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["2", "5"],
+          "third_row":  ["+", "1", "2"],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "first_row":  ["", "", ""],
+          "fourth_row": ["", "3", "7"]
+        },
+      
+        "user_response": {
+          "first_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+        "choices": ["", "0", "1", "2", "3", "4", "5", "6", "7","8","9"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "010",
+      
+        "operation": {
+          "name": "addition",
+          "symbol": "+"
+        },
+      
+        "editable_answer": {
+          "first_row":  [true,  true,  true],
+          "second_row": [false, false],
+          "third_row":  [false, false, false],
+          "fourth_row": [true,  true,  true]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["2", "9"],
+          "third_row":  ["+", "1", "4"],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "first_row":  ["", "1", ""],
+          "fourth_row": ["", "4", "3"]
+        },
+      
+        "user_response": {
+          "first_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+        "choices": ["", "0", "1", "2", "3", "4", "5", "6", "7"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "012",
+        "question": "Solve",
+        "options": [
+          {
+            "id": "01",
+            "text": " 2  +  ____  = 6.",
+            "correct_answer": ["4"]
+          },
+          {
+            "id": "02",
+            "text": " 10  -  ____  = 8.",
+            "correct_answer": ["2"]
+          },
+          {
+            "id": "03",
+            "text": " 9  - ____ = 4  .",
+            "correct_answer": ["5"]
+          },
+          {
+            "id": "04",
+            "text": " 6  +   ____  = 10 .",
+            "correct_answer": ["4"]
+          }
+        ],
+        "user_response": [[""], [""], [""], [""]],
+        "choices": ["1", "2", "3", "4", "5", "6", "7"],
+        "case_sensitive": false,
+        "difficulty": "easy",
+        "tags": ["gk", "science", "maths"],
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "019",
+        "question": "Write expand form",
+        "options": [
+          {
+            "id": "01",
+            "text": "42 =  ____ +  ____ .",
+            "correct_answer": ["40", "2"]
+          },
+          {
+            "id": "02",
+            "text": "24 = ____ +  ____ .",
+            "correct_answer": ["20", "4"]
+          },
+          {
+            "id": "03",
+            "text": "54 =  ____ +  ____ .",
+            "correct_answer": ["50", "4"]
+          }
+        ],
+        "user_response": [["", ""], ["", ""], ["", ""]],
+        "choices": ["2", "3", "4", "5", "20", "40", "50"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "023",
+        "question": "Fill in the blank",
+        "options": [
+          {
+            "id": "01",
+            "text": "6 tens and 4 ones =  ____  +  ____  =  ____",
+            "correct_answer": ["60", "4", "64"]
+          },
+          {
+            "id": "02",
+            "text": "8 tens and 6 ones =  ____  +  ____  =  ____",
+            "correct_answer": ["80", "6", "86"]
+          },
+          {
+            "id": "03",
+            "text": "1 tens and 7 ones =  ____  +  ____  =  ____",
+            "correct_answer": ["10", "7", "17"]
+          }
+        ],
+        "user_response": [["", "", ""], ["", "", ""], ["", "", ""]],
+        "choices": ["4", "6", "7", "10", "60", "80", "64", "17", "86"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "027",
+        "question": "Birthday: 25 girls and 28 boys",
+        "operation": {
+          "name": "addition",
+          "symbol": "+"
+        },
+      
+        "editable_answer": {
+          "first_row":  [false,  false,  false],
+          "second_row": [true, true],
+          "third_row":  [true, true, true],
+          "fourth_row": [false,  false,  false]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["", ""],
+          "third_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "second_row": ["2", "5"],
+          "third_row":  ["+", "2", "8"]
+        },
+      
+        "user_response": {
+          "second_row":  ["", ""],
+          "third_row": ["", "", ""]
+        },
+        "choices": ["", "+", "0", "1", "2", "5", "6", "8"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "032",
+        "question": "Basket: 22 oranges and 35 apples",
+        "operation": {
+          "name": "addition",
+          "symbol": "+"
+        },
+      
+        "editable_answer": {
+          "first_row":  [false,  false,  false],
+          "second_row": [true, true],
+          "third_row":  [true, true, true],
+          "fourth_row": [false,  false,  false]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["", ""],
+          "third_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "second_row": ["2", "2"],
+          "third_row":  ["+", "3", "5"]
+        },
+      
+        "user_response": {
+          "second_row":  ["", ""],
+          "third_row": ["", "", ""]
+        },
+        "choices": ["", "+", "0", "2", "3", "5", "6", "8"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "036",
+        "question": "42 books and 15 books",
+        "operation": {
+          "name": "addition",
+          "symbol": "+"
+        },
+      
+        "editable_answer": {
+          "first_row":  [false,  false,  false],
+          "second_row": [true, true],
+          "third_row":  [true, true, true],
+          "fourth_row": [false,  false,  false]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["", ""],
+          "third_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "second_row": ["4", "2"],
+          "third_row":  ["+", "1", "5"]
+        },
+      
+        "user_response": {
+          "second_row":  ["", ""],
+          "third_row": ["", "", ""]
+        },
+        "choices": ["", "+", "1", "2", "4", "5", "6", "8"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      },
+      {
+        "type": "fill_in_blank_operation",
+        "id": "039",
+        "question": "A garden has 28 rose and 34 lilly. How many bushes.",
+        "operation": {
+          "name": "addition",
+          "symbol": "+"
+        },
+      
+        "editable_answer": {
+          "first_row":  [false,  false,  false],
+          "second_row": [true, true],
+          "third_row":  [true, true, true],
+          "fourth_row": [false,  false,  false]
+        },
+      
+        "initial_answer": {
+          "first_row":  ["", "", ""],
+          "second_row": ["", ""],
+          "third_row":  ["", "", ""],
+          "fourth_row": ["", "", ""]
+        },
+      
+        "correct_answer": {
+          "second_row": ["2", "8"],
+          "third_row":  ["+", "3", "4"]
+        },
+      
+        "user_response": {
+          "second_row":  ["", ""],
+          "third_row": ["", "", ""]
+        },
+        "choices": ["", "+", "2", "3", "4", "5", "6", "8"],
+        "scoring_method": "exact",
+        "case_sensitive": false
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

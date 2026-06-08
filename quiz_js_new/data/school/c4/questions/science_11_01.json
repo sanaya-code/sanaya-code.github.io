@@ -1,0 +1,105 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Ball fall down due to",
+      "answers": [ "friction", "gravitational force", "magnetic force" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "Friction is _______ for writing on paper",
+      "answers": [ "not essential", "essential", "both" ], "correct_answer": 2
+    },
+    {
+      "number": 3,
+      "question": "Example of wedge",
+      "answers": [ "pair of scissors", "screw", "axe" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Force change position of object, _______ is said to be done",
+      "answers": [ "force", "work", "energy" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "Push or pull applied on object is",
+      "answers": [ "energy", "force", "work" ], "correct_answer": 2
+    },
+    {
+      "number": 6,
+      "question": "A simple ____ makes work easier and faster",
+      "answers": [ "machine", "appliance", "generator" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "moving object can change its direction",
+      "answers": [ "by reducing friction", "by increasing friction", "by force" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "A pair of scissors is example of ______",
+      "answers": [ "wedge", "inclined plane", "lever" ], "correct_answer": 3
+    },
+    {
+      "number": 9,
+      "question": "Hydro means",
+      "answers": [ "Air", "water", "soil" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "Hydro electricity is produced by energy of _____",
+      "answers": [ "flowing water", "wind", "atom" ], "correct_answer": 1
+    },
+    {
+      "number": 11,
+      "question": "Force can change ____ of an object",
+      "answers": [ "shape", "color", "weight" ], "correct_answer": 1
+    },
+    {
+      "number": 12,
+      "question": "A _____ is used to hold things together",
+      "answers": [ "pully", "screw", "lever" ], "correct_answer": 2
+    },
+    {
+      "number": 13,
+      "question": "_____ is ability to do work",
+      "answers": [ "water", "force", "energy" ], "correct_answer": 3
+    },
+    {
+      "number": 14,
+      "question": "Wind energy is used to rotate blades of a _______",
+      "answers": [ "table fan", "windmill", "bulb" ], "correct_answer": 2
+    },
+    {
+      "number": 15,
+      "question": "Plants use ______ energy to make food",
+      "answers": [ "solar", "wind", "water" ], "correct_answer": 1
+    },
+    {
+      "number": 16,
+      "question": "(Write) Name the force by which earth pulls object",
+      "answers": [ "Friction force", "Gravitational force", "magnetic force" ], "correct_answer": 2
+    },
+    {
+      "number": 17,
+      "question": "(Write) Give example of wedge",
+      "answers": [ "axe", "knife", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 18,
+      "question": "(Write) Give example of wheel and axle",
+      "answers": [ "bi-cycle pedals", "screw", "lever" ], "correct_answer": 1
+    },
+    {
+      "number": 19,
+      "question": "(Write) force that help us write on paper",
+      "answers": [ "Gravitational force", "friction", "magnetic force" ], "correct_answer": 2
+    },
+    {
+      "number": 20,
+      "question": "(Write) main source of energy on earth",
+      "answers": [ "wind", "water", "sun" ], "correct_answer": 3
+    }
+  ]
+}
+

@@ -1,0 +1,71 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "(Write) Define Hibernation",
+      "answers": [ "Deep sleep of animals in winters", "Deep sleep of trees in winters", "Deep sleep of animals in summers" ], "correct_answer": 1
+    },
+    {
+      "number": 2,
+      "question": "(Write) Define Aestivation",
+      "answers": [ "Deep sleep of trees in winters", "Deep sleep of some animals in summers", "Deep sleep of animals in winters" ], "correct_answer": 2
+    },
+    {
+      "number": 3,
+      "question": "(Write) Define Migration",
+      "answers": [ "Deep sleep of animals in winters", "Movement of animals from one place to another for better environment",
+                   "Deep sleep of some animals in summers" ], "correct_answer": 2
+    },
+    {
+      "number": 4,
+      "question": "(Write) What is Camou-flageing",
+      "answers": [ "Animals change their color and shape", "to merge with surrounding", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "(Write) How do polar bear adap themselves",
+      "answers": [ "They have thick fur", "and thick underskin(blubber) to keep them warm", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "(Write) Animals that live on the body of other animals",
+      "answers": [ "Parasites", "Ariel", "Aquatic" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "(Write) Is it good to be dependent on other people",
+      "answers": [ "No, because it make you lazy and dependent", "Yes", "both" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "(Write) Why do parcu-pines have spines",
+      "answers": [ "To tear the flesh of dead animals", "To protect themselves from emenies", "To swim" ], "correct_answer": 2
+    },
+    {
+      "number": 9,
+      "question": "(Write) How is frog adapt to live on both land and water",
+      "answers": [ "Frog have moist skin to breath in water", "Frog have lungs to breath on land", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "(Write) Why do bees and wasp have sting",
+      "answers": [ "To inject poison into the bodies of enemies", "To tear the flesh of dead animals",
+                    "To tear the flesh of dead animals" ], "correct_answer": 1
+    },
+    {
+      "number": 11,
+      "question": "(Write) Why do sca-venger have sharp beak",
+      "answers": [ "To protect themselves from emenies", "To tear the flesh of dead animals", "To inject poison into the bodies of enemies" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "(Write) Why do siberian birds leave their names in winter season",
+      "answers": [ "They migrate to warmer places in winter season", " in search of food and shelter", "This is called migration", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 13,
+      "question": "(Write) What is en-dangered animals",
+      "answers": [ "Animals that are in danger of becomming extinct are called en-dangered animals", "We need to protect them", "both" ], "correct_answer": 3
+    }
+  ]
+}

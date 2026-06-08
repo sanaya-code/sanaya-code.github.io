@@ -1,0 +1,25 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "(Write) Name the poem and the poet",
+      "answers": [ "Great Wide Beautiful Wonderful Worls", "William Rands", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "(Write) Why speaker say world is beautiful",
+      "answers": [ "surrounded by water", "grassland covering it like a dress", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "(Write) Why speaker tremble to think of earth",
+      "answers": [ "Earth is great and vast as compared to speaker", "Earth is small", "both" ], "correct_answer": 1
+    },
+    {
+      "number": 4,
+      "question": "(Write) rhyming words in given line",
+      "answers": [ "small all", "big all", "both" ], "correct_answer": 1
+    }
+  ]
+}
+

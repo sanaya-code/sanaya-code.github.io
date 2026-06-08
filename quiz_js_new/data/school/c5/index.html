@@ -1,0 +1,159 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link rel="apple-touch-icon" type="image/png" href="../../quiz_files/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../quiz_files/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="../../quiz_files/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+    <script src="../../quiz_files/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - JavaScript quiz application</title>
+
+    <!--link rel="canonical" href="https://codepen.io/abhilashn/pen/BRepQz" -->
+
+  <link rel="stylesheet" href="../../quiz_files/bootstrap.min.css">
+  <link rel="stylesheet" href="../../quiz_files/font-awesome.css">
+
+<link rel="stylesheet" href="../../quiz_files/index.css">
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+
+
+</head>
+
+<body translate="no">
+  <header class="header bg-primary">
+
+      <div class="left-title">JS Quiz</div>
+      <div class="right-title">Total Questions: <span id="tque"></span></div>
+      <div class="clearfix"></div>
+    </header>
+<div class="content">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+        	<div id="quiz-structure" class="quiz-body">
+        	<button onclick="openDialog(event)" name="Choose" id="ChooseBtn" class="btn btn-success">Select Question Paper</button>
+            <button onclick="showResult(event)" name="Result" id="ResultBtn" class="btn btn-success">Finish</button>
+            <hr>
+            <div id="quizForm" style="display:none;" > <form  name="quizForm" onsubmit="">
+            	<fieldset class="form-group">
+
+    			<h4>
+                    <span id="qid"></span>
+                    <span id="question"> </span>
+                    <input oninput="makeChoice(event)" type="text" id="fill" name="fill">
+                </h4>
+
+                <div class="option-block-container" id="question-options" >
+                    <div id="o1" class="form-check option-block">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="option" id="r1" value="1" onchange="makeChoice(event)" >
+                        <span id="o1val" ></span>
+                      </label>
+                    </div>
+
+                    <div id="o2" class="form-check option-block">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="option" id="r2" value="2" onchange="makeChoice(event)" >
+                        <span id="o2val"></span>
+                      </label>
+                    </div>
+
+                    <div id="o3" class="form-check option-block">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="option" id="r3" value="3" onchange="makeChoice(event)" >
+                        <span id="o3val"></span>
+                      </label>
+                    </div>
+
+                    <div id="o4" class="form-check option-block">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="option" id="r4" value="4" onchange="makeChoice(event)" >
+                        <span id="o4val" ></span>
+                      </label>
+                    </div>
+
+                    <div id="o5" class="form-check option-block">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="option" id="r5" value="5" onchange="makeChoice(event)" >
+                        <span id="o5val"></span>
+                      </label>
+                    </div>
+
+                    <div id="o6" class="form-check option-block">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="option" id="r6" value="6" onchange="makeChoice(event)" >
+                        <span id="o6val"></span>
+                      </label>
+                    </div>
+
+                </div> <!-- End of option block -->
+
+                </fieldset>
+                 <button onclick="setPrevQuestion(event)" name="previous" id="previous" class="btn btn-success" >Previous</button>
+                 &nbsp;
+                 <button onclick="setNextQuestion(event)" name="next" id="next" class="btn btn-success">Next</button>
+           </form><div>
+
+           </div>
+
+         <div id="result" class="quiz-body result" >
+              <h1 id="res-header" class="res-header"></h1>
+
+         </div>
+
+        </div> <!-- End of col-sm-12 -->
+              <div id="choose papers" class="quiz-body result">
+
+
+         </div>
+
+         <div class="row">
+            <div class="column red" >
+              <div>Maths</div>
+            </div>
+            <div class="column green " >
+              <div>Science</div>
+              <p><a href="?paperChoice=science_7">07:Amazing animals</a></p>
+            </div>
+            <div class="column orange" >
+              <div>Social</div>
+            </div>
+            <div class="column yellow" >
+              <div>English</div>
+            </div>
+            <div class="column blue" >
+              <div>Computer</div>
+            </div>
+            <div class="column pink" >
+              <div>GK</div>
+            </div>
+        </div>
+
+
+    </div> <!-- End of row -->
+</div> <!-- ENd of container fluid -->
+</div> <!-- End of content -->
+
+  <script src="../../quiz_files/jquery.min.js"></script>
+<script src="../../quiz_files/bootstrap.min.js"></script>
+
+<script id="rendered-js" src="../../quiz_files/index.js"></script>
+
+
+
+
+
+</body>

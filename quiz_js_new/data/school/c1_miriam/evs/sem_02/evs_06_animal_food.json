@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "  ____ eat nuts and grains",
+          "correct_answer": ["Hens"]
+        },
+        {
+          "id": "02",
+          "text": "  ____ eat plants ",
+          "correct_answer": ["Horse"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Horse", "Hens", "Lion", "Frog"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "008",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "  ____ eat insects",
+          "correct_answer": ["Frog"]
+        },
+        {
+          "id": "02",
+          "text": "  ____ eat cereal ",
+          "correct_answer": ["Squirrel"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Horse", "Squirrel", "Lion", "Frog"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "012",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": " Flesh of other animals ____ , ____ ",
+          "correct_answer": ["Lion", "Tiger"]
+        },
+        {
+          "id": "02",
+          "text": " Insects and Worms ____ , ____ ",
+          "correct_answer": ["Frog", "Toad"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Lion", "Frog", "Tiger", "Toad"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "012",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": " Grains and nuts ____ , ____ ",
+          "correct_answer": ["Hen", "Squirrel"]
+        },
+        {
+          "id": "02",
+          "text": " Only Plants ____ , ____ ",
+          "correct_answer": ["Cow", "Goat"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Cow", "Goat", "Hen", "Squirrel"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "012",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": " Flesh of other animals ____ , ____ ",
+          "correct_answer": ["Lion", "Tiger"]
+        },
+        {
+          "id": "02",
+          "text": " Both Plants and flesh ____ , ____ ",
+          "correct_answer": ["Crow", "Bear"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Lion", "Crow", "Tiger", "Bear"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    }   
+    
+  ]
+}
+

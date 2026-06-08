@@ -1,0 +1,45 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "To improve is to change",
+      "answers": [ "William Shakes-pe-are", "Oscar Wilde", "Wins-ton Chur-chill", "Joseph Addi-son" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "A fool thinks himself as wise",
+      "answers": [ "William Shakes-pe-are", "Oscar Wilde", "Wins-ton Churchill", "Joseph Addi-son" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "NOw a days people know the price of everything and the value of nothing",
+      "answers": [ "William Shakes-pe-are", "Oscar Wilde", "Wins-ton Churchill", "Joseph Addi-son" ], "correct_answer": 2
+    },
+    {
+      "number": 4,
+      "question": "Reading is to mind what exercise is to the body",
+      "answers": [ "William Shakes-pe-are", "Oscar Wilde", "Wins-ton Churchill", "Joseph Addi-son" ], "correct_answer": 4
+    },
+    {
+      "number": 5,
+      "question": "If you judge people you have no time to love them",
+      "answers": [ "William Shakes-pe-are", "Mother Teresa", "Wins-ton Churchill", "Joseph Addi-son" ], "correct_answer": 2
+    },
+    {
+      "number": 6,
+      "question": "We are what we repeatedly do",
+      "answers": [ "William Shakes-pe-are", "Mother Teresa", "Aristotle", "Joseph Addi-son" ], "correct_answer": 3
+    },
+    {
+      "number": 7,
+      "question": "A journey of thouusand miles begin with small step",
+      "answers": [ "Lao-tze", "Mother Teresa", "Aristotle", "Joseph Addi-son" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "A thing of beauty is a joy forever",
+      "answers": [ "Lao-tze", "Mother Teresa", "Aristotle", "John Keats" ], "correct_answer": 4
+    }
+  ]
+}
+

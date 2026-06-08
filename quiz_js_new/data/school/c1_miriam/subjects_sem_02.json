@@ -1,0 +1,162 @@
+{
+  "class": "1",
+  "subjects": {
+    "Math": [
+      {
+        "id": "001",
+        "link": "data/school/c1_miriam/maths/sem_02/maths_01_add_sub.json",
+        "topic": "Add  Sub",
+        "description": "Add  Sub",
+        "quiz_id": "maths_01_add_sub"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/maths/sem_02/number_21_100.json",
+        "topic": "Number 21 100",
+        "description": "Number 21 100",
+        "quiz_id": "number_21_100"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/maths/sem_02/time.json",
+        "topic": "Time",
+        "description": "Time",
+        "quiz_id": "time"
+      },
+      {
+        "id": "004",
+        "link": "data/school/c1_miriam/maths/sem_02/money_01.json",
+        "topic": "Money 01",
+        "description": "Money 01",
+        "quiz_id": "Money 01"
+      },
+      {
+        "id": "005",
+        "link": "data/school/c1_miriam/maths/sem_02/measure.json",
+        "topic": "Measure 01",
+        "description": "Measure 01",
+        "quiz_id": "Measure 01"
+      },
+      {
+        "id": "006",
+        "link": "data/school/c1_miriam/maths/sem_02/data.json",
+        "topic": "Data 01",
+        "description": "Data 01",
+        "quiz_id": "Data 01"
+      },
+      {
+        "id": "007",
+        "link": "data/school/c1_miriam/maths/sem_02/multi.json",
+        "topic": "Multi 01",
+        "description": "Multi 01",
+        "quiz_id": "Multi 01"
+      },
+      {
+        "id": "008",
+        "link": "data/school/c1_miriam/comp/comp_01.json",
+        "description": "Comp",
+        "topic": "Comp",
+        "quiz_id": "Comp"
+      }
+    ],
+    "EVS": [
+      {
+        "id": "001",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_04_plants_01.json",
+        "description": "Plants 01",
+        "topic": "Plants 01",
+        "quiz_id": "Plants 01"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_04_plants_02.json",
+        "description": "Plants 02",
+        "topic": "Plants 02",
+        "quiz_id": "Plants 02"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_06_animal_food.json",
+        "description": "Animal Food",
+        "topic": "Animal Food",
+        "quiz_id": "Animal Food"
+      },
+      {
+        "id": "004",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_06_animal_shelter.json",
+        "description": "Animal Shelter",
+        "topic": "Animal Shelter",
+        "quiz_id": "Animal Shelter"
+      },
+      {
+        "id": "005",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_08_water.json",
+        "description": "Water 2",
+        "topic": "Water 2",
+        "quiz_id": "evs_08_water"
+      },
+      {
+        "id": "006",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_words_01.json",
+        "description": "Words 1",
+        "topic": "Words 1",
+        "quiz_id": "evs_words_01"
+      },
+      {
+        "id": "007",
+        "link": "data/school/c1_miriam/evs/sem_02/evs_words_02.json",
+        "description": "Words 2",
+        "topic": "Words 2",
+        "quiz_id": "evs_words_02"
+      }
+    ],
+    "Grammer": [],
+    "English": [
+      {
+        "id": "001",
+        "link": "data/school/c1_miriam/english/sem_02/english_01.json",
+        "description": "Dog",
+        "topic": "Dog",
+        "quiz_id": "english_01"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c1_miriam/english/sem_02/english_02.json",
+        "description": "Wind",
+        "topic": "Wind",
+        "quiz_id": "english_02"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c1_miriam/english/sem_02/english_03.json",
+        "description": "Teeth",
+        "topic": "Teeth",
+        "quiz_id": "english_03"
+      },
+      {
+        "id": "004",
+        "link": "data/school/c1_miriam/english/sem_02/english_04.json",
+        "description": "Carrot",
+        "topic": "Carrot",
+        "quiz_id": "english_04"
+      },
+      {
+        "id": "005",
+        "link": "data/school/c1_miriam/english/sem_02/english_words_01.json",
+        "description": "Words 1",
+        "topic": "Words 1",
+        "quiz_id": "english_words_01"
+      }
+    ],
+    "Hindi":[ ],
+    "Computer":[
+      {
+        "id": "005",
+        "link": "data/school/c1_miriam/comp/comp_01.json",
+        "description": "Comp",
+        "topic": "Comp",
+        "quiz_id": "Comp"
+      }
+      ]
+  }
+} 

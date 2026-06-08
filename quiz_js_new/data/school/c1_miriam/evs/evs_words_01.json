@@ -1,0 +1,99 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " फादर F  __   __   __   __   __",
+        "items": ["E", "H", "T", "A", "F", "R"],
+        "correct_order": ["F", "A", "T", "H", "E", "R"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " मदर M  __   __   __   __   __",
+        "items": ["E", "H", "T", "M", "O", "R"],
+        "correct_order": ["M", "O", "T", "H", "E", "R"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " ग्रैंड फादर G  __   __   __   __   F  __   __   __",
+        "items": ["E", "H", "T", "A", "F", "R", "G", "N", "D", "R"],
+        "correct_order": ["G", "R", "A", "N", "D", "F", "A", "T", "H", "E", "R"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " सिब लिंग  S  __   __   __   __    __",
+        "items": ["S","L", "N", "I", "B", "N", "G"],
+        "correct_order": ["S", "I", "B", "L", "I", "N", "G"],
+        "user_response": ["", "", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " कजिन C  __   __   __   __    __",
+        "items": ["C","U", "N", "O", "S", "N", "I"],
+        "correct_order": ["C", "O", "U", "S", "I", "N"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " पेरेंट P  __   __   __   __    __",
+        "items": ["P","R", "A", "N", "T", "E"],
+        "correct_order": ["P", "A", "R", "E", "N", "T"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " विलेज V  __   __   __   __    __",
+        "items": ["V","L", "A", "I", "E", "G"],
+        "correct_order": ["V", "I", "L", "L", "A", "G", "E"],
+        "user_response": ["", "", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " बाथ B  __   __   __  ",
+        "items": ["B", "H", "T", "A"],
+        "correct_order": ["B", "A", "T", "H"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " ब्रश B  __   __   __   __",
+        "items": ["B", "S", "U", "R", "H"],
+        "correct_order": ["B", "R", "U", "S", "H"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": " कॉम्ब C  __   __   __   __",
+        "items": ["C", "B", "O", "M"],
+        "correct_order": ["C", "O", "M", "B"],
+        "user_response": ["", "", "", "", ""]
+      }
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

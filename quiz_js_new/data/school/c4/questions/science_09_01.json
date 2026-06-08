@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Yello substance present inside birds egg is ",
+      "answers": [ "albumen", "embryo", "yolk" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "Egg of reptile is warmed by the heat of",
+      "answers": [ "parent", "sun", "heater" ], "correct_answer": 2
+    },
+    {
+      "number": 3,
+      "question": "Amimal that give birth to young ones and feed with own milk are",
+      "answers": [ "mammals", "reptiles", "amphibians" ], "correct_answer": 1
+    },
+    {
+      "number": 4,
+      "question": "A mammel that can fly is",
+      "answers": [ "bird", "butterfly", "bat" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "What is the process of producing young ones called",
+      "answers": [ "reproduction", "metamorphosis", "incubation" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "Human beings are",
+      "answers": [ "amphibians", "mammals", "reptiles" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "White portion inside egg is",
+      "answers": [ "yolk", "spawn", "albumen" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "Shedding of old skin is called",
+      "answers": [ "moulting", "cocoons", "nymph" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "Inside the _________ the caterpillar changes into a butterfly",
+      "answers": [ "egg", "coccon", "spawn" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "Yolk contains food for the growing baby called _____ inside egg",
+      "answers": [ "yolk", "embryo", "albumen" ], "correct_answer": 3
+    },
+    {
+      "number": 11,
+      "question": "Tadpole grows into a ______",
+      "answers": [ "fish", "frog", "butterfly" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "All insects lay ________",
+      "answers": [ "babies", "coccon", "egg" ], "correct_answer": 3
+    },
+    {
+      "number": 13,
+      "question": "_______ is the resting state in lifecycle of a butterfly",
+      "answers": [ "pupa", "caterpillar", "tadpole" ], "correct_answer": 1
+    },
+    {
+      "number": 14,
+      "question": "(Write) Baby cockroach that comes out of egg",
+      "answers": [ "pupa", "maggot", "nymph" ], "correct_answer": 3
+    },
+    {
+      "number": 15,
+      "question": "(Write) Name of larva of housefly",
+      "answers": [ "baby housefly", "maggot", "nymph" ], "correct_answer": 2
+    },
+    {
+      "number": 16,
+      "question": "(Write) Which part of egg is rich in protein",
+      "answers": [ "albumen", "york", "shell" ], "correct_answer": 1
+    },
+    {
+      "number": 17,
+      "question": "(Write) Name the animal whose life-cycle in-volv-es meta-mor-pho-sis",
+      "answers": [ "cockroach", "frog", "butterfly" ], "correct_answer": 3
+    },
+    {
+      "number": 18,
+      "question": "(Write) Larva of butterfly is called",
+      "answers": [ "caterpillar", "maggot", "pupa" ], "correct_answer": 1
+    },
+    {
+      "number": 19,
+      "question": "(Write) Define reproduction",
+      "answers": [ "process by which animals produce butterfiles", "process by which animals produce young ones",
+                   "process by which animals produce frogs" ], "correct_answer": 2
+    },
+    {
+      "number": 20,
+      "question": "(Write) Define mammals",
+      "answers": [ "Animals who lay eggs", "Animlas who feed water", "Animlas who feed their own milk to their young ones" ], "correct_answer": 3
+    },
+    {
+      "number": 21,
+      "question": "(Write) Define moulting",
+      "answers": [ "shedding of old skin", "shedding of old hair", "shedding of old nails" ], "correct_answer": 1
+    }
+  ]
+}
+

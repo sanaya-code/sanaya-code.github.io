@@ -1,0 +1,24 @@
+{
+  "class": "1",
+  "subjects": {
+    "Math": [
+    ],
+    "EVS": [
+    ],
+    "Grammer": [
+    ],
+    "English": [
+      {
+        "id": "001",
+        "link": "data/school/c2_miriam/english/words_01.json",
+        "description": "Words",
+        "topic": "Words",
+        "quiz_id": "Words_01"
+      }
+    ],
+    "Hindi":[
+    ],
+    "Computer":[
+    ]
+  }
+}

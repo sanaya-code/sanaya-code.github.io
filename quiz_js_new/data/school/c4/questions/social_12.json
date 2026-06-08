@@ -1,0 +1,51 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "(Write) Define deforestation",
+      "answers": [ "Cutting of trees", "removal of soil", "planting trees where there used to be forests" ], "correct_answer": 1
+    },
+    {
+      "number": 2,
+      "question": "(Write) Define re-forestation",
+      "answers": [ "Cutting of trees", "removal of soil", "planting trees where there used to be forests" ], "correct_answer": 3
+    },
+    {
+      "number": 3,
+      "question": "(Write) What government have done to save trees",
+      "answers": [ "launched programs live", "van mahot-sav", "social forestry", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 4,
+      "question": "(Write) How are forests useful to us",
+      "answers": [ "provide oxygen, fruit, wood, medicine", "are home to animals", "prevent soil erosion", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 5,
+      "question": "(Write) Why do we celebrate van mahotsav",
+      "answers": [ "to encourage children to plant trees", "and learn importance of trees", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "(Write) Why area of tidal forest called sundar-bans ",
+      "answers": [ "there are lot of animals called sundari", "thrre are lot of animals", "there are lot of trees called sundari" ], "correct_answer": 3
+    },
+    {
+      "number": 7,
+      "question": "(Write) Why have national parts and wildlife santuries been set up?",
+      "answers": [ "to save", "forests", "wild animals", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 8,
+      "question": "(Write) Charateri-stics of ever green forests ",
+      "answers": [ "tall and have canopy top", "remain green throughout the year", "all leaves are not shed at once",
+                   "example : rose-wood", "all" ], "correct_answer": 5
+    },
+    {
+      "number": 9,
+      "question": "(Write) Charateri-stics of deciduos forests",
+      "answers": [ "also called mansoon forests", "shed leaves in dry season", "Example: sandle-wood", "all" ], "correct_answer": 4
+    }
+  ]
+}
+

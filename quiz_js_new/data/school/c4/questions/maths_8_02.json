@@ -1,0 +1,55 @@
+{
+  "questions": [
+    {
+      "number": 29,
+      "question": "25.768 x 100 is",
+      "answers": [ "257.68", "2576.8", "25768"], "correct_answer": 2
+    },
+    {
+      "number": 29,
+      "question": "25.768 x 1000 is",
+      "answers": [ "257.68", "2576.8", "25768"], "correct_answer": 3
+    },
+    {
+      "number": 30,
+      "question": "25.768 x 10 is",
+      "answers": [ "257.68", "2576.8", "25768"], "correct_answer": 1
+    },
+    {
+      "number": 31,
+      "question": "257.68 % 1000 is",
+      "answers": [ "0.25768", "2.5768", "25.768"], "correct_answer": 1
+    },
+    {
+      "number": 32,
+      "question": "257.68 % 10 is",
+      "answers": [ "0.25768", "2.5768", "25.768"], "correct_answer": 3
+    },
+    {
+      "number": 33,
+      "question": "257.68 % 100 is",
+      "answers": [ "0.25768", "2.5768", "25.768"], "correct_answer": 2
+    },
+    {
+      "number": 34,
+      "question": "Convert rupees to paise",
+      "answers": [ "Multiply by 1000", "Multiply by 100", "Multiply by 10" ], "correct_answer": 2
+    },
+    {
+      "number": 35,
+      "question": "Convert paise to rupees",
+      "answers": [ "Divide by 1000", "Divide by 10", "Divide by 100" ], "correct_answer": 3
+    },
+    {
+      "number": 36,
+      "question": "Convert rupees 49.376 into paise",
+      "answers": [ "493760", "0.49376", "4937.6" ], "correct_answer": 3
+    },
+    {
+      "number": 37,
+      "question": "Convert 2537 paise into rupees",
+      "answers": [ "25370", "2.537", "25.37", "253700" ], "correct_answer": 3
+    }
+  ]
+}
+

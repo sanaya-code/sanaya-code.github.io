@@ -1,0 +1,125 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "Biting an apple",
+        "options": [
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "eyes"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "Listen to music",
+        "options": [
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "eyes"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "Talk to friend",
+        "options": [
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "eyes"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "005",
+        "question": "Smelling a flower ",
+        "options": [
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "mouth"},
+          {"id": "C", "text": "nose"}
+        ],
+        "correct_answer": "C"
+      },
+      {
+        "type": "mcq",
+        "id": "006",
+        "question": "Kick a ball",
+        "options": [
+          {"id": "A", "text": "ear"},
+          {"id": "B", "text": "leg"},
+          {"id": "C", "text": "nose"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "008",
+        "question": "We have two hands",
+        "options": [
+          {"id": "A", "text": "yes"},
+          {"id": "B", "text": "no"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "008",
+        "question": "We taste with nose",
+        "options": [
+          {"id": "A", "text": "yes"},
+          {"id": "B", "text": "no"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "011",
+        "question": "We have ___________  nose",
+        "options": [
+          {"id": "A", "text": "one"},
+          {"id": "C", "text": "many"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "013",
+        "question": "We use our ________ to taste",
+        "options": [
+          {"id": "A", "text": "nose"},
+          {"id": "B", "text": "tongue"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "015",
+        "question": "head rest on _________",
+        "options": [
+          {"id": "A", "text": "neck"},
+          {"id": "B", "text": "toungue"}
+        ],
+        "correct_answer": "A"
+      }
+      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

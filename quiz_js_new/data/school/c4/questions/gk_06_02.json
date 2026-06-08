@@ -1,0 +1,96 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Rub someone the wrong way",
+      "answers": [ "happens un-expectedly", "to act before time", "to face conse-quence", "to an-noy or irri-tate" ], "correct_answer": 4
+    },
+    {
+      "number": 2,
+      "question": "Jump the gun",
+      "answers": [ "happens un-expectedly", "to act before time", "to face conse-quence", "to annoy or irritate" ], "correct_answer": 2
+    },
+    {
+      "number": 3,
+      "question": "Once in the blue moon",
+      "answers": [ "does not happen often", "to act before time", "to face conse-quence", "to annoy or irritate" ], "correct_answer": 1
+    },
+    {
+      "number": 4,
+      "question": "Out of the blue",
+      "answers": [ "happens un-expectedly", "to act before time", "to face conse-quence", "to annoy or irritate" ], "correct_answer": 1
+    },
+    {
+      "number": 5,
+      "question": "Pay the piper",
+      "answers": [ "happens un-expectedly", "to act before time", "to face conse-quence", "to annoy or irritate" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "Raining cats and dogs",
+      "answers": [ "to change ones mind", "to rain heavi-ly", "to be overy positive","to be at center of attention" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "Changing ones tune",
+      "answers": [ "to change ones mind", "to rain heavi-ly", "to be overy positive","to be at center of attention" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "Whisteling in the dark",
+      "answers": [ "to change ones mind", "to rain heavi-ly", "to be overy positive","to be at center of attention" ], "correct_answer": 3
+    },
+    {
+      "number": 9,
+      "question": "it take two to tango",
+      "answers": [ "more than one person at fault", "to rain heavi-ly", "to be overy positive","to be at center of attention" ], "correct_answer": 1
+    },
+    {
+      "number": 10,
+      "question": "in the spot-light",
+      "answers": [ "more than one person at fault", "to rain heavi-ly", "to be overy positive","to be at center of attention" ], "correct_answer": 4
+    },
+    {
+      "number": 11,
+      "question": "Book of synonyms and antonims",
+      "answers": [ "Newpaper", "Thesaurus", "Dictionary", "Atlas" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "Book of map",
+      "answers": [ "Newpaper", "Thesaurus", "Dictionary", "Atlas" ], "correct_answer": 4
+    },
+    {
+      "number": 13,
+      "question": "Book of treasure house",
+      "answers": [ "En-cyclo-pedia", "Thesaurus", "Dictionary", "Atlas" ], "correct_answer": 1
+    },
+    {
+      "number": 14,
+      "question": "News abut the country",
+      "answers": [ "En-cyclo-pedia", "Newpaper", "Dictionary", "Atlas" ], "correct_answer": 2
+    },
+    {
+      "number": 15,
+      "question": "Book giving meaning",
+      "answers": [ "En-cyclo-pedia", "Newpaper", "Dictionary", "Atlas" ], "correct_answer": 3
+    },
+    {
+      "number": 16,
+      "question": "known ad e-book",
+      "answers": [ "En-cyclo-pedia", "Newpaper", "Dictionary", "electronic book" ], "correct_answer": 4
+    },
+    {
+      "number": 17,
+      "question": "printed material on particular information",
+      "answers": [ "Bro-chure", "Newpaper", "Dictionary", "Atlas" ], "correct_answer": 1
+    },
+    {
+      "number": 18,
+      "question": "book of telephone numbers",
+      "answers": [ "Bro-chure", "telephone directory", "Dictionary", "Atlas" ], "correct_answer": 2
+    }
+
+  ]
+}
+

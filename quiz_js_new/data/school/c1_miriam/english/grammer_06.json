@@ -1,0 +1,109 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+            "type": "ordering_horizontal",
+            "id": "001",
+            "question": " Pencil ",
+            "img_url": "data/school/c1_miriam/english/img/pencil.jpeg",
+            "items": ["is", "a", "This", "pencil"],
+            "correct_order": ["This", "is", "a", "pencil"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "003",
+            "question": " Pencil ",
+            "img_url": "data/school/c1_miriam/english/img/pencil.jpeg",
+            "items": ["pencil", "my","This", "is"],
+            "correct_order": ["This", "is", "my", "pencil"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "005",
+            "question": " Pencil ",
+            "img_url": "data/school/c1_miriam/english/img/pencil.jpeg",
+            "items": ["red", "a","pencil", "is", "It"],
+            "correct_order": ["It", "is", "a", "red", "pencil"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "008",
+            "question": " Pencil ",
+            "img_url": "data/school/c1_miriam/english/img/pencil.jpeg",
+            "items": ["a gift", "Dad","from my", "was", "It"],
+            "correct_order": ["It", "was", "a gift", "from my", "Dad"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "010",
+            "question": " Book ",
+            "img_url": "data/school/c1_miriam/english/img/book.jpeg",
+            "items": ["a", "This","book", "is"],
+            "correct_order": ["This", "is", "a", "book"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "013",
+            "question": " Book ",
+            "img_url": "data/school/c1_miriam/english/img/book.jpeg",
+            "items": ["my", "is","book", "This"],
+            "correct_order": ["This", "is", "my", "book"],
+            "user_response": ["", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "015",
+            "question": " Book ",
+            "img_url": "data/school/c1_miriam/english/img/book.jpeg",
+            "items": ["new", "a", "is","book", "It"],
+            "correct_order": ["It", "is", "a", "new", "book"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "017",
+            "question": " Book ",
+            "img_url": "data/school/c1_miriam/english/img/book.jpeg",
+            "items": ["new", "a", "is","book", "It"],
+            "correct_order": ["It", "is", "a", "new", "book"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "019",
+            "question": " Book ",
+            "img_url": "data/school/c1_miriam/english/img/book.jpeg",
+            "items": ["is", "big", "a", "book", "It"],
+            "correct_order": ["It", "is", "a", "big", "book"],
+            "user_response": ["", "", "", "", ""]
+        },
+        {
+            "type": "ordering_horizontal",
+            "id": "020",
+            "question": " Book ",
+            "img_url": "data/school/c1_miriam/english/img/book.jpeg",
+            "items": ["my", "Mom", "a gift", "was", "It", "from"],
+            "correct_order": ["It", "was", "a gift", "from", "my", "Mom"],
+            "user_response": ["", "", "", "", "", ""]
+        }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

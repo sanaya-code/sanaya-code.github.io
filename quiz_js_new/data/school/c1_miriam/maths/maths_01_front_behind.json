@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_01.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "002",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_02.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "003",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_03.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "004",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_04.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "005",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_05.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "006",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_06.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "007",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_07.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "008",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_08.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "009",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_09.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "type": "mcq",
+      "id": "010",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_10.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "type": "mcq",
+      "id": "011",
+      "question": "Front Behind",
+      "img_url": "data/school/c1_miriam/images/front_behind_11.jpg",
+      "options": [
+        {"id": "A", "text": "Front"},
+        {"id": "B", "text": "Behind"}
+      ],
+      "correct_answer": "A"
+    }
+    
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

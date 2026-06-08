@@ -1,0 +1,177 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "____ is this",
+        "options": [
+            {"id": "A", "text": "Where"},
+            {"id": "B", "text": "What"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "002",
+        "question": "____ is the cat",
+        "options": [
+            {"id": "A", "text": "Where"},
+            {"id": "B", "text": "What"}
+        ],
+        "correct_answer": "A",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "003",
+        "question": "____ is that",
+        "options": [
+            {"id": "A", "text": "Where"},
+            {"id": "B", "text": "What"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "____ is the cow",
+        "options": [
+            {"id": "A", "text": "Where"},
+            {"id": "B", "text": "What"}
+        ],
+        "correct_answer": "A",
+        "user_response" : ""
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "005",
+        "question": "The mouse is in the hat",
+        "items": ["the", "is", "mouse", "what", "where"],
+        "correct_order": ["where", "is", "the", "mouse"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "006",
+        "question": "The parrot is in the cage",
+        "items": ["the", "is", "parrot", "what", "where"],
+        "correct_order": ["where", "is", "the", "parrot"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "multi_select",
+        "id": "007",
+        "question": "________ tries to tease ________",
+        "options": [
+            {"id": "A", "text": "Nicky Mouse, Pussy Cat", "correct": true},
+            {"id": "B", "text": "Pussy Cat, Nicky Mouse", "correct": false}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "008",
+        "question": " Nicky Mouse goes up the ________",
+        "options": [
+            {"id": "A", "text": "Sofa bed", "correct": false},
+            {"id": "B", "text": "cupboard", "correct": true}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "009",
+        "question": " Pussy cat hits her ________",
+        "options": [
+            {"id": "A", "text": "leg", "correct": false},
+            {"id": "B", "text": "head", "correct": true}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "010",
+        "question": "Nicky Mouse starts ________ with joy",
+        "options": [
+            {"id": "A", "text": "dancing", "correct": true},
+            {"id": "B", "text": "singing", "correct": false}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "011",
+        "question": "",
+        "options": [
+            {"id": "A", "text": "Pussy Cat is very cleaver", "correct": false},
+            {"id": "B", "text": "Nicky Mouse is very cleaver", "correct": true}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "012",
+        "question": "",
+        "options": [
+            {"id": "A", "text": "Nicky Mouse  ties up his head", "correct": false},
+            {"id": "B", "text": "Pussy Cat ties up her head", "correct": true}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_select",
+        "id": "013",
+        "question": "",
+        "options": [
+            {"id": "A", "text": "Pussy Cat ask Nicky Mouse to catch", "correct": false},
+            {"id": "B", "text": "Nicky Mouse ask Pussy Cat to catch", "correct": true}
+        ],
+        "user_response" : "",
+        "minimum_selections": 1,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "matching_connection",
+        "id": "013",
+        "question": "Match",
+        "pairs": [
+          { "left": "Mouse", "right": "Hiding" },
+          { "left": "Dolly", "right": "Drawing" },
+          { "left": "Peon", "right": "Ringing" },
+          { "left": "Children", "right": "Plucking" },
+          { "left": "Teacher", "right": "Writing" }
+        ],
+        "user_response": ""
+      }
+      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

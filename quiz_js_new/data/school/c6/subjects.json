@@ -1,0 +1,44 @@
+{
+  "class": "1",
+  "subjects": {
+    "Math": [
+      {
+        "id": "001",
+        "link": "data/school/c6/geometry/lines.json",
+        "topic": "Lines",
+        "description": "Lines",
+        "quiz_id": "maths_01_lines_angles"
+      },
+      {
+        "id": "002",
+        "link": "data/school/c6/geometry/angles.json",
+        "topic": "Angles",
+        "description": "Angles",
+        "quiz_id": "maths_01_lines_angles"
+      },
+      {
+        "id": "003",
+        "link": "data/school/c6/geometry/angle_bisector.json",
+        "description": "Angle Bisector",
+        "topic": "Angle Bisector",
+        "quiz_id": "maths_01_lines_angles"
+      },
+      {
+        "id": "004",
+        "link": "data/school/c6/geometry/U_5_prime_time.json",
+        "description": "U-5 prime time",
+        "topic": "U-5 prime time",
+        "quiz_id": "U-5 prime time"
+      }
+    ],
+    "Geography": [
+      {
+        "id": "001",
+        "link": "data/school/c6/geo/geography_01.json",
+        "description": "Unit 01",
+        "topic": "Unit 01",
+        "quiz_id": "maths_01_lines_angles"
+      }
+    ]
+  }
+}

@@ -1,0 +1,147 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+          {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": " Change singular into plural ",
+            "options": [
+              {
+                "id": "01",
+                "text": " box ____ ",
+                "correct_answer": "boxes",
+                "acceptable_answers": ["boxes"]
+              },
+              {
+                "id": "02",
+                "text": " pen ____",
+                "correct_answer": "pens",
+                "acceptable_answers": ["pens"]
+              },
+              {
+                "id": "03",
+                "text": " city ____ ",
+                "correct_answer": "cities",
+                "acceptable_answers": ["cities"]
+              },
+              {
+                "id": "04",
+                "text": " book ____",
+                "correct_answer": "books",
+                "acceptable_answers": ["books"]
+              }
+            ],
+            "user_response": ["", "", "", "", ""],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+          },
+          {
+            "type": "options_fill_in_blank",
+            "id": "004",
+            "question": " Change singular into plural ",
+            "options": [
+              {
+                "id": "05",
+                "text": " phone ____ ",
+                "correct_answer": "phones",
+                "acceptable_answers": ["phones"]
+              },
+              {
+                "id": "06",
+                "text": " family ____ ",
+                "correct_answer": "families",
+                "acceptable_answers": ["families"]
+              },
+              {
+                "id": "07",
+                "text": " class ____ ",
+                "correct_answer": "classes",
+                "acceptable_answers": ["classes"]
+              }
+            ],
+            "user_response": ["", "", "", "", ""],
+            "case_sensitive": false,
+            "scoring_method": "exact"
+          },
+        {
+            "type": "matching_connection_image",
+            "id": "013",
+            "question": "Connect each image to its correct property:",
+            "rows": [
+                {
+                "image_index": 1,
+                "img_url": "data/school/c1_miriam/english/img/this_hen.jpg",
+                "property": "this"
+                },
+                {
+                "image_index": 2,
+                "img_url": "data/school/c1_miriam/english/img/that_hen.jpg",
+                "property": "that"
+                },
+                {
+                "image_index": 3,
+                "img_url": "data/school/c1_miriam/english/img/these_hen.jpg",
+                "property": "these"
+                },
+                {
+                "image_index": 4,
+                "img_url": "data/school/c1_miriam/english/img/those_hen.jpg",
+                "property": "those"
+                }
+            ],
+            "properties_column": ["those", "these", "that", "this"],
+            "user_response": [],
+            "validation": {
+              "scoring_method": "exact",
+              "allow_multiple_connections": false,
+              "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
+            }
+        },   
+        {
+          "type": "table_image_fill_in_the_blank_2_col",
+          "id": "006",
+          "question": "This That These Those",
+          "column_headings": {
+            "image": "Visual",
+            "count": ""
+          },
+          "rows": [
+            {
+                "img_url": "data/school/c1_miriam/english/img/this_egg.jpg",
+                "field1": {"acceptable_answers": ["this is an egg"] }
+            },
+            {
+                "img_url": "data/school/c1_miriam/english/img/that_egg.jpg",
+                "field1": {"acceptable_answers": ["that is an egg"] }
+            },
+            {
+                "img_url": "data/school/c1_miriam/english/img/these_egg.jpg",
+                "field1": {"acceptable_answers": ["these are eggs"] }
+            },
+            {
+                "img_url": "data/school/c1_miriam/english/img/those_egg.jpg",
+                "field1": {"acceptable_answers": ["those are eggs"] }
+            }
+          ],
+          "user_response": ["", "", "", ""],
+          "validation": {
+            "case_sensitive": false,
+            "scoring_method": "exact"
+          }
+        }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

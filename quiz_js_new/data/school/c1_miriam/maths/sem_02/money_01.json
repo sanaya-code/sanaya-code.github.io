@@ -1,0 +1,108 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "combination of 12",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____  +  ____ +  ____  ",
+            "correct_answer": ["10", "1", "1"]
+          },
+          {
+            "id": "02",
+            "text": " ____  +  ____  +  ____ +  ____  ",
+            "correct_answer": ["5", "5", "1", "1"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["1", "2", "3", "5", "10", "20", "50"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "008",
+        "question": "combination of 23",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____  +  ____  +  ____  +  ____ +  ____  ",
+            "correct_answer": ["10", "10", "1", "1", "1"]
+          },
+          {
+            "id": "02",
+            "text": " ____  +  ____  +  ____  +  ____  +  ____ +  ____  ",
+            "correct_answer": ["5", "5", "10", "1", "1", "1"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["1", "2", "3", "5", "10", "20", "50"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "012",
+        "question": "combination of 45",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____  +  ____  +  ____  +  ____ +  ____  ",
+            "correct_answer": ["10", "10", "10", "10", "5"]
+          },
+          {
+            "id": "02",
+            "text": " ____  +  ____  +  ____  +  ____  +  ____ +  ____  ",
+            "correct_answer": ["5", "5", "10", "10", "10", "5"]
+          },
+          {
+            "id": "03",
+            "text": " ____  +  ____  +  ____  ",
+            "correct_answer": ["20", "20", "5"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["1", "2", "3", "5", "10", "20", "50"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "016",
+        "question": "combination of 52",
+        "options": [
+          {
+            "id": "01",
+            "text": " ____  +  ____  +  ____  +  ____ +  ____ +  ____  ",
+            "correct_answer": ["10", "10", "10", "10", "10", "2"]
+          },
+          {
+            "id": "02",
+            "text": " ____  +  ____ ",
+            "correct_answer": ["50", "2"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["1", "2", "3", "5", "10", "20", "50"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

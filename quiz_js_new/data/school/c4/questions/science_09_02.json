@@ -1,0 +1,128 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "(Write) Ways by which animal reproduce",
+      "answers": [ "By directly giving birth to young ones", "By laying eggs from which baby comes out",
+                   "both" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "(Write) How birds look after their young ones",
+      "answers": [ "Birds feed them", "Birds teach them how to fly", "Birds look after babies till they get strong", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 3,
+      "question": "(Write) Name 4 stages in lifecycle of butterfly",
+      "answers": [ "Egg", "catterpiller", "pupa", "butterfly", "all" ], "correct_answer": 5
+    },
+    {
+      "number": 4,
+      "question": "(Write) What value do you learn frm butterfly",
+      "answers": [ "ready for difficult situation", "to reach beautiful end", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "(Write) What is incubation",
+      "answers": [ "parent bird keep egg warm", "by sitting on them", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "(Write) What is hatching",
+      "answers": [ "grown chick breaks egg", "and comes out in 21 days", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 7,
+      "question": "(Write) Fish lay 1000 eggs, only few develop into babies",
+      "answers": [ "because", "egs are eaten by other fishes", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "(Write) Describe life-cycle of cockroach",
+      "answers": [ "Stage 1: Adult cockroach lay egg", "Stage 2: baby comes out of egg(Nymph)",
+                   "Stage 3: Sheds its skin many times and changes into adult", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 9,
+      "question": "(Write) Describe life-cycle of frog",
+      "answers": [ "Stage 1: frog lay cluster of eggs(spawn)", "Stage 2: baby tadpole come out of egg in 3 weeks(tin fish, gills)",
+                   "Stage 3: Tadpole loos their tail and develop legs to become adult", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 10,
+      "question": "(Write)  Describe life-cycle of butterfly",
+      "answers": [ "butterfly lay eggs in cluster", "larva(catterpillar) comes out of the egg",
+                   "catterpillar(pupa) form covering called cocoon", "catterpillar change in to butterfly", "all" ], "correct_answer": 5
+    },
+    {
+      "number": 11,
+      "question": "(Write) Explain structure of egg",
+      "answers": [ "Yolk", "albumen", "egg shell", "all" ], "correct_answer": 4
+    }
+  ]
+}
+
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "(Write) Ways by which animal reproduce",
+      "answers": [ "By directly giving birth to young ones", "By laying eggs from which baby comes out",
+                   "both" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "(Write) How birds look after their young ones",
+      "answers": [ "Birds feed them", "Birds teach them how to fly", "Birds look after babies till they get strong", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 3,
+      "question": "(Write) Name 4 stages in lifecycle of butterfly",
+      "answers": [ "Egg", "catterpiller", "pupa", "butterfly", "all" ], "correct_answer": 5
+    },
+    {
+      "number": 4,
+      "question": "(Write) What value do you learn frm butterfly",
+      "answers": [ "ready for difficult situation", "to reach beautiful end", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "(Write) What is incubation",
+      "answers": [ "parent bird keep egg warm", "by sitting on them", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "(Write) What is hatching",
+      "answers": [ "grown chick breaks egg", "and comes out in 21 days", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 7,
+      "question": "(Write) Fish lay 1000 eggs, only few develop into babies",
+      "answers": [ "because", "egs are eaten by other fishes", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 8,
+      "question": "(Write) Describe life-cycle of cockroach",
+      "answers": [ "Stage 1: Adult cockroach lay egg", "Stage 2: baby comes out of egg(Nymph)",
+                   "Stage 3: Sheds its skin many times and changes into adult", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 9,
+      "question": "(Write) Describe life-cycle of frog",
+      "answers": [ "Stage 1: frog lay cluster of eggs(spawn)", "Stage 2: baby tadpole come out of egg in 3 weeks(tin fish, gills)",
+                   "Stage 3: Tadpole loos their tail and develop legs to become adult", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 10,
+      "question": "(Write)  Describe life-cycle of butterfly",
+      "answers": [ "butterfly lay eggs in cluster", "larva(catterpillar) comes out of the egg",
+                   "catterpillar(pupa) form covering called cocoon", "catterpillar change ito butterfly", "all" ], "correct_answer": 5
+    },
+    {
+      "number": 11,
+      "question": "(Write) Explain structure of egg",
+      "answers": [ "Yolk", "albumen", "egg shell", "all" ], "correct_answer": 4
+    }
+  ]
+}
+

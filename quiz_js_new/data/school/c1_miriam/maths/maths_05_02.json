@@ -1,0 +1,254 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "table_fill_in_the_blank",
+      "id": "005",
+      "question": "Write tens and ones :",
+      "column_labels": ["", "Ten", "ones"],
+      "row_labels": ["", "", ""],
+      "data": [
+        [
+          { "value": "13" },
+          { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+        ],
+        [
+          { "value": "18" },
+          { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+          { "value": "____", "correct_answer": "8", "acceptable_answers": ["8"] }
+        ],
+        [
+          { "value": "11" },
+          { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] },
+          { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
+        ],
+        [
+          { "value": "27" },
+          { "value": "____", "correct_answer": "2", "acceptable_answers": ["7"] },
+          { "value": "____", "correct_answer": "7", "acceptable_answers": ["7"] }
+        ]
+      ],
+      "user_response": [
+        ["13", "", ""],
+        ["18", "", ""],
+        ["11", "", ""],
+        ["27", "", ""]
+      ],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select_circle",
+      "id": "010",
+      "question": "Circle all the numbers which comes after 13",
+      "options": [
+        {"id": "A", "text": "5", "correct": false},
+        {"id": "B", "text": "14", "correct": true},
+        {"id": "C", "text": "7", "correct": false},
+        {"id": "D", "text": "19", "correct": true},
+        {"id": "E", "text": "18", "correct": true},
+        {"id": "F", "text": "17", "correct": true}
+      ],
+      "user_response" : "",
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select_circle",
+      "id": "010",
+      "question": "Circle all the numbers which before 15",
+      "options": [
+        {"id": "A", "text": "13", "correct": true},
+        {"id": "B", "text": "17", "correct": false},
+        {"id": "C", "text": "12", "correct": true},
+        {"id": "D", "text": "16", "correct": false},
+        {"id": "E", "text": "20", "correct": false},
+        {"id": "F", "text": "14", "correct": true}
+      ],
+      "user_response" : "",
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select_two",
+      "id": "18",
+      "question": "Greater number green smaller red",
+      "quantities": [
+        { "id": "1", "value": 12 },
+        { "id": "2", "value": 45 },
+        { "id": "3", "value": 7 },
+        { "id": "4", "value": 28 },
+        { "id": "5", "value": 33 }
+      ],
+      "required_selections": [
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "color", "value": "green" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "color", "value": "red" }
+        }
+      ],
+      "correct_answer": { "smallest": "3", "greatest": "2" },
+      "user_response": { "smallest": "", "greatest": "" }
+    },
+    {
+      "type": "multi_select_two",
+      "id": "18",
+      "question": "Greater number green smaller red",
+      "quantities": [ {"id": "1", "value": 20}, {"id": "2", "value": 12}],
+      "required_selections": [
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "color", "value": "green" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "color", "value": "red" }
+        }
+      ],
+      "correct_answer": { "smallest": "2", "greatest": "1" },
+      "user_response": { "smallest": "", "greatest": "" }
+    },
+    {
+      "type": "multi_select_two",
+      "id": "18",
+      "question": "Draw &#9675; on greatest and &#9633; on smallest",
+      "quantities": [
+        {"id": "1", "value": 12},
+        {"id": "2", "value": 16},
+        {"id": "3", "value": 6}
+      ],"required_selections": [
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "shape", "value": "square" }
+        }
+      ],
+      "correct_answer": { "smallest": "3", "greatest": "2" },
+      "user_response": { "smallest": "", "greatest": "" }
+    },
+    {
+      "type": "multi_select_two",
+      "id": "18",
+      "question": "Draw &#9675; on greatest and &#9633; on smallest",
+      "quantities": [
+        {"id": "1", "value": 2},
+        {"id": "2", "value": 12},
+        {"id": "3", "value": 20}
+      ],
+      "required_selections": [
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "shape", "value": "square" }
+        }
+      ],
+      "correct_answer": { "smallest": "1", "greatest": "3" },
+      "user_response": { "smallest": "", "greatest": "" }
+    },
+    {
+      "type": "multi_select_two",
+      "id": "24",
+      "question": "Draw &#9675; on greatest and &#9633; on smallest",
+      "quantities": [
+        {"id": "1", "value": 16},
+        {"id": "2", "value": 14},
+        {"id": "3", "value": 19}
+      ],
+      "required_selections": [
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "shape", "value": "square" }
+        }
+      ],
+      "correct_answer": {
+        "smallest": "2",
+        "greatest": "3"
+      },
+      "user_response": {
+        "smallest": "",
+        "greatest": ""
+      }
+    },
+    {
+      "type": "multi_select_two",
+      "id": "24",
+      "question": "Circle the largest and tick smallest",
+      "quantities": [
+        {"id": "2", "value": 19},
+        {"id": "4", "value": 14},
+        {"id": "5", "value": 11},
+        {"id": "6", "value": 20}
+      ],
+      "required_selections": [
+        {
+          "label": "Greatest", "key": "greatest",
+          "highlight_style": { "type": "shape", "value": "circle" }
+        },
+        {
+          "label": "Smallest", "key": "smallest",
+          "highlight_style": { "type": "mark", "value": "tick" }
+        }
+      ],
+      "correct_answer": {
+        "smallest": "5",
+        "greatest": "6"
+      },
+      "user_response": {
+        "smallest": "",
+        "greatest": ""
+      }
+    },
+    {
+      "type": "matching_connection",
+      "id": "013",
+      "question": "A   B   C   D    E    F   G   H",
+      "pairs": [
+        { "left": "A comes", "right": "First" },
+        { "left": "D comes", "right": "Fourth" },
+        { "left": "G comes", "right": "Seventh" },
+        { "left": "C comes", "right": "Third" }
+      ],
+      "user_response": ""
+    },
+    {
+      "type": "matching_connection",
+      "id": "013",
+      "question": "A   B   C   D    E    F    G   H",
+      "pairs": [
+        { "left": "B comes", "right": "Second" },
+        { "left": "E comes", "right": "Fifth" },
+        { "left": "F comes", "right": "Sixth" },
+        { "left": "H comes", "right": "Eighth" }
+      ],
+      "user_response": ""
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  },
+  "questions_01": [
+
+  ]
+}

@@ -1,0 +1,123 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": "G  __   __   __   __   __",
+        "items": ["G", "A", "N", "E", "R", "D"],
+        "correct_order": ["G", "A", "R", "D", "E", "N"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "002",
+        "question": "K  __   __   __   __   __   __",
+        "items": ["K", "T", "H", "I", "E", "C", "N"],
+        "correct_order": ["K", "I", "T", "C", "H", "E", "N"],
+        "user_response": ["", "", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "003",
+        "question": "C  __   __   __   __   __",
+        "items": ["C", "S", "I", "K", "C", "H"],
+        "correct_order": ["C", "H", "I", "C", "K", "S"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "004",
+        "question": "H  __   __   __",
+        "items": ["H", "D", "A", "E"],
+        "correct_order": ["H", "E", "A", "D"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "005",
+        "question": "O  __   __    M  __   __",
+        "items": ["O", "N", "L", " ", "D", "A", "M"],
+        "correct_order": ["O", "L", "D", " ", "M", "A", "N"],
+        "user_response": ["", "", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "006",
+        "question": "I  __   __   __   __   __",
+        "items": ["I", "N", "D", "A"],
+        "correct_order": ["I", "N", "D", "I", "A"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "007",
+        "question": "N  __   __   __   __",
+        "items": ["N", "A", "L", "E", "P"],
+        "correct_order": ["N", "E", "P", "A", "L"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "008",
+        "question": "I  __   __   __   __   __",
+        "items": ["I", "A", "T", "Y", "L"],
+        "correct_order": ["I", "T", "A", "L", "Y"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "009",
+        "question": "P  __   __   __",
+        "items": ["P", "U", "R", "E"],
+        "correct_order": ["P", "E", "R", "U"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "010",
+        "question": "B  __   __   __   __   __",
+        "items": ["B", "P", "H", "L", "O", "A"],
+        "correct_order": ["B", "H", "O", "P", "A", "L"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "011",
+        "question": "P  __   __   __",
+        "items": ["P", "N", "E", "U"],
+        "correct_order": ["P", "U", "N", "E"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "012",
+        "question": "S  __   __   __   __",
+        "items": ["S", "A", "G", "R", "A"],
+        "correct_order": ["S", "A", "G", "A", "R"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "013",
+        "question": "S  __   __   __   __",
+        "items": ["S", "N", "A", "T", "A"],
+        "correct_order": ["S", "A", "T", "N", "A"],
+        "user_response": ["", "", "", "", ""]
+      }
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

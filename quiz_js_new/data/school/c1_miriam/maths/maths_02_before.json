@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "options_fill_in_blank",
+      "id": "001",
+      "question": "After, before and between",
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "options": [
+        {
+          "id": "11",
+          "text": " ____ 2",
+          "correct_answer": "1",
+          "acceptable_answers": ["1"]
+        },
+        {
+          "id": "12",
+          "text": " ____ 4",
+          "correct_answer": "3",
+          "acceptable_answers": ["3"]
+        },
+        {
+          "id": "13",
+          "text": " ____ 3",
+          "correct_answer": "2",
+          "acceptable_answers": ["2"]
+        },
+        {
+          "id": "14",
+          "text": " ____ 1",
+          "correct_answer": "0",
+          "acceptable_answers": ["0"]
+        },
+        {
+          "id": "15",
+          "text": " ____ 6",
+          "correct_answer": "5",
+          "acceptable_answers": ["5"]
+        },
+        {
+          "id": "16",
+          "text": " ____ 8",
+          "correct_answer": "7",
+          "acceptable_answers": ["7"]
+        }
+      ],
+      "user_response": ["", "", "","",""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "021",
+      "question": " ____ 26 ", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "blanks": [
+        { "position": 1, "correct_answer": "25", "acceptable_answers": ["25"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "023",
+      "question": "  ____ 52 ", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "blanks": [
+        { "position": 1, "correct_answer": "51", "acceptable_answers": ["51"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "025",
+      "question": " ____ 73 ", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "blanks": [
+        { "position": 1, "correct_answer": "72", "acceptable_answers": ["72"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "027",
+      "question": " ____ 98 ", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "blanks": [
+        { "position": 1, "correct_answer": "97", "acceptable_answers": ["97"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "029",
+      "question": " ____ 61 ", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "blanks": [
+        { "position": 1, "correct_answer": "60", "acceptable_answers": ["60"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "011",
+      "question": " ____ 45 ", 
+      "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 50' preserveAspectRatio='xMidYMid meet'><rect width='600' height='80' fill='#ffffff'/><g font-size='38' font-family='Arial' fill='#000000' text-anchor='middle' dominant-baseline='middle'><text x='30' y='25'>0</text><text x='90' y='25'>1</text><text x='150' y='25'>2</text><text x='210' y='25'>3</text><text x='270' y='25'>4</text><text x='330' y='25'>5</text><text x='390' y='25'>6</text><text x='450' y='25'>7</text><text x='510' y='25'>8</text><text x='570' y='25'>9</text></g></svg>",
+      "blanks": [
+        { "position": 1, "correct_answer": "44", "acceptable_answers": ["44"]
+        }
+      ],
+      "user_response": [""],
+      "case_sensitive": false
+    }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Convert into ml : 42 L",
+      "answers": [ "420 ml", "42000 ml", "4200 ml" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "Convert into ml : 5 L",
+      "answers": [ "5000 ml", "500 ml", "50 ml" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "Convert into ml : 6L 480 ml",
+      "answers": [ "6000 ml", "480 ml", "6480 ml" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Convert into ml : 12L 35 ml",
+      "answers": [ "12000 ml", "12035 ml", "35 ml" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "Convert into L and ml : 9502 ml",
+      "answers": [ "9L 502 ml", "95L 2 ml", "950L 2 ml" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "Convert into L and ml : 5450 ml",
+      "answers": [ "545L 0ml", "5L 450ml", "54L 40ml" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "Cow produce 324L 532ml of milk. 185L 240ml milk is left. How much he sell? ",
+      "answers": [ "139L 292 ml", "129L 292 ml", "139L 392 ml" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "Arpita bought 4L, 2L 250ml and 4L 750ml milk. How much is buy whole day?",
+      "answers": [ "11L 10ml", "11L 0ml", "12L 0ml" ], "correct_answer": 2
+    }
+  ]
+}
+

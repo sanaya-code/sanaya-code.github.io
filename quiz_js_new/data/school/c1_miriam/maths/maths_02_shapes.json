@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+      "type": "mcq",
+      "id": "001",
+      "question": "The object that can slide is",
+      "options": [
+        {"id": "A", "text": "Ball"},
+        {"id": "B", "text": "Pencil"},
+        {"id": "C", "text": "Box"},
+        {"id": "D", "text": "Orange"}
+      ],
+      "correct_answer": "C",
+      "user_response" : ""
+    },
+    {
+      "type": "mcq",
+      "id": "003",
+      "question": "The object that can roll is",
+      "options": [
+        {"id": "A", "text": "Bag"},
+        {"id": "B", "text": "Pencil"},
+        {"id": "C", "text": "Basket"},
+        {"id": "D", "text": "Book"}
+      ],
+      "correct_answer": "B",
+      "user_response" : ""
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "005",
+      "question": " Objects that can roll ____   ____ . ",
+      "blanks": [
+        { "position": 1, "correct_answer": "pencil", "acceptable_answers": ["ball", "orange"],
+          "hint": "Liquid to gas phase change"
+        },
+        {"position": 2, "correct_answer": "pencil", "acceptable_answers": ["ball", "orange"],
+          "hint": "Gaseous state of water"
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false
+    },
+    {
+      "type": "multi_fill_in_blank",
+      "id": "008",
+      "question": " Objects that can slide ____   ____ . ",
+      "blanks": [
+        { "position": 1, "correct_answer": "box", "acceptable_answers": ["bag", "book"],
+          "hint": "Liquid to gas phase change"
+        },
+        {"position": 2, "correct_answer": "box", "acceptable_answers": ["bag", "book"],
+          "hint": "Gaseous state of water"
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false
+    },
+    {
+      "type": "matching_connection_image",
+      "id": "011",
+      "question": "Connect each image to its correct property:",
+      "rows": [
+        {
+          "image_index": 1,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><polygon points='150,4 125,32 175,32' fill='lightblue' stroke='#000080' stroke-width='1.5'/></svg>",
+          "img_url": null,
+          "property": "triangle"
+        },
+        {
+          "image_index": 2,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><circle cx='150' cy='19' r='18' fill='#90ee90' stroke='#66bb6a' stroke-width='2'/></svg>",
+          "img_url": null,
+          "property": "circle"
+        },
+        {
+          "image_index": 3,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><rect x='135' y='2' width='35' height='35' fill='#f39c12' stroke='#8b1a1a' stroke-width='2'/></svg>",
+          "img_url": null,
+          "property": "square"
+        },
+        {
+          "image_index": 4,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><rect x='120' y='2' width='60' height='35' fill='#f1c27d' stroke='#d2a06c' stroke-width='2'/></svg>",
+          "img_url": null,
+          "property": "rectangle"
+        },
+        {
+          "image_index": 5,
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38' preserveAspectRatio='xMidYMid meet'><rect width='300' height='38' fill='#f9f9f9'/><g transform='translate(135, 4) scale(1.5)'><path fill='#f25aa1' stroke='#f25aa1' d='M20.205 4.791a5.938 5.938 0 0 0-4.209-1.754A5.906 5.906 0 0 0 12 4.595a5.904 5.904 0 0 0-3.996-1.558 5.942 5.942 0 0 0-4.213 1.758c-2.353 2.363-2.352 6.059.002 8.412L12 21.414l8.207-8.207c2.354-2.353 2.355-6.049-.002-8.416z'/></g></svg>",
+          "img_url": null,
+          "property": "heart"
+        }
+      ],
+      "properties_column": ["heart", "square", "rectangle", "circle", "triangle"],
+      "user_response": [
+        
+      ],
+      "validation": {
+        "scoring_method": "exact",
+        "allow_multiple_connections": false,
+        "line_colors": ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#ffa500", "#ffffff"]
+      }
+    },
+    {
+      "type": "table_fill_in_the_blank",
+      "id": "013",
+      "question": "Fill in the blanks :",
+      "svg_content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"150\">\n\n  <!-- Circle -->\n  <circle cx=\"40\" cy=\"40\" r=\"20\" stroke=\"black\" stroke-width=\"2\" fill=\"lightblue\"/>\n  <text x=\"40\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">a</text>\n\n  <!-- Triangle -->\n  <polygon points=\"100,60 90,30 110,30\" stroke=\"black\" stroke-width=\"2\" fill=\"lightgreen\"/>\n  <text x=\"100\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">b</text>\n\n  <!-- Square -->\n  <rect x=\"140\" y=\"30\" width=\"30\" height=\"30\" stroke=\"black\" stroke-width=\"2\" fill=\"lightcoral\"/>\n  <text x=\"155\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">c</text>\n\n  <!-- Rectangle -->\n  <rect x=\"200\" y=\"30\" width=\"50\" height=\"30\" stroke=\"black\" stroke-width=\"2\" fill=\"lightgoldenrodyellow\"/>\n  <text x=\"225\" y=\"100\" text-anchor=\"middle\" font-size=\"14\">d</text>\n\n</svg>",
+      "title": "Complete the Multiplication Table",
+      "column_labels": ["Sides", "Corners"],
+      "row_labels": ["Circle", "Triangle", "Square", "Rectangle"],
+      "data": [
+        [
+          { "value": "____", "correct_answer": "0", "acceptable_answers": ["0"] },
+          { "value": "____", "correct_answer": "0", "acceptable_answers": ["0"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] },
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] },
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
+        ],
+        [
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] },
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
+        ]
+      ],
+      "user_response": [
+        ["2", "", ""],
+        ["", "6", ""],
+        ["", "", "12"]
+      ],
+      "case_sensitive": false,
+      "points": 6,
+      "scoring_method": "exact",
+      "feedback": {
+        "full_credit": "Perfect! All blanks are correctly filled.",
+        "partial_credit": "Some answers are correct. Review the table.",
+        "none": "No correct entries. Please try again."
+      }
+    }    
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  }
+}

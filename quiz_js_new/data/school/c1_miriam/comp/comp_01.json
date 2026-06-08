@@ -1,0 +1,126 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "Living and non living",
+        "img_url": "./data/school/c1_miriam/images/house_01.jpg",
+        "options": [
+          {"id": "A", "text": "L"},
+          {"id": "B", "text": "N"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "002",
+        "question": "Living and non living",
+        "img_url": "./data/school/c1_miriam/images/tree_01.jpg",
+        "options": [
+          {"id": "A", "text": "L"},
+          {"id": "B", "text": "N"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "003",
+        "question": "Living and non living",
+        "img_url": "./data/school/c1_miriam/images/dog_01.jpg",
+        "options": [
+          {"id": "A", "text": "L"},
+          {"id": "B", "text": "N"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "004",
+        "question": "Living and non living",
+        "img_url": "./data/school/c1_miriam/images/car_01.jpg",
+        "options": [
+          {"id": "A", "text": "L"},
+          {"id": "B", "text": "N"}
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "type": "mcq",
+        "id": "005",
+        "question": "Living and non living",
+        "img_url": "./data/school/c1_miriam/images/boy_01.jpg",
+        "options": [
+          {"id": "A", "text": "L"},
+          {"id": "B", "text": "N"}
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "type": "mcq",
+        "id": "006",
+        "question": "Dry and wash clothes",
+        "img_url": "./data/school/c1_miriam/images/objects_01.jpg",
+        "options": [
+          {"id": "A", "text": "A"},
+          {"id": "B", "text": "B"},
+          {"id": "C", "text": "C"},
+          {"id": "D", "text": "D"}
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "type": "mcq",
+        "id": "007",
+        "question": "Iron clothes",
+        "img_url": "./data/school/c1_miriam/images/objects_01.jpg",
+        "options": [
+          {"id": "A", "text": "A"},
+          {"id": "B", "text": "B"},
+          {"id": "C", "text": "C"},
+          {"id": "D", "text": "D"}
+        ],
+        "correct_answer": "C"
+      },
+      {
+        "type": "mcq",
+        "id": "008",
+        "question": "Show Time",
+        "img_url": "./data/school/c1_miriam/images/objects_01.jpg",
+        "options": [
+          {"id": "A", "text": "A"},
+          {"id": "B", "text": "B"},
+          {"id": "C", "text": "C"},
+          {"id": "D", "text": "D"}
+        ],
+        "correct_answer": "A"
+      } ,
+      {
+        "type": "mcq",
+        "id": "009",
+        "question": "Take us from one place to another",
+        "img_url": "./data/school/c1_miriam/images/objects_01.jpg",
+        "options": [
+          {"id": "A", "text": "A"},
+          {"id": "B", "text": "B"},
+          {"id": "C", "text": "C"},
+          {"id": "D", "text": "D"}
+        ],
+        "correct_answer": "B"
+      }                     
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

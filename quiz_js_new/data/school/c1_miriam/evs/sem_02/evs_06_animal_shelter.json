@@ -1,0 +1,81 @@
+{
+  "questions": [
+    {
+      "type": "options_fill_in_blank",
+      "id": "004",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "  Snake lives in ____ ",
+          "correct_answer": ["Holes"]
+        },
+        {
+          "id": "02",
+          "text": "  ____ lives in a den ",
+          "correct_answer": ["Lion"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Kennel", "Holes", "Lion", "Hive"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "008",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "  Dog lives in ____ ",
+          "correct_answer": ["Kennel"]
+        },
+        {
+          "id": "02",
+          "text": " Bee lives in ____ ",
+          "correct_answer": ["Hive"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Kennel", "Holes", "Lion", "Hive"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "matching_connection",
+      "id": "012",
+      "question": "Match the following software with their categories:",
+      "pairs": [
+        { "left": "Dog", "right": "Kennel" },
+        { "left": "Hen", "right": "Coop" },
+        { "left": "Bee", "right": "Hive" }
+      ],
+      "user_response": ""
+    },
+    {
+      "type": "matching_connection",
+      "id": "016",
+      "question": "Match the following software with their categories:",
+      "pairs": [
+        { "left": "Bird", "right": "Nest" },
+        { "left": "Lion", "right": "Den" },
+        { "left": "Cow", "right": "Sheds" }
+      ],
+      "user_response": ""
+    },
+    {
+      "type": "matching_connection",
+      "id": "020",
+      "question": "Match the following software with their categories:",
+      "pairs": [
+        { "left": "Monkey", "right": "Tree" },
+        { "left": "Snake", "right": "Hole" },
+        { "left": "Hen", "right": "Coop" }
+      ],
+      "user_response": ""
+    }
+    
+  ]
+}
+

@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Convert into grams : 4kg",
+      "answers": [ "400gm", "40g", "4000g" ], "correct_answer": 3
+    },
+    {
+      "number": 2,
+      "question": "Convert into grams : 25kg",
+      "answers": [ "2500gm", "25000g", "250g" ], "correct_answer": 2
+    },
+    {
+      "number": 3,
+      "question": "Convert into grams : 17kg 85gm",
+      "answers": [ "17000m", "85g", "17085g" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Convert into kg and g : 5537 g ",
+      "answers": [ "5kg 537g", "55kg 37g", "553kg 7g" ], "correct_answer": 1
+    },
+    {
+      "number": 5,
+      "question": "Convert into kg and g : 4019 g ",
+      "answers": [ "401kg 9g", "4kg 19g", "40kg 19g" ], "correct_answer": 2
+    },
+    {
+      "number": 6,
+      "question": "Bag A has 48Kg 600gm rice, Bag B has 37Kg 760gm rice. Weight together is",
+      "answers": [ "86Kg 370gm", "85Kg 360gm", "86Kg 360gm" ], "correct_answer": 3
+    },
+    {
+      "number": 7,
+      "question": "Bottle and ketchup weight 500gm. Empty bottle weight 318gm. Ketchup weight is",
+      "answers": [ "172 gm", "182 gm", "192 gm" ], "correct_answer": 2
+    }
+  ]
+}
+

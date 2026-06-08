@@ -1,0 +1,135 @@
+{
+  "questions": [
+    {
+      "type": "multi_select", 
+      "id": "007",
+      "question": "Select all that apply",
+      "img_url": "data/school/c1_miriam/evs/sem_02/imgs/rice_wheat.jpeg",
+      "options": [
+        {"id": "A", "text": "Moong", "correct": false},
+        {"id": "B", "text": "Rice", "correct": true},
+        {"id": "C", "text": "Wheat", "correct": true},
+        {"id": "D", "text": "Pulse", "correct": false},
+        {"id": "E", "text": "Cereals", "correct": true}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select",
+      "id": "012",
+      "question": "Select all that apply",
+      "img_url": "data/school/c1_miriam/evs/sem_02/imgs/pea_moong.jpeg",
+      "options": [
+        {"id": "A", "text": "Pea", "correct": true},
+        {"id": "B", "text": "Moong", "correct": true},
+        {"id": "C", "text": "Wheat", "correct": false},
+        {"id": "D", "text": "Pulse", "correct": true},
+        {"id": "E", "text": "Cereals", "correct": false}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select",
+      "id": "016",
+      "question": "Fruit",
+      "options": [
+        {"id": "A", "text": "Cabbage", "correct": false},
+        {"id": "B", "text": "Apple", "correct": true},
+        {"id": "C", "text": "Culiflower", "correct": false},
+        {"id": "D", "text": "Banana", "correct": true}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "multi_select",
+      "id": "018",
+      "question": "Vegetable",
+      "options": [
+        {"id": "A", "text": "Cabbage", "correct": true},
+        {"id": "B", "text": "Apple", "correct": false},
+        {"id": "C", "text": "Culiflower", "correct": true},
+        {"id": "D", "text": "Banana", "correct": false}
+      ],
+      "user_response" : "",
+      "minimum_selections": 1,
+      "maximum_selections": 3,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "020",
+      "question": "statements",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "01",
+          "text": "Cabbage is a  ____.",
+          "correct_answer": ["Leaf"]
+        },
+        {
+          "id": "02",
+          "text": " Carrot is a  ____ .",
+          "correct_answer": ["Root"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Root", "Sugar", "Leaf", "Food Grain"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "024",
+      "question": "statements",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "03",
+          "text": " ____ is obtained from sugarcane",
+          "correct_answer": ["Sugar"]
+        },
+        {
+          "id": "04",
+          "text": " Cereals is also known as ____ ",
+          "correct_answer": ["Food Grain"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Root", "Sugar", "Leaf", "Food Grain"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "options_fill_in_blank",
+      "id": "060",
+      "question": "statements",
+      "blank_type" : "normal",
+      "options": [
+        {
+          "id": "03",
+          "text": " Rice is example of ____ ",
+          "correct_answer": ["Cereal"]
+        },
+        {
+          "id": "04",
+          "text": "  ____ is a pulse ",
+          "correct_answer": ["Pea"]
+        }
+      ],
+      "user_response": [[""], [""]],
+      "choices": [ "Pea", "Wheat", "Cereal", "Maize"],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    }  
+  ]
+}
+

@@ -1,0 +1,105 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Power-point is a part of",
+      "answers": [ "slides", "MS Office", "Reading view", ".ppt" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "A presentation is a collection of _________ in systematic order",
+      "answers": [  "slides", "MS Office", "Reading view", ".ppt" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "______ is an extension of power-point",
+      "answers": [  "slides", "MS Office", "Reading view", ".ppt" ], "correct_answer": 4
+    },
+    {
+      "number": 4,
+      "question": "_____ key is used to insert a new slide",
+      "answers": [  "slides", "MS Office", "Ctr + M", ".ppt" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "______ displays the slide on full screen",
+      "answers": [ "slides", "MS Office", "Reading view", ".ppt" ], "correct_answer": 3
+    },
+    {
+      "number": 6,
+      "question": "New slide",
+      "answers": [ "F5", "Ctr + M", " contains save, share, print options", "minia-ture view of slides" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "Slide sorter view",
+      "answers": [ "F5", "Ctr + M", " contains save, share, print options", "minia-ture view of slides" ], "correct_answer": 4
+    },
+    {
+      "number": 8,
+      "question": "Slide Show",
+      "answers": [ "F5", "Ctr + M", " contains save, share, print options", "minia-ture view of slides" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "Backstage view",
+      "answers": [ "F5", "Ctr + M", "contains save, share, print options", "minia-ture view of slides" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "View button",
+      "answers": [ "F5", "Ctr + M", " extreme left of horizontal scroll bar", "minia-ture view of slides" ], "correct_answer": 3
+    },
+    {
+      "number": 11,
+      "question": "Presentation is kind of communication between speaker and audience",
+      "answers": [ "True", "Flase" ], "correct_answer": 1
+    },
+    {
+      "number": 12,
+      "question": "Insert slide is present in home tab",
+      "answers": [ "True", "Flase", "later" ], "correct_answer": 3
+    },
+    {
+      "number": 13,
+      "question": "F6 key is used for slide show",
+      "answers": [ "True", "Flase" ], "correct_answer": 2
+    },
+    {
+      "number": 14,
+      "question": "Place-holder is like a page",
+      "answers": [ "True", "Flase", "later" ], "correct_answer": 3
+    },
+    {
+      "number": 15,
+      "question": "Slide sorter view displays aminia-ture view",
+      "answers": [ "True", "Flase" ], "correct_answer": 1
+    },
+    {
+      "number": 16,
+      "question": "(Write) What is power point",
+      "answers": [ "presentation software", "help to explain topics", "part of micro-soft office", "all above" ], "correct_answer": 4
+    },
+    {
+      "number": 17,
+      "question": "(Write) What do you understand by presentation",
+      "answers": [ "Collection of slides, handout and notes in one file", "Collection of games", "Collection of books, copies" ], "correct_answer": 1
+    },
+    {
+      "number": 18,
+      "question": "(Write) What is place holder",
+      "answers": [ "Dotted rectangular box", "used to add contents to slide", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 19,
+      "question": "(Write) Different view options in power-point",
+      "answers": [ "normal view", "reading view", "sorter view, slide show", "all above" ], "correct_answer": 4
+    },
+    {
+      "number": 20,
+      "question": "(Write) Steps to open presentation",
+      "answers": [ "Click on file", "Click on open", "Select the file and click open", "all above" ], "correct_answer": 4
+    }
+  ]
+}
+

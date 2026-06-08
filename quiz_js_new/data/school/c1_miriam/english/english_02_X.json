@@ -1,0 +1,93 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_002.png",
+          "blanks": [
+            { "position": 1, "correct_answer": "I saw a lion, tiger and monkey"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_003.jpg",
+          "blanks": [
+            { "position": 1, "correct_answer": "The monkey jumping on the tree"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_005.jpeg",
+          "blanks": [
+            { "position": 1, "correct_answer": "I saw colorful birds"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "002",
+          "question": " ____ ", 
+          "img_url": "data/school/c1_miriam/english/img/zoo_006.jpg",
+          "blanks": [
+            { "position": 1, "correct_answer": "I like deer the most"
+            }
+          ],
+          "user_response": [""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        },
+        {
+          "type": "multi_fill_in_blank",
+          "id": "003",
+          "question": "  I ____ the zoo with ____ . I saw ____ . The  ____ on the tree. I saw ____ birds. I  ____ the most", 
+          "blanks": [
+            { "position": 1, "correct_answer": "went to"
+            },
+            { "position": 2, "correct_answer": "my family"
+            },
+            { "position": 3, "correct_answer": "lion tiger and monkey"
+            },
+            { "position": 4, "correct_answer": "monkey jumping"
+            },
+            { "position": 5, "correct_answer": "colorful"
+            },
+            { "position": 6, "correct_answer": "like deer"
+            }
+          ],
+          "user_response": ["", "", ""],
+          "case_sensitive": false,
+          "scoring_method": "exact"         
+        }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

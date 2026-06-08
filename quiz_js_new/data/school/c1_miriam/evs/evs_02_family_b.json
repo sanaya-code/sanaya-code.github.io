@@ -1,0 +1,64 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "_______ is the mother of your parents ",
+        "options": [
+          {"id": "A", "text": "Parents"},
+          {"id": "B", "text": "Grand mother"},
+          {"id": "C", "text": "siblings"}
+        ],
+        "correct_answer": "B",
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "We live with our friends",
+        "correct_answer": false,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "Father of father is grandfather",
+        "correct_answer": true,
+        "user_response" : ""
+      }, 
+      {
+        "type": "true_false",
+        "id": "008",
+        "question": "We should respect elders",
+        "correct_answer": true,
+        "user_response" : ""
+      },
+      {
+        "type": "mcq",
+        "id": "001",
+        "question": "people in family _______  the house ",
+        "options": [
+          {"id": "A", "text": "small"},
+          {"id": "B", "text": "sibling"},
+          {"id": "C", "text": "share"}
+        ],
+        "correct_answer": "C",
+        "user_response" : ""
+      }      
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

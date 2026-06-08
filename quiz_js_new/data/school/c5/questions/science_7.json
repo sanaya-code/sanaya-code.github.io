@@ -1,0 +1,145 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "where does a camel store fat ",
+      "answers": [ "hump", "stomach", "skin"  ], "correct_answer": 1
+    },
+    {
+      "number": 2,
+      "question": "where are penguins found ",
+      "answers": [ "jungle", "polar regions", "deserts"  ], "correct_answer": 2
+    },
+    {
+      "number": 3,
+      "question": "which animals have scale ",
+      "answers": [ "birds", "insect", "cat", "snake" ], "correct_answer": 4
+    },
+    {
+      "number": 4,
+      "question": "which of the animals change color",
+      "answers": [ "cow", "chameleon", "penguin"  ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "movement of animals to a more favorable place",
+      "answers": [ "habitat", "adaptation", "migration" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "following animal have shell",
+      "answers": [ "snail", "cat", "both"  ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "the surrounding in which animals live",
+      "answers": [ "home", "habitat", "environment"  ], "correct_answer": 2
+    },
+    {
+      "number": 8,
+      "question": "which of aquatic animal",
+      "answers": [ "whale", "dog", "camel" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "are hot and dry",
+      "answers": [ "polar regions", "deserts", "mountains", "oceans" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "in deserts, animal bury  under the ground to keep them ",
+      "answers": [ "warm", "cool", "dry", "wet" ], "correct_answer": 2
+    },
+    {
+      "number": 11,
+      "question": "are the largest habitat on the earth ",
+      "answers": [ "oceans", "rivers", "lake", "pond" ], "correct_answer": 1
+    },
+    {
+      "number": 12,
+      "question": "crabs breathe",
+      "answers": [ "skin", "gills", "heart", "brain" ], "correct_answer": 2
+    },
+    {
+      "number": 13,
+      "question": "can live both on land and in water ",
+      "answers": [ "fishes ", "salamanders", "octopus", "horse" ], "correct_answer": 2
+    },
+    {
+      "number": 14,
+      "question": "polar regions and high mountains are very ",
+      "answers": [ "hot", "cold" , "warm", "shorts" ], "correct_answer": 2
+    },
+    {
+      "number": 15,
+      "question": "animals that swim with flippers",
+      "answers": [ "fish and sea horse", "seals and octopus", "penguin and octopus", "penguin and seal" ], "correct_answer":4 
+    },
+    {
+      "number": 16,
+      "question": "name animals that have scale",
+      "answers": [ "seals and reptiles", "fish and reptiles", "fish and octopus", "reptiles and seal" ], "correct_answer": 2
+    },
+    {
+      "number": 17,
+      "question": "birds cannot fly",
+      "answers": [ "emu and ostrich", "emu and parrot", "ostrich and penguin" ], "correct_answer": 1
+    },
+    {
+      "number": 18,
+      "question": "breathing organs of insects",
+      "answers": [ "lungs", "gills", "spiracles", "skin" ], "correct_answer": 3
+    },
+    {
+      "number": 19,
+      "question": "what is habitat",
+      "answers": [ "area in which animals", "live, eat and grow", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 20,
+      "question": "why do animals migrate",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 21,
+      "question": "why is meant adaptation",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 22,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 23,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 24,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 25,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 26,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 27,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    },
+    {
+      "number": 28,
+      "question": "zzz",
+      "answers": [ "zz1", "zz2", "zz3", "zz4" ], "correct_answer": 1
+    }
+  ]
+}
+

@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+      {
+        "type": "fill_in_blank_multi_graph",
+        "id": "08",
+        "question": "Fill in the blanks to practice addition with 3.",
+        "center_label": "3",
+        "blocks": [
+          { "a": 0, "b": "+" },
+          { "a": 1, "b": "+" },
+          { "a": 2, "b": "+" },
+          { "a": 3, "b": "+" }
+        ],
+        "value_choices": ["0", "1", "2", "3", "4", "5", "6"],
+        "correct_answer": ["3", "2", "1", "0"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "fill_in_blank_multi_graph",
+        "id": "11",
+        "question": " make 5",
+        "center_label": "5",
+        "blocks": [
+          { "a": 0, "b": "+" },
+          { "a": 1, "b": "+" },
+          { "a": 2, "b": "+" },
+          { "a": 3, "b": "+" },
+          { "a": 4, "b": "+" },
+          { "a": 5, "b": "+" }
+        ],
+        "value_choices": ["4", "5", "2", "1", "0", "3", "6"],
+        "correct_answer":["5", "4", "3", "2", "1", "0"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "Make number 7",
+        "options": [
+          { "id": "01", "text": " 7 +  ____ .", "correct_answer": "0" },
+          { "id": "02", "text": " 4 +  ____ .", "correct_answer": "3" },
+          { "id": "03", "text": " 2 +  ____ .", "correct_answer": "5" },
+          { "id": "04", "text": " 0 +  ____ .", "correct_answer": "7" }
+        ],
+        "user_response": ["", "", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "Make number 5",
+        "options": [
+          { "id": "01", "text": " 5 +  ____ .", "correct_answer": "0" },
+          { "id": "02", "text": " 2 +  ____ .", "correct_answer": "3" },
+          { "id": "03", "text": " 4 +  ____ .", "correct_answer": "1" },
+          { "id": "04", "text": " 0 +  ____ .", "correct_answer": "5" }
+        ],
+        "user_response": ["", "", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "003",
+        "question": " out of ____ mangoes take away ____ mangoes, ____ mangoes are left", 
+        "img_url": "data/school/c1_miriam/images/numbers_05.jpg",
+        "blanks": [
+          { "position": 1, "correct_answer": "6"},
+          { "position": 2, "correct_answer": "2" },
+          { "position": 3, "correct_answer": "4" }
+        ],
+        "user_response": ["", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "id": "24",
+        "type": "number_line_arcs",
+        "question": " 4 + 3",
+        "number_line": { "start": 0, "end": 9, "step": 1 },
+        "pairs": [[0,4],[4,7], [0,7]],
+        "user_response": [],
+        "metadata": {
+          "scoring_method": "exact"
+        }
+      },
+      {
+        "id": "24",
+        "type": "number_line_arcs",
+        "question": " 8 + 5",
+        "number_line": { "start": 0, "end": 14, "step": 1 },
+        "pairs": [[0,8],[8,13], [0,13]],
+        "user_response": [],
+        "metadata": {
+          "scoring_method": "exact"
+        }
+      },
+      {
+        "id": "24",
+        "type": "number_line_arcs",
+        "question": " 10 - 7",
+        "number_line": { "start": 0, "end": 12, "step": 1 },
+        "pairs": [[0,10],[3,10]],
+        "user_response": [],
+        "metadata": {
+          "scoring_method": "exact"
+        }
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "004",
+        "question": "add",
+        "options": [
+          {
+            "id": "01",
+            "text": " 12  =  10  +  ____ .",
+            "correct_answer": "2"
+          },
+          {
+            "id": "02",
+            "text": " 20  =  10  +  ____ .",
+            "correct_answer": "10"
+          },
+          {
+            "id": "03",
+            "text": " 14  =  9  +  ____ .",
+            "correct_answer": "5"
+          },
+          {
+            "id": "04",
+            "text": " 15  =  8  +  ____ .",
+            "correct_answer": "7"
+          }
+        ],
+        "user_response": ["", "", "", ""],
+        "case_sensitive": false,
+        "difficulty": "easy",
+        "tags": ["gk", "science", "maths"],
+        "points": 3,
+        "scoring_method": "exact",
+        "scoring_method_01": "partial",
+        "feedback": {
+          "full_credit": "Great job! All answers are correct.",
+          "partial_credit": "Some answers are correct. Try again.",
+          "none": "None of the blanks are correct."
+        }
+      }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  },
+  "questions_01": [
+    {
+      "type": "skip",
+      "type_01": "table_fill_in_the_blank",
+      "id": "005",
+      "question": " 4 ",
+      "title": "Complete the Multiplication Table",
+      "column_labels": ["", ""],
+      "row_labels": ["", "", "", "", ""],
+      "data": [
+        [
+          { "value": " 0   + " },
+          { "value": "____", "correct_answer": "4", "acceptable_answers": ["4"] }
+        ],
+        [
+          { "value": " 1   + " },
+          { "value": "____", "correct_answer": "3", "acceptable_answers": ["3"] }
+        ],
+        [
+          { "value": " 2   + " },
+          { "value": "____", "correct_answer": "2", "acceptable_answers": ["2"] }
+        ],
+        [
+          { "value": " 3   + " },
+          { "value": "____", "correct_answer": "1", "acceptable_answers": ["1"] }
+        ],
+        [
+          { "value": " 4   + " },
+          { "value": "____", "correct_answer": "0", "acceptable_answers": ["0"] }
+        ]
+      ],
+      "user_response": [
+        ["0", ""],
+        ["1", ""],
+        ["2", ""],
+        ["3", ""],
+        ["4", ""]
+      ],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type_01": "multi_fill_in_blank",
+      "id": "003",
+      "question": " out of ____ cups take away ____ cups, ____ cups are left", 
+      "img_url": "data/school/c1_miriam/images/numbers_04.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "6"},
+        { "position": 2, "correct_answer": "3" },
+        { "position": 3, "correct_answer": "3" }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type_01": "multi_fill_in_blank",
+      "id": "003",
+      "question": " out of ____ apples take away ____ apples, ____ mangoes are left", 
+      "img_url": "data/school/c1_miriam/images/numbers_06.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "5"},
+        { "position": 2, "correct_answer": "2" },
+        { "position": 3, "correct_answer": "3" }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    }
+  ]
+}

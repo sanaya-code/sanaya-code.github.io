@@ -1,0 +1,105 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "Holdes dug to take out ore",
+      "answers": [ "caves", "mines", "well" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "minerals such as iron and gold",
+      "answers": [ "metalic minerals", "non metalic minerals", "fossil" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "A non metalic mineral in dhanbad",
+      "answers": [ "petroleum", "coal", "gas" ], "correct_answer": 2
+    },
+    {
+      "number": 4,
+      "question": "Area with many oil wells",
+      "answers": [ "oil zones", "oil areas", "oil fields" ], "correct_answer": 3
+    },
+    {
+      "number": 5,
+      "question": "Non metalic mineral used as fule",
+      "answers": [ "petroleum", "coal", "gas" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "coast of mumbai where petroleum is drilled",
+      "answers": [ "Mumbai zone", "Mumbai high", "Mumbai plain" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "mineral for railway engines",
+      "answers": [ "iron", "copper", "gold" ], "correct_answer": 1
+    },
+    {
+      "number": 8,
+      "question": "mineral for railway utensils",
+      "answers": [ "coal and petrole", "iron and copper", "gold and bauxite" ], "correct_answer": 2
+    },
+    {
+      "number": 9,
+      "question": "mineral for cement",
+      "answers": [ "iron", "coal", "lime stone" ], "correct_answer": 3
+    },
+    {
+      "number": 10,
+      "question": "mineral for steel",
+      "answers": [ "magaanese", "copper", "gold" ], "correct_answer": 1
+    },
+    {
+      "number": 11,
+      "question": "mineral for aeroplane",
+      "answers": [ "iron", "bauxite", "copper" ], "correct_answer": 2
+    },
+    {
+      "number": 12,
+      "question": "(Write) What is alloy",
+      "answers": [ "made by mixing 2 liquids", "made by mixing 2 metals", "made by mixing 2 gases" ], "correct_answer": 2
+    },
+    {
+      "number": 13,
+      "question": "(Write) What is oil-fields",
+      "answers": [ "area with many mines", "area with many minerals", "area with many oil wells" ], "correct_answer": 3
+    },
+    {
+      "number": 14,
+      "question": "(Write) What is ore",
+      "answers": [ "rock that contains lot of mineral", "rock that contains lot of water", "rock that contains lot of gas" ], "correct_answer": 1
+    },
+    {
+      "number": 15,
+      "question": "(Write) Why should we use minerals care-fully",
+      "answers": [ "minerals are limited", "and take many years to form", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 16,
+      "question": "(Write) Why petroleum is called liquid gold",
+      "answers": [ "It is very pre-cious", "It is source of many compounds and used in vehicles", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 17,
+      "question": "(Write) Use of copper",
+      "answers": [ "Used to make wire, tools and urensils", "Used in vehicles", "Used to make aeroplane" ], "correct_answer": 1
+    },
+    {
+      "number": 18,
+      "question": "(Write) Use of gold",
+      "answers": [ "Used to make utensils", "Used in vehicles", "Used to make jewellary" ], "correct_answer": 3
+    },
+    {
+      "number": 19,
+      "question": "Two problems in absense of minerals",
+      "answers": [ "Plants and animals can not exist without minerals", "All human activities such as Agriculture and transport will halt", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 20,
+      "question": "Difference between metalic and non metalic minerals",
+      "answers": [ "we get minerals", "we get new product on melting", "metalic-iron, gold, copper", "nm-coal, petroleum, lime-stone", "all" ], "correct_answer": 5
+    }
+  ]
+}
+

@@ -1,0 +1,98 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": " straight path between two end-points is called",
+      "answers": [ "Line", "Line segment", "Ray" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "straight path without end-points is called",
+      "answers": [  "Line", "Line segment", "Ray" ], "correct_answer": 1
+    },
+    {
+      "number": 3,
+      "question": "straight path with one end-points is called",
+      "answers": [  "Line", "Line segment", "Ray" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "two lines do not meet ",
+      "answers": [ "Intersecting line", "Parallel lines", "Cut Lines" ], "correct_answer": 2
+    },
+    {
+      "number": 5,
+      "question": "two lines which cross at one point are called ",
+      "answers": [ "Intersecting line", "Parallel lines", "Cut Lines" ], "correct_answer": 1
+    },
+    {
+      "number": 6,
+      "question": "What is ray",
+      "answers": [ "path with one end point", "path between two end points", "path with no end points" ], "correct_answer": 1
+    },
+    {
+      "number": 7,
+      "question": "What is line segment",
+      "answers": [ "path with one end point", "path between two end points", "path with no end points" ], "correct_answer": 2
+    },
+    {
+      "number": 8,
+      "question": "What is line",
+      "answers": [ "path with one end point", "path between two end points", "path with no end points" ], "correct_answer": 3
+    },
+    {
+      "number": 9,
+      "question": "Figure formed when two rays meet at a commom point",
+      "answers": [ "Line", "Angle", "line segment" ], "correct_answer": 2
+    },
+    {
+      "number": 10,
+      "question": "Name of point where angle is formed",
+      "answers": [ "Vertex of angle", "Center of angle", "Arms of angle" ], "correct_answer": 1
+    },
+    {
+      "number": 11,
+      "question": "Two lines of the angle is called",
+      "answers": [ "Vertex of angle", "Line of angle", "Arms of angle" ], "correct_answer": 3
+    },
+    {
+      "number": 12,
+      "question": "Which is correct",
+      "answers": [ "Triangle-3, Quadri-lateral-4, Pentagon-5, Hexagone-6, Octagon-8",
+                   "Triangle-3, Quadri-lateral-4, Hexagone-5, Pentagon-6, Octagon-8",
+                   "Triangle-3, Hexagone-4, Quadri-lateral-6, Pentagon-6, Octagon-8",
+                   "Triangle-3, Octagon-4,  Quadri-lateral-6, Pentagon-6, Hexagone-8" ], "correct_answer": 1
+    },
+    {
+      "number": 13,
+      "question": "Middle point of the circle",
+      "answers": [ "center", "angle", "chord" ], "correct_answer": 1
+    },
+    {
+      "number": 14,
+      "question": "Line joining circle with center",
+      "answers": [ "diameter", "radius", "chord" ], "correct_answer": 2
+    },
+    {
+      "number": 15,
+      "question": "Line joining two points if a circle",
+      "answers": [ "angle", "radius", "chord" ], "correct_answer": 3
+    },
+    {
+      "number": 16,
+      "question": "Chord which pass throught center of circle",
+      "answers": [  "diameter", "radius", "line segment" ], "correct_answer": 1
+    },
+    {
+      "number": 17,
+      "question": "Which is correct",
+      "answers": [ "Line has definite length", "Line segment has definite length", "both" ], "correct_answer": 2
+    },
+    {
+      "number": 18,
+      "question": "Which is correct",
+      "answers": [ "Line has no end points", "Line segment has two end points", "both" ], "correct_answer": 3
+    }
+  ]
+}
+

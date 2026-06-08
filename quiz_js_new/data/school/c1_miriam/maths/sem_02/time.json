@@ -1,0 +1,205 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "id": "007",
+        "type": "clock_set_time",
+        "question": "3 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":3, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      }, 
+      {
+        "id": "012",
+        "type": "clock_set_time",
+        "question": "12 o clock",
+        "clock": {
+          "radius": 120,
+          "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "hour_hand": { "color": "red", "length_ratio": 0.65 },
+          "minute_hand": { "color": "black", "length_ratio": 0.9 }
+        },
+        "correct_answer": { "hour":12, "minute": 12 },
+        "user_response": { "hour": null, "minute": null }
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "013",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/clock.jpg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "Time between 11:00 and 1:00 ____ .",
+            "correct_answer": ["12:00"]
+          },
+          {
+            "id": "03",
+            "text": "Time between 1:00 and 3:00 ____ .",
+            "correct_answer": ["2:00"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["11:00", "12:00", "1:00", "2:00", "3:00"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "014",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/clock.jpg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "02",
+            "text": "One hour after 12:00 ____.",
+            "correct_answer": ["1:00"]
+          },
+          {
+            "id": "04",
+            "text": "One hour before 12:00 ____.",
+            "correct_answer": ["11:00"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["11:00", "12:00", "1:00", "2:00", "3:00"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "015",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/cal_nov_01.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "Given calander which month ____ .",
+            "correct_answer": ["november"]
+          },
+          {
+            "id": "21",
+            "text": " How many days ____ .",
+            "correct_answer": ["30"]
+          },
+          {
+            "id": "03",
+            "text": "date of second saturday ____.",
+            "correct_answer": ["11"]
+          },
+          {
+            "id": "04",
+            "text": "third monday ____ .",
+            "correct_answer": ["20"]
+          }
+        ],
+        "user_response": [[""], [""], [""], [""]],
+        "choices": ["november", "30", "10", "11", "12", "20", "27"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "018",
+        "question": "statements",
+        "img_url": "data/school/c1_miriam/maths/sem_02/images/cal_nov_01.jpeg",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "last day ____.",
+            "correct_answer": ["thursday"]
+          },
+          {
+            "id": "02",
+            "text": " day on 14th november ____ .",
+            "correct_answer": ["tuesday"]
+          },
+          {
+            "id": "03",
+            "text": " How many mondays ____ .",
+            "correct_answer": ["4"]
+          }
+        ],
+        "user_response": [[""], [""], [""]],
+        "choices": ["tuesday", "thursday", "4", "30"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "options_fill_in_blank",
+        "id": "021",
+        "question": "",
+        "blank_type" : "normal",
+        "options": [
+          {
+            "id": "01",
+            "text": "There are ____ months in a year.",
+            "correct_answer": ["12"]
+          },
+          {
+            "id": "02",
+            "text": " There are ____ days in a week.",
+            "correct_answer": ["7"]
+          },
+          {
+            "id": "03",
+            "text": " There are ____ days in a year.",
+            "correct_answer": ["365"]
+          },
+          {
+            "id": "04",
+            "text": " Leap year has ____ days.",
+            "correct_answer": ["366"]
+          },
+          {
+            "id": "05",
+            "text": " Clock has number ____ days.",
+            "correct_answer": ["1 to 12"]
+          }
+        ],
+        "user_response": [[""], [""]],
+        "choices": ["366", "1 to 12", "7", "365", "12"],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "023",
+        "question": "Long hand clock",
+        "items": ["N", "I", "M", "U", "T", "E" ],
+        "correct_order": ["M", "I", "N", "U", "T", "E"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "023",
+        "question": "Short hand clock",
+        "items": ["U", "H", "R", "O"],
+        "correct_order": ["H", "O", "U", "R"],
+        "user_response": ["", "", "", ""]
+      }
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+  }
+  

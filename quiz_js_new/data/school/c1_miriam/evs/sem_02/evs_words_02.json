@@ -1,0 +1,118 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+      {
+        "type": "ordering_horizontal",
+        "id": "001",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/bear.jpg",
+        "items": ["A", "B", "E", "R"],
+        "correct_order": ["B", "E", "A", "R"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "002",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/crow.jpg",
+        "items": ["O", "W", "C", "R"],
+        "correct_order": ["C", "R", "O", "W"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "003",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/dead_animal.jpg",
+        "items": ["E", "D", "A", "D"],
+        "correct_order": ["D", "E", "A", "D"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "004",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/frog.jpg",
+        "items": ["R", "O", "F", "G"],
+        "correct_order": ["F", "R", "O", "G"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "005",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/frog_toad.jpg",
+        "items": ["T", "A", "D", "O"],
+        "correct_order": ["T", "O", "A", "D"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "006",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/Insects.jpg",
+        "items": ["N", "I", "S", "E", "T", "C"],
+        "correct_order": ["I", "N", "S", "E", "C", "T"],
+        "user_response": ["", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "007",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/lion.jpeg",
+        "items": ["O", "N", "L", "I"],
+        "correct_order": ["L", "I", "O", "N"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "008",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/lion_tiger.jpeg",
+        "items": ["G", "T", "I", "E", "R"],
+        "correct_order": ["T", "I", "G", "E", "R"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "009",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/shed.jpg",
+        "items": ["H", "S", "D", "E"],
+        "correct_order": ["S", "H", "E", "D"],
+        "user_response": ["", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "010",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/squirrel.jpg",
+        "items": ["S", "U", "Q", "R", "I", "E", "L"],
+        "correct_order": ["S", "Q", "U", "I", "R", "R", "E", "L"],
+        "user_response": ["", "", "", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "011",
+        "question": "",
+        "img_url": "data/school/c1_miriam/evs/sem_02/imgs/vulture.jpg",
+        "items": ["V", "L", "U", "T", "E", "R"],
+        "correct_order": ["V", "U", "L", "T", "U", "R", "E"],
+        "user_response": ["", "", "", "", "", "", ""]
+      }
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

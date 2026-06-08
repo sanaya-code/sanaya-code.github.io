@@ -1,0 +1,156 @@
+{
+    "metadata": {
+      "title": "Comprehensive Question Bank",
+      "description": "A collection of various question types for assessments",
+      "version": "2.0",
+      "created": "2023-11-15",
+      "last_modified": "2023-11-15",
+      "author": "Your Name",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+          "type": "multi_select",
+          "id": "001",
+          "question": "बालक हाथ जोड़कर किससे विनती करते हैं ",
+          "options": [
+            {"id": "A", "text": "भगवान से", "correct": true},
+            {"id": "B", "text": "माता-पिता से", "correct": false},
+            {"id": "C", "text": "अध्यापक से", "correct": false}
+          ],
+          "correct_answer": "A",
+          "user_response" : ""
+        },
+        {
+            "type": "multi_select",
+            "id": "002",
+            "question": "पढ़ लिखकर बालक क्या बनना चाहते हैं",
+            "options": [
+              {"id": "A", "text": "साहसी", "correct": false},
+              {"id": "B", "text": "सुंदर", "correct": false},
+              {"id": "C", "text": "महान", "correct": true}
+            ],
+            "correct_answer": "C",
+            "user_response" : ""
+        },
+        {
+            "type": "multi_select",
+            "id": "003",
+            "question": "बालक सदा किसकी सेवा करना चाहते हैं",
+            "options": [
+              {"id": "A", "text": "शहर की", "correct": false},
+              {"id": "B", "text": "देश की", "correct": true},
+              {"id": "C", "text": "प्रदेश की", "correct": false}
+            ],
+            "correct_answer": "B",
+            "user_response" : ""
+        },
+        {
+          "type": "multi_select",
+            "id": "004",
+            "question": "बच्चे ईश्वर से क्या वरदान मांग रहे हैं",
+            "options": [
+            {"id": "A", "text": "हमारा सब अज्ञान मिट जाए", "correct": false},
+            {"id": "B", "text": "हम पढ़ लिख कर महान बन जाएं", "correct": true},
+            {"id": "C", "text": "हम किसी का सम्मान ना करें", "correct": false},
+            {"id": "D", "text": "देश का नाम ऊंचा न करें", "correct": false},
+            {"id": "E", "text": "देश की सदा सेवा करें", "correct": true}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "",
+            "options": [
+            {"id": "A", "text": "पिंटू नदी किनारे रेत का घर बना रहा था ", "correct": false},
+            {"id": "B", "text": "पिंकी पिंटू का ताश का घर तोड़ देती है", "correct": false},
+            {"id": "C", "text": "पिंटू को अपनी गलती का एहसास हो जाता है", "correct": true}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "भाषा के _________ रूप होते हैं ",
+            "options": [
+            {"id": "A", "text": "एक", "correct": false},
+            {"id": "B", "text": "दो", "correct": true},
+            {"id": "C", "text": "तीन", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "बोल सुनकर, लिख पड़ कर मन की बात एक दूसरे को समझाना _________ है",
+            "options": [
+            {"id": "A", "text": "संज्ञा", "correct": false},
+            {"id": "B", "text": "भाषा", "correct": true},
+            {"id": "C", "text": "लिंग", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        }, 
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "वर्ण _________  प्रकार के होते है ",
+            "options": [
+            {"id": "A", "text": "एक", "correct": false},
+            {"id": "B", "text": "दो", "correct": true},
+            {"id": "C", "text": "तीन", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "हिंदी भाषा में कुल _________ स्वर हैं",
+            "options": [
+            {"id": "A", "text": "14", "correct": false},
+            {"id": "B", "text": "13", "correct": false},
+            {"id": "C", "text": "11", "correct": true}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        },
+        {
+          "type": "multi_select",
+            "id": "005",
+            "question": "हिंदी भाषा में कुल _________ व्यंजन हैं",
+            "options": [
+            {"id": "A", "text": "33", "correct": true},
+            {"id": "B", "text": "34", "correct": false},
+            {"id": "C", "text": "35", "correct": false}
+          ],
+          "user_response" : "",
+          "minimum_selections": 1,
+          "maximum_selections": 3,
+          "scoring_method": "exact"
+        }
+      
+  ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium", "hard"],
+      "subject_areas": ["science", "history", "geography", "computer-science"],
+      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+    }
+}
+  

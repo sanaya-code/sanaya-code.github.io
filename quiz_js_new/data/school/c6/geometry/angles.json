@@ -1,0 +1,244 @@
+{
+    "metadata": {
+      "title": "Lines and Angles for Kids",
+      "description": "Interactive questions to build understanding of basic geometry concepts",
+      "version": "1.1",
+      "created": "2023-11-16",
+      "author": "Math Educator",
+      "license": "CC BY-SA 4.0"
+    },
+    "questions": [
+        {
+          "type": "fill_in_blank",
+          "id": "001",
+          "question": "All angles are measured from 0° to ____.",
+          "correct_answer": "360",
+          "case_sensitive": false,
+          "explanation": "Angles can measure up to 360° (a full circle).",
+          "difficulty": "easy",
+          "tags": ["angles"]
+        },
+        {
+          "type": "mcq",
+          "id": "002",
+          "question": "Vertex of angle is?",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='100' y1='100' x2='50' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='100' x2='150' y2='50' stroke='black' stroke-width='2'/><circle cx='100' cy='100' r='3' fill='red'/><text x='80' y='120' font-size='12'>A</text><text x='40' y='40' font-size='12'>B</text><text x='160' y='40' font-size='12'>C</text></svg>",
+          "options": [
+            {"id": "1", "text": "Point A (center)"},
+            {"id": "2", "text": "Point B (left end)"},
+            {"id": "3", "text": "Point C (right end)"}
+          ],
+          "correct_answer": "1",
+          "explanation": "The vertex is point A where the two lines meet.",
+          "difficulty": "easy",
+          "tags": ["angles", "vertex"]
+        },
+        {
+          "type": "mcq",
+          "id": "003",
+          "question": "Which angle is a straight angle?",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='50' x2='100' y2='50' stroke='black' stroke-width='2'/><line x1='100' y1='50' x2='150' y2='50' stroke='black' stroke-width='2'/><line x1='200' y1='50' x2='250' y2='50' stroke='black' stroke-width='2'/><line x1='250' y1='50' x2='250' y2='20' stroke='black' stroke-width='2'/></svg>",
+          "options": [
+            {"id": "1", "text": "First angle (horizontal)"},
+            {"id": "2", "text": "Second angle (L-shape)"},
+            {"id": "3", "text": "Neither"}
+          ],
+          "correct_answer": "1",
+          "explanation": "The first angle forms a straight line (180°).",
+          "difficulty": "easy",
+          "tags": ["angles", "straight"]
+        },
+        {
+          "type": "mcq",
+          "id": "004",
+          "question": "A straight angle measures:",
+          "options": [
+            {"id": "A", "text": "90°"},
+            {"id": "B", "text": "180°"},
+            {"id": "C", "text": "45°"},
+            {"id": "D", "text": "360°"}
+          ],
+          "correct_answer": "B",
+          "explanation": "A straight angle forms a straight line and measures exactly 180°.",
+          "difficulty": "easy",
+          "tags": ["angles", "straight"]
+        },
+        {
+          "type": "true_false",
+          "id": "005",
+          "question": "A straight angle looks like a perfectly straight line.",
+          "correct_answer": true,
+          "explanation": "When two rays point in exactly opposite directions, they form a straight line (180°).",
+          "difficulty": "easy",
+          "tags": ["angles", "straight"]
+        },
+        {
+          "type": "mcq",
+          "id": "006",
+          "question": "Which angle is acute?",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='180' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
+          "options": [
+            {"id": "1", "text": "First angle (right angle)"},
+            {"id": "2", "text": "Second angle (small angle)"},
+            {"id": "3", "text": "Third angle (straight angle)"}
+          ],
+          "correct_answer": "2",
+          "explanation": "The second angle is smaller than 90°, making it acute.",
+          "difficulty": "easy",
+          "tags": ["angles", "acute"]
+        },
+        {
+          "type": "true_false",
+          "id": "007",
+          "question": "An angle measuring 100° is obtuse.",
+          "correct_answer": true,
+          "explanation": "100° is between 90° and 180°, so it's obtuse.",
+          "difficulty": "easy",
+          "tags": ["angles", "obtuse"]
+        },
+        {
+          "type": "mcq",
+          "id": "008",
+          "question": "Which angle is obtuse?",
+          "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><line x1='50' y1='70' x2='100' y2='70' stroke='black' stroke-width='2'/><line x1='100' y1='70' x2='100' y2='30' stroke='black' stroke-width='2'/><line x1='150' y1='70' x2='200' y2='70' stroke='black' stroke-width='2'/><line x1='200' y1='70' x2='220' y2='30' stroke='black' stroke-width='2'/><line x1='250' y1='70' x2='300' y2='70' stroke='black' stroke-width='2'/><line x1='300' y1='70' x2='300' y2='20' stroke='black' stroke-width='2'/></svg>",
+          "options": [
+            {"id": "1", "text": "First angle (right angle)"},
+            {"id": "2", "text": "Second angle (wide angle)"},
+            {"id": "3", "text": "Third angle (straight angle)"}
+          ],
+          "correct_answer": "2",
+          "explanation": "The second angle is wider than 90° but less than 180°, making it obtuse.",
+          "difficulty": "easy",
+          "tags": ["angles", "obtuse"]
+        },
+        {
+          "type": "mcq",
+          "id": "009",
+          "question": "A reflex angle measures:",
+          "options": [
+            {"id": "A", "text": "Less than 180°"},
+            {"id": "B", "text": "Exactly 180°"},
+            {"id": "C", "text": "Between 180° and 360°"},
+            {"id": "D", "text": "Exactly 360°"}
+          ],
+          "correct_answer": "C",
+          "explanation": "Reflex angles are the larger angles that measure more than 180° but less than 360°.",
+          "difficulty": "medium",
+          "tags": ["angles", "reflex"]
+        },
+        {
+          "type": "true_false",
+          "id": "010",
+          "question": "A 270° angle is a reflex angle.",
+          "correct_answer": true,
+          "explanation": "270° is between 180° and 360°, so it's reflex.",
+          "difficulty": "medium",
+          "tags": ["angles", "reflex"]
+        },
+        {
+            "type": "multi_select",
+            "id": "024",
+            "question": "Angle L AOC = ",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.line { stroke: black; stroke-width: 1.5; fill: none; }.point { font-family: Arial; font-size: 10px; font-weight: bold; }.point-marker { fill: red; r: 2; }.angle-label { font-size: 8px; }</style><path fill='rgba(100,200,255,0.3)' d='M 10 110 L 10 20 L 60 33.4 Z'/><path fill='rgba(200,100,255,0.3)' d='M 10 110 L 60 33.4 L 110 110 Z'/><line x1='10' y1='110' x2='10' y2='20' class='line'/><line x1='10' y1='110' x2='60' y2='33.4' class='line'/><line x1='10' y1='110' x2='110' y2='110' class='line'/><circle cx='10' cy='110' r='2' class='point-marker'/><text x='5' y='120' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='60' cy='33.4' r='2' class='point-marker'/><text x='63' y='36.4' class='point'>B</text><circle cx='110' cy='110' r='2' class='point-marker'/><text x='105' y='105' class='point'>C</text><text x='20' y='70' class='angle-label'>30°</text><text x='50' y='90' class='angle-label'>45°</text></svg>",
+            "options": [
+              {"id": "A", "text": "45 + 30", "correct": true},
+              {"id": "B", "text": " 45 - 30", "correct": false},
+              {"id": "C", "text": "45 x 30", "correct": false},
+              {"id": "D", "text": "100", "correct": false}
+            ],
+            "minimum_selections": 1,
+            "maximum_selections": 2,
+            "difficulty": "easy",
+            "tags": ["angles"],
+            "points": 2,
+            "scoring_method": "partial",
+            "explanation": "AOB is largest angle"
+          },
+          {
+            "type": "mcq",
+            "id": "026",
+            "question": "What is common between LAOC and LBOD",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style><path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/><line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/><line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/><circle cx='10' cy='120' r='2' /><text x='5' y='130' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='86.6' cy='55.7' r='2' class='point-marker'/><text x='89.6' y='58.7' class='point'>B</text><circle cx='103.97' cy='85.8' r='2' class='point-marker'/><text x='106.97' y='88.8' class='point'>C</text><circle cx='110' cy='120' r='2' class='point-marker'/><text x='113' y='123' class='point'>D</text></svg>",
+            "options": [
+              {"id": "1", "text": "LAOB"},
+              {"id": "2", "text": "LBOC"},
+              {"id": "3", "text": "LCOD"}
+            ],
+            "correct_answer": "2",
+            "explanation": "The small black dot on the left is how we represent a point.",
+            "difficulty": "easy",
+            "tags": ["points"]
+          },
+          {
+            "type": "mcq",
+            "id": "027",
+            "question": "Choose the correct option",
+            "svg_content": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'><style>.point { font-family: Arial; font-size: 10px; }.angle-fill { fill: rgba(100,200,255,0.5); stroke: none; }.point-marker { fill: red; r: 2; }</style><path class='angle-fill' d='M 10 120 L 86.6 55.7 L 103.97 85.8 Z'/><line x1='10' y1='120' x2='10' y2='20' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='86.6' y2='55.7' style='stroke:blue;stroke-width:2'/><line x1='10' y1='120' x2='103.97' y2='85.8' style='stroke:red;stroke-width:2'/><line x1='10' y1='120' x2='110' y2='120' style='stroke:blue;stroke-width:2'/><circle cx='10' cy='120' r='2' /><text x='5' y='130' class='point'>O</text><circle cx='10' cy='20' r='2' class='point-marker'/><text x='13' y='23' class='point'>A</text><circle cx='86.6' cy='55.7' r='2' class='point-marker'/><text x='89.6' y='58.7' class='point'>B</text><circle cx='103.97' cy='85.8' r='2' class='point-marker'/><text x='106.97' y='88.8' class='point'>C</text><circle cx='110' cy='120' r='2' class='point-marker'/><text x='113' y='123' class='point'>D</text></svg>",
+            "options": [
+              {"id": "1", "text": "LAOC = LBOD"},
+              {"id": "2", "text": "LAOC < LBOD"},
+              {"id": "3", "text": "LAOC > LBOD"}
+            ],
+            "correct_answer": "3",
+            "explanation": "The small black dot on the left is how we represent a point.",
+            "difficulty": "easy",
+            "tags": ["points"]
+          },
+          {
+            "type": "matching_drag_drop",
+            "id": "030",
+            "question": "Match the followings:",
+            "pairs": [
+              {"left": "Straight Angle", "right": "90°"},
+              {"left": "Obtuse Angle", "right": "0° to 90°"},
+              {"left": "Reflex Angle", "right": "180°"},
+              {"left": "Acute Angle", "right": "90° to 180°"},
+              {"left": "Right Angle(Perpendicular)", "right": "180° to 360°"}
+              
+            ],
+            "distractors": ["0° to 100°"],
+            "difficulty": "hard",
+            "tags": ["angles", "geometry"],
+            "points": 2
+          },
+          {
+            "type": "ordering",
+            "id": "032",
+            "question": "Arrange these angles in increasing order:",
+            "items": [
+              {"id": "A", "text": "Obtuse Angle"},
+              {"id": "B", "text": "Reflex Angle"},
+              {"id": "C", "text": "Acute Angle"},
+              {"id": "D", "text": "Right Angle"},
+              {"id": "E", "text": "Straight Angle"}
+            ],
+            "correct_order": ["C", "D", "A", "E", "B"],
+            "difficulty": "medium",
+            "tags": ["angles"],
+            "points": 2
+          },
+          {
+            "type": "matching_drag_drop",
+            "id": "033",
+            "question": "Match for circle divided into :",
+            "pairs": [
+              {"left": "2 parts", "right": "180°"},
+              {"left": "3 parts", "right": "120°"},
+              {"left": "4 parts", "right": "90°"},
+              {"left": "6 parts", "right": "60°"}
+              
+            ],
+            "distractors": ["150°", "100°", "80°", "45°"],
+            "difficulty": "hard",
+            "tags": ["angles", "geometry"],
+            "points": 2
+          }
+
+    ],
+    "taxonomy": {
+      "difficulty_levels": ["easy", "medium"],
+      "subject_areas": ["geometry"],
+      "question_types": ["mcq", "true_false", "fill_in_blank", "geometry"]
+    }
+  }
+  

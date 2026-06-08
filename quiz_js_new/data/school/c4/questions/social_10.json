@@ -1,0 +1,133 @@
+{
+  "questions": [
+    {
+      "number": 1,
+      "question": "What do tanker ship carry",
+      "answers": [ "coal", "oil and petrolium", "rice", "marble" ], "correct_answer": 2
+    },
+    {
+      "number": 2,
+      "question": "Which of these is used to rescue people in natural disaster",
+      "answers": [ "aeroplane", "train", "bus", "helicopter" ], "correct_answer": 4
+    },
+    {
+      "number": 3,
+      "question": "What is the postal service called",
+      "answers": [ "Indian dost", "Indian most", "Indian post", "Indian coast" ], "correct_answer": 3
+    },
+    {
+      "number": 4,
+      "question": "Which of these are not means of communication",
+      "answers": [ "Train", "Radio", "Television", "News paper" ], "correct_answer": 1
+    },
+    {
+      "number": 5,
+      "question": "Rajdhani Express and Shatabdi Express are luxury buses",
+      "answers": [ "True", "False" ], "correct_answer": 2
+    },
+    {
+      "number": 6,
+      "question": "The Deendayal port is a minor port in india",
+      "answers": [ "True", "False" ], "correct_answer": 2
+    },
+    {
+      "number": 7,
+      "question": "Letters send through speed post reach in seconds",
+      "answers": [ "True", "False" ], "correct_answer": 2
+    },
+    {
+      "number": 8,
+      "question": "Mobile phone are more popular than landline phone",
+      "answers": [ "True", "False" ], "correct_answer": 1
+    },
+    {
+      "number": 9,
+      "question": "Television is a means of communication",
+      "answers": [ "True", "False" ], "correct_answer": 1
+    },
+    {
+      "number": 10,
+      "question": "What is communication",
+      "answers": [ "Process of sending and receiving",
+                   "Process of sending and receiving message from people",
+                   "Process of sending and receiving goods" ], "correct_answer": 2
+    },
+    {
+      "number": 11,
+      "question": "What is cargo ships",
+      "answers": [ "Carry goods and cargo", "Carry mesages and cargo", "Carry food and cargo" ], "correct_answer": 1
+    },
+    {
+      "number": 12,
+      "question": "Railway, life line of india",
+      "answers": [ "Connect parts of india", "People depend on it", "Both" ], "correct_answer": 3
+    },
+    {
+      "number": 13,
+      "question": "What is transport",
+      "answers": [ "Refers to sending and receiving message", "Refers to carry goods and cargo",
+                   "Refers to vehicle that carry people and goods" ], "correct_answer": 3
+    },
+    {
+      "number": 14,
+      "question": "(Write) How is helicopter useful",
+      "answers": [ "Rescue people", "Drop medicines and food in ",  "Can reach difficult areas", "All three" ], "correct_answer": 4
+    },
+    {
+      "number": 15,
+      "question": "Why do we need to travel",
+      "answers": [ "To reach important places like shops", "To eat food", "To play" ], "correct_answer": 1
+    },
+    {
+      "number": 16,
+      "question": "(Write) Why is internet boon",
+      "answers": [ "Help us travel", "Helps us get important information", "Help us to rescue people" ], "correct_answer": 2
+    },
+    {
+      "number": 17,
+      "question": "(Write) Why madhya-pradesh, Chattis-garh dont have port.",
+      "answers": [ "Do not have road", "Do not have air-port","Do not connect sea or ocean" ], "correct_answer": 3
+    },
+    {
+      "number": 18,
+      "question": "(Write) Why is TV better than newpaper",
+      "answers": [ "It is audio video means", "benefits il-lite-rate people", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 19,
+      "question": "(Write) Land transport",
+      "answers": [ "Vehicles that move on land", "ex. car, cycle, train", "types- rail and road", "all above" ], "correct_answer": 4
+    },
+    {
+      "number": 20,
+      "question": "(Write) Water transport",
+      "answers": [ "Vehicle that travel on water", "ex, boat, ships", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 21,
+      "question": "(Write) Air transport",
+      "answers": [ "Vehicles that travel in air", "ex, aeroplane, heli-copter", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 22,
+      "question": "(Write) Metalled Roads",
+      "answers": [ "Made of stones, cement, tar", "Cities and towns have metalled roads", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 23,
+      "question": "(Write) Un-metalled Roads",
+      "answers": [ "Made of mud", "Villages have un-metalled roads", "both" ], "correct_answer": 3
+    },
+    {
+      "number": 24,
+      "question": "(Write) Postal communication",
+      "answers": [ "done by post-card", "it is slow", "message is written", "all" ], "correct_answer": 4
+    },
+    {
+      "number": 25,
+      "question": "(Write) Tele-communication",
+      "answers": [ "done by radio, tele-phone", "it is fast", "message is verbal", "all"], "correct_answer": 4
+    }
+  ]
+}
+

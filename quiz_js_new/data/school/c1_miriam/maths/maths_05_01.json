@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "title": "Comprehensive Question Bank",
+    "description": "A collection of various question types for assessments",
+    "version": "2.0",
+    "created": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "author": "Your Name",
+    "license": "CC BY-SA 4.0"
+  },
+  "questions": [
+    {
+        "type": "number_line_fill_in_blank",
+        "id": "007",
+        "question": "Number line",
+        "sequence": [
+          {"value": "11"},
+          {"value": "____", "acceptable_answers": ["12"]},
+          {"value": "____", "acceptable_answers": ["13"]},
+          {"value": "14"},
+          {"value": "15"},
+          {"value": "____", "acceptable_answers": ["16"]},
+          {"value": "17"},
+          {"value": "18"},
+          {"value": "____", "acceptable_answers": ["19"]},
+          {"value": "____", "acceptable_answers": ["20"]}
+        ],
+        "user_response": ["", "", "", ""],
+        "validation": {
+          "case_sensitive": false,
+          "scoring_method": "exact"
+        },
+        "metadata": {
+          "series_type": "series"
+        }
+      },
+      {
+        "type": "multi_fill_in_blank",
+        "id": "007",
+        "question": " ____ +  ____  =  ____ ", 
+        "img_url": "data/school/c1_miriam/images/numbers_03.jpg",
+        "blanks": [
+          { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
+          },
+          { "position": 2, "correct_answer": "2", "acceptable_answers": ["2"]
+          },
+          { "position": 3, "correct_answer": "12", "acceptable_answers": ["12"]
+          }
+        ],
+        "user_response": ["", "", ""],
+        "case_sensitive": false,
+        "scoring_method": "exact"
+      },
+      {
+        "type": "matching_connection",
+        "id": "013",
+        "question": "Match",
+        "pairs": [
+          { "left": "Thirteen", "right": "13" },
+          { "left": "Fifteen", "right": "15" },
+          { "left": "Twelve", "right": "12" },
+          { "left": "Nineteen", "right": "19" },
+          { "left": "Sixteen", "right": "16" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "015",
+        "question": "Ascending order:",
+        "items": ["16", "20", "17", "12", "14"],
+        "correct_order": ["12", "14", "16", "17", "20"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "ordering_horizontal",
+        "id": "015",
+        "question": "Descending order:",
+        "items": ["19", "15", "20", "14", "12"],
+        "correct_order": ["20", "19", "15", "14", "12"],
+        "user_response": ["", "", "", "", ""]
+      },
+      {
+        "type": "compare_quantities",
+        "id": "021",
+       "question": " Put > or < ",
+        "quantity_a": { "value": "11"},
+        "quantity_b": { "value": "13"},
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "16"},
+        "quantity_b": {"value": "18"},
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "026",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "14"},
+        "quantity_b": {"value": "12"},
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "11"},
+        "quantity_b": {"value": "11"},
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "=",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "18"},
+        "quantity_b": {"value": "16"},
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "10"},
+        "quantity_b": {"value": "10" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "=",
+        "user_response": ""
+      },
+      {
+        "type": "matching_connection",
+        "id": "013",
+        "question": "Match",
+        "pairs": [
+          { "left": "2 tens", "right": "20" },
+          { "left": "1 tens 4 ones", "right": "14" },
+          { "left": "1 tens 3 ones", "right": "13" },
+          { "left": "1 tens 9 ones", "right": "19" },
+          { "left": "1 tens", "right": "10" }
+        ],
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "2 tens"},
+        "quantity_b": {"value": "19" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "1 tens"},
+        "quantity_b": {"value": "1 ten 3 ones" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": "<",
+        "user_response": ""
+      },
+      {
+        "type": "compare_quantities",
+        "id": "024",
+       "question": " Put > or < ",
+        "quantity_a": {"value": "1 tens 9 ones"},
+        "quantity_b": {"value": "1 ten 6 ones" },
+        "symbol_options": [" ", ">", "<", "="],
+        "correct_answer": ">",
+        "user_response": ""
+      }
+  ],
+  "taxonomy": {
+    "difficulty_levels": ["easy", "medium", "hard"],
+    "subject_areas": ["science", "history", "geography", "computer-science"],
+    "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
+  },
+  "questions_01": [
+    {
+      "type": "skip",
+      "type_01": "multi_fill_in_blank",
+      "id": "003",
+      "question": " ____ +  ____  =  ____ ", 
+      "img_url": "data/school/c1_miriam/images/numbers_01.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
+        },
+        { "position": 2, "correct_answer": "3", "acceptable_answers": ["3"]
+        },
+        { "position": 3, "correct_answer": "13", "acceptable_answers": ["13"]
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type_01": "multi_fill_in_blank",
+      "id": "003",
+      "question": " ____ +  ____  =  ____ ", 
+      "img_url": "data/school/c1_miriam/images/numbers_02.jpg",
+      "blanks": [
+        { "position": 1, "correct_answer": "10", "acceptable_answers": ["10"]
+        },
+        { "position": 2, "correct_answer": "5", "acceptable_answers": ["5"]
+        },
+        { "position": 3, "correct_answer": "15", "acceptable_answers": ["15"]
+        }
+      ],
+      "user_response": ["", "", ""],
+      "case_sensitive": false,
+      "scoring_method": "exact"
+    },
+    {
+      "type": "skip",
+      "type_01": "matching_connection",
+      "id": "013",
+      "question": "Match",
+      "pairs": [
+        { "left": "Eleven", "right": "11" },
+        { "left": "Fourteen", "right": "14" },
+        { "left": "Eighteen", "right": "18" },
+        { "left": "Twenty", "right": "20" },
+        { "left": "Seventeen", "right": "17" }
+      ],
+      "user_response": ""
+    }
+  ]
+}
