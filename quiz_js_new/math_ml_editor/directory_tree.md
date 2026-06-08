@@ -1,71 +1,105 @@
 
 
 ```
+
 math-builder/
 │
 ├── index.html
 ├── main.controller.js
 │
 ├── state/
-│   ├── appState.js          # single source of truth — levels, nodes, active level
-│   └── stateManager.js      # get/set/subscribe state, no DOM knowledge
+│   ├── state.js
+│   └── state_controller.js
+│
+├── core/
+│   ├── event_bus.js
+│   ├── dom_renderer.js
+│   └── utils.js
 │
 ├── mathmlOperators/
-│   ├── BaseOperator.js      # abstract base class — slots[], generate()
-│   ├── AddOperator.js
-│   ├── SubtractOperator.js
-│   ├── MultiplyOperator.js
-│   ├── DivideOperator.js
-│   ├── PowerOperator.js
-│   ├── SqrtOperator.js
-│   ├── SinOperator.js
-│   ├── CosOperator.js
-│   ├── LogOperator.js
-│   ├── IntegralOperator.js
-│   └── LimitOperator.js
+│   ├── AddOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── SubtractOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── MultiplyOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── DivideOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── PowerOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── SqrtOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── SinOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── CosOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── LogOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   ├── IntegralOperator/
+│   │   ├── form.js
+│   │   ├── operator.js
+│   │   └── style.css
+│   └── LimitOperator/
+│       ├── form.js
+│       ├── operator.js
+│       └── style.css
 │
 ├── components/
+│   ├── atomsPanel/
+│   │   ├── component.js
+│   │   ├── controller.js
+│   │   └── style.css
 │   │
-│   ├── levelStrip/          # horizontal pill row — one pill per level
-│   │   ├── levelStrip.js
-│   │   ├── levelStrip.css
-│   │   └── levelStrip.controller.js
+│   ├── workingSetPanel/
+│   │   ├── component.js
+│   │   ├── controller.js
+│   │   └── style.css
 │   │
-│   ├── previousPanel/       # top full-width panel — previous level nodes
-│   │   ├── previousPanel.js
-│   │   ├── previousPanel.css
-│   │   └── previousPanel.controller.js
+│   ├── operatorPanel/
+│   │   ├── component.js
+│   │   ├── controller.js
+│   │   └── style.css
 │   │
-│   ├── currentPanel/        # bottom full-width panel — current level nodes
-│   │   ├── currentPanel.js
-│   │   ├── currentPanel.css
-│   │   └── currentPanel.controller.js
+│   ├── slotPanel/
+│   │   ├── component.js
+│   │   ├── controller.js
+│   │   └── style.css
 │   │
-│   ├── nodeCard/            # individual rendered MathML node card
-│   │   ├── nodeCard.js
-│   │   ├── nodeCard.css
-│   │   └── nodeCard.controller.js
+│   ├── nodeCard/
+│   │   ├── component.js
+│   │   ├── controller.js
+│   │   └── style.css
 │   │
-│   ├── operatorBar/         # clickable operator pills
-│   │   ├── operatorBar.js
-│   │   ├── operatorBar.css
-│   │   └── operatorBar.controller.js
-│   │
-│   └── slotPanel/           # slot-filling UI after operator selected
-│       ├── slotPanel.js
-│       ├── slotPanel.css
-│       └── slotPanel.controller.js
+│   └── mathPreview/
+│       ├── component.js
+│       ├── controller.js
+│       └── style.css
 │
 └── event_handlers/
-    ├── levelStrip/
-    │   └── levelStrip.handlers.js   # pill click, add level
-    ├── previousPanel/
-    │   └── previousPanel.handlers.js # node click → fill slot
-    ├── currentPanel/
-    │   └── currentPanel.handlers.js  # copy node, delete node
-    ├── operatorBar/
-    │   └── operatorBar.handlers.js   # operator selected
-    └── slotPanel/
-        └── slotPanel.handlers.js     # slot filled, add node, clear
+    ├── atomsPanel/
+    ├── workingSetPanel/
+    ├── operatorPanel/
+    ├── slotPanel/
+    ├── nodeCard/
+    └── global/
+
 
 ```
