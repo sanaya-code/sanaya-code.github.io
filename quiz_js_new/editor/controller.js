@@ -19,10 +19,14 @@ class MainController {
     this._panelCtrl      = new EditorPanelController(
       document.getElementById('editor-panel')
     );
+    this._importPanelCtrl = new ImportPanelController(
+      new ImportPanelComponent(document.getElementById('import-panel'))
+    );
 
     // ── Event handlers ──────────────────────────────────
-    this._listHandler  = new QuestionListHandler(this._listCtrl, this._panelCtrl);
-    this._panelHandler = new EditorPanelHandler(this._listCtrl, this._panelCtrl);
+    this._listHandler   = new QuestionListHandler(this._listCtrl, this._panelCtrl);
+    this._panelHandler  = new EditorPanelHandler(this._listCtrl, this._panelCtrl);
+    this._importHandler = new ImportPanelHandler(this._importPanelCtrl, this._listCtrl);
     this._topbarHandler = new TopbarHandler(
       this._topbarCtrl,
       this._emptyStateCtrl,
@@ -30,7 +34,8 @@ class MainController {
       this._shell,
       (cb) => this._triggerFilePicker(cb),
       (qs) => this._loadQuestions(qs),
-      ()   => this._exportJson()
+      ()   => this._exportJson(),
+      (qs) => this._importHandler.openWithQuestions(qs)
     );
 
     // ── Boot ────────────────────────────────────────────
@@ -159,4 +164,7 @@ class MainController {
 
 }
 
-document.addEventListener('DOMContentLoaded', () => new MainController());
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.obj = new MainController();
+});

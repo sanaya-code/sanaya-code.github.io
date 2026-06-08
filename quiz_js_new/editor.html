@@ -8,6 +8,7 @@
 
   <!-- Editor styles -->
   <link rel="stylesheet" href="editor/style.css" />
+  <link rel="stylesheet" href="editor/components/import_panel/style.css" />
   <link rel="stylesheet" href="editor/components/type_selector/style.css" />
   <link rel="stylesheet" href="editor/components/question_list/style.css" />
   <link rel="stylesheet" href="editor/components/editor_panel/style.css" />
@@ -67,8 +68,9 @@
     <div class="app-title">quiz<span>.</span>editor</div>
     <div class="topbar-sep"></div>
     <button class="btn btn-primary" id="btn-add-question">+ Add Question</button>
+    <button class="btn btn-primary" id="btn-import-json">Import Questions</button>
     <div class="topbar-right">
-      <button class="btn btn-ghost" id="btn-new">New</button>
+      <button class="btn btn-ghost" id="btn-new">New Json</button>
       <button class="btn btn-ghost" id="btn-load-json">Load JSON</button>
       <button class="btn btn-ghost" id="btn-export-json">Export JSON</button>
     </div>
@@ -76,6 +78,9 @@
 
   <!-- Hidden file input -->
   <input type="file" id="file-input" accept=".json" style="display:none" />
+
+  <!-- ── Import Panel (overlay) ──────────────────────── -->
+  <div id="import-panel" class="hidden"></div>
 
   <!-- ── Empty State ─────────────────────────────────── -->
   <div id="empty-state">
@@ -130,6 +135,8 @@
   <script src="editor/components/question_list/controller.js"></script>
   <script src="editor/components/editor_panel/component.js"></script>
   <script src="editor/components/editor_panel/controller.js"></script>
+  <script src="editor/components/import_panel/component.js"></script>
+  <script src="editor/components/import_panel/controller.js"></script>
   <script src="editor/components/question_forms/mcq_form/component.js"></script>
   <script src="editor/components/question_forms/true_false_form/component.js"></script>
   <script src="editor/components/question_forms/multi_select_form/component.js"></script>
@@ -183,6 +190,7 @@
   <script src="editor/event_handler/question_list/handler.js"></script>
   <script src="editor/event_handler/editor_panel/handler.js"></script>
   <script src="editor/event_handler/topbar/handler.js"></script>
+  <script src="editor/event_handler/import_panel/handler.js"></script>
   <script src="editor/controller.js"></script>
 
 </body>

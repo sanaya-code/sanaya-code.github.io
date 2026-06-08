@@ -12,6 +12,7 @@ class TopbarController {
   onNew(fn)         { this._component.onNew(fn);         }
   onLoadJson(fn)    { this._component.onLoadJson(fn);    }
   onExportJson(fn)  { this._component.onExportJson(fn);  }
+  onImportJson(fn)  { this._component.onImportJson(fn);  }
   onFileSelected(fn){ this._component.onFileSelected(fn);}
 
   // ── UI state ──────────────────────────────────────────

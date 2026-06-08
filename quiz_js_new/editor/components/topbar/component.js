@@ -3,12 +3,13 @@
 class TopbarComponent {
 
   constructor(element) {
-    this._el             = element;
-    this._btnAddQuestion = element.querySelector('#btn-add-question');
-    this._btnNew         = element.querySelector('#btn-new');
-    this._btnLoadJson    = element.querySelector('#btn-load-json');
-    this._btnExportJson  = element.querySelector('#btn-export-json');
-    this._fileInput      = document.getElementById('file-input');
+    this._el              = element;
+    this._btnAddQuestion  = element.querySelector('#btn-add-question');
+    this._btnNew          = element.querySelector('#btn-new');
+    this._btnLoadJson     = element.querySelector('#btn-load-json');
+    this._btnExportJson   = element.querySelector('#btn-export-json');
+    this._btnImportJson   = element.querySelector('#btn-import-json');
+    this._fileInput       = document.getElementById('file-input');
   }
 
   // ── Signals ──────────────────────────────────────────
@@ -27,6 +28,10 @@ class TopbarComponent {
 
   onExportJson(fn) {
     this._btnExportJson.addEventListener('click', fn);
+  }
+
+  onImportJson(fn) {
+    this._btnImportJson.addEventListener('click', fn);
   }
 
   onFileSelected(fn) {

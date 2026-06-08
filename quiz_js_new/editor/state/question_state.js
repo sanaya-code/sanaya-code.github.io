@@ -72,6 +72,13 @@ const QuestionState = (() => {
     _reassignIds();
   }
 
+  // Appends questions to existing array — does NOT replace
+  function importQuestions(arr) {
+    const incoming = arr.map(q => Object.assign(_clone(q), { _unsaved: false }));
+    _questions = _questions.concat(incoming);
+    _reassignIds();
+  }
+
   // ── Export (saved questions only) ────────────────────
 
   function exportQuestions() {
@@ -102,6 +109,7 @@ const QuestionState = (() => {
     reorderQuestions,
     reset,
     loadQuestions,
+    importQuestions,
     exportQuestions,
   };
 

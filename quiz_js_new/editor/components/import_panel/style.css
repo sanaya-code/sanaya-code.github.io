@@ -1,0 +1,281 @@
+/* editor/components/import_panel/style.css */
+
+/* ── Overlay wrapper ─────────────────────────────────── */
+
+#import-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#import-panel.hidden {
+  display: none;
+}
+
+/* ── Backdrop ────────────────────────────────────────── */
+
+.ip-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 45, 74, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+/* ── Panel ───────────────────────────────────────────── */
+
+.ip-panel {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(13, 45, 74, 0.28);
+  width: 640px;
+  max-width: calc(100vw - 48px);
+  height: calc(100vh - 80px);
+  max-height: 760px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+
+.ip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-panel);
+  border-bottom: 1.5px solid var(--border);
+  flex-shrink: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ip-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ip-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ip-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ip-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-family: var(--font-mono);
+}
+
+/* ── Header buttons ──────────────────────────────────── */
+
+.ip-btn-select-all {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.ip-btn-select-all:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ip-btn-cancel {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.ip-btn-cancel:hover {
+  background: var(--danger-light);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.ip-btn-add {
+  background: linear-gradient(90deg, #1a5f8a, #3498db);
+  color: #fff;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.25);
+}
+.ip-btn-add:hover:not(:disabled) {
+  opacity: 0.9;
+  box-shadow: 0 3px 12px rgba(52,152,219,0.35);
+}
+.ip-btn-add:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Question list ───────────────────────────────────── */
+
+.ip-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Empty state ─────────────────────────────────────── */
+
+.ip-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Card ────────────────────────────────────────────── */
+
+.ip-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+  overflow: hidden;
+  user-select: none;
+  min-height: 64px;
+  flex-shrink: 0;
+}
+
+.ip-card:hover {
+  border-color: var(--border-focus);
+  box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+}
+
+.ip-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 2px 10px rgba(52,152,219,0.18);
+}
+
+/* ── Card checkbox column ────────────────────────────── */
+
+.ip-card-check {
+  width: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-panel);
+  border-right: 1.5px solid var(--border);
+  transition: background 0.15s;
+}
+
+.ip-card.selected .ip-card-check {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.ip-checkmark {
+  font-size: 14px;
+  color: transparent;
+  font-weight: 700;
+  transition: color 0.15s;
+}
+
+.ip-card.selected .ip-checkmark {
+  color: #fff;
+}
+
+/* ── Card body ───────────────────────────────────────── */
+
+.ip-card-body {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ip-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ip-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ip-card-num {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.ip-card-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ip-card-text.empty {
+  color: var(--text-muted);
+  font-style: italic;
+}

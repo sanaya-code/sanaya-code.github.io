@@ -41,6 +41,12 @@ const StateController = (() => {
     SelectionState.reset();
   }
 
+  function importQuestions(arr) {
+    QuestionState.importQuestions(arr);
+    // Auto-save draft after import
+    DraftState.save(QuestionState.exportQuestions());
+  }
+
   function reset() {
     QuestionState.reset();
     SelectionState.reset();
@@ -82,7 +88,7 @@ const StateController = (() => {
     getQuestion, getQuestions, getCount,
     addUnsavedQuestion, saveQuestion,
     deleteQuestion, reorderQuestions,
-    exportQuestions, loadQuestions, reset,
+    exportQuestions, loadQuestions, importQuestions, reset,
 
     // Selection
     selectExisting, startNew, returnToView,
