@@ -7,7 +7,8 @@ quiz_app/editor/                              # editor.html, config.js, controll
 ├── event_handler/
 │   ├── question_list/                        # handler.js
 │   ├── editor_panel/                         # handler.js
-│   └── topbar/                               # handler.js
+│   ├── topbar/                               # handler.js
+│   └── import_panel/                         # handler.js
 │
 └── components/
     ├── topbar/                               # component.js, controller.js
@@ -16,6 +17,7 @@ quiz_app/editor/                              # editor.html, config.js, controll
     ├── editor_panel/                         # component.js, controller.js, style.css
     ├── type_selector/                        # component.js, style.css
     ├── preview_panel/                        # component.js, style.css
+    ├── import_panel/                         # component.js, controller.js, style.css
     │
     └── question_forms/
         ├── mcq_form/                         # component.js, style.css
