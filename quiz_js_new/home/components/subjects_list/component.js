@@ -24,7 +24,7 @@ class GradeSubjects extends HTMLElement {
         }
     }
 
-    // ── Render ────────────────────────────────────────────────
+    //  ── Render ────────────────────────────────────────────────
 
     _render() {
         this.innerHTML = `
