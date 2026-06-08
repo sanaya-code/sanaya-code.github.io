@@ -43,21 +43,17 @@ class ORHFormUtils {
 }
 
 // ── Question Widget ───────────────────────────────────────────────────────────
-// Owns: question textarea + focus preview
 
 class ORHQuestionWidget {
 
-  constructor(root) {
-    this._root = root;
-  }
+  constructor(root) { this._root = root; }
 
   render(q) {
     return `
       <div class="ef-orh-field">
         <label class="ef-orh-label">Question Text</label>
         <textarea class="ef-orh-textarea" id="ef-orh-question"
-          rows="3"
-          placeholder="Enter question text (HTML/MathML supported)"
+          rows="3" placeholder="Enter question text (HTML/MathML supported)"
         >${ORHFormUtils.escHtml(q.question || '')}</textarea>
         <div class="ef-orh-render-preview" id="ef-orh-question-preview"></div>
       </div>
@@ -78,13 +74,10 @@ class ORHQuestionWidget {
 }
 
 // ── Media Widget ──────────────────────────────────────────────────────────────
-// Owns: SVG collapsible + Image URL collapsible
 
 class ORHMediaWidget {
 
-  constructor(root) {
-    this._root = root;
-  }
+  constructor(root) { this._root = root; }
 
   render(q) {
     const imgThumb   = q.img_url
@@ -96,26 +89,21 @@ class ORHMediaWidget {
       <div class="ef-orh-collapsible" id="ef-orh-svg-section">
         <div class="ef-orh-collapsible-header" id="ef-orh-svg-toggle">
           ▶ SVG Figure
-          <span style="font-weight:400;font-size:11px;margin-left:4px;
-                       color:var(--text-muted)">(optional)</span>
+          <span style="font-weight:400;font-size:11px;margin-left:4px;color:var(--text-muted)">(optional)</span>
           <span class="ef-orh-collapsible-arrow">▼</span>
         </div>
         <div class="ef-orh-collapsible-body">
           <textarea class="ef-orh-textarea" id="ef-orh-svg"
             rows="3" placeholder="Paste SVG code here..."
           >${ORHFormUtils.escHtml(q.svg_content || '')}</textarea>
-          <div class="ef-orh-svg-preview" id="ef-orh-svg-preview">
-            ${q.svg_content || ''}
-          </div>
+          <div class="ef-orh-svg-preview" id="ef-orh-svg-preview">${q.svg_content || ''}</div>
           <button class="ef-orh-remove-btn" id="ef-orh-svg-remove">Remove SVG</button>
         </div>
       </div>
-
       <div class="ef-orh-collapsible" id="ef-orh-img-section">
         <div class="ef-orh-collapsible-header" id="ef-orh-img-toggle">
           ▶ Image URL
-          <span style="font-weight:400;font-size:11px;margin-left:4px;
-                       color:var(--text-muted)">(optional)</span>
+          <span style="font-weight:400;font-size:11px;margin-left:4px;color:var(--text-muted)">(optional)</span>
           <span class="ef-orh-collapsible-arrow">▼</span>
         </div>
         <div class="ef-orh-collapsible-body">
@@ -142,7 +130,6 @@ class ORHMediaWidget {
       this._root.querySelector('#ef-orh-svg').value = '';
       this._root.querySelector('#ef-orh-svg-preview').innerHTML = '';
     });
-
     ORHFormUtils.bindCollapsible(
       this._root.querySelector('#ef-orh-img-toggle'),
       this._root.querySelector('#ef-orh-img-section')
@@ -156,13 +143,8 @@ class ORHMediaWidget {
     });
   }
 
-  getSvg() {
-    return this._root.querySelector('#ef-orh-svg')?.value.trim() || '';
-  }
-
-  getImgUrl() {
-    return this._root.querySelector('#ef-orh-img-url')?.value.trim() || '';
-  }
+  getSvg()    { return this._root.querySelector('#ef-orh-svg')?.value.trim()     || ''; }
+  getImgUrl() { return this._root.querySelector('#ef-orh-img-url')?.value.trim() || ''; }
 
   _updateImgPreview(url) {
     const preview = this._root.querySelector('#ef-orh-img-preview');
@@ -179,100 +161,124 @@ class ORHMediaWidget {
 }
 
 // ── Answer Widget ─────────────────────────────────────────────────────────────
-// Owns: items list (add/delete/drag) + correct order list (drag + Show checkbox)
-// Unique to ordering_horizontal: correct order rows have a "Show" checkbox
-// that determines initial_items (pre-filled slots) on save
+// Items → horizontal chips, click to open inline edit row (one at a time).
+// Chips display rendered HTML/MathML preview, truncated via CSS.
+// Correct order → visual chip picker (click item chip to append),
+// correct order chips also horizontal with position#, Show cb, delete, drag.
 
 class ORHAnswerWidget {
 
   constructor(root) {
-    this._root         = root;
-    this._itemDragSrc  = null;
-    this._orderDragSrc = null;
+    this._root          = root;
+    this._editingIndex  = -1;   // which item chip is currently open for edit
+    this._orderDragSrc  = null;
+    this._items         = [];   // live array of raw item strings
   }
 
   render(q) {
-    const items        = Array.isArray(q.items)         ? q.items         : [];
-    const correctOrder = Array.isArray(q.correct_order) ? q.correct_order : [];
-    const initialItems = Array.isArray(q.initial_items) ? q.initial_items : [];
+    this._items        = Array.isArray(q.items)         ? [...q.items]         : [];
+    const correctOrder = Array.isArray(q.correct_order) ? q.correct_order      : [];
+    const initialItems = Array.isArray(q.initial_items) ? q.initial_items      : [];
 
     return `
       <div class="ef-orh-field">
         <div class="ef-orh-items-header">
-          <label class="ef-orh-label">Items</label>
+          <label class="ef-orh-label">Items
+            <span class="ef-orh-optional">— includes distractors · click chip to edit</span>
+          </label>
           <button class="ef-orh-add-item-btn" id="ef-orh-add-item">+ Add Item</button>
         </div>
-        <div class="ef-orh-items-list" id="ef-orh-items-list">
-          ${items.map((val, i) => this._itemRowHTML(val, i)).join('')}
+        <div class="ef-orh-chips-wrap" id="ef-orh-chips-wrap">
+          ${this._items.map((val, i) => this._itemChipHTML(val, i)).join('')}
+          ${!this._items.length ? `<span class="ef-orh-chips-empty">No items yet. Click + Add Item.</span>` : ''}
         </div>
-        <div class="ef-orh-item-preview-box" id="ef-orh-item-preview-box">
-          <div class="ef-orh-item-preview-label" id="ef-orh-item-preview-label">
-            Previewing item 1
-          </div>
-          <div class="ef-orh-item-preview-content"
-               id="ef-orh-item-preview-content"></div>
+        <div class="ef-orh-edit-row ef-orh-hidden" id="ef-orh-edit-row">
+          <span class="ef-orh-edit-label">Editing:</span>
+          <input class="ef-orh-edit-input" id="ef-orh-edit-input" type="text" placeholder="Item value (HTML/MathML supported)" />
+          <div class="ef-orh-edit-preview" id="ef-orh-edit-preview"></div>
+          <button class="ef-orh-edit-done" id="ef-orh-edit-done">Done</button>
         </div>
         <div class="ef-orh-error" id="ef-orh-error"></div>
       </div>
 
       <div class="ef-orh-field">
-        <label class="ef-orh-label">
-          Correct Order
-          <span class="ef-orh-optional">— drag to set sequence · ☑ Show = pre-filled</span>
+        <label class="ef-orh-label">Correct Order
+          <span class="ef-orh-optional">— click item below to append · drag to reorder · ☑ Show = pre-filled</span>
         </label>
-        <div class="ef-orh-sync-hint">
-          Populated automatically from Items above.
-          Drag to set correct sequence. Check ☑ Show to pre-fill that slot.
+        <div class="ef-orh-picker-wrap" id="ef-orh-picker-wrap">
+          <div class="ef-orh-picker-hint">Click any item to add it to the correct order (can add same item multiple times):</div>
+          <div class="ef-orh-picker-chips" id="ef-orh-picker-chips">
+            ${this._items.filter(v => v.trim()).map((val, i) => this._pickerChipHTML(val, i)).join('')}
+            ${!this._items.filter(v => v.trim()).length ? `<span class="ef-orh-chips-empty">Add items above first.</span>` : ''}
+          </div>
         </div>
         <div class="ef-orh-correct-list-wrap" id="ef-orh-correct-list-wrap">
-          ${this._renderCorrectList(items, correctOrder, initialItems)}
+          ${correctOrder.map((val, i) =>
+            this._correctChipHTML(val, i, initialItems[i] !== '' && initialItems[i] != null)
+          ).join('')}
+        </div>
+        <div class="ef-orh-correct-empty" id="ef-orh-correct-empty"
+             style="${correctOrder.length ? 'display:none' : ''}">
+          No items in correct order yet.
         </div>
       </div>
     `;
   }
 
   bindEvents() {
+    // + Add Item button
     this._root.querySelector('#ef-orh-add-item')
-      ?.addEventListener('click', () => this.addItemRow());
+      ?.addEventListener('click', () => this._addItem());
 
-    const itemsList = this._root.querySelector('#ef-orh-items-list');
-    if (itemsList) this._bindItemListEvents(itemsList);
-
-    this._bindCorrectListDrag();
-
-    // Show checkbox toggle
-    this._root.querySelector('#ef-orh-correct-list-wrap')
-      ?.addEventListener('change', (e) => {
-        if (!e.target.classList.contains('ef-orh-show-cb')) return;
-        e.target.closest('.ef-orh-correct-row')
-          .classList.toggle('is-shown', e.target.checked);
+    // Chips wrap: click chip to edit, click ✕ to delete
+    this._root.querySelector('#ef-orh-chips-wrap')
+      ?.addEventListener('click', (e) => {
+        const delBtn = e.target.closest('.ef-orh-chip-del');
+        const chip   = e.target.closest('.ef-orh-item-chip');
+        if (delBtn) {
+          e.stopPropagation();
+          const idx = parseInt(delBtn.dataset.idx);
+          this._deleteItem(idx);
+        } else if (chip) {
+          const idx = parseInt(chip.dataset.idx);
+          this._openEdit(idx);
+        }
       });
-  }
 
-  addItemRow() {
-    const list  = this._root.querySelector('#ef-orh-items-list');
-    const count = list.querySelectorAll('.ef-orh-item-row').length;
-    const div   = document.createElement('div');
-    div.innerHTML = this._itemRowHTML('', count);
-    list.appendChild(div.firstElementChild);
-    this._reindexItems();
-    this._syncCorrectList();
-    list.querySelector('.ef-orh-item-row:last-child .ef-orh-item-text')?.focus();
+    // Edit row: input → live preview
+    this._root.querySelector('#ef-orh-edit-input')
+      ?.addEventListener('input', (e) => {
+        const preview = this._root.querySelector('#ef-orh-edit-preview');
+        if (preview) preview.innerHTML = e.target.value;
+      });
+
+    // Edit row: Done button
+    this._root.querySelector('#ef-orh-edit-done')
+      ?.addEventListener('click', () => this._closeEdit());
+
+    // Picker chips: click to add to correct order
+    this._root.querySelector('#ef-orh-picker-chips')
+      ?.addEventListener('click', (e) => {
+        const chip = e.target.closest('.ef-orh-picker-chip');
+        if (!chip) return;
+        this._addCorrectChip(chip.dataset.val);
+      });
+
+    // Correct list: delete + show checkbox
+    this._bindCorrectList();
   }
 
   getItemTexts() {
-    return Array.from(this._root.querySelectorAll('.ef-orh-item-text'))
-      .map(inp => inp.value.trim())
-      .filter(v => v.length > 0);
+    return this._items.filter(v => v.trim().length > 0);
   }
 
   getCorrectOrderAndInitial() {
     const correctOrder = [];
     const initialItems = [];
-    this._root.querySelectorAll('#ef-orh-correct-list-wrap .ef-orh-correct-row')
-      .forEach(row => {
-        const val   = row.dataset.itemVal || '';
-        const shown = row.querySelector('.ef-orh-show-cb')?.checked || false;
+    this._root.querySelectorAll('#ef-orh-correct-list-wrap .ef-orh-correct-chip')
+      .forEach(chip => {
+        const val   = chip.dataset.itemVal || '';
+        const shown = chip.querySelector('.ef-orh-show-cb')?.checked || false;
         correctOrder.push(val);
         initialItems.push(shown ? val : '');
       });
@@ -288,240 +294,237 @@ class ORHAnswerWidget {
 
   // ── Private: HTML builders ────────────────────────────
 
-  _itemRowHTML(val, index) {
+  _itemChipHTML(val, index) {
     return `
-      <div class="ef-orh-item-row" draggable="true" data-item-index="${index}">
-        <span class="ef-orh-drag-handle">⠿</span>
-        <input type="text"
-               class="ef-orh-item-text"
-               placeholder="Item value"
-               value="${ORHFormUtils.escHtml(val)}"
-               data-item-index="${index}"
-        />
-        <button class="ef-orh-item-delete" title="Delete item">✕</button>
+      <div class="ef-orh-item-chip" data-idx="${index}" title="Click to edit">
+        <span class="ef-orh-chip-preview">${val}</span>
+        <button class="ef-orh-chip-del" data-idx="${index}" title="Delete">✕</button>
       </div>
     `;
   }
 
-  _correctRowHTML(val, index, isShown) {
+  _pickerChipHTML(val, index) {
     return `
-      <div class="ef-orh-correct-row ${isShown ? 'is-shown' : ''}"
+      <div class="ef-orh-picker-chip" data-val="${ORHFormUtils.escHtml(val)}" data-idx="${index}" title="Click to add to correct order">
+        <span class="ef-orh-chip-preview">${val}</span>
+      </div>
+    `;
+  }
+
+  _correctChipHTML(val, index, isShown) {
+    return `
+      <div class="ef-orh-correct-chip ${isShown ? 'is-shown' : ''}"
            draggable="true"
            data-order-index="${index}"
            data-item-val="${ORHFormUtils.escHtml(val)}">
+        <span class="ef-orh-correct-drag">⠿</span>
         <span class="ef-orh-position-badge">${index + 1}</span>
-        <span class="ef-orh-correct-text">${val}</span>
+        <span class="ef-orh-chip-preview ef-orh-correct-preview">${val}</span>
         <label class="ef-orh-show-label">
           <input type="checkbox" class="ef-orh-show-cb" ${isShown ? 'checked' : ''} />
           Show
         </label>
-        <span class="ef-orh-correct-drag">⠿</span>
+        <button class="ef-orh-correct-delete" title="Remove from order">✕</button>
       </div>
     `;
   }
 
-  _renderCorrectList(items, correctOrder, initialItems) {
-    if (!items.length) return '';
-    const shownMap = {};
-    correctOrder.forEach((val, i) => {
-      shownMap[val] = initialItems[i] !== '' && initialItems[i] !== undefined;
-    });
-    const validOrder = correctOrder.filter(v => items.includes(v));
-    const newItems   = items.filter(v => !validOrder.includes(v));
-    const order      = validOrder.length === items.length
-      ? validOrder
-      : [...validOrder, ...newItems];
-    return order.map((val, i) =>
-      this._correctRowHTML(val, i, shownMap[val] || false)
-    ).join('');
+  // ── Private: item operations ──────────────────────────
+
+  _addItem() {
+    this._closeEdit(false); // close any open edit without saving
+    this._items.push('');
+    this._rebuildChipsWrap();
+    this._rebuildPickerChips();
+    // Open edit for the new item immediately
+    this._openEdit(this._items.length - 1);
   }
 
-  // ── Private: sync ─────────────────────────────────────
+  _deleteItem(idx) {
+    if (this._editingIndex === idx) this._closeEdit(false);
+    else if (this._editingIndex > idx) this._editingIndex--;
+    this._items.splice(idx, 1);
+    this._rebuildChipsWrap();
+    this._rebuildPickerChips();
+  }
 
-  _syncCorrectList() {
-    const items = Array.from(this._root.querySelectorAll('.ef-orh-item-text'))
-      .map(inp => inp.value.trim())
-      .filter(v => v.length > 0);
+  _openEdit(idx) {
+    // Save any currently open edit first
+    if (this._editingIndex >= 0 && this._editingIndex !== idx) {
+      this._saveCurrentEdit();
+    }
+    this._editingIndex = idx;
 
-    const currentRows = Array.from(
-      this._root.querySelectorAll('#ef-orh-correct-list-wrap .ef-orh-correct-row')
-    );
-    const shownMap = {};
-    currentRows.forEach(row => {
-      shownMap[row.dataset.itemVal] =
-        row.querySelector('.ef-orh-show-cb')?.checked || false;
-    });
+    // Mark chip as active
+    this._root.querySelectorAll('.ef-orh-item-chip')
+      .forEach(c => c.classList.remove('ef-orh-chip-active'));
+    this._root.querySelector(`.ef-orh-item-chip[data-idx="${idx}"]`)
+      ?.classList.add('ef-orh-chip-active');
 
-    const existingVals = currentRows
-      .map(r => r.dataset.itemVal)
-      .filter(v => items.includes(v));
-    const newVals = items.filter(v => !existingVals.includes(v));
-    const order   = [...existingVals, ...newVals];
+    // Show edit row with current value
+    const editRow   = this._root.querySelector('#ef-orh-edit-row');
+    const editInput = this._root.querySelector('#ef-orh-edit-input');
+    const preview   = this._root.querySelector('#ef-orh-edit-preview');
+    if (!editRow || !editInput) return;
 
+    editRow.classList.remove('ef-orh-hidden');
+    editInput.value  = this._items[idx] || '';
+    preview.innerHTML = editInput.value;
+    editInput.focus();
+  }
+
+  _saveCurrentEdit() {
+    if (this._editingIndex < 0) return;
+    const editInput = this._root.querySelector('#ef-orh-edit-input');
+    if (!editInput) return;
+    const val = editInput.value;
+    this._items[this._editingIndex] = val;
+    // Update chip preview in place
+    const chip = this._root.querySelector(`.ef-orh-item-chip[data-idx="${this._editingIndex}"]`);
+    if (chip) {
+      const prev = chip.querySelector('.ef-orh-chip-preview');
+      if (prev) prev.innerHTML = val;
+    }
+    this._rebuildPickerChips();
+  }
+
+  _closeEdit(save = true) {
+    if (save) this._saveCurrentEdit();
+    this._editingIndex = -1;
+    const editRow = this._root.querySelector('#ef-orh-edit-row');
+    if (editRow) editRow.classList.add('ef-orh-hidden');
+    this._root.querySelectorAll('.ef-orh-item-chip')
+      .forEach(c => c.classList.remove('ef-orh-chip-active'));
+  }
+
+  // ── Private: correct order operations ────────────────
+
+  _addCorrectChip(val) {
+    if (!val || !val.trim()) return;
+    const list  = this._root.querySelector('#ef-orh-correct-list-wrap');
+    if (!list) return;
+    const count = list.querySelectorAll('.ef-orh-correct-chip').length;
+    const div   = document.createElement('div');
+    div.innerHTML = this._correctChipHTML(val, count, false);
+    list.appendChild(div.firstElementChild);
+    this._reindexCorrectChips();
+    this._updateCorrectEmpty();
+    this._bindCorrectList();
+  }
+
+  _reindexCorrectChips() {
+    this._root.querySelectorAll('#ef-orh-correct-list-wrap .ef-orh-correct-chip')
+      .forEach((chip, i) => {
+        chip.dataset.orderIndex = i;
+        const badge = chip.querySelector('.ef-orh-position-badge');
+        if (badge) badge.textContent = i + 1;
+      });
+  }
+
+  _updateCorrectEmpty() {
+    const list  = this._root.querySelector('#ef-orh-correct-list-wrap');
+    const empty = this._root.querySelector('#ef-orh-correct-empty');
+    if (!list || !empty) return;
+    empty.style.display =
+      list.querySelectorAll('.ef-orh-correct-chip').length > 0 ? 'none' : '';
+  }
+
+  // ── Private: rebuild DOM sections ────────────────────
+
+  _rebuildChipsWrap() {
+    const wrap = this._root.querySelector('#ef-orh-chips-wrap');
+    if (!wrap) return;
+    wrap.innerHTML = this._items.length
+      ? this._items.map((val, i) => this._itemChipHTML(val, i)).join('')
+      : `<span class="ef-orh-chips-empty">No items yet. Click + Add Item.</span>`;
+  }
+
+  _rebuildPickerChips() {
+    const wrap = this._root.querySelector('#ef-orh-picker-chips');
+    if (!wrap) return;
+    const valid = this._items.filter(v => v.trim());
+    wrap.innerHTML = valid.length
+      ? valid.map((val, i) => this._pickerChipHTML(val, i)).join('')
+      : `<span class="ef-orh-chips-empty">Add items above first.</span>`;
+  }
+
+  // ── Private: correct list event binding ──────────────
+  // Uses clone-replace to avoid duplicate listener accumulation
+
+  _bindCorrectList() {
     const list = this._root.querySelector('#ef-orh-correct-list-wrap');
     if (!list) return;
 
-    list.innerHTML = order.map((val, i) =>
-      this._correctRowHTML(val, i, shownMap[val] || false)
-    ).join('');
+    const clone = list.cloneNode(true);
+    list.parentNode.replaceChild(clone, list);
+    const newList = this._root.querySelector('#ef-orh-correct-list-wrap');
 
-    this._bindCorrectListDrag();
-  }
-
-  // ── Private: reindex / reorder ────────────────────────
-
-  _reindexItems() {
-    this._root.querySelectorAll('.ef-orh-item-row').forEach((row, i) => {
-      row.dataset.itemIndex = i;
-      const inp = row.querySelector('.ef-orh-item-text');
-      if (inp) inp.dataset.itemIndex = i;
-    });
-  }
-
-  _reorderItemRows(from, to) {
-    const list = this._root.querySelector('#ef-orh-items-list');
-    const rows = Array.from(list.querySelectorAll('.ef-orh-item-row'));
-    const moved = rows.splice(from, 1)[0];
-    rows.splice(to, 0, moved);
-    list.innerHTML = '';
-    rows.forEach(r => list.appendChild(r));
-    this._reindexItems();
-  }
-
-  _reorderCorrectRows(from, to) {
-    const list = this._root.querySelector('#ef-orh-correct-list-wrap');
-    const rows = Array.from(list.querySelectorAll('.ef-orh-correct-row'));
-    const moved = rows.splice(from, 1)[0];
-    rows.splice(to, 0, moved);
-    list.innerHTML = '';
-    rows.forEach((row, i) => {
-      row.dataset.orderIndex = i;
-      row.querySelector('.ef-orh-position-badge').textContent = i + 1;
-      list.appendChild(row);
-    });
-  }
-
-  // ── Private: event binding ────────────────────────────
-
-  _bindItemListEvents(list) {
-
-    list.addEventListener('focusin', (e) => {
-      if (!e.target.classList.contains('ef-orh-item-text')) return;
-      const row   = e.target.closest('.ef-orh-item-row');
-      const index = parseInt(row.dataset.itemIndex);
-      list.querySelectorAll('.ef-orh-item-row')
-        .forEach(r => r.classList.remove('ef-orh-focused-row'));
-      row.classList.add('ef-orh-focused-row');
-      const box     = this._root.querySelector('#ef-orh-item-preview-box');
-      const label   = this._root.querySelector('#ef-orh-item-preview-label');
-      const content = this._root.querySelector('#ef-orh-item-preview-content');
-      box.classList.add('visible');
-      label.textContent = `Previewing item ${index + 1}`;
-      content.innerHTML = e.target.value;
+    // Delete
+    newList.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('ef-orh-correct-delete')) return;
+      e.target.closest('.ef-orh-correct-chip').remove();
+      this._reindexCorrectChips();
+      this._updateCorrectEmpty();
     });
 
-    list.addEventListener('input', (e) => {
-      if (!e.target.classList.contains('ef-orh-item-text')) return;
-      const row     = e.target.closest('.ef-orh-item-row');
-      const index   = parseInt(row.dataset.itemIndex);
-      const content = this._root.querySelector('#ef-orh-item-preview-content');
-      const label   = this._root.querySelector('#ef-orh-item-preview-label');
-      if (content) {
-        content.innerHTML = e.target.value;
-        label.textContent = `Previewing item ${index + 1}`;
-      }
-      this._syncCorrectList();
+    // Show checkbox
+    newList.addEventListener('change', (e) => {
+      if (!e.target.classList.contains('ef-orh-show-cb')) return;
+      e.target.closest('.ef-orh-correct-chip')
+        .classList.toggle('is-shown', e.target.checked);
     });
 
-    list.addEventListener('click', (e) => {
-      if (!e.target.classList.contains('ef-orh-item-delete')) return;
-      e.target.closest('.ef-orh-item-row').remove();
-      this._reindexItems();
-      this._syncCorrectList();
-      if (!list.querySelectorAll('.ef-orh-item-row').length) {
-        this._root.querySelector('#ef-orh-item-preview-box')?.classList.remove('visible');
-      }
-    });
-
-    list.addEventListener('dragstart', (e) => {
-      const row = e.target.closest('.ef-orh-item-row');
-      if (!row) return;
-      this._itemDragSrc = parseInt(row.dataset.itemIndex);
-      row.classList.add('dragging');
+    // Drag reorder
+    newList.addEventListener('dragstart', (e) => {
+      const chip = e.target.closest('.ef-orh-correct-chip');
+      if (!chip) return;
+      this._orderDragSrc = parseInt(chip.dataset.orderIndex);
+      chip.classList.add('dragging');
       e.dataTransfer.effectAllowed = 'move';
     });
-    list.addEventListener('dragend', () => {
-      list.querySelectorAll('.ef-orh-item-row')
-        .forEach(r => r.classList.remove('dragging', 'drag-over'));
+    newList.addEventListener('dragend', () => {
+      newList.querySelectorAll('.ef-orh-correct-chip')
+        .forEach(c => c.classList.remove('dragging', 'drag-over'));
     });
-    list.addEventListener('dragover', (e) => {
+    newList.addEventListener('dragover', (e) => {
       e.preventDefault();
-      const row = e.target.closest('.ef-orh-item-row');
-      if (row && parseInt(row.dataset.itemIndex) !== this._itemDragSrc) {
-        list.querySelectorAll('.ef-orh-item-row')
-          .forEach(r => r.classList.remove('drag-over'));
-        row.classList.add('drag-over');
+      const chip = e.target.closest('.ef-orh-correct-chip');
+      if (chip && parseInt(chip.dataset.orderIndex) !== this._orderDragSrc) {
+        newList.querySelectorAll('.ef-orh-correct-chip')
+          .forEach(c => c.classList.remove('drag-over'));
+        chip.classList.add('drag-over');
       }
     });
-    list.addEventListener('drop', (e) => {
+    newList.addEventListener('drop', (e) => {
       e.preventDefault();
-      const target = e.target.closest('.ef-orh-item-row');
-      if (!target) return;
-      const to   = parseInt(target.dataset.itemIndex);
-      const from = this._itemDragSrc;
-      if (from === null || from === to) return;
-      target.classList.remove('drag-over');
-      this._reorderItemRows(from, to);
-      this._syncCorrectList();
-    });
-  }
-
-  _bindCorrectListDrag() {
-    const list = this._root.querySelector('#ef-orh-correct-list-wrap');
-    if (!list) return;
-
-    list.addEventListener('dragstart', (e) => {
-      const row = e.target.closest('.ef-orh-correct-row');
-      if (!row) return;
-      this._orderDragSrc = parseInt(row.dataset.orderIndex);
-      row.classList.add('dragging');
-      e.dataTransfer.effectAllowed = 'move';
-    });
-    list.addEventListener('dragend', () => {
-      list.querySelectorAll('.ef-orh-correct-row')
-        .forEach(r => r.classList.remove('dragging', 'drag-over'));
-    });
-    list.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      const row = e.target.closest('.ef-orh-correct-row');
-      if (row && parseInt(row.dataset.orderIndex) !== this._orderDragSrc) {
-        list.querySelectorAll('.ef-orh-correct-row')
-          .forEach(r => r.classList.remove('drag-over'));
-        row.classList.add('drag-over');
-      }
-    });
-    list.addEventListener('drop', (e) => {
-      e.preventDefault();
-      const target = e.target.closest('.ef-orh-correct-row');
+      const target = e.target.closest('.ef-orh-correct-chip');
       if (!target) return;
       const to   = parseInt(target.dataset.orderIndex);
       const from = this._orderDragSrc;
       if (from === null || from === to) return;
       target.classList.remove('drag-over');
-      this._reorderCorrectRows(from, to);
+      this._reorderCorrectChips(from, to);
     });
+  }
+
+  _reorderCorrectChips(from, to) {
+    const list = this._root.querySelector('#ef-orh-correct-list-wrap');
+    const chips = Array.from(list.querySelectorAll('.ef-orh-correct-chip'));
+    const moved = chips.splice(from, 1)[0];
+    chips.splice(to, 0, moved);
+    list.innerHTML = '';
+    chips.forEach(c => list.appendChild(c));
+    this._reindexCorrectChips();
+    this._bindCorrectList();
   }
 
 }
 
 // ── Metadata Widget ───────────────────────────────────────────────────────────
-// Owns: explanation + difficulty + points + time limit + tags
 
 class ORHMetadataWidget {
 
-  constructor(root) {
-    this._root = root;
-  }
+  constructor(root) { this._root = root; }
 
   render(q) {
     const diffOptions = EditorConfig.DIFFICULTY_LEVELS.map(d =>
@@ -538,39 +541,28 @@ class ORHMetadataWidget {
         >${ORHFormUtils.escHtml(q.explanation || '')}</textarea>
         <div class="ef-orh-render-preview" id="ef-orh-explanation-preview"></div>
       </div>
-
       <div class="ef-orh-field">
         <label class="ef-orh-label">Difficulty</label>
-        <select class="ef-orh-select" id="ef-orh-difficulty">
-          ${diffOptions}
-        </select>
+        <select class="ef-orh-select" id="ef-orh-difficulty">${diffOptions}</select>
       </div>
-
       <div class="ef-orh-row-2">
         <div class="ef-orh-field">
-          <label class="ef-orh-label">
-            Points <span class="ef-orh-optional">(optional)</span>
-          </label>
+          <label class="ef-orh-label">Points <span class="ef-orh-optional">(optional)</span></label>
           <input class="ef-orh-input" id="ef-orh-points" type="number"
             min="0" step="0.5" placeholder="e.g. 1"
             value="${q.points !== '' && q.points != null ? q.points : ''}"
           />
         </div>
         <div class="ef-orh-field">
-          <label class="ef-orh-label">
-            Time Limit (sec) <span class="ef-orh-optional">(optional)</span>
-          </label>
+          <label class="ef-orh-label">Time Limit (sec) <span class="ef-orh-optional">(optional)</span></label>
           <input class="ef-orh-input" id="ef-orh-time-limit" type="number"
             min="0" step="1" placeholder="e.g. 30"
             value="${q.time_limit !== '' && q.time_limit != null ? q.time_limit : ''}"
           />
         </div>
       </div>
-
       <div class="ef-orh-field">
-        <label class="ef-orh-label">
-          Tags <span class="ef-orh-optional">(comma separated)</span>
-        </label>
+        <label class="ef-orh-label">Tags <span class="ef-orh-optional">(comma separated)</span></label>
         <input class="ef-orh-input" id="ef-orh-tags" type="text"
           placeholder="e.g. math, sequence"
           value="${Array.isArray(q.tags) ? q.tags.join(', ') : (q.tags || '')}"
@@ -609,16 +601,12 @@ class OrderingHorizontalFormComponent extends HTMLElement {
     this._bindAll();
   }
 
-  // ── Public API ───────────────────────────────────────
-
   loadQuestion(index, question) {
     this._index    = index;
     this._question = JSON.parse(JSON.stringify(question));
     this._render();
     this._bindAll();
   }
-
-  // ── Render ───────────────────────────────────────────
 
   _render() {
     const q          = this._question || EditorFormRegistry.getDefault('ordering_horizontal');
@@ -630,18 +618,20 @@ class OrderingHorizontalFormComponent extends HTMLElement {
     const bodyClass    = isSkip ? 'ef-orh-body ef-orh-is-skip' : 'ef-orh-body';
     const skipBtnLabel = isSkip ? `↩ Mark ${typeLabel}` : '⊘ Mark as Skip';
 
-    const qWidget     = new ORHQuestionWidget(this);
-    const mediaWidget = new ORHMediaWidget(this);
-    const ansWidget   = new ORHAnswerWidget(this);
-    const metaWidget  = new ORHMetadataWidget(this);
+    // Create widget instances BEFORE innerHTML — render() populates their state
+    // (e.g. _items[]). _bindAll() reuses these same instances so state is intact.
+    this._qWidget     = new ORHQuestionWidget(this);
+    this._mediaWidget = new ORHMediaWidget(this);
+    this._ansWidget   = new ORHAnswerWidget(this);
+    this._metaWidget  = new ORHMetadataWidget(this);
 
     this.innerHTML = `
       <div class="ef-orh-form">
         <div class="${bodyClass}" id="ef-orh-body">
-          ${qWidget.render(q)}
-          ${mediaWidget.render(q)}
-          ${ansWidget.render(q)}
-          ${metaWidget.render(q)}
+          ${this._qWidget.render(q)}
+          ${this._mediaWidget.render(q)}
+          ${this._ansWidget.render(q)}
+          ${this._metaWidget.render(q)}
         </div>
         <div class="ef-orh-footer">
           <button class="ef-orh-btn-save" id="ef-orh-btn-save">Save</button>
@@ -651,28 +641,19 @@ class OrderingHorizontalFormComponent extends HTMLElement {
     `;
   }
 
-  // ── Bind all widgets + footer ────────────────────────
-
   _bindAll() {
-    this._qWidget     = new ORHQuestionWidget(this);
-    this._mediaWidget = new ORHMediaWidget(this);
-    this._ansWidget   = new ORHAnswerWidget(this);
-    this._metaWidget  = new ORHMetadataWidget(this);
-
+    // Instances were already created in _render() with state populated.
+    // Just call bindEvents() on them — do NOT create new instances here.
     this._qWidget.bindEvents();
     this._mediaWidget.bindEvents();
     this._ansWidget.bindEvents();
     this._metaWidget.bindEvents();
-
     this._bindFooter();
   }
-
-  // ── Footer: Save + Skip toggle ───────────────────────
 
   _bindFooter() {
     this.querySelector('#ef-orh-btn-save')
       ?.addEventListener('click', () => this._handleSave());
-
     this.querySelector('#ef-orh-btn-skip')
       ?.addEventListener('click', () => this._handleSkipToggle());
   }
@@ -699,10 +680,10 @@ class OrderingHorizontalFormComponent extends HTMLElement {
     }
   }
 
-  // ── Save ─────────────────────────────────────────────
-
   _handleSave() {
     this._ansWidget.showError('');
+    // Flush any open edit before saving
+    this._ansWidget._closeEdit(true);
 
     const questionText = this._qWidget.getValue();
     if (!questionText) {
@@ -712,14 +693,18 @@ class OrderingHorizontalFormComponent extends HTMLElement {
     }
 
     const itemTexts = this._ansWidget.getItemTexts();
-    if (itemTexts.length < 2) {
-      this._ansWidget.showError('At least 2 items are required.');
+    if (itemTexts.length < 1) {
+      this._ansWidget.showError('At least 1 item is required.');
       return;
     }
 
     const { correctOrder, initialItems } = this._ansWidget.getCorrectOrderAndInitial();
-    const blankCount   = initialItems.filter(v => v === '').length;
-    const userResponse = Array(blankCount).fill('');
+    if (correctOrder.length < 1) {
+      this._ansWidget.showError('At least 1 item must be added to the correct order.');
+      return;
+    }
+
+    const blankCount = initialItems.filter(v => v === '').length;
 
     const saved = {
       type:          this._question?.type || 'ordering_horizontal',
@@ -729,7 +714,7 @@ class OrderingHorizontalFormComponent extends HTMLElement {
       items:         itemTexts,
       correct_order: correctOrder,
       initial_items: initialItems,
-      user_response: userResponse,
+      user_response: Array(blankCount).fill(''),
       ...this._metaWidget.getData(),
     };
 
@@ -743,11 +728,9 @@ class OrderingHorizontalFormComponent extends HTMLElement {
     }));
   }
 
-  // ── Collect all data ─────────────────────────────────
-
   _collectData() {
+    this._ansWidget._closeEdit(true);
     const { correctOrder, initialItems } = this._ansWidget.getCorrectOrderAndInitial();
-    const blankCount = initialItems.filter(v => v === '').length;
     return {
       type:          this._question?.type || 'ordering_horizontal',
       question:      this._qWidget.getValue(),
@@ -756,7 +739,7 @@ class OrderingHorizontalFormComponent extends HTMLElement {
       items:         this._ansWidget.getItemTexts(),
       correct_order: correctOrder,
       initial_items: initialItems,
-      user_response: Array(blankCount).fill(''),
+      user_response: Array(initialItems.filter(v => v === '').length).fill(''),
       ...this._metaWidget.getData(),
     };
   }

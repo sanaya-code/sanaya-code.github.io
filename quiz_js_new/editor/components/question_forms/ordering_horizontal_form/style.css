@@ -1,6 +1,5 @@
-/* ordering_horizontal_form/style.css — prefix: ef-orh- — self-contained */
-
-/* ── Form shell ──────────────────────────────────────── */
+/* editor/components/question_forms/ordering_horizontal_form/style.css */
+/* Self-contained — prefix: ef-orh- */
 
 .ef-orh-form {
   display: flex;
@@ -8,6 +7,22 @@
   gap: 0;
   height: 100%;
 }
+
+/* ── Skip button (footer) ────────────────────────────── */
+
+.ef-orh-btn-skip {
+  background: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #7f8c8d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.ef-orh-btn-skip:hover { background: rgba(127,140,141,0.12); }
 
 /* ── Scrollable form body ────────────────────────────── */
 
@@ -67,7 +82,7 @@
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
-/* ── On-focus render preview ─────────────────────────── */
+/* ── On-focus preview box ────────────────────────────── */
 
 .ef-orh-render-preview {
   padding: 10px 12px;
@@ -79,11 +94,13 @@
   color: var(--text-primary);
   line-height: 1.6;
   word-break: break-word;
-  display: none;
+  display: none;          /* hidden until focused */
   animation: ef-orh-fadein 0.15s ease;
 }
 
-.ef-orh-render-preview.visible { display: block; }
+.ef-orh-render-preview.visible {
+  display: block;
+}
 
 .ef-orh-render-preview:empty::before {
   content: 'Preview appears here...';
@@ -180,7 +197,10 @@
   min-height: 60px;
 }
 
-.ef-orh-svg-preview svg { max-width: 100%; height: auto; }
+.ef-orh-svg-preview svg {
+  max-width: 100%;
+  height: auto;
+}
 
 .ef-orh-svg-preview:empty::before {
   content: 'SVG preview appears here...';
@@ -203,7 +223,9 @@
   padding: 8px;
 }
 
-.ef-orh-img-preview.visible { display: flex; }
+.ef-orh-img-preview.visible {
+  display: flex;
+}
 
 .ef-orh-img-preview img {
   max-width: 100%;
@@ -228,15 +250,15 @@
 }
 .ef-orh-remove-btn:hover { background: var(--danger-light); }
 
-/* ── Items list ──────────────────────────────────────── */
+/* ── Options section ─────────────────────────────────── */
 
-.ef-orh-items-header {
+.ef-orh-options-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.ef-orh-add-item-btn {
+.ef-orh-add-option-btn {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -251,15 +273,17 @@
   font-family: var(--font-sans);
   transition: background 0.15s;
 }
-.ef-orh-add-item-btn:hover { background: #b8d9f5; }
+.ef-orh-add-option-btn:hover { background: #b8d9f5; }
 
-.ef-orh-items-list {
+.ef-orh-options-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.ef-orh-item-row {
+/* ── Option row ──────────────────────────────────────── */
+
+.ef-orh-option-row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -270,10 +294,10 @@
   transition: border-color 0.15s;
 }
 
-.ef-orh-item-row:hover               { border-color: var(--border-focus); }
-.ef-orh-item-row.dragging            { opacity: 0.4; }
-.ef-orh-item-row.drag-over           { border-color: var(--accent-2); border-style: dashed; }
-.ef-orh-item-row.ef-orh-focused-row  { border-color: var(--accent); background: var(--accent-light); }
+.ef-orh-option-row:hover       { border-color: var(--border-focus); }
+.ef-orh-option-row.drag-over   { border-color: var(--accent-2); border-style: dashed; }
+.ef-orh-option-row.dragging    { opacity: 0.4; }
+.ef-orh-option-row.ef-orh-focused-row { border-color: var(--accent); background: var(--accent-light); }
 
 .ef-orh-drag-handle {
   cursor: grab;
@@ -285,7 +309,15 @@
 }
 .ef-orh-drag-handle:active { cursor: grabbing; }
 
-.ef-orh-item-text {
+.ef-orh-correct-radio {
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.ef-orh-option-text {
   flex: 1;
   padding: 6px 10px;
   border-radius: var(--radius-sm);
@@ -298,9 +330,9 @@
   transition: border-color 0.15s;
   min-width: 0;
 }
-.ef-orh-item-text:focus { border-color: var(--border-focus); }
+.ef-orh-option-text:focus { border-color: var(--border-focus); }
 
-.ef-orh-item-delete {
+.ef-orh-option-delete {
   background: none;
   border: none;
   cursor: pointer;
@@ -311,29 +343,31 @@
   flex-shrink: 0;
   transition: color 0.15s, background 0.15s;
 }
-.ef-orh-item-delete:hover {
+.ef-orh-option-delete:hover {
   color: var(--danger);
   background: var(--danger-light);
 }
 
-/* ── Shared item preview box ─────────────────────────── */
+/* ── Shared option preview box ───────────────────────── */
 
-.ef-orh-item-preview-box {
+.ef-orh-option-preview-box {
   display: none;
   flex-direction: column;
   gap: 4px;
   animation: ef-orh-fadein 0.15s ease;
 }
 
-.ef-orh-item-preview-box.visible { display: flex; }
+.ef-orh-option-preview-box.visible {
+  display: flex;
+}
 
-.ef-orh-item-preview-label {
+.ef-orh-option-preview-label {
   font-size: 11px;
   color: var(--text-muted);
   font-style: italic;
 }
 
-.ef-orh-item-preview-content {
+.ef-orh-option-preview-content {
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -343,91 +377,6 @@
   line-height: 1.6;
   min-height: 34px;
   word-break: break-word;
-}
-
-/* ── Correct order list ──────────────────────────────── */
-
-.ef-orh-sync-hint {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-style: italic;
-  padding: 4px 2px;
-}
-
-.ef-orh-correct-list-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.ef-orh-correct-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  transition: border-color 0.15s;
-  cursor: grab;
-}
-
-.ef-orh-correct-row:hover     { border-color: var(--border-focus); }
-.ef-orh-correct-row.dragging  { opacity: 0.4; }
-.ef-orh-correct-row.drag-over { border-color: var(--accent-2); border-style: dashed; }
-.ef-orh-correct-row.is-shown  {
-  border-color: var(--success);
-  background: rgba(39,174,122,0.06);
-}
-
-.ef-orh-position-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.ef-orh-correct-text {
-  flex: 1;
-  font-size: 13px;
-  color: var(--text-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ef-orh-correct-drag {
-  color: var(--text-muted);
-  font-size: 14px;
-  cursor: grab;
-}
-
-/* ── Show checkbox ───────────────────────────────────── */
-
-.ef-orh-show-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  flex-shrink: 0;
-  white-space: nowrap;
-  user-select: none;
-}
-
-.ef-orh-show-cb {
-  accent-color: var(--success);
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
 }
 
 /* ── Validation error ────────────────────────────────── */
@@ -471,7 +420,7 @@
   box-shadow: 0 0 0 3px rgba(52,152,219,0.10);
 }
 
-/* ── Footer: Save (left) + Skip toggle (right) ───────── */
+/* ── Save footer ─────────────────────────────────────── */
 
 .ef-orh-footer {
   padding: 14px 20px;
@@ -501,28 +450,16 @@
   box-shadow: 0 3px 12px rgba(52,152,219,0.35);
 }
 
-.ef-orh-btn-skip {
-  background: transparent;
-  color: #7f8c8d;
-  border: 1.5px solid #7f8c8d;
-  font-size: 12px;
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  transition: background 0.15s, color 0.15s;
-}
-.ef-orh-btn-skip:hover { background: rgba(127,140,141,0.12); }
-
-/* ── Skip state — body dims, footer stays active ─────── */
+/* ── Disabled state when marked as skip ──────────────── */
 
 .ef-orh-body.ef-orh-is-skip .ef-orh-field,
+.ef-orh-body.ef-orh-is-skip .ef-orh-options-header,
 .ef-orh-body.ef-orh-is-skip .ef-orh-collapsible {
   opacity: 0.45;
   pointer-events: none;
 }
 
+/* Body dims but footer stays fully interactive */
 .ef-orh-body.ef-orh-is-skip {
   opacity: 0.6;
 }
@@ -530,6 +467,340 @@
 .ef-orh-body.ef-orh-is-skip ~ .ef-orh-footer {
   opacity: 1;
   pointer-events: all;
+}
+
+/* ── Height chain ────────────────────────────────────── */
+
+ordering-horizontal-form .ef-orh-form {
+  min-height: 0;
+}
+
+ordering-horizontal-form .ef-orh-body {
+  min-height: 0;
+}
+/* ── Items header row ────────────────────────────────── */
+
+.ef-orh-items-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ef-orh-add-item-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.ef-orh-add-item-btn:hover { background: #b8d9f5; }
+
+/* ── Chips wrap — horizontal wrapping container ──────── */
+
+.ef-orh-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  min-height: 48px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.ef-orh-chips-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 4px 2px;
+}
+
+/* ── Item chip ───────────────────────────────────────── */
+
+.ef-orh-item-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px 5px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  cursor: pointer;
+  max-width: 160px;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.ef-orh-item-chip:hover {
+  border-color: var(--border-focus);
+  background: var(--accent-light);
+}
+.ef-orh-item-chip.ef-orh-chip-active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* ── Chip preview — rendered HTML/MathML, truncated ─── */
+
+.ef-orh-chip-preview {
+  font-size: 12px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+  min-width: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* ── Chip delete button ──────────────────────────────── */
+
+.ef-orh-chip-del {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 1px 3px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-orh-chip-del:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Inline edit row ─────────────────────────────────── */
+
+.ef-orh-edit-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border-focus);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  flex-wrap: wrap;
+}
+.ef-orh-edit-row.ef-orh-hidden { display: none; }
+
+.ef-orh-edit-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding-top: 8px;
+  flex-shrink: 0;
+}
+
+.ef-orh-edit-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.ef-orh-edit-input:focus { border-color: var(--border-focus); }
+
+.ef-orh-edit-preview {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 32px;
+  word-break: break-word;
+  order: 10;
+}
+.ef-orh-edit-preview:empty::before {
+  content: 'Preview appears here...';
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 12px;
+}
+
+.ef-orh-edit-done {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.ef-orh-edit-done:hover { background: #b8d9f5; }
+
+/* ── Item picker (visual chip picker for correct order) ─ */
+
+.ef-orh-picker-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+}
+
+.ef-orh-picker-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ef-orh-picker-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ef-orh-picker-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  max-width: 140px;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.ef-orh-picker-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.ef-orh-picker-chip:active {
+  background: #b8d9f5;
+}
+
+/* ── Correct order list — horizontal wrapping ────────── */
+
+.ef-orh-correct-list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  min-height: 48px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+/* ── Correct chip ────────────────────────────────────── */
+
+.ef-orh-correct-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px 5px 10px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-panel);
+  cursor: grab;
+  max-width: 220px;
+  transition: border-color 0.15s;
+  user-select: none;
+}
+.ef-orh-correct-chip:hover    { border-color: var(--border-focus); }
+.ef-orh-correct-chip.is-shown { border-color: var(--success); background: rgba(39,174,122,0.07); }
+.ef-orh-correct-chip.dragging { opacity: 0.4; }
+.ef-orh-correct-chip.drag-over { border-color: var(--accent-2); border-style: dashed; }
+
+.ef-orh-correct-drag {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.ef-orh-correct-drag:active { cursor: grabbing; }
+
+.ef-orh-position-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+  min-width: 14px;
+}
+
+.ef-orh-correct-preview {
+  max-width: 100px;
+}
+
+.ef-orh-show-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.ef-orh-show-label input[type="checkbox"] {
+  accent-color: var(--success);
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.ef-orh-correct-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 1px 3px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+}
+.ef-orh-correct-delete:hover {
+  color: var(--danger);
+  background: var(--danger-light);
+}
+
+/* ── Correct empty hint ──────────────────────────────── */
+
+.ef-orh-correct-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 10px 12px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
 }
 
 /* ── Height chain ────────────────────────────────────── */
