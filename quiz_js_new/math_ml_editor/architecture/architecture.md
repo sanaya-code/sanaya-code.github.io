@@ -17,7 +17,7 @@
 | `operator_form`      | `createElement()` `buildLayout()` `renderSlots(slots)` `setSlotFilled(index,item,src)` `setSlotActive(index)` `setSlotEmpty(index)` `emitSlotClick(index)` `emitSlotClear(index)` `emitApply()` | `onSlotClick(index)` `onSlotClear(index)` `onApply()` `fillSlot(index,item)` `clearSlot(index)` `setActiveSlot(index)` `reset(operator)` `getSlots()` `getActiveSlot()` |
 | `right_panel`        | `createElement()` `buildLayout()` `showOperatorsView()` `showFormView()`                                                                                                                        | `showOperatorsView()` `showFormView()`                                                                                                                                  |
 
-## CONTROLLER RULES
+## COMPONENT CONTROLLER RULES
 
 * One controller per component.
 * Controllers manage only UI-level behavior.
@@ -26,6 +26,7 @@
 * Controllers never access another component directly.
 * Controllers act as bridge between application and their component.
 * Controllers may manage temporary UI state for their own component only.
+* Controllers shoud have a method that takes one or multiple methods as arguments and bind those methods to the components events.
 
 ## COMPONENT RULES
 

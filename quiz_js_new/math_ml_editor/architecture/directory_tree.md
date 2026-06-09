@@ -35,6 +35,9 @@ math_builder/
 │   └── limit_operator/                     # form.js, operator.js, style.css
 │
 ├── components/
+|   |
+│   ├── ui_composer/                        # ui_composer.js
+│   │    
 │   ├── atoms_panel/                        # component.js, controller.js, style.css
 │   │
 │   ├── working_set_panel/                  # component.js, controller.js, style.css

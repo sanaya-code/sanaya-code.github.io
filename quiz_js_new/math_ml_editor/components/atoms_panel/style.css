@@ -1,1 +1,90 @@
-/* AtomsPanel/style.css — placeholder */
+/* components/atoms_panel/style.css */
+
+.atoms-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.atoms-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.atoms-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.atoms-panel__title-text {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.atoms-panel__count {
+  font-size: 10px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1px 6px;
+  color: #999;
+}
+
+.atoms-panel__add-btn {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: none;
+  color: #555;
+  cursor: pointer;
+}
+
+.atoms-panel__add-btn:hover {
+  background: #f5f5f5;
+}
+
+.atoms-panel__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px 12px;
+  overflow-y: auto;
+  align-content: flex-start;
+}
+
+.atoms-panel__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  color: #333;
+  user-select: none;
+  transition: border-color 0.1s, background 0.1s, color 0.1s;
+}
+
+.atoms-panel__pill:hover {
+  border-color: #aac4f0;
+  background: #eef4ff;
+  color: #2a62c9;
+}
+
+.atoms-panel__pill--selected {
+  border-color: #aac4f0;
+  background: #ddeaff;
+  color: #1a52b8;
+}

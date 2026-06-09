@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Math Builder</title>
   <link rel="stylesheet" href="index.css" />
+
+  <!-- component styles -->
+  <link rel="stylesheet" href="components/atoms_panel/style.css" />
 </head>
 <body>
 
   <div id="app">
     <div id="left-panel">
-      <div id="atoms-panel-mount">
-        <div class="placeholder">AtomsPanel</div>
-      </div>
+      <div id="atoms-panel-mount"></div>
       <div id="working-set-panel-mount">
         <div class="placeholder">WorkingSetPanel</div>
       </div>
@@ -30,9 +31,15 @@
   <script src="state/state.js"></script>
   <script src="state/state_controller.js"></script>
 
-  <!-- components (loaded in later steps) -->
+  <!-- components -->
+  <script src="components/atoms_panel/component.js"></script>
+  <script src="components/atoms_panel/controller.js"></script>
 
-  <!-- event handlers (loaded in later steps) -->
+  <!-- event handlers -->
+  <script src="event_handlers/atoms_panel/event_handler.js"></script>
+
+  <!-- ui composer -->
+  <script src="components/ui_composer/ui_composer.js"></script>
 
   <!-- app entry point -->
   <script src="main_controller.js"></script>
