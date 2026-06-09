@@ -1,31 +1,38 @@
 // main_controller.js
-// Entry point. Instantiates UIComposer, loads data, binds event handlers.
-// No DOM queries. No UI logic. No business logic.
 
 class MainController {
 
   constructor() {
     this.ui = new UIComposer();
+
+    this.atomsPanelEventHandler =
+      new AtomsPanelEventHandler(
+        StateController,
+        this.ui.atomsPanel
+      );
   }
 
   init() {
-    // ── mount all components ───────────────────────────────────────────────
+
+    // ── mount all components ──────────────────────────
     this.ui.mountAll();
 
-    // ── load initial data ──────────────────────────────────────────────────
-    this.ui.atomsPanel.load(StateController.getAtoms());
-
-    // ── bind event handlers ────────────────────────────────────────────────
-    this.ui.atomsPanel.bindEvents(
-      AtomsPanelEventHandler.onPillClick,
-      AtomsPanelEventHandler.onAddClick
+    // ── load initial data ─────────────────────────────
+    this.ui.atomsPanel.load(
+      StateController.getAtoms()
     );
 
-    console.log('[main] readyyy');
+    // ── bind event handlers ───────────────────────────
+    this.ui.atomsPanel.bindEvents(
+      this.atomsPanelEventHandler.onPillClick,
+      this.atomsPanelEventHandler.onAddClick
+    );
+
+    console.log('[main] readyzz');
   }
 
 }
 
-// ── start ─────────────────────────────────────────────────────────────────────
+// ── start ─────────────────────────────────────────────
 const app = new MainController();
 app.init();
