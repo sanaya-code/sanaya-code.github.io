@@ -1,0 +1,1 @@
+// RightPanel/component.js — placeholder

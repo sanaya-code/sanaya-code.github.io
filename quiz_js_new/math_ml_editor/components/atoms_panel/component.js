@@ -1,0 +1,1 @@
+// AtomsPanel/component.js — placeholder

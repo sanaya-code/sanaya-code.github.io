@@ -1,0 +1,1 @@
+// TabPanel/component.js — placeholder

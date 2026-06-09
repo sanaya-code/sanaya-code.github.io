@@ -1,0 +1,1 @@
+// WorkingSetPanel/component.js — placeholder

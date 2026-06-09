@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Builder</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <div id="app">
+    <div id="left-panel">
+      <div id="atoms-panel-mount">
+        <div class="placeholder">AtomsPanel</div>
+      </div>
+      <div id="working-set-panel-mount">
+        <div class="placeholder">WorkingSetPanel</div>
+      </div>
+    </div>
+
+    <div id="right-panel-mount">
+      <div class="placeholder" style="margin:8px;flex:1">RightPanel → TabPanel → OperatorAccordion / OperatorForm</div>
+    </div>
+  </div>
+
+  <!-- popup mounts at app root so it overlays everything -->
+  <div id="add-item-popup-mount"></div>
+
+  <!-- state — must load before everything else -->
+  <script src="state/state.js"></script>
+  <script src="state/state_controller.js"></script>
+
+  <!-- components (loaded in later steps) -->
+
+  <!-- event handlers (loaded in later steps) -->
+
+  <!-- app entry point -->
+  <script src="main_controller.js"></script>
+
+</body>
+</html>

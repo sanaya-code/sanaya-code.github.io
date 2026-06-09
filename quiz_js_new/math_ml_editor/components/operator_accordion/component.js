@@ -1,0 +1,1 @@
+// OperatorAccordion/component.js — placeholder

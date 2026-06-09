@@ -1,0 +1,1 @@
+// WorkingSetPanel/controller.js — placeholder

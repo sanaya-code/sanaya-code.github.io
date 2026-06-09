@@ -1,0 +1,1 @@
+// OperatorForm/component.js — placeholder

@@ -1,0 +1,1 @@
+// AtomsPanel/controller.js — placeholder

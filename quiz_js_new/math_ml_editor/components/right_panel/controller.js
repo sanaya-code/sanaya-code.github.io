@@ -1,0 +1,1 @@
+// RightPanel/controller.js — placeholder
