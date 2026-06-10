@@ -45,14 +45,6 @@ html, body {
   overflow: hidden;
 }
 
-#operator-accordion-mount {
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
 /* placeholder styles — removed once real components mount */
 .placeholder {
   display: flex;

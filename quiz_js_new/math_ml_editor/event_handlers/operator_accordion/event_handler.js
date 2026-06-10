@@ -2,9 +2,10 @@
 
 class OperatorAccordionEventHandler {
 
-  constructor(stateController, operatorAccordionController) {
+  constructor(stateController, operatorAccordionController, rightPanelController) {
     this._state     = stateController;
     this._accordion = operatorAccordionController;
+    this._rightPanel = rightPanelController;
 
     this.onOperatorClick = this.onOperatorClick.bind(this);
     this.onSearchInput   = this.onSearchInput.bind(this);
@@ -13,13 +14,11 @@ class OperatorAccordionEventHandler {
   onOperatorClick(op) {
     this._state.setSelectedOperator(op);
     this._accordion.highlightSelected(op);
-    console.log('[accordion] operator selected:', op.name);
-    // tab switch to form happens in step 6 (TabPanel)
+    this._rightPanel.showFormView();
   }
 
   onSearchInput(query) {
-    // filtering is handled internally by the component
-    // nothing to persist in state for now
+    // filtering handled internally by component
   }
 
 }

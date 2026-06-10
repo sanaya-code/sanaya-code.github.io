@@ -1,1 +1,50 @@
-/* RightPanel/style.css — placeholder */
+/* components/right_panel/style.css */
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.right-panel__tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.right-panel__tab {
+  padding: 10px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.1s;
+}
+
+.right-panel__tab:hover {
+  color: #333;
+}
+
+.right-panel__tab--active {
+  color: #1a1a1a;
+  border-bottom-color: #1a52b8;
+  background: #fff;
+}
+
+.right-panel__pane {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.right-panel__pane--active {
+  display: flex;
+}

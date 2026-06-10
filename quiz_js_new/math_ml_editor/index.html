@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="components/atoms_panel/style.css" />
   <link rel="stylesheet" href="components/add_item_popup/style.css" />
   <link rel="stylesheet" href="components/operator_accordion/style.css" />
+  <link rel="stylesheet" href="components/right_panel/style.css" />
 </head>
 <body>
 
@@ -20,10 +21,7 @@
         <div class="placeholder">WorkingSetPanel</div>
       </div>
     </div>
-
-    <div id="right-panel-mount">
-      <div id="operator-accordion-mount"></div>
-    </div>
+    <div id="right-panel-mount"></div>
   </div>
 
   <!-- popup mounts at app root so it overlays everything -->
@@ -40,6 +38,8 @@
   <script src="components/add_item_popup/controller.js"></script>
   <script src="components/operator_accordion/component.js"></script>
   <script src="components/operator_accordion/controller.js"></script>
+  <script src="components/right_panel/component.js"></script>
+  <script src="components/right_panel/controller.js"></script>
 
   <!-- ui composer -->
   <script src="components/ui_composer/ui_composer.js"></script>
@@ -48,6 +48,7 @@
   <script src="event_handlers/atoms_panel/event_handler.js"></script>
   <script src="event_handlers/add_item_popup/event_handler.js"></script>
   <script src="event_handlers/operator_accordion/event_handler.js"></script>
+  <script src="event_handlers/right_panel/event_handler.js"></script>
 
   <!-- event composer -->
   <script src="event_handlers/event_composer/event_composer.js"></script>

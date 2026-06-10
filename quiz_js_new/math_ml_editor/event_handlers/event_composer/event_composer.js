@@ -15,14 +15,19 @@ class EventComposer {
       ui.addItemPopup
     );
 
+    this.rightPanel = new RightPanelEventHandler(
+      stateController,
+      ui.rightPanel
+    );
+
     this.operatorAccordion = new OperatorAccordionEventHandler(
       stateController,
-      ui.operatorAccordion
+      ui.operatorAccordion,
+      ui.rightPanel
     );
 
     // added in later steps:
     // this.workingSetPanel = new WorkingSetPanelEventHandler(...);
-    // this.tabPanel        = new TabPanelEventHandler(...);
     // this.operatorForm    = new OperatorFormEventHandler(...);
   }
 

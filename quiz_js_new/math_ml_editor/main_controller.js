@@ -26,6 +26,10 @@ class MainController {
       this.events.addItemPopup.onCancel
     );
 
+    this.ui.rightPanel.bindEvents(
+      this.events.rightPanel.onTabClick
+    );
+
     this.ui.operatorAccordion.bindEvents(
       this.events.operatorAccordion.onOperatorClick,
       this.events.operatorAccordion.onSearchInput
