@@ -1,7 +1,4 @@
 // event_handlers/event_composer/event_composer.js
-// Instantiates all event handlers and injects their dependencies.
-// MainController gets all event handler handles from here.
-// No business logic. No DOM access.
 
 class EventComposer {
 
@@ -18,11 +15,15 @@ class EventComposer {
       ui.addItemPopup
     );
 
+    this.operatorAccordion = new OperatorAccordionEventHandler(
+      stateController,
+      ui.operatorAccordion
+    );
+
     // added in later steps:
-    // this.workingSetPanel     = new WorkingSetPanelEventHandler(...);
-    // this.operatorAccordion   = new OperatorAccordionEventHandler(...);
-    // this.tabPanel            = new TabPanelEventHandler(...);
-    // this.operatorForm        = new OperatorFormEventHandler(...);
+    // this.workingSetPanel = new WorkingSetPanelEventHandler(...);
+    // this.tabPanel        = new TabPanelEventHandler(...);
+    // this.operatorForm    = new OperatorFormEventHandler(...);
   }
 
 }

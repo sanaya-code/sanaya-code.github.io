@@ -26,11 +26,15 @@ class MainController {
       this.events.addItemPopup.onCancel
     );
 
+    this.ui.operatorAccordion.bindEvents(
+      this.events.operatorAccordion.onOperatorClick,
+      this.events.operatorAccordion.onSearchInput
+    );
+
     console.log('[main] ready');
   }
 
 }
 
-// ── start ─────────────────────────────────────────────
 const app = new MainController();
 app.init();
