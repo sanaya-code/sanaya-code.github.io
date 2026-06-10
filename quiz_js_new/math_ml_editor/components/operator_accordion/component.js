@@ -1,54 +1,56 @@
 // components/operator_accordion/component.js
+// OPERATOR_GROUPS references operator objects from mathml_operators/.
+// Operators not yet implemented fall back to generic rendering in OperatorFormController.
 
 const OPERATOR_GROUPS = [
   {
     group: 'Arithmetic',
     ops: [
-      { name: 'Add',      sym: '+',   arity: 2 },
-      { name: 'Subtract', sym: '−',   arity: 2 },
-      { name: 'Multiply', sym: '×',   arity: 2 },
-      { name: 'Divide',   sym: '÷',   arity: 2 },
-      { name: 'Power',    sym: '^',   arity: 2 },
-      { name: 'Sqrt',     sym: '√',   arity: 1 },
-      { name: 'Negate',   sym: '−',   arity: 1 },
-      { name: 'Abs',      sym: '|·|', arity: 1 },
+      AddOperator,
+      PowerOperator,
+      { name: 'Subtract', sym: '−',   arity: 2, group: 'Arithmetic' },
+      { name: 'Multiply', sym: '×',   arity: 2, group: 'Arithmetic' },
+      { name: 'Divide',   sym: '÷',   arity: 2, group: 'Arithmetic' },
+      { name: 'Sqrt',     sym: '√',   arity: 1, group: 'Arithmetic' },
+      { name: 'Negate',   sym: '−',   arity: 1, group: 'Arithmetic' },
+      { name: 'Abs',      sym: '|·|', arity: 1, group: 'Arithmetic' },
     ]
   },
   {
     group: 'Trigonometric',
     ops: [
-      { name: 'sin',    sym: 'sin',    arity: 1 },
-      { name: 'cos',    sym: 'cos',    arity: 1 },
-      { name: 'tan',    sym: 'tan',    arity: 1 },
-      { name: 'arcsin', sym: 'sin⁻¹', arity: 1 },
-      { name: 'arccos', sym: 'cos⁻¹', arity: 1 },
-      { name: 'atan2',  sym: 'atan2',  arity: 2 },
+      { name: 'sin',    sym: 'sin',    arity: 1, group: 'Trigonometric' },
+      { name: 'cos',    sym: 'cos',    arity: 1, group: 'Trigonometric' },
+      { name: 'tan',    sym: 'tan',    arity: 1, group: 'Trigonometric' },
+      { name: 'arcsin', sym: 'sin⁻¹', arity: 1, group: 'Trigonometric' },
+      { name: 'arccos', sym: 'cos⁻¹', arity: 1, group: 'Trigonometric' },
+      { name: 'atan2',  sym: 'atan2',  arity: 2, group: 'Trigonometric' },
     ]
   },
   {
     group: 'Logarithmic',
     ops: [
-      { name: 'ln',    sym: 'ln',    arity: 1 },
-      { name: 'log₁₀', sym: 'log',   arity: 1 },
-      { name: 'logₙ',  sym: 'logₙ',  arity: 2 },
-      { name: 'exp',   sym: 'eˣ',    arity: 1 },
+      { name: 'ln',    sym: 'ln',   arity: 1, group: 'Logarithmic' },
+      { name: 'log₁₀', sym: 'log',  arity: 1, group: 'Logarithmic' },
+      { name: 'logₙ',  sym: 'logₙ', arity: 2, group: 'Logarithmic' },
+      { name: 'exp',   sym: 'eˣ',   arity: 1, group: 'Logarithmic' },
     ]
   },
   {
     group: 'Statistical',
     ops: [
-      { name: 'Mean',  sym: 'μ',     arity: 3 },
-      { name: 'Min',   sym: 'min',   arity: 2 },
-      { name: 'Max',   sym: 'max',   arity: 2 },
-      { name: 'Clamp', sym: 'clamp', arity: 3 },
+      { name: 'Mean',  sym: 'μ',     arity: 3, group: 'Statistical' },
+      { name: 'Min',   sym: 'min',   arity: 2, group: 'Statistical' },
+      { name: 'Max',   sym: 'max',   arity: 2, group: 'Statistical' },
+      { name: 'Clamp', sym: 'clamp', arity: 3, group: 'Statistical' },
     ]
   },
   {
     group: 'Conditional',
     ops: [
-      { name: 'If > 0', sym: 'if>0', arity: 3 },
-      { name: 'If = 0', sym: 'if=0', arity: 3 },
-      { name: 'Switch', sym: 'sw',   arity: 4 },
+      { name: 'If > 0', sym: 'if>0', arity: 3, group: 'Conditional' },
+      { name: 'If = 0', sym: 'if=0', arity: 3, group: 'Conditional' },
+      { name: 'Switch', sym: 'sw',   arity: 4, group: 'Conditional' },
     ]
   },
 ];
@@ -62,8 +64,6 @@ class OperatorAccordionComponent {
     this._allGroups   = OPERATOR_GROUPS;
   }
 
-  // ── build ─────────────────────────────────────────────────────────────────
-
   createElement() {
     this.el = document.createElement('div');
     this.el.className = 'op-accordion';
@@ -73,13 +73,11 @@ class OperatorAccordionComponent {
   buildLayout() {
     this.el.innerHTML = '';
 
-    // search bar
     const searchWrap = document.createElement('div');
     searchWrap.className = 'op-accordion__search-wrap';
     searchWrap.innerHTML = `
       <span class="op-accordion__search-icon">⌕</span>
-      <input class="op-accordion__search-input"
-             type="text" placeholder="Search operators…" />
+      <input class="op-accordion__search-input" type="text" placeholder="Search operators…" />
     `;
     this._searchInput = searchWrap.querySelector('input');
     this._searchInput.addEventListener('input', () => {
@@ -87,17 +85,13 @@ class OperatorAccordionComponent {
       this.emitSearchInput(this._searchInput.value.trim());
     });
 
-    // scrollable group list
     this._listEl = document.createElement('div');
     this._listEl.className = 'op-accordion__list';
 
     this.el.appendChild(searchWrap);
     this.el.appendChild(this._listEl);
-
     this._renderGroups('');
   }
-
-  // ── render ────────────────────────────────────────────────────────────────
 
   renderGroups(groups) {
     this._allGroups = groups;
@@ -110,11 +104,8 @@ class OperatorAccordionComponent {
 
     this._allGroups.forEach(g => {
       const ops = f
-        ? g.ops.filter(o =>
-            o.name.toLowerCase().includes(f) ||
-            o.sym.toLowerCase().includes(f))
+        ? g.ops.filter(o => o.name.toLowerCase().includes(f) || o.sym.toLowerCase().includes(f))
         : g.ops;
-
       if (!ops.length) return;
 
       const groupEl = document.createElement('div');
@@ -167,19 +158,15 @@ class OperatorAccordionComponent {
     this._renderGroups(query);
   }
 
-  // ── emit ──────────────────────────────────────────────────────────────────
-
   emitOperatorClick(op) {
     this.el.dispatchEvent(new CustomEvent('accordion:op-click', {
-      bubbles: true,
-      detail: { op }
+      bubbles: true, detail: { op }
     }));
   }
 
   emitSearchInput(query) {
     this.el.dispatchEvent(new CustomEvent('accordion:search', {
-      bubbles: true,
-      detail: { query }
+      bubbles: true, detail: { query }
     }));
   }
 

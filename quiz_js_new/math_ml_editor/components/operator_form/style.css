@@ -1,1 +1,230 @@
-/* OperatorForm/style.css — placeholder */
+/* components/operator_form/style.css */
+
+.op-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* empty state */
+.op-form__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+  color: #bbb;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.op-form__empty-icon {
+  font-size: 26px;
+  opacity: 0.4;
+}
+
+/* form body */
+.op-form__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px;
+  flex-direction: column;
+  gap: 0;
+}
+
+.op-form__op-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.op-form__op-sym {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: monospace;
+  flex-shrink: 0;
+}
+
+.op-form__op-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.op-form__op-sub {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.op-form__section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+.op-form__hint {
+  font-size: 11px;
+  color: #bbb;
+  margin-bottom: 8px;
+  margin-top: -4px;
+}
+
+/* slots */
+.op-form__slots {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.op-form__slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px dashed #ddd;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: border-color 0.1s, background 0.1s;
+  background: #fff;
+}
+
+.op-form__slot:hover {
+  border-color: #aac4f0;
+}
+
+.op-form__slot--active {
+  border-style: solid;
+  border-color: #aac4f0;
+  outline: 2px solid #ddeaff;
+  outline-offset: 1px;
+}
+
+.op-form__slot--filled-a {
+  border-style: solid;
+  border-color: #aac4f0;
+  background: #eef4ff;
+}
+
+.op-form__slot--filled-b {
+  border-style: solid;
+  border-color: #7ec99a;
+  background: #edfaf3;
+}
+
+.op-form__slot-num {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.op-form__slot-val {
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+  font-family: monospace;
+}
+
+.op-form__slot--filled-a .op-form__slot-val { color: #1a52b8; }
+.op-form__slot--filled-b .op-form__slot-val { color: #1a7a42; }
+
+.op-form__slot-hint {
+  font-size: 11px;
+  color: #bbb;
+}
+
+.op-form__slot--active .op-form__slot-hint { color: #6699dd; }
+
+.op-form__slot-clear {
+  font-size: 11px;
+  color: #bbb;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.op-form__slot-clear:hover { color: #e05; background: #fee; }
+
+/* preview */
+.op-form__preview {
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: monospace;
+  color: #333;
+  min-height: 40px;
+  word-break: break-all;
+}
+
+/* save row */
+.op-form__save-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.op-form__save-input {
+  flex: 1;
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.op-form__save-input:focus { border-color: #aac4f0; }
+
+.op-form__apply-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid #aac4f0;
+  background: #ddeaff;
+  color: #1a52b8;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.op-form__apply-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.op-form__apply-btn:not(:disabled):hover { background: #ccdeff; }
+
+.op-form__feedback {
+  font-size: 11px;
+  color: #1a7a42;
+  min-height: 16px;
+  margin-top: 6px;
+}

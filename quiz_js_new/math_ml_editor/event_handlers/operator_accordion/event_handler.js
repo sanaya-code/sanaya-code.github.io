@@ -2,10 +2,11 @@
 
 class OperatorAccordionEventHandler {
 
-  constructor(stateController, operatorAccordionController, rightPanelController) {
-    this._state     = stateController;
-    this._accordion = operatorAccordionController;
+  constructor(stateController, operatorAccordionController, rightPanelController, operatorFormController) {
+    this._state      = stateController;
+    this._accordion  = operatorAccordionController;
     this._rightPanel = rightPanelController;
+    this._form       = operatorFormController;
 
     this.onOperatorClick = this.onOperatorClick.bind(this);
     this.onSearchInput   = this.onSearchInput.bind(this);
@@ -14,6 +15,7 @@ class OperatorAccordionEventHandler {
   onOperatorClick(op) {
     this._state.setSelectedOperator(op);
     this._accordion.highlightSelected(op);
+    this._form.reset(op);
     this._rightPanel.showFormView();
   }
 

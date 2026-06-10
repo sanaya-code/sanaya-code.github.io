@@ -18,37 +18,24 @@ class UIComposer {
     this.addItemPopup = new AddItemPopupController(this._mounts.addItemPopup);
 
     // RightPanel mounts first — its panes become mount points for children
-    this.rightPanel   = new RightPanelController(this._mounts.rightPanel);
+    this.rightPanel = new RightPanelController(this._mounts.rightPanel);
     this.rightPanel.mount();
 
     this.operatorAccordion = new OperatorAccordionController(this.rightPanel.getOperatorsPane());
-
-    // form pane placeholder until step 7
-    this._mountFormPlaceholder(this.rightPanel.getFormPane());
+    this.operatorForm      = new OperatorFormController(this.rightPanel.getFormPane());
 
     // added in later steps:
     // this.workingSetPanel = new WorkingSetPanelController(this._mounts.workingSet);
-    // this.operatorForm    = new OperatorFormController(this.rightPanel.getFormPane());
   }
 
   mountAll() {
     this.atomsPanel.mount();
     this.addItemPopup.mount();
     this.operatorAccordion.mount();
+    this.operatorForm.mount();
 
     // added in later steps:
     // this.workingSetPanel.mount();
-    // this.operatorForm.mount();
-  }
-
-  // ── private ───────────────────────────────────────────────────────────────
-
-  _mountFormPlaceholder(pane) {
-    pane.innerHTML = `
-      <div style="display:flex;align-items:center;justify-content:center;
-                  height:100%;font-size:12px;color:#aaa;">
-        OperatorForm — coming in Step 7
-      </div>`;
   }
 
   _verifyMounts() {

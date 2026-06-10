@@ -35,6 +35,12 @@ class MainController {
       this.events.operatorAccordion.onSearchInput
     );
 
+    this.ui.operatorForm.bindEvents(
+      this.events.operatorForm.onSlotClick,
+      this.events.operatorForm.onSlotClear,
+      this.events.operatorForm.onApply
+    );
+
     console.log('[main] ready');
   }
 

@@ -6,7 +6,8 @@ class EventComposer {
     this.atomsPanel = new AtomsPanelEventHandler(
       stateController,
       ui.atomsPanel,
-      ui.addItemPopup
+      ui.addItemPopup,
+      ui.operatorForm
     );
 
     this.addItemPopup = new AddItemPopupEventHandler(
@@ -23,12 +24,17 @@ class EventComposer {
     this.operatorAccordion = new OperatorAccordionEventHandler(
       stateController,
       ui.operatorAccordion,
-      ui.rightPanel
+      ui.rightPanel,
+      ui.operatorForm
+    );
+
+    this.operatorForm = new OperatorFormEventHandler(
+      stateController,
+      ui.operatorForm
     );
 
     // added in later steps:
     // this.workingSetPanel = new WorkingSetPanelEventHandler(...);
-    // this.operatorForm    = new OperatorFormEventHandler(...);
   }
 
 }
