@@ -2,34 +2,29 @@
 
 class AtomsPanelEventHandler {
 
-  constructor(stateController, atomsPanelController) {
-    this._stateController = stateController;
-    this._atomsPanelController = atomsPanelController;
+  constructor(stateController, atomsPanelController, addItemPopupController) {
+    this._state      = stateController;
+    this._atomsPanel = atomsPanelController;
+    this._popup      = addItemPopupController;
 
     this.onPillClick = this.onPillClick.bind(this);
-    this.onAddClick = this.onAddClick.bind(this);
+    this.onAddClick  = this.onAddClick.bind(this);
   }
 
   onPillClick(id) {
-    const alreadySelected =
-      this._stateController.getSelectedAtomId() === id;
+    const alreadySelected = this._state.getSelectedAtomId() === id;
 
     if (alreadySelected) {
-      this._stateController.clearSelection();
-      this._atomsPanelController.clearSelection();
+      this._state.clearSelection();
+      this._atomsPanel.clearSelection();
     } else {
-      this._stateController.setSelectedAtomId(id);
-      this._atomsPanelController.highlightSelected(id);
+      this._state.setSelectedAtomId(id);
+      this._atomsPanel.highlightSelected(id);
     }
-
-    console.log(
-      '[atoms] selected atom id:',
-      this._stateController.getSelectedAtomId()
-    );
   }
 
   onAddClick() {
-    console.log('[atoms] add-click — popup will open in step 4');
+    this._popup.show();
   }
 
 }

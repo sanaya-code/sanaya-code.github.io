@@ -2,15 +2,14 @@
 
 class AtomsPanelController {
 
-  constructor() {
+  constructor(mountEl) {
     this.component = new AtomsPanelComponent();
-    this.mountEl   = document.getElementById('atoms-panel-mount');
+    this.mountEl   = mountEl;
   }
 
   // ── setup ─────────────────────────────────────────────────────────────────
 
   mount() {
-    this.mountEl.innerHTML = '';
     this.component.createElement();
     this.component.buildLayout();
     this.mountEl.appendChild(this.component.el);
@@ -27,6 +26,10 @@ class AtomsPanelController {
 
   load(items) {
     this.component.renderPills(items);
+  }
+
+  activateItem(id) {
+    this.component.highlightPill(id);
   }
 
   highlightSelected(id) {

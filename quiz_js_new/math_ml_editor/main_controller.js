@@ -3,13 +3,8 @@
 class MainController {
 
   constructor() {
-    this.ui = new UIComposer();
-
-    this.atomsPanelEventHandler =
-      new AtomsPanelEventHandler(
-        StateController,
-        this.ui.atomsPanel
-      );
+    this.ui     = new UIComposer();
+    this.events = new EventComposer(this.ui, StateController);
   }
 
   init() {
@@ -18,17 +13,20 @@ class MainController {
     this.ui.mountAll();
 
     // ── load initial data ─────────────────────────────
-    this.ui.atomsPanel.load(
-      StateController.getAtoms()
-    );
+    this.ui.atomsPanel.load(StateController.getAtoms());
 
     // ── bind event handlers ───────────────────────────
     this.ui.atomsPanel.bindEvents(
-      this.atomsPanelEventHandler.onPillClick,
-      this.atomsPanelEventHandler.onAddClick
+      this.events.atomsPanel.onPillClick,
+      this.events.atomsPanel.onAddClick
     );
 
-    console.log('[main] readyzz');
+    this.ui.addItemPopup.bindEvents(
+      this.events.addItemPopup.onSubmit,
+      this.events.addItemPopup.onCancel
+    );
+
+    console.log('[main] ready');
   }
 
 }
