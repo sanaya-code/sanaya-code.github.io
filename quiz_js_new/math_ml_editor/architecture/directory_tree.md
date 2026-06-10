@@ -54,6 +54,8 @@ math_builder/
 │
 └── event_handlers/ 
     |
+    ├── event_composer/                     # event_composer.js
+    |
     ├── atoms_panel/                        # event_handler.js
     │
     ├── working_set_panel/                  # event_handler.js
