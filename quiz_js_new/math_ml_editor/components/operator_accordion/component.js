@@ -1,6 +1,4 @@
 // components/operator_accordion/component.js
-// OPERATOR_GROUPS references operator objects from mathml_operators/.
-// Operators not yet implemented fall back to generic rendering in OperatorFormController.
 
 const OPERATOR_GROUPS = [
   {
@@ -8,19 +6,19 @@ const OPERATOR_GROUPS = [
     ops: [
       addOperator,
       powerOperator,
-      { name: 'Subtract', sym: '−',   arity: 2, group: 'Arithmetic' },
-      { name: 'Multiply', sym: '×',   arity: 2, group: 'Arithmetic' },
-      { name: 'Divide',   sym: '÷',   arity: 2, group: 'Arithmetic' },
-      { name: 'Sqrt',     sym: '√',   arity: 1, group: 'Arithmetic' },
-      { name: 'Negate',   sym: '−',   arity: 1, group: 'Arithmetic' },
-      { name: 'Abs',      sym: '|·|', arity: 1, group: 'Arithmetic' },
+      subtractOperator,
+      multiplyOperator,
+      divideOperator,
+      sqrtOperator,
+      negateOperator,
+      absOperator,
     ]
   },
   {
     group: 'Trigonometric',
     ops: [
-      { name: 'sin',    sym: 'sin',    arity: 1, group: 'Trigonometric' },
-      { name: 'cos',    sym: 'cos',    arity: 1, group: 'Trigonometric' },
+      sinOperator,
+      cosOperator,
       { name: 'tan',    sym: 'tan',    arity: 1, group: 'Trigonometric' },
       { name: 'arcsin', sym: 'sin⁻¹', arity: 1, group: 'Trigonometric' },
       { name: 'arccos', sym: 'cos⁻¹', arity: 1, group: 'Trigonometric' },
@@ -31,7 +29,7 @@ const OPERATOR_GROUPS = [
     group: 'Logarithmic',
     ops: [
       { name: 'ln',    sym: 'ln',   arity: 1, group: 'Logarithmic' },
-      { name: 'log₁₀', sym: 'log',  arity: 1, group: 'Logarithmic' },
+      logOperator,
       { name: 'logₙ',  sym: 'logₙ', arity: 2, group: 'Logarithmic' },
       { name: 'exp',   sym: 'eˣ',   arity: 1, group: 'Logarithmic' },
     ]
