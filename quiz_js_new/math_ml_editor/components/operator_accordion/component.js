@@ -1,57 +1,5 @@
 // components/operator_accordion/component.js
-
-const OPERATOR_GROUPS = [
-  {
-    group: 'Arithmetic',
-    ops: [
-      addOperator,
-      powerOperator,
-      subtractOperator,
-      multiplyOperator,
-      divideOperator,
-      sqrtOperator,
-      negateOperator,
-      absOperator,
-    ]
-  },
-  {
-    group: 'Trigonometric',
-    ops: [
-      sinOperator,
-      cosOperator,
-      { name: 'tan',    sym: 'tan',    arity: 1, group: 'Trigonometric' },
-      { name: 'arcsin', sym: 'sin⁻¹', arity: 1, group: 'Trigonometric' },
-      { name: 'arccos', sym: 'cos⁻¹', arity: 1, group: 'Trigonometric' },
-      { name: 'atan2',  sym: 'atan2',  arity: 2, group: 'Trigonometric' },
-    ]
-  },
-  {
-    group: 'Logarithmic',
-    ops: [
-      { name: 'ln',    sym: 'ln',   arity: 1, group: 'Logarithmic' },
-      logOperator,
-      { name: 'logₙ',  sym: 'logₙ', arity: 2, group: 'Logarithmic' },
-      { name: 'exp',   sym: 'eˣ',   arity: 1, group: 'Logarithmic' },
-    ]
-  },
-  {
-    group: 'Statistical',
-    ops: [
-      { name: 'Mean',  sym: 'μ',     arity: 3, group: 'Statistical' },
-      { name: 'Min',   sym: 'min',   arity: 2, group: 'Statistical' },
-      { name: 'Max',   sym: 'max',   arity: 2, group: 'Statistical' },
-      { name: 'Clamp', sym: 'clamp', arity: 3, group: 'Statistical' },
-    ]
-  },
-  {
-    group: 'Conditional',
-    ops: [
-      { name: 'If > 0', sym: 'if>0', arity: 3, group: 'Conditional' },
-      { name: 'If = 0', sym: 'if=0', arity: 3, group: 'Conditional' },
-      { name: 'Switch', sym: 'sw',   arity: 4, group: 'Conditional' },
-    ]
-  },
-];
+// OPERATOR_GROUPS is defined in mathml_operators/operator_registry.js
 
 class OperatorAccordionComponent {
 
