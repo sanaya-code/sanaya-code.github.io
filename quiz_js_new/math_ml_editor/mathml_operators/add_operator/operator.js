@@ -8,7 +8,7 @@ class AddOperator extends Operator {
       sym:        '+',
       arity:      2,
       group:      'Arithmetic',
-      slotLabels: ['term 1', 'term 2'],
+      slotLabels: ['left', 'right'],
     });
   }
 

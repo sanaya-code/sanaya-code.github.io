@@ -7,8 +7,11 @@ class OperatorFormController {
     this.mountEl     = mountEl;
     this._operator   = null;
     this._slots      = [];
+    this._slotLabels = [];
     this._activeSlot = null;
   }
+
+  // ── setup ─────────────────────────────────────────────────────────────────
 
   mount() {
     this.component.createElement();
@@ -17,18 +20,23 @@ class OperatorFormController {
     this.component.showEmpty();
   }
 
+  // ── event binding ─────────────────────────────────────────────────────────
+
   bindEvents(onSlotClick, onSlotClear, onApply) {
     this.component.el.addEventListener('op-form:slot-click', (e) => onSlotClick(e.detail.index));
     this.component.el.addEventListener('op-form:slot-clear', (e) => onSlotClear(e.detail.index));
     this.component.el.addEventListener('op-form:apply',      ()  => onApply());
   }
 
+  // ── called by app / event handlers ───────────────────────────────────────
+
   reset(operator) {
     this._operator   = operator;
+    this._slotLabels = operator.slotLabels || Array.from({ length: operator.arity }, (_, i) => `operand ${i + 1}`);
     this._slots      = Array(operator.arity).fill(null).map(() => ({ value: null, active: false }));
     this._activeSlot = null;
     this.component.setOperatorHeader(operator.sym, operator.name, operator.arity);
-    this.component.renderSlots(this._slots);
+    this.component.renderSlots(this._slots, this._slotLabels);
     this.component.setApplyEnabled(false);
   }
 
@@ -87,9 +95,11 @@ class OperatorFormController {
 
   showFeedback(msg) { this.component.showFeedback(msg); }
 
+  // ── private ───────────────────────────────────────────────────────────────
+
   _rerenderSlots() {
     this._slots.forEach((s, i) => s.active = i === this._activeSlot);
-    this.component.renderSlots(this._slots);
+    this.component.renderSlots(this._slots, this._slotLabels);
     this.updatePreview(this._slots);
   }
 

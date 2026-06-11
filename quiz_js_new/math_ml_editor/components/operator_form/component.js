@@ -95,14 +95,14 @@ class OperatorFormComponent {
 
     const labelEl = document.createElement('span');
     labelEl.className = 'op-form__slot-label';
-    labelEl.textContent = slotLabels[index] || `operand ${index + 1}`;
+    labelEl.textContent = slotLabels[index] ;
 
     const valEl = document.createElement('span');
     valEl.className = 'op-form__slot-val';
     if (slot.value) {
       valEl.innerHTML = slot.value.getPreview();
     } else {
-      valEl.textContent = 'empty';
+      valEl.textContent = '';
     }
 
     const hintEl = document.createElement('span');

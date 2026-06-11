@@ -8,7 +8,7 @@ class PowerOperator extends Operator {
       sym:        '^',
       arity:      2,
       group:      'Arithmetic',
-      slotLabels: ['base', 'exponent'],
+      slotLabels: ['base', 'exp'],
     });
   }
 
