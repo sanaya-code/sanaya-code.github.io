@@ -9,6 +9,7 @@ class DivideOperator extends Operator {
       arity:      2,
       group:      'Arithmetic',
       slotLabels: ['numerator', 'denominator'],
+      keywords:   ['divide', 'div'],
     });
   }
 

@@ -9,6 +9,7 @@ class SqrtOperator extends Operator {
       arity:      1,
       group:      'Arithmetic',
       slotLabels: ['radicand'],
+      keywords:   ['sq', 'square', 'root'],
     });
   }
 

@@ -1,6 +1,7 @@
 // mathml_operators/operator_registry.js
 // Single source of truth for all operator groups.
 // Add new operators here after creating their class in mathml_operators/.
+// Plain object operators (not yet converted to classes) support keywords via the keywords array.
 
 const OPERATOR_GROUPS = [
   {
@@ -20,7 +21,7 @@ const OPERATOR_GROUPS = [
     group: 'Trigonometric',
     ops: [
       sinOperator,
-      cosOperator
+      cosOperator    
     ]
   }
 ];

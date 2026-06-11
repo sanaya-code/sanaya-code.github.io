@@ -9,6 +9,7 @@ class SinOperator extends Operator {
       arity:      1,
       group:      'Trigonometric',
       slotLabels: ['angle'],
+      keywords:   ['sin']
     });
   }
 

@@ -44,17 +44,30 @@ class OperatorAccordionComponent {
     this._renderGroups(this._searchInput ? this._searchInput.value.trim() : '');
   }
 
+  // ── search matching ───────────────────────────────────────────────────────
+
+  _opMatches(op, query) {
+    // class instances use the matches() method which includes keywords
+    if (typeof op.matches === 'function') return op.matches(query);
+    // plain objects — check name, sym, and optional keywords array
+    const q = query.toLowerCase();
+    return op.name.toLowerCase().includes(q)
+        || op.sym.toLowerCase().includes(q)
+        || (op.keywords || []).some(k => k.toLowerCase().includes(q));
+  }
+
+  // ── render ────────────────────────────────────────────────────────────────
+
   _renderGroups(filter) {
-    const f = filter.toLowerCase();
     this._listEl.innerHTML = '';
 
     this._allGroups.forEach(g => {
-      const ops = f
-        ? g.ops.filter(o => o.name.toLowerCase().includes(f) || o.sym.toLowerCase().includes(f))
+      const ops = filter
+        ? g.ops.filter(o => this._opMatches(o, filter))
         : g.ops;
       if (!ops.length) return;
 
-      const groupEl = document.createElement('div');
+      const groupEl  = document.createElement('div');
       groupEl.className = 'op-accordion__group';
 
       const header = document.createElement('div');
@@ -66,7 +79,7 @@ class OperatorAccordionComponent {
 
       const itemsEl = document.createElement('div');
       itemsEl.className = 'op-accordion__group-items';
-      if (f) itemsEl.classList.add('op-accordion__group-items--open');
+      if (filter) itemsEl.classList.add('op-accordion__group-items--open');
 
       header.addEventListener('click', () => {
         const isOpen = itemsEl.classList.toggle('op-accordion__group-items--open');
@@ -76,7 +89,7 @@ class OperatorAccordionComponent {
 
       ops.forEach(op => {
         const row = document.createElement('button');
-        row.className = 'op-accordion__op-row';
+        row.className      = 'op-accordion__op-row';
         row.dataset.opName = op.name;
         row.innerHTML = `
           <span class="op-accordion__op-sym">${op.sym}</span>

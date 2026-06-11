@@ -9,6 +9,7 @@ class NegateOperator extends Operator {
       arity:      1,
       group:      'Arithmetic',
       slotLabels: ['operand'],
+      keywords:   ['negation', 'sign'],
     });
   }
 

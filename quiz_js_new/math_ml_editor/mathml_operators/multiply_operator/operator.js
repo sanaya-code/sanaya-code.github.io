@@ -9,6 +9,7 @@ class MultiplyOperator extends Operator {
       arity:      2,
       group:      'Arithmetic',
       slotLabels: ['factor 1', 'factor 2'],
+      keywords:   ['mul', 'multiply'],
     });
   }
 

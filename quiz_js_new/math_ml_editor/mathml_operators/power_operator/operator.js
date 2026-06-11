@@ -9,6 +9,7 @@ class PowerOperator extends Operator {
       arity:      2,
       group:      'Arithmetic',
       slotLabels: ['base', 'exp'],
+      keywords:   ['power', 'exponent', 'base', 'exp'],
     });
   }
 

@@ -9,6 +9,7 @@ class LogOperator extends Operator {
       arity:      1,
       group:      'Logarithmic',
       slotLabels: ['argument'],
+      keywords:   ['log'],
     });
   }
 

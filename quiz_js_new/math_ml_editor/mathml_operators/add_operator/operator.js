@@ -9,6 +9,7 @@ class AddOperator extends Operator {
       arity:      2,
       group:      'Arithmetic',
       slotLabels: ['left', 'right'],
+      keywords:   ['plus', 'sum', 'addition', 'total'],
     });
   }
 

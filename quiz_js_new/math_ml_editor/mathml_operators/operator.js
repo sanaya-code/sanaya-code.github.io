@@ -1,16 +1,18 @@
 // mathml_operators/operator.js
 // Base class for all operators.
 // Subclasses must override: name, sym, arity, slotLabels, buildPreview(), buildMathmlNode()
-// Subclasses may override: buildExpression() for plain-text representation
+// Subclasses may override: buildExpression()
+// keywords: optional array of search terms beyond name and sym
 
 class Operator {
 
-  constructor({ name, sym, arity, group, slotLabels }) {
+  constructor({ name, sym, arity, group, slotLabels, keywords }) {
     this.name       = name;
     this.sym        = sym;
     this.arity      = arity;
     this.group      = group;
     this.slotLabels = slotLabels || Array(arity).fill(null).map((_, i) => `operand ${i + 1}`);
+    this.keywords   = keywords   || [];
   }
 
   // Override in subclass — receives MathML fragment strings, returns full <math> doc
@@ -36,6 +38,14 @@ class Operator {
   // Override in subclass — receives plain name strings, returns text expression
   buildExpression(names) {
     return `${this.sym}(${names.join(', ')})`;
+  }
+
+  // Used by search — matches query against name, sym, and keywords
+  matches(query) {
+    const q = query.toLowerCase();
+    return this.name.toLowerCase().includes(q)
+        || this.sym.toLowerCase().includes(q)
+        || this.keywords.some(k => k.toLowerCase().includes(q));
   }
 
 }

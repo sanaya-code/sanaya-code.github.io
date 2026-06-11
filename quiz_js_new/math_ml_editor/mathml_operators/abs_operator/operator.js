@@ -9,6 +9,7 @@ class AbsOperator extends Operator {
       arity:      1,
       group:      'Arithmetic',
       slotLabels: ['operand'],
+      keywords:   ['absolute', 'abs'],
     });
   }
 

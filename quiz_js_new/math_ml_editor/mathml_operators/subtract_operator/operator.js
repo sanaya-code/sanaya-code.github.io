@@ -9,6 +9,7 @@ class SubtractOperator extends Operator {
       arity:      2,
       group:      'Arithmetic',
       slotLabels: ['minuend', 'subtrahend'],
+      keywords:   ['substract', 'minus'],
     });
   }
 

@@ -9,6 +9,7 @@ class CosOperator extends Operator {
       arity:      1,
       group:      'Trigonometric',
       slotLabels: ['angle'],
+      keywords:   ['cos', 'cosine'],
     });
   }
 
