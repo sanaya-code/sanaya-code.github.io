@@ -6,8 +6,8 @@ const OPERATOR_GROUPS = [
   {
     group: 'Arithmetic',
     ops: [
-      AddOperator,
-      PowerOperator,
+      addOperator,
+      powerOperator,
       { name: 'Subtract', sym: '−',   arity: 2, group: 'Arithmetic' },
       { name: 'Multiply', sym: '×',   arity: 2, group: 'Arithmetic' },
       { name: 'Divide',   sym: '÷',   arity: 2, group: 'Arithmetic' },
