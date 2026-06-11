@@ -19,6 +19,7 @@ class RightPanelController {
 
   getOperatorsPane() { return this.component.getOperatorsPane(); }
   getFormPane()      { return this.component.getFormPane(); }
+  getSentencePane()  { return this.component.getSentencePane(); }
 
   // ── event binding ─────────────────────────────────────────────────────────
 
@@ -30,12 +31,8 @@ class RightPanelController {
 
   // ── called by app / event handlers ───────────────────────────────────────
 
-  showOperatorsView() {
-    this.component.showOperatorsView();
-  }
-
-  showFormView() {
-    this.component.showFormView();
-  }
+  showOperatorsView() { this.component.showOperatorsView(); }
+  showFormView()      { this.component.showFormView(); }
+  showSentenceView()  { this.component.showSentenceView(); }
 
 }

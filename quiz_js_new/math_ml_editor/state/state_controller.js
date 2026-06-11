@@ -106,4 +106,33 @@ const StateController = {
     state.activeSlotIndex = null;
   },
 
+// ── sentence ──────────────────────────────────────────────────────────────
+
+  getSentenceTokens() {
+    return state.sentenceTokens;
+  },
+
+  appendTextToken(text) {
+    state.sentenceTokens.push(new SentenceToken('text', text));
+  },
+
+  appendNodeToken(node) {
+    state.sentenceTokens.push(new SentenceToken('node', node));
+  },
+
+  deleteLastToken() {
+    state.sentenceTokens.pop();
+  },
+
+  clearSentence() {
+    state.sentenceTokens = [];
+  },
+
+  getSentenceMathmlMode() {
+    return state.sentenceMathmlMode;
+  },
+
+  setSentenceMathmlMode(active) {
+    state.sentenceMathmlMode = active;
+  },
 };

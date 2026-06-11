@@ -2,17 +2,26 @@
 
 class AtomsPanelEventHandler {
 
-  constructor(stateController, atomsPanelController, addItemPopupController, operatorFormController) {
+  constructor(stateController, atomsPanelController, addItemPopupController, operatorFormController, sentenceBuilderEventHandler) {
     this._state      = stateController;
     this._atomsPanel = atomsPanelController;
     this._popup      = addItemPopupController;
     this._form       = operatorFormController;
+    this._sentence   = sentenceBuilderEventHandler;
 
     this.onPillClick = this.onPillClick.bind(this);
     this.onAddClick  = this.onAddClick.bind(this);
   }
 
   onPillClick(id) {
+    // sentence mathml mode takes priority
+    if (this._state.getSentenceMathmlMode()) {
+      const node = this._state.getAtomById(id);
+      if (!node) return;
+      this._sentence.onNodeSelected(node);
+      return;
+    }
+
     const activeSlot = this._form.getActiveSlot();
 
     if (activeSlot !== null) {

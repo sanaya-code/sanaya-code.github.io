@@ -2,16 +2,25 @@
 
 class WorkingSetPanelEventHandler {
 
-  constructor(stateController, workingSetPanelController, operatorFormController) {
+  constructor(stateController, workingSetPanelController, operatorFormController, sentenceBuilderEventHandler) {
     this._state      = stateController;
     this._workingSet = workingSetPanelController;
     this._form       = operatorFormController;
+    this._sentence   = sentenceBuilderEventHandler;
 
     this.onPillClick   = this.onPillClick.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
   }
 
   onPillClick(id) {
+    // sentence mathml mode takes priority
+    if (this._state.getSentenceMathmlMode()) {
+      const node = this._state.getExpressionById(id);
+      if (!node) return;
+      this._sentence.onNodeSelected(node);
+      return;
+    }
+
     const activeSlot = this._form.getActiveSlot();
 
     if (activeSlot !== null) {

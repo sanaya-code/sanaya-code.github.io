@@ -3,11 +3,19 @@
 class EventComposer {
 
   constructor(ui, stateController) {
+
+    // sentence builder must be created first — other handlers reference it
+    this.sentenceBuilder = new SentenceBuilderEventHandler(
+      stateController,
+      ui.sentenceBuilder
+    );
+
     this.atomsPanel = new AtomsPanelEventHandler(
       stateController,
       ui.atomsPanel,
       ui.addItemPopup,
-      ui.operatorForm
+      ui.operatorForm,
+      this.sentenceBuilder
     );
 
     this.addItemPopup = new AddItemPopupEventHandler(
@@ -37,8 +45,10 @@ class EventComposer {
     this.workingSetPanel = new WorkingSetPanelEventHandler(
       stateController,
       ui.workingSetPanel,
-      ui.operatorForm
+      ui.operatorForm,
+      this.sentenceBuilder
     );
+
   }
 
 }

@@ -23,6 +23,9 @@ const state = {
   selectedExprId:   null,   // currently selected expression pill
   selectedOperator: null,   // currently selected operator object
   activeSlotIndex:  null,   // which operand slot is active in the form
-  slots:            [],     // filled operand slots for current operator
+  slots:               [],     // filled operand slots for current operator
+
+  sentenceTokens:      [],     // array of SentenceToken instances
+  sentenceMathmlMode:  false,  // true when + MathML button is active
 
 };

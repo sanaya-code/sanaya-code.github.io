@@ -47,6 +47,14 @@ class MainController {
       this.events.workingSetPanel.onDeleteClick
     );
 
+    this.ui.sentenceBuilder.bindEvents(
+      this.events.sentenceBuilder.onAddText,
+      this.events.sentenceBuilder.onAddSpace,
+      this.events.sentenceBuilder.onDeleteLast,
+      this.events.sentenceBuilder.onMathmlModeToggle,
+      this.events.sentenceBuilder.onCopy
+    );
+
     console.log('[main] ready');
   }
 

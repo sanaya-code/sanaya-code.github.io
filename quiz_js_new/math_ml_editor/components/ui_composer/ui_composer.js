@@ -19,8 +19,9 @@ class UIComposer {
     this.rightPanel = new RightPanelController(this._mounts.rightPanel);
     this.rightPanel.mount();
 
-    this.operatorBrowser = new OperatorBrowserController(this.rightPanel.getOperatorsPane());
-    this.operatorForm    = new OperatorFormController(this.rightPanel.getFormPane());
+    this.operatorBrowser  = new OperatorBrowserController(this.rightPanel.getOperatorsPane());
+    this.operatorForm     = new OperatorFormController(this.rightPanel.getFormPane());
+    this.sentenceBuilder  = new SentenceBuilderController(this.rightPanel.getSentencePane());
   }
 
   mountAll() {
@@ -29,6 +30,7 @@ class UIComposer {
     this.workingSetPanel.mount();
     this.operatorBrowser.mount();
     this.operatorForm.mount();
+    this.sentenceBuilder.mount();
   }
 
   _verifyMounts() {

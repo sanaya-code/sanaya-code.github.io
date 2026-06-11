@@ -14,6 +14,8 @@ class RightPanelEventHandler {
       this._rightPanel.showOperatorsView();
     } else if (tabId === 'form') {
       this._rightPanel.showFormView();
+    } else if (tabId === 'sentence') {
+      this._rightPanel.showSentenceView();
     }
   }
 
