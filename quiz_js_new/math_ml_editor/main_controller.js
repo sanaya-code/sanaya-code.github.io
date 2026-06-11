@@ -31,9 +31,9 @@ class MainController {
       this.events.rightPanel.onTabClick
     );
 
-    this.ui.operatorAccordion.bindEvents(
-      this.events.operatorAccordion.onOperatorClick,
-      this.events.operatorAccordion.onSearchInput
+    this.ui.operatorBrowser.bindEvents(
+      this.events.operatorBrowser.onOperatorClick,
+      this.events.operatorBrowser.onSearchInput
     );
 
     this.ui.operatorForm.bindEvents(

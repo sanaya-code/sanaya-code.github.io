@@ -19,15 +19,15 @@ class UIComposer {
     this.rightPanel = new RightPanelController(this._mounts.rightPanel);
     this.rightPanel.mount();
 
-    this.operatorAccordion = new OperatorAccordionController(this.rightPanel.getOperatorsPane());
-    this.operatorForm      = new OperatorFormController(this.rightPanel.getFormPane());
+    this.operatorBrowser = new OperatorBrowserController(this.rightPanel.getOperatorsPane());
+    this.operatorForm    = new OperatorFormController(this.rightPanel.getFormPane());
   }
 
   mountAll() {
     this.atomsPanel.mount();
     this.addItemPopup.mount();
     this.workingSetPanel.mount();
-    this.operatorAccordion.mount();
+    this.operatorBrowser.mount();
     this.operatorForm.mount();
   }
 

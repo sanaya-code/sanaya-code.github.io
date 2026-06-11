@@ -21,9 +21,9 @@ class EventComposer {
       ui.rightPanel
     );
 
-    this.operatorAccordion = new OperatorAccordionEventHandler(
+    this.operatorBrowser = new OperatorBrowserEventHandler(
       stateController,
-      ui.operatorAccordion,
+      ui.operatorBrowser,
       ui.rightPanel,
       ui.operatorForm
     );
