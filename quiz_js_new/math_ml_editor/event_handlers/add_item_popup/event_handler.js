@@ -11,8 +11,11 @@ class AddItemPopupEventHandler {
     this.onCancel = this.onCancel.bind(this);
   }
 
-  onSubmit(name, type) {
-    const id = this._state.addAtom(name, type);
+  onSubmit(name) {
+    // wrap the entered symbol in MathML — use <mn> for digits, <mi> for everything else
+    const tag        = /^\d+(\.\d+)?$/.test(name) ? 'mn' : 'mi';
+    const mathmlNode = `<math display="inline"><${tag}>${name}</${tag}></math>`;
+    const id         = this._state.addAtom(mathmlNode);
     this._atomsPanel.load(this._state.getAtoms());
     this._atomsPanel.activateItem(id);
     this._popup.hide();

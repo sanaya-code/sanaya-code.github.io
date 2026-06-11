@@ -30,11 +30,15 @@ class EventComposer {
 
     this.operatorForm = new OperatorFormEventHandler(
       stateController,
-      ui.operatorForm
+      ui.operatorForm,
+      ui.workingSetPanel
     );
 
-    // added in later steps:
-    // this.workingSetPanel = new WorkingSetPanelEventHandler(...);
+    this.workingSetPanel = new WorkingSetPanelEventHandler(
+      stateController,
+      ui.workingSetPanel,
+      ui.operatorForm
+    );
   }
 
 }

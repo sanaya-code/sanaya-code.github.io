@@ -1,51 +1,41 @@
-// components/working_set_panel/controller.js
+// event_handlers/working_set_panel/event_handler.js
 
-class WorkingSetPanelController {
+class WorkingSetPanelEventHandler {
 
-  constructor(mountEl) {
-    this.component = new WorkingSetPanelComponent();
-    this.mountEl   = mountEl;
+  constructor(stateController, workingSetPanelController, operatorFormController) {
+    this._state      = stateController;
+    this._workingSet = workingSetPanelController;
+    this._form       = operatorFormController;
+
+    this.onPillClick   = this.onPillClick.bind(this);
+    this.onDeleteClick = this.onDeleteClick.bind(this);
   }
 
-  // ── setup ─────────────────────────────────────────────────────────────────
+  onPillClick(id) {
+    const activeSlot = this._form.getActiveSlot();
 
-  mount() {
-    this.component.createElement();
-    this.component.buildLayout();
-    this.mountEl.appendChild(this.component.el);
+    if (activeSlot !== null) {
+      const node = this._state.getExpressionById(id);
+      if (!node) return;
+      this._state.setSlot(activeSlot, node);
+      this._form.fillSlot(activeSlot, node);
+      this._workingSet.activateItem(id);
+    } else {
+      const alreadySelected = this._state.getSelectedExprId() === id;
+      if (alreadySelected) {
+        this._state.clearSelection();
+        this._workingSet.clearSelection();
+      } else {
+        this._state.setSelectedExprId(id);
+        this._workingSet.activateItem(id);
+      }
+    }
   }
 
-  // ── event binding ─────────────────────────────────────────────────────────
-
-  bindEvents(onPillClick, onDeleteClick) {
-    this.component.el.addEventListener('working-set:pill-click',   (e) => onPillClick(e.detail.id));
-    this.component.el.addEventListener('working-set:delete-click', (e) => onDeleteClick(e.detail.id));
-  }
-
-  // ── called by app / event handlers ───────────────────────────────────────
-
-  load(items) {
-    this.component.renderPills(items);
-  }
-
-  activateItem(id) {
-    this.component.highlightPill(id);
-  }
-
-  highlightSelected(id) {
-    this.component.highlightPill(id);
-  }
-
-  clearSelection() {
-    this.component.clearHighlight();
-  }
-
-  append(item) {
-    this.component.renderPills(item);
-  }
-
-  remove(id) {
-    this.component.removePill(id);
+  onDeleteClick(id) {
+    this._state.removeExpression(id);
+    this._workingSet.load(this._state.getExpressions());
+    this._state.clearSelection();
   }
 
 }

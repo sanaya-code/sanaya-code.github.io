@@ -5,9 +5,9 @@
 class AtomsPanelComponent {
 
   constructor() {
-    this.el        = null;
-    this.header    = null;
-    this.pillWrap  = null;
+    this.el       = null;
+    this.header   = null;
+    this.pillWrap = null;
   }
 
   // ── build ────────────────────────────────────────────────────────────────
@@ -38,29 +38,25 @@ class AtomsPanelComponent {
     this.el.appendChild(this.header);
     this.el.appendChild(this.pillWrap);
 
-    // internal wiring — add button
     this.header.querySelector('#atoms-add-btn')
       .addEventListener('click', () => this.emitAddClick());
   }
 
   // ── render ───────────────────────────────────────────────────────────────
 
-  renderPills(items) {
+  renderPills(nodes) {
     this.pillWrap.innerHTML = '';
-    items.forEach(item => {
+    nodes.forEach(node => {
       const pill = document.createElement('span');
-      pill.className = 'atoms-panel__pill';
-      pill.dataset.id = item.id;
-      pill.dataset.type = item.type;
-      pill.textContent = item.name;
-      pill.title = item.type;
-      pill.addEventListener('click', () => this.emitPillClick(item.id));
+      pill.className  = 'atoms-panel__pill';
+      pill.dataset.id = node.id;
+      pill.innerHTML  = node.getPreview();
+      pill.addEventListener('click', () => this.emitPillClick(node.id));
       this.pillWrap.appendChild(pill);
     });
 
-    // update count badge
     const countEl = this.el.querySelector('#atoms-count');
-    if (countEl) countEl.textContent = items.length;
+    if (countEl) countEl.textContent = nodes.length;
   }
 
   highlightPill(id) {
@@ -75,7 +71,7 @@ class AtomsPanelComponent {
     });
   }
 
-  // ── emit (external signals) ───────────────────────────────────────────────
+  // ── emit ─────────────────────────────────────────────────────────────────
 
   emitAddClick() {
     this.el.dispatchEvent(new CustomEvent('atoms:add-click', { bubbles: true }));

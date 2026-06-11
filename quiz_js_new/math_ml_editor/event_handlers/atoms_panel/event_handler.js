@@ -16,15 +16,12 @@ class AtomsPanelEventHandler {
     const activeSlot = this._form.getActiveSlot();
 
     if (activeSlot !== null) {
-      // a slot is waiting — fill it
-      const atom = this._state.getAtoms().find(a => a.id === id);
-      if (!atom) return;
-      const item = { ...atom, src: 'a' };
-      this._state.setSlot(activeSlot, item);
-      this._form.fillSlot(activeSlot, item);
+      const node = this._state.getAtomById(id);
+      if (!node) return;
+      this._state.setSlot(activeSlot, node);
+      this._form.fillSlot(activeSlot, node);
       this._atomsPanel.activateItem(id);
     } else {
-      // no active slot — just select/deselect the pill
       const alreadySelected = this._state.getSelectedAtomId() === id;
       if (alreadySelected) {
         this._state.clearSelection();

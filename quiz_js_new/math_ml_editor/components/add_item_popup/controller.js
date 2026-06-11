@@ -18,12 +18,8 @@ class AddItemPopupController {
   // ── event binding ─────────────────────────────────────────────────────────
 
   bindEvents(onSubmit, onCancel) {
-    this.component.el.addEventListener('popup:submit', (e) => {
-      onSubmit(e.detail.name, e.detail.type);
-    });
-    this.component.el.addEventListener('popup:cancel', () => {
-      onCancel();
-    });
+    this.component.el.addEventListener('popup:submit', (e) => onSubmit(e.detail.name));
+    this.component.el.addEventListener('popup:cancel', ()  => onCancel());
   }
 
   // ── called by app / event handlers ───────────────────────────────────────
@@ -35,14 +31,6 @@ class AddItemPopupController {
   hide() {
     this.component.close();
     this.component.clearForm();
-  }
-
-  onSubmit(name, type) {
-    this.hide();
-  }
-
-  onCancel() {
-    this.hide();
   }
 
 }

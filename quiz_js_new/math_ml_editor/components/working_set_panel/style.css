@@ -1,1 +1,99 @@
 /* WorkingSetPanel/style.css — placeholder */
+/* components/working_set_panel/style.css */
+
+.working-set-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.working-set-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.working-set-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.working-set-panel__title-text {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.working-set-panel__count {
+  font-size: 10px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1px 6px;
+  color: #999;
+}
+
+.working-set-panel__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px 12px;
+  overflow-y: auto;
+  flex: 1;
+  align-content: flex-start;
+}
+
+.working-set-panel__empty {
+  font-size: 11px;
+  color: #bbb;
+  padding: 4px 2px;
+}
+
+.working-set-panel__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #c0ddc0;
+  background: #edfaf3;
+  color: #1a7a42;
+  user-select: none;
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.working-set-panel__pill:hover {
+  border-color: #7ec99a;
+}
+
+.working-set-panel__pill--selected {
+  border-color: #7ec99a;
+  background: #d4f5e2;
+}
+
+.working-set-panel__pill-name {
+  cursor: pointer;
+}
+
+.working-set-panel__pill-delete {
+  font-size: 10px;
+  color: #aaa;
+  cursor: pointer;
+  padding: 1px 2px;
+  border-radius: 3px;
+  line-height: 1;
+}
+
+.working-set-panel__pill-delete:hover {
+  color: #e05;
+  background: #fee;
+}

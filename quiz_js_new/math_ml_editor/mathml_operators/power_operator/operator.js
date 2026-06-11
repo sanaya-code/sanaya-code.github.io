@@ -6,13 +6,12 @@ const PowerOperator = {
   arity: 2,
   group: 'Arithmetic',
 
-  buildPreview(names) {
-    return `<math display="inline">
-      <msup>
-        <mi>${names[0]}</mi>
-        <mi>${names[1]}</mi>
-      </msup>
-    </math>`;
+  buildPreview(nodes) {
+    return `<math display="inline"><msup>${nodes[0]}${nodes[1]}</msup></math>`;
+  },
+
+  buildMathmlNode(nodes) {
+    return `<msup>${nodes[0]}${nodes[1]}</msup>`;
   },
 
   buildExpression(names) {

@@ -6,14 +6,12 @@ const AddOperator = {
   arity: 2,
   group: 'Arithmetic',
 
-  buildPreview(names) {
-    return `<math display="inline">
-      <mrow>
-        <mi>${names[0]}</mi>
-        <mo>+</mo>
-        <mi>${names[1]}</mi>
-      </mrow>
-    </math>`;
+  buildPreview(nodes) {
+    return `<math display="inline"><mrow>${nodes[0]}<mo>+</mo>${nodes[1]}</mrow></math>`;
+  },
+
+  buildMathmlNode(nodes) {
+    return `<mrow>${nodes[0]}<mo>+</mo>${nodes[1]}</mrow>`;
   },
 
   buildExpression(names) {

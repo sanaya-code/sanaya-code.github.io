@@ -3,10 +3,9 @@
 class AddItemPopupComponent {
 
   constructor() {
-    this.el         = null;
-    this.overlay    = null;
-    this.nameInput  = null;
-    this.typeSelect = null;
+    this.el        = null;
+    this.overlay   = null;
+    this.nameInput = null;
   }
 
   // ── build ─────────────────────────────────────────────────────────────────
@@ -27,26 +26,18 @@ class AddItemPopupComponent {
     const box = document.createElement('div');
     box.className = 'add-item-popup__box';
     box.innerHTML = `
-      <div class="add-item-popup__title">Add item to Atoms</div>
+      <div class="add-item-popup__title">Add Atom</div>
       <label class="add-item-popup__label">Name / symbol</label>
       <input class="add-item-popup__input" id="popup-name-input"
              type="text" placeholder="e.g. x₄, λ, 42" autocomplete="off" />
-      <label class="add-item-popup__label">Type</label>
-      <select class="add-item-popup__select" id="popup-type-select">
-        <option value="var">variable</option>
-        <option value="const">constant</option>
-        <option value="sym">symbol</option>
-      </select>
       <div class="add-item-popup__actions">
         <button class="add-item-popup__btn-cancel" id="popup-cancel-btn">Cancel</button>
         <button class="add-item-popup__btn-add"    id="popup-add-btn">Add</button>
       </div>
     `;
 
-    this.nameInput  = box.querySelector('#popup-name-input');
-    this.typeSelect = box.querySelector('#popup-type-select');
+    this.nameInput = box.querySelector('#popup-name-input');
 
-    // internal signals
     box.querySelector('#popup-cancel-btn')
       .addEventListener('click', () => this.emitCancel());
 
@@ -71,7 +62,7 @@ class AddItemPopupComponent {
   _handleSubmit() {
     const name = this.nameInput.value.trim();
     if (!name) { this.nameInput.focus(); return; }
-    this.emitSubmit(name, this.typeSelect.value);
+    this.emitSubmit(name);
   }
 
   // ── public API ────────────────────────────────────────────────────────────
@@ -86,16 +77,15 @@ class AddItemPopupComponent {
   }
 
   clearForm() {
-    this.nameInput.value  = '';
-    this.typeSelect.value = 'var';
+    this.nameInput.value = '';
   }
 
   // ── emit ──────────────────────────────────────────────────────────────────
 
-  emitSubmit(name, type) {
+  emitSubmit(name) {
     this.el.dispatchEvent(new CustomEvent('popup:submit', {
       bubbles: true,
-      detail: { name, type }
+      detail: { name }
     }));
   }
 

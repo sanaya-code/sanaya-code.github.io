@@ -3,14 +3,12 @@
 class OperatorFormController {
 
   constructor(mountEl) {
-    this.component    = new OperatorFormComponent();
-    this.mountEl      = mountEl;
-    this._operator    = null;
-    this._slots       = [];
-    this._activeSlot  = null;
+    this.component   = new OperatorFormComponent();
+    this.mountEl     = mountEl;
+    this._operator   = null;
+    this._slots      = [];
+    this._activeSlot = null;
   }
-
-  // ── setup ─────────────────────────────────────────────────────────────────
 
   mount() {
     this.component.createElement();
@@ -19,33 +17,26 @@ class OperatorFormController {
     this.component.showEmpty();
   }
 
-  // ── event binding ─────────────────────────────────────────────────────────
-
   bindEvents(onSlotClick, onSlotClear, onApply) {
     this.component.el.addEventListener('op-form:slot-click', (e) => onSlotClick(e.detail.index));
     this.component.el.addEventListener('op-form:slot-clear', (e) => onSlotClear(e.detail.index));
     this.component.el.addEventListener('op-form:apply',      ()  => onApply());
   }
 
-  // ── called by app / event handlers ───────────────────────────────────────
-
   reset(operator) {
     this._operator   = operator;
-    this._slots      = Array(operator.arity).fill(null).map(() => ({ value: null, src: null, active: false }));
+    this._slots      = Array(operator.arity).fill(null).map(() => ({ value: null, active: false }));
     this._activeSlot = null;
     this.component.setOperatorHeader(operator.sym, operator.name, operator.arity);
     this.component.renderSlots(this._slots);
     this.component.setApplyEnabled(false);
-    this.component.clearSaveName();
   }
 
-  fillSlot(index, item) {
+  fillSlot(index, node) {
     if (!this._slots[index]) return;
-    this._slots[index].value  = item;
-    this._slots[index].src    = item.src;
+    this._slots[index].value  = node;
     this._slots[index].active = false;
 
-    // auto-advance to next empty slot
     const next = this._slots.findIndex((s, i) => i > index && !s.value);
     this._activeSlot = next >= 0 ? next : null;
 
@@ -56,7 +47,6 @@ class OperatorFormController {
   clearSlot(index) {
     if (!this._slots[index]) return;
     this._slots[index].value  = null;
-    this._slots[index].src    = null;
     this._slots[index].active = true;
     this._activeSlot = index;
     this._rerenderSlots();
@@ -71,18 +61,22 @@ class OperatorFormController {
 
   updatePreview(slots) {
     if (!this._operator) return;
-    const names = slots.map(s => s && s.value ? s.value.name : '?');
+
+    const fragments = slots.map(s => {
+      if (!s || !s.value) return '<mi>?</mi>';
+      return s.value.toFragment();
+    });
+
     let html;
     if (this._operator.buildPreview) {
-      html = this._operator.buildPreview(names);
+      html = this._operator.buildPreview(fragments);
     } else {
-      // generic fallback
       if (this._operator.arity === 1) {
-        html = `<span>${this._operator.sym}( ${names[0]} )</span>`;
+        html = `<math display="inline"><mrow><mo>${this._operator.sym}</mo>${fragments[0]}</mrow></math>`;
       } else if (this._operator.arity === 2) {
-        html = `<span>${names[0]}  ${this._operator.sym}  ${names[1]}</span>`;
+        html = `<math display="inline"><mrow>${fragments[0]}<mo>${this._operator.sym}</mo>${fragments[1]}</mrow></math>`;
       } else {
-        html = `<span>${this._operator.sym}( ${names.join(',  ')} )</span>`;
+        html = `<math display="inline"><mrow><mo>${this._operator.sym}</mo><mo>(</mo>${fragments.join('<mo>,</mo>')}<mo>)</mo></mrow></math>`;
       }
     }
     this.component.updatePreview(html);
@@ -92,10 +86,6 @@ class OperatorFormController {
   getActiveSlot() { return this._activeSlot; }
 
   showFeedback(msg) { this.component.showFeedback(msg); }
-  getSaveName()     { return this.component.getSaveName(); }
-  clearSaveName()   { this.component.clearSaveName(); }
-
-  // ── private ───────────────────────────────────────────────────────────────
 
   _rerenderSlots() {
     this._slots.forEach((s, i) => s.active = i === this._activeSlot);

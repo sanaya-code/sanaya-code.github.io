@@ -10,10 +10,15 @@ const StateController = {
     return state.atoms;
   },
 
-  addAtom(name, type) {
-    const id = 'a' + Date.now();
-    state.atoms.push({ id, name, type });
+  addAtom(mathmlNode) {
+    const id   = 'a' + Date.now();
+    const node = new Node(id, mathmlNode);
+    state.atoms.push(node);
     return id;
+  },
+
+  getAtomById(id) {
+    return state.atoms.find(a => a.id === id) || null;
   },
 
   // ── expressions ──────────────────────────────────────────────────────────
@@ -22,10 +27,15 @@ const StateController = {
     return state.expressions;
   },
 
-  addExpression(name, expr, operands) {
-    const id = 'e' + Date.now();
-    state.expressions.push({ id, name, expr, operands });
+  addExpression(mathmlNode) {
+    const id   = 'e' + Date.now();
+    const node = new Node(id, mathmlNode);
+    state.expressions.push(node);
     return id;
+  },
+
+  getExpressionById(id) {
+    return state.expressions.find(e => e.id === id) || null;
   },
 
   removeExpression(id) {
@@ -75,8 +85,8 @@ const StateController = {
     return state.slots;
   },
 
-  setSlot(index, item) {
-    state.slots[index] = item;
+  setSlot(index, node) {
+    state.slots[index] = node;
   },
 
   clearSlot(index) {

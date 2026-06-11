@@ -14,6 +14,7 @@ class MainController {
 
     // ── load initial data ─────────────────────────────
     this.ui.atomsPanel.load(StateController.getAtoms());
+    this.ui.workingSetPanel.load(StateController.getExpressions());
 
     // ── bind event handlers ───────────────────────────
     this.ui.atomsPanel.bindEvents(
@@ -39,6 +40,11 @@ class MainController {
       this.events.operatorForm.onSlotClick,
       this.events.operatorForm.onSlotClear,
       this.events.operatorForm.onApply
+    );
+
+    this.ui.workingSetPanel.bindEvents(
+      this.events.workingSetPanel.onPillClick,
+      this.events.workingSetPanel.onDeleteClick
     );
 
     console.log('[main] ready');

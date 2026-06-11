@@ -53,22 +53,16 @@ class OperatorFormComponent {
 
       <div class="op-form__section-label">Save to Working Set</div>
       <div class="op-form__save-row">
-        <input class="op-form__save-input" id="op-form-save-input"
-               type="text" placeholder="Name this expression…" />
         <button class="op-form__apply-btn" id="op-form-apply-btn">Apply</button>
       </div>
       <div class="op-form__feedback" id="op-form-feedback"></div>
     `;
 
-    this._slotsEl   = this._formBodyEl.querySelector('#op-form-slots');
+    this._slotsEl  = this._formBodyEl.querySelector('#op-form-slots');
     this._previewEl = this._formBodyEl.querySelector('#op-form-preview');
-    this._saveInput = this._formBodyEl.querySelector('#op-form-save-input');
     this._applyBtn  = this._formBodyEl.querySelector('#op-form-apply-btn');
 
     this._applyBtn.addEventListener('click', () => this.emitApply());
-    this._saveInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') this.emitApply();
-    });
 
     this.el.appendChild(this._emptyEl);
     this.el.appendChild(this._formBodyEl);
@@ -89,53 +83,47 @@ class OperatorFormComponent {
     slots.forEach((slot, i) => {
       const el = document.createElement('div');
       el.className = 'op-form__slot'
-        + (slot.active  ? ' op-form__slot--active'   : '')
-        + (slot.value && slot.src === 'a' ? ' op-form__slot--filled-a' : '')
-        + (slot.value && slot.src === 'b' ? ' op-form__slot--filled-b' : '');
+        + (slot.active ? ' op-form__slot--active' : '')
+        + (slot.value  ? ' op-form__slot--filled'  : '');
 
-      el.innerHTML = `
-        <span class="op-form__slot-num">${i + 1}</span>
-        <span class="op-form__slot-val">${slot.value ? slot.value.name : 'empty'}</span>
-        <span class="op-form__slot-hint">${slot.value ? 'List ' + (slot.src === 'a' ? 'A' : 'B') : 'click to activate'}</span>
-        ${slot.value ? `<span class="op-form__slot-clear" data-index="${i}">✕</span>` : ''}
-      `;
+      const valEl = document.createElement('span');
+      valEl.className = 'op-form__slot-val';
+      if (slot.value) {
+        valEl.innerHTML = slot.value.getPreview();
+      } else {
+        valEl.textContent = 'empty';
+      }
+
+      const hintEl = document.createElement('span');
+      hintEl.className   = 'op-form__slot-hint';
+      hintEl.textContent = slot.value ? 'filled' : 'click to activate';
+
+      el.appendChild(document.createElement('span')).className = 'op-form__slot-num';
+      el.querySelector('.op-form__slot-num').textContent = i + 1;
+      el.appendChild(valEl);
+      el.appendChild(hintEl);
+
+      if (slot.value) {
+        const clearBtn = document.createElement('span');
+        clearBtn.className   = 'op-form__slot-clear';
+        clearBtn.textContent = '✕';
+        clearBtn.addEventListener('click', () => this.emitSlotClear(i));
+        el.appendChild(clearBtn);
+      }
 
       el.addEventListener('click', (e) => {
         if (e.target.classList.contains('op-form__slot-clear')) return;
         this.emitSlotClick(i);
       });
 
-      const clearBtn = el.querySelector('.op-form__slot-clear');
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => this.emitSlotClear(i));
-      }
-
       this._slotsEl.appendChild(el);
     });
-  }
-
-  setSlotFilled(index, item, src) {
-    const slots = this._slotsEl.querySelectorAll('.op-form__slot');
-    if (!slots[index]) return;
-    const s = slots[index];
-    s.className = 'op-form__slot ' + (src === 'a' ? 'op-form__slot--filled-a' : 'op-form__slot--filled-b');
-    s.querySelector('.op-form__slot-val').textContent  = item.name;
-    s.querySelector('.op-form__slot-hint').textContent = 'List ' + (src === 'a' ? 'A' : 'B');
   }
 
   setSlotActive(index) {
     this._slotsEl.querySelectorAll('.op-form__slot').forEach((s, i) => {
       s.classList.toggle('op-form__slot--active', i === index);
     });
-  }
-
-  setSlotEmpty(index) {
-    const slots = this._slotsEl.querySelectorAll('.op-form__slot');
-    if (!slots[index]) return;
-    const s = slots[index];
-    s.className = 'op-form__slot';
-    s.querySelector('.op-form__slot-val').textContent  = 'empty';
-    s.querySelector('.op-form__slot-hint').textContent = 'click to activate';
   }
 
   updatePreview(exprHtml) {
@@ -151,14 +139,6 @@ class OperatorFormComponent {
 
   setApplyEnabled(enabled) {
     this._applyBtn.disabled = !enabled;
-  }
-
-  getSaveName() {
-    return this._saveInput.value.trim();
-  }
-
-  clearSaveName() {
-    this._saveInput.value = '';
   }
 
   showFeedback(msg) {
