@@ -2,6 +2,10 @@
 // Read and write methods for application state.
 // No UI logic. No DOM access. No business logic.
 
+// monotonic counter — guarantees unique ids even within same millisecond
+let _idCounter = Date.now();
+const _nextId = (prefix) => `${prefix}${++_idCounter}`;
+
 const StateController = {
 
   // ── atoms ────────────────────────────────────────────────────────────────
@@ -11,7 +15,7 @@ const StateController = {
   },
 
   addAtom(mathmlNode) {
-    const id   = 'a' + Date.now();
+    const id   = _nextId('a');
     const node = new Node(id, mathmlNode);
     state.atoms.push(node);
     return id;
@@ -28,7 +32,7 @@ const StateController = {
   },
 
   addExpression(mathmlNode) {
-    const id   = 'e' + Date.now();
+    const id   = _nextId('e');
     const node = new Node(id, mathmlNode);
     state.expressions.push(node);
     return id;

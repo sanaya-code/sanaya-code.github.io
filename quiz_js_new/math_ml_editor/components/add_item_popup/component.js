@@ -30,9 +30,23 @@ class AddItemPopupComponent {
       <label class="add-item-popup__label">Name / symbol</label>
       <input class="add-item-popup__input" id="popup-name-input"
              type="text" placeholder="e.g. x₄, λ, 42" autocomplete="off" />
+      <label class="add-item-popup__label">Type</label>
+      <div class="add-item-popup__radio-group">
+        <label class="add-item-popup__radio-label">
+          <input type="radio" name="atom-type" value="var" checked /> variable
+        </label>
+        <label class="add-item-popup__radio-label">
+          <input type="radio" name="atom-type" value="const" /> constant
+        </label>
+        <label class="add-item-popup__radio-label">
+          <input type="radio" name="atom-type" value="sym" /> symbol
+        </label>
+      </div>
+      <div class="add-item-popup__hint">Separate multiple items with commas to add all at once</div>
       <div class="add-item-popup__actions">
-        <button class="add-item-popup__btn-cancel" id="popup-cancel-btn">Cancel</button>
-        <button class="add-item-popup__btn-add"    id="popup-add-btn">Add</button>
+        <button class="add-item-popup__btn-cancel"  id="popup-cancel-btn">Cancel</button>
+        <button class="add-item-popup__btn-add-all" id="popup-add-all-btn">Add All</button>
+        <button class="add-item-popup__btn-add"     id="popup-add-btn">Add</button>
       </div>
     `;
 
@@ -43,6 +57,9 @@ class AddItemPopupComponent {
 
     box.querySelector('#popup-add-btn')
       .addEventListener('click', () => this._handleSubmit());
+
+    box.querySelector('#popup-add-all-btn')
+      .addEventListener('click', () => this._handleSubmitAll());
 
     this.nameInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter')  this._handleSubmit();
@@ -59,10 +76,21 @@ class AddItemPopupComponent {
 
   // ── internal ──────────────────────────────────────────────────────────────
 
+  _getSelectedType() {
+    const checked = this.el.querySelector('input[name="atom-type"]:checked');
+    return checked ? checked.value : 'var';
+  }
+
   _handleSubmit() {
     const name = this.nameInput.value.trim();
     if (!name) { this.nameInput.focus(); return; }
-    this.emitSubmit(name);
+    this.emitSubmit(name, this._getSelectedType());
+  }
+
+  _handleSubmitAll() {
+    const raw = this.nameInput.value.trim();
+    if (!raw) { this.nameInput.focus(); return; }
+    this.emitSubmitAll(raw, this._getSelectedType());
   }
 
   // ── public API ────────────────────────────────────────────────────────────
@@ -78,14 +106,23 @@ class AddItemPopupComponent {
 
   clearForm() {
     this.nameInput.value = '';
+    const defaultRadio = this.el.querySelector('input[name="atom-type"][value="var"]');
+    if (defaultRadio) defaultRadio.checked = true;
   }
 
   // ── emit ──────────────────────────────────────────────────────────────────
 
-  emitSubmit(name) {
+  emitSubmit(name, type) {
     this.el.dispatchEvent(new CustomEvent('popup:submit', {
       bubbles: true,
-      detail: { name }
+      detail: { name, type }
+    }));
+  }
+
+  emitSubmitAll(raw, type) {
+    this.el.dispatchEvent(new CustomEvent('popup:submit-all', {
+      bubbles: true,
+      detail: { raw, type }
     }));
   }
 
