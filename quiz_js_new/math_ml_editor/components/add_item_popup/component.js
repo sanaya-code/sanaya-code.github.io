@@ -42,11 +42,10 @@ class AddItemPopupComponent {
           <input type="radio" name="atom-type" value="sym" /> symbol
         </label>
       </div>
-      <div class="add-item-popup__hint">Separate multiple items with commas to add all at once</div>
+      <div class="add-item-popup__hint">Separate multiple items with commas to add several at once</div>
       <div class="add-item-popup__actions">
         <button class="add-item-popup__btn-cancel"  id="popup-cancel-btn">Cancel</button>
-        <button class="add-item-popup__btn-add-all" id="popup-add-all-btn">Add All</button>
-        <button class="add-item-popup__btn-add"     id="popup-add-btn">Add</button>
+        <button class="add-item-popup__btn-add-all" id="popup-add-all-btn">Add</button>
       </div>
     `;
 
@@ -55,14 +54,11 @@ class AddItemPopupComponent {
     box.querySelector('#popup-cancel-btn')
       .addEventListener('click', () => this.emitCancel());
 
-    box.querySelector('#popup-add-btn')
-      .addEventListener('click', () => this._handleSubmit());
-
     box.querySelector('#popup-add-all-btn')
       .addEventListener('click', () => this._handleSubmitAll());
 
     this.nameInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter')  this._handleSubmit();
+      if (e.key === 'Enter')  this._handleSubmitAll();
       if (e.key === 'Escape') this.emitCancel();
     });
 
@@ -79,12 +75,6 @@ class AddItemPopupComponent {
   _getSelectedType() {
     const checked = this.el.querySelector('input[name="atom-type"]:checked');
     return checked ? checked.value : 'var';
-  }
-
-  _handleSubmit() {
-    const name = this.nameInput.value.trim();
-    if (!name) { this.nameInput.focus(); return; }
-    this.emitSubmit(name, this._getSelectedType());
   }
 
   _handleSubmitAll() {
@@ -111,13 +101,6 @@ class AddItemPopupComponent {
   }
 
   // ── emit ──────────────────────────────────────────────────────────────────
-
-  emitSubmit(name, type) {
-    this.el.dispatchEvent(new CustomEvent('popup:submit', {
-      bubbles: true,
-      detail: { name, type }
-    }));
-  }
 
   emitSubmitAll(raw, type) {
     this.el.dispatchEvent(new CustomEvent('popup:submit-all', {

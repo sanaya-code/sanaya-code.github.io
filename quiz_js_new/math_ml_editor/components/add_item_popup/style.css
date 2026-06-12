@@ -109,21 +109,6 @@
   font-size: 14px;
   padding: 6px 15px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--accent-2);
-  background: var(--accent-light);
-  color: var(--accent-2);
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.add-item-popup__btn-add-all:hover {
-  background: var(--bg-panel);
-}
-
-.add-item-popup__btn-add {
-  font-size: 14px;
-  padding: 6px 15px;
-  border-radius: var(--radius-sm);
   border: 1px solid var(--accent);
   background: var(--accent);
   color: #fff;
@@ -131,6 +116,6 @@
   font-weight: 500;
 }
 
-.add-item-popup__btn-add:hover {
+.add-item-popup__btn-add-all:hover {
   background: var(--accent-hover);
 }

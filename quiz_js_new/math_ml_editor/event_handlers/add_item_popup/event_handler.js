@@ -7,22 +7,12 @@ class AddItemPopupEventHandler {
     this._atomsPanel = atomsPanelController;
     this._popup      = addItemPopupController;
 
-    this.onSubmit    = this.onSubmit.bind(this);
     this.onSubmitAll = this.onSubmitAll.bind(this);
     this.onCancel    = this.onCancel.bind(this);
   }
 
   _typeToTag(type) {
     return type === 'const' ? 'mn' : 'mi';
-  }
-
-  onSubmit(name, type) {
-    const tag        = this._typeToTag(type);
-    const mathmlNode = `<math display="inline"><${tag}>${name}</${tag}></math>`;
-    const id         = this._state.addAtom(mathmlNode);
-    this._atomsPanel.load(this._state.getAtoms());
-    this._atomsPanel.activateItem(id);
-    this._popup.hide();
   }
 
   onSubmitAll(raw, type) {

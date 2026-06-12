@@ -24,7 +24,6 @@ class MainController {
     );
 
     this.ui.addItemPopup.bindEvents(
-      this.events.addItemPopup.onSubmit,
       this.events.addItemPopup.onSubmitAll,
       this.events.addItemPopup.onCancel
     );
