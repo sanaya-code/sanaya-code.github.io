@@ -23,7 +23,11 @@ math_builder/
 │   ├── abs_operator/                       # operator.js
 │   ├── sin_operator/                       # operator.js
 │   ├── cos_operator/                       # operator.js
-│   └── log_operator/                       # operator.js
+│   ├── log_operator/                       # operator.js
+|   └── bracket_operator/
+|       ├── round                           # operator.js   
+|       ├── square                          # operator.js  
+|       └── curly                           # operator.js   
 │
 ├── components/
 │   │

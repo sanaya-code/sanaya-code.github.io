@@ -15,14 +15,17 @@ const OPERATOR_GROUPS = [
       sqrtOperator,
       negateOperator,
       absOperator,
-      concatOperator
+      concatOperator,
+      roundBracketOperator,
+      squareBracketOperator,
+      curlyBracketOperator
     ]
   },
   {
     group: 'Trigonometric',
     ops: [
       sinOperator,
-      cosOperator    
+      cosOperator
     ]
   }
 ];
