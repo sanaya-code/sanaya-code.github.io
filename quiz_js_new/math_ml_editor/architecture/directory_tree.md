@@ -13,6 +13,7 @@ math_builder/
 ├── mathml_operators/                       # operator.js, operator_registry.js
 │   │
 │   ├── add_operator/                       # operator.js
+│   ├── concat_operator/                    # operator.js
 │   ├── subtract_operator/                  # operator.js
 │   ├── multiply_operator/                  # operator.js
 │   ├── divide_operator/                    # operator.js
