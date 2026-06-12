@@ -6,9 +6,9 @@ math_builder/
 ├── index.html
 ├── index.css
 ├── main_controller.js
-├── OPERATOR_RULES.md
 │
-├── state/                                  # node.js, sentence_token.js, state.js, state_controller.js
+├── state/                                  # node.js, sentence_token.js
+|                                           # state.js, state_controller.js
 │
 ├── mathml_operators/                       # operator.js, operator_registry.js
 │   │
@@ -26,7 +26,7 @@ math_builder/
 │
 ├── components/
 │   │
-│   ├── ui_composer/                        # ui_composer.js
+│   ├── ui_composer.js
 │   │
 │   ├── items_panel/                        # component.js, controller.js, style.css
 │   ├── atoms_panel/                        # component.js, controller.js, style.css
@@ -41,7 +41,7 @@ math_builder/
 │
 └── event_handlers/
     │
-    ├── event_composer/                     # event_composer.js
+    ├── event_composer.js
     │
     ├── items_panel/                        # event_handler.js
     ├── atoms_panel/                        # event_handler.js
