@@ -126,7 +126,12 @@
 
 .op-browser__op-pill:hover {
   border-color: var(--accent);
-  background: var(--accent-light);
+  color: var(--accent-deep);
+}
+
+.op-browser__op-pill:hover .op-browser__op-sym,
+.op-browser__op-pill:hover .op-browser__op-name {
+  color: var(--accent-deep);
 }
 
 .op-browser__op-pill--active {

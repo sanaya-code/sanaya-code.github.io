@@ -76,6 +76,10 @@
   border-color: var(--accent-hover);
 }
 
+.working-set-panel__pill-delete:hover {
+  color: var(--danger);
+}
+
 .working-set-panel__pill--selected {
   border-color: var(--accent-hover);
   background: var(--bg-card);

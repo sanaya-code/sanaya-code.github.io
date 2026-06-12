@@ -53,7 +53,6 @@
 }
 
 .atoms-panel__add-btn:hover {
-  background: var(--accent-light);
   border-color: var(--accent);
   color: var(--accent-deep);
 }
@@ -85,7 +84,6 @@
 
 .atoms-panel__pill:hover {
   border-color: var(--accent);
-  background: var(--accent-light);
   color: var(--accent-hover);
 }
 

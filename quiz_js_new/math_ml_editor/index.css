@@ -95,3 +95,43 @@ html, body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Shared interactive feedback ──────────────────────── */
+/* click/press feedback via border + scale, never background */
+
+.atoms-panel__pill,
+.working-set-panel__pill,
+.atoms-panel__add-btn,
+.op-browser__cat-card,
+.op-browser__op-pill,
+.op-form__slot,
+.op-form__apply-btn,
+.op-form__slot-clear,
+.add-item-popup__btn-cancel,
+.add-item-popup__btn-add,
+.add-item-popup__btn-add-all,
+.sentence-builder__btn,
+.sentence-builder__add-btn,
+.sentence-builder__copy-btn,
+.sentence-builder__pill-delete,
+.right-panel__tab {
+  transition: border-color 0.1s, color 0.1s, transform 0.06s, box-shadow 0.1s;
+}
+
+.atoms-panel__pill:active,
+.working-set-panel__pill:active,
+.atoms-panel__add-btn:active,
+.op-browser__cat-card:active,
+.op-browser__op-pill:active,
+.op-form__slot:active,
+.op-form__apply-btn:not(:disabled):active,
+.add-item-popup__btn-cancel:active,
+.add-item-popup__btn-add:active,
+.add-item-popup__btn-add-all:active,
+.sentence-builder__btn:active,
+.sentence-builder__add-btn:active,
+.sentence-builder__copy-btn:active,
+.right-panel__tab:active {
+  border-color: var(--accent-hover);
+  transform: scale(0.97);
+}

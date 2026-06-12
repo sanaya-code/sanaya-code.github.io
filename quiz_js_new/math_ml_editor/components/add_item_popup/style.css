@@ -101,7 +101,8 @@
 }
 
 .add-item-popup__btn-cancel:hover {
-  background: var(--bg-panel);
+  border-color: var(--text-muted);
+  color: var(--text-primary);
 }
 
 .add-item-popup__btn-add-all {

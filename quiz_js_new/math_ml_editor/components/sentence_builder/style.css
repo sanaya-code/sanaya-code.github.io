@@ -39,7 +39,6 @@
 }
 
 .sentence-builder__btn:hover {
-  background: var(--accent-light);
   border-color: var(--accent);
   color: var(--accent-deep);
 }
@@ -206,7 +205,6 @@
 }
 
 .sentence-builder__copy-btn:hover {
-  background: var(--accent-light);
   border-color: var(--accent);
   color: var(--accent-deep);
 }
