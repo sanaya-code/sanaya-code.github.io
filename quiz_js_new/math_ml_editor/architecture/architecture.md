@@ -2,21 +2,6 @@
 
 ---
 
-
-
-
----
-
-| Component Folder     | Component Methods                                                                                                                                                                               | Controller Methods                                                                                                                                                      |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `atoms_panel`        | `createElement()` `buildLayout()` `renderPills(items)` `highlightPill(id)` `clearHighlight()` `emitAddClick()` `emitPillClick(id)`                                                              | `onPillClick(id)` `onAddClick()` `load(items)` `highlightSelected(id)` `clearSelection()`                                                                               |
-| `working_set_panel`  | `createElement()` `buildLayout()` `renderPills(items)` `highlightPill(id)` `clearHighlight()` `showEmpty()` `emitPillClick(id)` `emitDeleteClick(id)`                                           | `onPillClick(id)` `onDeleteClick(id)` `load(items)` `highlightSelected(id)` `clearSelection()` `append(item)` `remove(id)`                                              |
-| `add_item_popup`     | `createElement()` `buildLayout()` `open()` `close()` `clearForm()` `emitSubmit(name, type)` `emitCancel()`                                                                                      | `onSubmit(name, type)` `onCancel()` `show()` `hide()`                                                                                                                   |
-| `operator_accordion` | `createElement()` `buildLayout()` `renderGroups(groups)` `highlightOperator(name)` `filterItems(query)` `emitOperatorClick(op)`                                                                 | `onOperatorClick(op)` `onSearchInput(query)` `load(groups)` `highlightSelected(op)` `clearSelection()`                                                                  |
-| `tab_panel`          | `createElement()` `buildLayout()` `setActiveTab(tabId)` `emitTabClick(tabId)`                                                                                                                   | `onTabClick(tabId)` `switchToTab(tabId)`                                                                                                                                |
-| `operator_form`      | `createElement()` `buildLayout()` `renderSlots(slots)` `setSlotFilled(index,item,src)` `setSlotActive(index)` `setSlotEmpty(index)` `emitSlotClick(index)` `emitSlotClear(index)` `emitApply()` | `onSlotClick(index)` `onSlotClear(index)` `onApply()` `fillSlot(index,item)` `clearSlot(index)` `setActiveSlot(index)` `reset(operator)` `getSlots()` `getActiveSlot()` |
-| `right_panel`        | `createElement()` `buildLayout()` `showOperatorsView()` `showFormView()`                                                                                                                        | `showOperatorsView()` `showFormView()`                                                                                                                                  |
-
 ## COMPONENT CONTROLLER RULES
 
 * One controller per component.
@@ -27,6 +12,7 @@
 * Controllers act as bridge between application and their component.
 * Controllers may manage temporary UI state for their own component only.
 * Controllers shoud have a method that takes one or multiple methods as arguments and bind those methods to the components events.
+
 
 ## COMPONENT RULES
 
@@ -50,6 +36,7 @@
 * Event handlers contain application workflow logic.
 * Components never communicate directly.
 * Controllers never communicate directly.
+
 
 ## MAIN CONTROLLER RULES
 
