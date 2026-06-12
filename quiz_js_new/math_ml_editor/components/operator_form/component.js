@@ -52,21 +52,25 @@ class OperatorFormComponent {
           <div class="op-form__op-sub"  id="op-form-sub"></div>
         </div>
       </div>
-      <div class="op-form__section-label">Operand slots</div>
-      <div class="op-form__hint">Click a slot, then click a pill from Atoms or Working Set</div>
-      <div class="op-form__slots"   id="op-form-slots"></div>
-      <div class="op-form__section-label">Preview</div>
-      <div class="op-form__preview" id="op-form-preview">—</div>
-      <div class="op-form__section-label">Save to Working Set</div>
+      <div class="op-form__content">
+        <div class="op-form__section-label">Operand slots</div>
+        <div class="op-form__hint">Click a slot, then click a pill from Atoms or Working Set</div>
+        <div class="op-form__slots"   id="op-form-slots"></div>
+        <div class="op-form__section-label">Preview</div>
+        <div class="op-form__preview" id="op-form-preview">—</div>
+        <div class="op-form__section-label">Save to Working Set</div>
+      </div>
     `;
 
     this._slotsEl   = el.querySelector('#op-form-slots');
     this._previewEl = el.querySelector('#op-form-preview');
+    this._contentEl = el.querySelector('.op-form__content');
 
     const applyRow      = this._buildApplyRow();
     this._applyBtn      = applyRow.querySelector('.op-form__apply-btn');
     this._feedbackEl    = applyRow.querySelector('.op-form__feedback');
-    el.appendChild(applyRow);
+    this._contentEl.appendChild(applyRow);
+
 
     return el;
   }
@@ -95,14 +99,14 @@ class OperatorFormComponent {
 
     const labelEl = document.createElement('span');
     labelEl.className = 'op-form__slot-label';
-    labelEl.textContent = slotLabels[index] ;
+    labelEl.textContent = slotLabels[index] || `operand ${index + 1}`;
 
     const valEl = document.createElement('span');
     valEl.className = 'op-form__slot-val';
     if (slot.value) {
       valEl.innerHTML = slot.value.getPreview();
     } else {
-      valEl.textContent = '';
+      valEl.textContent = 'empty';
     }
 
     const hintEl = document.createElement('span');

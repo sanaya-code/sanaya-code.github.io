@@ -9,32 +9,34 @@
 
 .right-panel__tabs {
   display: flex;
-  border-bottom: 1.5px solid var(--border);
-  background: var(--bg-panel);
+  align-items: stretch;
+  height: var(--header-h);
+  border-bottom: 1px solid var(--header-border);
+  background: var(--header-bg);
   flex-shrink: 0;
 }
 
 .right-panel__tab {
-  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
   font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-weight: 600;
+  color: var(--header-muted);
   background: none;
   border: none;
   border-bottom: 2.5px solid transparent;
   cursor: pointer;
   user-select: none;
-  transition: color 0.1s, background 0.1s;
 }
 
 .right-panel__tab:hover {
-  color: var(--accent-deep);
+  color: var(--header-text);
 }
 
 .right-panel__tab--active {
-  color: var(--accent-deep);
-  border-bottom-color: var(--accent);
-  background: var(--bg-card);
+  color: var(--header-text);
+  border-bottom-color: #fff;
 }
 
 .right-panel__pane {

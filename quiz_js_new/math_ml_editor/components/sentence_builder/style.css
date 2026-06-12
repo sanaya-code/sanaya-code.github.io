@@ -10,13 +10,13 @@
 
 /* controls */
 .sentence-builder__controls {
-  padding: 14px 16px;
-  border-bottom: 1.5px solid var(--border);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--header-border);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: var(--bg-panel);
+  background: var(--header-bg);
 }
 
 .sentence-builder__btn-row {
@@ -28,25 +28,23 @@
 .sentence-builder__btn {
   padding: 6px 12px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.3);
+  background: var(--header-tint);
   font-size: 13px;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--header-text);
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.1s, border-color 0.1s, color 0.1s;
 }
 
 .sentence-builder__btn:hover {
-  border-color: var(--accent);
-  color: var(--accent-deep);
+  background: var(--header-tint-hover);
 }
 
 .sentence-builder__btn--active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent-deep);
 }
 
 .sentence-builder__text-row {
@@ -58,31 +56,36 @@
   flex: 1;
   font-size: 14px;
   padding: 7px 11px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: var(--radius-sm);
-  background: var(--bg-input);
-  color: var(--text-primary);
+  background: var(--header-tint);
+  color: var(--header-text);
   outline: none;
 }
 
+.sentence-builder__text-input::placeholder {
+  color: var(--header-muted);
+}
+
 .sentence-builder__text-input:focus {
-  border-color: var(--border-focus);
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
 }
 
 .sentence-builder__add-btn {
   padding: 7px 14px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--accent);
-  background: var(--accent);
+  border: 1px solid #fff;
+  background: #fff;
   font-size: 14px;
-  color: #fff;
+  color: var(--accent-deep);
   cursor: pointer;
   white-space: nowrap;
   font-weight: 500;
 }
 
 .sentence-builder__add-btn:hover {
-  background: var(--accent-hover);
+  background: var(--accent-light);
 }
 
 /* pill strip */
@@ -91,11 +94,11 @@
   flex-wrap: wrap;
   gap: 7px;
   padding: 12px 16px;
-  border-bottom: 1.5px solid var(--border);
+  border-bottom: 1px solid var(--border);
   min-height: 52px;
   align-content: flex-start;
   flex-shrink: 0;
-  background: var(--bg-panel);
+  background: var(--bg);
 }
 
 .sentence-builder__strip-empty {
@@ -170,7 +173,7 @@
   flex: 1;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--bg-panel);
+  background: var(--bg);
   padding: 12px 14px;
   font-size: 17px;
   overflow-y: auto;
@@ -201,7 +204,6 @@
   font-weight: 500;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background 0.1s, border-color 0.1s, color 0.1s;
 }
 
 .sentence-builder__copy-btn:hover {
