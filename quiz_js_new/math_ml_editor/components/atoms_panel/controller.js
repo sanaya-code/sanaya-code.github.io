@@ -17,9 +17,12 @@ class AtomsPanelController {
 
   // ── event binding ─────────────────────────────────────────────────────────
 
-  bindEvents(onPillClick, onAddClick) {
+  bindEvents(onPillClick) {
     this.component.el.addEventListener('atoms:pill-click', (e) => onPillClick(e.detail.id));
-    this.component.el.addEventListener('atoms:add-click',  ()  => onAddClick());
+  }
+
+  bindCountChange(onCountChange) {
+    this.component.el.addEventListener('atoms:count-change', (e) => onCountChange(e.detail.count));
   }
 
   // ── called by app / event handlers ───────────────────────────────────────
@@ -38,16 +41,6 @@ class AtomsPanelController {
 
   clearSelection() {
     this.component.clearHighlight();
-  }
-
-  // ── ui-level response to events ───────────────────────────────────────────
-
-  onPillClick(id) {
-    this.component.highlightPill(id);
-  }
-
-  onAddClick() {
-    // nothing at UI level — event handler decides what to open
   }
 
 }

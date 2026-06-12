@@ -68,17 +68,9 @@ html, body {
   overflow: hidden;
 }
 
-#atoms-panel-mount {
-  border-bottom: 1px solid var(--border);
-  min-height: 160px;
-  max-height: 220px;
+#items-panel-mount {
   overflow: hidden;
-  background: var(--bg);
-}
-
-#working-set-panel-mount {
-  overflow: hidden;
-  background: var(--bg);
+  height: 100%;
 }
 
 /* RIGHT SIDE */
@@ -115,7 +107,7 @@ html, body {
 
 .atoms-panel__pill,
 .working-set-panel__pill,
-.atoms-panel__add-btn,
+.items-panel__add-btn,
 .op-browser__cat-card,
 .op-browser__op-pill,
 .op-form__slot,
@@ -146,7 +138,7 @@ html, body {
   transform: scale(0.97);
 }
 
-.atoms-panel__add-btn:active,
+.items-panel__add-btn:active,
 .op-browser__cat-card:active,
 .sentence-builder__btn:active,
 .sentence-builder__copy-btn:active,

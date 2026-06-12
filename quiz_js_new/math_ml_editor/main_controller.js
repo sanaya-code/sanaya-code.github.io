@@ -3,23 +3,24 @@
 class MainController {
 
   constructor() {
-    this.ui     = new UIComposer();
+    this.ui = new UIComposer();
+    this.ui.mountAll();
     this.events = new EventComposer(this.ui, StateController);
   }
 
   init() {
-
-    // ── mount all components ──────────────────────────
-    this.ui.mountAll();
 
     // ── load initial data ─────────────────────────────
     this.ui.atomsPanel.load(StateController.getAtoms());
     this.ui.workingSetPanel.load(StateController.getExpressions());
 
     // ── bind event handlers ───────────────────────────
+    this.ui.itemsPanel.bindEvents(
+      this.events.itemsPanel.onAddClick
+    );
+
     this.ui.atomsPanel.bindEvents(
-      this.events.atomsPanel.onPillClick,
-      this.events.atomsPanel.onAddClick
+      this.events.atomsPanel.onPillClick
     );
 
     this.ui.addItemPopup.bindEvents(

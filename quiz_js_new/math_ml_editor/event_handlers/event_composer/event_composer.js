@@ -10,10 +10,14 @@ class EventComposer {
       ui.sentenceBuilder
     );
 
+    this.itemsPanel = new ItemsPanelEventHandler(
+      stateController,
+      ui.addItemPopup
+    );
+
     this.atomsPanel = new AtomsPanelEventHandler(
       stateController,
       ui.atomsPanel,
-      ui.addItemPopup,
       ui.operatorForm,
       this.sentenceBuilder
     );

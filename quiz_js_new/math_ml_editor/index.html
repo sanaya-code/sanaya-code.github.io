@@ -8,6 +8,7 @@
 
   <!-- component styles -->
   <link rel="stylesheet" href="components/atoms_panel/style.css" />
+  <link rel="stylesheet" href="components/items_panel/style.css" />
   <link rel="stylesheet" href="components/add_item_popup/style.css" />
   <link rel="stylesheet" href="components/operator_accordion/style.css" />
   <link rel="stylesheet" href="components/operator_browser/style.css" />
@@ -20,8 +21,7 @@
 
   <div id="app">
     <div id="left-panel">
-      <div id="atoms-panel-mount"></div>
-      <div id="working-set-panel-mount"></div>
+      <div id="items-panel-mount"></div>
     </div>
     <div id="right-panel-mount"></div>
   </div>
@@ -64,6 +64,8 @@
   <script src="components/operator_form/controller.js"></script>
   <script src="components/working_set_panel/component.js"></script>
   <script src="components/working_set_panel/controller.js"></script>
+  <script src="components/items_panel/component.js"></script>
+  <script src="components/items_panel/controller.js"></script>
   <script src="components/sentence_builder/component.js"></script>
   <script src="components/sentence_builder/controller.js"></script>
 
@@ -71,6 +73,7 @@
   <script src="components/ui_composer/ui_composer.js"></script>
 
   <!-- event handlers -->
+  <script src="event_handlers/items_panel/event_handler.js"></script>
   <script src="event_handlers/atoms_panel/event_handler.js"></script>
   <script src="event_handlers/add_item_popup/event_handler.js"></script>
   <script src="event_handlers/operator_accordion/event_handler.js"></script>

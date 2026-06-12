@@ -1,4 +1,6 @@
 // components/working_set_panel/component.js
+// Dumb renderer. Renders pills + empty state into its root element, emits events.
+// No header, no background — mounted inside items_panel.
 
 class WorkingSetPanelComponent {
 
@@ -10,21 +12,12 @@ class WorkingSetPanelComponent {
 
   createElement() {
     this.el = document.createElement('div');
-    this.el.className = 'working-set-panel';
+    this.el.className = 'working-set-panel__wrap';
     return this.el;
   }
 
   buildLayout() {
     this.el.innerHTML = '';
-
-    const header = document.createElement('div');
-    header.className = 'working-set-panel__header';
-    header.innerHTML = `
-      <span class="working-set-panel__title">
-        <span class="working-set-panel__title-text">Working Set</span>
-        <span class="working-set-panel__count" id="ws-count">0</span>
-      </span>
-    `;
 
     this._emptyEl = document.createElement('div');
     this._emptyEl.className = 'working-set-panel__empty';
@@ -34,7 +27,6 @@ class WorkingSetPanelComponent {
     this._pillWrap.className = 'working-set-panel__pills';
     this._pillWrap.style.display = 'none';
 
-    this.el.appendChild(header);
     this.el.appendChild(this._emptyEl);
     this.el.appendChild(this._pillWrap);
   }
@@ -73,8 +65,7 @@ class WorkingSetPanelComponent {
       this._pillWrap.appendChild(pill);
     });
 
-    const countEl = this.el.querySelector('#ws-count');
-    if (countEl) countEl.textContent = nodes.length;
+    this.emitCountChange(nodes.length);
   }
 
   highlightPill(id) {
@@ -92,8 +83,7 @@ class WorkingSetPanelComponent {
   showEmpty() {
     this._emptyEl.style.display  = 'block';
     this._pillWrap.style.display = 'none';
-    const countEl = this.el.querySelector('#ws-count');
-    if (countEl) countEl.textContent = '0';
+    this.emitCountChange(0);
   }
 
   emitPillClick(id) {
@@ -105,6 +95,12 @@ class WorkingSetPanelComponent {
   emitDeleteClick(id) {
     this.el.dispatchEvent(new CustomEvent('working-set:delete-click', {
       bubbles: true, detail: { id }
+    }));
+  }
+
+  emitCountChange(count) {
+    this.el.dispatchEvent(new CustomEvent('working-set:count-change', {
+      bubbles: true, detail: { count }
     }));
   }
 
