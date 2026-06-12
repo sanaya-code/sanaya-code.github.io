@@ -15,6 +15,7 @@ const OPERATOR_GROUPS = [
       sqrtOperator,
       negateOperator,
       absOperator,
+      concatOperator
     ]
   },
   {
