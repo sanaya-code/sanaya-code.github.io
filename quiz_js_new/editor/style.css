@@ -61,6 +61,16 @@ html, body {
   box-shadow: 0 2px 8px rgba(52,152,219,0.25);
 }
 
+#topbar .app-link {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.3px;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
 #topbar .app-title {
   font-family: var(--font-mono);
   font-size: 15px;
