@@ -9,6 +9,7 @@ class OperatorBrowserComponent {
     this._catRowEl     = null;
     this._opsPanelEl   = null;
     this._activeGroup  = null;
+    this._opsLayout    = 'list';   // 'wrap' | 'list'
   }
 
   // ── build ─────────────────────────────────────────────────────────────────
@@ -76,6 +77,37 @@ class OperatorBrowserComponent {
     return el;
   }
 
+  _buildLayoutToggle() {
+    const el = document.createElement('div');
+    el.className = 'op-browser__layout-toggle';
+
+    const wrapBtn = document.createElement('button');
+    wrapBtn.className   = 'op-browser__layout-btn' + (this._opsLayout === 'wrap' ? ' op-browser__layout-btn--active' : '');
+    wrapBtn.textContent = '▦';
+    wrapBtn.title       = 'Grid layout';
+    wrapBtn.addEventListener('click', () => this._setOpsLayout('wrap'));
+
+    const listBtn = document.createElement('button');
+    listBtn.className   = 'op-browser__layout-btn' + (this._opsLayout === 'list' ? ' op-browser__layout-btn--active' : '');
+    listBtn.textContent = '☰';
+    listBtn.title       = 'List layout';
+    listBtn.addEventListener('click', () => this._setOpsLayout('list'));
+
+    el.appendChild(wrapBtn);
+    el.appendChild(listBtn);
+    return el;
+  }
+
+  _setOpsLayout(layout) {
+    if (this._opsLayout === layout) return;
+    this._opsLayout = layout;
+    if (this._searchInput.value.trim()) {
+      this._renderSearchResults(this._searchInput.value.trim());
+    } else {
+      this._renderOps(this._activeGroup);
+    }
+  }
+
   _buildCatCard(group, active) {
     const card = document.createElement('div');
     card.className   = 'op-browser__cat-card' + (active ? ' op-browser__cat-card--active' : '');
@@ -138,15 +170,22 @@ class OperatorBrowserComponent {
     const group = OPERATOR_GROUPS.find(g => g.group === groupName);
     if (!group) return;
 
+    const header = document.createElement('div');
+    header.className = 'op-browser__ops-header';
+
     const label = document.createElement('div');
     label.className   = 'op-browser__ops-label';
     label.textContent = group.group;
 
+    header.appendChild(label);
+    header.appendChild(this._buildLayoutToggle());
+
     const pills = document.createElement('div');
-    pills.className = 'op-browser__ops-pills';
+    pills.className = 'op-browser__ops-pills'
+      + (this._opsLayout === 'list' ? ' op-browser__ops-pills--list' : '');
     group.ops.forEach(op => pills.appendChild(this._buildOpPill(op)));
 
-    this._opsPanelEl.appendChild(label);
+    this._opsPanelEl.appendChild(header);
     this._opsPanelEl.appendChild(pills);
   }
 
@@ -168,9 +207,16 @@ class OperatorBrowserComponent {
       return;
     }
 
+    const header = document.createElement('div');
+    header.className = 'op-browser__ops-header';
+    header.appendChild(this._buildLayoutToggle());
+
     const pills = document.createElement('div');
-    pills.className = 'op-browser__ops-pills';
+    pills.className = 'op-browser__ops-pills'
+      + (this._opsLayout === 'list' ? ' op-browser__ops-pills--list' : '');
     matches.forEach(op => pills.appendChild(this._buildOpPill(op)));
+
+    this._opsPanelEl.appendChild(header);
     this._opsPanelEl.appendChild(pills);
   }
 
