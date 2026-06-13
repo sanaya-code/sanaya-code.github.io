@@ -63,6 +63,15 @@ const QuestionState = (() => {
     _reassignIds();
   }
 
+  // Only called in 'view' mode — SelectionState guards enforced by StateController
+  // Deep clones the question and appends it to the end, marked as saved
+  function duplicateQuestion(index) {
+    if (index < 0 || index >= _questions.length) return;
+    const copy = Object.assign(_clone(_questions[index]), { _unsaved: false });
+    _questions.push(copy);
+    _reassignIds();
+  }
+
   function reset() {
     _questions = [];
   }
@@ -106,6 +115,7 @@ const QuestionState = (() => {
     addUnsavedQuestion,
     saveQuestion,
     deleteQuestion,
+    duplicateQuestion,
     reorderQuestions,
     reset,
     loadQuestions,

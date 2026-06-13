@@ -96,7 +96,10 @@ question-list {
   letter-spacing: 0.3px;
   color: #fff;
   white-space: nowrap;
-  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .ql-badge-skip {
@@ -120,6 +123,25 @@ question-list {
   flex-shrink: 0;
 }
 
+.ql-duplicate {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: color 0.15s, background 0.15s, opacity 0.15s;
+}
+
+.ql-duplicate:hover {
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
 .ql-delete {
   background: none;
   border: none;
@@ -130,12 +152,18 @@ question-list {
   border-radius: 4px;
   line-height: 1;
   flex-shrink: 0;
-  transition: color 0.15s, background 0.15s;
+  opacity: 0;
+  transition: color 0.15s, background 0.15s, opacity 0.15s;
 }
 
 .ql-delete:hover {
   color: var(--danger);
   background: var(--danger-light);
+}
+
+.ql-card:hover .ql-duplicate,
+.ql-card:hover .ql-delete {
+  opacity: 1;
 }
 
 /* ── Card text ───────────────────────────────────────── */
@@ -175,30 +203,44 @@ question-list {
   opacity: 1;
 }
 
-.ql-drag-handle {
-  color: var(--text-muted);
-  font-size: 14px;
-  cursor: grab;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 0.15s;
-}
+/* ── Duplicate / Delete disabled ──────────────────────── */
 
-.ql-card:hover .ql-drag-handle {
-  opacity: 1;
-}
-
-.ql-drag-handle.ql-drag-disabled {
-  opacity: 0.15;
-  cursor: default;
-}
-
-/* ── Delete disabled ─────────────────────────────────── */
-
+.ql-duplicate:disabled,
 .ql-delete:disabled {
-  opacity: 0.2;
+  opacity: 0 !important;
   cursor: default;
   pointer-events: none;
+}
+
+/* ── Touch devices: always show action buttons ───────── */
+/* No hover state exists, so overlay them on the card —   */
+/* covering part of the text is acceptable.               */
+
+@media (hover: none) {
+  .ql-duplicate,
+  .ql-delete {
+    opacity: 1;
+    position: absolute;
+    top: 6px;
+    background: var(--bg-card);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    z-index: 1;
+  }
+
+  .ql-delete {
+    right: 6px;
+  }
+
+  .ql-duplicate {
+    right: 30px;
+  }
+
+  .ql-duplicate:disabled,
+  .ql-delete:disabled {
+    opacity: 0.2 !important;
+    pointer-events: none;
+  }
 }
 
 /* ── Panel header with toggle ────────────────────────── */

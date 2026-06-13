@@ -23,10 +23,6 @@ class QuestionCardWidget {
 
     card.innerHTML = `
       <div class="ql-card-top">
-        ${canDrag
-          ? '<span class="ql-drag-handle" title="Drag to reorder">⠿</span>'
-          : '<span class="ql-drag-handle ql-drag-disabled">⠿</span>'
-        }
         <span class="ql-badge ${isSkip ? 'ql-badge-skip' : ''}"
               style="${isSkip ? '' : `background:${badgeColor}`}">
           ${badgeLabel}
@@ -35,6 +31,8 @@ class QuestionCardWidget {
           ? '<span class="ql-unsaved-dot" title="Unsaved"></span>'
           : ''}
         <span class="ql-card-num">#${String(index + 1).padStart(3, '0')}</span>
+        <button class="ql-duplicate" data-index="${index}"
+                title="Duplicate" ${!canDrag ? 'disabled' : ''}>⧉</button>
         <button class="ql-delete" data-index="${index}"
                 title="Delete" ${!canDrag ? 'disabled' : ''}>✕</button>
       </div>
@@ -49,7 +47,14 @@ class QuestionCardWidget {
   bindEvents(el, index, canDrag, component) {
     el.addEventListener('click', (e) => {
       if (e.target.classList.contains('ql-delete')) return;
+      if (e.target.classList.contains('ql-duplicate')) return;
       component.dispatchEvent(new CustomEvent('question-selected',
+        { bubbles: true, detail: { index } }));
+    });
+
+    el.querySelector('.ql-duplicate')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      component.dispatchEvent(new CustomEvent('question-duplicated',
         { bubbles: true, detail: { index } }));
     });
 
@@ -113,8 +118,11 @@ class QuestionCardWidget {
       component.dispatchEvent(new CustomEvent('question-reordered',
         { bubbles: true, detail: { from, to: adjustedTo } }));
     });
-  } 
+  }
+
 }
+
+// ── Question Dot Widget ──────────────────────────────────────────────────────
 
 class QuestionDotWidget {
 

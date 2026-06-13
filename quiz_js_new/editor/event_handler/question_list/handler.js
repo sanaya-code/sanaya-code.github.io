@@ -31,6 +31,17 @@ class QuestionListHandler {
     this._panelCtrl.clear();
   }
 
+  onQuestionDuplicated(index) {
+    if (!StateController.canDelete()) {
+      StateController.promptFinishEditing();
+      return;
+    }
+    if (!confirm('Duplicate this question? A copy will be added to the end of the list.')) return;
+    StateController.duplicateQuestion(index);
+    this._listCtrl.refresh();
+    this._listCtrl.scrollToIndex(StateController.getCount() - 1);
+  }
+
   onQuestionReordered(from, to) {
     if (!StateController.canReorder()) return;
     StateController.reorderQuestions(from, to);

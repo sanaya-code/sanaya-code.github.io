@@ -64,6 +64,9 @@ class MainController {
     listEl.addEventListener('question-deleted', (e) =>
       this._listHandler.onQuestionDeleted(e.detail.index));
 
+    listEl.addEventListener('question-duplicated', (e) =>
+      this._listHandler.onQuestionDuplicated(e.detail.index));
+
     listEl.addEventListener('question-reordered', (e) =>
       this._listHandler.onQuestionReordered(e.detail.from, e.detail.to));
 

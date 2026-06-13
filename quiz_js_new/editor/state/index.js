@@ -28,6 +28,12 @@ const StateController = (() => {
     QuestionState.deleteQuestion(index);
   }
 
+  function duplicateQuestion(index) {
+    QuestionState.duplicateQuestion(index);
+    // Persist draft — the duplicate is saved data
+    DraftState.save(QuestionState.exportQuestions());
+  }
+
   function reorderQuestions(from, to) {
     QuestionState.reorderQuestions(from, to);
   }
@@ -87,7 +93,7 @@ const StateController = (() => {
     // Questions
     getQuestion, getQuestions, getCount,
     addUnsavedQuestion, saveQuestion,
-    deleteQuestion, reorderQuestions,
+    deleteQuestion, duplicateQuestion, reorderQuestions,
     exportQuestions, loadQuestions, importQuestions, reset,
 
     // Selection
