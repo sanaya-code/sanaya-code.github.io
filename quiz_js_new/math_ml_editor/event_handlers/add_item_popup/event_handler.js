@@ -11,21 +11,18 @@ class AddItemPopupEventHandler {
     this.onCancel    = this.onCancel.bind(this);
   }
 
-  _typeToTag(type) {
-    return type === 'const' ? 'mn' : 'mi';
-  }
-
-  onSubmitAll(raw, type) {
+  onSubmitAll(raw) {
     const names = raw.split(',')
       .map(n => n.trim())
       .filter(n => n.length > 0);
 
     if (!names.length) return;
 
-    const tag = this._typeToTag(type);
     names.forEach(name => {
-      const mathmlNode = `<math display="inline"><${tag}>${name}</${tag}></math>`;
-      this._state.addAtom(mathmlNode);
+      const category   = this._state.detectCategory(name);
+      const tag         = category === 'number' ? 'mn' : 'mi';
+      const mathmlNode  = `<math display="inline"><${tag}>${name}</${tag}></math>`;
+      this._state.addAtom(mathmlNode, category);
     });
 
     this._atomsPanel.load(this._state.getAtoms());

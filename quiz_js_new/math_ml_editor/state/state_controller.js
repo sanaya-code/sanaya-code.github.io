@@ -7,8 +7,18 @@ let _idCounter = Date.now();
 const _nextId = (prefix) => `${prefix}${++_idCounter}`;
 
 // default atoms seeded on app startup
-const DEFAULT_ATOMS_MN = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1, -2, -3, -4, -5];
-const DEFAULT_ATOMS_MI = ['x', 'y', 'z', 'a', 'b', 'c', 'p', 'q', 'r', 'x₁', 'x₂', 'x₃', 'α', 'β', 'π', 'e'];
+const DEFAULT_ATOMS_MN = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const DEFAULT_ATOMS_MI = ['a', 'b', 'c', 'p', 'q', 'r', 'x₁', 'x₂', 'x₃', 'α', 'β', 'π', 'e'];
+
+// detect atom category from its symbol
+// 'number'   — plain digits, e.g. 1, 42, 3.14
+// 'symbol'   — Greek letters (Unicode block 0370–03FF), e.g. α, β, π
+// 'variable' — everything else, e.g. a, x₁, p
+function detectCategory(symbol) {
+  if (/^\d+(\.\d+)?$/.test(symbol)) return 'number';
+  if (/[\u0370-\u03FF]/.test(symbol)) return 'symbol';
+  return 'variable';
+}
 
 const StateController = {
 
@@ -18,18 +28,22 @@ const StateController = {
     return state.atoms;
   },
 
+  detectCategory(symbol) {
+    return detectCategory(symbol);
+  },
+
   seedDefaultAtoms() {
     DEFAULT_ATOMS_MN.forEach(symbol => {
-      this.addAtom(`<math display="inline"><mn>${symbol}</mn></math>`);
+      this.addAtom(`<math display="inline"><mn>${symbol}</mn></math>`, detectCategory(String(symbol)));
     });
     DEFAULT_ATOMS_MI.forEach(symbol => {
-      this.addAtom(`<math display="inline"><mi>${symbol}</mi></math>`);
+      this.addAtom(`<math display="inline"><mi>${symbol}</mi></math>`, detectCategory(symbol));
     });
   },
 
-  addAtom(mathmlNode) {
+  addAtom(mathmlNode, category = null) {
     const id   = _nextId('a');
-    const node = new Node(id, mathmlNode);
+    const node = new Node(id, mathmlNode, category);
     state.atoms.push(node);
     return id;
   },

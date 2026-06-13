@@ -18,7 +18,7 @@ class AddItemPopupController {
   // ── event binding ─────────────────────────────────────────────────────────
 
   bindEvents(onSubmitAll, onCancel) {
-    this.component.el.addEventListener('popup:submit-all', (e) => onSubmitAll(e.detail.raw, e.detail.type));
+    this.component.el.addEventListener('popup:submit-all', (e) => onSubmitAll(e.detail.raw));
     this.component.el.addEventListener('popup:cancel',     ()  => onCancel());
   }
 

@@ -30,18 +30,6 @@ class AddItemPopupComponent {
       <label class="add-item-popup__label">Name / symbol</label>
       <input class="add-item-popup__input" id="popup-name-input"
              type="text" placeholder="e.g. x₄, λ, 42" autocomplete="off" />
-      <label class="add-item-popup__label">Type</label>
-      <div class="add-item-popup__radio-group">
-        <label class="add-item-popup__radio-label">
-          <input type="radio" name="atom-type" value="var" checked /> variable
-        </label>
-        <label class="add-item-popup__radio-label">
-          <input type="radio" name="atom-type" value="const" /> constant
-        </label>
-        <label class="add-item-popup__radio-label">
-          <input type="radio" name="atom-type" value="sym" /> symbol
-        </label>
-      </div>
       <div class="add-item-popup__hint">Separate multiple items with commas to add several at once</div>
       <div class="add-item-popup__actions">
         <button class="add-item-popup__btn-cancel"  id="popup-cancel-btn">Cancel</button>
@@ -72,15 +60,10 @@ class AddItemPopupComponent {
 
   // ── internal ──────────────────────────────────────────────────────────────
 
-  _getSelectedType() {
-    const checked = this.el.querySelector('input[name="atom-type"]:checked');
-    return checked ? checked.value : 'var';
-  }
-
   _handleSubmitAll() {
     const raw = this.nameInput.value.trim();
     if (!raw) { this.nameInput.focus(); return; }
-    this.emitSubmitAll(raw, this._getSelectedType());
+    this.emitSubmitAll(raw);
   }
 
   // ── public API ────────────────────────────────────────────────────────────
@@ -96,16 +79,14 @@ class AddItemPopupComponent {
 
   clearForm() {
     this.nameInput.value = '';
-    const defaultRadio = this.el.querySelector('input[name="atom-type"][value="var"]');
-    if (defaultRadio) defaultRadio.checked = true;
   }
 
   // ── emit ──────────────────────────────────────────────────────────────────
 
-  emitSubmitAll(raw, type) {
+  emitSubmitAll(raw) {
     this.el.dispatchEvent(new CustomEvent('popup:submit-all', {
       bubbles: true,
-      detail: { raw, type }
+      detail: { raw }
     }));
   }
 

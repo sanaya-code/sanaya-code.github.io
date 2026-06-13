@@ -12,7 +12,7 @@ class AtomsPanelComponent {
 
   createElement() {
     this.el = document.createElement('div');
-    this.el.className = 'atoms-panel__pills';
+    this.el.className = 'atoms-panel__sections';
     return this.el;
   }
 
@@ -24,15 +24,45 @@ class AtomsPanelComponent {
 
   renderPills(nodes) {
     this.el.innerHTML = '';
+
+    const sections = [
+      { label: 'Numbers',   category: 'number'   },
+      { label: 'Variables', category: 'variable' },
+      { label: 'Symbols',   category: 'symbol'   },
+    ];
+
+    sections.forEach(({ label, category }) => {
+      const items = nodes.filter(n => n.category === category);
+      if (!items.length) return;
+      this.el.appendChild(this._buildSection(label, items));
+    });
+
+    this.emitCountChange(nodes.length);
+  }
+
+  _buildSection(label, nodes) {
+    const section = document.createElement('div');
+    section.className = 'items-panel__section';
+
+    const labelEl = document.createElement('div');
+    labelEl.className   = 'items-panel__section-label';
+    labelEl.textContent = label;
+
+    const rowEl = document.createElement('div');
+    rowEl.className = 'atoms-panel__pills';
+
     nodes.forEach(node => {
       const pill = document.createElement('span');
       pill.className  = 'atoms-panel__pill';
       pill.dataset.id = node.id;
       pill.innerHTML  = node.getPreview();
       pill.addEventListener('click', () => this.emitPillClick(node.id));
-      this.el.appendChild(pill);
+      rowEl.appendChild(pill);
     });
-    this.emitCountChange(nodes.length);
+
+    section.appendChild(labelEl);
+    section.appendChild(rowEl);
+    return section;
   }
 
   highlightPill(id) {

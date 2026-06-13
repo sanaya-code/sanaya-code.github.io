@@ -2,9 +2,10 @@
 
 class Node {
 
-  constructor(id, mathmlNode) {
+  constructor(id, mathmlNode, category = null) {
     this.id         = id;
     this.mathmlNode = mathmlNode;
+    this.category   = category;   // 'number' | 'variable' | 'symbol' | null
   }
 
   getPreview() {
