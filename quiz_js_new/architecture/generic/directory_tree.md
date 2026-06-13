@@ -24,6 +24,10 @@ app/
 │   ├── application_02.js                # Business use case
 │   └── application_xx.js                # Business use case
 │
+│
+├── views/
+│   └── main_view.js                     # Integrates UI bundle components into the screen 
+│
 ├── components/
 │   │
 │   ├── ui_bundle.js                     # Holds all component controllers

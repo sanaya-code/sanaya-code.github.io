@@ -1,4 +1,19 @@
 
+# COMPONENT RULES
+* Dumb renderers only. Receive data and update UI.
+* A method to create UI elements.
+* A method to build layout.
+* Methods for signals (if needed).
+* Create and update DOM.
+* Emit events/signals.
+* Handle internal UI concerns (focus, hover, scrolling, animation).
+* Never access application state.
+* Never access services.
+* Never contain business logic.
+* Never call controller methods.
+* Never communicate with other components.
+* Never decide what happens after a user event.
+
 
 # COMPONENT CONTROLLER RULES
 
@@ -6,26 +21,25 @@
 * Controllers manage only UI-level behavior.
 * Controllers act as the bridge between event handlers and components.
 * Controllers never contain business logic.
-* Controllers never access application state directly.
+* Controllers never access application state.
 * Controllers never call services.
-* Controllers never communicate with other controllers directly.
-* Controllers never access other components directly.
+* Controllers never communicate with other controllers.
+* Controllers never access other components.
 * Controllers may manage temporary UI state for their own component only.
 * Controllers expose methods for updating the component UI.
 * Controllers should provide a method that binds one or more callback functions to component events.
 
-# COMPONENT RULES
-
-* Dumb renderers only.
-* Create and update DOM.
-* Emit events/signals.
-* Handle internal UI concerns (focus, hover, scrolling, animation).
-* Never access application state.
-* Never access services.
-* Never contain business logic.
-* Never call controller methods directly.
-* Never communicate with other components.
-* Never decide what happens after a user event.
+# VIEW RULES
+* Composes UI components into the overall screen layout.
+* Calls component "create UI elements" and "build layout" methods.
+* Arranges components into containers/sections/grids for the screen.
+* Mounts the composed view into the DOM (e.g., root element).
+* Contains no business logic.
+* Contains no workflow logic.
+* Never accesses application state.
+* Never accesses services.
+* Never wires event handlers (done by main_controller).
+* Never communicates with other views directly.
 
 # EVENT HANDLER RULES
 
@@ -94,11 +108,11 @@
 
 Allowed dependency flow:
 
-Component
-→ Controller
+Component fires event
 → Event Handler
-→ Application
-→ State Controller / Service
+    → Component Controller → Update Component
+    → Application
+        → State Controller / Service
 
 Forbidden dependency flow:
 
