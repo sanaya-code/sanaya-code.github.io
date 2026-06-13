@@ -11,6 +11,9 @@ class MainController {
   init() {
 
     // ── load initial data ─────────────────────────────
+    // ── seed default data ──────────────────────────────
+    StateController.seedDefaultAtoms();
+
     this.ui.atomsPanel.load(StateController.getAtoms());
     this.ui.workingSetPanel.load(StateController.getExpressions());
 

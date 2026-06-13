@@ -6,12 +6,31 @@
 let _idCounter = Date.now();
 const _nextId = (prefix) => `${prefix}${++_idCounter}`;
 
+// default atoms seeded on app startup — { tag: 'mi' | 'mn', symbol: string }
+const DEFAULT_ATOMS = [
+  { tag: 'mi', symbol: 'x₁' },
+  { tag: 'mi', symbol: 'x₂' },
+  { tag: 'mi', symbol: 'x₃' },
+  { tag: 'mi', symbol: 'α'  },
+  { tag: 'mi', symbol: 'β'  },
+  { tag: 'mi', symbol: 'π'  },
+  { tag: 'mi', symbol: 'e'  },
+  { tag: 'mn', symbol: '1'  },
+  { tag: 'mn', symbol: '0'  },
+];
+
 const StateController = {
 
   // ── atoms ────────────────────────────────────────────────────────────────
 
   getAtoms() {
     return state.atoms;
+  },
+
+  seedDefaultAtoms() {
+    DEFAULT_ATOMS.forEach(({ tag, symbol }) => {
+      this.addAtom(`<math display="inline"><${tag}>${symbol}</${tag}></math>`);
+    });
   },
 
   addAtom(mathmlNode) {
