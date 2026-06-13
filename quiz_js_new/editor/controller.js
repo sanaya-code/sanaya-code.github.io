@@ -22,10 +22,13 @@ class MainController {
     this._importPanelCtrl = new ImportPanelController(
       new ImportPanelComponent(document.getElementById('import-panel'))
     );
+    this._statusBarCtrl = new StatusBarController(
+      new StatusBarComponent(document.getElementById('status-bar'))
+    );
 
     // ── Event handlers ──────────────────────────────────
     this._listHandler   = new QuestionListHandler(this._listCtrl, this._panelCtrl);
-    this._panelHandler  = new EditorPanelHandler(this._listCtrl, this._panelCtrl);
+    this._panelHandler  = new EditorPanelHandler(this._listCtrl, this._panelCtrl, this._statusBarCtrl);
     this._importHandler = new ImportPanelHandler(this._importPanelCtrl, this._listCtrl);
     this._topbarHandler = new TopbarHandler(
       this._topbarCtrl,

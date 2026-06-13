@@ -9,6 +9,7 @@
   <!-- Editor styles -->
   <link rel="stylesheet" href="editor/style.css" />
   <link rel="stylesheet" href="editor/components/import_panel/style.css" />
+  <link rel="stylesheet" href="editor/components/status_bar/style.css" />
   <link rel="stylesheet" href="editor/components/type_selector/style.css" />
   <link rel="stylesheet" href="editor/components/question_list/style.css" />
   <link rel="stylesheet" href="editor/components/editor_panel/style.css" />
@@ -80,6 +81,9 @@
   <!-- Hidden file input -->
   <input type="file" id="file-input" accept=".json" style="display:none" />
 
+  <!-- ── Status bar ───────────────────────────────────── -->
+  <div id="status-bar" class="hidden"></div>
+
   <!-- ── Import Panel (overlay) ──────────────────────── -->
   <div id="import-panel" class="hidden"></div>
 
@@ -131,6 +135,8 @@
   <script src="editor/components/topbar/controller.js"></script>
   <script src="editor/components/empty_state/component.js"></script>
   <script src="editor/components/empty_state/controller.js"></script>
+  <script src="editor/components/status_bar/component.js"></script>
+  <script src="editor/components/status_bar/controller.js"></script>
   <script src="editor/components/type_selector/component.js"></script>
   <script src="editor/components/question_list/component.js"></script>
   <script src="editor/components/question_list/controller.js"></script>

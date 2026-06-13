@@ -2,9 +2,10 @@
 
 class EditorPanelHandler {
 
-  constructor(listController, panelController) {
-    this._listCtrl  = listController;
-    this._panelCtrl = panelController;
+  constructor(listController, panelController, statusBarController) {
+    this._listCtrl     = listController;
+    this._panelCtrl    = panelController;
+    this._statusBarCtrl = statusBarController;
   }
 
   // ── Event handler methods (called by MainController) ─
@@ -14,6 +15,7 @@ class EditorPanelHandler {
     StateController.returnToView();
     this._listCtrl.refresh();
     this._listCtrl.scrollToIndex(index);
+    this._statusBarCtrl.show('Question saved', 'success');
   }
 
   onQuestionClosed(isNew, index) {

@@ -1,0 +1,54 @@
+/* editor/components/status_bar/style.css */
+
+#status-bar {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0; right: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(13,45,74,0.18);
+  transform: translateY(-100%);
+  transition: transform 0.25s ease;
+}
+
+#status-bar.hidden {
+  display: none;
+}
+
+#status-bar.visible {
+  transform: translateY(0);
+}
+
+#status-bar .sb-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+#status-bar .sb-message {
+  line-height: 1;
+}
+
+/* ── Type variants ───────────────────────────────────── */
+
+#status-bar.sb-success {
+  background: var(--success);
+}
+
+#status-bar.sb-info {
+  background: var(--accent);
+}
+
+#status-bar.sb-warning {
+  background: #e0a72e;
+}
+
+#status-bar.sb-error {
+  background: var(--danger);
+}
