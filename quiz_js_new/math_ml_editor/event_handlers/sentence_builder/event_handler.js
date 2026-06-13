@@ -37,7 +37,7 @@ class SentenceBuilderEventHandler {
   onCopy() {
     const tokens  = this._state.getSentenceTokens();
     if (!tokens.length) return;
-    const mathml  = `<math display="block">${tokens.map(t => t.toMathml()).join('')}</math>`;
+    const mathml  = `<math>${tokens.map(t => t.toMathml()).join('')}</math>`;
     navigator.clipboard.writeText(mathml).then(() => {
       this._sentence.showCopyFeedback();
     });
