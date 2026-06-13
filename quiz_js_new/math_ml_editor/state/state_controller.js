@@ -7,8 +7,9 @@ let _idCounter = Date.now();
 const _nextId = (prefix) => `${prefix}${++_idCounter}`;
 
 // default atoms seeded on app startup
-const DEFAULT_ATOMS_MN = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const DEFAULT_ATOMS_MI = ['a', 'b', 'c', 'p', 'q', 'r', 'x₁', 'x₂', 'x₃', 'α', 'β', 'π', 'e'];
+const DEFAULT_ATOMS_Numbers   = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const DEFAULT_ATOMS_Variables = ['a', 'b', 'c', 'p', 'q', 'r', 'x₁', 'x₂', 'x₃'];
+const DEFAULT_ATOMS_Symbols   = ['α', 'β', 'π'];
 
 // detect atom category from its symbol
 // 'number'   — plain digits, e.g. 1, 42, 3.14
@@ -33,11 +34,14 @@ const StateController = {
   },
 
   seedDefaultAtoms() {
-    DEFAULT_ATOMS_MN.forEach(symbol => {
-      this.addAtom(`<math display="inline"><mn>${symbol}</mn></math>`, detectCategory(String(symbol)));
+    DEFAULT_ATOMS_Numbers.forEach(symbol => {
+      this.addAtom(`<math display="inline"><mn>${symbol}</mn></math>`, 'number');
     });
-    DEFAULT_ATOMS_MI.forEach(symbol => {
-      this.addAtom(`<math display="inline"><mi>${symbol}</mi></math>`, detectCategory(symbol));
+    DEFAULT_ATOMS_Variables.forEach(symbol => {
+      this.addAtom(`<math display="inline"><mi>${symbol}</mi></math>`, 'variable');
+    });
+    DEFAULT_ATOMS_Symbols.forEach(symbol => {
+      this.addAtom(`<math display="inline"><mi>${symbol}</mi></math>`, 'symbol');
     });
   },
 
