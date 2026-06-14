@@ -1,0 +1,22 @@
+
+add scoring_method field in components
+
+multi seelct circle : add rich text functionality in options
+
+table_fill_in_the_blank,   :  bug in quiz component. it does not check with "correct_answer" filed it check only with "acceptable_answers" filed
+
+table_fill_in_the_blank,   :  bug in quiz component. it does not check with "property" filed it check only with "acceptable_properties" filed
+
+image_compare_quantities_tick  : remove tick_zones_01, description, guidelines
+
+multi_select  :        add these - scoring_method,  minimum_selections, maximum_selections
+
+fill_in_blank	: 	add - case_sensitive
+
+multi_fill_in_blank	:	add scoring_method
+
+table_image_fill_in_the_blank  :  remove svg_design_description,  jpg_design_description
+
+short_answer : remove grading_rubric
+
+matching_connection_image : remove svg_design_description, jpg_design_description, description
