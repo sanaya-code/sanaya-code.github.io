@@ -13,14 +13,14 @@
   {
     "id": "001",
     "type": "matching_connection",
-    "question": "Match the following software with their categories:",
+    "question": "Match the following",
     "svg_content": "",
     "img_url": "",
     "pairs": [
       {"left": "Object / Device / Medium", "right": "Prism"},
       {"left": "Input(A)", "right": "White Light"},
       {"left": "Output / Result(B)", "right": "7 colors(Spectrum)"},
-      {"left": "Process / Method / Phenomenon", "right": "Refraction"}
+      {"left": "Process / Method / Phenomenon", "right": "Dispersion"}
     ],
     "user_response": "",
     "scoring_method": "exact",
