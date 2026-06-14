@@ -4,6 +4,13 @@
     "Math": [
     ],
     "EVS": [
+      {
+        "id": "001",
+        "link": "data/school/c2_miriam/evs/words_01.json",
+        "description": "Words",
+        "topic": "Words",
+        "quiz_id": "Words_01"
+      }
     ],
     "Grammer": [
     ],
