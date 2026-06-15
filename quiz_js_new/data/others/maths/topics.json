@@ -1,0 +1,14 @@
+{
+  "class": "Maths",
+  "subjects": {
+    "Numbers": [
+      {
+        "id": "001",
+        "link": "data/others/Maths/numbers.json",
+        "description": "Numbers",
+        "topic": "Numbers",
+        "quiz_id": "Numbers_01"
+      }
+    ]
+  }
+}

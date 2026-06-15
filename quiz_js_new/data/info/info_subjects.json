@@ -16,6 +16,14 @@
       "6": {
         "subjects": ["Math", "English", "Science", "Geography"],
         "url": "data/school/c6/subjects.json"
+      },
+      "maths_01": {
+        "subjects": ["Numbers"],
+        "url": "data/others/maths/topics.json"
+      },
+      "general": {
+        "subjects": ["S_01"],
+        "url": "data/others/general/topics.json"
       }
     }
 }
