@@ -4,7 +4,7 @@
     "S_01": [
       {
         "id": "001",
-        "link": "data/others/General/learning_01.json",
+        "link": "data/others/general/learning_01.json",
         "description": "Words",
         "topic": "Gen 01",
         "quiz_id": "Gen_01"
