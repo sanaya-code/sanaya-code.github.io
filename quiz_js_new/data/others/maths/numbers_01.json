@@ -7,7 +7,7 @@
     "last_modified": "2026-06-16",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 7
+    "total_questions": 8
   },
   "questions": [
   {
@@ -56,6 +56,7 @@
     "svg_content": "",
     "img_url": "",
     "pairs": [
+      {"left": "Neither Prime Nor Composite", "right": "<math>\n  <mrow>\n    <mo>.</mo><mspace width=\"1em\"/>\n    <mo>.</mo><mspace width=\"1em\"/>\n\n    <mo>-</mo><mn>2</mn><mspace width=\"1em\"/>\n    <mo>-</mo><mn>1</mn><mspace width=\"1em\"/>\n\n    <mn>0</mn><mspace width=\"1em\"/>\n    <mn>1</mn>\n  </mrow>\n</math>"},
       {"left": "Prime Numbers", "right": "<math>\n  <mrow>\n    <mn>2</mn><mspace width=\"1em\"/>\n    <mn>3</mn><mspace width=\"1em\"/>\n    <mn>5</mn><mspace width=\"1em\"/>\n    <mn>7</mn><mspace width=\"1em\"/>\n    <mn>11</mn><mspace width=\"1em\"/>\n    <mn>13</mn><mspace width=\"1em\"/>\n    <mo>.</mo><mspace width=\"1em\"/>\n    <mo>.</mo><mspace width=\"1em\"/>\n    <mo>.</mo>\n  </mrow>\n</math>"},
       {"left": "Composite Numbers", "right": "<math>\n  <mrow>\n    <mn>4</mn><mspace width=\"1em\"/>\n    <mn>6</mn><mspace width=\"1em\"/>\n    <mn>8</mn><mspace width=\"1em\"/>\n    <mn>9</mn><mspace width=\"1em\"/>\n    <mn>10</mn><mspace width=\"1em\"/>\n    <mn>12</mn><mspace width=\"1em\"/>\n    <mo>.</mo><mspace width=\"1em\"/>\n    <mo>.</mo><mspace width=\"1em\"/>\n    <mo>.</mo>\n  </mrow>\n</math>"}
     ],
@@ -69,50 +70,6 @@
   },
   {
     "id": "004",
-    "type": "multi_select",
-    "question": "Number 2",
-    "svg_content": "",
-    "img_url": "",
-    "options": [
-      {"id": "A", "text": "Even Number", "correct": true},
-      {"id": "B", "text": "Odd Number", "correct": false},
-      {"id": "C", "text": "Prime Number", "correct": true},
-      {"id": "D", "text": "Composite Number", "correct": false},
-      {"id": "E", "text": "Natural Number", "correct": true},
-      {"id": "F", "text": "Whole Number", "correct": true},
-      {"id": "G", "text": "Integer", "correct": true}
-    ],
-    "user_response": [],
-    "explanation": "",
-    "difficulty": "easy",
-    "points": "",
-    "time_limit": "",
-    "tags": []
-  },
-  {
-    "id": "005",
-    "type": "multi_select",
-    "question": "Number 9",
-    "svg_content": "",
-    "img_url": "",
-    "options": [
-      {"id": "A", "text": "Even Number", "correct": false},
-      {"id": "B", "text": "Odd Number", "correct": true},
-      {"id": "C", "text": "Prime Number", "correct": false},
-      {"id": "D", "text": "Composite Number", "correct": true},
-      {"id": "E", "text": "Natural Number", "correct": true},
-      {"id": "F", "text": "Whole Number", "correct": true},
-      {"id": "G", "text": "Integer", "correct": true}
-    ],
-    "user_response": [],
-    "explanation": "",
-    "difficulty": "easy",
-    "points": "",
-    "time_limit": "",
-    "tags": []
-  },
-  {
-    "id": "006",
     "type": "multi_select",
     "question": "number 0",
     "svg_content": "",
@@ -134,7 +91,73 @@
     "tags": []
   },
   {
+    "id": "005",
+    "type": "multi_select",
+    "question": "Number 1",
+    "svg_content": "",
+    "img_url": "",
+    "options": [
+      {"id": "A", "text": "Even Number", "correct": false},
+      {"id": "B", "text": "Odd Number", "correct": true},
+      {"id": "C", "text": "Prime Number", "correct": false},
+      {"id": "D", "text": "Composite Number", "correct": false},
+      {"id": "E", "text": "Natural Number", "correct": true},
+      {"id": "F", "text": "Whole Number", "correct": true},
+      {"id": "G", "text": "Integer", "correct": true}
+    ],
+    "user_response": [],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "006",
+    "type": "multi_select",
+    "question": "Number 2",
+    "svg_content": "",
+    "img_url": "",
+    "options": [
+      {"id": "A", "text": "Even Number", "correct": true},
+      {"id": "B", "text": "Odd Number", "correct": false},
+      {"id": "C", "text": "Prime Number", "correct": true},
+      {"id": "D", "text": "Composite Number", "correct": false},
+      {"id": "E", "text": "Natural Number", "correct": true},
+      {"id": "F", "text": "Whole Number", "correct": true},
+      {"id": "G", "text": "Integer", "correct": true}
+    ],
+    "user_response": [],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
     "id": "007",
+    "type": "multi_select",
+    "question": "Number 9",
+    "svg_content": "",
+    "img_url": "",
+    "options": [
+      {"id": "A", "text": "Even Number", "correct": false},
+      {"id": "B", "text": "Odd Number", "correct": true},
+      {"id": "C", "text": "Prime Number", "correct": false},
+      {"id": "D", "text": "Composite Number", "correct": true},
+      {"id": "E", "text": "Natural Number", "correct": true},
+      {"id": "F", "text": "Whole Number", "correct": true},
+      {"id": "G", "text": "Integer", "correct": true}
+    ],
+    "user_response": [],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "008",
     "type": "multi_select",
     "question": "number -5",
     "svg_content": "",
