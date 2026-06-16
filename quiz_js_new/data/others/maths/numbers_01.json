@@ -3,11 +3,11 @@
     "title": "Quiz Question Bank",
     "description": "Exported from Quiz Editor",
     "version": "2.0",
-    "created": "2026-06-15",
-    "last_modified": "2026-06-15",
+    "created": "2026-06-16",
+    "last_modified": "2026-06-16",
     "author": "",
     "license": "CC BY-SA 4.0",
-    "total_questions": 8
+    "total_questions": 7
   },
   "questions": [
   {
@@ -69,18 +69,20 @@
   },
   {
     "id": "004",
-    "type": "matching_connection",
-    "question": "HCF",
+    "type": "multi_select",
+    "question": "Number 2",
     "svg_content": "",
     "img_url": "",
-    "pairs": [
-      {"left": "4, 1", "right": "1"},
-      {"left": "4, 12", "right": "4"},
-      {"left": "9, 12", "right": "3"},
-      {"left": "18, 24", "right": "6"}
+    "options": [
+      {"id": "A", "text": "Even Number", "correct": true},
+      {"id": "B", "text": "Odd Number", "correct": false},
+      {"id": "C", "text": "Prime Number", "correct": true},
+      {"id": "D", "text": "Composite Number", "correct": false},
+      {"id": "E", "text": "Natural Number", "correct": true},
+      {"id": "F", "text": "Whole Number", "correct": true},
+      {"id": "G", "text": "Integer", "correct": true}
     ],
-    "user_response": "",
-    "scoring_method": "exact",
+    "user_response": [],
     "explanation": "",
     "difficulty": "easy",
     "points": "",
@@ -90,17 +92,17 @@
   {
     "id": "005",
     "type": "multi_select",
-    "question": "Number 2",
+    "question": "Number 9",
     "svg_content": "",
     "img_url": "",
     "options": [
-      {"id": "A", "text": "Natural Number", "correct": true},
-      {"id": "B", "text": "Whole Number", "correct": true},
-      {"id": "C", "text": "Odd Number", "correct": false},
-      {"id": "D", "text": "Integer", "correct": true},
-      {"id": "E", "text": "Prime Number", "correct": true},
-      {"id": "F", "text": "Composite Number", "correct": false},
-      {"id": "G", "text": "Even Number", "correct": true}
+      {"id": "A", "text": "Even Number", "correct": false},
+      {"id": "B", "text": "Odd Number", "correct": true},
+      {"id": "C", "text": "Prime Number", "correct": false},
+      {"id": "D", "text": "Composite Number", "correct": true},
+      {"id": "E", "text": "Natural Number", "correct": true},
+      {"id": "F", "text": "Whole Number", "correct": true},
+      {"id": "G", "text": "Integer", "correct": true}
     ],
     "user_response": [],
     "explanation": "",
@@ -112,17 +114,17 @@
   {
     "id": "006",
     "type": "multi_select",
-    "question": "Number 9",
+    "question": "number 0",
     "svg_content": "",
     "img_url": "",
     "options": [
-      {"id": "A", "text": "Natural Number", "correct": true},
-      {"id": "B", "text": "Even Number", "correct": false},
-      {"id": "C", "text": "Whole Number", "correct": true},
-      {"id": "D", "text": "Integer", "correct": true},
-      {"id": "E", "text": "Prime Number", "correct": false},
-      {"id": "F", "text": "Composite Number", "correct": true},
-      {"id": "G", "text": "Odd Number", "correct": true}
+      {"id": "A", "text": "Even Number", "correct": true},
+      {"id": "B", "text": "Odd Number", "correct": false},
+      {"id": "C", "text": "Prime Number", "correct": false},
+      {"id": "D", "text": "Composite Number", "correct": false},
+      {"id": "E", "text": "Natural Number", "correct": false},
+      {"id": "F", "text": "Whole Number", "correct": true},
+      {"id": "G", "text": "Integer", "correct": true}
     ],
     "user_response": [],
     "explanation": "",
@@ -134,39 +136,17 @@
   {
     "id": "007",
     "type": "multi_select",
-    "question": "number 0",
-    "svg_content": "",
-    "img_url": "",
-    "options": [
-      {"id": "A", "text": "Natural Number", "correct": false},
-      {"id": "B", "text": "Whole Number", "correct": true},
-      {"id": "C", "text": "Integer", "correct": true},
-      {"id": "D", "text": "Prime Number", "correct": false},
-      {"id": "E", "text": "Composite Number", "correct": false},
-      {"id": "F", "text": "Even Number", "correct": true},
-      {"id": "G", "text": "Odd Number", "correct": false}
-    ],
-    "user_response": [],
-    "explanation": "",
-    "difficulty": "easy",
-    "points": "",
-    "time_limit": "",
-    "tags": []
-  },
-  {
-    "id": "008",
-    "type": "multi_select",
     "question": "number -5",
     "svg_content": "",
     "img_url": "",
     "options": [
-      {"id": "A", "text": "Natural Number", "correct": false},
-      {"id": "B", "text": "Whole Number", "correct": false},
-      {"id": "C", "text": "Integer", "correct": true},
-      {"id": "D", "text": "Prime Number", "correct": false},
-      {"id": "E", "text": "Composite Number", "correct": false},
-      {"id": "F", "text": "Even Number", "correct": false},
-      {"id": "G", "text": "Odd Number", "correct": true}
+      {"id": "A", "text": "Even Number", "correct": false},
+      {"id": "B", "text": "Odd Number", "correct": true},
+      {"id": "C", "text": "Prime Number", "correct": false},
+      {"id": "D", "text": "Composite Number", "correct": false},
+      {"id": "E", "text": "Natural Number", "correct": false},
+      {"id": "F", "text": "Whole Number", "correct": false},
+      {"id": "G", "text": "Integer", "correct": true}
     ],
     "user_response": [],
     "explanation": "",
