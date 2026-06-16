@@ -16,7 +16,15 @@
         "topic": "HCF",
         "quiz_id": "Numbers_02"
       }
-      
+    ],
+    "Expressions": [
+      {
+        "id": "001",
+        "link": "data/others/maths/expressions_01.json",
+        "description": "Expressions",
+        "topic": "Expressions",
+        "quiz_id": "Exp_01"
+      }
     ]
   }
 }

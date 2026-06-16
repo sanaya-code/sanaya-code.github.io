@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Quiz Question Bank",
+    "description": "Exported from Quiz Editor",
+    "version": "2.0",
+    "created": "2026-06-16",
+    "last_modified": "2026-06-16",
+    "author": "",
+    "license": "CC BY-SA 4.0",
+    "total_questions": 7
+  },
+  "questions": [
+  {
+    "id": "001",
+    "type": "multi_select",
+    "question": "Select variables",
+    "svg_content": "",
+    "img_url": "",
+    "options": [
+      {"id": "A", "text": "x", "correct": true},
+      {"id": "B", "text": "52", "correct": false},
+      {"id": "C", "text": "b", "correct": true},
+      {"id": "D", "text": "<math display=\"block\"><mrow><msup><mi>2</mi><mi>2</mi></msup><mo>+</mo><msup><mi>3</mi><mi>2</mi></msup></mrow></math>", "correct": false},
+      {"id": "E", "text": "<math><mrow><msup><mi>x</mi><mi>2</mi></msup><mo>+</mo><msup><mi>y</mi><mi>2</mi></msup></mrow></math>", "correct": true}
+    ],
+    "user_response": [],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "002",
+    "type": "multi_select",
+    "question": "select constant",
+    "svg_content": "",
+    "img_url": "",
+    "options": [
+      {"id": "A", "text": "4", "correct": true},
+      {"id": "B", "text": "x", "correct": false},
+      {"id": "C", "text": "2b", "correct": false},
+      {"id": "D", "text": "3.4", "correct": true}
+    ],
+    "user_response": [],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "003",
+    "type": "multi_select",
+    "question": "Select variables",
+    "svg_content": "",
+    "img_url": "",
+    "options": [
+      {"id": "A", "text": "<math><mfrac><mi>3</mi><mi>2</mi></mfrac></math>", "correct": false},
+      {"id": "B", "text": "<math><mfrac><mi>x</mi><mi>2</mi></mfrac></math>", "correct": true},
+      {"id": "C", "text": "<math><mrow><msup><mi>x</mi><mi>2</mi></msup><mo>+</mo><msup><mi>y</mi><mi>2</mi></msup></mrow></math>", "correct": true}
+    ],
+    "user_response": [],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "004",
+    "type": "matching_connection",
+    "question": "select the degree",
+    "svg_content": "",
+    "img_url": "",
+    "pairs": [
+      {"left": "<math><mrow><mrow><mi>3</mi><mi>x</mi></mrow><mo>+</mo><mi>5</mi></mrow></math>", "right": "1"},
+      {"left": "<math><mrow><mrow><mrow><mi>5</mi><msup><mi>x</mi><mi>2</mi></msup></mrow><mo>+</mo><mrow><mi>7</mi><mi>x</mi></mrow></mrow><mo>+</mo><mi>2</mi></mrow></math>", "right": "2"},
+      {"left": "<math><mrow><mrow><mrow><mo>−</mo><mrow><mi>2</mi><msup><mi>x</mi><mi>3</mi></msup></mrow></mrow><mo>+</mo><mrow><mi>3</mi><mi>x</mi></mrow></mrow><mo>+</mo><mi>5</mi></mrow></math>", "right": "3"},
+      {"left": "<math><mrow><mrow><msup><mi>x</mi><mi>4</mi></msup><mo>−</mo><mrow><mi>2</mi><msup><mi>x</mi><mi>3</mi></msup></mrow></mrow><mo>+</mo><mi>9</mi></mrow></math>", "right": "4"}
+    ],
+    "user_response": "",
+    "scoring_method": "exact",
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "005",
+    "type": "matching_connection",
+    "question": "match the column",
+    "svg_content": "",
+    "img_url": "",
+    "pairs": [
+      {"left": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mrow>\n      <mo>(</mo>\n      <mi>a</mi>\n      <mo>+</mo>\n      <mi>b</mi>\n      <mo>)</mo>\n    </mrow>\n    <mn>2</mn>\n  </msup>\n</math>", "right": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mi>a</mi>\n    <mn>2</mn>\n  </msup>\n  <mo>+</mo>\n  <msup>\n    <mi>b</mi>\n    <mn>2</mn>\n  </msup>\n  <mo>+</mo>\n  <mn>2</mn>\n  <mi>a</mi>\n  <mi>b</mi>\n</math>"},
+      {"left": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mrow>\n      <mo>(</mo>\n      <mi>a</mi>\n      <mo>-</mo>\n      <mi>b</mi>\n      <mo>)</mo>\n    </mrow>\n    <mn>2</mn>\n  </msup>\n</math>", "right": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mi>a</mi>\n    <mn>2</mn>\n  </msup>\n  <mo>+</mo>\n  <msup>\n    <mi>b</mi>\n    <mn>2</mn>\n  </msup>\n  <mo>-</mo>\n  <mn>2</mn>\n  <mi>a</mi>\n  <mi>b</mi>\n</math>"},
+      {"left": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mi>a</mi>\n    <mn>2</mn>\n  </msup>\n  <mo>-</mo>\n  <msup>\n    <mi>b</mi>\n    <mn>2</mn>\n  </msup>\n</math>", "right": "(a+b) (a-b)"}
+    ],
+    "user_response": "",
+    "scoring_method": "exact",
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "006",
+    "type": "ordering_horizontal",
+    "question": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mrow>\n      <mo>(</mo>\n      <mi>a</mi>\n      <mo>+</mo>\n      <mi>b</mi>\n      <mo>)</mo>\n    </mrow>\n    <mn>2</mn>\n  </msup>\n</math>",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["a", "b", "<math>   <msup>     <mi>a</mi>     <mn>2</mn>   </msup> </math>", "<math>   <msup>     <mi>b</mi>     <mn>2</mn>   </msup> </math>", "2ab", "ab", "+", "-"],
+    "correct_order": ["<math>   <msup>     <mi>a</mi>     <mn>2</mn>   </msup> </math>", "+", "<math>   <msup>     <mi>b</mi>     <mn>2</mn>   </msup> </math>", "+", "2ab"],
+    "initial_items": ["", "", "", "", ""],
+    "user_response": ["", "", "", "", ""],
+    "explanation": "sds",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "007",
+    "type": "ordering_horizontal",
+    "question": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <msup>\n    <mrow>\n      <mo>(</mo>\n      <mi>a</mi>\n      <mo>-</mo>\n      <mi>b</mi>\n      <mo>)</mo>\n    </mrow>\n    <mn>2</mn>\n  </msup>\n</math>",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["a", "b", "<math>   <msup>     <mi>a</mi>     <mn>2</mn>   </msup> </math>", "<math>   <msup>     <mi>b</mi>     <mn>2</mn>   </msup> </math>", "2ab", "ab", "+", "-"],
+    "correct_order": ["<math>   <msup>     <mi>a</mi>     <mn>2</mn>   </msup> </math>", "+", "<math>   <msup>     <mi>b</mi>     <mn>2</mn>   </msup> </math>", "-", "2ab"],
+    "initial_items": ["", "", "", "", ""],
+    "user_response": ["", "", "", "", ""],
+    "explanation": "sds",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  }
+  ]
+}

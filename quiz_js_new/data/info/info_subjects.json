@@ -18,7 +18,7 @@
         "url": "data/school/c6/subjects.json"
       },
       "maths_01": {
-        "subjects": ["Numbers"],
+        "subjects": ["Numbers", "Expressions"],
         "url": "data/others/maths/topics.json"
       },
       "general": {
