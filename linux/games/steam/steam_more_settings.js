@@ -37,7 +37,7 @@ const systemConfiguration = {
     },
     {
       packageName: "com.github.benjamimgois.GOverlay",
-      configured: flase,
+      configured: false,
       explanation: "GUI for MangoHud and vkBasalt. GPU overlays, Vulkan effects, performance tuning. Per-app configurations and FPS limiting."
   }
   
