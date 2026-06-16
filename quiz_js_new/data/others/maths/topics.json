@@ -4,11 +4,19 @@
     "Numbers": [
       {
         "id": "001",
-        "link": "data/others/maths/numbers.json",
+        "link": "data/others/maths/numbers_01.json",
         "description": "Numbers",
         "topic": "Numbers",
         "quiz_id": "Numbers_01"
+      },
+      {
+        "id": "002",
+        "link": "data/others/maths/numbers_02.json",
+        "description": "HCF",
+        "topic": "HCF",
+        "quiz_id": "Numbers_02"
       }
+      
     ]
   }
 }
