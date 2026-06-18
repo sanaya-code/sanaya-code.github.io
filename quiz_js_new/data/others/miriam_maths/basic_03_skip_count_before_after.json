@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "title": "Quiz Question Bank",
+    "description": "Exported from Quiz Editor",
+    "version": "2.0",
+    "created": "2026-06-18",
+    "last_modified": "2026-06-18",
+    "author": "",
+    "license": "CC BY-SA 4.0",
+    "total_questions": 34
+  },
+  "questions": [
+  {
+    "id": "024",
+    "type": "options_fill_in_blank",
+    "question": "Skip Count by 2",
+    "blank_type": "box",
+    "options": [
+      {
+        "id": "01",
+        "text": "20, 22, ____ , ____",
+        "correct_answer": ["24", "26"]
+      },
+      {
+        "id": "02",
+        "text": "71, ____ 75, 77, ____",
+        "correct_answer": ["73", "79"]
+      }
+    ],
+    "user_response": [["", ""], ["", ""]],
+    "choices": ["23", "24", "25", "26", "72", "73", "78", "79"],
+    "case_sensitive": false,
+    "scoring_method": "exact"
+  },
+  {
+    "id": "025",
+    "type": "ordering_horizontal",
+    "question": "Skip Count by 3",
+    "items": ["29", "30", "31", "32", "33", "34", "35", "36"],
+    "correct_order": ["29", "32", "35"],
+    "user_response": ["29", "", ""]
+  },
+  {
+    "id": "026",
+    "type": "options_fill_in_blank",
+    "question": "Skip Count by 5",
+    "blank_type": "box",
+    "options": [
+      {
+        "id": "01",
+        "text": "30, ____ , ____ , ____",
+        "correct_answer": ["35", "40", "45"]
+      },
+      {
+        "id": "02",
+        "text": "28, ____ , ____ , ____",
+        "correct_answer": ["33", "38", "43"]
+      }
+    ],
+    "user_response": [["", "", ""], ["", "", ""]],
+    "choices": ["33", "35", "38", "40", "43", "45", "48"],
+    "case_sensitive": false,
+    "scoring_method": "exact"
+  },
+  {
+    "id": "027",
+    "type": "options_fill_in_blank",
+    "question": "Skip Count by 10",
+    "blank_type": "box",
+    "options": [
+      {
+        "id": "01",
+        "text": "14, ____ , ____ , ____",
+        "correct_answer": ["24", "34", "44"]
+      }
+    ],
+    "user_response": [["", "", ""]],
+    "choices": ["21", "24", "34", "42", "44"],
+    "case_sensitive": false,
+    "scoring_method": "exact"
+  },
+  {
+    "id": "028",
+    "type": "options_fill_in_blank",
+    "question": "After Before",
+    "options": [
+      {
+        "id": "01",
+        "text": "45 ____ .",
+        "correct_answer": ["46"]
+      },
+      {
+        "id": "03",
+        "text": "____ 58 .",
+        "correct_answer": ["57"]
+      },
+      {
+        "id": "04",
+        "text": "____ 60 .",
+        "correct_answer": ["59"]
+      }
+    ],
+    "user_response": [[""], [""], [""]],
+    "choices": ["44", "46", "57", "59", "61"],
+    "case_sensitive": false,
+    "difficulty": "easy",
+    "tags": ["gk", "science", "maths"],
+    "scoring_method": "exact"
+  },
+  {
+    "id": "029",
+    "type": "options_fill_in_blank",
+    "question": "After Before",
+    "options": [
+      {
+        "id": "01",
+        "text": "56 ____ 58 .",
+        "correct_answer": ["57"]
+      },
+      {
+        "id": "02",
+        "text": "____ 75.",
+        "correct_answer": ["74"]
+      },
+      {
+        "id": "03",
+        "text": "99 ____ .",
+        "correct_answer": ["100"]
+      }
+    ],
+    "user_response": [[""], [""], [""]],
+    "choices": ["56", "57", "74", "76", "100"],
+    "case_sensitive": false,
+    "difficulty": "easy",
+    "tags": ["gk", "science", "maths"],
+    "scoring_method": "exact"
+  }
+  
+  ]
+}

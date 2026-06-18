@@ -5,25 +5,31 @@
       "updated": "2025-05-01"
     },
     "grades": {
-      "1": {
-        "subjects": ["Math", "Hindi", "English", "EVS", "Computer", "Grammer"],
-        "url": "data/school/c1_miriam/subjects_sem_02.json"
-      },
-      "2": {
+      "class-2": {
         "subjects": ["Math", "Hindi", "English", "EVS", "Computer", "Grammer"],
         "url": "data/school/c2_miriam/subjects_sem_01.json"
       },
-      "6": {
-        "subjects": ["Math", "English", "Science", "Geography"],
-        "url": "data/school/c6/subjects.json"
+      "maths_miriam": {
+        "subjects": ["class_01", "class_02"],
+        "url": "data/others/miriam_maths/topics.json"
       },
-      "maths_01": {
+      "maths_learning": {
         "subjects": ["Numbers", "Expressions"],
         "url": "data/others/maths/topics.json"
       },
       "general": {
         "subjects": ["S_01"],
         "url": "data/others/general/topics.json"
+      }
+    },
+    "grades_old": {
+      "class-1": {
+        "subjects": ["Math", "Hindi", "English", "EVS", "Computer", "Grammer"],
+        "url": "data/school/c1_miriam/subjects_sem_02.json"
+      },
+      "class-6": {
+        "subjects": ["Math", "English", "Science", "Geography"],
+        "url": "data/school/c6/subjects.json"
       }
     }
 }

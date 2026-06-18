@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "title": "Quiz Question Bank",
+    "description": "Exported from Quiz Editor",
+    "version": "2.0",
+    "created": "2026-06-18",
+    "last_modified": "2026-06-18",
+    "author": "",
+    "license": "CC BY-SA 4.0",
+    "total_questions": 34
+  },
+  "questions": [
+  {
+    "id": "014",
+    "type": "ordering_horizontal",
+    "question": "Ascending order:",
+    "items": ["16", "20", "17", "12", "14"],
+    "correct_order": ["12", "14", "16", "17", "20"],
+    "user_response": ["", "", "", "", ""]
+  },
+  {
+    "id": "015",
+    "type": "ordering_horizontal",
+    "question": "Descending order:",
+    "items": ["19", "15", "20", "14", "12"],
+    "correct_order": ["20", "19", "15", "14", "12"],
+    "user_response": ["", "", "", "", ""]
+  },
+  {
+    "id": "016",
+    "type": "ordering_horizontal",
+    "question": "decresing order:",
+    "items": ["23", "77", "44", "3"],
+    "correct_order": ["77", "44", "23", "3"],
+    "user_response": ["", "", "", ""]
+  },
+  {
+    "id": "017",
+    "type": "ordering_horizontal",
+    "question": "incresing order:",
+    "items": ["60", "80", "0", "100"],
+    "correct_order": ["0", "60", "80", "100"],
+    "user_response": ["", "", "", ""]
+  },
+  {
+    "id": "018",
+    "type": "options_fill_in_blank",
+    "question": "Make number 7",
+    "options": [
+      {
+        "id": "01",
+        "text": "7 +  ____ .",
+        "correct_answer": "0"
+      },
+      {
+        "id": "02",
+        "text": "4 +  ____ .",
+        "correct_answer": "3"
+      },
+      {
+        "id": "03",
+        "text": "2 +  ____ .",
+        "correct_answer": "5"
+      },
+      {
+        "id": "04",
+        "text": "0 +  ____ .",
+        "correct_answer": "7"
+      }
+    ],
+    "user_response": ["", "", "", ""],
+    "case_sensitive": false,
+    "scoring_method": "exact"
+  },
+  {
+    "id": "019",
+    "type": "options_fill_in_blank",
+    "question": "add",
+    "options": [
+      {
+        "id": "01",
+        "text": "12  =  10  +  ____ .",
+        "correct_answer": "2"
+      },
+      {
+        "id": "02",
+        "text": "20  =  10  +  ____ .",
+        "correct_answer": "10"
+      },
+      {
+        "id": "03",
+        "text": "14  =  9  +  ____ .",
+        "correct_answer": "5"
+      },
+      {
+        "id": "04",
+        "text": "15  =  8  +  ____ .",
+        "correct_answer": "7"
+      }
+    ],
+    "user_response": ["", "", "", ""],
+    "case_sensitive": false,
+    "difficulty": "easy",
+    "tags": ["gk", "science", "maths"],
+    "points": 3,
+    "scoring_method": "exact",
+    "scoring_method_01": "partial",
+    "feedback": {"full_credit": "Great job! All answers are correct.", "partial_credit": "Some answers are correct. Try again.", "none": "None of the blanks are correct."}
+  },
+  {
+    "id": "020",
+    "type": "options_fill_in_blank",
+    "question": "Solve",
+    "options": [
+      {
+        "id": "01",
+        "text": "2  +  ____  = 6.",
+        "correct_answer": ["4"]
+      },
+      {
+        "id": "02",
+        "text": "10  -  ____  = 8.",
+        "correct_answer": ["2"]
+      },
+      {
+        "id": "03",
+        "text": "9  - ____ = 4  .",
+        "correct_answer": ["5"]
+      },
+      {
+        "id": "04",
+        "text": "6  +   ____  = 10 .",
+        "correct_answer": ["4"]
+      }
+    ],
+    "user_response": [[""], [""], [""], [""]],
+    "choices": ["1", "2", "3", "4", "5", "6", "7"],
+    "case_sensitive": false,
+    "difficulty": "easy",
+    "tags": ["gk", "science", "maths"],
+    "scoring_method": "exact"
+  },
+  {
+    "id": "021",
+    "type": "options_fill_in_blank",
+    "question": "Write expand form",
+    "options": [
+      {
+        "id": "01",
+        "text": "42 =  ____ +  ____ .",
+        "correct_answer": ["40", "2"]
+      },
+      {
+        "id": "02",
+        "text": "24 = ____ +  ____ .",
+        "correct_answer": ["20", "4"]
+      },
+      {
+        "id": "03",
+        "text": "54 =  ____ +  ____ .",
+        "correct_answer": ["50", "4"]
+      }
+    ],
+    "user_response": [["", ""], ["", ""], ["", ""]],
+    "choices": ["2", "3", "4", "5", "20", "40", "50"],
+    "case_sensitive": false,
+    "scoring_method": "exact"
+  },
+  {
+    "id": "022",
+    "type": "options_fill_in_blank",
+    "question": "Fill in the blank",
+    "options": [
+      {
+        "id": "01",
+        "text": "6 tens and 4 ones =  ____  +  ____  =  ____",
+        "correct_answer": ["60", "4", "64"]
+      },
+      {
+        "id": "02",
+        "text": "8 tens and 6 ones =  ____  +  ____  =  ____",
+        "correct_answer": ["80", "6", "86"]
+      },
+      {
+        "id": "03",
+        "text": "1 tens and 7 ones =  ____  +  ____  =  ____",
+        "correct_answer": ["10", "7", "17"]
+      }
+    ],
+    "user_response": [["", "", ""], ["", "", ""], ["", "", ""]],
+    "choices": ["4", "6", "7", "10", "60", "80", "64", "17", "86"],
+    "case_sensitive": false,
+    "scoring_method": "exact"
+  },
+  {
+    "id": "023",
+    "type": "matching_connection",
+    "question": "Match",
+    "pairs": [
+      {"left": "2 tens", "right": "20"},
+      {"left": "1 tens 4 ones", "right": "14"},
+      {"left": "1 tens 3 ones", "right": "13"},
+      {"left": "1 tens 9 ones", "right": "19"},
+      {"left": "1 tens", "right": "10"}
+    ],
+    "user_response": ""
+  }
+  ]
+}

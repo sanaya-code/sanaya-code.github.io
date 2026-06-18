@@ -1,0 +1,44 @@
+{
+  "class": "1",
+  "subjects": {
+    "class_01": [
+      {
+        "id": "001",
+        "link": "data/others/miriam_maths/basic_01_compare_numbers.json",
+        "description": "Compare",
+        "topic": "Compare",
+        "quiz_id": "Compare"
+      },
+      {
+        "id": "002",
+        "link": "data/others/miriam_maths/basic_02_order_expand_form.json",
+        "description": "Order",
+        "topic": "Order",
+        "quiz_id": "Order"
+      },
+      {
+        "id": "003",
+        "link": "data/others/miriam_maths/basic_03_skip_count_before_after.json",
+        "description": "Skip Count",
+        "topic": "Skip Count",
+        "quiz_id": "Skip Count"
+      },
+      {
+        "id": "004",
+        "link": "data/others/miriam_maths/basic_04_add_subtract.json",
+        "description": "Add Sub",
+        "topic": "Add Sub",
+        "quiz_id": "Add Sub"
+      }
+    ],
+    "class_02": [
+      {
+        "id": "001",
+        "link": "data/school/c2_miriam/evs/words_01.json",
+        "description": "Words",
+        "topic": "Words",
+        "quiz_id": "Words_01"
+      }
+    ]
+  }
+}
