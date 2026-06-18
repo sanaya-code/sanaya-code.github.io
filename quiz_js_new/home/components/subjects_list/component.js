@@ -60,7 +60,8 @@ class GradeSubjects extends HTMLElement {
         Object.keys(this._grades).forEach(grade => {
             const opt = document.createElement('option');
             opt.value = grade;
-            opt.textContent = `Grade ${grade}`;
+            // opt.textContent = `Grade ${grade}`;
+            opt.textContent = `${grade}`;
             this._selectEl.appendChild(opt);
         });
     }
