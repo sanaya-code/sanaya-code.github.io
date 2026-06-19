@@ -21,7 +21,7 @@ const OptionsFillInBlankEvaluator = {
     formatUserAnswer(question, userAnswer) {
         if (!Array.isArray(userAnswer) || userAnswer.length === 0) return '—';
         return (question.options || []).map((opt, i) => {
-            const row = userAnswer[i] || [];
+            const row = Array.isArray(userAnswer[i]) ? userAnswer[i] : [];
             return `${String.fromCharCode(97 + i)}) [${row.join(', ')}]`;
         }).join(' | ');
     },
@@ -29,7 +29,7 @@ const OptionsFillInBlankEvaluator = {
     // Format the correct answer for reporting
     formatCorrectAnswer(question) {
         return (question.options || []).map((opt, i) => {
-            const correct = opt.correct_answer || [];
+            const correct = Array.isArray(opt.correct_answer) ? opt.correct_answer : [];
             return `${String.fromCharCode(97 + i)}) [${correct.join(', ')}]`;
         }).join(' | ');
     },
