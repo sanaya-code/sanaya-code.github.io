@@ -1,92 +1,159 @@
 {
-    "metadata": {
-      "title": "Comprehensive Question Bank",
-      "description": "A collection of various question types for assessments",
-      "version": "2.0",
-      "created": "2023-11-15",
-      "last_modified": "2023-11-15",
-      "author": "Your Name",
-      "license": "CC BY-SA 4.0"
-    },
-    "questions": [
-      {
-		  "type": "ordering_horizontal",
-		  "id": "001",
-		  "question": " Her _____  friend Sanu",
-		  "items": ["E", "T", "B", "S"],
-		  "correct_order": ["B", "E", "S", "T"],
-          "user_response": []
-      },
-      {
-        "type": "ordering_horizontal",
-        "id": "002",
-        "question": " Win against something _____  ",
-        "items": ["H", "D", "A", "R"],
-        "correct_order": ["H", "A", "R", "D"],
-        "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "017",
-		  "question": " What makes Charu overcome her stage fright _____  ",
-          "items": ["U", "O", "C", "R", "E", "G", "A"],
-		  "initial_items": ["H", "E", "R", " ", "", "", "", "", "", "", ""],
-		  "correct_order": ["H", "E", "R", "", "C", "O", "U", "R", "A", "G", "E"],
-		  "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "017",
-		  "question": " Cow ?? Sumit's _____  ",
-          "items": ["C", "F", "E", "A"],
-		  "correct_order": ["F", "A", "C","E"],
-		  "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "017",
-		  "question": " Cow _____ Sumit's ??  ",
-          "items": ["C", "I", "L", "K", "S"],
-		  "correct_order": ["L", "I", "C","K", "S"],
-		  "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "017",
-		  "question": " She was _____ on the stage  ",
-          "items": ["C", "A", "S", "E", "D", "R"],
-		  "correct_order": ["S", "C", "A","R", "E", "D"],
-		  "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "001",
-		  "question": " Her best  _____ Sanu",
-		  "items": ["F", "I", "E", "R", "D", "N"],
-		  "correct_order": ["F", "R", "I", "E", "N", "D"],
-          "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "001",
-		  "question": " To do something  _____ and _____",
-		  "items": ["A", "I", "G", "N"],
-		  "correct_order": ["A", "G", "A", "I", "N"],
-          "user_response": []
-      },
-      {
-		  "type": "ordering_horizontal",
-		  "id": "001",
-		  "question": " I have courage to  _____ tree",
-		  "items": ["L", "I", "C", "M", "B"],
-		  "correct_order": ["C", "L", "I", "M", "B"],
-          "user_response": []
-      }
-  ],
-    "taxonomy": {
-      "difficulty_levels": ["easy", "medium", "hard"],
-      "subject_areas": ["science", "history", "geography", "computer-science"],
-      "question_types": ["mcq", "fill_in_blank", "true_false", "matching", "short_answer", "multi_select", "ordering"]
-    }
+  "metadata": {
+    "title": "Quiz Question Bank",
+    "description": "Exported from Quiz Editor",
+    "version": "2.0",
+    "created": "2026-06-23",
+    "last_modified": "2026-06-23",
+    "author": "",
+    "license": "CC BY-SA 4.0",
+    "total_questions": 12
+  },
+  "questions": [
+  {
+    "id": "001",
+    "type": "ordering_horizontal",
+    "question": "Her _____  friend Sanu",
+    "items": ["E", "T", "B", "S"],
+    "correct_order": ["B", "E", "S", "T"],
+    "user_response": []
+  },
+  {
+    "id": "002",
+    "type": "ordering_horizontal",
+    "question": "Win against something _____",
+    "items": ["H", "D", "A", "R"],
+    "correct_order": ["H", "A", "R", "D"],
+    "user_response": []
+  },
+  {
+    "id": "003",
+    "type": "ordering_horizontal",
+    "question": "What makes Charu overcome her stage fright _____",
+    "items": ["U", "O", "C", "R", "E", "G", "A"],
+    "initial_items": ["H", "E", "R", "", "", "", "", "", "", "", ""],
+    "correct_order": ["H", "E", "R", "", "C", "O", "U", "R", "A", "G", "E"],
+    "user_response": []
+  },
+  {
+    "id": "004",
+    "type": "ordering_horizontal",
+    "question": "Cow ?? Sumit's _____",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["C", "F", "E", "A"],
+    "correct_order": ["F", "A", "C", "E"],
+    "initial_items": ["", "", "", ""],
+    "user_response": ["", "", "", ""],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "005",
+    "type": "ordering_horizontal",
+    "question": "Cow _____ Sumit's ??",
+    "items": ["C", "I", "L", "K", "S"],
+    "correct_order": ["L", "I", "C", "K", "S"],
+    "user_response": []
+  },
+  {
+    "id": "006",
+    "type": "ordering_horizontal",
+    "question": "She was _____ on the stage",
+    "items": ["C", "A", "S", "E", "D", "R"],
+    "correct_order": ["S", "C", "A", "R", "E", "D"],
+    "user_response": []
+  },
+  {
+    "id": "007",
+    "type": "ordering_horizontal",
+    "question": "Her best  _____ Sanu",
+    "items": ["F", "I", "E", "R", "D", "N"],
+    "correct_order": ["F", "R", "I", "E", "N", "D"],
+    "user_response": []
+  },
+  {
+    "id": "008",
+    "type": "ordering_horizontal",
+    "question": "To do something  _____ and _____",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["A", "I", "G", "N"],
+    "correct_order": ["A", "G", "A", "I", "N"],
+    "initial_items": ["", "", "", "", ""],
+    "user_response": ["", "", "", "", ""],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "009",
+    "type": "ordering_horizontal",
+    "question": "I have courage to  _____ tree",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["L", "I", "C", "M", "B"],
+    "correct_order": ["C", "L", "I", "M", "B"],
+    "initial_items": ["", "", "", "", ""],
+    "user_response": ["", "", "", "", ""],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "010",
+    "type": "ordering_horizontal",
+    "question": "Moment -  _____  ???  of time",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["R", "S", "H", "T", "O"],
+    "correct_order": ["S", "H", "O", "R", "T"],
+    "initial_items": ["", "", "", "", ""],
+    "user_response": ["", "", "", "", ""],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "011",
+    "type": "ordering_horizontal",
+    "question": "Moment -    ??? _____ of time",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["P", "I", "E", "R", "D", "O"],
+    "correct_order": ["P", "E", "R", "I", "O", "D"],
+    "initial_items": ["", "", "", "", "", ""],
+    "user_response": ["", "", "", "", "", ""],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  },
+  {
+    "id": "012",
+    "type": "ordering_horizontal",
+    "question": "An  <b><u>easy</u></b>  situation that happens suddenly.",
+    "svg_content": "",
+    "img_url": "",
+    "items": ["F", "I", "D", "U", "T", "C", "L"],
+    "correct_order": ["D", "I", "F", "F", "I", "C", "U", "L", "T"],
+    "initial_items": ["", "", "", "", "", "", "", "", ""],
+    "user_response": ["", "", "", "", "", "", "", "", ""],
+    "explanation": "",
+    "difficulty": "easy",
+    "points": "",
+    "time_limit": "",
+    "tags": []
+  }
+  ]
 }
-  
