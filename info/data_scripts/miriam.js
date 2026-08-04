@@ -7,6 +7,9 @@ var miriam = `[
   { "label": "Miriam Drive", "url": "https://drive.google.com/drive/folders/1ZycjwMmNaHQpgNn7VKEYx2LDSaiFe5-y?usp=drive_link" },
   { "label": "School Notes", "url": "https://drive.google.com/drive/folders/1oDfgBlA1_R4gKzNsJTG7tmQN4gnG8IWx" },
   { "label": "info", "url": "https://docs.google.com/spreadsheets/d/1SXTgTBl8ls8qrfvpleTosNAxNx944R5rZsmEsaC89Z8/edit?gid=0#gid=0" },
-  { "label": "fee", "url": "https://sttheresaerp.com/DefaultMIS1.aspx" }
+  { "label": "fee", "url": "https://stxavierbpl.schoolerps.com/DefaultMIS1.aspx" },
+  {"label": "School Xaviers", "url":"https://www.stxaviersbhopal.org/"},
+  {"label": "Test", "url":"test"}
+    
   ]`;
   
