@@ -16,8 +16,8 @@ var plot = `[
   { "label": "Electricipy bill", "url":"https://resourceutils.mpcz.in:8090/payBill"},
   { "label": "Electricipy IVRS Check", "url":"https://services.mpcz.in/serviceportal/api/payment/verification?idType=ngb&idNumber=N2411016220"},
   { "label": "Bhopal nagar nigam", "url":"https://www.bmconline.gov.in/irj/portal/anonymous/ProRelServices"},
-  { "label": "rajendra_kushwah_9893266322_N2411003996_Ph00093939", "url":""},
-  { "label": "gorelal_kushwah_7389131087_N2411016220", "url":""},
-  { "label": "tulsi_kushwah_Ph00804509", "url":""},
+  { "label": "rajendra_kushwah_9893266322_N2411003996_PH00804509", "url":""},
+  { "label": "gorelal_kushwah_7389131087_N2411016220_PS00015156", "url":""},
+  { "label": "tulsi_kushwah_PH00093939", "url":""},
   { "label": "Test", "url":"test"}
 ]`;
