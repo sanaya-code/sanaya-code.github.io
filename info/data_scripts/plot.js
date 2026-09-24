@@ -13,5 +13,9 @@ var plot = `[
   { "label": "Google location", "url":"https://maps.app.goo.gl/3vKN7jA5EyTTFPae9"},
   { "label": "CM Helpline", "url":"https://cmhelpline.mp.gov.in/grievance-status.aspx"},
   { "label": "Lokseva mpedistrict", "url":"https://www.mpedistrict.gov.in"},
+  { "label": "Electricipy bill", "url":"https://resourceutils.mpcz.in:8090/payBill"},
+  { "label": "Bhopal nagar nigam", "url":"https://www.bmconline.gov.in/irj/portal/anonymous/ProRelServices"},
+  { "label": "rajendra_kushwah_9893266322_N2411003996_Ph00093939", "url":""},
+  { "label": "tulsi_kushwah_Ph00804509", "url":""},
   { "label": "Test", "url":"test"}
 ]`;
