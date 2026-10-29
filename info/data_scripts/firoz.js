@@ -4,6 +4,7 @@ var firoz = `[
   { "label": "Plot", "url": "https://drive.google.com/drive/folders/1d3GP3fH2_U3ZtXt00NFVzwvoGxYWT2TU" },
   {"label": "Family Drive", "url":"https://drive.google.com/drive/folders/1MUTMqBSMJrL2jt3TwSsHQeFs5QExT3p8?usp=drive_link"},
   {"label": "Hisab", "url":"https://docs.google.com/spreadsheets/d/11iJCGSjLfgROEN9yu48mKI5hAvLsmiZFKvtoH-Pxy4A/edit?usp=drive_link"},
+  {"label": "Parshvnath", "url":"https://drive.google.com/drive/folders/1pUj1sIhWciUh8X8zL2JFFJ5KB-crDgEW?usp=drive_link"},
   {"label": "Ultimatix", "url":"https://www.ultimatix.net"},
   {"label": "TMH Login 11F2025/001303", "url":"https://tmc.gov.in/m_webemr2/emr/login"},
   {"label": "Test", "url":"test"}
