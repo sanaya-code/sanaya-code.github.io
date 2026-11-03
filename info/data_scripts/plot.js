@@ -15,6 +15,7 @@ var plot = `[
   { "label": "Lokseva mpedistrict", "url":"https://www.mpedistrict.gov.in"},
   { "label": "Electricipy bill", "url":"https://resourceutils.mpcz.in:8090/payBill"},
   { "label": "Electricipy IVRS Check", "url":"https://services.mpcz.in/serviceportal/api/payment/verification?idType=ngb&idNumber=N2411016220"},
+  { "label": "Electricipy bill history", "url":"https://services.mpcz.in/Consumer/#/bill-history"},
   { "label": "Bhopal nagar nigam", "url":"https://www.bmconline.gov.in/irj/portal/anonymous/ProRelServices"},
   { "label": "Test", "url":"test"}
 ]`;
